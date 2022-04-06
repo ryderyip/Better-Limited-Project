@@ -2,13 +2,14 @@
 
 namespace Better_Limited_Project.DatabaseUtility
 {
-    public class Database
+    public static class Database
     {
         private const string ConnectString =
             "datasource=localhost; " +
             "username=root; " +
             "password=; " +
-            "database=better_limited; ";
+            "database=better_limited;" +
+            "convert zero datetime=True ";
 
         public static MySqlConnection GetConnection()
         {

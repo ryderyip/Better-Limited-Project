@@ -31,6 +31,12 @@ namespace Better_Limited_Project.Login
             }
         }
 
+        public void FillLastLoginUsername(string username)
+        {
+            tbUsername.Text = username;
+            tbUsername.SelectionStart = tbUsername.Text.Length;
+        }
+
         private void ShowFillAllFieldMessage()
         {
             lblLoginFailedMessage.Visible = true;

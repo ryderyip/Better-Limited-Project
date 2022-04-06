@@ -6,7 +6,7 @@ using MySql.Data.MySqlClient;
 
 namespace Better_Limited_Project.Login
 {
-    public class StaffAccountRepository
+    public static class StaffAccountRepository
     {
         public static List<StaffAccount> GetStaffAccounts()
         {

@@ -3,6 +3,6 @@
     public class LoginSession
     {
         public Staff Staff { get; set; }
-        public Settings.Settings Settings { get; set; }
+        public SettingsUtility.UserSettings UserSettings { get; set; }
     }
 }

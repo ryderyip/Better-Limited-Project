@@ -104,7 +104,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseUtility\Database.cs" />
+    <Compile Include="FormControlling\FormController.cs" />
     <Compile Include="FormControlling\MainController.cs" />
+    <Compile Include="FormControlling\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormControlling\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login\LoginController.cs" />
     <Compile Include="Login\LoginCredentials.cs" />
     <Compile Include="Login\LoginForm.cs">
@@ -118,15 +125,43 @@
     <Compile Include="Login\LoginVerifier.cs" />
     <Compile Include="Login\StaffAccount.cs" />
     <Compile Include="Login\StaffAccountRepository.cs" />
+    <Compile Include="Navigation\AccountingClerkNavigationController.cs" />
+    <Compile Include="Navigation\AccountingManagerNavigationController.cs" />
+    <Compile Include="Navigation\INavigationController.cs" />
+    <Compile Include="Navigation\InventoryClerkNavigationController.cs" />
+    <Compile Include="Navigation\NavigationControllerFactory.cs" />
+    <Compile Include="Navigation\PurchaseClerkNavigationController.cs" />
+    <Compile Include="Navigation\PurchaseManagerNavigationController.cs" />
+    <Compile Include="Navigation\ReceivingClerkNavigationController.cs" />
+    <Compile Include="Navigation\SalesNavigationController.cs" />
+    <Compile Include="Navigation\SalesNavigationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Navigation\SalesNavigationForm.Designer.cs">
+      <DependentUpon>SalesNavigationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\TechnicalSupportNavigationController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Settings\Settings.cs" />
+    <Compile Include="SettingsUtility\Language.cs" />
+    <Compile Include="SettingsUtility\UserSettings.cs" />
+    <Compile Include="SettingsUtility\SettingsController.cs" />
+    <Compile Include="SettingsUtility\Theme.cs" />
+    <Compile Include="SettingsUtility\Workplace.cs" />
     <Compile Include="Staff\StaffEntity\Department.cs" />
+    <Compile Include="Staff\StaffEntity\DepartmentRepository.cs" />
     <Compile Include="Staff\StaffEntity\Staff.cs" />
     <Compile Include="Staff\StaffEntity\StaffRepository.cs" />
     <Compile Include="Staff\StaffEntity\StaffTitle.cs" />
+    <Compile Include="Staff\StaffEntity\StaffTitleRepository.cs" />
+    <EmbeddedResource Include="FormControlling\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\SalesNavigationForm.resx">
+      <DependentUpon>SalesNavigationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

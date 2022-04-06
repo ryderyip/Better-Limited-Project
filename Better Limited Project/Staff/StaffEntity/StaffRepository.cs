@@ -1,14 +1,14 @@
 using System;
 using System.Data;
 using Better_Limited_Project.DatabaseUtility;
-using Better_Limited_Project.Staff.StaffEntity;
 using MySql.Data.MySqlClient;
+using MySql.Data.Types;
 
-namespace Better_Limited_Project.Login
+namespace Better_Limited_Project.Staff.StaffEntity
 {
-    public class StaffRepository
+    public static class StaffRepository
     {
-        public static Staff GetStaff(string staffId)
+        public static Login.Staff GetStaff(string staffId)
         {
             using var conn = Database.GetConnection();
             conn.Open();
@@ -26,19 +26,19 @@ namespace Better_Limited_Project.Login
             return ConvertToStaff(dataTable.Rows[0]);
         }
 
-        private static Staff ConvertToStaff(DataRow row)
+        private static Login.Staff ConvertToStaff(DataRow row)
         {
-            return new Staff
+            return new Login.Staff
             {
                 Id = row.Field<string>("id"),
                 Name = row.Field<string>("name"),
                 DateOfBirth = row.Field<DateTime>("date_of_birth"),
                 HiredOn = row.Field<DateTime>("hired_on"),
-                Gender = row.Field<char>("gender"),
+                Gender = row.Field<string>("gender")[0],
                 Department = DepartmentRepository.GetDepartment(
-                    row.Field<string>("department_id")),
+                    row.Field<int>("department_id").ToString()),
                 StaffTitle = StaffTitleRepository.GetTitle(
-                    row.Field<string>("title_id"))
+                    row.Field<int>("title_id").ToString())
             };
         }
     }
