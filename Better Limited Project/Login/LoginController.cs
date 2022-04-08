@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using Better_Limited_Project.DevTools;
 using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.Staff.StaffEntity;
@@ -9,7 +10,7 @@ namespace Better_Limited_Project.Login
     {
         public delegate void LoggedInEventHandler<T>(object sender, T staff);
 
-        public event LoggedInEventHandler<Staff> LoggedIn;
+        public event LoggedInEventHandler<StaffUtility.StaffEntity.Staff> LoggedIn;
 
         private readonly LoginForm _loginForm;
 
@@ -17,11 +18,12 @@ namespace Better_Limited_Project.Login
         {
             _loginForm = new LoginForm();
             _loginForm.LoginClicked += OnLoginClicked;
+            _loginForm.Shown += (_, _) => _loginForm.AutoLogin();
         }
 
         public void OpenForm(FormController formController)
         {
-            formController.OpenForm(_loginForm, DockStyle.Fill);
+            formController.OpenForm(_loginForm);
         }
 
         public void OpenForm(FormController formController, string lastLoginUsername)
@@ -43,11 +45,10 @@ namespace Better_Limited_Project.Login
             var staff = GetStaffInfo(credentials.Username);
             LoggedIn?.Invoke(this, staff);
             
-            // TODO not tested
             SaveLastLoginUsername(credentials.Username);
         }
 
-        private Staff GetStaffInfo(string username)
+        private StaffUtility.StaffEntity.Staff GetStaffInfo(string username)
         {
             var staffId = StaffAccountRepository.GetStaffIdByUsername(username);
             return StaffRepository.GetStaff(staffId);

@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Linq.Expressions;
 using Better_Limited_Project.Staff.StaffEntity;
 
-namespace Better_Limited_Project.Login
+namespace Better_Limited_Project.StaffUtility.StaffEntity
 {
     public class Staff
     {

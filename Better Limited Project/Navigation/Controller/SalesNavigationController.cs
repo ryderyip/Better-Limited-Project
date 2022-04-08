@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Windows.Forms;
 using Better_Limited_Project.FormControlling;
+using Better_Limited_Project.Navigation.Form;
 
-namespace Better_Limited_Project.Navigation
+namespace Better_Limited_Project.Navigation.Controller
 {
     public class SalesNavigationController : INavigationController
     {
@@ -14,7 +14,7 @@ namespace Better_Limited_Project.Navigation
             salesNavigationForm.SalesOrderClicked += OnSalesOrderClicked;
             salesNavigationForm.ProductListClicked += OnProductListClicked;
             salesNavigationForm.SettingsClicked += OnSettingsClicked;
-            formController.OpenForm(salesNavigationForm, DockStyle.Left);
+            formController.OpenNavigationForm(salesNavigationForm);
         }
 
         private void OnProfileClicked(object sender, EventArgs e)

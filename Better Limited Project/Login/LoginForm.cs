@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Better_Limited_Project.DevTools;
 
 namespace Better_Limited_Project.Login
 {
@@ -11,6 +12,11 @@ namespace Better_Limited_Project.Login
         public LoginForm()
         {
             InitializeComponent();
+        }
+
+        public void AutoLogin()
+        {
+            AutoLoginHelper.Login(tbUsername, tbPassword, btnLogin_Click);
         }
 
         public void LoginFailed(LoginStatus status)

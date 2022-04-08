@@ -1,7 +1,5 @@
-using System;
 using Better_Limited_Project;
 using Better_Limited_Project.Login;
-using Better_Limited_Project.Settings;
 using Better_Limited_Project.SettingsUtility;
 using NUnit.Framework;
 

@@ -1,4 +1,4 @@
-﻿namespace Better_Limited_Project.Staff.StaffEntity
+﻿namespace Better_Limited_Project.StaffUtility.StaffEntity
 {
     public enum StaffTitle
     {

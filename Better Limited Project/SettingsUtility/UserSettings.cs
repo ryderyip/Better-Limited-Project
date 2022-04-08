@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Diagnostics.Eventing.Reader;
 using System.IO;
-using System.Reflection;
 using System.Runtime.Serialization.Formatters.Binary;
 using Better_Limited_Project.Settings;
 
@@ -25,7 +23,7 @@ namespace Better_Limited_Project.SettingsUtility
             formatter.Serialize(stream, this);
             stream.Dispose();
         }
-        
+
         public static UserSettings GetSettings()
         {
             UserSettings userSettings;

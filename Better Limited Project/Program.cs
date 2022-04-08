@@ -17,9 +17,6 @@ namespace Better_Limited_Project
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            /*LoginForm loginForm = new LoginForm();
-            LoginController loginController = new LoginController(loginForm);*/
-
             var mainForm = new MainForm();
             var mainController = new MainController(mainForm);
             

@@ -60,8 +60,8 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.BackColor = System.Drawing.Color.Orange;
             resources.ApplyResources(this.btnLogin, "btnLogin");
+            this.btnLogin.BackColor = System.Drawing.Color.Orange;
             this.btnLogin.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.UseVisualStyleBackColor = false;
@@ -69,8 +69,8 @@
             // 
             // lblLoginFailedMessage
             // 
-            this.lblLoginFailedMessage.ForeColor = System.Drawing.Color.Red;
             resources.ApplyResources(this.lblLoginFailedMessage, "lblLoginFailedMessage");
+            this.lblLoginFailedMessage.ForeColor = System.Drawing.Color.Red;
             this.lblLoginFailedMessage.Name = "lblLoginFailedMessage";
             // 
             // LoginForm
