@@ -1,16 +1,14 @@
-﻿using System.Windows.Forms;
-using Better_Limited_Project.DevTools;
+﻿using System;
 using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.SettingsUtility;
-using Better_Limited_Project.Staff.StaffEntity;
 
 namespace Better_Limited_Project.Login
 {
     public class LoginController
     {
-        public delegate void LoggedInEventHandler<T>(object sender, T staff);
+        public delegate void LoggedInEventHandler<T>(object sender, T staffId);
 
-        public event LoggedInEventHandler<StaffUtility.StaffEntity.Staff> LoggedIn;
+        public event LoggedInEventHandler<string> LoggedIn;
 
         private readonly LoginForm _loginForm;
 
@@ -42,16 +40,10 @@ namespace Better_Limited_Project.Login
             }
 
             _loginForm.Close();
-            var staff = GetStaffInfo(credentials.Username);
-            LoggedIn?.Invoke(this, staff);
+            string staffId = StaffAccountRepository.GetStaffIdByUsername(credentials.Username);
+            LoggedIn?.Invoke(this, staffId);
             
             SaveLastLoginUsername(credentials.Username);
-        }
-
-        private StaffUtility.StaffEntity.Staff GetStaffInfo(string username)
-        {
-            var staffId = StaffAccountRepository.GetStaffIdByUsername(username);
-            return StaffRepository.GetStaff(staffId);
         }
 
         private void SaveLastLoginUsername(string username)

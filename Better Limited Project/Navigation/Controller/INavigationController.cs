@@ -1,9 +1,7 @@
-﻿using Better_Limited_Project.FormControlling;
-
-namespace Better_Limited_Project.Navigation
+﻿namespace Better_Limited_Project.Navigation.Controller
 {
     public interface INavigationController
     {
-        void OpenForm(FormController formController);
+        void OpenForm();
     }
 }

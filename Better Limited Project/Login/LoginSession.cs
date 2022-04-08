@@ -2,13 +2,15 @@
 {
     public class LoginSession
     {
-        public StaffUtility.StaffEntity.Staff Staff { get; set; }
+        public string StaffId { get; private set; }
+
         public SettingsUtility.UserSettings UserSettings { get; set; }
 
-        public static LoginSession CreateSession()
+        public static LoginSession CreateSession(string staffId)
         {
             return new LoginSession
             {
+                StaffId = staffId,
                 UserSettings = SettingsUtility.UserSettings.GetSettings()
             };
         }

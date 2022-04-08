@@ -16,6 +16,11 @@ namespace Better_Limited_Project.Navigation.Form
             InitializeComponent();
         }
 
+        public void SetProfileButtonStaffName(string staffName)
+        {
+            btnProfile.Text = staffName;
+        }
+
         private void btnProfile_Click(object sender, EventArgs e)
         {
             ProfileClicked?.Invoke(sender, e);

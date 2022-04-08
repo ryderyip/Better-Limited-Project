@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Windows.Forms;
 using Better_Limited_Project.Login;
 using Better_Limited_Project.Navigation;
 using Better_Limited_Project.SettingsUtility;
@@ -10,19 +9,20 @@ namespace Better_Limited_Project.FormControlling
     public class MainController
     {
         private readonly FormController _formController;
-        private readonly LoginSession _session;
+        private readonly UserSettings _userSettings;
+        private string _staffId;
         
         public MainController(MainForm mainForm)
         {
-            _session = LoginSession.CreateSession();
+            _userSettings = UserSettings.GetSettings();
             SetLanguage();
-            _formController = new FormController(_session.UserSettings, mainForm);
+            _formController = new FormController(mainForm);
             mainForm.Shown += OnMainFormShown;
         }
 
         private void SetLanguage()
         {
-            LanguageController.SetLanguage(_session.UserSettings.Language);
+            LanguageController.SetLanguage(_userSettings.Language);
         }
 
         private void OnMainFormShown(object sender, EventArgs e)
@@ -30,33 +30,35 @@ namespace Better_Limited_Project.FormControlling
             OpenLoginForm();
         }
         
-        private void OnLoggedIn(object sender, StaffUtility.StaffEntity.Staff staff)
+        private void OnLoggedIn(object sender, string staffId)
         {
-            OpenNavigationForm(staff);
-            OpenProfileForm(staff);
+            _staffId = staffId;
+            OpenNavigationForm();
+            OpenProfileForm();
         }
-
+        
         private void OpenLoginForm()
         {
             var loginController = new LoginController();
             loginController.LoggedIn += OnLoggedIn;
-            string lastLoginUsername = _session.UserSettings.LastLoginUsername;
+            string lastLoginUsername = _userSettings.LastLoginUsername;
             if (lastLoginUsername == null)
                 loginController.OpenForm(_formController);
             else
                 loginController.OpenForm(_formController, lastLoginUsername);
         }
 
-        private void OpenNavigationForm(StaffUtility.StaffEntity.Staff staff)
+        private void OpenNavigationForm()
         {
-            var navigationController = NavigationControllerFactory.CreateController(staff.StaffTitle);
-            navigationController.OpenForm(_formController);
+            var navigationController = 
+                NavigationControllerFactory.CreateController(_formController, _staffId);
+            navigationController.OpenForm();
         }
         
-        private void OpenProfileForm(StaffUtility.StaffEntity.Staff staff)
+        private void OpenProfileForm()
         {
-            var profileController = new ProfileController();
-            profileController.OpenForm(_formController, staff);
+            var profileController = new ProfileController(_formController);
+            profileController.OpenForm(_staffId);
         }
     }
 }

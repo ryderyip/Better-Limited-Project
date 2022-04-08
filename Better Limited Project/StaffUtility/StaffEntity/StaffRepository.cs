@@ -1,15 +1,14 @@
 using System;
 using System.Data;
 using Better_Limited_Project.DatabaseUtility;
-using Better_Limited_Project.StaffUtility.StaffEntity;
+using Better_Limited_Project.Staff.StaffEntity;
 using MySql.Data.MySqlClient;
-using MySql.Data.Types;
 
-namespace Better_Limited_Project.Staff.StaffEntity
+namespace Better_Limited_Project.StaffUtility.StaffEntity
 {
     public static class StaffRepository
     {
-        public static StaffUtility.StaffEntity.Staff GetStaff(string staffId)
+        public static Staff GetStaff(string staffId)
         {
             using var conn = Database.GetConnection();
             conn.Open();
@@ -27,9 +26,9 @@ namespace Better_Limited_Project.Staff.StaffEntity
             return ConvertToStaff(dataTable.Rows[0]);
         }
 
-        private static StaffUtility.StaffEntity.Staff ConvertToStaff(DataRow row)
+        private static Staff ConvertToStaff(DataRow row)
         {
-            return new StaffUtility.StaffEntity.Staff
+            return new Staff
             {
                 Id = row.Field<string>("id"),
                 Name = row.Field<string>("name"),

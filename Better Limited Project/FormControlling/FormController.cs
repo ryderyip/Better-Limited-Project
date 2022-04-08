@@ -3,63 +3,62 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using Better_Limited_Project.Settings;
-using Better_Limited_Project.SettingsUtility;
 
 namespace Better_Limited_Project.FormControlling
 {
     public class FormController
     {
-        private readonly UserSettings _settings;
-        private readonly MainForm _mainForm;
+        private readonly Form _parentForm;
+        private Form _childForm;
         private const double NavigatorWidthPercentage = 0.25;
 
-        public FormController(UserSettings settings, MainForm mainForm)
+        public FormController(Form parentForm)
         {
-            _settings = settings;
-            _mainForm = mainForm;
-            _mainForm.IsMdiContainer = true;
+            _parentForm = parentForm;
+            _parentForm.IsMdiContainer = true;
         }
 
         private int GetNavigationFormWidth()
         {
-            return (int) Math.Ceiling(_mainForm.Size.Width * NavigatorWidthPercentage);
+            return (int) Math.Ceiling(_parentForm.Size.Width * NavigatorWidthPercentage);
         }
         
         public void OpenForm(Form subform)
         {
-            SetSubformSize(subform);
-            SetSubformProperties(subform, DockStyle.Right);
+            _childForm = subform;
+            SetSubformSize(_childForm);
+            SetSubformProperties(_childForm, DockStyle.Right);
             // TODO Set theme
             
-            subform.Show();
+            _childForm.Show();
         }
 
         public void OpenNavigationForm(Form navigationForm)
         {
-            SetNavigationFormSize(navigationForm);
-            SetSubformProperties(navigationForm, DockStyle.Left);
-            navigationForm.Show();
+            _childForm = navigationForm;
+            SetNavigationFormSize(_childForm);
+            SetSubformProperties(_childForm, DockStyle.Left);
+            _childForm.Show();
         }
 
         private void SetSubformProperties(Form subform, DockStyle dockStyle)
         {
-            subform.MdiParent = _mainForm;
+            subform.MdiParent = _parentForm;
             subform.Dock = dockStyle;
             subform.FormBorderStyle = FormBorderStyle.None;
         }
 
         private void SetSubformSize(Form subform)
         {
-            int parentFormHeight = _mainForm.Size.Height;
-            int parentFormWidth = _mainForm.Size.Width;
+            int parentFormHeight = _parentForm.Size.Height;
+            int parentFormWidth = _parentForm.Size.Width;
             int childFormWidth = parentFormWidth - GetNavigationFormWidth();
             subform.Size = new Size(childFormWidth, parentFormHeight);
         }
 
         private void SetNavigationFormSize(Form navigationForm)
         {
-            int parentFormHeight = _mainForm.Size.Height;
+            int parentFormHeight = _parentForm.Size.Height;
             
             navigationForm.Size = new Size(GetNavigationFormWidth() + 10, parentFormHeight);
         }
