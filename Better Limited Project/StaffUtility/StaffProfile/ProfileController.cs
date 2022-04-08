@@ -16,6 +16,8 @@ namespace Better_Limited_Project.StaffUtility.StaffProfile
 
         public void OpenForm(string staffId)
         {
+            if (_formController.ChildForm.GetType() == typeof(ProfileForm))
+                return;
             var staff = StaffRepository.GetStaff(staffId);
             _profileForm = new ProfileForm(staff);
             _formController.OpenForm(_profileForm);

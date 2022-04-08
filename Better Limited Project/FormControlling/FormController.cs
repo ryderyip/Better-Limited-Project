@@ -9,7 +9,7 @@ namespace Better_Limited_Project.FormControlling
     public class FormController
     {
         private readonly Form _parentForm;
-        private Form _childForm;
+        public Form ChildForm { get; private set; }
         private const double NavigatorWidthPercentage = 0.25;
 
         public FormController(Form parentForm)
@@ -25,20 +25,20 @@ namespace Better_Limited_Project.FormControlling
         
         public void OpenForm(Form subform)
         {
-            _childForm = subform;
-            SetSubformSize(_childForm);
-            SetSubformProperties(_childForm, DockStyle.Right);
+            ChildForm = subform;
+            SetSubformSize(ChildForm);
+            SetSubformProperties(ChildForm, DockStyle.Right);
             // TODO Set theme
             
-            _childForm.Show();
+            ChildForm.Show();
         }
 
         public void OpenNavigationForm(Form navigationForm)
         {
-            _childForm = navigationForm;
-            SetNavigationFormSize(_childForm);
-            SetSubformProperties(_childForm, DockStyle.Left);
-            _childForm.Show();
+            ChildForm = navigationForm;
+            SetNavigationFormSize(ChildForm);
+            SetSubformProperties(ChildForm, DockStyle.Left);
+            ChildForm.Show();
         }
 
         private void SetSubformProperties(Form subform, DockStyle dockStyle)
