@@ -21,7 +21,7 @@ namespace Better_Limited_Project.Login
 
         public void OpenForm(FormController formController)
         {
-            formController.OpenForm(_loginForm);
+            formController.OpenFullForm(_loginForm);
         }
 
         public void OpenForm(FormController formController, string lastLoginUsername)

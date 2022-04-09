@@ -3,5 +3,7 @@
     public interface INavigationController
     {
         void OpenForm();
+
+        void CloseForm();
     }
 }

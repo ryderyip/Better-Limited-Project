@@ -107,6 +107,7 @@
     <Compile Include="DatabaseUtility\Database.cs" />
     <Compile Include="DevTools\AutoLoginHelper.cs" />
     <Compile Include="FormControlling\FormController.cs" />
+    <Compile Include="FormControlling\FormPropertyController.cs" />
     <Compile Include="FormControlling\MainController.cs" />
     <Compile Include="FormControlling\MainForm.cs">
       <SubType>Form</SubType>

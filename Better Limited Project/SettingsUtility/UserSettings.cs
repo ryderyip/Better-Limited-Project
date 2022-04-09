@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using Better_Limited_Project.Settings;
 
 namespace Better_Limited_Project.SettingsUtility
 {

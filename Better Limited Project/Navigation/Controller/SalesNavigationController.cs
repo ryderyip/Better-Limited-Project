@@ -10,6 +10,7 @@ namespace Better_Limited_Project.Navigation.Controller
     {
         private readonly FormController _formController;
         private readonly string _staffId;
+        private SalesNavigationForm _salesNavigationForm;
 
         public SalesNavigationController(FormController formController, string staffId)
         {
@@ -19,11 +20,16 @@ namespace Better_Limited_Project.Navigation.Controller
 
         public void OpenForm()
         {
-            var salesNavigationForm = new SalesNavigationForm();
-            SubscribeAllFormEvents(salesNavigationForm);
-            _formController.OpenNavigationForm(salesNavigationForm);
+            _salesNavigationForm = new SalesNavigationForm();
+            SubscribeAllFormEvents(_salesNavigationForm);
+            _formController.OpenNavigationForm(_salesNavigationForm);
             string staffName = StaffRepository.GetStaff(_staffId).Name;
-            salesNavigationForm.SetProfileButtonStaffName(staffName);
+            _salesNavigationForm.SetProfileButtonStaffName(staffName);
+        }
+
+        public void CloseForm()
+        {
+            _salesNavigationForm.Close();
         }
 
         private void SubscribeAllFormEvents(SalesNavigationForm salesNavigationForm)

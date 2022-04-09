@@ -1,4 +1,4 @@
-﻿namespace Better_Limited_Project
+﻿namespace Better_Limited_Project.Login
 {
     public enum LoginStatus
     {

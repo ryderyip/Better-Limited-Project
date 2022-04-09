@@ -1,7 +1,6 @@
 ﻿using System;
 using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.Navigation.Controller;
-using Better_Limited_Project.Staff.StaffEntity;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.Navigation

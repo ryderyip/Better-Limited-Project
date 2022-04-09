@@ -1,7 +1,6 @@
 using System;
 using System.Data;
 using Better_Limited_Project.DatabaseUtility;
-using Better_Limited_Project.Staff.StaffEntity;
 using MySql.Data.MySqlClient;
 
 namespace Better_Limited_Project.StaffUtility.StaffEntity
