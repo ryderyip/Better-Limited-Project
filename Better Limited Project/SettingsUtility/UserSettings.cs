@@ -11,44 +11,27 @@ namespace Better_Limited_Project.SettingsUtility
         public Theme Theme { get; set; }
         public Workplace Workplace { get; set; }
         public string LastLoginUsername { get; set; }
-        public string DefaultDocumentGenerationPath { get; set; }
-        private const string SettingsFileName = "User Settings.ini";
+        public string DefaultDocumentGenerationDirectoryPath { get; set; }
 
         public void Save()
         {
-            string path = SettingsFileName;
-            var formatter = new BinaryFormatter();
-            var stream = new FileStream(path, FileMode.Create, FileAccess.Write);
-            formatter.Serialize(stream, this);
-            stream.Dispose();
+            UserSettingsSaver.Save(this);
         }
 
         public static UserSettings GetSettings()
         {
-            UserSettings userSettings;
-            string path = SettingsFileName;
-            
-            if (!File.Exists(path))
-            {
-                userSettings = CreateDefaultSettings();
-                userSettings.Save();
-                return userSettings;
-            }
-            
-            var stream = new FileStream(path, FileMode.Open, FileAccess.Read);
-            var formatter = new BinaryFormatter();
-            userSettings = (UserSettings) formatter.Deserialize(stream);
-            stream.Dispose();
-            return userSettings;
+            return UserSettingsLoader.Load();
         }
 
-        private static UserSettings CreateDefaultSettings()
+        public static UserSettings CreateDefaultSettings()
         {
             return new UserSettings
             {
                 Language = Language.English, 
                 Workplace = Workplace.RetailStore,
-                Theme = Theme.Light
+                Theme = Theme.Light,
+                DefaultDocumentGenerationDirectoryPath = 
+                    UserSettingsDirectory.GetDefaultDocumentGenerationDirectoryPath()
             };
         }
     }

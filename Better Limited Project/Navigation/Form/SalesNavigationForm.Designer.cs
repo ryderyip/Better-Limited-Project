@@ -130,8 +130,6 @@ namespace Better_Limited_Project.Navigation.Form
 
         private System.Windows.Forms.Button button2;
 
-        private System.Windows.Forms.Button button1;
-
         #endregion
     }
 }

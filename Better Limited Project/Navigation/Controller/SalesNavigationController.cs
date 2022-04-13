@@ -1,6 +1,7 @@
 ﻿using System;
 using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.Navigation.Form;
+using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 using Better_Limited_Project.StaffUtility.StaffProfile;
 
@@ -46,9 +47,10 @@ namespace Better_Limited_Project.Navigation.Controller
             var profileController = new ProfileController(_formController);
             profileController.OpenForm(_staffId);
         }
+        
         private void OnPlaceOrderClicked(object sender, EventArgs e)
         {
-
+            
         }
         private void OnSalesOrderClicked(object sender, EventArgs e)
         {
@@ -56,11 +58,12 @@ namespace Better_Limited_Project.Navigation.Controller
         }
         private void OnProductListClicked(object sender, EventArgs e)
         {
-
+            
         }
         private void OnSettingsClicked(object sender, EventArgs e)
         {
-
+            var controller = new SettingsController();
+            controller.OpenForm(_formController);
         }
     }
 }

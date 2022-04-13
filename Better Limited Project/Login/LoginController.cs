@@ -1,5 +1,4 @@
-﻿using System;
-using Better_Limited_Project.FormControlling;
+﻿using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.SettingsUtility;
 
 namespace Better_Limited_Project.Login

@@ -25,6 +25,8 @@ namespace Better_Limited_Project.FormControlling
         
         public void OpenContentForm(Form contentForm)
         {
+            ContentForm?.Close();
+
             ContentForm = contentForm;
             ContentForm.Size = FormPropertyController.GetChildFormSize(_outerForm.Size);
             FormPropertyController.SetInnerFormProperty(_outerForm, ContentForm, DockStyle.Right);
