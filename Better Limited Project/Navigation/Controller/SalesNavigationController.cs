@@ -62,7 +62,7 @@ namespace Better_Limited_Project.Navigation.Controller
         }
         private void OnSettingsClicked(object sender, EventArgs e)
         {
-            var controller = new SettingsController();
+            var controller = new SettingsController(_staffId);
             controller.OpenForm(_formController);
         }
     }

@@ -43,12 +43,21 @@ namespace Better_Limited_Project.SettingsUtility
             this.tbDocPath = new System.Windows.Forms.TextBox();
             this.btnBrowseDocPath = new System.Windows.Forms.Button();
             this.btnSelectDocPath = new System.Windows.Forms.Button();
+            this.rbLightTheme = new System.Windows.Forms.RadioButton();
+            this.rbDarkTheme = new System.Windows.Forms.RadioButton();
+            this.cbWorkplace = new System.Windows.Forms.ComboBox();
+            this.panWorkplace = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblWorkplaceSelectRetailStore = new System.Windows.Forms.Label();
+            this.lblWorkplaceSelectWarehouse = new System.Windows.Forms.Label();
+            this.panWorkplace.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblLanguage
             // 
             this.lblLanguage.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblLanguage.Location = new System.Drawing.Point(38, 34);
+            this.lblLanguage.Location = new System.Drawing.Point(29, 25);
             this.lblLanguage.Margin = new System.Windows.Forms.Padding(3);
             this.lblLanguage.Name = "lblLanguage";
             this.lblLanguage.Size = new System.Drawing.Size(215, 31);
@@ -59,7 +68,7 @@ namespace Better_Limited_Project.SettingsUtility
             // lblDocument
             // 
             this.lblDocument.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblDocument.Location = new System.Drawing.Point(38, 327);
+            this.lblDocument.Location = new System.Drawing.Point(38, 366);
             this.lblDocument.Name = "lblDocument";
             this.lblDocument.Size = new System.Drawing.Size(215, 31);
             this.lblDocument.TabIndex = 1;
@@ -79,7 +88,7 @@ namespace Better_Limited_Project.SettingsUtility
             // lblWorkplace
             // 
             this.lblWorkplace.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblWorkplace.Location = new System.Drawing.Point(38, 216);
+            this.lblWorkplace.Location = new System.Drawing.Point(21, 21);
             this.lblWorkplace.Name = "lblWorkplace";
             this.lblWorkplace.Size = new System.Drawing.Size(228, 31);
             this.lblWorkplace.TabIndex = 3;
@@ -102,37 +111,34 @@ namespace Better_Limited_Project.SettingsUtility
             // 
             // rbEnglish
             // 
-            this.rbEnglish.Location = new System.Drawing.Point(38, 78);
+            this.rbEnglish.Location = new System.Drawing.Point(29, 69);
             this.rbEnglish.Name = "rbEnglish";
             this.rbEnglish.Size = new System.Drawing.Size(62, 24);
             this.rbEnglish.TabIndex = 7;
-            this.rbEnglish.TabStop = true;
             this.rbEnglish.Text = "English";
             this.rbEnglish.UseVisualStyleBackColor = true;
             // 
             // rbTraditionalChinese
             // 
-            this.rbTraditionalChinese.Location = new System.Drawing.Point(38, 108);
+            this.rbTraditionalChinese.Location = new System.Drawing.Point(29, 99);
             this.rbTraditionalChinese.Name = "rbTraditionalChinese";
             this.rbTraditionalChinese.Size = new System.Drawing.Size(115, 24);
             this.rbTraditionalChinese.TabIndex = 8;
-            this.rbTraditionalChinese.TabStop = true;
             this.rbTraditionalChinese.Text = "Traditional Chinese";
             this.rbTraditionalChinese.UseVisualStyleBackColor = true;
             // 
             // rbSimplifiedChinese
             // 
-            this.rbSimplifiedChinese.Location = new System.Drawing.Point(38, 138);
+            this.rbSimplifiedChinese.Location = new System.Drawing.Point(29, 129);
             this.rbSimplifiedChinese.Name = "rbSimplifiedChinese";
             this.rbSimplifiedChinese.Size = new System.Drawing.Size(115, 24);
             this.rbSimplifiedChinese.TabIndex = 9;
-            this.rbSimplifiedChinese.TabStop = true;
             this.rbSimplifiedChinese.Text = "Simplified Chinese";
             this.rbSimplifiedChinese.UseVisualStyleBackColor = true;
             // 
             // lblDocPath
             // 
-            this.lblDocPath.Location = new System.Drawing.Point(47, 371);
+            this.lblDocPath.Location = new System.Drawing.Point(47, 410);
             this.lblDocPath.Name = "lblDocPath";
             this.lblDocPath.Size = new System.Drawing.Size(128, 23);
             this.lblDocPath.TabIndex = 10;
@@ -142,7 +148,7 @@ namespace Better_Limited_Project.SettingsUtility
             // tbDocPath
             // 
             this.tbDocPath.BackColor = System.Drawing.SystemColors.Control;
-            this.tbDocPath.Location = new System.Drawing.Point(47, 415);
+            this.tbDocPath.Location = new System.Drawing.Point(47, 454);
             this.tbDocPath.Name = "tbDocPath";
             this.tbDocPath.ReadOnly = true;
             this.tbDocPath.Size = new System.Drawing.Size(380, 20);
@@ -154,7 +160,7 @@ namespace Better_Limited_Project.SettingsUtility
             this.btnBrowseDocPath.Font = new System.Drawing.Font("Noto Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.btnBrowseDocPath.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnBrowseDocPath.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnBrowseDocPath.Location = new System.Drawing.Point(190, 366);
+            this.btnBrowseDocPath.Location = new System.Drawing.Point(190, 405);
             this.btnBrowseDocPath.Name = "btnBrowseDocPath";
             this.btnBrowseDocPath.Size = new System.Drawing.Size(72, 34);
             this.btnBrowseDocPath.TabIndex = 12;
@@ -168,7 +174,7 @@ namespace Better_Limited_Project.SettingsUtility
             this.btnSelectDocPath.Font = new System.Drawing.Font("Noto Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.btnSelectDocPath.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnSelectDocPath.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnSelectDocPath.Location = new System.Drawing.Point(293, 366);
+            this.btnSelectDocPath.Location = new System.Drawing.Point(293, 405);
             this.btnSelectDocPath.Name = "btnSelectDocPath";
             this.btnSelectDocPath.Size = new System.Drawing.Size(72, 34);
             this.btnSelectDocPath.TabIndex = 13;
@@ -176,30 +182,111 @@ namespace Better_Limited_Project.SettingsUtility
             this.btnSelectDocPath.UseVisualStyleBackColor = false;
             this.btnSelectDocPath.Click += new System.EventHandler(this.btnSelectDocPath_Click);
             // 
+            // rbLightTheme
+            // 
+            this.rbLightTheme.Location = new System.Drawing.Point(47, 554);
+            this.rbLightTheme.Name = "rbLightTheme";
+            this.rbLightTheme.Size = new System.Drawing.Size(86, 24);
+            this.rbLightTheme.TabIndex = 14;
+            this.rbLightTheme.Text = "Light Theme";
+            this.rbLightTheme.UseVisualStyleBackColor = true;
+            // 
+            // rbDarkTheme
+            // 
+            this.rbDarkTheme.Location = new System.Drawing.Point(47, 584);
+            this.rbDarkTheme.Name = "rbDarkTheme";
+            this.rbDarkTheme.Size = new System.Drawing.Size(86, 24);
+            this.rbDarkTheme.TabIndex = 15;
+            this.rbDarkTheme.Text = "Dart Theme";
+            this.rbDarkTheme.UseVisualStyleBackColor = true;
+            // 
+            // cbWorkplace
+            // 
+            this.cbWorkplace.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbWorkplace.FormattingEnabled = true;
+            this.cbWorkplace.Location = new System.Drawing.Point(30, 85);
+            this.cbWorkplace.Name = "cbWorkplace";
+            this.cbWorkplace.Size = new System.Drawing.Size(241, 21);
+            this.cbWorkplace.TabIndex = 16;
+            // 
+            // panWorkplace
+            // 
+            this.panWorkplace.Controls.Add(this.lblWorkplaceSelectWarehouse);
+            this.panWorkplace.Controls.Add(this.lblWorkplaceSelectRetailStore);
+            this.panWorkplace.Controls.Add(this.lblWorkplace);
+            this.panWorkplace.Controls.Add(this.cbWorkplace);
+            this.panWorkplace.Enabled = false;
+            this.panWorkplace.Location = new System.Drawing.Point(38, 205);
+            this.panWorkplace.Name = "panWorkplace";
+            this.panWorkplace.Size = new System.Drawing.Size(338, 141);
+            this.panWorkplace.TabIndex = 19;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lblLanguage);
+            this.panel1.Controls.Add(this.rbEnglish);
+            this.panel1.Controls.Add(this.rbTraditionalChinese);
+            this.panel1.Controls.Add(this.rbSimplifiedChinese);
+            this.panel1.Location = new System.Drawing.Point(38, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(338, 178);
+            this.panel1.TabIndex = 20;
+            // 
+            // lblWorkplaceSelectRetailStore
+            // 
+            this.lblWorkplaceSelectRetailStore.Location = new System.Drawing.Point(29, 52);
+            this.lblWorkplaceSelectRetailStore.Name = "lblWorkplaceSelectRetailStore";
+            this.lblWorkplaceSelectRetailStore.Size = new System.Drawing.Size(150, 23);
+            this.lblWorkplaceSelectRetailStore.TabIndex = 21;
+            this.lblWorkplaceSelectRetailStore.Text = "Select Current Retail Store";
+            this.lblWorkplaceSelectRetailStore.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblWorkplaceSelectWarehouse
+            // 
+            this.lblWorkplaceSelectWarehouse.Location = new System.Drawing.Point(30, 52);
+            this.lblWorkplaceSelectWarehouse.Name = "lblWorkplaceSelectWarehouse";
+            this.lblWorkplaceSelectWarehouse.Size = new System.Drawing.Size(150, 23);
+            this.lblWorkplaceSelectWarehouse.TabIndex = 22;
+            this.lblWorkplaceSelectWarehouse.Text = "Select Current Warehouse";
+            this.lblWorkplaceSelectWarehouse.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoScrollMargin = new System.Drawing.Size(0, 30);
-            this.ClientSize = new System.Drawing.Size(758, 450);
+            this.ClientSize = new System.Drawing.Size(894, 450);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panWorkplace);
+            this.Controls.Add(this.rbDarkTheme);
+            this.Controls.Add(this.rbLightTheme);
             this.Controls.Add(this.btnSelectDocPath);
             this.Controls.Add(this.btnBrowseDocPath);
             this.Controls.Add(this.tbDocPath);
             this.Controls.Add(this.lblDocPath);
-            this.Controls.Add(this.rbSimplifiedChinese);
-            this.Controls.Add(this.rbTraditionalChinese);
-            this.Controls.Add(this.rbEnglish);
             this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.lblWorkplace);
             this.Controls.Add(this.lblAppearance);
             this.Controls.Add(this.lblDocument);
-            this.Controls.Add(this.lblLanguage);
             this.Name = "SettingsForm";
             this.Text = "SettingsForm";
+            this.panWorkplace.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Label lblWorkplaceSelectRetailStore;
+        private System.Windows.Forms.Label lblWorkplaceSelectWarehouse;
+
+        private System.Windows.Forms.Panel panel1;
+
+        private System.Windows.Forms.Panel panWorkplace;
+
+        private System.Windows.Forms.ComboBox cbWorkplace;
+
+        private System.Windows.Forms.RadioButton rbLightTheme;
+        private System.Windows.Forms.RadioButton rbDarkTheme;
 
         private System.Windows.Forms.Button btnSelectDocPath;
 

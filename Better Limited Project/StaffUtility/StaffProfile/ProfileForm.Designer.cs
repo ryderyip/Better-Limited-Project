@@ -36,6 +36,7 @@ namespace Better_Limited_Project.StaffUtility.StaffProfile
             this.lblBelongTo = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblStaffId = new System.Windows.Forms.Label();
+            this.lblWorkplaceLocation = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnLogOut
@@ -56,7 +57,7 @@ namespace Better_Limited_Project.StaffUtility.StaffProfile
             // 
             this.lblLoggedInAs.AutoSize = true;
             this.lblLoggedInAs.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblLoggedInAs.Location = new System.Drawing.Point(203, 167);
+            this.lblLoggedInAs.Location = new System.Drawing.Point(195, 141);
             this.lblLoggedInAs.Name = "lblLoggedInAs";
             this.lblLoggedInAs.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lblLoggedInAs.Size = new System.Drawing.Size(116, 13);
@@ -67,7 +68,7 @@ namespace Better_Limited_Project.StaffUtility.StaffProfile
             // 
             this.lblBelongTo.AutoSize = true;
             this.lblBelongTo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblBelongTo.Location = new System.Drawing.Point(240, 222);
+            this.lblBelongTo.Location = new System.Drawing.Point(232, 196);
             this.lblBelongTo.Name = "lblBelongTo";
             this.lblBelongTo.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lblBelongTo.Size = new System.Drawing.Size(76, 13);
@@ -78,7 +79,7 @@ namespace Better_Limited_Project.StaffUtility.StaffProfile
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblTitle.Location = new System.Drawing.Point(255, 247);
+            this.lblTitle.Location = new System.Drawing.Point(247, 221);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lblTitle.Size = new System.Drawing.Size(61, 13);
@@ -89,12 +90,23 @@ namespace Better_Limited_Project.StaffUtility.StaffProfile
             // 
             this.lblStaffId.AutoSize = true;
             this.lblStaffId.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblStaffId.Location = new System.Drawing.Point(240, 195);
+            this.lblStaffId.Location = new System.Drawing.Point(232, 169);
             this.lblStaffId.Name = "lblStaffId";
             this.lblStaffId.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lblStaffId.Size = new System.Drawing.Size(79, 13);
             this.lblStaffId.TabIndex = 9;
             this.lblStaffId.Text = "Your staff ID is:";
+            // 
+            // lblWorkplaceLocation
+            // 
+            this.lblWorkplaceLocation.AutoSize = true;
+            this.lblWorkplaceLocation.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblWorkplaceLocation.Location = new System.Drawing.Point(210, 246);
+            this.lblWorkplaceLocation.Name = "lblWorkplaceLocation";
+            this.lblWorkplaceLocation.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblWorkplaceLocation.Size = new System.Drawing.Size(98, 13);
+            this.lblWorkplaceLocation.TabIndex = 10;
+            this.lblWorkplaceLocation.Text = "You are working in:";
             // 
             // ProfileForm
             // 
@@ -102,6 +114,7 @@ namespace Better_Limited_Project.StaffUtility.StaffProfile
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(655, 450);
+            this.Controls.Add(this.lblWorkplaceLocation);
             this.Controls.Add(this.lblStaffId);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lblBelongTo);
@@ -112,6 +125,8 @@ namespace Better_Limited_Project.StaffUtility.StaffProfile
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Label lblWorkplaceLocation;
 
         private System.Windows.Forms.Label lblLoggedInAs;
         private System.Windows.Forms.Label lblBelongTo;

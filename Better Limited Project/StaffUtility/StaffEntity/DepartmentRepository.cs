@@ -1,4 +1,5 @@
 using System.Data;
+using System.Windows.Forms;
 using Better_Limited_Project.DatabaseUtility;
 using MySql.Data.MySqlClient;
 
@@ -18,16 +19,8 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
             dataTable.Load(dataReader);
             dataReader.Close();
 
-            return Convert(dataTable.Rows[0]);
-        }
-
-        private static Department Convert(DataRow row)
-        {
-            return new Department
-            {
-                Id = row.Field<int>("id").ToString(),
-                Name = row.Field<string>("name")
-            };
+            string name = dataTable.Rows[0].Field<string>("name");
+            return DepartmentEnumMapper.GetDepartmentType(name);
         }
     }
 }

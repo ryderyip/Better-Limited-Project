@@ -1,4 +1,5 @@
 using System.IO;
+using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
 
@@ -9,19 +10,23 @@ namespace Better_Limited_Project.SettingsUtility
         public static UserSettings Load()
         {
             UserSettings settings;
-            string path = Path.Combine(UserSettingsDirectory.GetSettingsDirectory(),
+            string filePath = Path.Combine(UserSettingsDirectory.GetSettingsDirectory(),
                 UserSettingsDirectory.SettingsFileName);
 
-            if (!File.Exists(path))
+            if (!File.Exists(filePath))
             {
                 settings = UserSettings.CreateDefaultSettings();
                 settings.Save();
                 return settings;
             }
 
-            var stream = new FileStream(path, FileMode.Open, FileAccess.Read);
+            var stream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
             var formatter = new BinaryFormatter();
+
+            if (stream.Length == 0)
+                throw new SerializationException("The file being deserialized is empty");
             settings = (UserSettings) formatter.Deserialize(stream);
+            
             stream.Dispose();
             return settings;
         }

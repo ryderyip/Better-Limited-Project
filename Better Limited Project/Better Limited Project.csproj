@@ -162,9 +162,14 @@
     <Compile Include="SettingsUtility\UserSettingsDirectory.cs" />
     <Compile Include="SettingsUtility\UserSettingsLoader.cs" />
     <Compile Include="SettingsUtility\UserSettingsSaver.cs" />
+    <Compile Include="SettingsUtility\RetailStoreRepository.cs" />
     <Compile Include="SettingsUtility\Workplace.cs" />
-    <Compile Include="StaffUtility\StaffEntity\Department.cs" />
+    <Compile Include="SettingsUtility\WarehouseRepository.cs" />
+    <Compile Include="SettingsUtility\WorkplaceInformation.cs" />
+    <Compile Include="SettingsUtility\WorkplaceType.cs" />
+    <Compile Include="StaffUtility\StaffEntity\DepartmentEnumMapper.cs" />
     <Compile Include="StaffUtility\StaffEntity\DepartmentRepository.cs" />
+    <Compile Include="StaffUtility\StaffEntity\Department.cs" />
     <Compile Include="StaffUtility\StaffEntity\Staff.cs" />
     <Compile Include="StaffUtility\StaffEntity\StaffRepository.cs" />
     <Compile Include="StaffUtility\StaffEntity\StaffTitle.cs" />

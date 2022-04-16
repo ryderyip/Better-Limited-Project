@@ -1,8 +1,14 @@
-﻿namespace Better_Limited_Project.StaffUtility.StaffEntity
+﻿using System.ComponentModel;
+
+namespace Better_Limited_Project.StaffUtility.StaffEntity
 {
-    public class Department
+    public enum Department
     {
-        public string Id { get; set; }
-        public string Name { get; set; }
+        Sales,
+        Accounting,
+        Purchase,
+        Inventory,
+        TechnicalSupport,
+        Unknown
     }
 }

@@ -1,6 +1,6 @@
-﻿using System;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
+﻿#nullable enable
+using System;
+using System.Windows.Forms;
 
 namespace Better_Limited_Project.SettingsUtility
 {
@@ -9,9 +9,15 @@ namespace Better_Limited_Project.SettingsUtility
     {
         public Language Language { get; set; }
         public Theme Theme { get; set; }
-        public Workplace Workplace { get; set; }
-        public string LastLoginUsername { get; set; }
+        public Workplace? Workplace { get; set; }
+        public string? LastLoginUsername { get; set; }
         public string DefaultDocumentGenerationDirectoryPath { get; set; }
+
+        public UserSettings()
+        {
+            DefaultDocumentGenerationDirectoryPath =
+                UserSettingsDirectory.GetDefaultDocumentGenerationDirectoryPath();
+        }
 
         public void Save()
         {
@@ -28,10 +34,8 @@ namespace Better_Limited_Project.SettingsUtility
             return new UserSettings
             {
                 Language = Language.English, 
-                Workplace = Workplace.RetailStore,
                 Theme = Theme.Light,
-                DefaultDocumentGenerationDirectoryPath = 
-                    UserSettingsDirectory.GetDefaultDocumentGenerationDirectoryPath()
+                Workplace = Workplace.CreateUnknownWorkplace()
             };
         }
     }

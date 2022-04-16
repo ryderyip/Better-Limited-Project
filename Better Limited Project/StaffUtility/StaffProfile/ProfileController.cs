@@ -1,5 +1,6 @@
 ﻿using System;
 using Better_Limited_Project.FormControlling;
+using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.StaffUtility.StaffProfile
@@ -21,11 +22,14 @@ namespace Better_Limited_Project.StaffUtility.StaffProfile
             if (IsProfileFormAlreadyOpened())
                 return;
             var staff = StaffRepository.GetStaff(staffId);
-            _profileForm = new ProfileForm(staff);
+            var settings = UserSettings.GetSettings();
+            _profileForm = settings.Workplace == null ? 
+                           new ProfileForm(staff, Workplace.CreateUnknownWorkplace().Information.Name) :
+                           new ProfileForm(staff, settings.Workplace.Information.Name);
             _profileForm.LogOutClicked += OnLogOutClicked;
             _formController.OpenContentForm(_profileForm);
         }
-
+        
         private void OnLogOutClicked(object sender, EventArgs e)
         {
             LogOutClicked?.Invoke(sender, e);
