@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Data;
 using Better_Limited_Project.DatabaseUtility;
+using Better_Limited_Project.ProductUtility.Entity;
 using MySql.Data.MySqlClient;
 
-namespace Better_Limited_Project.SettingsUtility
+namespace Better_Limited_Project.StaffUtility.StaffEntity
 {
     public static class RetailStoreRepository
     {
@@ -13,7 +14,7 @@ namespace Better_Limited_Project.SettingsUtility
             conn.Open();
             var dataTable = new DataTable();
             var dataReader = new MySqlCommand(
-                "SELECT name, address FROM retail_store;", conn).ExecuteReader();
+                "SELECT id, name, address FROM retail_store;", conn).ExecuteReader();
             dataTable.Load(dataReader);
             dataReader.Close();
             return ConvertToRetailStores(dataTable);

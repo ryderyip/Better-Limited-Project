@@ -1,6 +1,7 @@
 ﻿using System;
 using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.Navigation.Form;
+using Better_Limited_Project.ProductUtility.ProductList;
 using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 using Better_Limited_Project.StaffUtility.StaffProfile;
@@ -58,7 +59,8 @@ namespace Better_Limited_Project.Navigation.Controller
         }
         private void OnProductListClicked(object sender, EventArgs e)
         {
-            
+            var controller = new ProductListController(_formController);
+            controller.OpenForm();
         }
         private void OnSettingsClicked(object sender, EventArgs e)
         {

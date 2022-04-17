@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using Better_Limited_Project.ProductUtility;
+using Better_Limited_Project.ProductUtility.Entity;
 
 #nullable enable
-namespace Better_Limited_Project.SettingsUtility
+namespace Better_Limited_Project.StaffUtility.StaffEntity
 {
     [Serializable]
-    public readonly struct RetailStore : IWorkplace
+    public class RetailStore : IWorkplace
     {
         public string Name { get; }
         public string? Address { get; }
@@ -13,6 +16,11 @@ namespace Better_Limited_Project.SettingsUtility
         {
             Name = name;
             Address = address;
+        }
+
+        public List<ProductQuantity> GetStock()
+        {
+            return StockRepository.GetStock(Name);
         }
     }
 }

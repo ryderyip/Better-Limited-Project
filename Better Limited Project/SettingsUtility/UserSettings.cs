@@ -1,6 +1,6 @@
 ﻿#nullable enable
 using System;
-using System.Windows.Forms;
+using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.SettingsUtility
 {

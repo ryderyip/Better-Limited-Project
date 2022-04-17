@@ -1,11 +1,11 @@
-﻿namespace Better_Limited_Project.ProductUtility.ProductList
+﻿namespace Better_Limited_Project.ProductUtility.Entity
 {
-    public readonly struct ProductQuantityPair
+    public readonly struct ProductQuantity
     {
         public Product Product { get; }
         public int Quantity { get; }
 
-        public ProductQuantityPair(Product product, int quantity)
+        public ProductQuantity(Product product, int quantity)
         {
             Product = product;
             Quantity = quantity;

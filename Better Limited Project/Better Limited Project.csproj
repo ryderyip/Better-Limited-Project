@@ -146,6 +146,13 @@
       <DependentUpon>SalesNavigationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Navigation\NavigationControllerFactory.cs" />
+    <Compile Include="ProductUtility\Entity\Product.cs" />
+    <Compile Include="ProductUtility\Entity\ProductQuantity.cs" />
+    <Compile Include="ProductUtility\Entity\Supplier.cs" />
+    <Compile Include="ProductUtility\ProductList\ProductListController.cs" />
+    <Compile Include="ProductUtility\ProductList\ProductListForm.cs" />
+    <Compile Include="ProductUtility\ProductList\ProductListForm.Designer.cs" />
+    <Compile Include="ProductUtility\StockRepository.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SettingsUtility\Language.cs" />
@@ -194,6 +201,7 @@
     <EmbeddedResource Include="Navigation\Form\SalesNavigationForm.resx">
       <DependentUpon>SalesNavigationForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProductUtility\ProductList\ProductListForm.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
