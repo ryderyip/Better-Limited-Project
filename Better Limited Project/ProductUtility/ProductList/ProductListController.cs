@@ -22,7 +22,6 @@ namespace Better_Limited_Project.ProductUtility.ProductList
             if (workplace == null)
             {
                 MessageBox.Show("Please first select your workplace in settings!");
-                OpenFormEmptyList();
                 return;
             }
 
