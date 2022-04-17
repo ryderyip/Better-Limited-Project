@@ -9,7 +9,7 @@ namespace Better_Limited_Project.SettingsUtility
     {
         public Language Language { get; set; }
         public Theme Theme { get; set; }
-        public Workplace? Workplace { get; set; }
+        public IWorkplace? Workplace { get; set; }
         public string? LastLoginUsername { get; set; }
         public string DefaultDocumentGenerationDirectoryPath { get; set; }
 
@@ -34,8 +34,7 @@ namespace Better_Limited_Project.SettingsUtility
             return new UserSettings
             {
                 Language = Language.English, 
-                Theme = Theme.Light,
-                Workplace = Workplace.CreateUnknownWorkplace()
+                Theme = Theme.Light
             };
         }
     }

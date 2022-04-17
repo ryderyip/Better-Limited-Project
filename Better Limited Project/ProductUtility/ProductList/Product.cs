@@ -14,5 +14,6 @@ namespace Better_Limited_Project.ProductUtility.ProductList
         public string SellingPrice { get; set; }
         public string Description { get; set; }
         public string Supplier { get; set; }
+        public bool IsPhasingOut { get; set; }
     }
 }

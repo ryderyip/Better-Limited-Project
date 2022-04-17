@@ -24,8 +24,8 @@ namespace Better_Limited_Project.StaffUtility.StaffProfile
             var staff = StaffRepository.GetStaff(staffId);
             var settings = UserSettings.GetSettings();
             _profileForm = settings.Workplace == null ? 
-                           new ProfileForm(staff, Workplace.CreateUnknownWorkplace().Information.Name) :
-                           new ProfileForm(staff, settings.Workplace.Information.Name);
+                           new ProfileForm(staff, "Unknown") :
+                           new ProfileForm(staff, settings.Workplace.Name);
             _profileForm.LogOutClicked += OnLogOutClicked;
             _formController.OpenContentForm(_profileForm);
         }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using Better_Limited_Project.DatabaseUtility;
 using MySql.Data.MySqlClient;
@@ -8,7 +7,6 @@ namespace Better_Limited_Project.ProductUtility.ProductList
 {
     public static class ProductRepository
     {
-        
         public static string GetProducts()
         {
             using var conn = Database.GetConnection();
@@ -23,16 +21,11 @@ namespace Better_Limited_Project.ProductUtility.ProductList
             dataReader.Close();
 
             return ConvertToProducts(dataTable);
-            
-
-
         }
-
-
+        
         private static string ConvertToProducts(DataTable dataTable)
         {
             List<Product> products = new List<Product>();
-
             foreach (DataRow row in dataTable.Rows)
             {
                 var product = new Product()
@@ -44,15 +37,9 @@ namespace Better_Limited_Project.ProductUtility.ProductList
          
 
                 };
-
                 products.Add(product);
-                
-
             }
-
             return dataTable.ToString();
         }
-       
-      
     }
 }

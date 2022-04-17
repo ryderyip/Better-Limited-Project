@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.DocumentUtility;
 using Better_Limited_Project.StaffUtility.StaffEntity;
@@ -36,7 +38,7 @@ namespace Better_Limited_Project.SettingsUtility
                 FillWorkplaceComboBox();
 
                 if (settings.Workplace != null) 
-                    SelectCurrentWorkplaceInComboBox(settings.Workplace.Information.Name);
+                    SelectCurrentWorkplaceInComboBox(settings.Workplace.Name);
             }
         }
 
@@ -63,11 +65,11 @@ namespace Better_Limited_Project.SettingsUtility
         private void FillWorkplaceComboBox()
         {
             cbWorkplace.Items.Clear();
-            var workplaces = _staffDepartment == Department.Sales
-                ? Workplace.GetRetailStores()
-                : Workplace.GetWarehouses();
+            List<IWorkplace> workplaces = _staffDepartment == Department.Sales
+                ? RetailStoreRepository.GetRetailStores().Cast<IWorkplace>().ToList()
+                : WarehouseRepository.GetWarehouses().Cast<IWorkplace>().ToList();
             foreach (var warehouse in workplaces)
-                cbWorkplace.Items.Add(warehouse.Information.Name);
+                cbWorkplace.Items.Add(warehouse.Name);
         }
 
         private void SelectCurrentWorkplaceInComboBox(string currentWorkplaceName)
@@ -101,11 +103,11 @@ namespace Better_Limited_Project.SettingsUtility
                 throw new ArgumentException("Cannot get selected language");
         }
 
-        private Workplace CollectSelectedWorkplace()
+        private IWorkplace CollectSelectedWorkplace()
         {
-            return _staffDepartment == Department.Sales ? 
-                new Workplace(WorkplaceType.RetailStore, cbWorkplace.SelectedItem.ToString()) :
-                new Workplace(WorkplaceType.Warehouse, cbWorkplace.SelectedItem.ToString());
+            return _staffDepartment == Department.Sales
+                ? new RetailStore(cbWorkplace.SelectedItem.ToString(), null)
+                : new Warehouse(cbWorkplace.SelectedItem.ToString(), null);
         }
 
         private void btnBrowseDocPath_Click(object sender, EventArgs e)
