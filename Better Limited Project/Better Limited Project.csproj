@@ -110,13 +110,6 @@
     <Compile Include="DocumentUtility\WindowsExplorer.cs" />
     <Compile Include="FormControlling\FormController.cs" />
     <Compile Include="FormControlling\FormPropertyController.cs" />
-    <Compile Include="FormControlling\MainController.cs" />
-    <Compile Include="FormControlling\MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormControlling\MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Login\LoginController.cs" />
     <Compile Include="Login\LoginCredentials.cs" />
     <Compile Include="Login\LoginForm.cs">
@@ -130,6 +123,13 @@
     <Compile Include="Login\LoginVerifier.cs" />
     <Compile Include="Login\StaffAccount.cs" />
     <Compile Include="Login\StaffAccountRepository.cs" />
+    <Compile Include="MainController.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Navigation\Controller\AccountingClerkNavigationController.cs" />
     <Compile Include="Navigation\Controller\AccountingManagerNavigationController.cs" />
     <Compile Include="Navigation\Controller\INavigationController.cs" />
@@ -227,14 +227,14 @@
     <Compile Include="StaffUtility\StaffProfile\ProfileForm.Designer.cs">
       <DependentUpon>ProfileForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FormControlling\MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Login\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\LoginForm.zh-Hant.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\UI\AccountingClerkNavigationForm.resx">
       <DependentUpon>AccountingClerkNavigationForm.cs</DependentUpon>

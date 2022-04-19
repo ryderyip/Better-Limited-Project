@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Better_Limited_Project.FormControlling
+namespace Better_Limited_Project
 {
     partial class MainForm
     {

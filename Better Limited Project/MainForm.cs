@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace Better_Limited_Project.FormControlling
+namespace Better_Limited_Project
 {
     public partial class MainForm : Form
     {

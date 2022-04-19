@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using Better_Limited_Project.DocumentUtility;
 
 namespace Better_Limited_Project.SettingsUtility
