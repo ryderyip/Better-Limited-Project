@@ -2,6 +2,8 @@
 {
     public class ReceivingClerkNavigationController : INavigationController
     {
+        public event INavigationController.LogOutClickedEventHandler LogOutClicked;
+
         public void OpenForm()
         {
             throw new System.NotImplementedException();

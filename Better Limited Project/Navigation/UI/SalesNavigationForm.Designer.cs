@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Better_Limited_Project.Navigation.Form
+namespace Better_Limited_Project.Navigation.UI
 {
     partial class SalesNavigationForm
     {

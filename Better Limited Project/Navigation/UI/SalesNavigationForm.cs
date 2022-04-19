@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Better_Limited_Project.Navigation.Form
+namespace Better_Limited_Project.Navigation.UI
 {
     public partial class SalesNavigationForm : System.Windows.Forms.Form
     {

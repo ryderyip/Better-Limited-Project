@@ -1,6 +1,6 @@
 ﻿using System;
 using Better_Limited_Project.FormControlling;
-using Better_Limited_Project.Navigation.Form;
+using Better_Limited_Project.Navigation.UI;
 using Better_Limited_Project.ProductUtility.ProductList;
 using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.StaffUtility.StaffEntity;
@@ -11,22 +11,24 @@ namespace Better_Limited_Project.Navigation.Controller
     public class SalesNavigationController : INavigationController
     {
         private readonly FormController _formController;
-        private readonly string _staffId;
-        private SalesNavigationForm _salesNavigationForm;
+        private readonly Staff _staff;
+        private readonly SalesNavigationForm _salesNavigationForm;
 
-        public SalesNavigationController(FormController formController, string staffId)
+        public SalesNavigationController(FormController formController, Staff staff)
         {
             _formController = formController;
-            _staffId = staffId;
+            _staff = staff;
+            _salesNavigationForm = new SalesNavigationForm();
+            
         }
+
+        public event INavigationController.LogOutClickedEventHandler LogOutClicked;
 
         public void OpenForm()
         {
-            _salesNavigationForm = new SalesNavigationForm();
             SubscribeAllFormEvents(_salesNavigationForm);
             _formController.OpenNavigationForm(_salesNavigationForm);
-            string staffName = StaffRepository.GetStaff(_staffId).Name;
-            _salesNavigationForm.SetProfileButtonStaffName(staffName);
+            _salesNavigationForm.SetProfileButtonStaffName(_staff.Name);
         }
 
         public void CloseForm()
@@ -46,7 +48,8 @@ namespace Better_Limited_Project.Navigation.Controller
         private void OnProfileClicked(object sender, EventArgs e)
         {
             var profileController = new ProfileController(_formController);
-            profileController.OpenForm(_staffId);
+            profileController.LogOutClicked += (_, _) => LogOutClicked?.Invoke(this, EventArgs.Empty);
+            profileController.OpenForm(_staff);
         }
         
         private void OnPlaceOrderClicked(object sender, EventArgs e)
@@ -64,7 +67,7 @@ namespace Better_Limited_Project.Navigation.Controller
         }
         private void OnSettingsClicked(object sender, EventArgs e)
         {
-            var controller = new SettingsController(_staffId);
+            var controller = new SettingsController(_staff);
             controller.OpenForm(_formController);
         }
     }

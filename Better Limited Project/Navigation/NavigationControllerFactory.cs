@@ -7,13 +7,13 @@ namespace Better_Limited_Project.Navigation
 {
     public static class NavigationControllerFactory
     {
-        public static INavigationController CreateController(FormController formController, string staffId)
+        public static INavigationController CreateController(FormController formController, Staff staff)
         {
-            var title = StaffRepository.GetStaff(staffId).StaffTitle;
+            var title = staff.StaffTitle;
             return title switch
             {
                 StaffTitle.SalesRepresentative or StaffTitle.SalesManager
-                    => new SalesNavigationController(formController, staffId),
+                    => new SalesNavigationController(formController, staff),
                 StaffTitle.AccountingClerk => new AccountingClerkNavigationController(),
                 StaffTitle.AccountingManager => new AccountingManagerNavigationController(),
                 StaffTitle.PurchaseClerk => new PurchaseClerkNavigationController(),

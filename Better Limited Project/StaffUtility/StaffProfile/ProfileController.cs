@@ -17,11 +17,10 @@ namespace Better_Limited_Project.StaffUtility.StaffProfile
             _formController = formController;
         }
 
-        public void OpenForm(string staffId)
+        public void OpenForm(Staff staff)
         {
             if (IsProfileFormAlreadyOpened())
                 return;
-            var staff = StaffRepository.GetStaff(staffId);
             var settings = UserSettings.GetSettings();
             _profileForm = settings.Workplace == null ? 
                            new ProfileForm(staff, "Unknown") :

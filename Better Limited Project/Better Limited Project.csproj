@@ -139,13 +139,51 @@
     <Compile Include="Navigation\Controller\ReceivingClerkNavigationController.cs" />
     <Compile Include="Navigation\Controller\SalesNavigationController.cs" />
     <Compile Include="Navigation\Controller\TechnicalSupportNavigationController.cs" />
-    <Compile Include="Navigation\Form\SalesNavigationForm.cs">
+    <Compile Include="Navigation\UI\AccountingClerkNavigationForm.cs" />
+    <Compile Include="Navigation\UI\AccountingClerkNavigationForm.Designer.cs" />
+    <Compile Include="Navigation\UI\AccountingManagerNavigationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Navigation\Form\SalesNavigationForm.Designer.cs">
+    <Compile Include="Navigation\UI\AccountingManagerNavigationForm.Designer.cs">
+      <DependentUpon>AccountingManagerNavigationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\UI\InventoryClerkNavigationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Navigation\UI\InventoryClerkNavigationForm.Designer.cs">
+      <DependentUpon>InventoryClerkNavigationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\UI\PurchaseClerkNavigationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Navigation\UI\PurchaseClerkNavigationForm.Designer.cs">
+      <DependentUpon>PurchaseClerkNavigationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\UI\PurchaseManagerNavigationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Navigation\UI\PurchaseManagerNavigationForm.Designer.cs">
+      <DependentUpon>PurchaseManagerNavigationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\UI\ReceivingClerkNavigationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Navigation\UI\ReceivingClerkNavigationForm.Designer.cs">
+      <DependentUpon>ReceivingClerkNavigationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\UI\SalesNavigationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Navigation\UI\SalesNavigationForm.Designer.cs">
       <DependentUpon>SalesNavigationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Navigation\NavigationControllerFactory.cs" />
+    <Compile Include="Navigation\UI\TechnicalSupportNavigationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Navigation\UI\TechnicalSupportNavigationForm.Designer.cs">
+      <DependentUpon>TechnicalSupportNavigationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductUtility\Entity\Product.cs" />
     <Compile Include="ProductUtility\Entity\ProductQuantity.cs" />
     <Compile Include="ProductUtility\Entity\Supplier.cs" />
@@ -198,8 +236,29 @@
     <EmbeddedResource Include="Login\LoginForm.zh-Hant.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Navigation\Form\SalesNavigationForm.resx">
+    <EmbeddedResource Include="Navigation\UI\AccountingClerkNavigationForm.resx">
+      <DependentUpon>AccountingClerkNavigationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\UI\AccountingManagerNavigationForm.resx">
+      <DependentUpon>AccountingManagerNavigationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\UI\InventoryClerkNavigationForm.resx">
+      <DependentUpon>InventoryClerkNavigationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\UI\PurchaseClerkNavigationForm.resx">
+      <DependentUpon>PurchaseClerkNavigationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\UI\PurchaseManagerNavigationForm.resx">
+      <DependentUpon>PurchaseManagerNavigationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\UI\ReceivingClerkNavigationForm.resx">
+      <DependentUpon>ReceivingClerkNavigationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\UI\SalesNavigationForm.resx">
       <DependentUpon>SalesNavigationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\UI\TechnicalSupportNavigationForm.resx">
+      <DependentUpon>TechnicalSupportNavigationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductUtility\ProductList\ProductListForm.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">

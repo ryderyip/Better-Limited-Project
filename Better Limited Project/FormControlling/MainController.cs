@@ -3,6 +3,7 @@ using Better_Limited_Project.Login;
 using Better_Limited_Project.Navigation;
 using Better_Limited_Project.Navigation.Controller;
 using Better_Limited_Project.SettingsUtility;
+using Better_Limited_Project.StaffUtility.StaffEntity;
 using Better_Limited_Project.StaffUtility.StaffProfile;
 
 namespace Better_Limited_Project.FormControlling
@@ -11,7 +12,7 @@ namespace Better_Limited_Project.FormControlling
     {
         private readonly FormController _formController;
         private readonly UserSettings _userSettings;
-        private string _staffId;
+        private Staff _staff;
         private INavigationController _navigationController;
         
         public MainController(MainForm mainForm)
@@ -34,7 +35,7 @@ namespace Better_Limited_Project.FormControlling
         
         private void OnLoggedIn(object sender, string staffId)
         {
-            _staffId = staffId;
+            _staff = StaffRepository.GetStaff(staffId);
             OpenNavigationForm();
             OpenProfileForm();
         }
@@ -53,7 +54,8 @@ namespace Better_Limited_Project.FormControlling
         private void OpenNavigationForm()
         {
             _navigationController = 
-                NavigationControllerFactory.CreateController(_formController, _staffId);
+                NavigationControllerFactory.CreateController(_formController, _staff);
+            _navigationController.LogOutClicked += OnLogOut;
             _navigationController.OpenForm();
         }
         
@@ -61,7 +63,7 @@ namespace Better_Limited_Project.FormControlling
         {
             var profileController = new ProfileController(_formController);
             profileController.LogOutClicked += OnLogOut;
-            profileController.OpenForm(_staffId);
+            profileController.OpenForm(_staff);
         }
         
         private void OnLogOut(object sender, EventArgs e)

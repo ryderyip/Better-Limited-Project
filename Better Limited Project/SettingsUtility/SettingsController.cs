@@ -10,9 +10,8 @@ namespace Better_Limited_Project.SettingsUtility
         private readonly SettingsForm _settingsForm;
         private readonly UserSettings _settings;
 
-        public SettingsController(string staffId)
+        public SettingsController(Staff staff)
         {
-            var staff = StaffRepository.GetStaff(staffId);
             _settingsForm = new SettingsForm(staff.Department);
             _settings = UserSettings.GetSettings();
             
