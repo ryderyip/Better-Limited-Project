@@ -4,6 +4,7 @@ namespace Better_Limited_Project.ProductUtility.Entity
 {
     public class Product
     {
+        public string ID { get; set; }
         public string Name { get; set; }
         public decimal OriginalPrice { get; set; }
         public decimal SellingPrice { get; set; }

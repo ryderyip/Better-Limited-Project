@@ -30,11 +30,15 @@ namespace Better_Limited_Project.ProductUtility.ProductList
 
         private void SetupDataGrid()
         {
-            dgvProductList.ColumnCount = 4;
+            dgvProductList.ColumnCount = 5;
+    
             dgvProductList.Columns[0].Name = "Name";
-            dgvProductList.Columns[1].Name = "Quantity";
-            dgvProductList.Columns[2].Name = "Price";
-            dgvProductList.Columns[3].Name = "Category";
+            dgvProductList.Columns[1].Name = "Price";
+            dgvProductList.Columns[2].Name = "Description";
+            dgvProductList.Columns[3].Name = "IsPhasingOut";
+            dgvProductList.Columns[4].Name = "Category";
+
+
         }
 
         private void PopulateDataGrid()
@@ -50,10 +54,14 @@ namespace Better_Limited_Project.ProductUtility.ProductList
             {
                 object[] row =
                 {
+    
                     productQuantity.Product.Name,
-                    productQuantity.Quantity.ToString(),
                     productQuantity.Product.SellingPrice.ToString("C", new CultureInfo("zh-HK")),
-                    productQuantity.Product.Category
+                    productQuantity.Product.Description,
+                    productQuantity.Product.IsPhasingOut,
+                    productQuantity.Product.Category,
+                      
+                    
                 };
                 dgvProductList.Rows.Add(row);
             }
