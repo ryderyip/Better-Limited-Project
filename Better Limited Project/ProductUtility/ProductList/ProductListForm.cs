@@ -12,6 +12,8 @@ namespace Better_Limited_Project.ProductUtility.ProductList
 
         public delegate void ProductClickedEventHandler<T>(object sender, T t);
 
+        public event ProductClickedEventHandler<ProductQuantity> ProductClicked;
+
         public ProductListForm()
         {
             InitializeComponent();
@@ -67,6 +69,12 @@ namespace Better_Limited_Project.ProductUtility.ProductList
             PopulateDataGrid(filteredStock);
      
             txtNoResults.Visible = (filteredStock.Count == 0 && !string.IsNullOrWhiteSpace(keywords));
+        }
+
+        private void dgvProductList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var clickedProduct = _stock[e.RowIndex];
+            ProductClicked?.Invoke(this, clickedProduct);
         }
     }
 }

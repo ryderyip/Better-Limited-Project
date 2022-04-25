@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.Windows.Forms;
 using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.ProductUtility.Entity;
@@ -25,19 +25,16 @@ namespace Better_Limited_Project.ProductUtility.ProductList
                 return;
             }
 
-            OpenFormNormal(workplace.GetStock());
-        }
-
-        private void OpenFormEmptyList()
-        {
-            var form = new ProductListForm();
-            _formController.OpenContentForm(form);
-        }
-
-        private void OpenFormNormal(List<ProductQuantity> stock)
-        {
+            var stock = workplace.GetStock();
             var form = new ProductListForm(stock);
+            form.ProductClicked += OnProductClicked;
             _formController.OpenContentForm(form);
+        }
+
+        private void OnProductClicked(object sender, ProductQuantity productQuantity)
+        {
+            var controller = new ProductDetailsController(productQuantity);
+            controller.OpenForm();
         }
     }
 }

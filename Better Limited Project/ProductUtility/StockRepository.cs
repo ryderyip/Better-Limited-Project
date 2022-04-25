@@ -55,8 +55,8 @@ WHERE rs.name = @retailStoreName;", conn);
                     Supplier = new Supplier
                     {
                         Name = row.Field<string>("supplier_name"),
-                        Email = row.Field<string>("supplier_phone"),
-                        Phone = row.Field<string>("supplier_email")
+                        Phone = row.Field<string>("supplier_phone"),
+                        Email = row.Field<string>("supplier_email")
                     }
                 };
                 int quantity = row.Field<int>("quantity");

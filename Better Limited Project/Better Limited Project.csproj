@@ -104,6 +104,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomerRecord\CreateCustomerRecordForm.cs" />
+    <Compile Include="CustomerRecord\CreateCustomerRecordForm.Designer.cs" />
+    <Compile Include="CustomerRecord\FindCustomerRecordForm.cs" />
+    <Compile Include="CustomerRecord\FindCustomerRecordForm.Designer.cs" />
     <Compile Include="DatabaseUtility\Database.cs" />
     <Compile Include="DevTools\AutoLoginHelper.cs" />
     <Compile Include="DocumentUtility\FolderBrowser.cs" />
@@ -187,12 +191,97 @@
     <Compile Include="ProductUtility\Entity\Product.cs" />
     <Compile Include="ProductUtility\Entity\ProductQuantity.cs" />
     <Compile Include="ProductUtility\Entity\Supplier.cs" />
+    <Compile Include="ProductUtility\GoodsReceiving\CreateGoodsReceivedRecordForm.cs" />
+    <Compile Include="ProductUtility\GoodsReceiving\CreateGoodsReceivedRecordForm.Designer.cs" />
+    <Compile Include="ProductUtility\GoodsReceiving\GoodsReceivedDetailsForm.cs" />
+    <Compile Include="ProductUtility\GoodsReceiving\GoodsReceivedDetailsForm.Designer.cs" />
+    <Compile Include="ProductUtility\GoodsReceiving\GoodsReceivedForm.cs" />
+    <Compile Include="ProductUtility\GoodsReceiving\GoodsReceivedForm.Designer.cs" />
+    <Compile Include="ProductUtility\GoodsReturning\CreateGoodsReturnedRecordForm.cs" />
+    <Compile Include="ProductUtility\GoodsReturning\CreateGoodsReturnedRecordForm.Designer.cs" />
+    <Compile Include="ProductUtility\GoodsReturning\GoodsReturnedDetailsForm.cs" />
+    <Compile Include="ProductUtility\GoodsReturning\GoodsReturnedDetailsForm.Designer.cs" />
+    <Compile Include="ProductUtility\GoodsReturning\GoodsReturnedForm.cs" />
+    <Compile Include="ProductUtility\GoodsReturning\GoodsReturnedForm.Designer.cs" />
+    <Compile Include="ProductUtility\ProductList\CreateRestockRequestForm.cs" />
+    <Compile Include="ProductUtility\ProductList\CreateRestockRequestForm.Designer.cs" />
+    <Compile Include="ProductUtility\ProductList\ProductDetailsController.cs" />
+    <Compile Include="ProductUtility\ProductList\ProductDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductUtility\ProductList\ProductDetailsForm.Designer.cs">
+      <DependentUpon>ProductDetailsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductUtility\ProductList\ProductListController.cs" />
     <Compile Include="ProductUtility\ProductList\ProductListForm.cs" />
     <Compile Include="ProductUtility\ProductList\ProductListForm.Designer.cs" />
+    <Compile Include="ProductUtility\ProductList\UpdateProductInfoForm.cs" />
+    <Compile Include="ProductUtility\ProductList\UpdateProductInfoForm.Designer.cs" />
+    <Compile Include="ProductUtility\ProductList\UpdateSellingPriceForm.cs" />
+    <Compile Include="ProductUtility\ProductList\UpdateSellingPriceForm.Designer.cs" />
+    <Compile Include="ProductUtility\ProductList\UpdateStockLevel.cs" />
+    <Compile Include="ProductUtility\ProductList\UpdateStockLevel.Designer.cs" />
+    <Compile Include="ProductUtility\PurchaseOrder\PurchaseOrderDetailsForm.cs" />
+    <Compile Include="ProductUtility\PurchaseOrder\PurchaseOrderDetailsForm.Designer.cs" />
+    <Compile Include="ProductUtility\PurchaseOrder\PurchaseOrdersForm.cs" />
+    <Compile Include="ProductUtility\PurchaseOrder\PurchaseOrdersForm.Designer.cs" />
     <Compile Include="ProductUtility\StockRepository.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sales\Sales.Payment\CashPaymentForm.cs" />
+    <Compile Include="Sales\Sales.Payment\CashPaymentForm.Designer.cs" />
+    <Compile Include="Sales\Sales.Payment\CreditCardPaymentForm.cs" />
+    <Compile Include="Sales\Sales.Payment\CreditCardPaymentForm.Designer.cs" />
+    <Compile Include="Sales\Sales.Payment\OctopusCardPaymentForm.cs" />
+    <Compile Include="Sales\Sales.Payment\OctopusCardPaymentForm.Designer.cs" />
+    <Compile Include="Sales\Sales.Payment\PaymentMethodSelectionForm.cs" />
+    <Compile Include="Sales\Sales.Payment\PaymentMethodSelectionForm.Designer.cs" />
+    <Compile Include="Sales\Sales.SalesOrder\ConfirmPlacingOrderForm.cs" />
+    <Compile Include="Sales\Sales.SalesOrder\ConfirmPlacingOrderForm.Designer.cs" />
+    <Compile Include="Sales\Sales.SalesOrder\DeliverySessionSelectionForm.cs" />
+    <Compile Include="Sales\Sales.SalesOrder\DeliverySessionSelectionForm.Designer.cs" />
+    <Compile Include="Sales\Sales.SalesOrder\PlaceOrderForm.cs" />
+    <Compile Include="Sales\Sales.SalesOrder\PlaceOrderForm.Designer.cs" />
+    <Compile Include="Sales\Sales.SalesOrder\SalesOrderDetailsForm.cs" />
+    <Compile Include="Sales\Sales.SalesOrder\SalesOrderDetailsForm.Designer.cs" />
+    <Compile Include="Sales\Sales.SalesOrder\SalesOrderForm.cs" />
+    <Compile Include="Sales\Sales.SalesOrder\SalesOrderForm.Designer.cs" />
+    <Compile Include="ServiceUtility\Delivery\ArrangeSingleDeliveryForm.cs" />
+    <Compile Include="ServiceUtility\Delivery\ArrangeSingleDeliveryForm.Designer.cs" />
+    <Compile Include="ServiceUtility\Delivery\ArrangeSplitDeliveryForm.cs" />
+    <Compile Include="ServiceUtility\Delivery\ArrangeSplitDeliveryForm.Designer.cs" />
+    <Compile Include="ServiceUtility\Delivery\CreateDeliveryDutyRecordForm.cs" />
+    <Compile Include="ServiceUtility\Delivery\CreateDeliveryDutyRecordForm.Designer.cs" />
+    <Compile Include="ServiceUtility\Delivery\DeliveryDutyRecordDetailsForm.cs" />
+    <Compile Include="ServiceUtility\Delivery\DeliveryDutyRecordDetailsForm.Designer.cs" />
+    <Compile Include="ServiceUtility\Delivery\DeliveryDutyRecordForm.cs" />
+    <Compile Include="ServiceUtility\Delivery\DeliveryDutyRecordForm.Designer.cs" />
+    <Compile Include="ServiceUtility\Delivery\DeliveryRequestDetailsForm.cs" />
+    <Compile Include="ServiceUtility\Delivery\DeliveryRequestDetailsForm.Designer.cs" />
+    <Compile Include="ServiceUtility\Delivery\DeliveryRequestForm.cs" />
+    <Compile Include="ServiceUtility\Delivery\DeliveryRequestForm.Designer.cs" />
+    <Compile Include="ServiceUtility\Delivery\RestockRequestDetails.cs" />
+    <Compile Include="ServiceUtility\Delivery\RestockRequestDetails.Designer.cs" />
+    <Compile Include="ServiceUtility\Delivery\RestockRequestForm.cs" />
+    <Compile Include="ServiceUtility\Delivery\RestockRequestForm.Designer.cs" />
+    <Compile Include="ServiceUtility\Installation\ArrangeInstallationForm.cs" />
+    <Compile Include="ServiceUtility\Installation\ArrangeInstallationForm.Designer.cs" />
+    <Compile Include="ServiceUtility\Installation\CreateInstallationDutyRecordForm.cs" />
+    <Compile Include="ServiceUtility\Installation\CreateInstallationDutyRecordForm.Designer.cs" />
+    <Compile Include="ServiceUtility\Installation\InstallationDutyRecordDetailsForm.cs" />
+    <Compile Include="ServiceUtility\Installation\InstallationDutyRecordDetailsForm.Designer.cs" />
+    <Compile Include="ServiceUtility\Installation\InstallationDutyRecordForm.cs" />
+    <Compile Include="ServiceUtility\Installation\InstallationDutyRecordForm.Designer.cs" />
+    <Compile Include="ServiceUtility\Installation\InstallationRequestDetailsForm.cs" />
+    <Compile Include="ServiceUtility\Installation\InstallationRequestDetailsForm.Designer.cs" />
+    <Compile Include="ServiceUtility\Installation\InstallationRequestForm.cs" />
+    <Compile Include="ServiceUtility\Installation\InstallationRequestForm.Designer.cs" />
+    <Compile Include="ServiceUtility\Reordering\ReorderRequestDetailsForm.cs" />
+    <Compile Include="ServiceUtility\Reordering\ReorderRequestDetailsForm.Designer.cs" />
+    <Compile Include="ServiceUtility\Reordering\ReorderRequestForm.cs" />
+    <Compile Include="ServiceUtility\Reordering\ReorderRequestForm.Designer.cs" />
+    <Compile Include="ServiceUtility\Reordering\ReorderRequestSendingForm.cs" />
+    <Compile Include="ServiceUtility\Reordering\ReorderRequestSendingForm.Designer.cs" />
     <Compile Include="SettingsUtility\Language.cs" />
     <Compile Include="SettingsUtility\LanguageController.cs" />
     <Compile Include="SettingsUtility\SettingsForm.cs">
@@ -227,6 +316,8 @@
     <Compile Include="StaffUtility\StaffProfile\ProfileForm.Designer.cs">
       <DependentUpon>ProfileForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CustomerRecord\CreateCustomerRecordForm.resx" />
+    <EmbeddedResource Include="CustomerRecord\FindCustomerRecordForm.resx" />
     <EmbeddedResource Include="Login\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -260,7 +351,22 @@
     <EmbeddedResource Include="Navigation\UI\TechnicalSupportNavigationForm.resx">
       <DependentUpon>TechnicalSupportNavigationForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProductUtility\GoodsReceiving\CreateGoodsReceivedRecordForm.resx" />
+    <EmbeddedResource Include="ProductUtility\GoodsReceiving\GoodsReceivedDetailsForm.resx" />
+    <EmbeddedResource Include="ProductUtility\GoodsReceiving\GoodsReceivedForm.resx" />
+    <EmbeddedResource Include="ProductUtility\GoodsReturning\CreateGoodsReturnedRecordForm.resx" />
+    <EmbeddedResource Include="ProductUtility\GoodsReturning\GoodsReturnedDetailsForm.resx" />
+    <EmbeddedResource Include="ProductUtility\GoodsReturning\GoodsReturnedForm.resx" />
+    <EmbeddedResource Include="ProductUtility\ProductList\CreateRestockRequestForm.resx" />
+    <EmbeddedResource Include="ProductUtility\ProductList\ProductDetailsForm.resx">
+      <DependentUpon>ProductDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductUtility\ProductList\ProductListForm.resx" />
+    <EmbeddedResource Include="ProductUtility\ProductList\UpdateProductInfoForm.resx" />
+    <EmbeddedResource Include="ProductUtility\ProductList\UpdateSellingPriceForm.resx" />
+    <EmbeddedResource Include="ProductUtility\ProductList\UpdateStockLevel.resx" />
+    <EmbeddedResource Include="ProductUtility\PurchaseOrder\PurchaseOrderDetailsForm.resx" />
+    <EmbeddedResource Include="ProductUtility\PurchaseOrder\PurchaseOrdersForm.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -270,6 +376,33 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Sales\Sales.Payment\CashPaymentForm.resx" />
+    <EmbeddedResource Include="Sales\Sales.Payment\CreditCardPaymentForm.resx" />
+    <EmbeddedResource Include="Sales\Sales.Payment\OctopusCardPaymentForm.resx" />
+    <EmbeddedResource Include="Sales\Sales.Payment\PaymentMethodSelectionForm.resx" />
+    <EmbeddedResource Include="Sales\Sales.SalesOrder\ConfirmPlacingOrderForm.resx" />
+    <EmbeddedResource Include="Sales\Sales.SalesOrder\DeliverySessionSelectionForm.resx" />
+    <EmbeddedResource Include="Sales\Sales.SalesOrder\PlaceOrderForm.resx" />
+    <EmbeddedResource Include="Sales\Sales.SalesOrder\SalesOrderDetailsForm.resx" />
+    <EmbeddedResource Include="Sales\Sales.SalesOrder\SalesOrderForm.resx" />
+    <EmbeddedResource Include="ServiceUtility\Delivery\ArrangeSingleDeliveryForm.resx" />
+    <EmbeddedResource Include="ServiceUtility\Delivery\ArrangeSplitDeliveryForm.resx" />
+    <EmbeddedResource Include="ServiceUtility\Delivery\CreateDeliveryDutyRecordForm.resx" />
+    <EmbeddedResource Include="ServiceUtility\Delivery\DeliveryDutyRecordDetailsForm.resx" />
+    <EmbeddedResource Include="ServiceUtility\Delivery\DeliveryDutyRecordForm.resx" />
+    <EmbeddedResource Include="ServiceUtility\Delivery\DeliveryRequestDetailsForm.resx" />
+    <EmbeddedResource Include="ServiceUtility\Delivery\DeliveryRequestForm.resx" />
+    <EmbeddedResource Include="ServiceUtility\Delivery\RestockRequestDetails.resx" />
+    <EmbeddedResource Include="ServiceUtility\Delivery\RestockRequestForm.resx" />
+    <EmbeddedResource Include="ServiceUtility\Installation\ArrangeInstallationForm.resx" />
+    <EmbeddedResource Include="ServiceUtility\Installation\CreateInstallationDutyRecordForm.resx" />
+    <EmbeddedResource Include="ServiceUtility\Installation\InstallationDutyRecordDetailsForm.resx" />
+    <EmbeddedResource Include="ServiceUtility\Installation\InstallationDutyRecordForm.resx" />
+    <EmbeddedResource Include="ServiceUtility\Installation\InstallationRequestDetailsForm.resx" />
+    <EmbeddedResource Include="ServiceUtility\Installation\InstallationRequestForm.resx" />
+    <EmbeddedResource Include="ServiceUtility\Reordering\ReorderRequestDetailsForm.resx" />
+    <EmbeddedResource Include="ServiceUtility\Reordering\ReorderRequestForm.resx" />
+    <EmbeddedResource Include="ServiceUtility\Reordering\ReorderRequestSendingForm.resx" />
     <EmbeddedResource Include="SettingsUtility\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -289,6 +422,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ServiceUtility\.vs\ServieUtility\v17\.suo" />
+    <Content Include="ServiceUtility\.vs\slnx.sqlite" />
+    <Content Include="ServiceUtility\.vs\VSWorkspaceState.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DataAnalytics" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -67,6 +67,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList
             this.dgvProductList.RowTemplate.Height = 24;
             this.dgvProductList.Size = new System.Drawing.Size(482, 265);
             this.dgvProductList.TabIndex = 2;
+            this.dgvProductList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductList_CellDoubleClick);
             // 
             // btnUpdateStockLevel
             // 
