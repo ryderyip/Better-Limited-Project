@@ -31,7 +31,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnGoodsReceivedNote = new System.Windows.Forms.Button();
+            this.btnUpdateSellingPrice = new System.Windows.Forms.Button();
             this.lblSellingPrice = new System.Windows.Forms.Label();
             this.lblOriginalPrice = new System.Windows.Forms.Label();
             this.lblProductInfo = new System.Windows.Forms.Label();
@@ -57,17 +57,18 @@ namespace Better_Limited_Project.ProductUtility.ProductList
             this.tbSupplierEmail = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // btnGoodsReceivedNote
+            // btnUpdateSellingPrice
             // 
-            this.btnGoodsReceivedNote.BackColor = System.Drawing.Color.Salmon;
-            this.btnGoodsReceivedNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.btnGoodsReceivedNote.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnGoodsReceivedNote.Location = new System.Drawing.Point(316, 367);
-            this.btnGoodsReceivedNote.Name = "btnGoodsReceivedNote";
-            this.btnGoodsReceivedNote.Size = new System.Drawing.Size(200, 54);
-            this.btnGoodsReceivedNote.TabIndex = 58;
-            this.btnGoodsReceivedNote.Text = "Goods Received Note";
-            this.btnGoodsReceivedNote.UseVisualStyleBackColor = false;
+            this.btnUpdateSellingPrice.BackColor = System.Drawing.Color.Salmon;
+            this.btnUpdateSellingPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.btnUpdateSellingPrice.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnUpdateSellingPrice.Location = new System.Drawing.Point(316, 367);
+            this.btnUpdateSellingPrice.Name = "btnUpdateSellingPrice";
+            this.btnUpdateSellingPrice.Size = new System.Drawing.Size(200, 54);
+            this.btnUpdateSellingPrice.TabIndex = 58;
+            this.btnUpdateSellingPrice.Text = "Update Selling Price";
+            this.btnUpdateSellingPrice.UseVisualStyleBackColor = false;
+            this.btnUpdateSellingPrice.Click += new System.EventHandler(this.btnUpdateSellingPrice_Click);
             // 
             // lblSellingPrice
             // 
@@ -118,12 +119,13 @@ namespace Better_Limited_Project.ProductUtility.ProductList
             // lblProductName
             // 
             this.lblProductName.AutoSize = true;
-            this.lblProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblProductName.Location = new System.Drawing.Point(306, 33);
+            this.lblProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblProductName.Location = new System.Drawing.Point(286, 24);
             this.lblProductName.Name = "lblProductName";
-            this.lblProductName.Size = new System.Drawing.Size(178, 20);
+            this.lblProductName.Size = new System.Drawing.Size(238, 26);
             this.lblProductName.TabIndex = 61;
             this.lblProductName.Text = "(Product Name Here)";
+            this.lblProductName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblPhasingOut
             // 
@@ -305,7 +307,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList
             this.Controls.Add(this.lblProductName);
             this.Controls.Add(this.tbSellingPrice);
             this.Controls.Add(this.tbOriginalPrice);
-            this.Controls.Add(this.btnGoodsReceivedNote);
+            this.Controls.Add(this.btnUpdateSellingPrice);
             this.Controls.Add(this.lblSellingPrice);
             this.Controls.Add(this.lblOriginalPrice);
             this.Controls.Add(this.lblProductInfo);
@@ -314,6 +316,8 @@ namespace Better_Limited_Project.ProductUtility.ProductList
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Button btnUpdateSellingPrice;
 
         private System.Windows.Forms.TextBox tbSupplierEmail;
 

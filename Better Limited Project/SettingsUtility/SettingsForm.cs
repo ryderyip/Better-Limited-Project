@@ -105,9 +105,10 @@ namespace Better_Limited_Project.SettingsUtility
 
         private IWorkplace CollectSelectedWorkplace()
         {
+            string selectedWorkplaceName = cbWorkplace.SelectedItem.ToString();
             return _staffDepartment == Department.Sales
-                ? new RetailStore(cbWorkplace.SelectedItem.ToString(), null)
-                : new Warehouse(cbWorkplace.SelectedItem.ToString(), null);
+                ? RetailStoreRepository.GetRetailStore(selectedWorkplaceName)
+                : WarehouseRepository.GetWarehouse(selectedWorkplaceName);
         }
 
         private void btnBrowseDocPath_Click(object sender, EventArgs e)

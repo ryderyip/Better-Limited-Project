@@ -19,7 +19,6 @@ namespace Better_Limited_Project.Navigation.Controller
             _formController = formController;
             _staff = staff;
             _salesNavigationForm = new SalesNavigationForm();
-            
         }
 
         public event INavigationController.LogOutClickedEventHandler LogOutClicked;

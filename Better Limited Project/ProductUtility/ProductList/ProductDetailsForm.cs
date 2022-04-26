@@ -7,8 +7,10 @@ namespace Better_Limited_Project.ProductUtility.ProductList
 {
     public partial class ProductDetailsForm : Form
     {
-        private readonly Product _product;
-        private readonly int _quantity;
+        private Product _product;
+        private int _quantity;
+        public delegate void UpdateProductInfoClickedEventHandler(object sender, EventArgs e);
+        public event UpdateProductInfoClickedEventHandler UpdateProductInfoClicked;
 
         public ProductDetailsForm(ProductQuantity productQuantity)
         {
@@ -16,6 +18,13 @@ namespace Better_Limited_Project.ProductUtility.ProductList
             _quantity = productQuantity.Quantity;
             InitializeComponent();
             Shown += OnShown;
+        }
+
+        public void RefreshProductInfo(ProductQuantity productQuantity)
+        {
+            _product = productQuantity.Product;
+            _quantity = productQuantity.Quantity;
+            OnShown(this, EventArgs.Empty);
         }
 
         private void OnShown(object sender, EventArgs e)
@@ -33,6 +42,11 @@ namespace Better_Limited_Project.ProductUtility.ProductList
             tbSupplierPhone.Text = supplier.Phone;
             tbSupplierEmail.Text = supplier.Email;
             // TODO Display supplier address
+        }
+
+        private void btnUpdateSellingPrice_Click(object sender, EventArgs e)
+        {
+            UpdateProductInfoClicked?.Invoke(this, e);
         }
     }
 }

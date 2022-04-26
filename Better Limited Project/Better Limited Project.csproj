@@ -217,6 +217,7 @@
     <Compile Include="ProductUtility\ProductList\ProductListForm.Designer.cs" />
     <Compile Include="ProductUtility\ProductList\UpdateProductInfoForm.cs" />
     <Compile Include="ProductUtility\ProductList\UpdateProductInfoForm.Designer.cs" />
+    <Compile Include="ProductUtility\ProductList\UpdateSellingPriceController.cs" />
     <Compile Include="ProductUtility\ProductList\UpdateSellingPriceForm.cs" />
     <Compile Include="ProductUtility\ProductList\UpdateSellingPriceForm.Designer.cs" />
     <Compile Include="ProductUtility\ProductList\UpdateStockLevel.cs" />

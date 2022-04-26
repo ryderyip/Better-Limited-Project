@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using Better_Limited_Project.DatabaseUtility;
 using Better_Limited_Project.ProductUtility.Entity;
 using MySql.Data.MySqlClient;
@@ -8,14 +9,18 @@ namespace Better_Limited_Project.ProductUtility
 {
     public static class StockRepository
     {
-        
-        public static List<ProductQuantity> GetStock(string retailStoreName)
+        // TODO need to separate retail store stock repo and warehouse stock repo
+        /// <summary>
+        /// Get the stock of all products from the specified retail store
+        /// </summary>
+        public static List<ProductQuantity> GetRetailStoreStock(string retailStoreId)
         {
             using var conn = Database.GetConnection();
             conn.Open();
             var dataTable = new DataTable();
             var command = new MySqlCommand(
-                @"select p.name as name, 
+                @"select p.id as product_id,
+       p.name as name, 
        price as original_price, 
        description, 
        is_phasing_out, 
@@ -31,12 +36,63 @@ INNER JOIN product p on rss.product_id = p.id
 INNER JOIN product_category pc on p.category_id = pc.id
 INNER JOIN supplier s on p.supplier_id = s.id
 INNER JOIN retail_store rs on rss.retail_store_id = rs.id
-WHERE rs.name = @retailStoreName;", conn);
-            command.Parameters.AddWithValue("@retailStoreName", retailStoreName);
+WHERE rs.id = @retailStoreId;", conn);
+            command.Parameters.AddWithValue("@retailStoreId", retailStoreId);
             var dataReader = command.ExecuteReader();
             dataTable.Load(dataReader);
             dataReader.Close();
             return ConvertToStock(dataTable);
+        }
+        
+        /// <summary>
+        /// Get the stock of a particular product from the specified retail store
+        /// </summary>
+        public static ProductQuantity GetRetailStoreStock(string retailStoreId, string productId)
+        {
+            using var conn = Database.GetConnection();
+            conn.Open();
+            var dataTable = new DataTable();
+            var command = new MySqlCommand(
+                @"select p.id as product_id,
+                       p.name as name, 
+                       price as original_price, 
+                       description, 
+                       is_phasing_out, 
+                       rss.quantity, 
+                       rss.selling_price, 
+                       pc.name as category, 
+                       s.name as supplier_name, 
+                       s.phone as supplier_phone, 
+                       s.email as supplier_email,
+                       rs.name as retail_store_name
+                        from retail_store_stock rss
+                        INNER JOIN product p on rss.product_id = p.id
+                        INNER JOIN product_category pc on p.category_id = pc.id
+                        INNER JOIN supplier s on p.supplier_id = s.id
+                        INNER JOIN retail_store rs on rss.retail_store_id = rs.id
+                        WHERE rs.id = @retailStoreId
+                        AND p.id = @productId;", conn);
+            command.Parameters.AddWithValue("@retailStoreId", retailStoreId);
+            command.Parameters.AddWithValue("@productId", productId);
+            var dataReader = command.ExecuteReader();
+            dataTable.Load(dataReader);
+            dataReader.Close();
+            return ConvertToStock(dataTable).First();
+        }
+        
+        public static void UpdateProductInfo(string retailStoreId, string productId, decimal sellingPrice)
+        {
+            using var conn = Database.GetConnection();
+            conn.Open();
+            var command = new MySqlCommand(
+                @"update retail_store_stock
+                        set selling_price = @sellingPrice
+                        where product_id = @productId
+                            and retail_store_id = @retailStoreId;", conn);
+            command.Parameters.AddWithValue("@sellingPrice", sellingPrice);
+            command.Parameters.AddWithValue("@productId", productId);
+            command.Parameters.AddWithValue("@retailStoreId", retailStoreId);
+            command.ExecuteNonQuery();
         }
 
         private static List<ProductQuantity> ConvertToStock(DataTable dataTable)
@@ -46,6 +102,7 @@ WHERE rs.name = @retailStoreName;", conn);
             {
                 var product = new Product
                 {
+                    Id = row.Field<string>("product_id"),
                     Name = row.Field<string>("name"),
                     OriginalPrice = row.Field<decimal>("original_price"),
                     SellingPrice = row.Field<decimal>("selling_price"),
@@ -66,5 +123,9 @@ WHERE rs.name = @retailStoreName;", conn);
             return stock;
         }
 
+        public static List<ProductQuantity> GetWarehouseStock(string warehouseId)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

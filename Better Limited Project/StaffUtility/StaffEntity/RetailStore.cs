@@ -9,18 +9,30 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
     [Serializable]
     public class RetailStore : IWorkplace
     {
+        public string Id { get; }
         public string Name { get; }
-        public string? Address { get; }
+        public string Address { get; }
 
-        public RetailStore(string name, string? address)
+        public RetailStore(string id, string name, string address)
         {
+            Id = id;
             Name = name;
             Address = address;
         }
 
         public List<ProductQuantity> GetStock()
         {
-            return StockRepository.GetStock(Name);
+            return StockRepository.GetRetailStoreStock(Id);
+        }
+        
+        public ProductQuantity GetStock(string productId)
+        {
+            return StockRepository.GetRetailStoreStock(Id, productId);
+        }
+
+        public void UpdateSellingPrice(Product product, decimal sellingPrice)
+        {
+            StockRepository.UpdateProductInfo(Id, product.Id, sellingPrice);
         }
     }
 }

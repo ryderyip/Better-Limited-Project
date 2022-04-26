@@ -6,8 +6,9 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
 {
     public interface IWorkplace
     {
+        public string Id { get; }
         public string Name { get; }
-        public string? Address { get; }
+        public string Address { get; }
 
         public List<ProductQuantity> GetStock();
     }

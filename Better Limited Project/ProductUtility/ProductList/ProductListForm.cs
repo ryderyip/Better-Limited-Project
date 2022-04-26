@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Windows.Forms;
 using Better_Limited_Project.ProductUtility.Entity;
+using Better_Limited_Project.SettingsUtility;
+using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.ProductUtility.ProductList
 {
     public partial class ProductListForm : Form
     {
-        private readonly List<ProductQuantity> _stock;
+        private List<ProductQuantity> _stock;
 
         public delegate void ProductClickedEventHandler<T>(object sender, T t);
 
@@ -75,6 +77,12 @@ namespace Better_Limited_Project.ProductUtility.ProductList
         {
             var clickedProduct = _stock[e.RowIndex];
             ProductClicked?.Invoke(this, clickedProduct);
+        }
+
+        public void RefreshStock(List<ProductQuantity> stock)
+        {
+            _stock = stock;
+            PopulateDataGrid();
         }
     }
 }
