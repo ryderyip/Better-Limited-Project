@@ -23,7 +23,6 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
         public List<ProductQuantity> GetStock()
         {
             return StockRepository.GetWarehouseStock(Id);
-            // TODO need to separate retail store stock repo and warehouse stock repo
         }
     }
 }
