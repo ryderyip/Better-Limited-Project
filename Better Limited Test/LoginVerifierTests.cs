@@ -2,7 +2,7 @@ using Better_Limited_Project.Login;
 using Better_Limited_Project.SettingsUtility;
 using NUnit.Framework;
 
-namespace UnitTests
+namespace Better_Limited_Test
 {
     [TestFixture]
     public class LoginVerifierTests

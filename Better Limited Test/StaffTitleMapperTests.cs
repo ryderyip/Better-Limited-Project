@@ -1,7 +1,7 @@
 ﻿using Better_Limited_Project.StaffUtility.StaffEntity;
 using NUnit.Framework;
 
-namespace UnitTests
+namespace Better_Limited_Test
 {
     [TestFixture]
     public class StaffTitleMapperTests
