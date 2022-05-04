@@ -15,7 +15,6 @@ namespace Better_Limited_Project
         static void Main()
         {
             Application.EnableVisualStyles();
-            Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.SetCompatibleTextRenderingDefault(false);
 
             var mainForm = new MainForm();
