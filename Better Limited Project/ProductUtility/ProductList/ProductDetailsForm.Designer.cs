@@ -313,6 +313,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList
             this.Controls.Add(this.lblProductInfo);
             this.Name = "ProductDetailsForm";
             this.Text = "ProductDetailsForm";
+            this.Shown += new System.EventHandler(this.OnShown);
             this.ResumeLayout(false);
             this.PerformLayout();
         }

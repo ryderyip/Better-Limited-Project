@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Better_Limited_Project.FormControlling;
-using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.SettingsUtility;
-using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.ProductUtility.ProductList
 {
@@ -27,26 +25,42 @@ namespace Better_Limited_Project.ProductUtility.ProductList
                 return;
             }
 
-            var stock = workplace.GetStock();
-            _productListForm = new ProductListForm(stock);
+            _productListForm = new ProductListForm();
             _productListForm.ProductClicked += OnProductClicked;
+            _productListForm.UpdateStockLevelClicked += OnUpdateStockLevelClicked;
             _formController.OpenContentForm(_productListForm);
         }
 
-        private void OnProductClicked(object sender, ProductQuantity productQuantity)
+        private void OnUpdateStockLevelClicked(object sender, EventArgs e)
         {
-            var controller = new ProductDetailsController(productQuantity);
+            var controller = new UpdateStockLevelController(_formController);
+            controller.StockLevelUpdated += OnStockLevelUpdated;
+            controller.OpenForm();
+        }
+
+        private void OnStockLevelUpdated(object sender, EventArgs e)
+        {
+            RefreshUiStock();
+        }
+
+        private void OnProductClicked(object sender, string productId)
+        {
+            var controller = new ProductDetailsController(productId);
             controller.ProductInfoUpdated += OnProductInfoUpdated;
             controller.OpenForm();
         }
 
         private void OnProductInfoUpdated(object sender, EventArgs e)
         {
-            var retailStore = (RetailStore) UserSettings.GetSettings().Workplace;
-            if (retailStore == null)
-                return;
-            
-            _productListForm.RefreshStock(retailStore.GetStock());
+            RefreshUiStock();
+        }
+
+        private void RefreshUiStock()
+        {
+            if (_productListForm == null)
+                throw new Exception("Product list form is null when trying to access it");
+
+            _productListForm.RefreshStock();
         }
     }
 }

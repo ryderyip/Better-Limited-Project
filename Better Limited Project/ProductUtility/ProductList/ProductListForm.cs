@@ -1,88 +1,85 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
+using System.Data;
+using System.Linq;
 using System.Windows.Forms;
+using Better_Limited_Project.DatabaseUtility;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.SettingsUtility;
-using Better_Limited_Project.StaffUtility.StaffEntity;
+using MySql.Data.MySqlClient;
 
 namespace Better_Limited_Project.ProductUtility.ProductList
 {
     public partial class ProductListForm : Form
     {
-        private List<ProductQuantity> _stock;
-
-        public delegate void ProductClickedEventHandler<T>(object sender, T t);
-
-        public event ProductClickedEventHandler<ProductQuantity> ProductClicked;
+        public delegate void ProductClickedEventHandler(object sender, string productId);
+        public delegate void UpdateStockLevelClickedEventHandler(object sender, EventArgs e);
+        public event ProductClickedEventHandler ProductClicked;
+        public event UpdateStockLevelClickedEventHandler UpdateStockLevelClicked;
+        private DataTable _productTable;
 
         public ProductListForm()
         {
             InitializeComponent();
+            _productTable = GetProductTable();
+        }
+        
+        private void OnFormShown(object sender, EventArgs e)
+        {
+            dgvProductList.DataSource = _productTable;
         }
 
-        public ProductListForm(List<ProductQuantity> stock) : this()
+        private DataTable GetProductTable()
         {
-            _stock = stock;
-        }
-
-        private void ProductListForm_Shown(object sender, EventArgs e)
-        {
-            SetupDataGrid();
-            PopulateDataGrid();
-        }
-
-        private void SetupDataGrid()
-        {
-            dgvProductList.ColumnCount = 4;
-            dgvProductList.Columns[0].Name = "Name";
-            dgvProductList.Columns[1].Name = "Quantity";
-            dgvProductList.Columns[2].Name = "Price";
-            dgvProductList.Columns[3].Name = "Category";
-        }
-
-        private void PopulateDataGrid()
-        {
-            PopulateDataGrid(_stock);
-        }
-
-        private void PopulateDataGrid(List<ProductQuantity> stock)
-        {
-            dgvProductList.Rows.Clear();
-            dgvProductList.Refresh();
-            foreach (var productQuantity in stock)
-            {
-                object[] row =
-                {
-                    productQuantity.Product.Name,
-                    productQuantity.Quantity.ToString(),
-                    productQuantity.Product.SellingPrice.ToString("C", new CultureInfo("zh-HK")),
-                    productQuantity.Product.Category
-                };
-                dgvProductList.Rows.Add(row);
-            }
+            var retailStoreId = UserSettings.GetSettings().Workplace?.Id;
+            using var conn = Database.GetConnection();
+            conn.Open();
+            var dataTable = new DataTable();
+            var command = new MySqlCommand(
+                @"select p.id as product_id,
+                       p.name as name, 
+                       rss.quantity, 
+                       rss.selling_price, 
+                       pc.name as category
+                        from retail_store_stock rss
+                        INNER JOIN product p on rss.product_id = p.id
+                        INNER JOIN product_category pc on p.category_id = pc.id
+                        INNER JOIN retail_store rs on rss.retail_store_id = rs.id
+                        WHERE rs.id = @retailStoreId;", conn);
+            command.Parameters.AddWithValue("@retailStoreId", retailStoreId);
+            var dataReader = command.ExecuteReader();
+            dataTable.Load(dataReader);
+            dataReader.Close();
+            return dataTable;
         }
 
         private void txtSearchKeywords_TextChanged(object sender, EventArgs e)
         {
             string keywords = txtSearchKeywords.Text;
-            var filteredStock = _stock.FindAll(
-                productQuantity => productQuantity.Product.Name.ToLower().Contains(keywords.ToLower()));
-            PopulateDataGrid(filteredStock);
-     
-            txtNoResults.Visible = (filteredStock.Count == 0 && !string.IsNullOrWhiteSpace(keywords));
+            var rows = _productTable.AsEnumerable()
+                .Where(row => row.Field<string>("Name").ToLower().Contains(keywords.ToLower()));
+            dgvProductList.DataSource = rows.Any() ? 
+                rows.CopyToDataTable() : _productTable.Clone();
+
+            bool isNoSearchResult = dgvProductList.Rows.Count == 0 && !string.IsNullOrWhiteSpace(keywords);
+            txtNoResults.Visible = isNoSearchResult;
         }
 
         private void dgvProductList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            var clickedProduct = _stock[e.RowIndex];
-            ProductClicked?.Invoke(this, clickedProduct);
+            var clickedProductRow = _productTable.Rows[e.RowIndex];
+            ProductClicked?.Invoke(this, clickedProductRow["product_id"].ToString());
         }
 
-        public void RefreshStock(List<ProductQuantity> stock)
+        public void RefreshStock()
         {
-            _stock = stock;
-            PopulateDataGrid();
+            _productTable = GetProductTable();
+            dgvProductList.DataSource = _productTable;
+        }
+
+        private void btnUpdateStockLevel_Click(object sender, EventArgs e)
+        {
+            UpdateStockLevelClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

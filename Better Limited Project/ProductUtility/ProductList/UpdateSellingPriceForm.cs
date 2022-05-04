@@ -6,7 +6,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList
 {
     public partial class UpdateSellingPriceForm : Form
     {
-        public delegate void UpdateSellingPriceClickedEventHandler(object sender, string newSellingPrice);
+        public delegate void UpdateSellingPriceClickedEventHandler(object sender, decimal newSellingPrice);
         public event UpdateSellingPriceClickedEventHandler UpdateSellingPriceClicked;
         
         public UpdateSellingPriceForm(decimal originalSellingPrice)
@@ -18,7 +18,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList
 
         private void btnUpdateSellingPrice_Click(object sender, EventArgs e)
         {
-            UpdateSellingPriceClicked?.Invoke(this, tbNewSellingPrice.Text);
+            UpdateSellingPriceClicked?.Invoke(this, nudNewSellingPrice.Value);
             Close();
         }
     }

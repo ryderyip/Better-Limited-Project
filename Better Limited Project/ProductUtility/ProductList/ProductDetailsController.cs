@@ -1,21 +1,18 @@
 ﻿using System;
-using Better_Limited_Project.ProductUtility.Entity;
-using Better_Limited_Project.SettingsUtility;
-using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.ProductUtility.ProductList
 {
     public class ProductDetailsController
     {
-        private readonly ProductQuantity _productQuantity;
         private readonly ProductDetailsForm _productDetailsForm;
         public delegate void ProductInfoUpdatedEventHandler(object sender, EventArgs e);
         public event ProductInfoUpdatedEventHandler ProductInfoUpdated;
+        private readonly string _productId;
 
-        public ProductDetailsController(ProductQuantity productQuantity)
+        public ProductDetailsController(string productId)
         {
-            _productQuantity = productQuantity;
-            _productDetailsForm = new ProductDetailsForm(productQuantity);
+            _productId = productId;
+            _productDetailsForm = new ProductDetailsForm(productId);
         }
 
         public void OpenForm()
@@ -26,24 +23,15 @@ namespace Better_Limited_Project.ProductUtility.ProductList
 
         private void OnUpdateProductInfoClicked(object sender, EventArgs e)
         {
-            var controller = new UpdateSellingPriceController(_productQuantity.Product);
+            var controller = new UpdateSellingPriceController(_productId);
             controller.SellingPriceUpdated += OnSellingPriceUpdated;
             controller.OpenForm();
         }
 
         private void OnSellingPriceUpdated(object sender, EventArgs e)
         {
-            var newProductInfo = GetNewProductInfo();
-            if (newProductInfo == null)
-                return;
             ProductInfoUpdated?.Invoke(this, EventArgs.Empty);
-            _productDetailsForm.RefreshProductInfo(newProductInfo.Value);
-        }
-
-        private ProductQuantity? GetNewProductInfo()
-        {
-            var retailStore = (RetailStore) UserSettings.GetSettings().Workplace;
-            return retailStore?.GetStock(_productQuantity.Product.Id);
+            _productDetailsForm.RefreshProductInfo(_productId);
         }
     }
 }

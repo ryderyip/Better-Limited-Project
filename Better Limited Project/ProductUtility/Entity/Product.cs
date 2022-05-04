@@ -1,6 +1,4 @@
-﻿using Better_Limited_Project.ProductUtility.ProductList;
-
-namespace Better_Limited_Project.ProductUtility.Entity
+﻿namespace Better_Limited_Project.ProductUtility.Entity
 {
     public class Product
     {

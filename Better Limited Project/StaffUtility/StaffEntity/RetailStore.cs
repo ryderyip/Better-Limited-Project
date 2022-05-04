@@ -30,9 +30,9 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
             return StockRepository.GetRetailStoreStock(Id, productId);
         }
 
-        public void UpdateSellingPrice(Product product, decimal sellingPrice)
+        public void UpdateSellingPrice(string productId, decimal sellingPrice)
         {
-            StockRepository.UpdateProductInfo(Id, product.Id, sellingPrice);
+            StockRepository.UpdateProductInfo(Id, productId, sellingPrice);
         }
     }
 }
