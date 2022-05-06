@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace Better_Limited_Project.FormControlling
 {
@@ -41,12 +39,6 @@ namespace Better_Limited_Project.FormControlling
             _navigationBar.Size = FormPropertyController.GetNavigationBarSize(_outerForm.Size);
             FormPropertyController.SetInnerFormProperty(_outerForm, _navigationBar, DockStyle.Left);
             _navigationBar.Show();
-        }
-
-        private List<Control> GetAll(Control control)
-        {
-            var controls = control.Controls.Cast<Control>().ToList();
-            return controls.SelectMany(GetAll).Concat(controls).ToList();
         }
     }
 }

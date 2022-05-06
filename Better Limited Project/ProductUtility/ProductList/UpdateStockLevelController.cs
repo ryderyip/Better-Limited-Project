@@ -7,15 +7,8 @@ namespace Better_Limited_Project.ProductUtility.ProductList
 {
     public class UpdateStockLevelController
     {
-        private readonly FormController _formController;
-
         public delegate void StockLevelUpdatedEventHandler(object sender, EventArgs e);
         public event StockLevelUpdatedEventHandler StockLevelUpdated;
-        
-        public UpdateStockLevelController(FormController formController)
-        {
-            _formController = formController;
-        }
 
         public void OpenForm()
         {

@@ -33,7 +33,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList
 
         private void OnUpdateStockLevelClicked(object sender, EventArgs e)
         {
-            var controller = new UpdateStockLevelController(_formController);
+            var controller = new UpdateStockLevelController();
             controller.StockLevelUpdated += OnStockLevelUpdated;
             controller.OpenForm();
         }

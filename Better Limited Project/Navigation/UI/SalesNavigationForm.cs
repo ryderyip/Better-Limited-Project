@@ -11,14 +11,10 @@ namespace Better_Limited_Project.Navigation.UI
         public event ButtonClickedEventHandler ProductListClicked;
         public event ButtonClickedEventHandler SettingsClicked;
 
-        public SalesNavigationForm()
+        public SalesNavigationForm(string staffName)
         {
             InitializeComponent();
-        }
-
-        public void SetProfileButtonStaffName(string staffName)
-        {
-            btnProfile.Text = staffName;
+            Shown += (_, _) => btnProfile.Text = staffName;
         }
 
         private void btnProfile_Click(object sender, EventArgs e)

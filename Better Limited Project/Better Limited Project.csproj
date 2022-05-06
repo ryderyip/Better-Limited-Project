@@ -291,10 +291,12 @@
 			<SubType>Form</SubType>
 		</Compile>
 		<Compile Include="Sales\Sales.SalesOrder\DeliverySessionSelectionForm.Designer.cs" />
+		<Compile Include="Sales\Sales.SalesOrder\PlaceOrderController.cs" />
 		<Compile Include="Sales\Sales.SalesOrder\PlaceOrderForm.cs">
 			<SubType>Form</SubType>
 		</Compile>
 		<Compile Include="Sales\Sales.SalesOrder\PlaceOrderForm.Designer.cs" />
+		<Compile Include="Sales\Sales.SalesOrder\PlaceOrderFormPageFiller.cs" />
 		<Compile Include="Sales\Sales.SalesOrder\SalesOrderDetailsForm.cs">
 			<SubType>Form</SubType>
 		</Compile>
@@ -303,6 +305,8 @@
 			<SubType>Form</SubType>
 		</Compile>
 		<Compile Include="Sales\Sales.SalesOrder\SalesOrderForm.Designer.cs" />
+		<Compile Include="Sales\Sales.SalesOrder\SalesOrderPager\PlaceOrderItemControlCollection.cs" />
+		<Compile Include="Sales\Sales.SalesOrder\SalesOrderPager\PlaceOrderViewProductsPager.cs" />
 		<Compile Include="ServiceUtility\Delivery\ArrangeSingleDeliveryForm.cs">
 			<SubType>Form</SubType>
 		</Compile>
@@ -409,6 +413,7 @@
 		<Compile Include="StaffUtility\StaffProfile\ProfileForm.Designer.cs">
 			<DependentUpon>ProfileForm.cs</DependentUpon>
 		</Compile>
+		<Compile Include="Tools\Pager.cs" />
 		<EmbeddedResource Include="CustomerRecord\CreateCustomerRecordForm.resx" />
 		<EmbeddedResource Include="CustomerRecord\FindCustomerRecordForm.resx" />
 		<EmbeddedResource Include="Login\LoginForm.resx">
