@@ -1,112 +1,100 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Better_Limited_Project.Tools
 {
     public class Pager<T>
     {
-        private class Page : IEnumerable<T>
-        {
-            private readonly int _pageSize;
-            public bool IsFull => _items.Count >= _pageSize;
-            private readonly List<T> _items = new();
-
-            public Page(int pageSize)
-            {
-                _pageSize = pageSize;
-            }
-
-            public void AddItem(T item)
-            {
-                if (IsFull)
-                    throw new InvalidOperationException("This page is full");
-                _items.Add(item);
-            }
-
-            public IEnumerator<T> GetEnumerator()
-            {
-                return _items.GetEnumerator();
-            }
-
-            IEnumerator IEnumerable.GetEnumerator()
-            {
-                return GetEnumerator();
-            }
-        }
-        
-        private readonly LinkedList<Page> _pages = new();
         private readonly int _pageSize;
-        private int _pageCount = 0;
-        private int currentPageIndex = 0;
+        private readonly List<T> _dataItems = new();
+        private int _currentPageIndex;
 
+        /// <param name="pageSize">Page size of the pager</param>
+        /// <exception cref="ArgumentException">Exception will be thrown if the page size is 0</exception>
         public Pager(int pageSize)
         {
+            if (pageSize <= 0)
+                throw new ArgumentException("Page size cannot be less than or equal to 0");
             _pageSize = pageSize;
         }
 
+        /// <summary>
+        /// Adds a generic item to the pager
+        /// </summary>
         public void AddItem(T item)
         {
-            if (HasNoPage() || IsLastPageFull())
-            {
-                var page = new Page(_pageSize);
-                page.AddItem(item);
-                _pages.AddLast(page);
-                _pageCount++;
-                return;
-            }
-                
-            _pages.Last!.Value.AddItem(item);
-        }
-
-        public IEnumerable<T> GetCurrentPage()
-        {
-            return _pages.ToArray()[currentPageIndex];
-        }
-
-        public IEnumerable<T> GetNextPage()
-        {
-            if (currentPageIndex == _pageCount - 1)
-                return GetCurrentPage();
-            return _pages.ToArray()[++currentPageIndex];
-        }
-        
-        public IEnumerable<T> GetPreviousPage()
-        {
-            if (currentPageIndex == 0)
-                return GetCurrentPage();
-            return _pages.ToArray()[--currentPageIndex];
-        }
-        
-        private bool HasNoPage()
-        {
-            return _pages.Last == null;
-        }
-
-        private bool IsLastPageFull()
-        {
-            if (_pages.Last == null)
-                throw new InvalidOperationException("The last page is null");
-            return _pages.Last.Value.IsFull;
-        }
-
-        public int GetPageCount()
-        {
-            return _pageCount;
+            _dataItems.Add(item);
         }
 
         /// <summary>
-        /// Get the specified page. Note that the page starts with 1, not 0.
+        /// Get the first page of the pager with the page size of the pager
         /// </summary>
-        public IEnumerable<T> GetPage(int page)
+        public IEnumerable<T> GetFirstPage()
         {
-            return _pages.ToArray()[page - 1];
+            if (_dataItems.Count < _pageSize)
+                return _dataItems.GetRange(0, _dataItems.Count);
+            return _dataItems.GetRange(0, _pageSize);
         }
 
-        public IEnumerable<IEnumerable<T>> GetPages()
+        /// <summary>
+        /// Returns the current page with the page size of the pager
+        /// </summary>
+        public IEnumerable<T> GetCurrentPage()
         {
-            return _pages.ToList();
+            return IsAlreadyLastPage()
+                ? GetLastPage()
+                : _dataItems.GetRange(_currentPageIndex, _pageSize);
+        }
+        
+        /// <summary>
+        /// Advances to the next page and returns it
+        /// </summary>
+        public IEnumerable<T> GetNextPage()
+        {
+            if (IsAlreadyLastPage())
+                return GetLastPage();
+
+            _currentPageIndex += _pageSize;
+            return GetCurrentPage();
+        }
+
+        /// <summary>
+        /// Get the previous page of the pager
+        /// </summary>
+        public IEnumerable<T> GetPreviousPage()
+        {
+            if (IsAlreadyFirstPage())
+                return GetFirstPage();
+            _currentPageIndex -= _pageSize;
+            return _dataItems.GetRange(_currentPageIndex, _pageSize);
+        }
+
+        /// <summary>
+        /// Get the last page of the pager
+        /// </summary>
+        public IEnumerable<T> GetLastPage()
+        {
+            int noOfItemsInLastPage = _dataItems.Count % _pageSize;
+            return _dataItems.GetRange(_dataItems.Count - noOfItemsInLastPage, noOfItemsInLastPage);
+        }
+
+        /// <summary>
+        /// Check if the pager contains any pages
+        /// </summary>
+        public bool HasPage()
+        {
+            return _dataItems.Count != 0;
+        }
+
+        private bool IsAlreadyLastPage()
+        {
+            int lastPageIndex = _dataItems.Count - 1;
+            return lastPageIndex - _currentPageIndex < _pageSize;
+        }
+
+        private bool IsAlreadyFirstPage()
+        {
+            return _currentPageIndex - _pageSize < 0;
         }
     }
 }
