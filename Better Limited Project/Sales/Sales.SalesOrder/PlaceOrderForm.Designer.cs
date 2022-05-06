@@ -107,6 +107,7 @@
             this.txtSearchKeywords.Name = "txtSearchKeywords";
             this.txtSearchKeywords.Size = new System.Drawing.Size(253, 20);
             this.txtSearchKeywords.TabIndex = 5;
+            this.txtSearchKeywords.TextChanged += new System.EventHandler(this.txtSearchKeywords_TextChanged);
             // 
             // lblSearchKeywords
             // 
