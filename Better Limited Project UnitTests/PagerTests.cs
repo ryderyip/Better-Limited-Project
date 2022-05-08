@@ -9,18 +9,14 @@ namespace UnitTests
     public class Pager
     {
         [Test] 
-        public void AddItem_PageSize0_ThrowException()
+        public void AddItem_PageSizeIsNegative_ThrowException()
         {
-            int pageSize = 0;
+            int pageSize = -1;
             Pager<string> book;
 
-            var ex = Assert.Throws<ArgumentException>(() => book = new(pageSize));
-
-            string expectedMessage = "Page size cannot be less than or equal to 0";
-            Assert.AreEqual(expectedMessage, ex.Message);
+            Assert.Throws<ArgumentException>(() => book = new(pageSize));
         }
 
-        
         [Test] 
         public void GetCurrentPage_PageSize4With6Items_First4Items()
         {
@@ -218,6 +214,31 @@ namespace UnitTests
 
             bool result = book.HasPage();
             bool expected = true;
+            
+            Assert.AreEqual(expected, result);
+        }
+
+        [Test]
+        public void ApplyFilter_PageSize3With7ItemsFilterWordsStartingWithLetterA_BookWithItemsStartingWithA()
+        {
+            int pageSize = 3;
+            Pager<string> book = new(pageSize);
+            book.AddItem("Apple");
+            book.AddItem("apple");
+            book.AddItem("apple");
+            book.AddItem("dpple");
+            book.AddItem("Apple2");
+            book.AddItem("cpple");
+            book.AddItem("Apple3");
+
+            var filteredBook = book.ApplyFilter(s => s.StartsWith('A'));
+            var result = filteredBook.GetCurrentPage();
+            IEnumerable<string> expected = new[]
+            {
+                "Apple",
+                "Apple2",
+                "Apple3"
+            };
             
             Assert.AreEqual(expected, result);
         }

@@ -10,7 +10,6 @@ namespace Better_Limited_Project.Sales.Sales.SalesOrder
         private readonly PlaceOrderFormPageFiller _pageFiller;
         private readonly PlaceOrderViewProductsPager _pager;
         
-
         public PlaceOrderForm(PlaceOrderViewProductsPager pager)
         {
             _pager = pager;

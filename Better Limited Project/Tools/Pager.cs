@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Better_Limited_Project.Tools
 {
@@ -13,9 +14,14 @@ namespace Better_Limited_Project.Tools
         /// <exception cref="ArgumentException">Exception will be thrown if the page size is 0</exception>
         public Pager(int pageSize)
         {
-            if (pageSize <= 0)
-                throw new ArgumentException("Page size cannot be less than or equal to 0");
+            if (pageSize < 0)
+                throw new ArgumentException("Page size cannot be negative");
             _pageSize = pageSize;
+        }
+
+        public Pager(int pageSize, IEnumerable<T> items) : this(pageSize)
+        {
+            _dataItems = items.ToList();
         }
 
         /// <summary>
@@ -74,10 +80,15 @@ namespace Better_Limited_Project.Tools
         /// </summary>
         public IEnumerable<T> GetLastPage()
         {
-            int noOfItemsInLastPage = _dataItems.Count % _pageSize;
+            int noOfItemsInLastPage = _dataItems.Count % _pageSize == 0 ? _pageSize : _dataItems.Count % _pageSize;
             return _dataItems.GetRange(_dataItems.Count - noOfItemsInLastPage, noOfItemsInLastPage);
         }
 
+        public Pager<T> ApplyFilter(Func<T,bool> condition)
+        {
+            return new Pager<T>(_pageSize, _dataItems.Where(condition));
+        }
+        
         /// <summary>
         /// Check if the pager contains any pages
         /// </summary>
