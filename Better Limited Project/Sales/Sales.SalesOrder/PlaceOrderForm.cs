@@ -11,10 +11,12 @@ namespace Better_Limited_Project.Sales.Sales.SalesOrder
     {
         private readonly PlaceOrderFormPageFiller _pageFiller;
         private readonly Pager<ProductQuantity> _pager;
+        private Pager<ProductQuantity> _filteredPager;
         
         public PlaceOrderForm(Pager<ProductQuantity> pager)
         {
             _pager = pager;
+            _filteredPager = pager;
             _pageFiller = new PlaceOrderFormPageFiller();
             InitializeComponent();
         }
@@ -22,8 +24,7 @@ namespace Better_Limited_Project.Sales.Sales.SalesOrder
         private void OnFormShown(object sender, EventArgs e)
         {
             CollectControls();
-            var filteredPager = GetKeywordFilteredPager();
-            var products = filteredPager.GetCurrentPage().ToArray();
+            var products = _pager.GetCurrentPage().ToArray();
             _pageFiller.FillPageWithProducts(products);
         }
         
@@ -69,22 +70,20 @@ namespace Better_Limited_Project.Sales.Sales.SalesOrder
 
         private void btnPreviousPage_Click(object sender, EventArgs e)
         {
-            var filteredPager = GetKeywordFilteredPager();
-            var products = filteredPager.GetPreviousPage().ToArray();
+            var products = _filteredPager.GetPreviousPage().ToArray();
             _pageFiller.FillPageWithProducts(products);
         }
         
         private void btnNextPage_Click(object sender, EventArgs e)
         {
-            var filteredPager = GetKeywordFilteredPager();
-            var products = filteredPager.GetNextPage().ToArray();
+            var products = _filteredPager.GetNextPage().ToArray();
             _pageFiller.FillPageWithProducts(products);
         }
 
         private void txtSearchKeywords_TextChanged(object sender, EventArgs e)
         {
-            var filteredPager = GetKeywordFilteredPager();
-            var products = filteredPager.GetCurrentPage().ToArray();
+            _filteredPager = GetKeywordFilteredPager();
+            var products = _filteredPager.GetCurrentPage().ToArray();
             _pageFiller.FillPageWithProducts(products);
         }
 
@@ -99,6 +98,42 @@ namespace Better_Limited_Project.Sales.Sales.SalesOrder
         {
             if (e.KeyChar.ToString().Equals("/"))
                 txtSearchKeywords.Focus();
+        }
+
+        private void AddProductButtonClicked(object sender, EventArgs e)
+        {
+            var products = _filteredPager.GetCurrentPage().ToArray();
+            var button = (Button) sender;
+            var product = button.Name switch
+            {
+                "btnAddProduct1" => products[0].Product,
+                "btnAddProduct2" => products[1].Product,
+                "btnAddProduct3" => products[2].Product,
+                "btnAddProduct4" => products[3].Product,
+                "btnAddProduct5" => products[4].Product,
+                "btnAddProduct6" => products[5].Product,
+                _ => throw new ArgumentOutOfRangeException(nameof(button.Name), $"Unexpected button name: {button.Name}")
+            };
+            AddProductToCart(product);
+        }
+
+        private void AddProductToCart(Product product)
+        {
+            var name = product.Name;
+            var price = product.SellingPrice;
+            var category = product.Category;
+            
+            var productRow = dgvCart.Rows
+                .Cast<DataGridViewRow>()
+                .FirstOrDefault(row => row.Cells["name"].Value.ToString().Equals(name));
+            if (productRow == null)
+            {
+                dgvCart.Rows.Add(name, price, 1, category);
+                return;
+            }
+
+            int addedQuantity = int.Parse(productRow.Cells["quantity"].Value.ToString());
+            productRow.Cells["quantity"].Value = addedQuantity + 1;
         }
     }
 }

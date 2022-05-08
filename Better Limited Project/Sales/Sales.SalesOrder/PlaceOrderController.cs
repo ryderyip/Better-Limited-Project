@@ -1,7 +1,7 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using Better_Limited_Project.DatabaseUtility;
 using Better_Limited_Project.ProductUtility.Entity;
-using Better_Limited_Project.Sales.Sales.SalesOrder.SalesOrderPager;
 using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.Tools;
 using MySql.Data.MySqlClient;
@@ -10,14 +10,17 @@ namespace Better_Limited_Project.Sales.Sales.SalesOrder
 {
     public class PlaceOrderController
     {
+        private readonly PlaceOrderForm _form;
         private readonly DataTable _productTable;
         private readonly Pager<ProductQuantity> _pager;
         private const int PageSize = 6;
 
         public PlaceOrderController()
         {
-            _productTable = GetProductTable();
             _pager = new Pager<ProductQuantity>(PageSize);
+            _form = new PlaceOrderForm(_pager);
+            _form.Shown += SetCartDgvSchemaOnShown;
+            _productTable = GetProductTable();
             PopulatePagerWithProductData();
         }
         
@@ -52,8 +55,10 @@ namespace Better_Limited_Project.Sales.Sales.SalesOrder
                 var quantity = productRow.Field<int>("quantity");
                 var product = new Product
                 {
+                    Id = productRow.Field<string>("id"),
                     Name = productRow.Field<string>("name"),
-                    SellingPrice = productRow.Field<decimal>("price")
+                    SellingPrice = productRow.Field<decimal>("price"),
+                    Category = productRow.Field<string>("category")
                 };
                 _pager.AddItem(new ProductQuantity(product, quantity));
             }
@@ -61,8 +66,15 @@ namespace Better_Limited_Project.Sales.Sales.SalesOrder
         
         public void OpenForm()
         {
-            var form = new PlaceOrderForm(_pager);
-            form.ShowDialog();
+            _form.ShowDialog();
+        }
+
+        private void SetCartDgvSchemaOnShown(object sender, EventArgs e)
+        {
+            _form.dgvCart.Columns.Add("name", "Name");
+            _form.dgvCart.Columns.Add("price", "Price");
+            _form.dgvCart.Columns.Add("quantity", "Qty");
+            _form.dgvCart.Columns.Add("category", "Category");
         }
     }
 }

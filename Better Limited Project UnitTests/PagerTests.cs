@@ -39,21 +39,24 @@ namespace UnitTests
             
             Assert.AreEqual(expected, result);
         }
-        
-        [Test]
-        public void GetCurrentPage_PageSize4With3Items_First3Items()
+
+        [Test] 
+        public void GetCurrentPage_FirstNextPageThenCurrentPagePageSize4With6Items_First4Items()
         {
             Pager<string> book = new(4);
             book.AddItem("Paragraph 1");
             book.AddItem("Paragraph 2");
             book.AddItem("Paragraph 3");
+            book.AddItem("Paragraph 4");
+            book.AddItem("Paragraph 5");
+            book.AddItem("Paragraph 6");
 
+            book.GetNextPage();
             var result = book.GetCurrentPage();
             IEnumerable<string> expected = new[]
             {
-                "Paragraph 1",
-                "Paragraph 2",
-                "Paragraph 3"
+                "Paragraph 5",
+                "Paragraph 6"
             };
             
             Assert.AreEqual(expected, result);

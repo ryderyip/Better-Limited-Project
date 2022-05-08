@@ -139,6 +139,7 @@
             this.btnAddProduct1.TabIndex = 46;
             this.btnAddProduct1.Text = "Add";
             this.btnAddProduct1.UseVisualStyleBackColor = false;
+            this.btnAddProduct1.Click += new System.EventHandler(this.AddProductButtonClicked);
             // 
             // lblCart
             // 
@@ -351,6 +352,7 @@
             this.btnAddProduct6.TabIndex = 46;
             this.btnAddProduct6.Text = "Add";
             this.btnAddProduct6.UseVisualStyleBackColor = false;
+            this.btnAddProduct6.Click += new System.EventHandler(this.AddProductButtonClicked);
             // 
             // panProduct5
             // 
@@ -418,6 +420,7 @@
             this.btnAddProduct5.TabIndex = 46;
             this.btnAddProduct5.Text = "Add";
             this.btnAddProduct5.UseVisualStyleBackColor = false;
+            this.btnAddProduct5.Click += new System.EventHandler(this.AddProductButtonClicked);
             // 
             // panProduct4
             // 
@@ -485,6 +488,7 @@
             this.btnAddProduct4.TabIndex = 46;
             this.btnAddProduct4.Text = "Add";
             this.btnAddProduct4.UseVisualStyleBackColor = false;
+            this.btnAddProduct4.Click += new System.EventHandler(this.AddProductButtonClicked);
             // 
             // panProduct3
             // 
@@ -552,6 +556,7 @@
             this.btnAddProduct3.TabIndex = 46;
             this.btnAddProduct3.Text = "Add";
             this.btnAddProduct3.UseVisualStyleBackColor = false;
+            this.btnAddProduct3.Click += new System.EventHandler(this.AddProductButtonClicked);
             // 
             // panProduct2
             // 
@@ -619,6 +624,7 @@
             this.btnAddProduct2.TabIndex = 46;
             this.btnAddProduct2.Text = "Add";
             this.btnAddProduct2.UseVisualStyleBackColor = false;
+            this.btnAddProduct2.Click += new System.EventHandler(this.AddProductButtonClicked);
             // 
             // btnNextPage
             // 
@@ -795,7 +801,7 @@
         private System.Windows.Forms.Panel panProductList;
         private System.Windows.Forms.Panel panProduct1;
 
-        private System.Windows.Forms.DataGridView dgvCart;
+        public System.Windows.Forms.DataGridView dgvCart;
 
         private System.Windows.Forms.Panel panel2;
         
