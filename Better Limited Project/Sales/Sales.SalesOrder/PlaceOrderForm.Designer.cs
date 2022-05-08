@@ -255,7 +255,6 @@
             this.btnClearCart.TabIndex = 67;
             this.btnClearCart.Text = "Clear Cart";
             this.btnClearCart.UseVisualStyleBackColor = false;
-            this.btnClearCart.Visible = false;
             // 
             // btnNext
             // 
@@ -268,7 +267,6 @@
             this.btnNext.TabIndex = 68;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = false;
-            this.btnNext.Visible = false;
             // 
             // panProductList
             // 
@@ -739,10 +737,12 @@
             this.Controls.Add(this.panProductList);
             this.Controls.Add(this.txtSearchKeywords);
             this.Controls.Add(this.lblSearchKeywords);
+            this.KeyPreview = true;
             this.Name = "PlaceOrderForm";
             this.Padding = new System.Windows.Forms.Padding(0, 0, 0, 100);
             this.Text = "PlaceOrderForm";
             this.Shown += new System.EventHandler(this.OnFormShown);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PlaceOrderForm_KeyPress);
             ((System.ComponentModel.ISupportInitialize) (this.pbProduct1)).EndInit();
             this.panProductList.ResumeLayout(false);
             this.panProduct6.ResumeLayout(false);

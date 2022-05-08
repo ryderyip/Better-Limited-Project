@@ -306,7 +306,6 @@
 		</Compile>
 		<Compile Include="Sales\Sales.SalesOrder\SalesOrderForm.Designer.cs" />
 		<Compile Include="Sales\Sales.SalesOrder\SalesOrderPager\PlaceOrderItemControlCollection.cs" />
-		<Compile Include="Sales\Sales.SalesOrder\SalesOrderPager\PlaceOrderViewProductsPager.cs" />
 		<Compile Include="ServiceUtility\Delivery\ArrangeSingleDeliveryForm.cs">
 			<SubType>Form</SubType>
 		</Compile>

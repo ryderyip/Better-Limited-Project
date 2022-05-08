@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
+using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.Sales.Sales.SalesOrder.SalesOrderPager;
+using Better_Limited_Project.Tools;
 
 namespace Better_Limited_Project.Sales.Sales.SalesOrder
 {
     public partial class PlaceOrderForm : Form
     {
         private readonly PlaceOrderFormPageFiller _pageFiller;
-        private readonly PlaceOrderViewProductsPager _pager;
+        private readonly Pager<ProductQuantity> _pager;
         
-        public PlaceOrderForm(PlaceOrderViewProductsPager pager)
+        public PlaceOrderForm(Pager<ProductQuantity> pager)
         {
             _pager = pager;
             _pageFiller = new PlaceOrderFormPageFiller();
@@ -20,7 +22,8 @@ namespace Better_Limited_Project.Sales.Sales.SalesOrder
         private void OnFormShown(object sender, EventArgs e)
         {
             CollectControls();
-            var products = _pager.GetCurrentPageProducts().ToArray();
+            var filteredPager = GetKeywordFilteredPager();
+            var products = filteredPager.GetCurrentPage().ToArray();
             _pageFiller.FillPageWithProducts(products);
         }
         
@@ -66,20 +69,36 @@ namespace Better_Limited_Project.Sales.Sales.SalesOrder
 
         private void btnPreviousPage_Click(object sender, EventArgs e)
         {
-            var products = _pager.GetPreviousPageProducts().ToArray();
+            var filteredPager = GetKeywordFilteredPager();
+            var products = filteredPager.GetPreviousPage().ToArray();
             _pageFiller.FillPageWithProducts(products);
         }
         
         private void btnNextPage_Click(object sender, EventArgs e)
         {
-            var products = _pager.GetNextPageProducts().ToArray();
+            var filteredPager = GetKeywordFilteredPager();
+            var products = filteredPager.GetNextPage().ToArray();
             _pageFiller.FillPageWithProducts(products);
         }
 
         private void txtSearchKeywords_TextChanged(object sender, EventArgs e)
         {
-            /*var products = _pager.;
-            _pageFiller.FillPageWithProducts(products);*/
+            var filteredPager = GetKeywordFilteredPager();
+            var products = filteredPager.GetCurrentPage().ToArray();
+            _pageFiller.FillPageWithProducts(products);
+        }
+
+        private Pager<ProductQuantity> GetKeywordFilteredPager()
+        {
+            string keyword = txtSearchKeywords.Text;
+            return _pager.ApplyFilter(
+                productQuantity => productQuantity.Product.Name.ToLower().Contains(keyword.ToLower()));
+        }
+
+        private void PlaceOrderForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar.ToString().Equals("/"))
+                txtSearchKeywords.Focus();
         }
     }
 }

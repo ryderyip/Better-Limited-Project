@@ -14,8 +14,8 @@ namespace Better_Limited_Project.Tools
         /// <exception cref="ArgumentException">Exception will be thrown if the page size is 0</exception>
         public Pager(int pageSize)
         {
-            if (pageSize < 0)
-                throw new ArgumentException("Page size cannot be negative");
+            if (pageSize <= 0)
+                throw new ArgumentException("Page size cannot be less than or equal to 0");
             _pageSize = pageSize;
         }
 
@@ -80,6 +80,8 @@ namespace Better_Limited_Project.Tools
         /// </summary>
         public IEnumerable<T> GetLastPage()
         {
+            if (_dataItems.Count == 0)
+                return Enumerable.Empty<T>();
             int noOfItemsInLastPage = _dataItems.Count % _pageSize == 0 ? _pageSize : _dataItems.Count % _pageSize;
             return _dataItems.GetRange(_dataItems.Count - noOfItemsInLastPage, noOfItemsInLastPage);
         }

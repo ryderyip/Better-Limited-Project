@@ -3,6 +3,7 @@ using Better_Limited_Project.DatabaseUtility;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.Sales.Sales.SalesOrder.SalesOrderPager;
 using Better_Limited_Project.SettingsUtility;
+using Better_Limited_Project.Tools;
 using MySql.Data.MySqlClient;
 
 namespace Better_Limited_Project.Sales.Sales.SalesOrder
@@ -10,12 +11,13 @@ namespace Better_Limited_Project.Sales.Sales.SalesOrder
     public class PlaceOrderController
     {
         private readonly DataTable _productTable;
-        private readonly PlaceOrderViewProductsPager _pager;
+        private readonly Pager<ProductQuantity> _pager;
+        private const int PageSize = 6;
 
         public PlaceOrderController()
         {
             _productTable = GetProductTable();
-            _pager = new PlaceOrderViewProductsPager();
+            _pager = new Pager<ProductQuantity>(PageSize);
             PopulatePagerWithProductData();
         }
         
@@ -53,7 +55,7 @@ namespace Better_Limited_Project.Sales.Sales.SalesOrder
                     Name = productRow.Field<string>("name"),
                     SellingPrice = productRow.Field<decimal>("price")
                 };
-                _pager.AddProduct(new ProductQuantity(product, quantity));
+                _pager.AddItem(new ProductQuantity(product, quantity));
             }
         }
         
