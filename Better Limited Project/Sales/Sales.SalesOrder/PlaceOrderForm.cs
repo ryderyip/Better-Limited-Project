@@ -12,7 +12,7 @@ namespace Better_Limited_Project.Sales.Sales.SalesOrder
         private readonly PlaceOrderFormPageFiller _pageFiller;
         private readonly Pager<ProductQuantity> _pager;
         private Pager<ProductQuantity> _filteredPager;
-        
+
         public PlaceOrderForm(Pager<ProductQuantity> pager)
         {
             _pager = pager;
@@ -134,6 +134,11 @@ namespace Better_Limited_Project.Sales.Sales.SalesOrder
 
             int addedQuantity = int.Parse(productRow.Cells["quantity"].Value.ToString());
             productRow.Cells["quantity"].Value = addedQuantity + 1;
+        }
+
+        private void btnClearCart_Click(object sender, EventArgs e)
+        {
+            dgvCart.Rows.Clear();
         }
     }
 }

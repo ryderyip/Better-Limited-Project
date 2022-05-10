@@ -256,6 +256,7 @@
             this.btnClearCart.TabIndex = 67;
             this.btnClearCart.Text = "Clear Cart";
             this.btnClearCart.UseVisualStyleBackColor = false;
+            this.btnClearCart.Click += new System.EventHandler(this.btnClearCart_Click);
             // 
             // btnNext
             // 
@@ -864,6 +865,6 @@
         private System.Windows.Forms.CheckBox checkBoxEmailReceipt;
         private System.Windows.Forms.CheckBox checkBoxNeedInstallation;
         private System.Windows.Forms.Button btnClearCart;
-        private System.Windows.Forms.Button btnNext;
+        public System.Windows.Forms.Button btnNext;
     }
 }

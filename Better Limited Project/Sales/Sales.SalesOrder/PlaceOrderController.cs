@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Data;
+using System.Drawing;
+using System.Windows.Forms;
 using Better_Limited_Project.DatabaseUtility;
+using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.ProductUtility.Entity;
+using Better_Limited_Project.Sales.Payment;
 using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.Tools;
 using MySql.Data.MySqlClient;
@@ -10,18 +14,78 @@ namespace Better_Limited_Project.Sales.Sales.SalesOrder
 {
     public class PlaceOrderController
     {
-        private readonly PlaceOrderForm _form;
-        private readonly DataTable _productTable;
-        private readonly Pager<ProductQuantity> _pager;
+        private PlaceOrderForm _form;
+        private Pager<ProductQuantity> _pager;
         private const int PageSize = 6;
+        private readonly FormController _formController;
 
         public PlaceOrderController()
         {
             _pager = new Pager<ProductQuantity>(PageSize);
             _form = new PlaceOrderForm(_pager);
+            _formController = new FormController(CreateBlankForm());
+            Initialize();
+        }
+
+        private Form CreateBlankForm()
+        {
+            var form = new Form();
+            form.Size = new Size(1280, 720);
+            return form;
+        }
+
+        private void Initialize()
+        {
+            _pager = new Pager<ProductQuantity>(PageSize);
+            _form = new PlaceOrderForm(_pager);
+            _form.btnNext.Click += OnNextClicked;
             _form.Shown += SetCartDgvSchemaOnShown;
-            _productTable = GetProductTable();
             PopulatePagerWithProductData();
+        }
+
+        private void OnNextClicked(object sender, EventArgs e)
+        {
+            if (_form.dgvCart.Rows.Count == 0)
+                return; // TODO prompt a non intruding message
+            
+            var paymentCreator = new PaymentCreator(_formController);
+            paymentCreator.PaymentCompleted += OnPaymentCompleted;
+            paymentCreator.CreatePayment();
+        }
+
+        private void OnPaymentCompleted(object sender, PaymentStatus status)
+        {
+            if (status == PaymentStatus.Successful)
+            {
+                _form.Closed += (_, _) =>
+                {
+                    Initialize();
+                    OpenForm();
+                };
+                _form.Close();
+            }
+            else
+            {
+                Initialize();
+                OpenForm();
+            }
+        }
+
+        private void PopulatePagerWithProductData()
+        {
+            var productTable = GetProductTable();
+            foreach (DataRow productRow in productTable.Rows)
+            {
+                var quantity = productRow.Field<int>("quantity");
+                var product = new Product
+                {
+                    Id = productRow.Field<string>("id"),
+                    Name = productRow.Field<string>("name"),
+                    SellingPrice = productRow.Field<decimal>("price"),
+                    Category = productRow.Field<string>("category")
+                };
+                _pager.AddItem(new ProductQuantity(product, quantity));
+            }
         }
         
         private DataTable GetProductTable()
@@ -48,25 +112,9 @@ namespace Better_Limited_Project.Sales.Sales.SalesOrder
             return dataTable;
         }
 
-        private void PopulatePagerWithProductData()
-        {
-            foreach (DataRow productRow in _productTable.Rows)
-            {
-                var quantity = productRow.Field<int>("quantity");
-                var product = new Product
-                {
-                    Id = productRow.Field<string>("id"),
-                    Name = productRow.Field<string>("name"),
-                    SellingPrice = productRow.Field<decimal>("price"),
-                    Category = productRow.Field<string>("category")
-                };
-                _pager.AddItem(new ProductQuantity(product, quantity));
-            }
-        }
-        
         public void OpenForm()
         {
-            _form.ShowDialog();
+            _formController.OpenFullForm(_form);
         }
 
         private void SetCartDgvSchemaOnShown(object sender, EventArgs e)
