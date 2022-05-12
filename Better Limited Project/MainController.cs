@@ -32,7 +32,7 @@ namespace Better_Limited_Project
         {
             var loginController = new LoginController();
             loginController.LoggedIn += OnLoggedIn;
-            string lastLoginUsername = _userSettings.LastLoginUsername;
+            string? lastLoginUsername = _userSettings.LastLoginUsername;
             if (lastLoginUsername == null)
                 loginController.OpenForm(_formController);
             else

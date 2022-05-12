@@ -290,6 +290,7 @@
     </Compile>
     <Compile Include="Sales\Sales.SalesOrder\CustomerRecord\CreateCustomerRecordForm.Designer.cs" />
     <Compile Include="Sales\Sales.SalesOrder\CustomerRecord\Customer.cs" />
+    <Compile Include="Sales\Sales.SalesOrder\CustomerRecord\CustomerInformationValidation\CustomerInformationValidator.cs" />
     <Compile Include="Sales\Sales.SalesOrder\CustomerRecord\IsFirstTimeCustomerSelectionForm.cs">
       <SubType>Form</SubType>
     </Compile>

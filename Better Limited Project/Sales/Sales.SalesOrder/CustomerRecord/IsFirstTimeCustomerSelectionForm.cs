@@ -24,5 +24,11 @@ namespace Better_Limited_Project.Sales.Sales.SalesOrder.CustomerRecord
             ButtonClicked?.Invoke(this, false);
             Close();
         }
+
+        private void IsFirstTimeCustomerSelectionForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char) Keys.Escape)
+                Close();
+        }
     }
 }

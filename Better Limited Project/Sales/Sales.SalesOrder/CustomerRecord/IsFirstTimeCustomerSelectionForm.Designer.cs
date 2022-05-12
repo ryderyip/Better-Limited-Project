@@ -53,15 +53,17 @@ namespace Better_Limited_Project.Sales.Sales.SalesOrder.CustomerRecord
             this.btnOldCustomer.UseVisualStyleBackColor = true;
             this.btnOldCustomer.Click += new System.EventHandler(this.btnOldCustomer_Click);
             // 
-            // CustomerRecordForm
+            // IsFirstTimeCustomerSelectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(241, 211);
             this.Controls.Add(this.btnOldCustomer);
             this.Controls.Add(this.btnFirstTime);
+            this.KeyPreview = true;
             this.Name = "IsFirstTimeCustomerSelectionForm";
             this.Text = "CustomerRecordForm";
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsFirstTimeCustomerSelectionForm_KeyPress);
             this.ResumeLayout(false);
         }
 

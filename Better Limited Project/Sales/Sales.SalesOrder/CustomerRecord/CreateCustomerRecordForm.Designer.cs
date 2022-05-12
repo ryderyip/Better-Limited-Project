@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.txtEmailAddress = new System.Windows.Forms.TextBox();
-            this.txtCustPhoneNumber = new System.Windows.Forms.TextBox();
             this.txtCustName = new System.Windows.Forms.TextBox();
             this.lblEmailAddress = new System.Windows.Forms.Label();
             this.lblCustPhoneNumber = new System.Windows.Forms.Label();
@@ -44,6 +43,7 @@
             this.lblAddress1 = new System.Windows.Forms.Label();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
+            this.txtCustPhoneNumber = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // txtEmailAddress
@@ -52,13 +52,6 @@
             this.txtEmailAddress.Name = "txtEmailAddress";
             this.txtEmailAddress.Size = new System.Drawing.Size(214, 20);
             this.txtEmailAddress.TabIndex = 15;
-            // 
-            // txtCustPhoneNumber
-            // 
-            this.txtCustPhoneNumber.Location = new System.Drawing.Point(420, 319);
-            this.txtCustPhoneNumber.Name = "txtCustPhoneNumber";
-            this.txtCustPhoneNumber.Size = new System.Drawing.Size(214, 20);
-            this.txtCustPhoneNumber.TabIndex = 14;
             // 
             // txtCustName
             // 
@@ -193,6 +186,13 @@
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = false;
             // 
+            // txtCustPhoneNumber
+            // 
+            this.txtCustPhoneNumber.Location = new System.Drawing.Point(420, 319);
+            this.txtCustPhoneNumber.Name = "txtCustPhoneNumber";
+            this.txtCustPhoneNumber.Size = new System.Drawing.Size(214, 20);
+            this.txtCustPhoneNumber.TabIndex = 14;
+            // 
             // CreateCustomerRecordForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -221,6 +221,8 @@
             this.PerformLayout();
         }
 
+        private System.Windows.Forms.TextBox txtCustPhoneNumber;
+
         public System.Windows.Forms.Button btnBack;
 
         private System.Windows.Forms.TextBox txtCity;
@@ -228,7 +230,6 @@
         #endregion
 
         private System.Windows.Forms.TextBox txtEmailAddress;
-        private System.Windows.Forms.TextBox txtCustPhoneNumber;
         private System.Windows.Forms.TextBox txtCustName;
         private System.Windows.Forms.TextBox txtAddress1;
         private System.Windows.Forms.TextBox txtAddress2;
