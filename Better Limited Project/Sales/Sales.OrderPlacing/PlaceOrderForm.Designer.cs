@@ -1,4 +1,4 @@
-﻿namespace Better_Limited_Project.Sales.Sales.SalesOrder
+﻿namespace Better_Limited_Project.Sales.Sales.OrderPlacing
 {
     partial class PlaceOrderForm
     {
@@ -35,13 +35,7 @@
             this.lblCart = new System.Windows.Forms.Label();
             this.lblTotalPrice = new System.Windows.Forms.Label();
             this.txtTotalPrice = new System.Windows.Forms.TextBox();
-            this.lblFirstTimeCustomer = new System.Windows.Forms.Label();
-            this.lblNeedInstallation = new System.Windows.Forms.Label();
-            this.lblEmailReceipt = new System.Windows.Forms.Label();
-            this.lblNeedDelivery = new System.Windows.Forms.Label();
             this.checkBoxNeedDelivery = new System.Windows.Forms.CheckBox();
-            this.checkBoxFirstTimeCustomer = new System.Windows.Forms.CheckBox();
-            this.checkBoxEmailReceipt = new System.Windows.Forms.CheckBox();
             this.checkBoxNeedInstallation = new System.Windows.Forms.CheckBox();
             this.btnClearCart = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
@@ -169,80 +163,26 @@
             this.txtTotalPrice.Size = new System.Drawing.Size(100, 20);
             this.txtTotalPrice.TabIndex = 58;
             // 
-            // lblFirstTimeCustomer
-            // 
-            this.lblFirstTimeCustomer.AutoSize = true;
-            this.lblFirstTimeCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblFirstTimeCustomer.Location = new System.Drawing.Point(224, 573);
-            this.lblFirstTimeCustomer.Name = "lblFirstTimeCustomer";
-            this.lblFirstTimeCustomer.Size = new System.Drawing.Size(128, 16);
-            this.lblFirstTimeCustomer.TabIndex = 59;
-            this.lblFirstTimeCustomer.Text = "First-Time Customer";
-            // 
-            // lblNeedInstallation
-            // 
-            this.lblNeedInstallation.AutoSize = true;
-            this.lblNeedInstallation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblNeedInstallation.Location = new System.Drawing.Point(53, 572);
-            this.lblNeedInstallation.Name = "lblNeedInstallation";
-            this.lblNeedInstallation.Size = new System.Drawing.Size(108, 16);
-            this.lblNeedInstallation.TabIndex = 60;
-            this.lblNeedInstallation.Text = "Need Installation";
-            // 
-            // lblEmailReceipt
-            // 
-            this.lblEmailReceipt.AutoSize = true;
-            this.lblEmailReceipt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblEmailReceipt.Location = new System.Drawing.Point(224, 533);
-            this.lblEmailReceipt.Name = "lblEmailReceipt";
-            this.lblEmailReceipt.Size = new System.Drawing.Size(92, 16);
-            this.lblEmailReceipt.TabIndex = 61;
-            this.lblEmailReceipt.Text = "Email Receipt";
-            // 
-            // lblNeedDelivery
-            // 
-            this.lblNeedDelivery.AutoSize = true;
-            this.lblNeedDelivery.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblNeedDelivery.Location = new System.Drawing.Point(53, 532);
-            this.lblNeedDelivery.Name = "lblNeedDelivery";
-            this.lblNeedDelivery.Size = new System.Drawing.Size(95, 16);
-            this.lblNeedDelivery.TabIndex = 62;
-            this.lblNeedDelivery.Text = "Need Delivery";
-            // 
             // checkBoxNeedDelivery
             // 
             this.checkBoxNeedDelivery.AutoSize = true;
-            this.checkBoxNeedDelivery.Location = new System.Drawing.Point(32, 535);
+            this.checkBoxNeedDelivery.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.checkBoxNeedDelivery.Location = new System.Drawing.Point(32, 505);
             this.checkBoxNeedDelivery.Name = "checkBoxNeedDelivery";
-            this.checkBoxNeedDelivery.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxNeedDelivery.Size = new System.Drawing.Size(125, 24);
             this.checkBoxNeedDelivery.TabIndex = 63;
+            this.checkBoxNeedDelivery.Text = "Need Delivery";
             this.checkBoxNeedDelivery.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxFirstTimeCustomer
-            // 
-            this.checkBoxFirstTimeCustomer.AutoSize = true;
-            this.checkBoxFirstTimeCustomer.Location = new System.Drawing.Point(203, 573);
-            this.checkBoxFirstTimeCustomer.Name = "checkBoxFirstTimeCustomer";
-            this.checkBoxFirstTimeCustomer.Size = new System.Drawing.Size(15, 14);
-            this.checkBoxFirstTimeCustomer.TabIndex = 64;
-            this.checkBoxFirstTimeCustomer.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxEmailReceipt
-            // 
-            this.checkBoxEmailReceipt.AutoSize = true;
-            this.checkBoxEmailReceipt.Location = new System.Drawing.Point(203, 535);
-            this.checkBoxEmailReceipt.Name = "checkBoxEmailReceipt";
-            this.checkBoxEmailReceipt.Size = new System.Drawing.Size(15, 14);
-            this.checkBoxEmailReceipt.TabIndex = 65;
-            this.checkBoxEmailReceipt.UseVisualStyleBackColor = true;
             // 
             // checkBoxNeedInstallation
             // 
             this.checkBoxNeedInstallation.AutoSize = true;
-            this.checkBoxNeedInstallation.Location = new System.Drawing.Point(32, 572);
+            this.checkBoxNeedInstallation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.checkBoxNeedInstallation.Location = new System.Drawing.Point(32, 543);
             this.checkBoxNeedInstallation.Name = "checkBoxNeedInstallation";
-            this.checkBoxNeedInstallation.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxNeedInstallation.Size = new System.Drawing.Size(147, 24);
             this.checkBoxNeedInstallation.TabIndex = 66;
+            this.checkBoxNeedInstallation.Text = "Need Installation";
             this.checkBoxNeedInstallation.UseVisualStyleBackColor = true;
             // 
             // btnClearCart
@@ -708,15 +648,9 @@
             this.panel2.Controls.Add(this.btnNext);
             this.panel2.Controls.Add(this.btnClearCart);
             this.panel2.Controls.Add(this.checkBoxNeedInstallation);
-            this.panel2.Controls.Add(this.checkBoxEmailReceipt);
-            this.panel2.Controls.Add(this.checkBoxFirstTimeCustomer);
             this.panel2.Controls.Add(this.checkBoxNeedDelivery);
-            this.panel2.Controls.Add(this.lblNeedDelivery);
-            this.panel2.Controls.Add(this.lblEmailReceipt);
             this.panel2.Controls.Add(this.lblTotalPrice);
-            this.panel2.Controls.Add(this.lblNeedInstallation);
             this.panel2.Controls.Add(this.txtTotalPrice);
-            this.panel2.Controls.Add(this.lblFirstTimeCustomer);
             this.panel2.Location = new System.Drawing.Point(881, 0);
             this.panel2.MinimumSize = new System.Drawing.Size(123, 500);
             this.panel2.Name = "panel2";
@@ -731,6 +665,7 @@
             this.dgvCart.Location = new System.Drawing.Point(32, 92);
             this.dgvCart.Name = "dgvCart";
             this.dgvCart.ReadOnly = true;
+            this.dgvCart.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCart.Size = new System.Drawing.Size(320, 332);
             this.dgvCart.TabIndex = 69;
             // 
@@ -856,14 +791,8 @@
         private System.Windows.Forms.Label lblCart;
         private System.Windows.Forms.Label lblTotalPrice;
         private System.Windows.Forms.TextBox txtTotalPrice;
-        private System.Windows.Forms.Label lblFirstTimeCustomer;
-        private System.Windows.Forms.Label lblNeedInstallation;
-        private System.Windows.Forms.Label lblEmailReceipt;
-        private System.Windows.Forms.Label lblNeedDelivery;
-        private System.Windows.Forms.CheckBox checkBoxNeedDelivery;
-        private System.Windows.Forms.CheckBox checkBoxFirstTimeCustomer;
-        private System.Windows.Forms.CheckBox checkBoxEmailReceipt;
-        private System.Windows.Forms.CheckBox checkBoxNeedInstallation;
+        public System.Windows.Forms.CheckBox checkBoxNeedDelivery;
+        public System.Windows.Forms.CheckBox checkBoxNeedInstallation;
         private System.Windows.Forms.Button btnClearCart;
         public System.Windows.Forms.Button btnNext;
     }

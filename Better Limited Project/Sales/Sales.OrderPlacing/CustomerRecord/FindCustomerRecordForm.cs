@@ -29,8 +29,7 @@ namespace Better_Limited_Project.Sales.Sales.SalesOrder.CustomerRecord
                        c.email as email,
                        c.phone as phone,
                        da.address1 as address1,
-                       da.address2 as address2,
-                       da.city as city
+                       da.address2 as address2
                         from customer c
                         INNER JOIN delivery_address da on c.delivery_address_id = da.id;", conn);
             var dataReader = command.ExecuteReader();
@@ -41,6 +40,9 @@ namespace Better_Limited_Project.Sales.Sales.SalesOrder.CustomerRecord
 
         private void btnNext_Clicked(object sender, EventArgs e)
         {
+            if (dgvCustomerList.SelectedRows.Count == 0)
+                return; // TODO Display warning message if no row selected
+            
             var customer = CollectCustomerData();
             CustomerRecordRetrieved?.Invoke(this, customer);
         }
@@ -50,14 +52,13 @@ namespace Better_Limited_Project.Sales.Sales.SalesOrder.CustomerRecord
             var selectedRow = dgvCustomerList.SelectedRows[0];
             string name = selectedRow.Cells["name"].Value.ToString();
             string phone = selectedRow.Cells["phone"].Value.ToString();
-            string city = selectedRow.Cells["city"].Value.ToString();
             string address1 = selectedRow.Cells["address1"].Value.ToString();
             string address2 = selectedRow.Cells["address2"].Value.ToString();
             
             return new Customer(name, phone)
             {
                 Id = selectedRow.Cells["id"].Value.ToString(),
-                Address = new Address(city, address1, address2),
+                Address = new Address(address1, address2),
                 Email = selectedRow.Cells["email"].Value.ToString()
             };
         }
@@ -65,6 +66,12 @@ namespace Better_Limited_Project.Sales.Sales.SalesOrder.CustomerRecord
         private void OnFormShown(object sender, EventArgs e)
         {
             dgvCustomerList.DataSource = _customerTable;
+        }
+
+        private void txtSearchKeywords_TextChanged(object sender, EventArgs e)
+        {
+            // TODO implement search function
+            throw new System.NotImplementedException();
         }
     }
 }

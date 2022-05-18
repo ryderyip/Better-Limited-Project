@@ -1,11 +1,13 @@
 ﻿using System;
+using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.ProductUtility.Entity;
+using Better_Limited_Project.Sales.Sales.SalesOrder;
 using Better_Limited_Project.Sales.Sales.SalesOrder.SalesOrderPager;
 using Better_Limited_Project.Tools;
 
-namespace Better_Limited_Project.Sales.Sales.SalesOrder
+namespace Better_Limited_Project.Sales.Sales.OrderPlacing
 {
     public partial class PlaceOrderForm : Form
     {
@@ -115,6 +117,7 @@ namespace Better_Limited_Project.Sales.Sales.SalesOrder
                 _ => throw new ArgumentOutOfRangeException(nameof(button.Name), $"Unexpected button name: {button.Name}")
             };
             AddProductToCart(product);
+            CalculateTotalPrice();
         }
 
         private void AddProductToCart(Product product)
@@ -136,6 +139,18 @@ namespace Better_Limited_Project.Sales.Sales.SalesOrder
             productRow.Cells["quantity"].Value = addedQuantity + 1;
         }
 
+        private void CalculateTotalPrice()
+        {
+            decimal total = 0;
+            foreach (DataGridViewRow row in dgvCart.Rows)
+            {
+                decimal price = decimal.Parse(row.Cells["price"].Value.ToString());
+                int quantity = int.Parse(row.Cells["quantity"].Value.ToString());
+                total += price * quantity;
+            }
+            txtTotalPrice.Text = total.ToString("C", new CultureInfo("zh-HK"));
+        }
+        
         private void btnClearCart_Click(object sender, EventArgs e)
         {
             dgvCart.Rows.Clear();

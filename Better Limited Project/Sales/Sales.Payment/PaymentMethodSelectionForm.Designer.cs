@@ -28,103 +28,93 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblRemind = new System.Windows.Forms.Label();
-            this.lblCash = new System.Windows.Forms.Label();
-            this.lblCreditCard = new System.Windows.Forms.Label();
-            this.lblOctopusCard = new System.Windows.Forms.Label();
             this.btnNext = new System.Windows.Forms.Button();
-            this.btnBack = new System.Windows.Forms.Button();
+            this.lblSelectDeliverySession = new System.Windows.Forms.Label();
+            this.rbCash = new System.Windows.Forms.RadioButton();
+            this.rbCreditCard = new System.Windows.Forms.RadioButton();
+            this.rbOctopus = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
-            // 
-            // lblRemind
-            // 
-            this.lblRemind.AutoSize = true;
-            this.lblRemind.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRemind.Location = new System.Drawing.Point(280, 58);
-            this.lblRemind.Name = "lblRemind";
-            this.lblRemind.Size = new System.Drawing.Size(188, 15);
-            this.lblRemind.TabIndex = 1;
-            this.lblRemind.Text = "Please Select A Payment Method";
-            // 
-            // lblCash
-            // 
-            this.lblCash.AutoSize = true;
-            this.lblCash.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCash.Location = new System.Drawing.Point(335, 120);
-            this.lblCash.Name = "lblCash";
-            this.lblCash.Size = new System.Drawing.Size(68, 29);
-            this.lblCash.TabIndex = 2;
-            this.lblCash.Text = "Cash";
-            // 
-            // lblCreditCard
-            // 
-            this.lblCreditCard.AutoSize = true;
-            this.lblCreditCard.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCreditCard.Location = new System.Drawing.Point(305, 174);
-            this.lblCreditCard.Name = "lblCreditCard";
-            this.lblCreditCard.Size = new System.Drawing.Size(136, 29);
-            this.lblCreditCard.TabIndex = 3;
-            this.lblCreditCard.Text = "Credit Card";
-            // 
-            // lblOctopusCard
-            // 
-            this.lblOctopusCard.AutoSize = true;
-            this.lblOctopusCard.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOctopusCard.Location = new System.Drawing.Point(294, 227);
-            this.lblOctopusCard.Name = "lblOctopusCard";
-            this.lblOctopusCard.Size = new System.Drawing.Size(161, 29);
-            this.lblOctopusCard.TabIndex = 4;
-            this.lblOctopusCard.Text = "Octopus Card";
             // 
             // btnNext
             // 
             this.btnNext.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.btnNext.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnNext.Location = new System.Drawing.Point(400, 304);
+            this.btnNext.Location = new System.Drawing.Point(86, 196);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(98, 37);
+            this.btnNext.Size = new System.Drawing.Size(98, 40);
             this.btnNext.TabIndex = 52;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = false;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
-            // btnBack
+            // lblSelectDeliverySession
             // 
-            this.btnBack.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnBack.Location = new System.Drawing.Point(269, 304);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(104, 37);
-            this.btnBack.TabIndex = 51;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = false;
+            this.lblSelectDeliverySession.AutoSize = true;
+            this.lblSelectDeliverySession.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblSelectDeliverySession.Location = new System.Drawing.Point(40, 36);
+            this.lblSelectDeliverySession.Name = "lblSelectDeliverySession";
+            this.lblSelectDeliverySession.Size = new System.Drawing.Size(199, 20);
+            this.lblSelectDeliverySession.TabIndex = 53;
+            this.lblSelectDeliverySession.Text = "Select Payment Method";
+            // 
+            // rbCash
+            // 
+            this.rbCash.AutoSize = true;
+            this.rbCash.Location = new System.Drawing.Point(94, 82);
+            this.rbCash.Name = "rbCash";
+            this.rbCash.Size = new System.Drawing.Size(49, 17);
+            this.rbCash.TabIndex = 54;
+            this.rbCash.TabStop = true;
+            this.rbCash.Text = "Cash";
+            this.rbCash.UseVisualStyleBackColor = true;
+            // 
+            // rbCreditCard
+            // 
+            this.rbCreditCard.AutoSize = true;
+            this.rbCreditCard.Location = new System.Drawing.Point(94, 118);
+            this.rbCreditCard.Name = "rbCreditCard";
+            this.rbCreditCard.Size = new System.Drawing.Size(77, 17);
+            this.rbCreditCard.TabIndex = 55;
+            this.rbCreditCard.TabStop = true;
+            this.rbCreditCard.Text = "Credit Card";
+            this.rbCreditCard.UseVisualStyleBackColor = true;
+            // 
+            // rbOctopus
+            // 
+            this.rbOctopus.AutoSize = true;
+            this.rbOctopus.Location = new System.Drawing.Point(94, 153);
+            this.rbOctopus.Name = "rbOctopus";
+            this.rbOctopus.Size = new System.Drawing.Size(90, 17);
+            this.rbOctopus.TabIndex = 56;
+            this.rbOctopus.TabStop = true;
+            this.rbOctopus.Text = "Octopus Card";
+            this.rbOctopus.UseVisualStyleBackColor = true;
             // 
             // PaymentMethodSelectionForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(278, 278);
+            this.Controls.Add(this.rbOctopus);
+            this.Controls.Add(this.rbCreditCard);
+            this.Controls.Add(this.rbCash);
+            this.Controls.Add(this.lblSelectDeliverySession);
             this.Controls.Add(this.btnNext);
-            this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.lblOctopusCard);
-            this.Controls.Add(this.lblCreditCard);
-            this.Controls.Add(this.lblCash);
-            this.Controls.Add(this.lblRemind);
             this.Name = "PaymentMethodSelectionForm";
             this.Text = "PaymentMethod";
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
+
+        private System.Windows.Forms.RadioButton rbCash;
+        private System.Windows.Forms.RadioButton rbOctopus;
+        private System.Windows.Forms.RadioButton rbCreditCard;
+
+        private System.Windows.Forms.Label lblSelectDeliverySession;
 
         #endregion
 
-        private System.Windows.Forms.Label lblRemind;
-        private System.Windows.Forms.Label lblCash;
-        private System.Windows.Forms.Label lblCreditCard;
-        private System.Windows.Forms.Label lblOctopusCard;
         private System.Windows.Forms.Button btnNext;
-        private System.Windows.Forms.Button btnBack;
     }
 }

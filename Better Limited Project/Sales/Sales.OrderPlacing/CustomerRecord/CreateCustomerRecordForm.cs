@@ -47,16 +47,20 @@ namespace Better_Limited_Project.Sales.Sales.SalesOrder.CustomerRecord
                 }
                 
 
-            if (string.IsNullOrWhiteSpace(txtCustName.Text)
-                || string.IsNullOrWhiteSpace(txtAddress1.Text)
-                || string.IsNullOrWhiteSpace(txtAddress2.Text)
-                || string.IsNullOrWhiteSpace(txtCity.Text))
+            if (HasAnyUnfilledRequiredFields())
             {
                 MessageBox.Show("Please enter all required fields");
                 return false;
             }
 
             return true;
+        }
+
+        private bool HasAnyUnfilledRequiredFields()
+        {
+            return string.IsNullOrWhiteSpace(txtCustName.Text)
+                   || string.IsNullOrWhiteSpace(txtAddress1.Text)
+                   || string.IsNullOrWhiteSpace(txtAddress2.Text);
         }
 
         private Customer CollectInputs()
@@ -66,11 +70,10 @@ namespace Better_Limited_Project.Sales.Sales.SalesOrder.CustomerRecord
             string? email = txtEmailAddress.Text;
             string address1 = txtAddress1.Text;
             string address2 = txtAddress2.Text;
-            string city = txtCity.Text;
 
             var customer = new Customer(name, phone);
             customer.Email = string.IsNullOrWhiteSpace(email) ? null : email;
-            var address = new Address(city, address1, address2);
+            var address = new Address(address1, address2);
             customer.Address = address;
 
             return customer;

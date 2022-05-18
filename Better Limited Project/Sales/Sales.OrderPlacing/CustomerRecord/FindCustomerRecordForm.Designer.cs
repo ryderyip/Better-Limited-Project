@@ -62,6 +62,7 @@
             this.txtSearchKeywords.Name = "txtSearchKeywords";
             this.txtSearchKeywords.Size = new System.Drawing.Size(207, 20);
             this.txtSearchKeywords.TabIndex = 8;
+            this.txtSearchKeywords.TextChanged += new System.EventHandler(this.txtSearchKeywords_TextChanged);
             // 
             // dgvCustomerList
             // 
@@ -73,6 +74,7 @@
             this.dgvCustomerList.Name = "dgvCustomerList";
             this.dgvCustomerList.ReadOnly = true;
             this.dgvCustomerList.RowTemplate.Height = 24;
+            this.dgvCustomerList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCustomerList.Size = new System.Drawing.Size(448, 180);
             this.dgvCustomerList.TabIndex = 9;
             // 

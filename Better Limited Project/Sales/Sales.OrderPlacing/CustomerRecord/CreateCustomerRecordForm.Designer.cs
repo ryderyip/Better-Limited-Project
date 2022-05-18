@@ -35,10 +35,8 @@
             this.lblCustName = new System.Windows.Forms.Label();
             this.lblCustomerInfo = new System.Windows.Forms.Label();
             this.lblDeliveryInfo = new System.Windows.Forms.Label();
-            this.txtCity = new System.Windows.Forms.TextBox();
             this.txtAddress2 = new System.Windows.Forms.TextBox();
             this.txtAddress1 = new System.Windows.Forms.TextBox();
-            this.lblCity = new System.Windows.Forms.Label();
             this.lblAddress2 = new System.Windows.Forms.Label();
             this.lblAddress1 = new System.Windows.Forms.Label();
             this.btnNext = new System.Windows.Forms.Button();
@@ -110,13 +108,6 @@
             this.lblDeliveryInfo.TabIndex = 16;
             this.lblDeliveryInfo.Text = "Delivery Info";
             // 
-            // txtCity
-            // 
-            this.txtCity.Location = new System.Drawing.Point(740, 408);
-            this.txtCity.Name = "txtCity";
-            this.txtCity.Size = new System.Drawing.Size(214, 20);
-            this.txtCity.TabIndex = 22;
-            // 
             // txtAddress2
             // 
             this.txtAddress2.Location = new System.Drawing.Point(740, 319);
@@ -130,16 +121,6 @@
             this.txtAddress1.Name = "txtAddress1";
             this.txtAddress1.Size = new System.Drawing.Size(214, 20);
             this.txtAddress1.TabIndex = 20;
-            // 
-            // lblCity
-            // 
-            this.lblCity.AutoSize = true;
-            this.lblCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblCity.Location = new System.Drawing.Point(737, 373);
-            this.lblCity.Name = "lblCity";
-            this.lblCity.Size = new System.Drawing.Size(30, 16);
-            this.lblCity.TabIndex = 19;
-            this.lblCity.Text = "City";
             // 
             // lblAddress2
             // 
@@ -201,10 +182,8 @@
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnNext);
-            this.Controls.Add(this.txtCity);
             this.Controls.Add(this.txtAddress2);
             this.Controls.Add(this.txtAddress1);
-            this.Controls.Add(this.lblCity);
             this.Controls.Add(this.lblAddress2);
             this.Controls.Add(this.lblAddress1);
             this.Controls.Add(this.lblDeliveryInfo);
@@ -225,8 +204,6 @@
 
         public System.Windows.Forms.Button btnBack;
 
-        private System.Windows.Forms.TextBox txtCity;
-
         #endregion
 
         private System.Windows.Forms.TextBox txtEmailAddress;
@@ -240,7 +217,6 @@
         private System.Windows.Forms.Label lblCustName;
         private System.Windows.Forms.Label lblCustomerInfo;
         private System.Windows.Forms.Label lblDeliveryInfo;
-        private System.Windows.Forms.Label lblCity;
         private System.Windows.Forms.Label lblAddress2;
         private System.Windows.Forms.Label lblAddress1;
         public System.Windows.Forms.Button btnNext;
