@@ -33,9 +33,6 @@ namespace Better_Limited_Project.ProductUtility.ProductList
         private DataTable GetProductTable()
         {
             var retailStoreId = UserSettings.GetSettings().Workplace?.Id;
-            using var conn = Database.GetConnection();
-            conn.Open();
-            var dataTable = new DataTable();
             var command = new MySqlCommand(
                 @"select p.id as product_id,
                        p.name as name, 
@@ -46,12 +43,9 @@ namespace Better_Limited_Project.ProductUtility.ProductList
                         INNER JOIN product p on rss.product_id = p.id
                         INNER JOIN product_category pc on p.category_id = pc.id
                         INNER JOIN retail_store rs on rss.retail_store_id = rs.id
-                        WHERE rs.id = @retailStoreId;", conn);
+                        WHERE rs.id = @retailStoreId;");
             command.Parameters.AddWithValue("@retailStoreId", retailStoreId);
-            var dataReader = command.ExecuteReader();
-            dataTable.Load(dataReader);
-            dataReader.Close();
-            return dataTable;
+            return DataTableRepository.RetrieveDataTable(command);
         }
 
         private void dgvProductList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

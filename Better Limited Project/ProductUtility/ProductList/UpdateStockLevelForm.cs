@@ -41,22 +41,15 @@ namespace Better_Limited_Project.ProductUtility.ProductList
 
         private DataTable GetProductTable()
         {
-            string storeId = UserSettings.GetSettings().Workplace?.Id;
+            string storeId = UserSettings.GetSettings().Workplace!.Id;
             
-            using var conn = Database.GetConnection();
-            conn.Open();
-            var dataTable = new DataTable();
-            string sql = @"select p.id as ID, p.name as Name, rss.quantity as Quantity
+            var command = new MySqlCommand(@"select p.id as ID, p.name as Name, rss.quantity as Quantity
                         FROM retail_store_stock rss
                         INNER JOIN product p on rss.product_id = p.id
                         INNER JOIN retail_store rs on rss.retail_store_id = rs.id
-                        WHERE rs.id = @retailStoreId;";
-            var command = new MySqlCommand(sql, conn);
+                        WHERE rs.id = @retailStoreId;");
             command.Parameters.AddWithValue("@retailStoreId", storeId);
-            var dataReader = command.ExecuteReader();
-            dataTable.Load(dataReader);
-            dataReader.Close();
-
+            var dataTable = DataTableRepository.RetrieveDataTable(command);
             return dataTable;
         }
 
@@ -108,24 +101,25 @@ namespace Better_Limited_Project.ProductUtility.ProductList
 
         private void UpdateStock_OnUpdateClicked(object sender, EventArgs e)
         {
-            using var conn = Database.GetConnection();
-            conn.Open();
+            List<MySqlCommand> commands = new();
 
-            string storeId = UserSettings.GetSettings().Workplace?.Id;
+            string storeId = UserSettings.GetSettings().Workplace!.Id;
             foreach (DataGridViewRow row in dgvSelectedProducts.Rows)
             {
                 string productId = row.Cells["ID"].Value.ToString();
                 int newQuantity = int.Parse(row.Cells["Quantity"].Value.ToString());
-                string sql = @"update retail_store_stock
+                var command = new MySqlCommand(@"update retail_store_stock
                                 set quantity = @quantity
                                 where product_id = @productId
-                                and retail_store_id = @retailStoreId;";
-                var command = new MySqlCommand(sql, conn);
+                                and retail_store_id = @retailStoreId;");
                 command.Parameters.AddWithValue("@quantity", newQuantity);
                 command.Parameters.AddWithValue("@productId", productId);
                 command.Parameters.AddWithValue("@retailStoreId", storeId);
-                command.ExecuteNonQuery();
+                
+                commands.Add(command);
             }
+            
+            DataTableRepository.ExecuteNonQuery(commands.ToArray());
             
             StockLevelUpdated?.Invoke(this, EventArgs.Empty);
             Close();

@@ -110,6 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseUtility\Database.cs" />
+    <Compile Include="DatabaseUtility\DataTableRepository.cs" />
     <Compile Include="DevTools\AutoLoginHelper.cs" />
     <Compile Include="DocumentUtility\FolderBrowser.cs" />
     <Compile Include="DocumentUtility\WindowsExplorer.cs" />
