@@ -70,7 +70,7 @@ namespace Better_Limited_Project.Sales.Sales.OrderPlacing.CustomerRecord
         private void OnFormShown(object sender, EventArgs e)
         {
             dgvCustomerList.DataSource = _customerTable;
-            dgvCustomerList.Columns.Remove("id");
+            dgvCustomerList.Columns["id"].Visible = false;
         }
     }
 }

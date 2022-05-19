@@ -27,7 +27,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList
         private void OnFormShown(object sender, EventArgs e)
         {
             dgvProductList.DataSource = _productTable;
-            RemoveDgvIdColumn();
+            HideDgvIdColumn();
         }
 
         private DataTable GetProductTable()
@@ -58,7 +58,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList
         {
             _productTable = GetProductTable();
             dgvProductList.DataSource = _productTable;
-            RemoveDgvIdColumn();
+            HideDgvIdColumn();
         }
 
         private void btnUpdateStockLevel_Click(object sender, EventArgs e)
@@ -66,9 +66,9 @@ namespace Better_Limited_Project.ProductUtility.ProductList
             UpdateStockLevelClicked?.Invoke(this, EventArgs.Empty);
         }
         
-        private void RemoveDgvIdColumn()
+        private void HideDgvIdColumn()
         {
-            dgvProductList.Columns.Remove("product_id");
+            dgvProductList.Columns["product_id"].Visible = false;
         }
     }
 }
