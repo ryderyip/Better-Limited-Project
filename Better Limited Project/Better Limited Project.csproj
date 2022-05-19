@@ -143,15 +143,6 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Navigation\Controller\AccountingClerkNavigationController.cs" />
-    <Compile Include="Navigation\Controller\AccountingManagerNavigationController.cs" />
-    <Compile Include="Navigation\Controller\INavigationController.cs" />
-    <Compile Include="Navigation\Controller\InventoryClerkNavigationController.cs" />
-    <Compile Include="Navigation\Controller\PurchaseClerkNavigationController.cs" />
-    <Compile Include="Navigation\Controller\PurchaseManagerNavigationController.cs" />
-    <Compile Include="Navigation\Controller\ReceivingClerkNavigationController.cs" />
-    <Compile Include="Navigation\Controller\SalesNavigationController.cs" />
-    <Compile Include="Navigation\Controller\TechnicalSupportNavigationController.cs" />
     <Compile Include="Navigation\UI\AccountingClerkNavigationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +159,7 @@
     <Compile Include="Navigation\UI\InventoryClerkNavigationForm.Designer.cs">
       <DependentUpon>InventoryClerkNavigationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Navigation\UI\INavigationForm.cs" />
     <Compile Include="Navigation\UI\PurchaseClerkNavigationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,7 +184,7 @@
     <Compile Include="Navigation\UI\SalesNavigationForm.Designer.cs">
       <DependentUpon>SalesNavigationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Navigation\NavigationControllerFactory.cs" />
+    <Compile Include="Navigation\NavigationFormFactory.cs" />
     <Compile Include="Navigation\UI\TechnicalSupportNavigationForm.cs">
       <SubType>Form</SubType>
     </Compile>

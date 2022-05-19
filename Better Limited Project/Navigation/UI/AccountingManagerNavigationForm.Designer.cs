@@ -50,6 +50,7 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnGoodsReturned.TabIndex = 22;
             this.btnGoodsReturned.Text = "Goods Returned";
             this.btnGoodsReturned.UseVisualStyleBackColor = true;
+            this.btnGoodsReturned.Click += new System.EventHandler(this.btnGoodsReturned_Click);
             // 
             // btnGoodsReceived
             // 
@@ -59,6 +60,7 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnGoodsReceived.TabIndex = 21;
             this.btnGoodsReceived.Text = "Goods Received";
             this.btnGoodsReceived.UseVisualStyleBackColor = true;
+            this.btnGoodsReceived.Click += new System.EventHandler(this.btnGoodsReceived_Click);
             // 
             // lblLoggedInAs
             // 
@@ -78,6 +80,7 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnProfile.TabIndex = 19;
             this.btnProfile.Text = "(Name)";
             this.btnProfile.UseVisualStyleBackColor = true;
+            this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
             // 
             // btnPurchaseOrders
             // 
@@ -96,6 +99,7 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnSettings.TabIndex = 17;
             this.btnSettings.Text = "Settings";
             this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // btnSalesReport
             // 
@@ -105,6 +109,7 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnSalesReport.TabIndex = 16;
             this.btnSalesReport.Text = "Sales Report";
             this.btnSalesReport.UseVisualStyleBackColor = true;
+            this.btnSalesReport.Click += new System.EventHandler(this.btnSalesReport_Click);
             // 
             // btnSalesOrder
             // 
@@ -114,6 +119,7 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnSalesOrder.TabIndex = 15;
             this.btnSalesOrder.Text = "Sales Order";
             this.btnSalesOrder.UseVisualStyleBackColor = true;
+            this.btnSalesOrder.Click += new System.EventHandler(this.btnSalesOrder_Click);
             // 
             // btnProductList
             // 
@@ -123,6 +129,7 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnProductList.TabIndex = 23;
             this.btnProductList.Text = "Product List";
             this.btnProductList.UseVisualStyleBackColor = true;
+            this.btnProductList.Click += new System.EventHandler(this.btnProductList_Click_1);
             // 
             // AccountingManagerNavigationForm
             // 

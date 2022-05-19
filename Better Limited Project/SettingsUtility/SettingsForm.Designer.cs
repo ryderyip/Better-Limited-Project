@@ -47,9 +47,9 @@ namespace Better_Limited_Project.SettingsUtility
             this.rbDarkTheme = new System.Windows.Forms.RadioButton();
             this.cbWorkplace = new System.Windows.Forms.ComboBox();
             this.panWorkplace = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblWorkplaceSelectRetailStore = new System.Windows.Forms.Label();
             this.lblWorkplaceSelectWarehouse = new System.Windows.Forms.Label();
+            this.lblWorkplaceSelectRetailStore = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panWorkplace.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -221,6 +221,26 @@ namespace Better_Limited_Project.SettingsUtility
             this.panWorkplace.Size = new System.Drawing.Size(338, 141);
             this.panWorkplace.TabIndex = 19;
             // 
+            // lblWorkplaceSelectWarehouse
+            // 
+            this.lblWorkplaceSelectWarehouse.Location = new System.Drawing.Point(30, 52);
+            this.lblWorkplaceSelectWarehouse.Name = "lblWorkplaceSelectWarehouse";
+            this.lblWorkplaceSelectWarehouse.Size = new System.Drawing.Size(150, 23);
+            this.lblWorkplaceSelectWarehouse.TabIndex = 22;
+            this.lblWorkplaceSelectWarehouse.Text = "Select Current Warehouse";
+            this.lblWorkplaceSelectWarehouse.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblWorkplaceSelectWarehouse.Visible = false;
+            // 
+            // lblWorkplaceSelectRetailStore
+            // 
+            this.lblWorkplaceSelectRetailStore.Location = new System.Drawing.Point(29, 52);
+            this.lblWorkplaceSelectRetailStore.Name = "lblWorkplaceSelectRetailStore";
+            this.lblWorkplaceSelectRetailStore.Size = new System.Drawing.Size(150, 23);
+            this.lblWorkplaceSelectRetailStore.TabIndex = 21;
+            this.lblWorkplaceSelectRetailStore.Text = "Select Current Retail Store";
+            this.lblWorkplaceSelectRetailStore.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblWorkplaceSelectRetailStore.Visible = false;
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.lblLanguage);
@@ -232,31 +252,13 @@ namespace Better_Limited_Project.SettingsUtility
             this.panel1.Size = new System.Drawing.Size(338, 178);
             this.panel1.TabIndex = 20;
             // 
-            // lblWorkplaceSelectRetailStore
-            // 
-            this.lblWorkplaceSelectRetailStore.Location = new System.Drawing.Point(29, 52);
-            this.lblWorkplaceSelectRetailStore.Name = "lblWorkplaceSelectRetailStore";
-            this.lblWorkplaceSelectRetailStore.Size = new System.Drawing.Size(150, 23);
-            this.lblWorkplaceSelectRetailStore.TabIndex = 21;
-            this.lblWorkplaceSelectRetailStore.Text = "Select Current Retail Store";
-            this.lblWorkplaceSelectRetailStore.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblWorkplaceSelectWarehouse
-            // 
-            this.lblWorkplaceSelectWarehouse.Location = new System.Drawing.Point(30, 52);
-            this.lblWorkplaceSelectWarehouse.Name = "lblWorkplaceSelectWarehouse";
-            this.lblWorkplaceSelectWarehouse.Size = new System.Drawing.Size(150, 23);
-            this.lblWorkplaceSelectWarehouse.TabIndex = 22;
-            this.lblWorkplaceSelectWarehouse.Text = "Select Current Warehouse";
-            this.lblWorkplaceSelectWarehouse.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoScrollMargin = new System.Drawing.Size(0, 30);
-            this.ClientSize = new System.Drawing.Size(894, 450);
+            this.ClientSize = new System.Drawing.Size(911, 450);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panWorkplace);
             this.Controls.Add(this.rbDarkTheme);

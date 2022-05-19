@@ -56,6 +56,7 @@
             this.btnProfile.TabIndex = 11;
             this.btnProfile.Text = "(Name)";
             this.btnProfile.UseVisualStyleBackColor = true;
+            this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
             // 
             // btnPurchaseOrders
             // 

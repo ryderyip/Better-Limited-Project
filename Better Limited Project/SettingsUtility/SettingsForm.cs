@@ -35,11 +35,20 @@ namespace Better_Limited_Project.SettingsUtility
             {
                 _isSalesOrInventory = true;
                 EnableWorkplacePanel();
+                ShowLabelAccordingToWorkplace();
                 FillWorkplaceComboBox();
 
                 if (settings.Workplace != null) 
                     SelectCurrentWorkplaceInComboBox(settings.Workplace.Name);
             }
+        }
+
+        private void ShowLabelAccordingToWorkplace()
+        {
+            if (_staffDepartment is Department.Sales)
+                lblWorkplaceSelectRetailStore.Visible = true;
+            else
+                lblWorkplaceSelectWarehouse.Visible = true;
         }
 
         private void ShowCurrentLanguage(Language language)

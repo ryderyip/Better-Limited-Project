@@ -56,6 +56,7 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnProfile.TabIndex = 11;
             this.btnProfile.Text = "(Name)";
             this.btnProfile.UseVisualStyleBackColor = true;
+            this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
             // 
             // btnInstallationDuty
             // 
@@ -65,6 +66,7 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnInstallationDuty.TabIndex = 10;
             this.btnInstallationDuty.Text = "Installation Duty";
             this.btnInstallationDuty.UseVisualStyleBackColor = true;
+            this.btnInstallationDuty.Click += new System.EventHandler(this.btnInstallationDuty_Click);
             // 
             // btnSettings
             // 
@@ -74,6 +76,7 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnSettings.TabIndex = 9;
             this.btnSettings.Text = "Settings";
             this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // btnInstallationRequests
             // 
@@ -83,6 +86,7 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnInstallationRequests.TabIndex = 7;
             this.btnInstallationRequests.Text = "Installation Requests";
             this.btnInstallationRequests.UseVisualStyleBackColor = true;
+            this.btnInstallationRequests.Click += new System.EventHandler(this.btnInstallationRequests_Click);
             // 
             // TechnicalSupportNavigationForm
             // 

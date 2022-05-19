@@ -57,6 +57,7 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnProfile.TabIndex = 16;
             this.btnProfile.Text = "(Name)";
             this.btnProfile.UseVisualStyleBackColor = true;
+            this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
             // 
             // btnReorderRequests
             // 
@@ -66,6 +67,7 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnReorderRequests.TabIndex = 15;
             this.btnReorderRequests.Text = "Reorder Requests";
             this.btnReorderRequests.UseVisualStyleBackColor = true;
+            this.btnReorderRequests.Click += new System.EventHandler(this.btnReorderRequests_Click);
             // 
             // btnSettings
             // 
@@ -75,6 +77,7 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnSettings.TabIndex = 14;
             this.btnSettings.Text = "Settings";
             this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // btnPurchaseOrders
             // 
@@ -84,6 +87,7 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnPurchaseOrders.TabIndex = 13;
             this.btnPurchaseOrders.Text = "Purchase Orders";
             this.btnPurchaseOrders.UseVisualStyleBackColor = true;
+            this.btnPurchaseOrders.Click += new System.EventHandler(this.btnPurchaseOrders_Click);
             // 
             // btnProductList
             // 
@@ -93,6 +97,7 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnProductList.TabIndex = 18;
             this.btnProductList.Text = "Product List";
             this.btnProductList.UseVisualStyleBackColor = true;
+            this.btnProductList.Click += new System.EventHandler(this.btnProductList_Click);
             // 
             // PurchaseManagerNavigationForm
             // 

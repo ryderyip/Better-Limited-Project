@@ -8,7 +8,7 @@ namespace Better_Limited_Project.StaffUtility.StaffProfile
     public partial class ProfileForm : Form
     {
         public delegate void LogOutClickedEventHandler(object sender, EventArgs e);
-        public event LogOutClickedEventHandler LogOutClicked;
+        public event LogOutClickedEventHandler? LogOutClicked;
         
         public ProfileForm(Staff staff, string workplaceName)
         {

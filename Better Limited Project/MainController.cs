@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Windows.Forms;
 using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.Login;
 using Better_Limited_Project.Navigation;
-using Better_Limited_Project.Navigation.Controller;
+using Better_Limited_Project.Navigation.UI;
 using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 using Better_Limited_Project.StaffUtility.StaffProfile;
@@ -13,7 +14,7 @@ namespace Better_Limited_Project
     {
         private readonly FormController _formController;
         private readonly UserSettings _userSettings;
-        private INavigationController _navigationController;
+        private INavigationForm? _navigationForm;
         
         public MainController(MainForm mainForm)
         {
@@ -54,10 +55,9 @@ namespace Better_Limited_Project
 
         private void OpenNavigationForm(Staff staff)
         {
-            _navigationController = 
-                NavigationControllerFactory.CreateController(_formController, staff);
-            _navigationController.LogOutClicked += OnLogOut;
-            _navigationController.OpenForm();
+            _navigationForm = NavigationFormFactory.GenerateForm(_formController, staff);
+            _navigationForm.LogOutClicked += OnLogOut;
+            _formController.OpenNavigationForm((Form) _navigationForm);
         }
         
         private void OpenProfileForm(Staff staff)
@@ -69,7 +69,8 @@ namespace Better_Limited_Project
         
         private void OnLogOut(object sender, EventArgs e)
         {
-            _navigationController.CloseForm();
+            if (_navigationForm != null) 
+                ((Form) _navigationForm).Close();
             OpenLoginForm();
         }
     }

@@ -61,6 +61,7 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnProfile.TabIndex = 16;
             this.btnProfile.Text = "(Name)";
             this.btnProfile.UseVisualStyleBackColor = true;
+            this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
             // 
             // btnDeliveryRequests
             // 
@@ -70,6 +71,7 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnDeliveryRequests.TabIndex = 15;
             this.btnDeliveryRequests.Text = "Delivery Requests";
             this.btnDeliveryRequests.UseVisualStyleBackColor = true;
+            this.btnDeliveryRequests.Click += new System.EventHandler(this.btnDeliveryRequests_Click);
             // 
             // btnSettings
             // 
@@ -79,6 +81,7 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnSettings.TabIndex = 14;
             this.btnSettings.Text = "Settings";
             this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // btnGoodsReceived
             // 
@@ -88,6 +91,7 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnGoodsReceived.TabIndex = 13;
             this.btnGoodsReceived.Text = "Goods Received";
             this.btnGoodsReceived.UseVisualStyleBackColor = true;
+            this.btnGoodsReceived.Click += new System.EventHandler(this.btnGoodsReceived_Click);
             // 
             // btnGoodsReturned
             // 
@@ -97,6 +101,7 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnGoodsReturned.TabIndex = 18;
             this.btnGoodsReturned.Text = "Goods Returned";
             this.btnGoodsReturned.UseVisualStyleBackColor = true;
+            this.btnGoodsReturned.Click += new System.EventHandler(this.btnGoodsReturned_Click);
             // 
             // btnReorderRequests
             // 
@@ -106,6 +111,7 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnReorderRequests.TabIndex = 19;
             this.btnReorderRequests.Text = "Reorder Requests";
             this.btnReorderRequests.UseVisualStyleBackColor = true;
+            this.btnReorderRequests.Click += new System.EventHandler(this.btnReorderRequests_Click);
             // 
             // btnRestockRequests
             // 
@@ -115,6 +121,7 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnRestockRequests.TabIndex = 20;
             this.btnRestockRequests.Text = "Restock Requests";
             this.btnRestockRequests.UseVisualStyleBackColor = true;
+            this.btnRestockRequests.Click += new System.EventHandler(this.btnRestockRequests_Click);
             // 
             // btnInventory
             // 
@@ -124,6 +131,7 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnInventory.TabIndex = 21;
             this.btnInventory.Text = "Inventory";
             this.btnInventory.UseVisualStyleBackColor = true;
+            this.btnInventory.Click += new System.EventHandler(this.btnInventory_Click);
             // 
             // btnDeliveryDuty
             // 
@@ -133,6 +141,7 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnDeliveryDuty.TabIndex = 22;
             this.btnDeliveryDuty.Text = "Delivery Duty";
             this.btnDeliveryDuty.UseVisualStyleBackColor = true;
+            this.btnDeliveryDuty.Click += new System.EventHandler(this.btnDeliveryDuty_Click);
             // 
             // InventoryClerkNavigationForm
             // 
