@@ -1,4 +1,4 @@
-﻿namespace Better_Limited_Project.Sales.Sales.SalesOrder.CustomerRecord
+﻿namespace Better_Limited_Project.Sales.Sales.OrderPlacing.CustomerRecord
 {
     partial class FindCustomerRecordForm
     {
@@ -62,7 +62,6 @@
             this.txtSearchKeywords.Name = "txtSearchKeywords";
             this.txtSearchKeywords.Size = new System.Drawing.Size(207, 20);
             this.txtSearchKeywords.TabIndex = 8;
-            this.txtSearchKeywords.TextChanged += new System.EventHandler(this.txtSearchKeywords_TextChanged);
             // 
             // dgvCustomerList
             // 

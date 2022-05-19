@@ -56,7 +56,6 @@ namespace Better_Limited_Project.ProductUtility.ProductList
             this.txtSearchKeywords.Name = "txtSearchKeywords";
             this.txtSearchKeywords.Size = new System.Drawing.Size(243, 23);
             this.txtSearchKeywords.TabIndex = 1;
-            this.txtSearchKeywords.TextChanged += new System.EventHandler(this.txtSearchKeywords_TextChanged);
             // 
             // dgvProductList
             // 

@@ -438,6 +438,7 @@
     <Compile Include="StaffUtility\StaffProfile\ProfileForm.Designer.cs">
       <DependentUpon>ProfileForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tools\DgvKeywordSearchHelper.cs" />
     <Compile Include="Tools\Pager.cs" />
     <EmbeddedResource Include="Login\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

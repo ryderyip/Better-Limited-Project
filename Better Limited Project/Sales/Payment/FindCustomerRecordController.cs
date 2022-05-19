@@ -1,5 +1,6 @@
 ﻿using System;
 using Better_Limited_Project.FormControlling;
+using Better_Limited_Project.Sales.Sales.OrderPlacing.CustomerRecord;
 using Better_Limited_Project.Sales.Sales.SalesOrder.CustomerRecord;
 
 namespace Better_Limited_Project.Sales.Payment

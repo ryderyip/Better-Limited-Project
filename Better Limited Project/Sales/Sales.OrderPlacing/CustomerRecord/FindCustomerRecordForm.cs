@@ -2,21 +2,25 @@
 using System.Data;
 using System.Windows.Forms;
 using Better_Limited_Project.DatabaseUtility;
+using Better_Limited_Project.Sales.Sales.SalesOrder.CustomerRecord;
+using Better_Limited_Project.Tools;
 using MySql.Data.MySqlClient;
 
-namespace Better_Limited_Project.Sales.Sales.SalesOrder.CustomerRecord
+namespace Better_Limited_Project.Sales.Sales.OrderPlacing.CustomerRecord
 {
     public partial class FindCustomerRecordForm : Form
     {
         public delegate void CustomerRecordRetrievedEventHandler(object sender, Customer customer);
-        public event CustomerRecordRetrievedEventHandler CustomerRecordRetrieved;
+        public event CustomerRecordRetrievedEventHandler? CustomerRecordRetrieved;
         private readonly DataTable _customerTable;
         
         public FindCustomerRecordForm()
         {
             _customerTable = GetCustomerTable();
             InitializeComponent();
-        }
+            var helper = new DgvKeywordSearchHelper();
+            helper.Activate(_customerTable, dgvCustomerList, txtSearchKeywords, "name");
+        }   
 
         private DataTable GetCustomerTable()
         {
@@ -66,12 +70,7 @@ namespace Better_Limited_Project.Sales.Sales.SalesOrder.CustomerRecord
         private void OnFormShown(object sender, EventArgs e)
         {
             dgvCustomerList.DataSource = _customerTable;
-        }
-
-        private void txtSearchKeywords_TextChanged(object sender, EventArgs e)
-        {
-            // TODO implement search function
-            throw new System.NotImplementedException();
+            dgvCustomerList.Columns.Remove("id");
         }
     }
 }

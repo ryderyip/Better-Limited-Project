@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.DatabaseUtility;
-using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.SettingsUtility;
+using Better_Limited_Project.Tools;
 using MySql.Data.MySqlClient;
 
 namespace Better_Limited_Project.ProductUtility.ProductList
@@ -22,11 +20,14 @@ namespace Better_Limited_Project.ProductUtility.ProductList
         {
             InitializeComponent();
             _productTable = GetProductTable();
+            var helper = new DgvKeywordSearchHelper();
+            helper.Activate(_productTable, dgvProductList, txtSearchKeywords, "name");
         }
         
         private void OnFormShown(object sender, EventArgs e)
         {
             dgvProductList.DataSource = _productTable;
+            RemoveDgvIdColumn();
         }
 
         private DataTable GetProductTable()
@@ -53,18 +54,6 @@ namespace Better_Limited_Project.ProductUtility.ProductList
             return dataTable;
         }
 
-        private void txtSearchKeywords_TextChanged(object sender, EventArgs e)
-        {
-            string keywords = txtSearchKeywords.Text;
-            var rows = _productTable.AsEnumerable()
-                .Where(row => row.Field<string>("Name").ToLower().Contains(keywords.ToLower()));
-            dgvProductList.DataSource = rows.Any() ? 
-                rows.CopyToDataTable() : _productTable.Clone();
-
-            bool isNoSearchResult = dgvProductList.Rows.Count == 0 && !string.IsNullOrWhiteSpace(keywords);
-            txtNoResults.Visible = isNoSearchResult;
-        }
-
         private void dgvProductList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             var clickedProductRow = _productTable.Rows[e.RowIndex];
@@ -75,11 +64,17 @@ namespace Better_Limited_Project.ProductUtility.ProductList
         {
             _productTable = GetProductTable();
             dgvProductList.DataSource = _productTable;
+            RemoveDgvIdColumn();
         }
 
         private void btnUpdateStockLevel_Click(object sender, EventArgs e)
         {
             UpdateStockLevelClicked?.Invoke(this, EventArgs.Empty);
+        }
+        
+        private void RemoveDgvIdColumn()
+        {
+            dgvProductList.Columns.Remove("product_id");
         }
     }
 }
