@@ -15,6 +15,7 @@ namespace Better_Limited_Project.Login
         {
             _loginForm = new LoginForm();
             _loginForm.LoginClicked += OnLoginClicked;
+            
             _loginForm.Shown += (_, _) => _loginForm.AutoLogin();
         }
 

@@ -12,6 +12,7 @@
         ReceivingClerk,
         TechnicalSupportClerk,
         TechnicalSupportManager,
+        Admin,
         Unknown
     }
 }

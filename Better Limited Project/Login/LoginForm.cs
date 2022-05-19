@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Better_Limited_Project.DevTools;
+using Better_Limited_Project.DevTools.AutoLogin;
 
 namespace Better_Limited_Project.Login
 {
@@ -16,7 +17,8 @@ namespace Better_Limited_Project.Login
 
         public void AutoLogin()
         {
-            AutoLoginHelper.Login(tbUsername, tbPassword, btnLogin_Click);
+            var helper = new AutoLoginHelper(tbUsername, tbPassword, btnLogin_Click);
+            helper.Login();
         }
 
         public void LoginFailed(LoginStatus status)

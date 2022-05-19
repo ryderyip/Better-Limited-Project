@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Windows.Forms;
 using Better_Limited_Project.ProductUtility.Entity;
+using Better_Limited_Project.Sales.Sales.OrderPlacing.CustomerRecord;
 using Better_Limited_Project.Sales.Sales.SalesOrder.CustomerRecord;
 
 namespace Better_Limited_Project.Sales.Sales.OrderPlacing

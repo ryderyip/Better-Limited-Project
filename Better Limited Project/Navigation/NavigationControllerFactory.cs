@@ -14,7 +14,7 @@ namespace Better_Limited_Project.Navigation
             {
                 StaffTitle.SalesRepresentative or StaffTitle.SalesManager
                     => new SalesNavigationController(formController, staff),
-                StaffTitle.AccountingClerk => new AccountingClerkNavigationController(),
+                StaffTitle.AccountingClerk => new AccountingClerkNavigationController(formController, staff),
                 StaffTitle.AccountingManager => new AccountingManagerNavigationController(),
                 StaffTitle.PurchaseClerk => new PurchaseClerkNavigationController(),
                 StaffTitle.PurchaseManager => new PurchaseManagerNavigationController(),

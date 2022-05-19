@@ -1,28 +1,23 @@
 ﻿using System;
 using System.Data;
 using Better_Limited_Project.DatabaseUtility;
+using Better_Limited_Project.Sales.Sales.SalesOrder.CustomerRecord;
 using MySql.Data.MySqlClient;
 
-namespace Better_Limited_Project.Sales.Sales.SalesOrder.CustomerRecord
+namespace Better_Limited_Project.Sales.Sales.OrderPlacing.CustomerRecord
 {
     public static class CustomerRepository
     {
         public static Customer GetCustomerById(string customerId)
         {
-            using var conn = Database.GetConnection();
-            conn.Open();
-            var dataTable = new DataTable();
-            string sql = @"select id as id, 
+            var command = new MySqlCommand(@"select id as id, 
                             name as name, 
                             delivery_address_id as address_id, 
                             phone as phone, 
                             email as email
-                            from customer where id = @id;";
-            var command = new MySqlCommand(sql, conn);
+                            from customer where id = @id;");
             command.Parameters.AddWithValue("@id", customerId);
-            var dataReader = command.ExecuteReader();
-            dataTable.Load(dataReader);
-            dataReader.Close();
+            var dataTable = DataTableRepository.RetrieveDataTable(command);
 
             if (dataTable.Rows.Count == 0)
                 throw new ArgumentException("No customer record with the provided customer name is found.");
@@ -31,20 +26,14 @@ namespace Better_Limited_Project.Sales.Sales.SalesOrder.CustomerRecord
         
         public static Customer GetCustomerByName(string customerName)
         {
-            using var conn = Database.GetConnection();
-            conn.Open();
-            var dataTable = new DataTable();
-            string sql = @"select id as id, 
+            var command = new MySqlCommand(@"select id as id, 
                             name as name, 
                             delivery_address_id as address_id, 
                             phone as phone, 
                             email as email
-                            from customer where name = @name;";
-            var command = new MySqlCommand(sql, conn);
+                            from customer where name = @name;");
             command.Parameters.AddWithValue("@name", customerName);
-            var dataReader = command.ExecuteReader();
-            dataTable.Load(dataReader);
-            dataReader.Close();
+            var dataTable = DataTableRepository.RetrieveDataTable(command);
 
             if (dataTable.Rows.Count == 0)
                 throw new ArgumentException("No customer record with the provided customer name is found.");

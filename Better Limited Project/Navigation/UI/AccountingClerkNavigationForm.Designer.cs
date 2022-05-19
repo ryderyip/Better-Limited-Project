@@ -65,6 +65,7 @@
             this.btnPurchaseOrders.TabIndex = 10;
             this.btnPurchaseOrders.Text = "Purchase Orders";
             this.btnPurchaseOrders.UseVisualStyleBackColor = true;
+            this.btnPurchaseOrders.Click += new System.EventHandler(this.btnPurchaseOrders_Click);
             // 
             // btnSettings
             // 
@@ -74,6 +75,7 @@
             this.btnSettings.TabIndex = 9;
             this.btnSettings.Text = "Settings";
             this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // btnSalesReport
             // 
@@ -83,6 +85,7 @@
             this.btnSalesReport.TabIndex = 8;
             this.btnSalesReport.Text = "Sales Report";
             this.btnSalesReport.UseVisualStyleBackColor = true;
+            this.btnSalesReport.Click += new System.EventHandler(this.btnSalesReport_Click);
             // 
             // btnSalesOrder
             // 
@@ -92,6 +95,7 @@
             this.btnSalesOrder.TabIndex = 7;
             this.btnSalesOrder.Text = "Sales Order";
             this.btnSalesOrder.UseVisualStyleBackColor = true;
+            this.btnSalesOrder.Click += new System.EventHandler(this.btnSalesOrder_Click);
             // 
             // btnGoodsReceived
             // 
@@ -101,6 +105,7 @@
             this.btnGoodsReceived.TabIndex = 13;
             this.btnGoodsReceived.Text = "Goods Received";
             this.btnGoodsReceived.UseVisualStyleBackColor = true;
+            this.btnGoodsReceived.Click += new System.EventHandler(this.btnGoodsReceived_Click);
             // 
             // btnGoodsReturned
             // 
@@ -110,6 +115,7 @@
             this.btnGoodsReturned.TabIndex = 14;
             this.btnGoodsReturned.Text = "Goods Returned";
             this.btnGoodsReturned.UseVisualStyleBackColor = true;
+            this.btnGoodsReturned.Click += new System.EventHandler(this.btnGoodsReturned_Click);
             // 
             // AccountingClerkNavigationForm
             // 

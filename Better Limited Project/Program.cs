@@ -19,7 +19,7 @@ namespace Better_Limited_Project
 
             var mainForm = new MainForm();
             var mainController = new MainController(mainForm);
-            
+            mainForm.StartPosition = FormStartPosition.CenterScreen;
             Application.Run(mainForm);
         }
     }
