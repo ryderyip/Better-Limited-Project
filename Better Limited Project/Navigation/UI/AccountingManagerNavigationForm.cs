@@ -55,7 +55,7 @@ namespace Better_Limited_Project.Navigation.UI
             throw new System.NotImplementedException();
         }
 
-        private void btnProductList_Click_1(object sender, EventArgs e)
+        private void btnProductList_Click(object sender, EventArgs e)
         {
             throw new System.NotImplementedException();
         }

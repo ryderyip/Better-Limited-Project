@@ -4,12 +4,23 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
 {
     public class Staff
     {
-        public string? Id { get; set; }
-        public string Name { get; set; }
-        public DateTime DateOfBirth { get; set; }
-        public DateTime HiredOn { get; set; }
-        public char Gender { get; set; }
-        public Department Department { get; set; }
-        public StaffTitle StaffTitle { get; set; }
+        public Staff(string? id, string name, DateTime dateOfBirth, DateTime hiredOn, char gender, Department department, StaffTitle staffTitle)
+        {
+            Id = id;
+            Name = name;
+            DateOfBirth = dateOfBirth;
+            HiredOn = hiredOn;
+            Gender = gender;
+            Department = department;
+            StaffTitle = staffTitle;
+        }
+
+        public string? Id { get; }
+        public string Name { get; }
+        public DateTime DateOfBirth { get; }
+        public DateTime HiredOn { get; }
+        public char Gender { get; }
+        public Department Department { get; }
+        public StaffTitle StaffTitle { get; }
     }
 }

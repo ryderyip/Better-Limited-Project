@@ -9,36 +9,27 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
     {
         public static Staff GetStaff(string staffId)
         {
-            using var conn = Database.GetConnection();
-            conn.Open();
-
-            var dataTable = new DataTable();
             var command = new MySqlCommand(
-                "SELECT * FROM staff WHERE id = @staffId;", conn);
+                "SELECT * FROM staff WHERE id = @staffId;");
             command.Parameters.AddWithValue("@staffId", staffId);
+            var dataTable = DataTableRepository.RetrieveDataTable(command);
             
-            var dataReader = command.ExecuteReader();
-            
-            dataTable.Load(dataReader);
-            dataReader.Close();
-
             return ConvertToStaff(dataTable.Rows[0]);
         }
 
         private static Staff ConvertToStaff(DataRow row)
         {
-            return new Staff
-            {
-                Id = row.Field<string>("id"),
-                Name = row.Field<string>("name"),
-                DateOfBirth = row.Field<DateTime>("date_of_birth"),
-                HiredOn = row.Field<DateTime>("hired_on"),
-                Gender = row.Field<string>("gender")[0],
-                Department = DepartmentRepository.GetDepartment(
-                    row.Field<int>("department_id").ToString()),
-                StaffTitle = StaffTitleRepository.GetTitle(
-                    row.Field<int>("title_id").ToString())
-            };
+            string id = row.Field<string>("id");
+            string name = row.Field<string>("name");
+            var dob = row.Field<DateTime>("date_of_birth");
+            var hiredOn = row.Field<DateTime>("hired_on");
+            char gender = row.Field<string>("gender")[0];
+            var department = DepartmentRepository.GetDepartment(
+                row.Field<int>("department_id").ToString());
+            var title = StaffTitleRepository.GetTitle(
+                row.Field<int>("title_id").ToString());
+
+            return new Staff(id, name, dob, hiredOn, gender, department, title);
         }
     }
 }

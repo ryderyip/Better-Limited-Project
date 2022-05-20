@@ -22,6 +22,7 @@ namespace Better_Limited_Project.Navigation
                 StaffTitle.ReceivingClerk => new ReceivingClerkNavigationForm(controller, staff),
                 StaffTitle.TechnicalSupportClerk or StaffTitle.TechnicalSupportManager
                     => new TechnicalSupportNavigationForm(controller, staff),
+                
                 _ => throw new NotImplementedException()
             };
         }

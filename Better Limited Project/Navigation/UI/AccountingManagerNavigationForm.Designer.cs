@@ -129,7 +129,7 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnProductList.TabIndex = 23;
             this.btnProductList.Text = "Product List";
             this.btnProductList.UseVisualStyleBackColor = true;
-            this.btnProductList.Click += new System.EventHandler(this.btnProductList_Click_1);
+            this.btnProductList.Click += new System.EventHandler(this.btnProductList_Click);
             // 
             // AccountingManagerNavigationForm
             // 
