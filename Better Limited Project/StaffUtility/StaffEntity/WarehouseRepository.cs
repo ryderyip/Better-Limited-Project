@@ -8,7 +8,7 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
 {
     public static class WarehouseRepository
     {
-        public static List<Warehouse> GetWarehouses()
+        public static IEnumerable<Warehouse> GetWarehouses()
         {
             using var conn = Database.GetConnection();
             conn.Open();
@@ -20,7 +20,7 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
             return ConvertToWarehouses(dataTable);
         }
         
-        public static Warehouse GetWarehouse(string warehouseName)
+        public static Warehouse? GetWarehouse(string warehouseName)
         {
             using var conn = Database.GetConnection();
             conn.Open();
@@ -33,11 +33,14 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
             var dataReader = command.ExecuteReader();
             dataTable.Load(dataReader);
             dataReader.Close();
-            return ConvertToWarehouses(dataTable).First();
+            return ConvertToWarehouses(dataTable).FirstOrDefault();
         }
         
-        private static List<Warehouse> ConvertToWarehouses(DataTable dataTable)
+        private static IEnumerable<Warehouse> ConvertToWarehouses(DataTable dataTable)
         {
+            if (dataTable.Rows.Count == 0)
+                return Enumerable.Empty<Warehouse>();
+            
             var warehouses = new List<Warehouse>();
             foreach (DataRow row in dataTable.Rows)
             {

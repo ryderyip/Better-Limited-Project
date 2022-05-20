@@ -1,27 +1,28 @@
 ﻿using System;
 using System.Windows.Forms;
+using Better_Limited_Project.Admin;
 using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.ProductUtility.ProductList;
-using Better_Limited_Project.ProductUtility.ProductList.ProductList;
 using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 using Better_Limited_Project.StaffUtility.StaffProfile;
 
 namespace Better_Limited_Project.Navigation.UI
 {
-    public partial class AccountingManagerNavigationForm : Form, INavigationForm
+    public partial class AdminNavigationForm : Form, INavigationForm
     {
         private readonly FormController _formController;
         private readonly Staff _staff;
-        public event INavigationForm.LogOutClickedEventHandler? LogOutClicked;
 
-        public AccountingManagerNavigationForm(FormController formController, Staff staff)
+        public AdminNavigationForm(FormController formController, Staff staff)
         {
             _formController = formController;
             _staff = staff;
-            Shown += (_, _) => btnProfile.Text = staff.Name;
+            Shown += (_, _) => btnProfile.Text = "ADMIN\n" + staff.Name;
             InitializeComponent();
         }
+
+        public event INavigationForm.LogOutClickedEventHandler? LogOutClicked;
 
         private void btnProfile_Click(object sender, EventArgs e)
         {
@@ -36,30 +37,10 @@ namespace Better_Limited_Project.Navigation.UI
             controller.OpenForm(_formController);
         }
 
-        private void btnSalesOrder_Click(object sender, EventArgs e)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        private void btnSalesReport_Click(object sender, EventArgs e)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        private void btnGoodsReceived_Click(object sender, EventArgs e)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        private void btnGoodsReturned_Click(object sender, EventArgs e)
-        {
-            throw new System.NotImplementedException();
-        }
-
         private void btnProductList_Click(object sender, EventArgs e)
         {
-            var controller = ProductListControllerFactory.Generate(_formController);
-            controller.OpenForm();
+            var form = new AdminProductListForm();
+            _formController.OpenContentForm(form);
         }
     }
 }

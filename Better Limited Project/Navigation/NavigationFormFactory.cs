@@ -9,7 +9,7 @@ namespace Better_Limited_Project.Navigation
     {
         public static INavigationForm GenerateForm(FormController controller, Staff staff)
         {
-            var title = staff.StaffTitle;
+            var title = staff.Title;
             return title switch
             {
                 StaffTitle.SalesRepresentative or StaffTitle.SalesManager 
@@ -22,8 +22,8 @@ namespace Better_Limited_Project.Navigation
                 StaffTitle.ReceivingClerk => new ReceivingClerkNavigationForm(controller, staff),
                 StaffTitle.TechnicalSupportClerk or StaffTitle.TechnicalSupportManager
                     => new TechnicalSupportNavigationForm(controller, staff),
-                
-                _ => throw new NotImplementedException()
+                StaffTitle.Admin => new AdminNavigationForm(controller, staff),
+                _ => throw new ArgumentException("Unexpected staff title.")
             };
         }
     }

@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-
-namespace Better_Limited_Project.StaffUtility.StaffEntity
+﻿namespace Better_Limited_Project.StaffUtility.StaffEntity
 {
     public enum Department
     {
@@ -9,6 +7,7 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
         Purchase,
         Inventory,
         TechnicalSupport,
+        Admin,
         Unknown
     }
 }

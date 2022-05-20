@@ -8,7 +8,7 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
 {
     public static class RetailStoreRepository
     {
-        public static List<RetailStore> GetRetailStores()
+        public static IEnumerable<RetailStore> GetRetailStores()
         {
             using var conn = Database.GetConnection();
             conn.Open();
@@ -20,7 +20,7 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
             return ConvertToRetailStores(dataTable);
         }
 
-        public static RetailStore GetRetailStore(string retailStoreName)
+        public static RetailStore? GetRetailStore(string retailStoreName)
         {
             using var conn = Database.GetConnection();
             conn.Open();
@@ -33,12 +33,13 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
             var dataReader = command.ExecuteReader();
             dataTable.Load(dataReader);
             dataReader.Close();
-            var s = ConvertToRetailStores(dataTable).First();
-            return s;
+            return ConvertToRetailStores(dataTable).FirstOrDefault();
         }
 
-        private static List<RetailStore> ConvertToRetailStores(DataTable dataTable)
+        private static IEnumerable<RetailStore> ConvertToRetailStores(DataTable dataTable)
         {
+            if (dataTable.Rows.Count == 0)
+                return Enumerable.Empty<RetailStore>();
             var retailStores = new List<RetailStore>();
             foreach (DataRow row in dataTable.Rows)
             {

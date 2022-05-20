@@ -17,6 +17,7 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
         private const string ReceivingClerk = "Receiving Clerk";
         private const string TechnicalSupportClerk = "Technical Support Clerk";
         private const string TechnicalSupportManager = "Technical Support Manager";
+        private const string Admin = "Admin";
         private const string UnknownTitle = "Unknown Title";
         
         private readonly Dictionary<StaffTitle, string> _enumToString = new();
@@ -31,7 +32,6 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
         /// <summary>
         /// Map from title name to title enum
         /// </summary>
-        /// <returns>Staff title enum</returns>
         public StaffTitle Map(string title)
         {
             title = title.ToLower();
@@ -63,6 +63,7 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
             _enumToString.Add(StaffTitle.ReceivingClerk, ReceivingClerk);
             _enumToString.Add(StaffTitle.TechnicalSupportClerk, TechnicalSupportClerk);
             _enumToString.Add(StaffTitle.TechnicalSupportManager, TechnicalSupportManager);
+            _enumToString.Add(StaffTitle.Admin, Admin);
         }
 
         private void InitializeStringToEnumDictionary()
@@ -77,6 +78,7 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
             _stringToEnum.Add(ReceivingClerk.ToLower(), StaffTitle.ReceivingClerk);
             _stringToEnum.Add(TechnicalSupportClerk.ToLower(), StaffTitle.TechnicalSupportClerk);
             _stringToEnum.Add(TechnicalSupportManager.ToLower(), StaffTitle.TechnicalSupportManager);
+            _stringToEnum.Add(Admin.ToLower(), StaffTitle.Admin);
         }
     }
 }

@@ -109,6 +109,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\AdminProductListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminProductListForm.Designer.cs">
+      <DependentUpon>AdminProductListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\PermissionManagement\ProductUpdatePermission.cs" />
+    <Compile Include="Admin\PermissionManagement\ProductUpdatePermissionManager.cs" />
     <Compile Include="DatabaseUtility\Database.cs" />
     <Compile Include="DatabaseUtility\DataTableRepository.cs" />
     <Compile Include="DevTools\AutoLogin\AutoLoginHelper.cs" />
@@ -153,6 +161,12 @@
     <Compile Include="Navigation\UI\AccountingManagerNavigationForm.Designer.cs">
       <DependentUpon>AccountingManagerNavigationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Navigation\UI\AdminNavigationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Navigation\UI\AdminNavigationForm.Designer.cs">
+      <DependentUpon>AdminNavigationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Navigation\UI\InventoryClerkNavigationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,6 +205,10 @@
     <Compile Include="Navigation\UI\TechnicalSupportNavigationForm.Designer.cs">
       <DependentUpon>TechnicalSupportNavigationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Procedure\IProcedure.cs" />
+    <Compile Include="Procedure\LoginProcedure.cs" />
+    <Compile Include="ProductUtility\CategoryRepository.cs" />
+    <Compile Include="ProductUtility\Entity\Category.cs" />
     <Compile Include="ProductUtility\Entity\Product.cs" />
     <Compile Include="ProductUtility\Entity\ProductQuantity.cs" />
     <Compile Include="ProductUtility\Entity\Supplier.cs" />
@@ -218,37 +236,42 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ProductUtility\GoodsReturning\GoodsReturnedForm.Designer.cs" />
-    <Compile Include="ProductUtility\ProductList\CreateRestockRequestForm.cs">
+    <Compile Include="ProductUtility\ProductList\Forms\CreateRestockRequestForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProductUtility\ProductList\CreateRestockRequestForm.Designer.cs" />
-    <Compile Include="ProductUtility\ProductList\ProductDetailsController.cs" />
-    <Compile Include="ProductUtility\ProductList\ProductDetailsForm.cs">
+    <Compile Include="ProductUtility\ProductList\Forms\CreateRestockRequestForm.Designer.cs" />
+    <Compile Include="ProductUtility\ProductList\Forms\ProductDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProductUtility\ProductList\ProductDetailsForm.Designer.cs">
+    <Compile Include="ProductUtility\ProductList\Forms\ProductDetailsForm.Designer.cs">
       <DependentUpon>ProductDetailsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProductUtility\ProductList\ProductListController.cs" />
-    <Compile Include="ProductUtility\ProductList\ProductListForm.cs">
+    <Compile Include="ProductUtility\ProductList\Forms\ProductListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProductUtility\ProductList\ProductListForm.Designer.cs" />
+    <Compile Include="ProductUtility\ProductList\Forms\ProductListForm.Designer.cs" />
+    <Compile Include="ProductUtility\ProductList\Forms\UpdateProductInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductUtility\ProductList\Forms\UpdateProductInfoForm.Designer.cs" />
+    <Compile Include="ProductUtility\ProductList\Forms\UpdateSellingPriceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductUtility\ProductList\Forms\UpdateSellingPriceForm.Designer.cs" />
+    <Compile Include="ProductUtility\ProductList\Forms\UpdateStockLevelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductUtility\ProductList\Forms\UpdateStockLevelForm.Designer.cs" />
+    <Compile Include="ProductUtility\ProductList\ProductDetailsController.cs" />
+    <Compile Include="ProductUtility\ProductList\ProductList\IProductListController.cs" />
+    <Compile Include="ProductUtility\ProductList\ProductList\ProductListController.cs" />
+    <Compile Include="ProductUtility\ProductList\ProductList\ProductListControllerAll.cs" />
+    <Compile Include="ProductUtility\ProductList\ProductList\ProductListControllerFactory.cs" />
+    <Compile Include="ProductUtility\ProductList\ProductList\ProductListDataTableRetriever.cs" />
     <Compile Include="ProductUtility\ProductList\Stock.cs" />
-    <Compile Include="ProductUtility\ProductList\UpdateProductInfoForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProductUtility\ProductList\UpdateProductInfoForm.Designer.cs" />
-    <Compile Include="ProductUtility\ProductList\UpdateSellingPriceController.cs" />
-    <Compile Include="ProductUtility\ProductList\UpdateSellingPriceForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProductUtility\ProductList\UpdateSellingPriceForm.Designer.cs" />
+    <Compile Include="ProductUtility\ProductList\UpdateProductInfoController.cs" />
     <Compile Include="ProductUtility\ProductList\UpdateStockLevelController.cs" />
-    <Compile Include="ProductUtility\ProductList\UpdateStockLevelForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProductUtility\ProductList\UpdateStockLevelForm.Designer.cs" />
+    <Compile Include="ProductUtility\ProductRepository.cs" />
     <Compile Include="ProductUtility\PurchaseOrder\PurchaseOrderDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -417,8 +440,7 @@
     <Compile Include="SettingsUtility\UserSettingsDirectory.cs" />
     <Compile Include="SettingsUtility\UserSettingsLoader.cs" />
     <Compile Include="SettingsUtility\UserSettingsSaver.cs" />
-    <Compile Include="StaffUtility\StaffEntity\DepartmentEnumMapper.cs" />
-    <Compile Include="StaffUtility\StaffEntity\DepartmentRepository.cs" />
+    <Compile Include="StaffUtility\StaffEntity\DepartmentMapper.cs" />
     <Compile Include="StaffUtility\StaffEntity\Department.cs" />
     <Compile Include="StaffUtility\StaffEntity\RetailStore.cs" />
     <Compile Include="StaffUtility\StaffEntity\RetailStoreRepository.cs" />
@@ -426,7 +448,6 @@
     <Compile Include="StaffUtility\StaffEntity\StaffRepository.cs" />
     <Compile Include="StaffUtility\StaffEntity\StaffTitle.cs" />
     <Compile Include="StaffUtility\StaffEntity\StaffTitleMapper.cs" />
-    <Compile Include="StaffUtility\StaffEntity\StaffTitleRepository.cs" />
     <Compile Include="StaffUtility\StaffEntity\Warehouse.cs" />
     <Compile Include="StaffUtility\StaffEntity\WarehouseRepository.cs" />
     <Compile Include="StaffUtility\StaffEntity\Workplace.cs" />
@@ -439,6 +460,9 @@
     </Compile>
     <Compile Include="Tools\DgvKeywordSearchHelper.cs" />
     <Compile Include="Tools\Pager.cs" />
+    <EmbeddedResource Include="Admin\AdminProductListForm.resx">
+      <DependentUpon>AdminProductListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DevTools\AutoLogin\StaffRoleChooserForm.resx">
       <DependentUpon>StaffRoleChooserForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -456,6 +480,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\UI\AccountingManagerNavigationForm.resx">
       <DependentUpon>AccountingManagerNavigationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\UI\AdminNavigationForm.resx">
+      <DependentUpon>AdminNavigationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\UI\InventoryClerkNavigationForm.resx">
       <DependentUpon>InventoryClerkNavigationForm.cs</DependentUpon>
@@ -481,14 +508,14 @@
     <EmbeddedResource Include="ProductUtility\GoodsReturning\CreateGoodsReturnedRecordForm.resx" />
     <EmbeddedResource Include="ProductUtility\GoodsReturning\GoodsReturnedDetailsForm.resx" />
     <EmbeddedResource Include="ProductUtility\GoodsReturning\GoodsReturnedForm.resx" />
-    <EmbeddedResource Include="ProductUtility\ProductList\CreateRestockRequestForm.resx" />
-    <EmbeddedResource Include="ProductUtility\ProductList\ProductDetailsForm.resx">
+    <EmbeddedResource Include="ProductUtility\ProductList\Forms\CreateRestockRequestForm.resx" />
+    <EmbeddedResource Include="ProductUtility\ProductList\Forms\ProductDetailsForm.resx">
       <DependentUpon>ProductDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProductUtility\ProductList\ProductListForm.resx" />
-    <EmbeddedResource Include="ProductUtility\ProductList\UpdateProductInfoForm.resx" />
-    <EmbeddedResource Include="ProductUtility\ProductList\UpdateSellingPriceForm.resx" />
-    <EmbeddedResource Include="ProductUtility\ProductList\UpdateStockLevelForm.resx" />
+    <EmbeddedResource Include="ProductUtility\ProductList\Forms\ProductListForm.resx" />
+    <EmbeddedResource Include="ProductUtility\ProductList\Forms\UpdateProductInfoForm.resx" />
+    <EmbeddedResource Include="ProductUtility\ProductList\Forms\UpdateSellingPriceForm.resx" />
+    <EmbeddedResource Include="ProductUtility\ProductList\Forms\UpdateStockLevelForm.resx" />
     <EmbeddedResource Include="ProductUtility\PurchaseOrder\PurchaseOrderDetailsForm.resx" />
     <EmbeddedResource Include="ProductUtility\PurchaseOrder\PurchaseOrdersForm.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -551,11 +578,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="ServiceUtility\.vs\ServieUtility\v17\.suo" />
-    <Content Include="ServiceUtility\.vs\slnx.sqlite" />
-    <Content Include="ServiceUtility\.vs\VSWorkspaceState.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DataAnalytics\" />

@@ -2,11 +2,13 @@
 using System.Data;
 using System.Windows.Forms;
 using Better_Limited_Project.DatabaseUtility;
+using Better_Limited_Project.Login;
 using Better_Limited_Project.SettingsUtility;
+using Better_Limited_Project.StaffUtility.StaffEntity;
 using Better_Limited_Project.Tools;
 using MySql.Data.MySqlClient;
 
-namespace Better_Limited_Project.ProductUtility.ProductList
+namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 {
     public partial class ProductListForm : Form
     {
@@ -23,6 +25,13 @@ namespace Better_Limited_Project.ProductUtility.ProductList
             var helper = new DgvKeywordSearchHelper();
             helper.Activate(_productTable, dgvProductList, txtSearchKeywords, "name");
         }
+
+        private DataTable GetProductTable()
+        {
+            var department = StaffRepository.GetStaff(LoginSession.GetSession().StaffId).Department;
+            return department is Department.Sales ? 
+                GetRetailStoreStockDataTable() : GetWarehouseStockDataTable();
+        }
         
         private void OnFormShown(object sender, EventArgs e)
         {
@@ -30,7 +39,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList
             HideDgvIdColumn();
         }
 
-        private DataTable GetProductTable()
+        private DataTable GetRetailStoreStockDataTable()
         {
             var retailStoreId = UserSettings.GetSettings().Workplace?.Id;
             var command = new MySqlCommand(
@@ -48,6 +57,23 @@ namespace Better_Limited_Project.ProductUtility.ProductList
             return DataTableRepository.RetrieveDataTable(command);
         }
 
+        private DataTable GetWarehouseStockDataTable()
+        {
+            var warehouseId = UserSettings.GetSettings().Workplace?.Id;
+            var command = new MySqlCommand(
+                @"select p.id as product_id,
+                       p.name as name, 
+                       ws.quantity, 
+                       pc.name as category
+                        from warehouse_stock ws
+                        INNER JOIN product p on ws.product_id = p.id
+                        INNER JOIN product_category pc on p.category_id = pc.id
+                        INNER JOIN warehouse w on ws.warehouse_id = w.id
+                        WHERE w.id = @warehouseId;");
+            command.Parameters.AddWithValue("@warehouseId", warehouseId);
+            return DataTableRepository.RetrieveDataTable(command);
+        }
+        
         private void dgvProductList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             var clickedProductRow = _productTable.Rows[e.RowIndex];

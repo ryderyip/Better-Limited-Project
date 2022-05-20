@@ -4,7 +4,7 @@ using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.Login;
 using Better_Limited_Project.Navigation;
 using Better_Limited_Project.Navigation.UI;
-using Better_Limited_Project.SettingsUtility;
+using Better_Limited_Project.Procedure;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 using Better_Limited_Project.StaffUtility.StaffProfile;
 
@@ -13,38 +13,18 @@ namespace Better_Limited_Project
     public class MainController
     {
         private readonly FormController _formController;
-        private readonly UserSettings _userSettings;
         private INavigationForm? _navigationForm;
         
         public MainController(MainForm mainForm)
         {
             _formController = new FormController(mainForm);
-            _userSettings = UserSettings.GetSettings();
-            mainForm.Shown += StartLoginProcess;
-        }
-        
-        private void StartLoginProcess(object sender, EventArgs e)
-        {
-            OpenLoginForm();
-            SetLanguage();
+            
+            var loginProcess = new LoginProcedure(_formController);
+            loginProcess.Finished += OnLoggedIn;
+            
+            mainForm.Shown += (_, _) => loginProcess.Start();
         }
 
-        private void OpenLoginForm()
-        {
-            var loginController = new LoginController();
-            loginController.LoggedIn += OnLoggedIn;
-            string? lastLoginUsername = _userSettings.LastLoginUsername;
-            if (lastLoginUsername == null)
-                loginController.OpenForm(_formController);
-            else
-                loginController.OpenForm(_formController, lastLoginUsername);
-        }
-        
-        private void SetLanguage()
-        {
-            LanguageController.SetLanguage(_userSettings.Language);
-        }
-        
         private void OnLoggedIn(object sender, string staffId)
         {
             var staff = StaffRepository.GetStaff(staffId);
@@ -69,9 +49,17 @@ namespace Better_Limited_Project
         
         private void OnLogOut(object sender, EventArgs e)
         {
-            if (_navigationForm != null) 
-                ((Form) _navigationForm).Close();
-            OpenLoginForm();
+            if (IsNavigationFormOpened()) 
+                ((Form) _navigationForm!).Close();
+            
+            var loginProcess = new LoginProcedure(_formController);
+            loginProcess.Finished += OnLoggedIn;
+            loginProcess.Start();
+        }
+
+        private bool IsNavigationFormOpened()
+        {
+            return _navigationForm != null;
         }
     }
 }

@@ -4,7 +4,7 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
 {
     public class Staff
     {
-        public Staff(string? id, string name, DateTime dateOfBirth, DateTime hiredOn, char gender, Department department, StaffTitle staffTitle)
+        public Staff(string? id, string name, DateTime dateOfBirth, DateTime hiredOn, char gender, Department department, StaffTitle title)
         {
             Id = id;
             Name = name;
@@ -12,7 +12,7 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
             HiredOn = hiredOn;
             Gender = gender;
             Department = department;
-            StaffTitle = staffTitle;
+            Title = title;
         }
 
         public string? Id { get; }
@@ -21,6 +21,6 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
         public DateTime HiredOn { get; }
         public char Gender { get; }
         public Department Department { get; }
-        public StaffTitle StaffTitle { get; }
+        public StaffTitle Title { get; }
     }
 }

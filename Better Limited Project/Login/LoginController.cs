@@ -6,7 +6,6 @@ namespace Better_Limited_Project.Login
     public class LoginController
     {
         public delegate void LoggedInEventHandler<T>(object sender, T staffId);
-
         public event LoggedInEventHandler<string> LoggedIn;
 
         private readonly LoginForm _loginForm;
@@ -15,19 +14,16 @@ namespace Better_Limited_Project.Login
         {
             _loginForm = new LoginForm();
             _loginForm.LoginClicked += OnLoginClicked;
-            
-            _loginForm.Shown += (_, _) => _loginForm.AutoLogin();
+        }
+
+        public LoginController(string lastLoginUsername) : this()
+        {
+            _loginForm.FillLastLoginUsername(lastLoginUsername);
         }
 
         public void OpenForm(FormController formController)
         {
             formController.OpenFullForm(_loginForm);
-        }
-
-        public void OpenForm(FormController formController, string lastLoginUsername)
-        {
-            OpenForm(formController);
-            _loginForm.FillLastLoginUsername(lastLoginUsername);
         }
 
         private void OnLoginClicked(object sender, LoginCredentials credentials)

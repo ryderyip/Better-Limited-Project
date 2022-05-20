@@ -1,18 +1,22 @@
 ﻿using System;
 using System.Windows.Forms;
 using Better_Limited_Project.FormControlling;
+using Better_Limited_Project.ProductUtility.ProductList.Forms;
 using Better_Limited_Project.SettingsUtility;
 
-namespace Better_Limited_Project.ProductUtility.ProductList
+namespace Better_Limited_Project.ProductUtility.ProductList.ProductList
 {
-    public class ProductListController
+    public class ProductListController : IProductListController
     {
         private readonly FormController _formController;
-        private ProductListForm _productListForm;
+        private readonly ProductListForm _productListForm;
         
         public ProductListController(FormController formController)
         {
             _formController = formController;
+            _productListForm = new ProductListForm();
+            _productListForm.ProductClicked += OnProductClicked;
+            _productListForm.UpdateStockLevelClicked += OnUpdateStockLevelClicked;
         }
 
         public void OpenForm()
@@ -25,9 +29,6 @@ namespace Better_Limited_Project.ProductUtility.ProductList
                 return;
             }
 
-            _productListForm = new ProductListForm();
-            _productListForm.ProductClicked += OnProductClicked;
-            _productListForm.UpdateStockLevelClicked += OnUpdateStockLevelClicked;
             _formController.OpenContentForm(_productListForm);
         }
 

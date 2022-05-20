@@ -1,6 +1,7 @@
 ﻿using System;
 using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.ProductUtility.ProductList;
+using Better_Limited_Project.ProductUtility.ProductList.ProductList;
 using Better_Limited_Project.Sales.Sales.OrderPlacing;
 using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.StaffUtility.StaffEntity;
@@ -42,7 +43,7 @@ namespace Better_Limited_Project.Navigation.UI
 
         private void btnProductList_Click(object sender, EventArgs e)
         {
-            var controller = new ProductListController(_formController);
+            var controller = ProductListControllerFactory.Generate(_formController);
             controller.OpenForm();
         }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using Better_Limited_Project.Admin.PermissionManagement;
 
 namespace Better_Limited_Project.ProductUtility.ProductList
 {
@@ -23,12 +24,19 @@ namespace Better_Limited_Project.ProductUtility.ProductList
 
         private void OnUpdateProductInfoClicked(object sender, EventArgs e)
         {
-            var controller = new UpdateSellingPriceController(_productId);
-            controller.SellingPriceUpdated += OnSellingPriceUpdated;
-            controller.OpenForm();
+            var permission = ProductUpdatePermissionManager.GetCurrentStaffPermission();
+            
+            if (permission is ProductUpdatePermission.AllowUpdateAll
+                or ProductUpdatePermission.AllowUpdatePricePhasingLevelPhasingOut
+                or ProductUpdatePermission.AllowUpdatePrice)
+            {
+                var controller = new UpdateProductInfoController(_productId);
+                controller.ProductInfoUpdated += OnProductInfoUpdated;
+                controller.OpenForm();
+            }
         }
 
-        private void OnSellingPriceUpdated(object sender, EventArgs e)
+        private void OnProductInfoUpdated(object sender, EventArgs e)
         {
             ProductInfoUpdated?.Invoke(this, EventArgs.Empty);
             _productDetailsForm.RefreshProductInfo(_productId);

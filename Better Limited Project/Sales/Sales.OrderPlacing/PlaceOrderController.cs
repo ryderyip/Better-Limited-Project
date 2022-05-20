@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.DatabaseUtility;
 using Better_Limited_Project.FormControlling;
+using Better_Limited_Project.ProductUtility;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.Sales.Payment;
 using Better_Limited_Project.Sales.Sales.Payment;
@@ -152,7 +153,7 @@ namespace Better_Limited_Project.Sales.Sales.OrderPlacing
                     Id = productRow.Field<string>("id"),
                     Name = productRow.Field<string>("name"),
                     SellingPrice = productRow.Field<decimal>("price"),
-                    Category = productRow.Field<string>("category")
+                    Category = CategoryRepository.GetById(productRow.Field<string>("category"))
                 };
                 _pager.AddItem(new ProductQuantity(product, quantity));
             }

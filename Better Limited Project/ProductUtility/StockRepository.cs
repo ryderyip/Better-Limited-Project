@@ -117,6 +117,9 @@ namespace Better_Limited_Project.ProductUtility
             var stock = new List<ProductQuantity>();
             foreach (DataRow row in dataTable.Rows)
             {
+                string supplierName = row.Field<string>("supplier_name");
+                string supplierPhone = row.Field<string>("supplier_phone");
+                string supplierEmail = row.Field<string>("supplier_email");
                 var product = new Product
                 {
                     Id = row.Field<string>("product_id"),
@@ -124,14 +127,9 @@ namespace Better_Limited_Project.ProductUtility
                     OriginalPrice = row.Field<decimal>("original_price"),
                     SellingPrice = row.Field<decimal>("selling_price"),
                     Description = row.Field<string>("description"),
-                    Category = row.Field<string>("category"),
+                    Category = CategoryRepository.GetById(row.Field<string>("category")),
                     IsPhasingOut = row.Field<bool>("is_phasing_out"),
-                    Supplier = new Supplier
-                    {
-                        Name = row.Field<string>("supplier_name"),
-                        Phone = row.Field<string>("supplier_phone"),
-                        Email = row.Field<string>("supplier_email")
-                    }
+                    Supplier = new Supplier(supplierName, supplierPhone, supplierEmail)
                 };
                 int quantity = row.Field<int>("quantity");
                 stock.Add(new ProductQuantity(product, quantity));

@@ -40,8 +40,8 @@ namespace Better_Limited_Project.DevTools.AutoLogin
             switch (title)
             {
                 case StaffTitle.Admin:
-                    username = "odin";
-                    password = "odin";
+                    username = "admin";
+                    password = "admin";
                     break;
                 case StaffTitle.SalesRepresentative:
                     username = "homer";

@@ -13,9 +13,11 @@ namespace Better_Limited_Project.Login
         public LoginForm()
         {
             InitializeComponent();
+            
+            Shown += (_, _) => AutoLogin();
         }
 
-        public void AutoLogin()
+        private void AutoLogin()
         {
             var helper = new AutoLoginHelper(tbUsername, tbPassword, btnLogin_Click);
             helper.Login();
