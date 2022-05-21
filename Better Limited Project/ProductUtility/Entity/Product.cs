@@ -1,4 +1,6 @@
-﻿namespace Better_Limited_Project.ProductUtility.Entity
+﻿using System;
+
+namespace Better_Limited_Project.ProductUtility.Entity
 {
     public class Product
     {
@@ -14,6 +16,23 @@
         public void Update()
         {
             ProductRepository.UpdateProduct(this);
+        }
+
+        /// <param name="workplaceId">Id of retail store or warehouse</param>
+        /// <returns>The product object with it quantity</returns>
+        /// <exception cref="InvalidOperationException">Thrown if the workplaceId does not exist</exception>
+        public ProductQuantity GetStockOfRetailStoreOrWarehouse(string workplaceId)
+        {
+            string id = ProductRepository.GetProductByName(Name).Id!;
+            
+            var stock = StockRepository.GetRetailStoreProductStock(workplaceId, id);
+            if (stock != null)
+                return stock.Value;
+            stock = StockRepository.GetWarehouseProductStock(id, workplaceId);
+            if (stock != null)
+                return stock.Value;
+
+            throw new InvalidOperationException($"Workplace id \"{workplaceId}\" does not exist.");
         }
     }
 }

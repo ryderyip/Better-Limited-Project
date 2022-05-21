@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Windows.Forms;
 using Better_Limited_Project.Admin.PermissionManagement;
+using Better_Limited_Project.ProductUtility.ProductList.Forms;
 
 namespace Better_Limited_Project.ProductUtility.ProductList
 {
@@ -34,6 +36,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList
         {
             var form = new UpdateSellingPriceForm(_productId);
             form.UpdateSellingPriceClicked += OnUpdateProductInfoClicked;
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.ShowDialog();
         }
         
@@ -41,6 +44,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList
         {
             var form = new UpdateProductInfoForm(_productId);
             form.UpdateProductInfoClicked += OnUpdateProductInfoClicked;
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.ShowDialog();
         }
         

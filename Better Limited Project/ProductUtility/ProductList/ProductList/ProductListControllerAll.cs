@@ -78,7 +78,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.ProductList
         {
             var clickedProductRow = _productTable.Rows[rowIndex];
             string productId = clickedProductRow["product_id"].ToString();
-            var controller = new ProductDetailsController(productId);
+            var controller = new ProductDetailsController(productId, GetSelectedWorkplaceId());
             controller.ProductInfoUpdated += (_, _) => RefreshUiStock();;
             controller.OpenForm();
         }

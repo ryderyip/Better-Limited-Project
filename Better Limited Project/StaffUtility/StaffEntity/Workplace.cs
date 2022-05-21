@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using Better_Limited_Project.ProductUtility.Entity;
-
-#nullable enable
+﻿#nullable enable
 namespace Better_Limited_Project.StaffUtility.StaffEntity
 {
     public interface IWorkplace
@@ -10,6 +7,5 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
         public string Name { get; }
         public string Address { get; }
 
-        public List<ProductQuantity> GetStock();
     }
 }

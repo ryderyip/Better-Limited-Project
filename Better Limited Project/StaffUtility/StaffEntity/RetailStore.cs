@@ -20,16 +20,6 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
             Address = address;
         }
 
-        public List<ProductQuantity> GetStock()
-        {
-            return StockRepository.GetRetailStoreStock(Id);
-        }
-        
-        public ProductQuantity GetStock(string productId)
-        {
-            return StockRepository.GetRetailStoreStock(Id, productId);
-        }
-
         public void UpdateSellingPrice(string productId, decimal sellingPrice)
         {
             StockRepository.UpdateProductInfo(Id, productId, sellingPrice);

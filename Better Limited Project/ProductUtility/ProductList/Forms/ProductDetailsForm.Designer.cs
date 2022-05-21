@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Better_Limited_Project.ProductUtility.ProductList
+namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 {
     partial class ProductDetailsForm
     {
@@ -74,7 +74,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList
             // 
             this.lblSellingPrice.AutoSize = true;
             this.lblSellingPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblSellingPrice.Location = new System.Drawing.Point(63, 183);
+            this.lblSellingPrice.Location = new System.Drawing.Point(63, 288);
             this.lblSellingPrice.Name = "lblSellingPrice";
             this.lblSellingPrice.Size = new System.Drawing.Size(79, 15);
             this.lblSellingPrice.TabIndex = 49;
@@ -84,7 +84,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList
             // 
             this.lblOriginalPrice.AutoSize = true;
             this.lblOriginalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblOriginalPrice.Location = new System.Drawing.Point(58, 135);
+            this.lblOriginalPrice.Location = new System.Drawing.Point(58, 254);
             this.lblOriginalPrice.Name = "lblOriginalPrice";
             this.lblOriginalPrice.Size = new System.Drawing.Size(84, 15);
             this.lblOriginalPrice.TabIndex = 48;
@@ -102,7 +102,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList
             // 
             // tbOriginalPrice
             // 
-            this.tbOriginalPrice.Location = new System.Drawing.Point(148, 135);
+            this.tbOriginalPrice.Location = new System.Drawing.Point(148, 254);
             this.tbOriginalPrice.Name = "tbOriginalPrice";
             this.tbOriginalPrice.ReadOnly = true;
             this.tbOriginalPrice.Size = new System.Drawing.Size(119, 20);
@@ -110,7 +110,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList
             // 
             // tbSellingPrice
             // 
-            this.tbSellingPrice.Location = new System.Drawing.Point(148, 184);
+            this.tbSellingPrice.Location = new System.Drawing.Point(148, 289);
             this.tbSellingPrice.Name = "tbSellingPrice";
             this.tbSellingPrice.ReadOnly = true;
             this.tbSellingPrice.Size = new System.Drawing.Size(119, 20);
@@ -131,7 +131,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList
             // 
             this.lblPhasingOut.AutoSize = true;
             this.lblPhasingOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblPhasingOut.Location = new System.Drawing.Point(63, 222);
+            this.lblPhasingOut.Location = new System.Drawing.Point(63, 134);
             this.lblPhasingOut.Name = "lblPhasingOut";
             this.lblPhasingOut.Size = new System.Drawing.Size(76, 15);
             this.lblPhasingOut.TabIndex = 62;
@@ -139,7 +139,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList
             // 
             // tbPhasingOut
             // 
-            this.tbPhasingOut.Location = new System.Drawing.Point(148, 222);
+            this.tbPhasingOut.Location = new System.Drawing.Point(148, 134);
             this.tbPhasingOut.Name = "tbPhasingOut";
             this.tbPhasingOut.ReadOnly = true;
             this.tbPhasingOut.Size = new System.Drawing.Size(119, 20);
@@ -147,7 +147,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList
             // 
             // tbReorderLevel
             // 
-            this.tbReorderLevel.Location = new System.Drawing.Point(148, 299);
+            this.tbReorderLevel.Location = new System.Drawing.Point(148, 211);
             this.tbReorderLevel.Name = "tbReorderLevel";
             this.tbReorderLevel.ReadOnly = true;
             this.tbReorderLevel.Size = new System.Drawing.Size(119, 20);
@@ -157,7 +157,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList
             // 
             this.lblReorderLevel.AutoSize = true;
             this.lblReorderLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblReorderLevel.Location = new System.Drawing.Point(55, 298);
+            this.lblReorderLevel.Location = new System.Drawing.Point(55, 210);
             this.lblReorderLevel.Name = "lblReorderLevel";
             this.lblReorderLevel.Size = new System.Drawing.Size(87, 15);
             this.lblReorderLevel.TabIndex = 64;
@@ -165,7 +165,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList
             // 
             // tbQuantity
             // 
-            this.tbQuantity.Location = new System.Drawing.Point(148, 258);
+            this.tbQuantity.Location = new System.Drawing.Point(148, 170);
             this.tbQuantity.Name = "tbQuantity";
             this.tbQuantity.ReadOnly = true;
             this.tbQuantity.Size = new System.Drawing.Size(119, 20);
@@ -175,7 +175,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList
             // 
             this.lblQuantity.AutoSize = true;
             this.lblQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblQuantity.Location = new System.Drawing.Point(29, 258);
+            this.lblQuantity.Location = new System.Drawing.Point(29, 170);
             this.lblQuantity.Name = "lblQuantity";
             this.lblQuantity.Size = new System.Drawing.Size(113, 15);
             this.lblQuantity.TabIndex = 66;

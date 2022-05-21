@@ -19,10 +19,5 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
             Name = name;
             Address = address;
         }
-        
-        public List<ProductQuantity> GetStock()
-        {
-            return StockRepository.GetWarehouseStock(Id);
-        }
     }
 }

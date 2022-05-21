@@ -1,4 +1,4 @@
-﻿namespace Better_Limited_Project.ProductUtility.ProductList
+﻿namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 {
     partial class UpdateProductInfoForm
     {
@@ -56,7 +56,7 @@
             // 
             this.lblOriginalInfo.AutoSize = true;
             this.lblOriginalInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblOriginalInfo.Location = new System.Drawing.Point(64, 38);
+            this.lblOriginalInfo.Location = new System.Drawing.Point(80, 40);
             this.lblOriginalInfo.Name = "lblOriginalInfo";
             this.lblOriginalInfo.Size = new System.Drawing.Size(107, 20);
             this.lblOriginalInfo.TabIndex = 14;
@@ -66,7 +66,7 @@
             // 
             this.lblOriginalPrice.AutoSize = true;
             this.lblOriginalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblOriginalPrice.Location = new System.Drawing.Point(38, 175);
+            this.lblOriginalPrice.Location = new System.Drawing.Point(30, 255);
             this.lblOriginalPrice.Name = "lblOriginalPrice";
             this.lblOriginalPrice.Size = new System.Drawing.Size(94, 15);
             this.lblOriginalPrice.TabIndex = 24;
@@ -76,7 +76,7 @@
             // 
             this.lblSellingPrice.AutoSize = true;
             this.lblSellingPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblSellingPrice.Location = new System.Drawing.Point(43, 234);
+            this.lblSellingPrice.Location = new System.Drawing.Point(35, 314);
             this.lblSellingPrice.Name = "lblSellingPrice";
             this.lblSellingPrice.Size = new System.Drawing.Size(89, 15);
             this.lblSellingPrice.TabIndex = 25;
@@ -86,7 +86,7 @@
             // 
             this.lblPhasingOut.AutoSize = true;
             this.lblPhasingOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblPhasingOut.Location = new System.Drawing.Point(56, 286);
+            this.lblPhasingOut.Location = new System.Drawing.Point(47, 175);
             this.lblPhasingOut.Name = "lblPhasingOut";
             this.lblPhasingOut.Size = new System.Drawing.Size(76, 15);
             this.lblPhasingOut.TabIndex = 26;
@@ -96,7 +96,7 @@
             // 
             this.lblReorderLevel.AutoSize = true;
             this.lblReorderLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblReorderLevel.Location = new System.Drawing.Point(56, 323);
+            this.lblReorderLevel.Location = new System.Drawing.Point(37, 212);
             this.lblReorderLevel.Name = "lblReorderLevel";
             this.lblReorderLevel.Size = new System.Drawing.Size(87, 15);
             this.lblReorderLevel.TabIndex = 28;
@@ -104,7 +104,7 @@
             // 
             // txtOriginalPrice
             // 
-            this.txtOriginalPrice.Location = new System.Drawing.Point(156, 175);
+            this.txtOriginalPrice.Location = new System.Drawing.Point(148, 255);
             this.txtOriginalPrice.Name = "txtOriginalPrice";
             this.txtOriginalPrice.ReadOnly = true;
             this.txtOriginalPrice.Size = new System.Drawing.Size(100, 20);
@@ -112,7 +112,7 @@
             // 
             // txtSellingPrice
             // 
-            this.txtSellingPrice.Location = new System.Drawing.Point(156, 234);
+            this.txtSellingPrice.Location = new System.Drawing.Point(148, 314);
             this.txtSellingPrice.Name = "txtSellingPrice";
             this.txtSellingPrice.ReadOnly = true;
             this.txtSellingPrice.Size = new System.Drawing.Size(100, 20);
@@ -120,7 +120,7 @@
             // 
             // txtPhasingOut
             // 
-            this.txtPhasingOut.Location = new System.Drawing.Point(157, 286);
+            this.txtPhasingOut.Location = new System.Drawing.Point(148, 175);
             this.txtPhasingOut.Name = "txtPhasingOut";
             this.txtPhasingOut.ReadOnly = true;
             this.txtPhasingOut.Size = new System.Drawing.Size(46, 20);
@@ -128,7 +128,7 @@
             // 
             // txtReorderLevel
             // 
-            this.txtReorderLevel.Location = new System.Drawing.Point(156, 323);
+            this.txtReorderLevel.Location = new System.Drawing.Point(149, 212);
             this.txtReorderLevel.Name = "txtReorderLevel";
             this.txtReorderLevel.ReadOnly = true;
             this.txtReorderLevel.Size = new System.Drawing.Size(46, 20);
@@ -163,7 +163,7 @@
             // 
             this.lblProductID.AutoSize = true;
             this.lblProductID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblProductID.Location = new System.Drawing.Point(65, 87);
+            this.lblProductID.Location = new System.Drawing.Point(57, 99);
             this.lblProductID.Name = "lblProductID";
             this.lblProductID.Size = new System.Drawing.Size(67, 15);
             this.lblProductID.TabIndex = 43;
@@ -171,7 +171,7 @@
             // 
             // txtProductID
             // 
-            this.txtProductID.Location = new System.Drawing.Point(156, 86);
+            this.txtProductID.Location = new System.Drawing.Point(148, 98);
             this.txtProductID.Name = "txtProductID";
             this.txtProductID.ReadOnly = true;
             this.txtProductID.Size = new System.Drawing.Size(100, 20);
@@ -210,7 +210,6 @@
             this.txtNewReorderLevel.Name = "txtNewReorderLevel";
             this.txtNewReorderLevel.Size = new System.Drawing.Size(190, 20);
             this.txtNewReorderLevel.TabIndex = 48;
-            this.txtNewReorderLevel.Visible = false;
             // 
             // lblPhasing_Out
             // 
@@ -231,7 +230,6 @@
             this.radioBtnPhasing_Out_Off.TabStop = true;
             this.radioBtnPhasing_Out_Off.Text = "Off";
             this.radioBtnPhasing_Out_Off.UseVisualStyleBackColor = true;
-            this.radioBtnPhasing_Out_Off.Visible = false;
             // 
             // radioBtnPhasing_Out_On
             // 
@@ -243,13 +241,12 @@
             this.radioBtnPhasing_Out_On.TabStop = true;
             this.radioBtnPhasing_Out_On.Text = "On";
             this.radioBtnPhasing_Out_On.UseVisualStyleBackColor = true;
-            this.radioBtnPhasing_Out_On.Visible = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label1.Location = new System.Drawing.Point(88, 128);
+            this.label1.Location = new System.Drawing.Point(80, 140);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 15);
             this.label1.TabIndex = 52;
@@ -257,7 +254,7 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(157, 128);
+            this.txtName.Location = new System.Drawing.Point(149, 140);
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = true;
             this.txtName.Size = new System.Drawing.Size(100, 20);

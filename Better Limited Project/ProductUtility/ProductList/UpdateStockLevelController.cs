@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 using Better_Limited_Project.ProductUtility.ProductList.Forms;
 
 namespace Better_Limited_Project.ProductUtility.ProductList
@@ -20,6 +21,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList
         {
             var form = new UpdateStockLevelForm(_selectedWorkplaceId);
             form.StockLevelUpdated += OnStockLevelUpdated;
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.ShowDialog();
         }
 

@@ -76,6 +76,7 @@ namespace Better_Limited_Project.Sales.Sales.OrderPlacing
             _customerName = customerName;
             var form = new DeliverySessionSelectionForm();
             form.NextClicked += DeliverySessionSelected;
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.ShowDialog();
         }
 
@@ -105,6 +106,7 @@ namespace Better_Limited_Project.Sales.Sales.OrderPlacing
 
             form.StartPosition = FormStartPosition.CenterParent;
             form.OrderConfirmed += OnPlacingOrderConfirmed;
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.ShowDialog();
         }
 

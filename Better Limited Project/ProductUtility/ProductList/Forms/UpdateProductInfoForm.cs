@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Windows.Forms;
 using Better_Limited_Project.ProductUtility.Entity;
 
-namespace Better_Limited_Project.ProductUtility.ProductList
+namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 {
     public partial class UpdateProductInfoForm : Form
     {
@@ -13,7 +13,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList
       
         public UpdateProductInfoForm(string productId)
         {
-            _product =      ProductRepository.GetProduct(productId);
+            _product = ProductRepository.GetProductById(productId);
 
             InitializeComponent();
             Shown += (_, _) => FillFields();
@@ -25,7 +25,11 @@ namespace Better_Limited_Project.ProductUtility.ProductList
             txtName.Text = _product.Name;
             
             // TODO deal with this fucking annoying cultureinfo shit
-            txtSellingPrice.Text = _product.SellingPrice.ToString("C", new CultureInfo("zh-HK"));
+            if (_product.SellingPrice == decimal.Zero)
+                HideSellingPrice();
+            else
+                txtSellingPrice.Text = _product.SellingPrice.ToString("C", new CultureInfo("zh-HK"));
+            
             txtOriginalPrice.Text = _product.OriginalPrice.ToString("C", new CultureInfo("zh-HK"));
             txtPhasingOut.Text = _product.IsPhasingOut ? "Yes" : "No";
             // TODO txtReorderLevel.Text = _product.
@@ -35,6 +39,12 @@ namespace Better_Limited_Project.ProductUtility.ProductList
         {
             _product.Update();
             UpdateProductInfoClicked?.Invoke(this, EventArgs.Empty);
+        }
+        
+        private void HideSellingPrice()
+        {
+            txtSellingPrice.Visible = false;
+            lblSellingPrice.Visible = false;
         }
     }
 }
