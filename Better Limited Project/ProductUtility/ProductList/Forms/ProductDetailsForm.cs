@@ -35,7 +35,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList
             var command = new MySqlCommand(
                 @"select p.id as product_id, p.name as name, price as original_price, 
                        description, is_phasing_out, rss.quantity, 
-                       rss.selling_price, pc.name as category, 
+                       rss.selling_price, pc.id as category, 
                        s.name as supplier_name, s.phone as supplier_phone, 
                        s.email as supplier_email, rs.name as retail_store_name
                         from retail_store_stock rss
@@ -57,7 +57,6 @@ namespace Better_Limited_Project.ProductUtility.ProductList
             string supplierName = row.Field<string>("supplier_name");
             string supplierPhone = row.Field<string>("supplier_phone");
             string supplierEmail = row.Field<string>("supplier_email");
-            
             var product = new Product
             {
                 Id = row.Field<string>("product_id"),
@@ -65,7 +64,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList
                 OriginalPrice = row.Field<decimal>("original_price"),
                 SellingPrice = row.Field<decimal>("selling_price"),
                 Description = row.Field<string>("description"),
-                Category = CategoryRepository.GetById(row.Field<string>("category")),
+                Category = CategoryRepository.GetById(row.Field<int>("category").ToString()),
                 IsPhasingOut = row.Field<bool>("is_phasing_out"),
                 Supplier = new Supplier(supplierName, supplierPhone, supplierEmail)
             };

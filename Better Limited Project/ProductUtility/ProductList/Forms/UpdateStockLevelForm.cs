@@ -7,17 +7,20 @@ using Better_Limited_Project.DatabaseUtility;
 using Better_Limited_Project.SettingsUtility;
 using MySql.Data.MySqlClient;
 
-namespace Better_Limited_Project.ProductUtility.ProductList
+namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 {
     public partial class UpdateStockLevelForm : Form
     {
+        private readonly string _selectedWorkplaceId;
+
         public delegate void StockLevelUpdatedEventHandler(object sender, EventArgs e);
         public event StockLevelUpdatedEventHandler StockLevelUpdated;
         private readonly DataTable _productTable;
         private readonly DataTable _selectedProductTable;
         
-        public UpdateStockLevelForm()
+        public UpdateStockLevelForm(string selectedWorkplaceId)
         {
+            _selectedWorkplaceId = selectedWorkplaceId;
             _productTable = GetProductTable();
             _selectedProductTable = _productTable.Clone();
             InitializeComponent();
@@ -41,8 +44,16 @@ namespace Better_Limited_Project.ProductUtility.ProductList
 
         private DataTable GetProductTable()
         {
-            string storeId = UserSettings.GetSettings().Workplace!.Id;
-            
+            var retailStoreProductTable = GetRetailStoreProductTable(_selectedWorkplaceId);
+            if (retailStoreProductTable.Rows.Count != 0)
+                return retailStoreProductTable;
+
+            var warehouseProductTable = GetWarehouseProductTable(_selectedWorkplaceId);
+            return warehouseProductTable;
+        }
+
+        private DataTable GetRetailStoreProductTable(string storeId)
+        {
             var command = new MySqlCommand(@"select p.id as ID, p.name as Name, rss.quantity as Quantity
                         FROM retail_store_stock rss
                         INNER JOIN product p on rss.product_id = p.id
@@ -53,6 +64,18 @@ namespace Better_Limited_Project.ProductUtility.ProductList
             return dataTable;
         }
 
+        private DataTable GetWarehouseProductTable(string warehouseId)
+        {
+            var command = new MySqlCommand(@"select p.id as ID, p.name as Name, ws.quantity as Quantity
+                        FROM warehouse_stock ws
+                        INNER JOIN product p on ws.product_id = p.id
+                        INNER JOIN warehouse w on ws.warehouse_id = w.id
+                        WHERE w.id = @retailStoreId;");
+            command.Parameters.AddWithValue("@retailStoreId", warehouseId);
+            var dataTable = DataTableRepository.RetrieveDataTable(command);
+            return dataTable;
+        }
+        
         private void txtSearchKeywords_TextChanged(object sender, EventArgs e)
         {
             string keywords = txtSearchKeywords.Text;

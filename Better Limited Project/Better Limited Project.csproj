@@ -109,12 +109,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin\AdminProductListForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Admin\AdminProductListForm.Designer.cs">
-      <DependentUpon>AdminProductListForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Admin\PermissionManagement\ProductUpdatePermission.cs" />
     <Compile Include="Admin\PermissionManagement\ProductUpdatePermissionManager.cs" />
     <Compile Include="DatabaseUtility\Database.cs" />
@@ -267,7 +261,6 @@
     <Compile Include="ProductUtility\ProductList\ProductList\ProductListController.cs" />
     <Compile Include="ProductUtility\ProductList\ProductList\ProductListControllerAll.cs" />
     <Compile Include="ProductUtility\ProductList\ProductList\ProductListControllerFactory.cs" />
-    <Compile Include="ProductUtility\ProductList\ProductList\ProductListDataTableRetriever.cs" />
     <Compile Include="ProductUtility\ProductList\Stock.cs" />
     <Compile Include="ProductUtility\ProductList\UpdateProductInfoController.cs" />
     <Compile Include="ProductUtility\ProductList\UpdateStockLevelController.cs" />
@@ -460,9 +453,6 @@
     </Compile>
     <Compile Include="Tools\DgvKeywordSearchHelper.cs" />
     <Compile Include="Tools\Pager.cs" />
-    <EmbeddedResource Include="Admin\AdminProductListForm.resx">
-      <DependentUpon>AdminProductListForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DevTools\AutoLogin\StaffRoleChooserForm.resx">
       <DependentUpon>StaffRoleChooserForm.cs</DependentUpon>
     </EmbeddedResource>

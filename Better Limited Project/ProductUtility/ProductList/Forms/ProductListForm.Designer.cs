@@ -149,7 +149,6 @@
             this.Controls.Add(this.lblSearchKeywords);
             this.Name = "ProductListForm";
             this.Text = "ProductListForm";
-            this.Shown += new System.EventHandler(this.OnFormShown);
             this.gpWorkplaceSelect.ResumeLayout(false);
             this.gpWorkplaceSelect.PerformLayout();
             ((System.ComponentModel.ISupportInitialize) (this.dgvProductList)).EndInit();
@@ -157,17 +156,17 @@
             this.PerformLayout();
         }
 
-        private System.Windows.Forms.ComboBox cbWorkplaceSelect;
+        public System.Windows.Forms.ComboBox cbWorkplaceSelect;
         private System.Windows.Forms.Label lblWorkplaceSelect;
-        private System.Windows.Forms.GroupBox gpWorkplaceSelect;
+        public System.Windows.Forms.GroupBox gpWorkplaceSelect;
 
         private System.Windows.Forms.Label txtNoResults;
 
         #endregion
 
         private System.Windows.Forms.Label lblSearchKeywords;
-        private System.Windows.Forms.TextBox txtSearchKeywords;
-        private System.Windows.Forms.DataGridView dgvProductList;
+        public System.Windows.Forms.TextBox txtSearchKeywords;
+        public System.Windows.Forms.DataGridView dgvProductList;
         private System.Windows.Forms.Button btnUpdateStockLevel;
         private System.Windows.Forms.Button btnRestock;
     }

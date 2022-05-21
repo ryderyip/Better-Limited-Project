@@ -20,7 +20,7 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
             return ConvertToRetailStores(dataTable);
         }
 
-        public static RetailStore? GetRetailStore(string retailStoreName)
+        public static RetailStore? GetRetailStoreByName(string retailStoreName)
         {
             using var conn = Database.GetConnection();
             conn.Open();

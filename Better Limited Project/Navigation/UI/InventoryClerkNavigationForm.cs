@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.ProductUtility.ProductList;
+using Better_Limited_Project.ProductUtility.ProductList.ProductList;
 using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 using Better_Limited_Project.StaffUtility.StaffProfile;
@@ -62,7 +63,8 @@ namespace Better_Limited_Project.Navigation.UI
 
         private void btnInventory_Click(object sender, EventArgs e)
         {
-            throw new System.NotImplementedException();
+            var controller = ProductListControllerFactory.Generate();
+            controller.OpenForm(_formController);
         }
 
         private void btnDeliveryDuty_Click(object sender, EventArgs e)

@@ -20,7 +20,7 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
             return ConvertToWarehouses(dataTable);
         }
         
-        public static Warehouse? GetWarehouse(string warehouseName)
+        public static Warehouse? GetWarehouseByName(string warehouseName)
         {
             using var conn = Database.GetConnection();
             conn.Open();

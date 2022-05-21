@@ -43,8 +43,8 @@ namespace Better_Limited_Project.Navigation.UI
 
         private void btnProductList_Click(object sender, EventArgs e)
         {
-            var controller = ProductListControllerFactory.Generate(_formController);
-            controller.OpenForm();
+            var controller = ProductListControllerFactory.Generate();
+            controller.OpenForm(_formController);
         }
 
         private void btnSettings_Click(object sender, EventArgs e)
