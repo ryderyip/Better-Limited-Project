@@ -109,8 +109,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin\PermissionManagement\ProductUpdatePermission.cs" />
-    <Compile Include="Admin\PermissionManagement\ProductUpdatePermissionManager.cs" />
     <Compile Include="DatabaseUtility\Database.cs" />
     <Compile Include="DatabaseUtility\DataTableRepository.cs" />
     <Compile Include="DevTools\AutoLogin\AutoLoginHelper.cs" />
@@ -256,12 +254,13 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ProductUtility\ProductList\Forms\UpdateStockLevelForm.Designer.cs" />
+    <Compile Include="ProductUtility\ProductList\PermissionManagement\ProductInfoEditPermission.cs" />
+    <Compile Include="ProductUtility\ProductList\PermissionManagement\ProductInfoEditPermissionManager.cs" />
     <Compile Include="ProductUtility\ProductList\ProductDetailsController.cs" />
     <Compile Include="ProductUtility\ProductList\ProductList\IProductListController.cs" />
     <Compile Include="ProductUtility\ProductList\ProductList\ProductListController.cs" />
     <Compile Include="ProductUtility\ProductList\ProductList\ProductListControllerAll.cs" />
     <Compile Include="ProductUtility\ProductList\ProductList\ProductListControllerFactory.cs" />
-    <Compile Include="ProductUtility\ProductList\Stock.cs" />
     <Compile Include="ProductUtility\ProductList\UpdateProductInfoController.cs" />
     <Compile Include="ProductUtility\ProductList\UpdateStockLevelController.cs" />
     <Compile Include="ProductUtility\ProductRepository.cs" />
@@ -570,6 +569,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Admin" />
     <Folder Include="DataAnalytics\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

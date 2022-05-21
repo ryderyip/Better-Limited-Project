@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
-using Better_Limited_Project.Admin.PermissionManagement;
 using Better_Limited_Project.ProductUtility.ProductList.Forms;
+using Better_Limited_Project.ProductUtility.ProductList.PermissionManagement;
 
 namespace Better_Limited_Project.ProductUtility.ProductList
 {
@@ -27,11 +27,11 @@ namespace Better_Limited_Project.ProductUtility.ProductList
 
         private void OnUpdateProductInfoClicked(object sender, EventArgs e)
         {
-            var permission = ProductUpdatePermissionManager.GetCurrentStaffPermission();
+            var permission = ProductInfoEditPermissionManager.GetCurrentStaffPermission();
             
-            if (permission is ProductUpdatePermission.AllowUpdateAll
-                or ProductUpdatePermission.AllowUpdatePricePhasingLevelPhasingOut
-                or ProductUpdatePermission.AllowUpdatePrice)
+            if (permission is ProductInfoEditPermission.AllowUpdateAll
+                or ProductInfoEditPermission.AllowUpdatePricePhasingLevelPhasingOut
+                or ProductInfoEditPermission.AllowUpdatePrice)
             {
                 var controller = new UpdateProductInfoController(_productId);
                 controller.ProductInfoUpdated += OnProductInfoUpdated;

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows.Forms;
-using Better_Limited_Project.Admin.PermissionManagement;
 using Better_Limited_Project.ProductUtility.Entity;
+using Better_Limited_Project.ProductUtility.ProductList.PermissionManagement;
 
 namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 {
@@ -14,20 +14,20 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 
         public event UpdateProductInfoClickedEventHandler UpdateProductInfoClicked;
         private ProductQuantity _productQuantity;
-        private readonly ProductUpdatePermission _updatePermission;
+        private readonly ProductInfoEditPermission _infoEditPermission;
 
         public ProductDetailsForm(string productId, string workplaceId)
         {
             _productId = productId;
             _workplaceId = workplaceId;
-            _updatePermission = ProductUpdatePermissionManager.GetCurrentStaffPermission();
+            _infoEditPermission = ProductInfoEditPermissionManager.GetCurrentStaffPermission();
             InitializeComponent();
         }
 
         private void OnShown(object sender, EventArgs e)
         {
             RefreshProductInfo();
-            if (_updatePermission is ProductUpdatePermission.None)
+            if (_infoEditPermission is ProductInfoEditPermission.None)
                 btnUpdateProductInfo.Visible = false;
         }
         

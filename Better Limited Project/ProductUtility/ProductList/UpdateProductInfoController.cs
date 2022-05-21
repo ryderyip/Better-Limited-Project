@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
-using Better_Limited_Project.Admin.PermissionManagement;
 using Better_Limited_Project.ProductUtility.ProductList.Forms;
+using Better_Limited_Project.ProductUtility.ProductList.PermissionManagement;
 
 namespace Better_Limited_Project.ProductUtility.ProductList
 {
@@ -18,15 +18,15 @@ namespace Better_Limited_Project.ProductUtility.ProductList
         
         public void OpenForm()
         {
-            var permission = ProductUpdatePermissionManager.GetCurrentStaffPermission();
+            var permission = ProductInfoEditPermissionManager.GetCurrentStaffPermission();
 
             switch (permission)
             {
-                case ProductUpdatePermission.AllowUpdatePrice:
+                case ProductInfoEditPermission.AllowUpdatePrice:
                     OpenEditSellingPriceForm();
                     break;
-                case ProductUpdatePermission.AllowUpdatePricePhasingLevelPhasingOut
-                    or ProductUpdatePermission.AllowUpdateAll:
+                case ProductInfoEditPermission.AllowUpdatePricePhasingLevelPhasingOut
+                    or ProductInfoEditPermission.AllowUpdateAll:
                     OpenEditAllForm();
                     break;
             }

@@ -34,10 +34,10 @@ namespace Better_Limited_Project.Login
             return string.IsNullOrWhiteSpace(password);
         }
 
-        private static StaffAccount FindAccount(string username)
+        private static StaffAccount? FindAccount(string username)
         {
             var accounts = StaffAccountRepository.GetStaffAccounts();
-            return accounts.FirstOrDefault(account => Equals(account, new StaffAccount {Username = username}));
+            return accounts.FirstOrDefault(account => account.Username == username);
         }
 
         private static bool IsWrongPassword(string enteredPassword, string accountPassword)

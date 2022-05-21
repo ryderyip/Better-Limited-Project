@@ -1,6 +1,6 @@
-﻿namespace Better_Limited_Project.Admin.PermissionManagement
+﻿namespace Better_Limited_Project.ProductUtility.ProductList.PermissionManagement
 {
-    public enum ProductUpdatePermission
+    public enum ProductInfoEditPermission
     {
         AllowUpdatePrice,
         AllowUpdatePricePhasingLevelPhasingOut,

@@ -1,21 +1,16 @@
-﻿using System.Collections.Generic;
-
-namespace Better_Limited_Project.Login
+﻿namespace Better_Limited_Project.Login
 {
     public class StaffAccount
     {
-        public string StaffId { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-
-        public override bool Equals(object obj)
+        public StaffAccount(string staffId, string username, string password)
         {
-            return Username == ((StaffAccount) obj)?.Username;
+            StaffId = staffId;
+            Username = username;
+            Password = password;
         }
 
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
+        public string StaffId { get; }
+        public string Username { get; }
+        public string Password { get; }
     }
 }
