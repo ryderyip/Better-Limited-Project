@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.ProductUtility.ProductList;
@@ -38,21 +39,41 @@ namespace Better_Limited_Project.Navigation.UI
 
         private void btnDeliveryRequests_Click(object sender, EventArgs e)
         {
+            if (!UserSettings.HasSelectedWorkplace())
+            {
+                MessageBox.Show("Please select your current warehouse before access this feature!");
+                return;
+            }
             throw new System.NotImplementedException();
         }
 
         private void btnGoodsReceived_Click(object sender, EventArgs e)
         {
+            if (!UserSettings.HasSelectedWorkplace())
+            {
+                MessageBox.Show("Please select your current warehouse before access this feature!");
+                return;
+            }
             throw new System.NotImplementedException();
         }
 
         private void btnGoodsReturned_Click(object sender, EventArgs e)
         {
+            if (!UserSettings.HasSelectedWorkplace())
+            {
+                MessageBox.Show("Please select your current warehouse before access this feature!");
+                return;
+            }
             throw new System.NotImplementedException();
         }
 
         private void btnReorderRequests_Click(object sender, EventArgs e)
         {
+            if (!UserSettings.HasSelectedWorkplace())
+            {
+                MessageBox.Show("Please select your current warehouse before access this feature!");
+                return;
+            }
             throw new System.NotImplementedException();
         }
 
@@ -63,12 +84,22 @@ namespace Better_Limited_Project.Navigation.UI
 
         private void btnInventory_Click(object sender, EventArgs e)
         {
+            if (!UserSettings.HasSelectedWorkplace())
+            {
+                MessageBox.Show("Please select your current warehouse before access this feature!");
+                return;
+            }
             var controller = ProductListControllerFactory.Generate();
             controller.OpenForm(_formController);
         }
 
         private void btnDeliveryDuty_Click(object sender, EventArgs e)
         {
+            if (!UserSettings.HasSelectedWorkplace())
+            {
+                MessageBox.Show("Please select your current warehouse before access this feature!");
+                return;
+            }
             throw new System.NotImplementedException();
         }
     }

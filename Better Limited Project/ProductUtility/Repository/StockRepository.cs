@@ -5,7 +5,7 @@ using Better_Limited_Project.DatabaseUtility;
 using Better_Limited_Project.ProductUtility.Entity;
 using MySql.Data.MySqlClient;
 
-namespace Better_Limited_Project.ProductUtility
+namespace Better_Limited_Project.ProductUtility.Repository
 {
     public static class StockRepository
     {
@@ -25,6 +25,7 @@ namespace Better_Limited_Project.ProductUtility
                        is_phasing_out, 
                        rss.quantity, 
                        rss.selling_price, 
+                       pc.id as category_id, 
                        pc.name as category, 
                        s.name as supplier_name, 
                        s.phone as supplier_phone, 
@@ -66,6 +67,7 @@ namespace Better_Limited_Project.ProductUtility
                        is_phasing_out, 
                        ws.quantity, 
                        pc.name as category, 
+                       pc.id as category_id, 
                        s.name as supplier_name, 
                        s.phone as supplier_phone, 
                        s.email as supplier_email,
@@ -94,9 +96,8 @@ namespace Better_Limited_Project.ProductUtility
                     Id = row.Field<string>("product_id"),
                     Name = row.Field<string>("name"),
                     OriginalPrice = row.Field<decimal>("original_price"),
-                    
                     Description = row.Field<string>("description"),
-                    Category = CategoryRepository.GetById(row.Field<int>("category").ToString()),
+                    Category = CategoryRepository.GetById(row.Field<int>("category_id").ToString()),
                     IsPhasingOut = row.Field<bool>("is_phasing_out"),
                     Supplier = new Supplier(supplierName, supplierPhone, supplierEmail)
                 };
@@ -118,7 +119,7 @@ namespace Better_Limited_Project.ProductUtility
             var command = new MySqlCommand(
                 @"select p.id as product_id, p.name as name, price as original_price, 
                        description, is_phasing_out, rss.quantity, 
-                       rss.selling_price, pc.id as category, 
+                       rss.selling_price, pc.id as category_id, 
                        s.name as supplier_name, s.phone as supplier_phone, 
                        s.email as supplier_email, rs.name as retail_store_name
                         from retail_store_stock rss
@@ -140,7 +141,7 @@ namespace Better_Limited_Project.ProductUtility
         {
             var command = new MySqlCommand(
                 @"select p.id as product_id, p.name as name, price as original_price, 
-                       description, is_phasing_out, ws.quantity, pc.id as category, 
+                       description, is_phasing_out, ws.quantity, pc.id as category_id, 
                        s.name as supplier_name, s.phone as supplier_phone, 
                        s.email as supplier_email, w.name as retail_store_name
                         from warehouse_stock ws

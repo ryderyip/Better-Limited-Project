@@ -17,6 +17,7 @@ namespace Better_Limited_Project.Navigation.UI
         {
             _formController = formController;
             _staff = staff;
+            Shown += (_, _) => btnProfile.Text = staff.Name;
             InitializeComponent();
         }
 

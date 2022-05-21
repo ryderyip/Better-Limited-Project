@@ -1,5 +1,4 @@
 using Better_Limited_Project.Login;
-using Better_Limited_Project.SettingsUtility;
 using NUnit.Framework;
 
 namespace UnitTests
@@ -26,12 +25,6 @@ namespace UnitTests
             LoginStatus result = LoginVerifier.VerifyLogin(credentials);
             
             Assert.AreEqual(LoginStatus.EmptyPassword, result);
-        }
-
-        [Test]
-        public void SaveSettings()
-        {
-            UserSettings.GetSettings();
         }
     }
 }

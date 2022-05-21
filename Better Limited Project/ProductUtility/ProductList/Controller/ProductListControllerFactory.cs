@@ -1,6 +1,7 @@
 ﻿using System;
 using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.Login;
+using Better_Limited_Project.ProductUtility.ProductList.Controller;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.ProductUtility.ProductList.ProductList

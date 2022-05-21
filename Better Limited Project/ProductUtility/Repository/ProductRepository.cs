@@ -3,7 +3,7 @@ using Better_Limited_Project.DatabaseUtility;
 using Better_Limited_Project.ProductUtility.Entity;
 using MySql.Data.MySqlClient;
 
-namespace Better_Limited_Project.ProductUtility
+namespace Better_Limited_Project.ProductUtility.Repository
 {
     public static class ProductRepository
     {

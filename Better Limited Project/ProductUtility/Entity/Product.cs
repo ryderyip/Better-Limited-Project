@@ -1,4 +1,5 @@
 ﻿using System;
+using Better_Limited_Project.ProductUtility.Repository;
 
 namespace Better_Limited_Project.ProductUtility.Entity
 {

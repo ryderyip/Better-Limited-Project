@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Linq;
+using System.Windows.Forms;
 using Better_Limited_Project.FormControlling;
-using Better_Limited_Project.ProductUtility.ProductList;
 using Better_Limited_Project.ProductUtility.ProductList.ProductList;
 using Better_Limited_Project.Sales.Sales.OrderPlacing;
 using Better_Limited_Project.SettingsUtility;
@@ -9,7 +10,7 @@ using Better_Limited_Project.StaffUtility.StaffProfile;
 
 namespace Better_Limited_Project.Navigation.UI
 {
-    public partial class SalesNavigationForm : System.Windows.Forms.Form, INavigationForm
+    public partial class SalesNavigationForm : Form, INavigationForm
     {
         private readonly FormController _formController;
         private readonly Staff _staff;
@@ -32,17 +33,33 @@ namespace Better_Limited_Project.Navigation.UI
         
         private void btnPlaceOrder_Click(object sender, EventArgs e)
         {
+            if (!HasSelectedRetailStore())
+            {
+                MessageBox.Show("Please select your current retail store before access this feature!");
+                return;
+            }
             var controller = new PlaceOrderController();
             controller.OpenForm();
         }
 
         private void btnSalesOrder_Click(object sender, EventArgs e)
         {
+            if (!HasSelectedRetailStore())
+            {
+                MessageBox.Show("Please select your current retail store before access this feature!");
+                return;
+            }
             throw new NotImplementedException("Sales order not implemented");
         }
 
         private void btnProductList_Click(object sender, EventArgs e)
         {
+            if (!HasSelectedRetailStore())
+            {
+                MessageBox.Show("Please select your current retail store before access this feature!");
+                return;
+            }
+            
             var controller = ProductListControllerFactory.Generate();
             controller.OpenForm(_formController);
         }
@@ -51,6 +68,14 @@ namespace Better_Limited_Project.Navigation.UI
         {
             var controller = new SettingsController(_staff);
             controller.OpenForm(_formController);
+        }
+
+        private bool HasSelectedRetailStore()
+        {
+            var currentRetailStore = UserSettings.GetSettings().Workplace;
+            return currentRetailStore != null
+                   && RetailStoreRepository.GetRetailStores()
+                       .Any(store => store.Name == currentRetailStore.Name);
         }
     }
 }

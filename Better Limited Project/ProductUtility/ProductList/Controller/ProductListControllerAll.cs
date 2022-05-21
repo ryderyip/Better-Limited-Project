@@ -5,11 +5,12 @@ using System.Linq;
 using Better_Limited_Project.DatabaseUtility;
 using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.ProductUtility.ProductList.Forms;
+using Better_Limited_Project.ProductUtility.ProductList.ProductList;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 using Better_Limited_Project.Tools;
 using MySql.Data.MySqlClient;
 
-namespace Better_Limited_Project.ProductUtility.ProductList.ProductList
+namespace Better_Limited_Project.ProductUtility.ProductList.Controller
 {
     public class ProductListControllerAll : IProductListController
     {
@@ -32,6 +33,8 @@ namespace Better_Limited_Project.ProductUtility.ProductList.ProductList
                 _form.gpWorkplaceSelect.Visible = true;
                 GetWorkplaceNames().ToList()
                     .ForEach(name => _form.cbWorkplaceSelect.Items.Add(name));
+                if (_form.cbWorkplaceSelect.Items.Count != 0)
+                    _form.cbWorkplaceSelect.SelectedIndex = 0;
             };
         }
         
@@ -68,7 +71,6 @@ namespace Better_Limited_Project.ProductUtility.ProductList.ProductList
         
         private void OnUpdateStockLevelClicked(object sender, EventArgs e)
         {
-            string selectedWorkplace = _form.cbWorkplaceSelect.SelectedItem.ToString();
             var controller = new UpdateStockLevelController(GetSelectedWorkplaceId());
             controller.StockLevelUpdated += (_, _) => RefreshUiStock();
             controller.OpenForm();

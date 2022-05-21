@@ -18,6 +18,7 @@ namespace Better_Limited_Project.Navigation.UI
         {
             _formController = formController;
             _staff = staff;
+            Shown += (_, _) => btnProfile.Text = staff.Name;
             InitializeComponent();
         }
 
@@ -36,17 +37,32 @@ namespace Better_Limited_Project.Navigation.UI
 
         private void btnGoodsReceived_Click(object sender, EventArgs e)
         {
+            if (!UserSettings.HasSelectedWorkplace())
+            {
+                MessageBox.Show("Please select your current warehouse before access this feature!");
+                return;
+            }
             throw new System.NotImplementedException();
         }
 
         private void btnInventory_Click(object sender, EventArgs e)
         {
+            if (!UserSettings.HasSelectedWorkplace())
+            {
+                MessageBox.Show("Please select your current warehouse before access this feature!");
+                return;
+            }
             var controller = ProductListControllerFactory.Generate();
             controller.OpenForm(_formController);
         }
 
         private void btnPurchaseOrders_Click(object sender, EventArgs e)
         {
+            if (!UserSettings.HasSelectedWorkplace())
+            {
+                MessageBox.Show("Please select your current warehouse before access this feature!");
+                return;
+            }
             throw new System.NotImplementedException();
         }
     }

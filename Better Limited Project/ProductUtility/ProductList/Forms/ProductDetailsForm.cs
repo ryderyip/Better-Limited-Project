@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Windows.Forms;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.ProductUtility.ProductList.PermissionManagement;
+using Better_Limited_Project.ProductUtility.Repository;
 
 namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 {
