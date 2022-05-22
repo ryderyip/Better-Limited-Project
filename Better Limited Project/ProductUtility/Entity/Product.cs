@@ -1,42 +1,31 @@
-﻿using System;
-using Better_Limited_Project.ProductUtility.Repository;
+﻿using Better_Limited_Project.ProductUtility.Repository;
 
 namespace Better_Limited_Project.ProductUtility.Entity
 {
     public class Product
     {
-        public string? Id { get; set; }
-        public string? Name { get; set; }
-        public decimal OriginalPrice { get; set; } = decimal.Zero;
-        public decimal SellingPrice { get; set; } = decimal.Zero;
-        public string? Description { get; set; }
-        public Supplier? Supplier { get; set; }
-        public Category? Category { get; set; }
+        public string Id { get; }
+        public string Name { get; set; }
+        public decimal OriginalPrice { get; set; }
+        public string Description { get; set; }
+        public Supplier Supplier { get; set; }
+        public Category Category { get; set; }
         public bool IsPhasingOut { get; set; }
+
+        public Product(string id, string name, decimal originalPrice, string description, Supplier supplier, Category category, bool isPhasingOut)
+        {
+            Id = id;
+            Name = name;
+            OriginalPrice = originalPrice;
+            Description = description;
+            Supplier = supplier;
+            Category = category;
+            IsPhasingOut = isPhasingOut;
+        }
 
         public void Update()
         {
             ProductRepository.UpdateProduct(this);
-        }
-
-        /// <param name="workplaceId">Id of retail store or warehouse</param>
-        /// <returns>The product object with it quantity</returns>
-        /// <exception cref="InvalidOperationException">Thrown if the workplaceId does not exist</exception>
-        public ProductQuantity GetStockOfRetailStoreOrWarehouse(string workplaceId)
-        {
-            var product = ProductRepository.GetProductByName(Name);
-            if (product == null)
-                throw new InvalidOperationException("Name is null");
-            string id = product.Id!;
-            
-            var stock = StockRepository.GetRetailStoreProductStock(workplaceId, id);
-            if (stock != null)
-                return stock.Value;
-            stock = StockRepository.GetWarehouseProductStock(id, workplaceId);
-            if (stock != null)
-                return stock.Value;
-
-            throw new InvalidOperationException($"Workplace id \"{workplaceId}\" does not exist.");
         }
     }
 }

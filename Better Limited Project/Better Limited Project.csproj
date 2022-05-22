@@ -200,9 +200,11 @@
     <Compile Include="Procedure\IProcedure.cs" />
     <Compile Include="Procedure\LoginProcedure.cs" />
     <Compile Include="ProductUtility\Entity\Category.cs" />
+    <Compile Include="ProductUtility\Entity\IStock.cs" />
     <Compile Include="ProductUtility\Entity\Product.cs" />
-    <Compile Include="ProductUtility\Entity\ProductQuantity.cs" />
+    <Compile Include="ProductUtility\Entity\RetailStoreStock.cs" />
     <Compile Include="ProductUtility\Entity\Supplier.cs" />
+    <Compile Include="ProductUtility\Entity\WarehouseStock.cs" />
     <Compile Include="ProductUtility\GoodsReceiving\CreateGoodsReceivedRecordForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -293,6 +295,7 @@
     <Compile Include="Sales\Payment\PaymentStatus.cs" />
     <Compile Include="Sales\Payment\SalesOrder.cs" />
     <Compile Include="Sales\Payment\SalesOrderCreator.cs" />
+    <Compile Include="Sales\Sales.OrderPlacing\Cart.cs" />
     <Compile Include="Sales\Sales.Payment\CashPaymentForm.cs">
       <SubType>Form</SubType>
     </Compile>

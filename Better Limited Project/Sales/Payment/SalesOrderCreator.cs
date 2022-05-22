@@ -11,7 +11,7 @@ namespace Better_Limited_Project.Sales.Payment
 {
     public static class SalesOrderCreator
     {
-        public static void Create(string customerId, IEnumerable<ProductQuantity> selectedProducts)
+        public static void Create(string customerId, IEnumerable<RetailStoreStock> selectedProducts)
         {
             var order = CreateSalesOrder(customerId, selectedProducts);
             
@@ -27,7 +27,7 @@ namespace Better_Limited_Project.Sales.Payment
             MessageBox.Show("Columns affected: " + columnsAffected);
         }
 
-        private static SalesOrder CreateSalesOrder(string customerId, IEnumerable<ProductQuantity> selectedProducts)
+        private static SalesOrder CreateSalesOrder(string customerId, IEnumerable<RetailStoreStock> selectedProducts)
         {
             var workplace = UserSettings.GetSettings().Workplace;
             if (workplace == null)

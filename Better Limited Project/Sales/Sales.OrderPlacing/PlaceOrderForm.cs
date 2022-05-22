@@ -3,7 +3,6 @@ using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.ProductUtility.Entity;
-using Better_Limited_Project.Sales.Sales.SalesOrder;
 using Better_Limited_Project.Sales.Sales.SalesOrder.SalesOrderPager;
 using Better_Limited_Project.Tools;
 
@@ -12,12 +11,14 @@ namespace Better_Limited_Project.Sales.Sales.OrderPlacing
     public partial class PlaceOrderForm : Form
     {
         private readonly PlaceOrderFormPageFiller _pageFiller;
-        private readonly Pager<ProductQuantity> _pager;
-        private Pager<ProductQuantity> _filteredPager;
+        private readonly Pager<RetailStoreStock> _pager;
+        private readonly Cart _cart;
+        private Pager<RetailStoreStock> _filteredPager;
 
-        public PlaceOrderForm(Pager<ProductQuantity> pager)
+        public PlaceOrderForm(Pager<RetailStoreStock> pager, Cart cart)
         {
             _pager = pager;
+            _cart = cart;
             _filteredPager = pager;
             _pageFiller = new PlaceOrderFormPageFiller();
             InitializeComponent();
@@ -89,7 +90,7 @@ namespace Better_Limited_Project.Sales.Sales.OrderPlacing
             _pageFiller.FillPageWithProducts(products);
         }
 
-        private Pager<ProductQuantity> GetKeywordFilteredPager()
+        private Pager<RetailStoreStock> GetKeywordFilteredPager()
         {
             string keyword = txtSearchKeywords.Text;
             return _pager.ApplyFilter(
@@ -122,21 +123,24 @@ namespace Better_Limited_Project.Sales.Sales.OrderPlacing
 
         private void AddProductToCart(Product product)
         {
-            var name = product.Name;
-            var price = product.SellingPrice;
+            var selectedProductName = product.Name;
+            var price = _filteredPager.GetCurrentPage()
+                .First(stock => stock.Product.Name == selectedProductName);
             var category = product.Category;
             
             var productRow = dgvCart.Rows
                 .Cast<DataGridViewRow>()
-                .FirstOrDefault(row => row.Cells["name"].Value.ToString().Equals(name));
+                .FirstOrDefault(row => row.Cells["name"].Value.ToString().Equals(selectedProductName));
             if (productRow == null)
             {
-                dgvCart.Rows.Add(name, price, 1, category);
+                dgvCart.Rows.Add(selectedProductName, price, 1, category);
                 return;
             }
 
             int addedQuantity = int.Parse(productRow.Cells["quantity"].Value.ToString());
             productRow.Cells["quantity"].Value = addedQuantity + 1;
+            
+            _cart.Add(product, 1);
         }
 
         private void CalculateTotalPrice()
@@ -154,6 +158,7 @@ namespace Better_Limited_Project.Sales.Sales.OrderPlacing
         private void btnClearCart_Click(object sender, EventArgs e)
         {
             dgvCart.Rows.Clear();
+            _cart.Clear();
         }
     }
 }

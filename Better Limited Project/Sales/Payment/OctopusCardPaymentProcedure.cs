@@ -7,9 +7,9 @@ namespace Better_Limited_Project.Sales.Payment
     public class OctopusCardPaymentProcedure : IPaymentProcedure
     {
         private readonly FormController _formController;
-        private readonly IEnumerable<ProductQuantity> _selectedProducts;
+        private readonly IEnumerable<RetailStoreStock> _selectedProducts;
 
-        public OctopusCardPaymentProcedure(FormController formController, IEnumerable<ProductQuantity> productQuantities)
+        public OctopusCardPaymentProcedure(FormController formController, IEnumerable<RetailStoreStock> productQuantities)
         {
             _formController = formController;
             _selectedProducts = productQuantities;

@@ -12,8 +12,8 @@ namespace Better_Limited_Project.SettingsUtility
         private bool _isSalesOrInventory;
         private readonly Department _staffDepartment;
         public delegate void ButtonClickedEventHandler<T>(object sender, T eventArgs);
-        public event ButtonClickedEventHandler<UserSettings> UpdateClicked;
-        public event ButtonClickedEventHandler<string> BrowseDocPathClicked;
+        public event ButtonClickedEventHandler<UserSettings>? UpdateClicked;
+        public event ButtonClickedEventHandler<string>? BrowseDocPathClicked;
 
         public SettingsForm(Department staffDepartment)
         {
@@ -116,8 +116,8 @@ namespace Better_Limited_Project.SettingsUtility
         {
             string selectedWorkplaceName = cbWorkplace.SelectedItem.ToString();
             return _staffDepartment == Department.Sales
-                ? RetailStoreRepository.GetRetailStoreByName(selectedWorkplaceName)
-                : WarehouseRepository.GetWarehouseByName(selectedWorkplaceName);
+                ? RetailStoreRepository.GetRetailStores().First(rs => rs.Name == selectedWorkplaceName)
+                : WarehouseRepository.GetWarehouses().First(w => w.Name == selectedWorkplaceName);
         }
 
         private void btnBrowseDocPath_Click(object sender, EventArgs e)

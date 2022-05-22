@@ -3,18 +3,20 @@ using System.Windows.Forms;
 using Better_Limited_Project.ProductUtility.ProductList.Forms;
 using Better_Limited_Project.ProductUtility.ProductList.PermissionManagement;
 
-namespace Better_Limited_Project.ProductUtility.ProductList
+namespace Better_Limited_Project.ProductUtility.ProductList.Controller
 {
     public class ProductDetailsController
     {
         private readonly ProductDetailsForm _productDetailsForm;
         public delegate void ProductInfoUpdatedEventHandler(object sender, EventArgs e);
-        public event ProductInfoUpdatedEventHandler ProductInfoUpdated;
+        public event ProductInfoUpdatedEventHandler? ProductInfoUpdated;
         private readonly string _productId;
+        private readonly string _workplaceId;
 
         public ProductDetailsController(string productId, string workplaceId)
         {
             _productId = productId;
+            _workplaceId = workplaceId;
             _productDetailsForm = new ProductDetailsForm(productId, workplaceId);
         }
 
@@ -33,7 +35,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList
                 or ProductInfoEditPermission.AllowUpdatePricePhasingLevelPhasingOut
                 or ProductInfoEditPermission.AllowUpdatePrice)
             {
-                var controller = new UpdateProductInfoController(_productId);
+                var controller = new UpdateProductInfoController(_productId, _workplaceId);
                 controller.ProductInfoUpdated += OnProductInfoUpdated;
                 controller.OpenForm();
             }

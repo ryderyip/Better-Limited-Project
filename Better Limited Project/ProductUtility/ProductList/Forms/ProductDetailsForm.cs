@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.ProductUtility.ProductList.PermissionManagement;
@@ -13,14 +14,15 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
         private readonly string _workplaceId;
         public delegate void UpdateProductInfoClickedEventHandler(object sender, EventArgs e);
 
-        public event UpdateProductInfoClickedEventHandler UpdateProductInfoClicked;
-        private ProductQuantity _productQuantity;
+        public event UpdateProductInfoClickedEventHandler? UpdateProductInfoClicked;
+        private IStock _stock;
         private readonly ProductInfoEditPermission _infoEditPermission;
 
         public ProductDetailsForm(string productId, string workplaceId)
         {
             _productId = productId;
             _workplaceId = workplaceId;
+            _stock = GetStock();
             _infoEditPermission = ProductInfoEditPermissionManager.GetCurrentStaffPermission();
             InitializeComponent();
         }
@@ -34,21 +36,21 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
         
         private void SetAllFields()
         {
-            var product = _productQuantity.Product;
+            var product = _stock.Product;
             lblProductName.Text = product.Name;
             tbOriginalPrice.Text = product.OriginalPrice.ToString("C", new CultureInfo("zh-HK"));
 
-            if (product.SellingPrice == decimal.Zero)
-                HideSellingPrice();
+            if (_stock is RetailStoreStock stock)
+                tbSellingPrice.Text = stock.SellingPrice.ToString("C", new CultureInfo("zh-HK"));
             else
-                tbSellingPrice.Text = product.SellingPrice.ToString("C", new CultureInfo("zh-HK"));
-            
+                HideSellingPrice();
+
             tbPhasingOut.Text = product.IsPhasingOut ? "Yes" : "No";
-            tbQuantity.Text = _productQuantity.Quantity.ToString();
-            // TODO Display reorder level
+            tbQuantity.Text = _stock.Quantity.ToString();
+            tbReorderLevel.Text = _stock.RestockLevel.ToString();
             tbDescription.Text = product.Description;
 
-            var supplier = product.Supplier!;
+            var supplier = product.Supplier;
             tbSupplierName.Text = supplier.Name;
             tbSupplierPhone.Text = supplier.Phone;
             tbSupplierEmail.Text = supplier.Email;
@@ -63,11 +65,16 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 
         public void RefreshProductInfo()
         {
-            _productQuantity = ProductRepository.GetProductById(_productId)
-                .GetStockOfRetailStoreOrWarehouse(_workplaceId);
+            _stock = GetStock();
             SetAllFields();
         }
-        
+
+        private IStock GetStock()
+        {
+            return StockRepository.GetStocks(_workplaceId)
+                .First(stock => stock.Product.Id == _productId);
+        }
+
         private void btnUpdateProductInfo_Click(object sender, EventArgs e)
         {
             UpdateProductInfoClicked?.Invoke(this, e);

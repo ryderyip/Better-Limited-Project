@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using Better_Limited_Project.DatabaseUtility;
 using Better_Limited_Project.ProductUtility.Entity;
+using Better_Limited_Project.StaffUtility.StaffEntity;
 using MySql.Data.MySqlClient;
 
 namespace Better_Limited_Project.ProductUtility.Repository
@@ -10,39 +12,58 @@ namespace Better_Limited_Project.ProductUtility.Repository
     public static class StockRepository
     {
         /// <summary>
+        /// Get the stocks of a specified workplace (retail store/warehouse).
+        /// </summary>
+        /// <param name="workplaceId">retail store id/warehouse id</param>
+        public static IEnumerable<IStock> GetStocks(string workplaceId)
+        {
+            var stocks = GetWarehouseStocks(workplaceId).Cast<IStock>()
+                .Concat(GetRetailStoreStocks(workplaceId)).ToList();
+            return stocks.Any() ? stocks 
+                : throw new ArgumentException($"Workplace id \"{workplaceId}\" does not exist.");
+        }
+
+        /// <summary>
         /// Get the stock of all products from the specified retail store
         /// </summary>
-        public static List<ProductQuantity> GetRetailStoreStock(string retailStoreId)
+        public static IEnumerable<RetailStoreStock> GetRetailStoreStocks(string retailStoreId)
         {
-            using var conn = Database.GetConnection();
-            conn.Open();
-            var dataTable = new DataTable();
             var command = new MySqlCommand(
                 @"select p.id as product_id,
                        p.name as name, 
                        price as original_price, 
                        description, 
                        is_phasing_out, 
+                        rss.retail_store_id,
                        rss.quantity, 
-                       rss.selling_price, 
+                       rss.selling_price,
+                       rss.restock_level,
                        pc.id as category_id, 
-                       pc.name as category, 
                        s.id as supplier_id, 
-                       s.name as supplier_name, 
-                       s.phone as supplier_phone, 
-                       s.email as supplier_email,
                        rs.name as retail_store_name
                         from retail_store_stock rss
                         INNER JOIN product p on rss.product_id = p.id
                         INNER JOIN product_category pc on p.category_id = pc.id
                         INNER JOIN supplier s on p.supplier_id = s.id
                         INNER JOIN retail_store rs on rss.retail_store_id = rs.id
-                        WHERE rs.id = @retailStoreId;", conn);
+                        WHERE rs.id = @retailStoreId;");
             command.Parameters.AddWithValue("@retailStoreId", retailStoreId);
-            var dataReader = command.ExecuteReader();
-            dataTable.Load(dataReader);
-            dataReader.Close();
-            return ConvertToStock(dataTable);
+            var dataTable = DataTableRepository.RetrieveDataTable(command);
+
+            return from DataRow row in dataTable.Rows
+                let productId = row.Field<string>("product_id")
+                let productName = row.Field<string>("name")
+                let originalPrice = row.Field<decimal>("original_price")
+                let desc = row.Field<string>("description")
+                let category = CategoryRepository.GetById(row.Field<int>("category_id").ToString())
+                let supplier = SupplierRepository.GetById(row.Field<int>("supplier_id").ToString())
+                let isPhasingOut = row.Field<bool>("is_phasing_out")
+                let product = new Product(productId, productName, originalPrice, desc, supplier, category, isPhasingOut)
+                let sellingPrice = row.Field<decimal>("selling_price")
+                let quantity = row.Field<int>("quantity")
+                let restockLevel = row.Field<int>("restock_level")
+                let retailStore = RetailStoreRepository.GetRetailStoreById(row.Field<string>("retail_store_id"))
+                select new RetailStoreStock(product, retailStore, quantity, sellingPrice, restockLevel);
         }
         
         public static void UpdateProductInfo(string retailStoreId, string productId, decimal sellingPrice)
@@ -58,7 +79,7 @@ namespace Better_Limited_Project.ProductUtility.Repository
             DataTableRepository.ExecuteNonQuery(command);
         }
         
-        public static List<ProductQuantity> GetWarehouseStock(string warehouseId)
+        public static IEnumerable<WarehouseStock> GetWarehouseStocks(string warehouseId)
         {
             var command = new MySqlCommand(
                 @"select p.id as product_id,
@@ -66,65 +87,72 @@ namespace Better_Limited_Project.ProductUtility.Repository
                        price as original_price, 
                        description, 
                        is_phasing_out, 
-                       ws.quantity, 
-                       pc.name as category, 
+                        ws.warehouse_id,
+                       ws.quantity,
+                        ws.restock_level,
                        pc.id as category_id, 
                        s.id as supplier_id, 
-                       s.name as supplier_name, 
-                       s.phone as supplier_phone, 
-                       s.email as supplier_email,
-                       w.name as warehouse_name
+                       w.name as retail_store_name
                         from warehouse_stock ws
                         INNER JOIN product p on ws.product_id = p.id
                         INNER JOIN product_category pc on p.category_id = pc.id
                         INNER JOIN supplier s on p.supplier_id = s.id
                         INNER JOIN warehouse w on ws.warehouse_id = w.id
-                        WHERE w.id = @warehouseId;");
-            command.Parameters.AddWithValue("@warehouseId", warehouseId);
+                        WHERE w.id = @warehouse_id;");
+            command.Parameters.AddWithValue("@warehouse_id", warehouseId);
             var dataTable = DataTableRepository.RetrieveDataTable(command);
-            return ConvertToStock(dataTable);
+
+            return from DataRow row in dataTable.Rows
+                let productId = row.Field<string>("product_id")
+                let productName = row.Field<string>("name")
+                let originalPrice = row.Field<decimal>("original_price")
+                let desc = row.Field<string>("description")
+                let category = CategoryRepository.GetById(row.Field<int>("category_id").ToString())
+                let supplier = SupplierRepository.GetById(row.Field<int>("supplier_id").ToString())
+                let isPhasingOut = row.Field<bool>("is_phasing_out")
+                let product = new Product(productId, productName, originalPrice, desc, supplier, category, isPhasingOut)
+                let quantity = row.Field<int>("quantity")
+                let restockLevel = row.Field<int>("restock_level")
+                let warehouse = WarehouseRepository.GetWarehouseById(row.Field<string>("warehouse_id"))
+                select new WarehouseStock(product, warehouse, quantity, restockLevel);
         }
         
-        private static List<ProductQuantity> ConvertToStock(DataTable dataTable)
+        /*private static List<Stock> ConvertToRetailStoreStocks(DataTable dataTable)
         {
-            var stock = new List<ProductQuantity>();
+            var stocks = new List<Stock>();
             foreach (DataRow row in dataTable.Rows)
             {
-                string supplierId = row.Field<string>("supplier_id");
-                string supplierName = row.Field<string>("supplier_name");
-                string supplierPhone = row.Field<string>("supplier_phone");
-                string supplierEmail = row.Field<string>("supplier_email");
-                var product = new Product
-                {
-                    Id = row.Field<string>("product_id"),
-                    Name = row.Field<string>("name"),
-                    OriginalPrice = row.Field<decimal>("original_price"),
-                    Description = row.Field<string>("description"),
-                    Category = CategoryRepository.GetById(row.Field<int>("category_id").ToString()),
-                    IsPhasingOut = row.Field<bool>("is_phasing_out"),
-                    Supplier = new Supplier(supplierId, supplierName, supplierPhone, supplierEmail)
-                };
-                if (dataTable.Columns.Contains("selling_price"))
-                    product.SellingPrice = row.Field<decimal>("selling_price");
+                var id = row.Field<string>("product_id");
+                var name = row.Field<string>("name");
+                var originalPrice = row.Field<decimal>("original_price");
+                var desc = row.Field<string>("description");
+                var category = CategoryRepository.GetById(row.Field<int>("category_id").ToString());
+                var supplier = SupplierRepository.GetById(row.Field<int>("supplier_id").ToString());
+                var isPhasingOut = row.Field<bool>("is_phasing_out");
                 
+                var product = new Product(id, name, originalPrice, desc, supplier, category, isPhasingOut);
+                
+                decimal sellingPrice = row.Field<decimal>("selling_price");
                 int quantity = row.Field<int>("quantity");
-                stock.Add(new ProductQuantity(product, quantity));
+                int restockLevel = row.Field<int>("restock_level");
+                var retailStore = RetailStoreRepository.GetRetailStoreById(row.Field<string>("retail_store_id"));
+                stocks.Add(new Stock(product, ));
             }
 
-            return stock;
-        }
+            return stocks;
+        }*/
 
         /// <summary>
         /// Get the stock of a particular product from the specified retail store
         /// </summary>
-        public static ProductQuantity? GetRetailStoreProductStock(string productId, string retailStoreId)
+        public static RetailStoreStock GetProductStockFromRetailStore(string productId, string retailStoreId)
         {
-            var command = new MySqlCommand(
+            return GetRetailStoreStocks(retailStoreId)
+                .First(stock => stock.Product.Id == productId);
+            /*var command = new MySqlCommand(
                 @"select p.id as product_id, p.name as name, price as original_price, 
-                       description, is_phasing_out, rss.quantity, 
-                       rss.selling_price, pc.id as category_id, s.id as supplier_id,
-                       s.name as supplier_name, s.phone as supplier_phone, 
-                       s.email as supplier_email, rs.name as retail_store_name
+                       description, is_phasing_out, rss.quantity, rss.restock_level,
+                       rss.selling_price, rss.retail_store_id, pc.id as category_id, s.id as supplier_id
                         from retail_store_stock rss
                         INNER JOIN product p on rss.product_id = p.id
                         INNER JOIN product_category pc on p.category_id = pc.id
@@ -136,13 +164,13 @@ namespace Better_Limited_Project.ProductUtility.Repository
             command.Parameters.AddWithValue("@productId", productId);
             
             var dataTable = DataTableRepository.RetrieveDataTable(command);
-            var stock = ConvertToStock(dataTable);
-            return stock.Any() ? stock.First() : null;
+            return ConvertToRetailStoreStocks(dataTable);*/
         }
 
-        public static ProductQuantity? GetWarehouseProductStock(string productId, string warehouseId)
+        public static WarehouseStock GetProductStockFromWarehouse(string productId, string warehouseId)
         {
-            var command = new MySqlCommand(
+            return GetWarehouseStocks(warehouseId).First(stock => stock.Product.Id == productId);
+            /*var command = new MySqlCommand(
                 @"select p.id as product_id, p.name as name, price as original_price, 
                        description, is_phasing_out, ws.quantity, pc.id as category_id, s.id as supplier_id,
                        s.name as supplier_name, s.phone as supplier_phone, 
@@ -158,8 +186,8 @@ namespace Better_Limited_Project.ProductUtility.Repository
             command.Parameters.AddWithValue("@productId", productId);
             
             var dataTable = DataTableRepository.RetrieveDataTable(command);
-            var stock = ConvertToStock(dataTable);
-            return stock.Any() ? stock.First() : null;
+            var stock = // user your own convert ConvertToStock(dataTable);
+            return stock.Any() ? stock.First() : null;*/
         }
     }
 }

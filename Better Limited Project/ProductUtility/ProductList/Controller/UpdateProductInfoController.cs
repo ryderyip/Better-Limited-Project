@@ -3,17 +3,19 @@ using System.Windows.Forms;
 using Better_Limited_Project.ProductUtility.ProductList.Forms;
 using Better_Limited_Project.ProductUtility.ProductList.PermissionManagement;
 
-namespace Better_Limited_Project.ProductUtility.ProductList
+namespace Better_Limited_Project.ProductUtility.ProductList.Controller
 {
     public class UpdateProductInfoController
     {
         public delegate void ProductInfoUpdatedEventHandler(object sender, EventArgs e);
         public event ProductInfoUpdatedEventHandler? ProductInfoUpdated;
         private readonly string _productId;
-        
-        public UpdateProductInfoController(string productId)
+        private readonly string _workplaceId;
+
+        public UpdateProductInfoController(string productId, string workplaceId)
         {
             _productId = productId;
+            _workplaceId = workplaceId;
         }
         
         public void OpenForm()
@@ -42,7 +44,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList
         
         private void OpenEditAllForm()
         {
-            var form = new UpdateProductInfoForm(_productId);
+            var form = new UpdateProductInfoForm(_productId, _workplaceId);
             form.UpdateProductInfoClicked += OnUpdateProductInfoClicked;
             form.StartPosition = FormStartPosition.CenterScreen;
             form.ShowDialog();

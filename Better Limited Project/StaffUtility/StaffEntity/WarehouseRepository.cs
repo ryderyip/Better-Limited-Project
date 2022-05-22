@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using Better_Limited_Project.DatabaseUtility;
@@ -10,48 +11,34 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
     {
         public static IEnumerable<Warehouse> GetWarehouses()
         {
-            using var conn = Database.GetConnection();
-            conn.Open();
-            var dataTable = new DataTable();
-            var dataReader = new MySqlCommand(
-                "SELECT id, name, address FROM warehouse;", conn).ExecuteReader();
-            dataTable.Load(dataReader);
-            dataReader.Close();
-            return ConvertToWarehouses(dataTable);
-        }
-        
-        public static Warehouse? GetWarehouseByName(string warehouseName)
-        {
-            using var conn = Database.GetConnection();
-            conn.Open();
-            var dataTable = new DataTable();
             var command = new MySqlCommand(
-                @"SELECT id, name, address 
-                        FROM warehouse
-                        WHERE name = @warehouseName;", conn);
-            command.Parameters.AddWithValue("@warehouseName", warehouseName);
-            var dataReader = command.ExecuteReader();
-            dataTable.Load(dataReader);
-            dataReader.Close();
-            return ConvertToWarehouses(dataTable).FirstOrDefault();
+                "SELECT id, name, address FROM warehouse;");
+            var dataTable = DataTableRepository.RetrieveDataTable(command);
+            return ConvertToWarehouses(dataTable);
         }
         
         private static IEnumerable<Warehouse> ConvertToWarehouses(DataTable dataTable)
         {
             if (dataTable.Rows.Count == 0)
                 return Enumerable.Empty<Warehouse>();
-            
-            var warehouses = new List<Warehouse>();
-            foreach (DataRow row in dataTable.Rows)
-            {
-                string id = row.Field<string>("id");
-                string name = row.Field<string>("name");
-                string address = row.Field<string>("address");
-                var warehouse = new Warehouse(id, name, address);
-                warehouses.Add(warehouse);
-            }
 
-            return warehouses;
+            return (from DataRow row in dataTable.Rows 
+                let id = row.Field<string>("id") 
+                let name = row.Field<string>("name") 
+                let address = row.Field<string>("address") 
+                select new Warehouse(id, name, address)).ToList();
+        }
+        
+        public static Warehouse GetWarehouseById(string id)
+        {
+            var command = new MySqlCommand(
+                @"select id, name, address
+                        from warehouse
+                        where id = @id;");
+            command.Parameters.AddWithValue("@id", id);
+            var dataTable = DataTableRepository.RetrieveDataTable(command);
+            return ConvertToWarehouses(dataTable).FirstOrDefault()
+                   ?? throw new ArgumentException($"Warehouse id \'{id}\' does not exist.");
         }
     }
 }

@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Data;
 using System.Windows.Forms;
-using Better_Limited_Project.DatabaseUtility;
-using Better_Limited_Project.Login;
-using Better_Limited_Project.SettingsUtility;
-using Better_Limited_Project.StaffUtility.StaffEntity;
-using Better_Limited_Project.Tools;
-using MySql.Data.MySqlClient;
 
 namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 {

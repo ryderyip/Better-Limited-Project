@@ -8,7 +8,7 @@ namespace Better_Limited_Project.Sales.Payment
 {
     public static class PaymentProcedureFactory
     {
-        public static IPaymentProcedure GeneratePaymentProcedure(PaymentMethod method, FormController formController, IEnumerable<ProductQuantity> productQuantities)
+        public static IPaymentProcedure GeneratePaymentProcedure(PaymentMethod method, FormController formController, IEnumerable<RetailStoreStock> productQuantities)
         {
             switch (method)
             {

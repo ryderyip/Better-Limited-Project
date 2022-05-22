@@ -5,7 +5,6 @@ using System.Linq;
 using Better_Limited_Project.DatabaseUtility;
 using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.ProductUtility.ProductList.Forms;
-using Better_Limited_Project.ProductUtility.ProductList.ProductList;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 using Better_Limited_Project.Tools;
 using MySql.Data.MySqlClient;
@@ -15,10 +14,11 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Controller
     public class ProductListControllerAll : IProductListController
     {
         private readonly ProductListForm _form;
-        private DataTable? _productTable;
-        
+        private readonly List<IWorkplace> _workplaces;
+
         public ProductListControllerAll()
         {
+            _workplaces = GetWorkplaces().ToList();
             _form = new ProductListForm();
             _form.ProductClicked += OnProductClicked;
             _form.UpdateStockLevelClicked += OnUpdateStockLevelClicked;
@@ -26,63 +26,46 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Controller
             {
                 RefreshUiStock();
                 var helper = new DgvKeywordSearchHelper();
-                helper.Activate(_productTable, _form.dgvProductList, _form.txtSearchKeywords, "name");
+                helper.Activate(GetProductTable(), _form.dgvProductList, _form.txtSearchKeywords, "name");
             };
             _form.Shown += (_, _) =>
             {
                 _form.gpWorkplaceSelect.Visible = true;
                 _form.btnNewProductClicked.Visible = true;
                 _form.btnRestock.Visible = false;
-                GetWorkplaceNames().ToList()
-                    .ForEach(name => _form.cbWorkplaceSelect.Items.Add(name));
-                if (_form.cbWorkplaceSelect.Items.Count != 0)
-                    _form.cbWorkplaceSelect.SelectedIndex = 0;
+                _workplaces.ForEach(workplace => _form.cbWorkplaceSelect.Items.Add(workplace.Name));
+                _form.cbWorkplaceSelect.SelectedIndex = 0;
             };
         }
         
-        private DataTable? GetProductTable()
+        private DataTable GetProductTable()
         {
-            if (!HasSelectedWorkplace())
-                return null;
-            
-            string selectedWorkplaceName = _form.cbWorkplaceSelect.SelectedItem.ToString();
-            var retailStore = RetailStoreRepository.GetRetailStoreByName(selectedWorkplaceName);
-            if (retailStore != null)
-                return GetRetailStoreStockTable(retailStore.Id);
-
-            var warehouse = WarehouseRepository.GetWarehouseByName(selectedWorkplaceName);
-            if (warehouse != null)
-                return GetWarehouseStockTable(warehouse.Id);
-
-            throw new ArgumentException("Unexpected workplace name.");
+            return IsSelectedWorkplaceRetailStore() ? 
+                GetRetailStoreStockTable() : GetWarehouseStockTable();
         }
 
-        private string GetSelectedWorkplaceId()
+        private bool IsSelectedWorkplaceRetailStore()
         {
-            string selectedWorkplaceName = _form.cbWorkplaceSelect.SelectedItem.ToString();
-            var retailStore = RetailStoreRepository.GetRetailStoreByName(selectedWorkplaceName);
-            if (retailStore != null)
-                return retailStore.Id;
+            return RetailStoreRepository.GetRetailStores()
+                .Any(rs => rs.Name == GetSelectedWorkplace().Name);
+        }
 
-            var warehouse = WarehouseRepository.GetWarehouseByName(selectedWorkplaceName);
-            if (warehouse != null)
-                return warehouse.Id;
-
-            throw new ArgumentException("Unexpected workplace name.");
+        private IWorkplace GetSelectedWorkplace()
+        {
+            return _workplaces[_form.cbWorkplaceSelect.SelectedIndex];
         }
         
         private void OnUpdateStockLevelClicked(object sender, EventArgs e)
         {
-            var controller = new UpdateStockLevelController(GetSelectedWorkplaceId());
+            var controller = new UpdateStockLevelController(GetSelectedWorkplace().Id);
             controller.StockLevelUpdated += (_, _) => RefreshUiStock();
             controller.OpenForm();
         }
         
         private void OnProductClicked(object sender, int rowIndex)
         {
-            var clickedProductRow = _productTable.Rows[rowIndex];
-            string productId = clickedProductRow["product_id"].ToString();
-            var controller = new ProductDetailsController(productId, GetSelectedWorkplaceId());
+            string productId = _form.dgvProductList.Rows[rowIndex].Cells["product_id"].Value.ToString();
+            var controller = new ProductDetailsController(productId, GetSelectedWorkplace().Id);
             controller.ProductInfoUpdated += (_, _) => RefreshUiStock();;
             controller.OpenForm();
         }
@@ -94,8 +77,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Controller
         
         private void RefreshUiStock()
         {
-            _productTable = GetProductTable();
-            _form.dgvProductList.DataSource = _productTable;
+            _form.dgvProductList.DataSource = GetProductTable();
             HideDgvIdColumn();
         }
         
@@ -105,14 +87,9 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Controller
                 _form.dgvProductList.Columns["product_id"].Visible = false;
         }
 
-        private bool HasSelectedWorkplace()
+        private DataTable GetRetailStoreStockTable()
         {
-            return _form.cbWorkplaceSelect != null 
-                   && _form.cbWorkplaceSelect.SelectedItem != null;
-        }
-
-        private DataTable GetRetailStoreStockTable(string retailStoreId)
-        {
+            string retailStoreId = GetSelectedWorkplace().Id;
             var command = new MySqlCommand(
                 @"select p.id as product_id,
                        p.name as name, 
@@ -128,8 +105,9 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Controller
             return DataTableRepository.RetrieveDataTable(command);
         }
 
-        private DataTable GetWarehouseStockTable(string warehouseId)
+        private DataTable GetWarehouseStockTable()
         {
+            string warehouseId = GetSelectedWorkplace().Id;
             var command = new MySqlCommand(
                 @"select p.id as product_id,
                        p.name as name, 
@@ -144,14 +122,12 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Controller
             return DataTableRepository.RetrieveDataTable(command);
         }
 
-        private IEnumerable<string> GetWorkplaceNames()
+        private IEnumerable<IWorkplace> GetWorkplaces()
         {
             var stores = RetailStoreRepository.GetRetailStores();
             var warehouses = WarehouseRepository.GetWarehouses();
-            return (from store in stores select store.Name)
-                .Concat(from warehouse in warehouses select warehouse.Name);
+            return (from IWorkplace retailStore in stores select retailStore)
+                .Concat(from IWorkplace warehouse in warehouses select warehouse);
         }
-        
-        
     }
 }

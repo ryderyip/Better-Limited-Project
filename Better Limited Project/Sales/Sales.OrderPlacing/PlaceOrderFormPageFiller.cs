@@ -3,7 +3,7 @@ using System.Globalization;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.Sales.Sales.SalesOrder.SalesOrderPager;
 
-namespace Better_Limited_Project.Sales.Sales.SalesOrder
+namespace Better_Limited_Project.Sales.Sales.OrderPlacing
 {
     public class PlaceOrderFormPageFiller
     {
@@ -14,16 +14,16 @@ namespace Better_Limited_Project.Sales.Sales.SalesOrder
             _controlCollections.Add(controls);
         }
 
-        public void FillPageWithProducts(IReadOnlyList<ProductQuantity> products)
+        public void FillPageWithProducts(IReadOnlyList<RetailStoreStock> products)
         {
             ShowAllProductControls();
             for (int i = 0; i < products.Count; i++)
             {
                 var controlCollection = _controlCollections[i];
-                var productQuantity = products[i];
-                controlCollection.Name.Text = productQuantity.Product.Name;
-                controlCollection.Price.Text = productQuantity.Product.SellingPrice.ToString("C", new CultureInfo("zh-HK"));
-                controlCollection.Quantity.Text = productQuantity.Quantity.ToString();
+                var stock = products[i];
+                controlCollection.Name.Text = stock.Product.Name;
+                controlCollection.Price.Text = stock.SellingPrice.ToString("C", new CultureInfo("zh-HK"));
+                controlCollection.Quantity.Text = stock.Quantity.ToString();
             }
             HideProductControls(6-products.Count);
         }

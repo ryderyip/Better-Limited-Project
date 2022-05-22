@@ -9,9 +9,9 @@ namespace Better_Limited_Project.Sales.Payment
         public string CustomerId { get; }
         public string StaffId { get; }
         public string RetailStoreId { get; }
-        public IEnumerable<ProductQuantity> ProductQuantities { get; }
+        public IEnumerable<RetailStoreStock> ProductQuantities { get; }
 
-        public SalesOrder(string customerId, string staffId, string retailStoreId, IEnumerable<ProductQuantity> productQuantities)
+        public SalesOrder(string customerId, string staffId, string retailStoreId, IEnumerable<RetailStoreStock> productQuantities)
         {
             CustomerId = customerId;
             StaffId = staffId;

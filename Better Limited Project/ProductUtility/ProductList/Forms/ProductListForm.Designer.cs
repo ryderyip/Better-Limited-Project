@@ -147,6 +147,7 @@
             this.btnNewProductClicked.TabIndex = 9;
             this.btnNewProductClicked.Text = "New Product";
             this.btnNewProductClicked.UseVisualStyleBackColor = false;
+            this.btnNewProductClicked.Visible = false;
             this.btnNewProductClicked.Click += new System.EventHandler(this.btnNewProduct_Click);
             // 
             // ProductListForm

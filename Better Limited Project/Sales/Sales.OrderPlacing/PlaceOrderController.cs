@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.ProductUtility.Entity;
@@ -15,29 +16,30 @@ namespace Better_Limited_Project.Sales.Sales.OrderPlacing
     public class PlaceOrderController
     {
         private PlaceOrderForm _form;
-        private Pager<ProductQuantity> _pager;
+        private Pager<RetailStoreStock> _pager;
         private const int PageSize = 6;
         private readonly FormController _formController;
-        private string _customerName;
+        private string? _customerName;
         private DeliverySession? _deliverySession;
         private PaymentMethod? _paymentMethod;
-        private IEnumerable<ProductQuantity>? _productQuantities; 
+        private readonly Cart _cart;
 
         public PlaceOrderController()
         {
-            _pager = new Pager<ProductQuantity>(PageSize);
-            _form = new PlaceOrderForm(_pager);
+            _cart = new Cart();
+            _pager = new Pager<RetailStoreStock>(PageSize);
+            _form = new PlaceOrderForm(_pager, _cart);
             _formController = new FormController(OuterFormGenerator.Generate());
             Initialize();
         }
 
         private void Initialize()
         {
-            _pager = new Pager<ProductQuantity>(PageSize);
-            _form = new PlaceOrderForm(_pager);
+            _pager = new Pager<RetailStoreStock>(PageSize);
+            _form = new PlaceOrderForm(_pager, _cart);
             _form.Shown += SetCartDgvSchemaOnFormShown;
             _form.btnNext.Click += OnPlaceOrderFormNextClicked;
-            PopulatePagerWithProductData();
+            PopulatePagerWithProducts();
         }
 
         private void SetCartDgvSchemaOnFormShown(object sender, EventArgs e)
@@ -50,11 +52,9 @@ namespace Better_Limited_Project.Sales.Sales.OrderPlacing
 
         private void OnPlaceOrderFormNextClicked(object sender, EventArgs e)
         {
-            if (_form.dgvCart.Rows.Count == 0)
+            if (_cart.IsEmpty())
                 return; // TODO prompt a non intruding message
 
-            _productQuantities = GetProductsInCart();
-            
             if (IsNeedDelivery() || IsNeedInstallation())
             {
                 var procedure = new RetrieveCustomerRecordProcedure(_formController);
@@ -92,10 +92,8 @@ namespace Better_Limited_Project.Sales.Sales.OrderPlacing
 
         private void PaymentMethodSelected(object sender, PaymentMethod paymentMethod)
         {
-            if (_productQuantities == null)
-                throw new InvalidOperationException("Product quantity is null.");
-            
-            _paymentMethod = paymentMethod;
+            throw new NotImplementedException("after payment method selected");
+            /*_paymentMethod = paymentMethod;
             ConfirmPlacingOrderForm form = IsNeedDelivery() || IsNeedInstallation()
                 ? new ConfirmPlacingOrderForm(_productQuantities, _customerName)
                 : new ConfirmPlacingOrderForm(_productQuantities);
@@ -103,16 +101,17 @@ namespace Better_Limited_Project.Sales.Sales.OrderPlacing
             form.StartPosition = FormStartPosition.CenterParent;
             form.OrderConfirmed += OnPlacingOrderConfirmed;
             form.StartPosition = FormStartPosition.CenterScreen;
-            form.ShowDialog();
+            form.ShowDialog();*/
         }
 
         private void OnPlacingOrderConfirmed(object sender, EventArgs e)
         {
-            var procedure = PaymentProcedureFactory.GeneratePaymentProcedure(_paymentMethod!.Value,
+            throw new NotImplementedException("after order confirmed");
+            /*var procedure = PaymentProcedureFactory.GeneratePaymentProcedure(_paymentMethod!.Value,
                 _formController, _productQuantities!);
 
             procedure.PaymentCompleted += OnPaymentCompleted;
-            procedure.Start();
+            procedure.Start();*/
         }
 
         private void OnPaymentCompleted(object sender, PaymentStatus status)
@@ -138,29 +137,15 @@ namespace Better_Limited_Project.Sales.Sales.OrderPlacing
             OpenForm();
         }
 
-        private void PopulatePagerWithProductData()
+        private void PopulatePagerWithProducts()
         {
-            var retailStoreId = UserSettings.GetSettings().Workplace?.Id;
-
-            StockRepository.GetRetailStoreStock(retailStoreId!)
-                .ForEach(p => _pager.AddItem(p));
+            GetStocks().ForEach(stock => _pager.AddItem(stock));
         }
-
-        private IEnumerable<ProductQuantity> GetProductsInCart()
+        
+        private List<RetailStoreStock> GetStocks()
         {
-            List<ProductQuantity> productQuantities = new();
-            foreach (DataGridViewRow row in _form.dgvCart.Rows)
-            {
-                var product = new Product();
-                product.Name = row.Cells["name"].ToString();
-                product.SellingPrice = decimal.Parse(row.Cells["price"].Value.ToString());
-
-                int quantity = int.Parse(row.Cells["quantity"].Value.ToString());
-
-                productQuantities.Add(new ProductQuantity(product, quantity));
-            }
-
-            return productQuantities;
+            var retailStoreId = UserSettings.GetSettings().Workplace?.Id!;
+            return StockRepository.GetRetailStoreStocks(retailStoreId).ToList();
         }
 
         public void OpenForm()

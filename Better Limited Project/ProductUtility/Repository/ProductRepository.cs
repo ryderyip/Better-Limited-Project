@@ -11,31 +11,6 @@ namespace Better_Limited_Project.ProductUtility.Repository
 {
     public static class ProductRepository
     {
-        public static Product GetProductById(string productId)
-        {
-            return GetProducts().FirstOrDefault(product => product.Id == productId) 
-                   ?? throw new ArgumentException($"Product id \"{productId}\" does not exist.");
-        }
-        
-        public static Product GetProductByName(string productName)
-        {
-            return GetProducts().FirstOrDefault(product => product.Name == productName)
-                ?? throw new ArgumentException($"Product name \"{productName}\" does not exist.");
-        }
-
-        private static Product ConvertToProduct(DataRow row)
-        {
-            var product = new Product();
-            product.Id = row.Field<string>("id");
-            product.Name = row.Field<string>("name");
-            product.OriginalPrice = row.Field<decimal>("price");
-            product.Description = row.Field<string>("description");
-            product.IsPhasingOut = row.Field<bool>("is_phasing_out");
-            product.Category = CategoryRepository.GetById(row.Field<int>("category_id").ToString());
-            product.Supplier = SupplierRepository.GetById(row.Field<int>("supplier_id").ToString());
-            return product;
-        }
-
         public static void UpdateProduct(Product product)
         {
             var command = new MySqlCommand(@"update product 
@@ -48,8 +23,8 @@ namespace Better_Limited_Project.ProductUtility.Repository
             command.Parameters.AddWithValue("@price", product.OriginalPrice);
             command.Parameters.AddWithValue("@desc", product.Description);
             command.Parameters.AddWithValue("@isPhasingOut", product.IsPhasingOut);
-            command.Parameters.AddWithValue("@categoryId", product.Category!.Id);
-            command.Parameters.AddWithValue("@supplierId", product.Supplier!.Name);
+            command.Parameters.AddWithValue("@categoryId", product.Category.Id);
+            command.Parameters.AddWithValue("@supplierId", product.Supplier.Name);
             DataTableRepository.ExecuteNonQuery(command);
         }
 
@@ -57,11 +32,25 @@ namespace Better_Limited_Project.ProductUtility.Repository
         {
             var command = new MySqlCommand(
                 @"select p.id, p.name, p.price, p.description, 
-                            p.is_phasing_out, p.category_id as category_id, p.supplier_id as supplier_id
+                            p.is_phasing_out, p.category_id as category_id, 
+                            p.supplier_id as supplier_id
                         from product p;");
             var dataTable = DataTableRepository.RetrieveDataTable(command);
 
             return from DataRow row in dataTable.Rows select ConvertToProduct(row);
+        }
+        
+        private static Product ConvertToProduct(DataRow row)
+        {
+            var id = row.Field<string>("id");
+            var name = row.Field<string>("name");
+            var originalPrice = row.Field<decimal>("price");
+            var description = row.Field<string>("description");
+            var isPhasingOut = row.Field<bool>("is_phasing_out");
+            var category = CategoryRepository.GetById(row.Field<int>("category_id").ToString());
+            var supplier = SupplierRepository.GetById(row.Field<int>("supplier_id").ToString());
+            var product = new Product(id, name, originalPrice, description, supplier, category, isPhasingOut);
+            return product;
         }
 
         public static void CreateNewProduct(string id, string name, decimal price, string description,
