@@ -37,6 +37,7 @@
             this.lblWorkplaceSelect = new System.Windows.Forms.Label();
             this.gpWorkplaceSelect = new System.Windows.Forms.GroupBox();
             this.dgvProductList = new System.Windows.Forms.DataGridView();
+            this.btnNewProductClicked = new System.Windows.Forms.Button();
             this.gpWorkplaceSelect.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize) (this.dgvProductList)).BeginInit();
             this.SuspendLayout();
@@ -117,7 +118,7 @@
             this.gpWorkplaceSelect.Controls.Add(this.cbWorkplaceSelect);
             this.gpWorkplaceSelect.Location = new System.Drawing.Point(27, 90);
             this.gpWorkplaceSelect.Name = "gpWorkplaceSelect";
-            this.gpWorkplaceSelect.Size = new System.Drawing.Size(303, 62);
+            this.gpWorkplaceSelect.Size = new System.Drawing.Size(236, 62);
             this.gpWorkplaceSelect.TabIndex = 8;
             this.gpWorkplaceSelect.TabStop = false;
             this.gpWorkplaceSelect.Visible = false;
@@ -135,11 +136,25 @@
             this.dgvProductList.TabIndex = 2;
             this.dgvProductList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductList_CellDoubleClick);
             // 
+            // btnNewProductClicked
+            // 
+            this.btnNewProductClicked.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnNewProductClicked.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.btnNewProductClicked.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnNewProductClicked.Location = new System.Drawing.Point(349, 98);
+            this.btnNewProductClicked.Name = "btnNewProductClicked";
+            this.btnNewProductClicked.Size = new System.Drawing.Size(76, 54);
+            this.btnNewProductClicked.TabIndex = 9;
+            this.btnNewProductClicked.Text = "New Product";
+            this.btnNewProductClicked.UseVisualStyleBackColor = false;
+            this.btnNewProductClicked.Click += new System.EventHandler(this.btnNewProduct_Click);
+            // 
             // ProductListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(548, 449);
+            this.Controls.Add(this.btnNewProductClicked);
             this.Controls.Add(this.gpWorkplaceSelect);
             this.Controls.Add(this.txtNoResults);
             this.Controls.Add(this.btnRestock);
@@ -156,6 +171,8 @@
             this.PerformLayout();
         }
 
+        public System.Windows.Forms.Button btnNewProductClicked;
+
         public System.Windows.Forms.ComboBox cbWorkplaceSelect;
         private System.Windows.Forms.Label lblWorkplaceSelect;
         public System.Windows.Forms.GroupBox gpWorkplaceSelect;
@@ -168,6 +185,6 @@
         public System.Windows.Forms.TextBox txtSearchKeywords;
         public System.Windows.Forms.DataGridView dgvProductList;
         private System.Windows.Forms.Button btnUpdateStockLevel;
-        private System.Windows.Forms.Button btnRestock;
+        public System.Windows.Forms.Button btnRestock;
     }
 }

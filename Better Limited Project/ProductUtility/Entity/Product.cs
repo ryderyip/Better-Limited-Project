@@ -24,7 +24,10 @@ namespace Better_Limited_Project.ProductUtility.Entity
         /// <exception cref="InvalidOperationException">Thrown if the workplaceId does not exist</exception>
         public ProductQuantity GetStockOfRetailStoreOrWarehouse(string workplaceId)
         {
-            string id = ProductRepository.GetProductByName(Name).Id!;
+            var product = ProductRepository.GetProductByName(Name);
+            if (product == null)
+                throw new InvalidOperationException("Name is null");
+            string id = product.Id!;
             
             var stock = StockRepository.GetRetailStoreProductStock(workplaceId, id);
             if (stock != null)

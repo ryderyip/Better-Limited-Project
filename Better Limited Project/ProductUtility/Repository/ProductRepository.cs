@@ -1,6 +1,10 @@
-﻿using System.Data;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 using Better_Limited_Project.DatabaseUtility;
 using Better_Limited_Project.ProductUtility.Entity;
+using Better_Limited_Project.StaffUtility.StaffEntity;
 using MySql.Data.MySqlClient;
 
 namespace Better_Limited_Project.ProductUtility.Repository
@@ -9,40 +13,18 @@ namespace Better_Limited_Project.ProductUtility.Repository
     {
         public static Product GetProductById(string productId)
         {
-            var command = new MySqlCommand(
-                @"select p.id, p.name, p.price, p.description, 
-                            p.is_phasing_out, pc.id as category_id, 
-                            s.name as supplier, s.phone as supplier_phone, s.email as supplier_email
-                        from product p
-                        INNER JOIN product_category pc on p.category_id = pc.id
-                        INNER JOIN supplier s on p.supplier_id = s.id
-                        WHERE p.id = @productId;");
-            command.Parameters.AddWithValue("@productId", productId);
-            var dataTable = DataTableRepository.RetrieveDataTable(command);
-            return ConvertToProduct(dataTable.Rows[0]);
+            return GetProducts().FirstOrDefault(product => product.Id == productId) 
+                   ?? throw new ArgumentException($"Product id \"{productId}\" does not exist.");
         }
         
         public static Product GetProductByName(string productName)
         {
-            var command = new MySqlCommand(
-                @"select p.id, p.name, p.price, p.description, 
-                            p.is_phasing_out, pc.id as category_id, 
-                            s.name as supplier, s.phone as supplier_phone, s.email as supplier_email
-                        from product p
-                        INNER JOIN product_category pc on p.category_id = pc.id
-                        INNER JOIN supplier s on p.supplier_id = s.id
-                        WHERE p.name = @productName;");
-            command.Parameters.AddWithValue("@productName", productName);
-            var dataTable = DataTableRepository.RetrieveDataTable(command);
-            return ConvertToProduct(dataTable.Rows[0]);
+            return GetProducts().FirstOrDefault(product => product.Name == productName)
+                ?? throw new ArgumentException($"Product name \"{productName}\" does not exist.");
         }
 
         private static Product ConvertToProduct(DataRow row)
         {
-            string supplierName = row.Field<string>("supplier");
-            string supplierPhone = row.Field<string>("supplier_phone");
-            string supplierEmail = row.Field<string>("supplier_email");
-
             var product = new Product();
             product.Id = row.Field<string>("id");
             product.Name = row.Field<string>("name");
@@ -50,7 +32,7 @@ namespace Better_Limited_Project.ProductUtility.Repository
             product.Description = row.Field<string>("description");
             product.IsPhasingOut = row.Field<bool>("is_phasing_out");
             product.Category = CategoryRepository.GetById(row.Field<int>("category_id").ToString());
-            product.Supplier = new Supplier(supplierName, supplierPhone, supplierEmail);
+            product.Supplier = SupplierRepository.GetById(row.Field<int>("supplier_id").ToString());
             return product;
         }
 
@@ -67,8 +49,54 @@ namespace Better_Limited_Project.ProductUtility.Repository
             command.Parameters.AddWithValue("@desc", product.Description);
             command.Parameters.AddWithValue("@isPhasingOut", product.IsPhasingOut);
             command.Parameters.AddWithValue("@categoryId", product.Category!.Id);
-            command.Parameters.AddWithValue("@supplierId", product.Name);
+            command.Parameters.AddWithValue("@supplierId", product.Supplier!.Name);
             DataTableRepository.ExecuteNonQuery(command);
+        }
+
+        public static IEnumerable<Product> GetProducts()
+        {
+            var command = new MySqlCommand(
+                @"select p.id, p.name, p.price, p.description, 
+                            p.is_phasing_out, p.category_id as category_id, p.supplier_id as supplier_id
+                        from product p;");
+            var dataTable = DataTableRepository.RetrieveDataTable(command);
+
+            return from DataRow row in dataTable.Rows select ConvertToProduct(row);
+        }
+
+        public static void CreateNewProduct(string id, string name, decimal price, string description,
+            bool isPhasingOut, string categoryId, string supplierId)
+        {
+            var command = new MySqlCommand(@"insert into product 
+                values (@id, @name, @price, @description, @isPhasingOut, @categoryId, @supplierId)");
+            command.Parameters.AddWithValue("@id", id);
+            command.Parameters.AddWithValue("@name", name);
+            command.Parameters.AddWithValue("@price", price);
+            command.Parameters.AddWithValue("@description", description);
+            command.Parameters.AddWithValue("@isPhasingOut", isPhasingOut);
+            command.Parameters.AddWithValue("@categoryId", categoryId);
+            command.Parameters.AddWithValue("@supplierId", supplierId);
+            DataTableRepository.ExecuteNonQuery(command);
+
+            foreach (var retailStore in RetailStoreRepository.GetRetailStores())
+            {
+                command = new MySqlCommand(@"insert into retail_store_stock (product_id, retail_store_id, quantity)
+                    value (@productId, @retailStoreId, @quantity)");
+                command.Parameters.AddWithValue("@productId", id);
+                command.Parameters.AddWithValue("@retailStoreId", retailStore.Id);
+                command.Parameters.AddWithValue("@quantity", 0);
+                DataTableRepository.ExecuteNonQuery(command);
+            }
+            
+            foreach (var warehouse in WarehouseRepository.GetWarehouses())
+            {
+                command = new MySqlCommand(@"insert into warehouse_stock (product_id, warehouse_id, quantity)
+                    value (@productId, @warehouse_id, @quantity)");
+                command.Parameters.AddWithValue("@productId", id);
+                command.Parameters.AddWithValue("@warehouse_id", warehouse.Id);
+                command.Parameters.AddWithValue("@quantity", 0);
+                DataTableRepository.ExecuteNonQuery(command);
+            }
         }
     }
 }

@@ -2,12 +2,14 @@
 {
     public class Supplier
     {
-        public string Name { get; set; }
-        public string Phone { get;set; }
-        public string Email { get; set; }
+        public string Id { get; }
+        public string Name { get; }
+        public string Phone { get; }
+        public string Email { get; }
 
-        public Supplier(string name, string phone, string email)
+        public Supplier(string id, string name, string phone, string email)
         {
+            Id = id;
             Name = name;
             Phone = phone;
             Email = email;

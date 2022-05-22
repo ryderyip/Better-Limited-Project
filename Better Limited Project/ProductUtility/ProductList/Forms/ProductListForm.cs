@@ -13,14 +13,13 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
     public partial class ProductListForm : Form
     {
         public delegate void ProductClickedEventHandler(object sender, int rowIndex);
-        public delegate void UpdateStockLevelClickedEventHandler(object sender, EventArgs e);
         public event ProductClickedEventHandler ProductClicked;
-        public event UpdateStockLevelClickedEventHandler UpdateStockLevelClicked;
+        public event EventHandler UpdateStockLevelClicked;
+        public event EventHandler NewProductClicked;
 
         public ProductListForm()
         {
             InitializeComponent();
-            
         }
 
         private void dgvProductList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -31,6 +30,13 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
         private void btnUpdateStockLevel_Click(object sender, EventArgs e)
         {
             UpdateStockLevelClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void btnNewProduct_Click(object sender, EventArgs e)
+        {
+            var form = new NewProductForm();
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.ShowDialog();
         }
     }
 }

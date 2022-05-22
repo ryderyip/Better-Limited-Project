@@ -27,6 +27,7 @@ namespace Better_Limited_Project.ProductUtility.Repository
                        rss.selling_price, 
                        pc.id as category_id, 
                        pc.name as category, 
+                       s.id as supplier_id, 
                        s.name as supplier_name, 
                        s.phone as supplier_phone, 
                        s.email as supplier_email,
@@ -68,6 +69,7 @@ namespace Better_Limited_Project.ProductUtility.Repository
                        ws.quantity, 
                        pc.name as category, 
                        pc.id as category_id, 
+                       s.id as supplier_id, 
                        s.name as supplier_name, 
                        s.phone as supplier_phone, 
                        s.email as supplier_email,
@@ -88,6 +90,7 @@ namespace Better_Limited_Project.ProductUtility.Repository
             var stock = new List<ProductQuantity>();
             foreach (DataRow row in dataTable.Rows)
             {
+                string supplierId = row.Field<string>("supplier_id");
                 string supplierName = row.Field<string>("supplier_name");
                 string supplierPhone = row.Field<string>("supplier_phone");
                 string supplierEmail = row.Field<string>("supplier_email");
@@ -99,7 +102,7 @@ namespace Better_Limited_Project.ProductUtility.Repository
                     Description = row.Field<string>("description"),
                     Category = CategoryRepository.GetById(row.Field<int>("category_id").ToString()),
                     IsPhasingOut = row.Field<bool>("is_phasing_out"),
-                    Supplier = new Supplier(supplierName, supplierPhone, supplierEmail)
+                    Supplier = new Supplier(supplierId, supplierName, supplierPhone, supplierEmail)
                 };
                 if (dataTable.Columns.Contains("selling_price"))
                     product.SellingPrice = row.Field<decimal>("selling_price");
@@ -119,7 +122,7 @@ namespace Better_Limited_Project.ProductUtility.Repository
             var command = new MySqlCommand(
                 @"select p.id as product_id, p.name as name, price as original_price, 
                        description, is_phasing_out, rss.quantity, 
-                       rss.selling_price, pc.id as category_id, 
+                       rss.selling_price, pc.id as category_id, s.id as supplier_id,
                        s.name as supplier_name, s.phone as supplier_phone, 
                        s.email as supplier_email, rs.name as retail_store_name
                         from retail_store_stock rss
@@ -141,7 +144,7 @@ namespace Better_Limited_Project.ProductUtility.Repository
         {
             var command = new MySqlCommand(
                 @"select p.id as product_id, p.name as name, price as original_price, 
-                       description, is_phasing_out, ws.quantity, pc.id as category_id, 
+                       description, is_phasing_out, ws.quantity, pc.id as category_id, s.id as supplier_id,
                        s.name as supplier_name, s.phone as supplier_phone, 
                        s.email as supplier_email, w.name as retail_store_name
                         from warehouse_stock ws

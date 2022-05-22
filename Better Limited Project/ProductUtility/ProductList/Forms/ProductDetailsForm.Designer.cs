@@ -55,6 +55,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             this.lblSupplierPhone = new System.Windows.Forms.Label();
             this.tbSupplierPhone = new System.Windows.Forms.TextBox();
             this.tbSupplierEmail = new System.Windows.Forms.TextBox();
+            this.btnRemoveProduct = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnUpdateProductInfo
@@ -282,11 +283,24 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             this.tbSupplierEmail.Size = new System.Drawing.Size(119, 20);
             this.tbSupplierEmail.TabIndex = 82;
             // 
+            // btnRemoveProduct
+            // 
+            this.btnRemoveProduct.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnRemoveProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnRemoveProduct.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnRemoveProduct.Location = new System.Drawing.Point(42, 367);
+            this.btnRemoveProduct.Name = "btnRemoveProduct";
+            this.btnRemoveProduct.Size = new System.Drawing.Size(167, 54);
+            this.btnRemoveProduct.TabIndex = 83;
+            this.btnRemoveProduct.Text = "Remove Product";
+            this.btnRemoveProduct.UseVisualStyleBackColor = false;
+            // 
             // ProductDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnRemoveProduct);
             this.Controls.Add(this.tbSupplierEmail);
             this.Controls.Add(this.tbSupplierPhone);
             this.Controls.Add(this.lblSupplierPhone);
@@ -317,6 +331,8 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        public System.Windows.Forms.Button btnRemoveProduct;
 
         private System.Windows.Forms.Button btnUpdateProductInfo;
 

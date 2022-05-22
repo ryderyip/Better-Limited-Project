@@ -31,6 +31,8 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Controller
             _form.Shown += (_, _) =>
             {
                 _form.gpWorkplaceSelect.Visible = true;
+                _form.btnNewProductClicked.Visible = true;
+                _form.btnRestock.Visible = false;
                 GetWorkplaceNames().ToList()
                     .ForEach(name => _form.cbWorkplaceSelect.Items.Add(name));
                 if (_form.cbWorkplaceSelect.Items.Count != 0)
@@ -149,5 +151,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Controller
             return (from store in stores select store.Name)
                 .Concat(from warehouse in warehouses select warehouse.Name);
         }
+        
+        
     }
 }

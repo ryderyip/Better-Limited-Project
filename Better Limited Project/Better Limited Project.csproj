@@ -227,10 +227,19 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ProductUtility\GoodsReturning\GoodsReturnedForm.Designer.cs" />
+    <Compile Include="ProductUtility\ProductList\Controller\ProductDetailsController.cs" />
+    <Compile Include="ProductUtility\ProductList\Controller\UpdateProductInfoController.cs" />
+    <Compile Include="ProductUtility\ProductList\Controller\UpdateStockLevelController.cs" />
     <Compile Include="ProductUtility\ProductList\Forms\CreateRestockRequestForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ProductUtility\ProductList\Forms\CreateRestockRequestForm.Designer.cs" />
+    <Compile Include="ProductUtility\ProductList\Forms\NewProductForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductUtility\ProductList\Forms\NewProductForm.Designer.cs">
+      <DependentUpon>NewProductForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductUtility\ProductList\Forms\ProductDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -255,13 +264,11 @@
     <Compile Include="ProductUtility\ProductList\Forms\UpdateStockLevelForm.Designer.cs" />
     <Compile Include="ProductUtility\ProductList\PermissionManagement\ProductInfoEditPermission.cs" />
     <Compile Include="ProductUtility\ProductList\PermissionManagement\ProductInfoEditPermissionManager.cs" />
-    <Compile Include="ProductUtility\ProductList\ProductDetailsController.cs" />
     <Compile Include="ProductUtility\ProductList\Controller\IProductListController.cs" />
     <Compile Include="ProductUtility\ProductList\Controller\ProductListController.cs" />
     <Compile Include="ProductUtility\ProductList\Controller\ProductListControllerAll.cs" />
     <Compile Include="ProductUtility\ProductList\Controller\ProductListControllerFactory.cs" />
-    <Compile Include="ProductUtility\ProductList\UpdateProductInfoController.cs" />
-    <Compile Include="ProductUtility\ProductList\UpdateStockLevelController.cs" />
+    <Compile Include="ProductUtility\ProductList\ProductCreationDataVerifier.cs" />
     <Compile Include="ProductUtility\PurchaseOrder\PurchaseOrderDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -273,6 +280,7 @@
     <Compile Include="ProductUtility\Repository\CategoryRepository.cs" />
     <Compile Include="ProductUtility\Repository\ProductRepository.cs" />
     <Compile Include="ProductUtility\Repository\StockRepository.cs" />
+    <Compile Include="ProductUtility\Repository\SupplierRepository.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sales\Payment\CashPaymentProcedure.cs" />
@@ -498,6 +506,9 @@
     <EmbeddedResource Include="ProductUtility\GoodsReturning\GoodsReturnedDetailsForm.resx" />
     <EmbeddedResource Include="ProductUtility\GoodsReturning\GoodsReturnedForm.resx" />
     <EmbeddedResource Include="ProductUtility\ProductList\Forms\CreateRestockRequestForm.resx" />
+    <EmbeddedResource Include="ProductUtility\ProductList\Forms\NewProductForm.resx">
+      <DependentUpon>NewProductForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductUtility\ProductList\Forms\ProductDetailsForm.resx">
       <DependentUpon>ProductDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
