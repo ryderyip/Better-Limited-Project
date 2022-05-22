@@ -163,8 +163,10 @@
             this.Controls.Add(this.dgvProductList);
             this.Controls.Add(this.txtSearchKeywords);
             this.Controls.Add(this.lblSearchKeywords);
+            this.KeyPreview = true;
             this.Name = "ProductListForm";
             this.Text = "ProductListForm";
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ProductListForm_KeyPress);
             this.gpWorkplaceSelect.ResumeLayout(false);
             this.gpWorkplaceSelect.PerformLayout();
             ((System.ComponentModel.ISupportInitialize) (this.dgvProductList)).EndInit();

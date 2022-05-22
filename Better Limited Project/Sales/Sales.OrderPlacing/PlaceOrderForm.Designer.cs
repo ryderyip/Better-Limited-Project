@@ -737,7 +737,7 @@
         private System.Windows.Forms.Panel panProductList;
         private System.Windows.Forms.Panel panProduct1;
 
-        public System.Windows.Forms.DataGridView dgvCart;
+        private System.Windows.Forms.DataGridView dgvCart;
 
         private System.Windows.Forms.Panel panel2;
         

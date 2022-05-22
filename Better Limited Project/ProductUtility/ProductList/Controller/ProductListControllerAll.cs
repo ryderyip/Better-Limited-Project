@@ -5,6 +5,7 @@ using System.Linq;
 using Better_Limited_Project.DatabaseUtility;
 using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.ProductUtility.ProductList.Forms;
+using Better_Limited_Project.ProductUtility.ProductList.PermissionManagement;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 using Better_Limited_Project.Tools;
 using MySql.Data.MySqlClient;
@@ -30,14 +31,22 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Controller
             };
             _form.Shown += (_, _) =>
             {
-                _form.gpWorkplaceSelect.Visible = true;
-                _form.btnNewProductClicked.Visible = true;
-                _form.btnRestock.Visible = false;
+                SetButtonVisibility();
                 _workplaces.ForEach(workplace => _form.cbWorkplaceSelect.Items.Add(workplace.Name));
                 _form.cbWorkplaceSelect.SelectedIndex = 0;
             };
         }
-        
+
+        private void SetButtonVisibility()
+        {
+            var permission = ProductInfoEditPermissionManager.GetCurrentStaffPermission();
+            
+            _form.gpWorkplaceSelect.Visible = true;
+            if (permission is ProductInfoEditPermission.AllowUpdateAll)
+                _form.btnNewProductClicked.Visible = true;
+            _form.btnRestock.Visible = false;
+        }
+
         private DataTable GetProductTable()
         {
             return IsSelectedWorkplaceRetailStore() ? 

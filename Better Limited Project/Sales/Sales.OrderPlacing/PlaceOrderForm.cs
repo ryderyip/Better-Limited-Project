@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
@@ -19,9 +20,23 @@ namespace Better_Limited_Project.Sales.Sales.OrderPlacing
         {
             _pager = pager;
             _cart = cart;
+            _cart.Updated += OnCartUpdated;
             _filteredPager = pager;
             _pageFiller = new PlaceOrderFormPageFiller();
             InitializeComponent();
+        }
+
+        private void OnCartUpdated(object sender, IEnumerable<Tuple<Product, int, decimal>> cart)
+        {
+            SetCartDgvSchemaOnFormShown();
+            
+            txtTotalPrice.Text = _cart.GetTotalPrice()
+                .ToString("C", new CultureInfo("zh-HK"));
+            
+            dgvCart.Rows.Clear();
+            cart.ToList().ForEach(triplet 
+                => dgvCart.Rows.Add(triplet.Item1.Name, 
+                    triplet.Item3, triplet.Item2, triplet.Item1.Category.Name));
         }
         
         private void OnFormShown(object sender, EventArgs e)
@@ -117,48 +132,21 @@ namespace Better_Limited_Project.Sales.Sales.OrderPlacing
                 "btnAddProduct6" => products[5].Product,
                 _ => throw new ArgumentOutOfRangeException(nameof(button.Name), $"Unexpected button name: {button.Name}")
             };
-            AddProductToCart(product);
-            CalculateTotalPrice();
-        }
-
-        private void AddProductToCart(Product product)
-        {
-            var selectedProductName = product.Name;
-            var price = _filteredPager.GetCurrentPage()
-                .First(stock => stock.Product.Name == selectedProductName);
-            var category = product.Category;
-            
-            var productRow = dgvCart.Rows
-                .Cast<DataGridViewRow>()
-                .FirstOrDefault(row => row.Cells["name"].Value.ToString().Equals(selectedProductName));
-            if (productRow == null)
-            {
-                dgvCart.Rows.Add(selectedProductName, price, 1, category);
-                return;
-            }
-
-            int addedQuantity = int.Parse(productRow.Cells["quantity"].Value.ToString());
-            productRow.Cells["quantity"].Value = addedQuantity + 1;
-            
             _cart.Add(product, 1);
         }
 
-        private void CalculateTotalPrice()
-        {
-            decimal total = 0;
-            foreach (DataGridViewRow row in dgvCart.Rows)
-            {
-                decimal price = decimal.Parse(row.Cells["price"].Value.ToString());
-                int quantity = int.Parse(row.Cells["quantity"].Value.ToString());
-                total += price * quantity;
-            }
-            txtTotalPrice.Text = total.ToString("C", new CultureInfo("zh-HK"));
-        }
-        
         private void btnClearCart_Click(object sender, EventArgs e)
         {
             dgvCart.Rows.Clear();
             _cart.Clear();
+        }
+        
+        private void SetCartDgvSchemaOnFormShown()
+        {
+            dgvCart.Columns.Add("name", "Name");
+            dgvCart.Columns.Add("price", "Price");
+            dgvCart.Columns.Add("quantity", "Qty");
+            dgvCart.Columns.Add("category", "Category");
         }
     }
 }

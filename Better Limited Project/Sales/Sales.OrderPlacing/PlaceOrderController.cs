@@ -26,7 +26,7 @@ namespace Better_Limited_Project.Sales.Sales.OrderPlacing
 
         public PlaceOrderController()
         {
-            _cart = new Cart();
+            _cart = new Cart(UserSettings.GetSettings().Workplace!.Id);
             _pager = new Pager<RetailStoreStock>(PageSize);
             _form = new PlaceOrderForm(_pager, _cart);
             _formController = new FormController(OuterFormGenerator.Generate());
@@ -37,17 +37,8 @@ namespace Better_Limited_Project.Sales.Sales.OrderPlacing
         {
             _pager = new Pager<RetailStoreStock>(PageSize);
             _form = new PlaceOrderForm(_pager, _cart);
-            _form.Shown += SetCartDgvSchemaOnFormShown;
             _form.btnNext.Click += OnPlaceOrderFormNextClicked;
             PopulatePagerWithProducts();
-        }
-
-        private void SetCartDgvSchemaOnFormShown(object sender, EventArgs e)
-        {
-            _form.dgvCart.Columns.Add("name", "Name");
-            _form.dgvCart.Columns.Add("price", "Price");
-            _form.dgvCart.Columns.Add("quantity", "Qty");
-            _form.dgvCart.Columns.Add("category", "Category");
         }
 
         private void OnPlaceOrderFormNextClicked(object sender, EventArgs e)
@@ -55,6 +46,10 @@ namespace Better_Limited_Project.Sales.Sales.OrderPlacing
             if (_cart.IsEmpty())
                 return; // TODO prompt a non intruding message
 
+            // ------------DEBUG------------
+            // MessageBox.Show(_cart.get);
+            // ------------DEBUG------------
+            
             if (IsNeedDelivery() || IsNeedInstallation())
             {
                 var procedure = new RetrieveCustomerRecordProcedure(_formController);

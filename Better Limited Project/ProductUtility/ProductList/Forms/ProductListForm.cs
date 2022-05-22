@@ -31,5 +31,11 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             form.StartPosition = FormStartPosition.CenterScreen;
             form.ShowDialog();
         }
+
+        private void ProductListForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar.ToString().Equals("/"))
+                txtSearchKeywords.Focus();
+        }
     }
 }
