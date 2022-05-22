@@ -87,6 +87,7 @@
             this.Name = "LoginForm";
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         private System.Windows.Forms.Label lblLoginFailedMessage;
