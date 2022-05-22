@@ -6,9 +6,8 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
     public partial class ProductListForm : Form
     {
         public delegate void ProductClickedEventHandler(object sender, int rowIndex);
-        public event ProductClickedEventHandler ProductClicked;
-        public event EventHandler UpdateStockLevelClicked;
-        public event EventHandler NewProductClicked;
+        public event ProductClickedEventHandler? ProductClicked;
+        public event EventHandler? UpdateStockLevelClicked;
 
         public ProductListForm()
         {

@@ -143,6 +143,7 @@ namespace Better_Limited_Project.Sales.Sales.OrderPlacing
         
         private void SetCartDgvSchemaOnFormShown()
         {
+            dgvCart.Columns.Clear();
             dgvCart.Columns.Add("name", "Name");
             dgvCart.Columns.Add("price", "Price");
             dgvCart.Columns.Add("quantity", "Qty");

@@ -19,7 +19,7 @@ namespace Better_Limited_Project.ProductUtility.Repository
 
             if (dataTable.Rows.Count == 0)
                 throw new InvalidOperationException($"Category id {categoryId} doesn't exist in database.");
-            return new Category(categoryId, dataTable.Rows[0].ToString());
+            return new Category(categoryId, dataTable.Rows[0].Field<string>("name"));
         }
 
         public static IEnumerable<Category> GetCategories()
