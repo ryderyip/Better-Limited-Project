@@ -99,6 +99,7 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnStaff.TabIndex = 24;
             this.btnStaff.Text = "Staff";
             this.btnStaff.UseVisualStyleBackColor = true;
+            this.btnStaff.Click += new System.EventHandler(this.btnStaff_Click);
             // 
             // AdminNavigationForm
             // 

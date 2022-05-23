@@ -445,15 +445,32 @@
     <Compile Include="SettingsUtility\UserSettingsSaver.cs" />
     <Compile Include="StaffUtility\StaffEntity\DepartmentMapper.cs" />
     <Compile Include="StaffUtility\StaffEntity\Department.cs" />
+    <Compile Include="StaffUtility\StaffEntity\DepartmentRepository.cs" />
+    <Compile Include="StaffUtility\StaffEntity\DepartmentStaffTitleMatchingHelper.cs" />
     <Compile Include="StaffUtility\StaffEntity\RetailStore.cs" />
     <Compile Include="StaffUtility\StaffEntity\RetailStoreRepository.cs" />
     <Compile Include="StaffUtility\StaffEntity\Staff.cs" />
     <Compile Include="StaffUtility\StaffEntity\StaffRepository.cs" />
     <Compile Include="StaffUtility\StaffEntity\StaffTitle.cs" />
     <Compile Include="StaffUtility\StaffEntity\StaffTitleMapper.cs" />
+    <Compile Include="StaffUtility\StaffEntity\StaffTitleRepository.cs" />
     <Compile Include="StaffUtility\StaffEntity\Warehouse.cs" />
     <Compile Include="StaffUtility\StaffEntity\WarehouseRepository.cs" />
     <Compile Include="StaffUtility\StaffEntity\Workplace.cs" />
+    <Compile Include="StaffUtility\StaffList\NewStaffForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StaffUtility\StaffList\NewStaffForm.Designer.cs">
+      <DependentUpon>NewStaffForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StaffUtility\StaffList\StaffIdGenerator.cs" />
+    <Compile Include="StaffUtility\StaffList\StaffListController.cs" />
+    <Compile Include="StaffUtility\StaffList\StaffListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StaffUtility\StaffList\StaffListForm.Designer.cs">
+      <DependentUpon>StaffListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="StaffUtility\StaffProfile\ProfileController.cs" />
     <Compile Include="StaffUtility\StaffProfile\ProfileForm.cs">
       <SubType>Form</SubType>
@@ -462,6 +479,8 @@
       <DependentUpon>ProfileForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Tools\DgvKeywordSearchHelper.cs" />
+    <Compile Include="Tools\StringHelper.cs" />
+    <Compile Include="Tools\ISearchable.cs" />
     <Compile Include="Tools\Pager.cs" />
     <EmbeddedResource Include="DevTools\AutoLogin\StaffRoleChooserForm.resx">
       <DependentUpon>StaffRoleChooserForm.cs</DependentUpon>
@@ -564,6 +583,12 @@
     <EmbeddedResource Include="ServiceUtility\Reordering\ReorderRequestSendingForm.resx" />
     <EmbeddedResource Include="SettingsUtility\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaffUtility\StaffList\NewStaffForm.resx">
+      <DependentUpon>NewStaffForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaffUtility\StaffList\StaffListForm.resx">
+      <DependentUpon>StaffListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StaffUtility\StaffProfile\ProfileForm.resx">
       <DependentUpon>ProfileForm.cs</DependentUpon>

@@ -1,10 +1,11 @@
 ﻿using System;
+using Better_Limited_Project.Tools;
 
 namespace Better_Limited_Project.StaffUtility.StaffEntity
 {
-    public class Staff
+    public class Staff : ISearchable
     {
-        public Staff(string? id, string name, DateTime dateOfBirth, DateTime hiredOn, char gender, Department department, StaffTitle title)
+        public Staff(string id, string name, DateTime dateOfBirth, DateTime hiredOn, char gender, Department department, StaffTitle title)
         {
             Id = id;
             Name = name;
@@ -15,7 +16,7 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
             Title = title;
         }
 
-        public string? Id { get; }
+        public string Id { get; }
         public string Name { get; }
         public DateTime DateOfBirth { get; }
         public DateTime HiredOn { get; }

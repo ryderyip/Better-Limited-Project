@@ -17,8 +17,8 @@ namespace UnitTests
         [Test] 
         public void Map_InputSalesManagerEnum_ReturnSalesManagerString()
         {
-            string result = _mapper.Map(StaffTitle.SalesManager);
-            string expected = "Sales Manager";
+            string result = _mapper.Map(StaffTitle.TechnicalSupportManager);
+            string expected = "Technical Support Manager";
             
             Assert.AreEqual(expected, result);
         }
