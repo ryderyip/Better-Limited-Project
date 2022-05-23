@@ -463,7 +463,15 @@
     <Compile Include="StaffUtility\StaffEntity\Warehouse.cs" />
     <Compile Include="StaffUtility\StaffEntity\WarehouseRepository.cs" />
     <Compile Include="StaffUtility\StaffEntity\Workplace.cs" />
-    <Compile Include="StaffUtility\StaffList\ConfirmRemoveStaffForm.cs" />
+    <Compile Include="StaffUtility\StaffList\ChangePasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StaffUtility\StaffList\ChangePasswordForm.Designer.cs">
+      <DependentUpon>ChangePasswordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StaffUtility\StaffList\ConfirmRemoveStaffForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="StaffUtility\StaffList\ConfirmRemoveStaffForm.Designer.cs" />
     <Compile Include="StaffUtility\StaffList\NewStaffForm.cs">
       <SubType>Form</SubType>
@@ -471,8 +479,12 @@
     <Compile Include="StaffUtility\StaffList\NewStaffForm.Designer.cs">
       <DependentUpon>NewStaffForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="StaffUtility\StaffList\StaffDetailsForm.cs" />
-    <Compile Include="StaffUtility\StaffList\StaffDetailsForm.Designer.cs" />
+    <Compile Include="StaffUtility\StaffList\StaffDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StaffUtility\StaffList\StaffDetailsForm.Designer.cs">
+      <DependentUpon>StaffDetailsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="StaffUtility\StaffList\StaffIdGenerator.cs" />
     <Compile Include="StaffUtility\StaffList\StaffListController.cs" />
     <Compile Include="StaffUtility\StaffList\StaffListForm.cs">
@@ -480,6 +492,12 @@
     </Compile>
     <Compile Include="StaffUtility\StaffList\StaffListForm.Designer.cs">
       <DependentUpon>StaffListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StaffUtility\StaffList\UpdateStaffDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StaffUtility\StaffList\UpdateStaffDetailsForm.Designer.cs">
+      <DependentUpon>UpdateStaffDetailsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="StaffUtility\StaffProfile\ProfileController.cs" />
     <Compile Include="StaffUtility\StaffProfile\ProfileForm.cs">
@@ -594,13 +612,21 @@
     <EmbeddedResource Include="SettingsUtility\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="StaffUtility\StaffList\ChangePasswordForm.resx">
+      <DependentUpon>ChangePasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StaffUtility\StaffList\ConfirmRemoveStaffForm.resx" />
     <EmbeddedResource Include="StaffUtility\StaffList\NewStaffForm.resx">
       <DependentUpon>NewStaffForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StaffUtility\StaffList\StaffDetailsForm.resx" />
+    <EmbeddedResource Include="StaffUtility\StaffList\StaffDetailsForm.resx">
+      <DependentUpon>StaffDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StaffUtility\StaffList\StaffListForm.resx">
       <DependentUpon>StaffListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaffUtility\StaffList\UpdateStaffDetailsForm.resx">
+      <DependentUpon>UpdateStaffDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StaffUtility\StaffProfile\ProfileForm.resx">
       <DependentUpon>ProfileForm.cs</DependentUpon>

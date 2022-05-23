@@ -32,7 +32,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
 
         private void btnUpdateStaffInfo_Click(object sender, EventArgs e)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
@@ -48,6 +48,12 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             StaffRepository.RemoveStaff(_staff.Id);
             Updated?.Invoke(this, EventArgs.Empty);
             Close();
+        }
+
+        private void btnChangePassword_Click(object sender, EventArgs e)
+        {
+            var form = new ChangePasswordForm(_staff.Id);
+            form.ShowDialog();
         }
     }
 }

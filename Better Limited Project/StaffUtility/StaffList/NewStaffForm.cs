@@ -84,7 +84,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
 
             if (!accountVerifier.IsPasswordValid(password))
             {
-                MessageBox.Show($"Passowrd \"{password}\" is not valid. " +
+                MessageBox.Show($"Passowrd does not meet requirement. " +
                                 "Passwords must consist of at least 8 characters of a combination of English character and/or numbers.");
                 return;
             }

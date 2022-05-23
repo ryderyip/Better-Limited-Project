@@ -49,5 +49,14 @@ namespace Better_Limited_Project.Login
             command.Parameters.AddWithValue("@password", password);
             DataTableRepository.ExecuteNonQuery(command);
         }
+
+        public static void UpdatePassword(string staffId, string newPassword)
+        {
+            var command = new MySqlCommand(
+                "update staff_account set password = @newPassword where staff_id = @staffId");
+            command.Parameters.AddWithValue("@staffId", staffId);
+            command.Parameters.AddWithValue("@newPassword", newPassword);
+            DataTableRepository.ExecuteNonQuery(command);
+        }
     }
 }
