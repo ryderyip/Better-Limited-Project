@@ -32,17 +32,15 @@ namespace Better_Limited_Project.StaffUtility.StaffList
 
         private void InitializeDateOfBirthPicker()
         {
-            int daysInAYear = 365;
-            dtpDateOfBirth.MaxDate = DateTime.Today - TimeSpan.FromDays(daysInAYear * 18);
-            dtpDateOfBirth.MinDate = DateTime.Today - TimeSpan.FromDays(daysInAYear * 200);
+            dtpDateOfBirth.MaxDate = DateTimePickerHelper.GetBirthdayMaximumDate();
+            dtpDateOfBirth.MinDate = DateTimePickerHelper.GetBirthdayMinimumDate();
             dtpDateOfBirth.Value = dtpDateOfBirth.MaxDate;
         }
 
         private void cbDepartment_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var matchingHelper = new DepartmentStaffTitleMatchingHelper();
             var affiliatedTitles =
-                matchingHelper.GetTitlesUnderDepartment(GetSelectedDepartment());
+                DepartmentStaffTitleMatchingHelper.GetTitlesUnderDepartment(GetSelectedDepartment());
             cbTitle.Items.Clear();
             var titleMapper = new StaffTitleMapper();
             affiliatedTitles.ForEach(title => cbTitle.Items.Add(titleMapper.Map(title)));
@@ -116,9 +114,8 @@ namespace Better_Limited_Project.StaffUtility.StaffList
 
         private bool IsSelectedTitleMatchSelectedDepartment()
         {
-            var matchingHelper = new DepartmentStaffTitleMatchingHelper();
             return GetSelectedDepartment() ==
-                   matchingHelper.GetDepartmentOverTitle(GetSelectedTitle());
+                   DepartmentStaffTitleMatchingHelper.GetDepartmentOverTitle(GetSelectedTitle());
         }
 
         private bool HasFilledAllFields()

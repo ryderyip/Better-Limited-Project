@@ -59,7 +59,7 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
             command.Parameters.AddWithValue("@id", id);
             command.Parameters.AddWithValue("@name", name);
             command.Parameters.AddWithValue("@dob", dob);
-            command.Parameters.AddWithValue("@gender", gender.Name[0]);
+            command.Parameters.AddWithValue("@gender", GenderConverter.Convert(gender));
             command.Parameters.AddWithValue("@hiredOn", DateTime.Now);
             command.Parameters.AddWithValue("@departmentId", departmentId);
             command.Parameters.AddWithValue("@titleId", titleId);
@@ -71,6 +71,19 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
             var command = new MySqlCommand(
                 @"delete from staff where id = @id;");
             command.Parameters.AddWithValue("@id", staffId);
+            DataTableRepository.ExecuteNonQuery(command);
+        }
+
+        public static void UpdateStaff(string staffId, string name, IGender gender, DateTime dob, StaffTitle title)
+        {
+            var command = new MySqlCommand(
+                @"update staff set name = @name, gender = @gender, date_of_birth = @dob,
+                 title_id = @titleId where id = @id;");
+            command.Parameters.AddWithValue("@id", staffId);
+            command.Parameters.AddWithValue("@name", name);
+            command.Parameters.AddWithValue("@gender", GenderConverter.Convert(gender));
+            command.Parameters.AddWithValue("@dob", dob);
+            command.Parameters.AddWithValue("@titleId", StaffTitleRepository.GetId(title));
             DataTableRepository.ExecuteNonQuery(command);
         }
     }

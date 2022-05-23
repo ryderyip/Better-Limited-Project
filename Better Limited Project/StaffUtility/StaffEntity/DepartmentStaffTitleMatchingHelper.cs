@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace Better_Limited_Project.StaffUtility.StaffEntity
 {
-    public class DepartmentStaffTitleMatchingHelper
+    public static class DepartmentStaffTitleMatchingHelper
     {
-        public List<StaffTitle> GetTitlesUnderDepartment(Department department)
+        public static List<StaffTitle> GetTitlesUnderDepartment(Department department)
         {
             return department switch
             {
@@ -25,7 +25,7 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
             };
         }
 
-        public Department GetDepartmentOverTitle(StaffTitle title)
+        public static Department GetDepartmentOverTitle(StaffTitle title)
         {
             return title switch
             {

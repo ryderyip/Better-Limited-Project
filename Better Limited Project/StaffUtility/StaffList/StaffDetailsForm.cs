@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.Login;
 using Better_Limited_Project.StaffUtility.StaffEntity;
@@ -8,15 +9,32 @@ namespace Better_Limited_Project.StaffUtility.StaffList
     public partial class StaffDetailsForm : Form
     {
         public event EventHandler? Updated;
-        private readonly Staff _staff;
+        private Staff _staff;
+        private readonly string _staffLoginUsername;
 
-        public StaffDetailsForm(Staff staff)
+        public StaffDetailsForm(string staffId)
         {
-            _staff = staff;
+            _staff = StaffRepository.GetStaff(staffId);
+            _staffLoginUsername = GetLoginUsername();
+            Shown += (_, _) => FillAllFields();
             InitializeComponent();
         }
 
-        private void StaffDetailsForm_Shown(object sender, EventArgs e)
+        private string GetLoginUsername()
+        {
+            return DoesCurrentStaffHaveAccount()
+                ? StaffAccountRepository.GetStaffAccounts()
+                    .First(account => account.StaffId == _staff.Id).Username
+                : "(Current staff has no account)";
+        }
+
+        private bool DoesCurrentStaffHaveAccount()
+        {
+            return StaffAccountRepository.GetStaffAccounts()
+                .Any(account => account.StaffId == _staff.Id);
+        }
+
+        private void FillAllFields()
         {
             tbId.Text = _staff.Id;
             tbName.Text = _staff.Name;
@@ -25,14 +43,30 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             tbHiredOn.Text = _staff.HiredOn.ToShortDateString();
             tbTitle.Text = new StaffTitleMapper().Map(_staff.Title);
             tbDepartment.Text = DepartmentMapper.Map(_staff.Department);
+            tbUsername.Text = _staffLoginUsername;
 
             if (_staff.Id == LoginSession.GetSession().StaffId)
                 btnRemove.Visible = false;
         }
 
+        private void RefreshAllFields()
+        {
+            _staff = StaffRepository.GetStaff(_staff.Id);
+            FillAllFields();
+        }
+
         private void btnUpdateStaffInfo_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var form = new UpdateStaffDetailsForm(_staff);
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.Updated += OnStaffInfoUpdated;
+            form.ShowDialog();
+        }
+
+        private void OnStaffInfoUpdated(object sender, EventArgs e)
+        {
+            RefreshAllFields();
+            Updated?.Invoke(this, EventArgs.Empty);
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
@@ -52,6 +86,12 @@ namespace Better_Limited_Project.StaffUtility.StaffList
 
         private void btnChangePassword_Click(object sender, EventArgs e)
         {
+            if (!DoesCurrentStaffHaveAccount())
+            {
+                MessageBox.Show("Current staff does not have an account.");
+                return;
+            }
+
             var form = new ChangePasswordForm(_staff.Id);
             form.ShowDialog();
         }

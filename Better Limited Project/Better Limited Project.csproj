@@ -444,6 +444,7 @@
     <Compile Include="SettingsUtility\UserSettingsDirectory.cs" />
     <Compile Include="SettingsUtility\UserSettingsLoader.cs" />
     <Compile Include="SettingsUtility\UserSettingsSaver.cs" />
+    <Compile Include="StaffUtility\StaffEntity\DateTimePickerHelper.cs" />
     <Compile Include="StaffUtility\StaffEntity\DepartmentMapper.cs" />
     <Compile Include="StaffUtility\StaffEntity\Department.cs" />
     <Compile Include="StaffUtility\StaffEntity\DepartmentRepository.cs" />

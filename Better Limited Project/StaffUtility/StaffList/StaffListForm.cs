@@ -76,8 +76,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
         private void dgvStaff_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             string selectedStaffId = dgvStaff.Rows[e.RowIndex].Cells["id"].Value.ToString();
-            var selectedStaff = _staffs.Find(staff => staff.Id == selectedStaffId);
-            var form = new StaffDetailsForm(selectedStaff);
+            var form = new StaffDetailsForm(selectedStaffId);
             form.StartPosition = FormStartPosition.CenterScreen;
             form.Updated += (_, _) => ReloadStaffList();
             form.ShowDialog();

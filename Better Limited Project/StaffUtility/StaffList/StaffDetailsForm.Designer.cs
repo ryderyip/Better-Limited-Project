@@ -272,7 +272,6 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             this.Controls.Add(this.lblGender);
             this.Name = "StaffDetailsForm";
             this.Text = "StaffDetailsForm";
-            this.Shown += new System.EventHandler(this.StaffDetailsForm_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
