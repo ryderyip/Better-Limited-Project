@@ -37,7 +37,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             dgvStaff.Rows.Clear();
             var mapper = new StaffTitleMapper();
             staffs.ForEach(staff => dgvStaff.Rows.Add(
-                staff.Id, staff.Name, staff.Gender,
+                staff.Id, staff.Name, staff.Gender.Name,
                 DepartmentMapper.Map(staff.Department), mapper.Map(staff.Title)));
         }
 
@@ -70,6 +70,16 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             var form = new NewStaffForm();
             form.StartPosition = FormStartPosition.CenterScreen;
             form.StaffAdded += (_, _) => ReloadStaffList();
+            form.ShowDialog();
+        }
+
+        private void dgvStaff_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string selectedStaffId = dgvStaff.Rows[e.RowIndex].Cells["id"].Value.ToString();
+            var selectedStaff = _staffs.Find(staff => staff.Id == selectedStaffId);
+            var form = new StaffDetailsForm(selectedStaff);
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.Updated += (_, _) => ReloadStaffList();
             form.ShowDialog();
         }
     }

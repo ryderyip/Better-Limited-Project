@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using Better_Limited_Project.DatabaseUtility;
-using Better_Limited_Project.StaffUtility.StaffList;
+using Better_Limited_Project.StaffUtility.StaffEntity.Gender;
 using MySql.Data.MySqlClient;
 
 namespace Better_Limited_Project.StaffUtility.StaffEntity
@@ -41,14 +41,14 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
             string name = row.Field<string>("name");
             var dob = row.Field<DateTime>("date_of_birth");
             var hiredOn = row.Field<DateTime>("hired_on");
-            char gender = row.Field<string>("gender")[0];
+            IGender gender = GenderConverter.Convert(row.Field<string>("gender")[0]);
             var department = DepartmentMapper.Map(row.Field<string>("department"));
             var title = new StaffTitleMapper().Map(row.Field<string>("staff_title"));
 
             return new Staff(id, name, dob, hiredOn, gender, department, title);
         }
 
-        public static void CreateStaff(string id, string name, DateTime dob, string gender, Department department,
+        public static void CreateStaff(string id, string name, DateTime dob, IGender gender, Department department,
             StaffTitle title)
         {
             string departmentId = DepartmentRepository.GetId(department);
@@ -59,10 +59,18 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
             command.Parameters.AddWithValue("@id", id);
             command.Parameters.AddWithValue("@name", name);
             command.Parameters.AddWithValue("@dob", dob);
-            command.Parameters.AddWithValue("@gender", gender);
+            command.Parameters.AddWithValue("@gender", gender.Name[0]);
             command.Parameters.AddWithValue("@hiredOn", DateTime.Now);
             command.Parameters.AddWithValue("@departmentId", departmentId);
             command.Parameters.AddWithValue("@titleId", titleId);
+            DataTableRepository.ExecuteNonQuery(command);
+        }
+
+        public static void RemoveStaff(string staffId)
+        {
+            var command = new MySqlCommand(
+                @"delete from staff where id = @id;");
+            command.Parameters.AddWithValue("@id", staffId);
             DataTableRepository.ExecuteNonQuery(command);
         }
     }

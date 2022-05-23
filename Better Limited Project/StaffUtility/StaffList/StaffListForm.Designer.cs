@@ -60,6 +60,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             this.dgvStaff.RowTemplate.Height = 24;
             this.dgvStaff.Size = new System.Drawing.Size(482, 324);
             this.dgvStaff.TabIndex = 12;
+            this.dgvStaff.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStaff_CellDoubleClick);
             // 
             // tbSearch
             // 

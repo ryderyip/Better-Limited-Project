@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.StaffUtility.StaffEntity;
+using Better_Limited_Project.StaffUtility.StaffEntity.Gender;
 
 namespace Better_Limited_Project.StaffUtility.StaffList
 {
@@ -64,9 +65,9 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             }
             
             string name = tbName.Text;
-            string gender = rbGenderMale.Checked ? "M"
-                : rbGenderFemale.Checked ? "F"
-                : rbGenderNonbinary.Checked ? "N" : throw new InvalidOperationException("No gender is selected.");
+            IGender gender = rbGenderMale.Checked ? new Male()
+                : rbGenderFemale.Checked ? new Female()
+                : rbGenderNonbinary.Checked ? new NonBinary() : throw new InvalidOperationException("No gender is selected.");
             DateTime dob = dtpDateOfBirth.Value;
             string id = new StaffIdGenerator().Generate(selectedDepartment);
 

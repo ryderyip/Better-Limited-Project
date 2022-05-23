@@ -447,6 +447,11 @@
     <Compile Include="StaffUtility\StaffEntity\Department.cs" />
     <Compile Include="StaffUtility\StaffEntity\DepartmentRepository.cs" />
     <Compile Include="StaffUtility\StaffEntity\DepartmentStaffTitleMatchingHelper.cs" />
+    <Compile Include="StaffUtility\StaffEntity\Gender\Female.cs" />
+    <Compile Include="StaffUtility\StaffEntity\Gender\GenderConverter.cs" />
+    <Compile Include="StaffUtility\StaffEntity\Gender\IGender.cs" />
+    <Compile Include="StaffUtility\StaffEntity\Gender\Male.cs" />
+    <Compile Include="StaffUtility\StaffEntity\Gender\NonBinary.cs" />
     <Compile Include="StaffUtility\StaffEntity\RetailStore.cs" />
     <Compile Include="StaffUtility\StaffEntity\RetailStoreRepository.cs" />
     <Compile Include="StaffUtility\StaffEntity\Staff.cs" />
@@ -457,12 +462,16 @@
     <Compile Include="StaffUtility\StaffEntity\Warehouse.cs" />
     <Compile Include="StaffUtility\StaffEntity\WarehouseRepository.cs" />
     <Compile Include="StaffUtility\StaffEntity\Workplace.cs" />
+    <Compile Include="StaffUtility\StaffList\ConfirmRemoveStaffForm.cs" />
+    <Compile Include="StaffUtility\StaffList\ConfirmRemoveStaffForm.Designer.cs" />
     <Compile Include="StaffUtility\StaffList\NewStaffForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="StaffUtility\StaffList\NewStaffForm.Designer.cs">
       <DependentUpon>NewStaffForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="StaffUtility\StaffList\StaffDetailsForm.cs" />
+    <Compile Include="StaffUtility\StaffList\StaffDetailsForm.Designer.cs" />
     <Compile Include="StaffUtility\StaffList\StaffIdGenerator.cs" />
     <Compile Include="StaffUtility\StaffList\StaffListController.cs" />
     <Compile Include="StaffUtility\StaffList\StaffListForm.cs">
@@ -584,9 +593,11 @@
     <EmbeddedResource Include="SettingsUtility\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="StaffUtility\StaffList\ConfirmRemoveStaffForm.resx" />
     <EmbeddedResource Include="StaffUtility\StaffList\NewStaffForm.resx">
       <DependentUpon>NewStaffForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="StaffUtility\StaffList\StaffDetailsForm.resx" />
     <EmbeddedResource Include="StaffUtility\StaffList\StaffListForm.resx">
       <DependentUpon>StaffListForm.cs</DependentUpon>
     </EmbeddedResource>
