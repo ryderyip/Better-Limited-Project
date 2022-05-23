@@ -135,6 +135,7 @@
     <Compile Include="Login\LoginStatus.cs" />
     <Compile Include="Login\LoginVerifier.cs" />
     <Compile Include="Login\StaffAccount.cs" />
+    <Compile Include="Login\StaffAccountCreationVerifier.cs" />
     <Compile Include="Login\StaffAccountRepository.cs" />
     <Compile Include="MainController.cs" />
     <Compile Include="MainForm.cs">

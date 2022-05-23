@@ -17,11 +17,12 @@ namespace Better_Limited_Project.StaffUtility.StaffList
         public string Generate(Department department)
         {
             string departmentAcronym = GetDepartmentAcronym(department);
-            var staffsOfDepartment = 
-                _staffs.Where(staff => staff.Id.Contains(departmentAcronym)).ToList();
-            
+            var staffsOfDepartment = department is Department.Admin
+                ? _staffs.Where(staff => staff.Department is Department.Admin).ToList()
+                : _staffs.Where(staff => staff.Id.Contains(departmentAcronym)).ToList();
+
             string id = departmentAcronym +
-                        (staffsOfDepartment.Count() + 1).ToString().PadLeft(4, '0');
+                        (staffsOfDepartment.Count + 1).ToString().PadLeft(4, '0');
 
             int increment = 2;
             while (IsIdUsed(id))
