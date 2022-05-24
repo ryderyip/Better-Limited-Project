@@ -4,6 +4,9 @@ namespace Better_Limited_Project.ProductUtility.Entity
 {
     public class Product
     {
+        public const decimal MaximumPrice = 99_99_999.99m;
+        public const decimal MaximumReorderLevel = 999;
+        
         public string Id { get; }
         public string Name { get; set; }
         public decimal OriginalPrice { get; set; }

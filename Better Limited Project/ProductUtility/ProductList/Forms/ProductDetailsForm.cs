@@ -12,9 +12,9 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
     {
         private readonly string _productId;
         private readonly string _workplaceId;
-        public delegate void UpdateProductInfoClickedEventHandler(object sender, EventArgs e);
 
-        public event UpdateProductInfoClickedEventHandler? UpdateProductInfoClicked;
+        public event EventHandler? UpdateProductInfoClicked;
+        public event EventHandler? ProductRemoved;
         private IStock _stock;
         private readonly ProductInfoEditPermission _infoEditPermission;
 
@@ -78,6 +78,13 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
         private void btnUpdateProductInfo_Click(object sender, EventArgs e)
         {
             UpdateProductInfoClicked?.Invoke(this, e);
+        }
+
+        private void btnRemoveProduct_Click(object sender, EventArgs e)
+        {
+            ProductRepository.DeleteProduct(_stock.Product);
+            ProductRemoved?.Invoke(this, EventArgs.Empty);
+            Close();
         }
     }
 }

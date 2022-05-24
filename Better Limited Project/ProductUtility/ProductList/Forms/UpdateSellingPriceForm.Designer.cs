@@ -1,4 +1,4 @@
-﻿namespace Better_Limited_Project.ProductUtility.ProductList
+﻿namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 {
     partial class UpdateSellingPriceForm
     {

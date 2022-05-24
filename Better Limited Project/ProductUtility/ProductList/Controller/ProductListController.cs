@@ -102,7 +102,8 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Controller
             string workplaceId = UserSettings.GetSettings().Workplace!.Id;
             
             var controller = new ProductDetailsController(productId, workplaceId);
-            controller.ProductInfoUpdated += (_, _) => RefreshUiStock();;
+            controller.ProductInfoUpdated += (_, _) => RefreshUiStock();
+            controller.ProductRemoved += (_, _) => RefreshUiStock();
             controller.OpenForm();
         }
 

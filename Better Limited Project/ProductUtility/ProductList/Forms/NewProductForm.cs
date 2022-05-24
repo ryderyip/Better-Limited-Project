@@ -9,7 +9,6 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 {
     public partial class NewProductForm : Form
     {
-        private const decimal MaximumPrice = 99_99_999.99m;
         private const int MaximumDescriptionLength = 1200;
         private readonly List<Category> _categories;
         private readonly List<Supplier> _suppliers;
@@ -24,7 +23,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 
         private void InitializeControls(object sender, EventArgs e)
         {
-            nudPrice.Maximum = MaximumPrice;
+            nudPrice.Maximum = Product.MaximumPrice;
             tbDescription.MaxLength = MaximumDescriptionLength;
             _categories.ForEach(category => cbCategory.Items.Add(category.Name));
             _suppliers.ForEach(supplier => cbSupplier.Items.Add(supplier.Name));

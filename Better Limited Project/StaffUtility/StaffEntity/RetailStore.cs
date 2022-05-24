@@ -20,10 +20,5 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
             Name = name;
             Address = address;
         }
-
-        public void UpdateSellingPrice(string productId, decimal sellingPrice)
-        {
-            StockRepository.UpdateProductInfo(Id, productId, sellingPrice);
-        }
     }
 }

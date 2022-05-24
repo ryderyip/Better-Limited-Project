@@ -38,18 +38,19 @@
             this.txtPhasingOut = new System.Windows.Forms.TextBox();
             this.txtReorderLevel = new System.Windows.Forms.TextBox();
             this.btnUpdateInfo = new System.Windows.Forms.Button();
-            this.btnBack = new System.Windows.Forms.Button();
             this.lblProductID = new System.Windows.Forms.Label();
             this.txtProductID = new System.Windows.Forms.TextBox();
             this.lblNewSpellingPrice = new System.Windows.Forms.Label();
-            this.txtNewSellingPrice = new System.Windows.Forms.TextBox();
             this.lblNewReorderLevel = new System.Windows.Forms.Label();
-            this.txtNewReorderLevel = new System.Windows.Forms.TextBox();
             this.lblPhasing_Out = new System.Windows.Forms.Label();
             this.radioBtnPhasing_Out_Off = new System.Windows.Forms.RadioButton();
             this.radioBtnPhasing_Out_On = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
+            this.nudNewSellingPirce = new System.Windows.Forms.NumericUpDown();
+            this.nudNewReorderLevel = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize) (this.nudNewSellingPirce)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.nudNewReorderLevel)).BeginInit();
             this.SuspendLayout();
             // 
             // lblOriginalInfo
@@ -147,18 +148,6 @@
             this.btnUpdateInfo.UseVisualStyleBackColor = false;
             this.btnUpdateInfo.Click += new System.EventHandler(this.btnUpdateInfo_Click);
             // 
-            // btnBack
-            // 
-            this.btnBack.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.btnBack.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnBack.Location = new System.Drawing.Point(392, 354);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(113, 44);
-            this.btnBack.TabIndex = 42;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = false;
-            // 
             // lblProductID
             // 
             this.lblProductID.AutoSize = true;
@@ -187,13 +176,6 @@
             this.lblNewSpellingPrice.TabIndex = 45;
             this.lblNewSpellingPrice.Text = "New Selling Price";
             // 
-            // txtNewSellingPrice
-            // 
-            this.txtNewSellingPrice.Location = new System.Drawing.Point(368, 72);
-            this.txtNewSellingPrice.Name = "txtNewSellingPrice";
-            this.txtNewSellingPrice.Size = new System.Drawing.Size(190, 20);
-            this.txtNewSellingPrice.TabIndex = 46;
-            // 
             // lblNewReorderLevel
             // 
             this.lblNewReorderLevel.AutoSize = true;
@@ -204,19 +186,13 @@
             this.lblNewReorderLevel.TabIndex = 47;
             this.lblNewReorderLevel.Text = "New Reorder Level";
             // 
-            // txtNewReorderLevel
-            // 
-            this.txtNewReorderLevel.Location = new System.Drawing.Point(368, 153);
-            this.txtNewReorderLevel.Name = "txtNewReorderLevel";
-            this.txtNewReorderLevel.Size = new System.Drawing.Size(190, 20);
-            this.txtNewReorderLevel.TabIndex = 48;
-            // 
             // lblPhasing_Out
             // 
             this.lblPhasing_Out.AutoSize = true;
+            this.lblPhasing_Out.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.lblPhasing_Out.Location = new System.Drawing.Point(369, 206);
             this.lblPhasing_Out.Name = "lblPhasing_Out";
-            this.lblPhasing_Out.Size = new System.Drawing.Size(63, 13);
+            this.lblPhasing_Out.Size = new System.Drawing.Size(73, 15);
             this.lblPhasing_Out.TabIndex = 49;
             this.lblPhasing_Out.Text = "Phasing-out";
             // 
@@ -260,24 +236,37 @@
             this.txtName.Size = new System.Drawing.Size(100, 20);
             this.txtName.TabIndex = 53;
             // 
+            // nudNewSellingPirce
+            // 
+            this.nudNewSellingPirce.Location = new System.Drawing.Point(365, 74);
+            this.nudNewSellingPirce.Name = "nudNewSellingPirce";
+            this.nudNewSellingPirce.Size = new System.Drawing.Size(164, 20);
+            this.nudNewSellingPirce.TabIndex = 54;
+            // 
+            // nudNewReorderLevel
+            // 
+            this.nudNewReorderLevel.Location = new System.Drawing.Point(365, 157);
+            this.nudNewReorderLevel.Name = "nudNewReorderLevel";
+            this.nudNewReorderLevel.Size = new System.Drawing.Size(164, 20);
+            this.nudNewReorderLevel.TabIndex = 55;
+            // 
             // UpdateProductInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 488);
+            this.Controls.Add(this.nudNewReorderLevel);
+            this.Controls.Add(this.nudNewSellingPirce);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.radioBtnPhasing_Out_On);
             this.Controls.Add(this.radioBtnPhasing_Out_Off);
             this.Controls.Add(this.lblPhasing_Out);
-            this.Controls.Add(this.txtNewReorderLevel);
             this.Controls.Add(this.lblNewReorderLevel);
-            this.Controls.Add(this.txtNewSellingPrice);
             this.Controls.Add(this.lblNewSpellingPrice);
             this.Controls.Add(this.txtProductID);
             this.Controls.Add(this.lblProductID);
-            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnUpdateInfo);
             this.Controls.Add(this.txtReorderLevel);
             this.Controls.Add(this.txtPhasingOut);
@@ -290,9 +279,15 @@
             this.Controls.Add(this.lblOriginalInfo);
             this.Location = new System.Drawing.Point(15, 15);
             this.Name = "UpdateProductInfoForm";
+            this.Shown += new System.EventHandler(this.OnFormShown);
+            ((System.ComponentModel.ISupportInitialize) (this.nudNewSellingPirce)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.nudNewReorderLevel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.NumericUpDown nudNewSellingPirce;
+        private System.Windows.Forms.NumericUpDown nudNewReorderLevel;
 
         private System.Windows.Forms.Label lblOriginalInfo;
         private System.Windows.Forms.Label lblOriginalPrice;
@@ -304,13 +299,10 @@
         private System.Windows.Forms.TextBox txtPhasingOut;
         private System.Windows.Forms.TextBox txtReorderLevel;
         private System.Windows.Forms.Button btnUpdateInfo;
-        private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label lblProductID;
         private System.Windows.Forms.TextBox txtProductID;
         private System.Windows.Forms.Label lblNewSpellingPrice;
-        private System.Windows.Forms.TextBox txtNewSellingPrice;
         private System.Windows.Forms.Label lblNewReorderLevel;
-        private System.Windows.Forms.TextBox txtNewReorderLevel;
         private System.Windows.Forms.Label lblPhasing_Out;
         private System.Windows.Forms.RadioButton radioBtnPhasing_Out_Off;
         private System.Windows.Forms.RadioButton radioBtnPhasing_Out_On;

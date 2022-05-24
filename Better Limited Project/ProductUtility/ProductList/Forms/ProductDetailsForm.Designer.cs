@@ -294,6 +294,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             this.btnRemoveProduct.TabIndex = 83;
             this.btnRemoveProduct.Text = "Remove Product";
             this.btnRemoveProduct.UseVisualStyleBackColor = false;
+            this.btnRemoveProduct.Click += new System.EventHandler(this.btnRemoveProduct_Click);
             // 
             // ProductDetailsForm
             // 

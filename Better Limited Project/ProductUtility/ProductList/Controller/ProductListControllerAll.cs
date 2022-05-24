@@ -75,7 +75,8 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Controller
         {
             string productId = _form.dgvProductList.Rows[rowIndex].Cells["product_id"].Value.ToString();
             var controller = new ProductDetailsController(productId, GetSelectedWorkplace().Id);
-            controller.ProductInfoUpdated += (_, _) => RefreshUiStock();;
+            controller.ProductInfoUpdated += (_, _) => RefreshUiStock();
+            controller.ProductRemoved += (_, _) => RefreshUiStock();
             controller.OpenForm();
         }
 

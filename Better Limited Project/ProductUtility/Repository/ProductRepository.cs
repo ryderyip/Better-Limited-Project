@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using Better_Limited_Project.DatabaseUtility;
@@ -24,7 +23,7 @@ namespace Better_Limited_Project.ProductUtility.Repository
             command.Parameters.AddWithValue("@desc", product.Description);
             command.Parameters.AddWithValue("@isPhasingOut", product.IsPhasingOut);
             command.Parameters.AddWithValue("@categoryId", product.Category.Id);
-            command.Parameters.AddWithValue("@supplierId", product.Supplier.Name);
+            command.Parameters.AddWithValue("@supplierId", product.Supplier.Id);
             DataTableRepository.ExecuteNonQuery(command);
         }
 
@@ -86,6 +85,13 @@ namespace Better_Limited_Project.ProductUtility.Repository
                 command.Parameters.AddWithValue("@quantity", 0);
                 DataTableRepository.ExecuteNonQuery(command);
             }
+        }
+
+        public static void DeleteProduct(Product product)
+        {
+            var command = new MySqlCommand(@"delete from product where id = @id;");
+            command.Parameters.AddWithValue("@id", product.Id);
+            DataTableRepository.ExecuteNonQuery(command);
         }
     }
 }

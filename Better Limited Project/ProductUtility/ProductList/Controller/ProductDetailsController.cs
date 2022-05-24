@@ -8,8 +8,8 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Controller
     public class ProductDetailsController
     {
         private readonly ProductDetailsForm _productDetailsForm;
-        public delegate void ProductInfoUpdatedEventHandler(object sender, EventArgs e);
-        public event ProductInfoUpdatedEventHandler? ProductInfoUpdated;
+        public event EventHandler? ProductInfoUpdated;
+        public event EventHandler? ProductRemoved;
         private readonly string _productId;
         private readonly string _workplaceId;
 
@@ -23,6 +23,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Controller
         public void OpenForm()
         {
             _productDetailsForm.UpdateProductInfoClicked += OnUpdateProductInfoClicked;
+            _productDetailsForm.ProductRemoved += (_, _) => ProductRemoved?.Invoke(this, EventArgs.Empty);
             _productDetailsForm.StartPosition = FormStartPosition.CenterScreen;
             _productDetailsForm.ShowDialog();
         }
