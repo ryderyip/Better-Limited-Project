@@ -38,6 +38,10 @@
             this.gpWorkplaceSelect = new System.Windows.Forms.GroupBox();
             this.dgvProductList = new System.Windows.Forms.DataGridView();
             this.btnNewProductClicked = new System.Windows.Forms.Button();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.selling_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gpWorkplaceSelect.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductList)).BeginInit();
             this.SuspendLayout();
@@ -128,6 +132,11 @@
             this.dgvProductList.AllowUserToAddRows = false;
             this.dgvProductList.AllowUserToDeleteRows = false;
             this.dgvProductList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.name,
+            this.quantity,
+            this.selling_price,
+            this.category});
             this.dgvProductList.Location = new System.Drawing.Point(27, 158);
             this.dgvProductList.Name = "dgvProductList";
             this.dgvProductList.ReadOnly = true;
@@ -149,6 +158,32 @@
             this.btnNewProductClicked.UseVisualStyleBackColor = false;
             this.btnNewProductClicked.Visible = false;
             this.btnNewProductClicked.Click += new System.EventHandler(this.btnNewProduct_Click);
+            // 
+            // name
+            // 
+            this.name.HeaderText = "Name";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            this.name.Width = 150;
+            // 
+            // quantity
+            // 
+            this.quantity.HeaderText = "Qty";
+            this.quantity.Name = "quantity";
+            this.quantity.ReadOnly = true;
+            this.quantity.Width = 50;
+            // 
+            // selling_price
+            // 
+            this.selling_price.HeaderText = "Selling Price";
+            this.selling_price.Name = "selling_price";
+            this.selling_price.ReadOnly = true;
+            // 
+            // category
+            // 
+            this.category.HeaderText = "Category";
+            this.category.Name = "category";
+            this.category.ReadOnly = true;
             // 
             // ProductListForm
             // 
@@ -172,6 +207,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         public System.Windows.Forms.Button btnNewProductClicked;
@@ -189,5 +225,9 @@
         public System.Windows.Forms.DataGridView dgvProductList;
         private System.Windows.Forms.Button btnUpdateStockLevel;
         public System.Windows.Forms.Button btnRestock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn selling_price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn category;
     }
 }

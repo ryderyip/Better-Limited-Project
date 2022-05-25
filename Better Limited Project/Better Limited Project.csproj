@@ -624,6 +624,9 @@
     <EmbeddedResource Include="ProductUtility\ProductList\Forms\ProductDetailsForm.resx">
       <DependentUpon>ProductDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProductUtility\ProductList\Forms\ProductListForm.resx">
+      <DependentUpon>ProductListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductUtility\ProductList\Forms\UpdateProductInfoForm.resx">
       <DependentUpon>UpdateProductInfoForm.cs</DependentUpon>
     </EmbeddedResource>

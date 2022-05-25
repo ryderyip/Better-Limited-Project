@@ -58,7 +58,7 @@
             // 
             this.lblOriginalInfo.AutoSize = true;
             this.lblOriginalInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOriginalInfo.Location = new System.Drawing.Point(208, 80);
+            this.lblOriginalInfo.Location = new System.Drawing.Point(230, 82);
             this.lblOriginalInfo.Name = "lblOriginalInfo";
             this.lblOriginalInfo.Size = new System.Drawing.Size(107, 20);
             this.lblOriginalInfo.TabIndex = 14;
@@ -234,7 +234,7 @@
             this.txtName.Location = new System.Drawing.Point(262, 162);
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = true;
-            this.txtName.Size = new System.Drawing.Size(100, 20);
+            this.txtName.Size = new System.Drawing.Size(155, 20);
             this.txtName.TabIndex = 53;
             // 
             // nudNewSellingPirce
