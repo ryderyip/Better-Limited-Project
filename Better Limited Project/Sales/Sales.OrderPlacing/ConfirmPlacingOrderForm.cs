@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows.Forms;
+using Better_Limited_Project.CustomerRecord;
 using Better_Limited_Project.Login;
-using Better_Limited_Project.Sales.Sales.OrderPlacing.CustomerRecord;
 using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 
@@ -50,8 +50,8 @@ namespace Better_Limited_Project.Sales.Sales.OrderPlacing
                 txtCustName.Text = customer.Name;
                 txtCustPhoneNumber.Text = customer.Phone;
                 txtCustEmailAddress.Text = customer.Email ?? "-";
-                txtAddress1.Text = customer.Address.Address1;
-                txtAddress2.Text = customer.Address.Address2;
+                txtAddress1.Text = customer.AddressEntity.Address.Address1;
+                txtAddress2.Text = customer.AddressEntity.Address.Address2;
             }
             txtTotalPrice.Text = _order.Cart.GetTotalPrice().ToString("C", new CultureInfo("zh-HK"));
             SetProductDgv();

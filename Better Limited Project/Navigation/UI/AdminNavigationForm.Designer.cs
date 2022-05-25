@@ -37,11 +37,12 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnSupplier = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnStaff = new System.Windows.Forms.Button();
+            this.btnCustomer = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnProductList
             // 
-            this.btnProductList.Location = new System.Drawing.Point(39, 220);
+            this.btnProductList.Location = new System.Drawing.Point(40, 200);
             this.btnProductList.Name = "btnProductList";
             this.btnProductList.Size = new System.Drawing.Size(111, 34);
             this.btnProductList.TabIndex = 32;
@@ -74,7 +75,7 @@ namespace Better_Limited_Project.Navigation.UI
             // 
             // btnSupplier
             // 
-            this.btnSupplier.Location = new System.Drawing.Point(39, 140);
+            this.btnSupplier.Location = new System.Drawing.Point(40, 240);
             this.btnSupplier.Name = "btnSupplier";
             this.btnSupplier.Size = new System.Drawing.Size(111, 34);
             this.btnSupplier.TabIndex = 27;
@@ -83,7 +84,7 @@ namespace Better_Limited_Project.Navigation.UI
             // 
             // btnSettings
             // 
-            this.btnSettings.Location = new System.Drawing.Point(39, 260);
+            this.btnSettings.Location = new System.Drawing.Point(40, 280);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(111, 34);
             this.btnSettings.TabIndex = 26;
@@ -93,7 +94,7 @@ namespace Better_Limited_Project.Navigation.UI
             // 
             // btnStaff
             // 
-            this.btnStaff.Location = new System.Drawing.Point(39, 180);
+            this.btnStaff.Location = new System.Drawing.Point(40, 160);
             this.btnStaff.Name = "btnStaff";
             this.btnStaff.Size = new System.Drawing.Size(111, 34);
             this.btnStaff.TabIndex = 24;
@@ -101,11 +102,22 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnStaff.UseVisualStyleBackColor = true;
             this.btnStaff.Click += new System.EventHandler(this.btnStaff_Click);
             // 
+            // btnCustomer
+            // 
+            this.btnCustomer.Location = new System.Drawing.Point(40, 120);
+            this.btnCustomer.Name = "btnCustomer";
+            this.btnCustomer.Size = new System.Drawing.Size(111, 34);
+            this.btnCustomer.TabIndex = 33;
+            this.btnCustomer.Text = "Customer";
+            this.btnCustomer.UseVisualStyleBackColor = true;
+            this.btnCustomer.Click += new System.EventHandler(this.btnCustomer_Click);
+            // 
             // AdminNavigationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(195, 450);
+            this.Controls.Add(this.btnCustomer);
             this.Controls.Add(this.btnProductList);
             this.Controls.Add(this.lblLoggedInAs);
             this.Controls.Add(this.btnProfile);
@@ -116,6 +128,8 @@ namespace Better_Limited_Project.Navigation.UI
             this.Text = "AdminNavigationForm";
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Button btnCustomer;
 
         private System.Windows.Forms.Button btnSupplier;
 

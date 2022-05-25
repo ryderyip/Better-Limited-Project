@@ -1,4 +1,4 @@
-﻿namespace Better_Limited_Project.Sales.Sales.OrderPlacing.CustomerRecord
+﻿namespace Better_Limited_Project.CustomerRecord
 {
     partial class CreateCustomerRecordForm
     {
@@ -39,8 +39,7 @@
             this.txtAddress1 = new System.Windows.Forms.TextBox();
             this.lblAddress2 = new System.Windows.Forms.Label();
             this.lblAddress1 = new System.Windows.Forms.Label();
-            this.btnNext = new System.Windows.Forms.Button();
-            this.btnBack = new System.Windows.Forms.Button();
+            this.btnCreate = new System.Windows.Forms.Button();
             this.txtCustPhoneNumber = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
@@ -142,31 +141,18 @@
             this.lblAddress1.TabIndex = 17;
             this.lblAddress1.Text = "Address 1";
             // 
-            // btnNext
+            // btnCreate
             // 
-            this.btnNext.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.btnNext.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnNext.Location = new System.Drawing.Point(754, 484);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(168, 86);
-            this.btnNext.TabIndex = 107;
-            this.btnNext.Text = "Next";
-            this.btnNext.UseVisualStyleBackColor = false;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
-            // btnBack
-            // 
-            this.btnBack.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.btnBack.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnBack.Location = new System.Drawing.Point(489, 484);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(168, 86);
-            this.btnBack.TabIndex = 111;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = false;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            this.btnCreate.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.btnCreate.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnCreate.Location = new System.Drawing.Point(602, 490);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(168, 86);
+            this.btnCreate.TabIndex = 107;
+            this.btnCreate.Text = "Create";
+            this.btnCreate.UseVisualStyleBackColor = false;
+            this.btnCreate.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // txtCustPhoneNumber
             // 
@@ -181,8 +167,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.btnNext);
+            this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.txtAddress2);
             this.Controls.Add(this.txtAddress1);
             this.Controls.Add(this.lblAddress2);
@@ -201,9 +186,9 @@
             this.PerformLayout();
         }
 
-        private System.Windows.Forms.TextBox txtCustPhoneNumber;
+        private System.Windows.Forms.Button btnCreate;
 
-        public System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.TextBox txtCustPhoneNumber;
 
         #endregion
 

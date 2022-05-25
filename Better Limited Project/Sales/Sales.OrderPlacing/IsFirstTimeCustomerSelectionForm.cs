@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
+using Better_Limited_Project.CustomerRecord;
 using Better_Limited_Project.FormControlling;
 
-namespace Better_Limited_Project.Sales.Sales.OrderPlacing.CustomerRecord
+namespace Better_Limited_Project.Sales.Sales.OrderPlacing
 {
     public partial class IsFirstTimeCustomerSelectionForm : Form
     {
@@ -18,21 +19,16 @@ namespace Better_Limited_Project.Sales.Sales.OrderPlacing.CustomerRecord
 
         private void btnFirstTime_Click(object sender, EventArgs e)
         {
-            Closed += (_, _) =>
-            {
-                var form = new CreateCustomerRecordForm(_formController, _cart);
-                _formController.OpenFullForm(form);
-            };
+            var form = new CreateCustomerRecordForm();
+            // form.CustomerCreated
+            _formController.OpenFullForm(form);
             Close();
         }
 
         private void btnOldCustomer_Click(object sender, EventArgs e)
         {
-            Closed += (_, _) =>
-            {
-                var form = new FindCustomerRecordForm(_formController, _cart);
-                _formController.OpenFullForm(form);
-            };
+            var form = new FindCustomerRecordForm(_formController, _cart);
+            _formController.OpenFullForm(form);
             Close();
             _formController.ContentForm?.Close();
         }

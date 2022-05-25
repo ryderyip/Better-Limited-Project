@@ -109,6 +109,35 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomerRecord\Address.cs" />
+    <Compile Include="CustomerRecord\AddressEntity.cs" />
+    <Compile Include="CustomerRecord\AddressRepository.cs" />
+    <Compile Include="CustomerRecord\CreateCustomerRecordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerRecord\CreateCustomerRecordForm.Designer.cs" />
+    <Compile Include="CustomerRecord\Customer.cs" />
+    <Compile Include="CustomerRecord\CustomerDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerRecord\CustomerDetailsForm.Designer.cs">
+      <DependentUpon>CustomerDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerRecord\CustomerEntity.cs" />
+    <Compile Include="CustomerRecord\CustomerInformationValidation\CustomerInformationValidator.cs" />
+    <Compile Include="CustomerRecord\CustomerListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerRecord\CustomerListForm.Designer.cs">
+      <DependentUpon>CustomerListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerRecord\CustomerRepository.cs" />
+    <Compile Include="CustomerRecord\CustomerUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerRecord\CustomerUpdateForm.Designer.cs">
+      <DependentUpon>CustomerUpdateForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseUtility\Database.cs" />
     <Compile Include="DatabaseUtility\DataTableRepository.cs" />
     <Compile Include="DevTools\AutoLogin\AutoLoginHelper.cs" />
@@ -253,11 +282,15 @@
     <Compile Include="ProductUtility\ProductList\Forms\ProductListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProductUtility\ProductList\Forms\ProductListForm.Designer.cs" />
+    <Compile Include="ProductUtility\ProductList\Forms\ProductListForm.Designer.cs">
+      <DependentUpon>ProductListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductUtility\ProductList\Forms\UpdateProductInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProductUtility\ProductList\Forms\UpdateProductInfoForm.Designer.cs" />
+    <Compile Include="ProductUtility\ProductList\Forms\UpdateProductInfoForm.Designer.cs">
+      <DependentUpon>UpdateProductInfoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductUtility\ProductList\Forms\UpdateSellingPriceForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -313,12 +346,17 @@
     <Compile Include="Sales\PaymentUtility\PaymentStatus.cs" />
     <Compile Include="Sales\Sales.OrderPlacing\Cart.cs" />
     <Compile Include="Sales\Sales.OrderPlacing\CartItem.cs" />
-    <Compile Include="Sales\Sales.OrderPlacing\CustomerRecord\CustomerEntity.cs" />
-    <Compile Include="Sales\Sales.OrderPlacing\CustomerRecord\FindCustomerRecordForm.cs">
+    <Compile Include="Sales\Sales.OrderPlacing\FindCustomerRecordForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sales\Sales.OrderPlacing\CustomerRecord\FindCustomerRecordForm.Designer.cs">
+    <Compile Include="Sales\Sales.OrderPlacing\FindCustomerRecordForm.Designer.cs">
       <DependentUpon>FindCustomerRecordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sales\Sales.OrderPlacing\IsFirstTimeCustomerSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\Sales.OrderPlacing\IsFirstTimeCustomerSelectionForm.Designer.cs">
+      <DependentUpon>IsFirstTimeCustomerSelectionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Sales\Sales.OrderPlacing\SalesOrder.cs" />
     <Compile Include="Sales\Sales.OrderPlacing\SalesOrderEntity.cs" />
@@ -326,21 +364,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Sales\Sales.OrderPlacing\ConfirmPlacingOrderForm.Designer.cs" />
-    <Compile Include="Sales\Sales.OrderPlacing\CustomerRecord\Address.cs" />
-    <Compile Include="Sales\Sales.OrderPlacing\CustomerRecord\AddressRepository.cs" />
-    <Compile Include="Sales\Sales.OrderPlacing\CustomerRecord\CreateCustomerRecordForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\Sales.OrderPlacing\CustomerRecord\CreateCustomerRecordForm.Designer.cs" />
-    <Compile Include="Sales\Sales.OrderPlacing\CustomerRecord\Customer.cs" />
-    <Compile Include="Sales\Sales.OrderPlacing\CustomerRecord\CustomerInformationValidation\CustomerInformationValidator.cs" />
-    <Compile Include="Sales\Sales.OrderPlacing\CustomerRecord\CustomerRepository.cs" />
-    <Compile Include="Sales\Sales.OrderPlacing\CustomerRecord\IsFirstTimeCustomerSelectionForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\Sales.OrderPlacing\CustomerRecord\IsFirstTimeCustomerSelectionForm.Designer.cs">
-      <DependentUpon>IsFirstTimeCustomerSelectionForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Sales\Sales.OrderPlacing\DeliverySession.cs" />
     <Compile Include="Sales\Sales.OrderPlacing\DeliverySessionSelectionForm.cs">
       <SubType>Form</SubType>
@@ -514,6 +537,16 @@
     <Compile Include="Tools\StringHelper.cs" />
     <Compile Include="Tools\ISearchable.cs" />
     <Compile Include="Tools\Pager.cs" />
+    <EmbeddedResource Include="CustomerRecord\CreateCustomerRecordForm.resx" />
+    <EmbeddedResource Include="CustomerRecord\CustomerDetailsForm.resx">
+      <DependentUpon>CustomerDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerRecord\CustomerListForm.resx">
+      <DependentUpon>CustomerListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerRecord\CustomerUpdateForm.resx">
+      <DependentUpon>CustomerUpdateForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DevTools\AutoLogin\StaffRoleChooserForm.resx">
       <DependentUpon>StaffRoleChooserForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -566,8 +599,9 @@
     <EmbeddedResource Include="ProductUtility\ProductList\Forms\ProductDetailsForm.resx">
       <DependentUpon>ProductDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProductUtility\ProductList\Forms\ProductListForm.resx" />
-    <EmbeddedResource Include="ProductUtility\ProductList\Forms\UpdateProductInfoForm.resx" />
+    <EmbeddedResource Include="ProductUtility\ProductList\Forms\UpdateProductInfoForm.resx">
+      <DependentUpon>UpdateProductInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductUtility\ProductList\Forms\UpdateSellingPriceForm.resx" />
     <EmbeddedResource Include="ProductUtility\ProductList\Forms\UpdateStockLevelForm.resx" />
     <EmbeddedResource Include="ProductUtility\PurchaseOrder\PurchaseOrderDetailsForm.resx" />
@@ -586,14 +620,13 @@
     <EmbeddedResource Include="Sales\PaymentUtility\OctopusCardPaymentForm.resx" />
     <EmbeddedResource Include="Sales\PaymentUtility\PaymentMethodSelectionForm.resx" />
     <EmbeddedResource Include="Sales\Sales.OrderPlacing\ConfirmPlacingOrderForm.resx" />
-    <EmbeddedResource Include="Sales\Sales.OrderPlacing\CustomerRecord\CreateCustomerRecordForm.resx" />
-    <EmbeddedResource Include="Sales\Sales.OrderPlacing\CustomerRecord\FindCustomerRecordForm.resx">
+    <EmbeddedResource Include="Sales\Sales.OrderPlacing\DeliverySessionSelectionForm.resx" />
+    <EmbeddedResource Include="Sales\Sales.OrderPlacing\FindCustomerRecordForm.resx">
       <DependentUpon>FindCustomerRecordForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sales\Sales.OrderPlacing\CustomerRecord\IsFirstTimeCustomerSelectionForm.resx">
+    <EmbeddedResource Include="Sales\Sales.OrderPlacing\IsFirstTimeCustomerSelectionForm.resx">
       <DependentUpon>IsFirstTimeCustomerSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sales\Sales.OrderPlacing\DeliverySessionSelectionForm.resx" />
     <EmbeddedResource Include="Sales\Sales.OrderPlacing\PlaceOrderForm.resx" />
     <EmbeddedResource Include="Sales\Sales.OrderPlacing\SalesOrderDetailsForm.resx" />
     <EmbeddedResource Include="Sales\Sales.OrderPlacing\SalesOrderForm.resx" />

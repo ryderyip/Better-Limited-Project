@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using Better_Limited_Project.CustomerRecord;
 using Better_Limited_Project.FormControlling;
 
-namespace Better_Limited_Project.Sales.Sales.OrderPlacing.CustomerRecord
+namespace Better_Limited_Project.Sales.Sales.OrderPlacing
 {
     public partial class FindCustomerRecordForm : Form
     {
@@ -43,7 +44,8 @@ namespace Better_Limited_Project.Sales.Sales.OrderPlacing.CustomerRecord
         {
             _customers.ConvertAll(entity => entity.Customer)
                 .ForEach(customer => dgvCustomer.Rows.Add(customer.Name,
-                customer.Phone, customer.Email, customer.Address.Address1, customer.Address.Address2));
+                customer.Phone, customer.Email, customer.AddressEntity.Address.Address1, 
+                customer.AddressEntity.Address.Address2));
         }
 
         private void btnBack_Click(object sender, EventArgs e)

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
+using Better_Limited_Project.CustomerRecord;
 using Better_Limited_Project.Login;
 using Better_Limited_Project.Sales.Sales.OrderPlacing;
-using Better_Limited_Project.Sales.Sales.OrderPlacing.CustomerRecord;
 using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 

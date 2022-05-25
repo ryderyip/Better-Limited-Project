@@ -1,19 +1,15 @@
 ﻿using System;
 using System.Windows.Forms;
-using Better_Limited_Project.FormControlling;
-using Better_Limited_Project.Sales.Sales.OrderPlacing.CustomerRecord.CustomerInformationValidation;
+using Better_Limited_Project.CustomerRecord.CustomerInformationValidation;
 
-namespace Better_Limited_Project.Sales.Sales.OrderPlacing.CustomerRecord
+namespace Better_Limited_Project.CustomerRecord
 {
     public partial class CreateCustomerRecordForm : Form
     {
-        private readonly FormController _formController;
-        private readonly Cart _cart;
+        public event EventHandler<CustomerEntity>? CustomerCreated;
 
-        public CreateCustomerRecordForm(FormController formController, Cart cart)
+        public CreateCustomerRecordForm()
         {
-            _formController = formController;
-            _cart = cart;
             InitializeComponent();
         }
 
@@ -22,13 +18,17 @@ namespace Better_Limited_Project.Sales.Sales.OrderPlacing.CustomerRecord
             bool isValidInputs = ValidateInputsAndDisplayMessageIfInvalid();
             if (!isValidInputs)
                 return;
+            
+            string address1 = txtAddress1.Text;
+            string address2 = txtAddress2.Text;
+            var address = new Address(address1, address2);
+            var addressEntity = AddressRepository.CreateAndReturn(address);
 
-            var customer = CollectInputs();
+            var customer = GetCustomer(addressEntity);
             var customerEntity = CustomerRepository.CreateAndRetrieve(customer);
 
-            var form = new ConfirmPlacingOrderForm(_cart, customerEntity);
-            form.StartPosition = FormStartPosition.CenterScreen;
-            form.ShowDialog();
+            CustomerCreated?.Invoke(this, customerEntity);
+            Close();
         }
 
         private bool ValidateInputsAndDisplayMessageIfInvalid()
@@ -60,28 +60,19 @@ namespace Better_Limited_Project.Sales.Sales.OrderPlacing.CustomerRecord
         {
             return string.IsNullOrWhiteSpace(txtCustName.Text)
                    || string.IsNullOrWhiteSpace(txtAddress1.Text)
-                   || string.IsNullOrWhiteSpace(txtAddress2.Text);
+                   || string.IsNullOrWhiteSpace(txtAddress2.Text)
+                   || string.IsNullOrWhiteSpace(txtCustPhoneNumber.Text);
         }
 
-        private Customer CollectInputs()
+        private Customer GetCustomer(AddressEntity addressEntity)
         {
             string name = txtCustName.Text;
             string phone = txtCustPhoneNumber.Text;
-            string email = txtEmailAddress.Text;
-            string address1 = txtAddress1.Text;
-            string address2 = txtAddress2.Text;
-
-            var address = new Address(address1, address2);
+            string email = txtEmailAddress.Text.ToLower();
+            
             return string.IsNullOrWhiteSpace(email)
-                ? new Customer(name, phone, address)
-                : new Customer(name, phone, address, email);
-        }
-
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            _formController.Close();
-            var controller = new PlaceOrderController(_cart);
-            controller.OpenForm();
+                ? new Customer(name, phone, addressEntity)
+                : new Customer(name, phone, addressEntity, email);
         }
     }
 }

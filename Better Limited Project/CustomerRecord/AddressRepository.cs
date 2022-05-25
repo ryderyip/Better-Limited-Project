@@ -5,11 +5,11 @@ using System.Linq;
 using Better_Limited_Project.DatabaseUtility;
 using MySql.Data.MySqlClient;
 
-namespace Better_Limited_Project.Sales.Sales.OrderPlacing.CustomerRecord
+namespace Better_Limited_Project.CustomerRecord
 {
     public static class AddressRepository
     {
-        public static Address GetAddressById(string id)
+        public static AddressEntity GetAddressById(string id)
         {
             using var conn = Database.GetConnection();
             conn.Open();
@@ -29,15 +29,16 @@ namespace Better_Limited_Project.Sales.Sales.OrderPlacing.CustomerRecord
             return ConvertToAddress(dataTable.Rows[0]);
         }
 
-        private static Address ConvertToAddress(DataRow row)
+        private static AddressEntity ConvertToAddress(DataRow row)
         {
+            string id = row.Field<int>("id").ToString();
             string address1 = row.Field<string>("address1");
             string address2 = row.Field<string>("address2");
-            return new Address(address1, address2);
+            var address = new Address(address1, address2);
+            return new AddressEntity(id, address);
         }
 
-        /// <returns></returns>
-        public static string CreateAndReturnId(Address address)
+        public static AddressEntity CreateAndReturn(Address address)
         {
             var command = new MySqlCommand(
                 @"insert into delivery_address (address1, address2)
@@ -46,10 +47,10 @@ namespace Better_Limited_Project.Sales.Sales.OrderPlacing.CustomerRecord
             command.Parameters.AddWithValue("@address1", address.Address1);
             command.Parameters.AddWithValue("@address2", address.Address2);
             var datatable = DataTableRepository.RetrieveDataTable(command);
-            return datatable.Rows[0]["id"].ToString();
+            return new AddressEntity(datatable.Rows[0]["id"].ToString(), address);
         }
 
-        public static IEnumerable<Address> GetAddresses()
+        public static IEnumerable<AddressEntity> GetAddresses()
         {
             var command = new MySqlCommand(
                 @"select id, address1, address2
@@ -57,6 +58,19 @@ namespace Better_Limited_Project.Sales.Sales.OrderPlacing.CustomerRecord
             var dataTable = DataTableRepository.RetrieveDataTable(command);
 
             return from DataRow row in dataTable.Rows select ConvertToAddress(row);
+        }
+
+        public static void UpdateAddress(AddressEntity addressEntity)
+        {
+            var address = addressEntity.Address;
+            var command = new MySqlCommand(
+                @"update delivery_address
+                        set address1 = @address1, address2 = @address2
+                        where id = @id");
+            command.Parameters.AddWithValue("@id", addressEntity.Id);
+            command.Parameters.AddWithValue("@address1", address.Address1);
+            command.Parameters.AddWithValue("@address2", address.Address2);
+            DataTableRepository.ExecuteNonQuery(command);
         }
     }
 }

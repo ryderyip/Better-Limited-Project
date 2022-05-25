@@ -1,4 +1,4 @@
-﻿using Better_Limited_Project.Sales.Sales.OrderPlacing.CustomerRecord;
+﻿using Better_Limited_Project.CustomerRecord;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.Sales.Sales.OrderPlacing

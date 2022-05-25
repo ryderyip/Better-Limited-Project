@@ -1,8 +1,7 @@
-﻿namespace Better_Limited_Project.Sales.Sales.OrderPlacing.CustomerRecord
+﻿namespace Better_Limited_Project.CustomerRecord
 {
     public class Address
     {
-        public string? Id { get; set; }
         public string Address1 { get; set; }
         public string Address2 { get; set; }
 

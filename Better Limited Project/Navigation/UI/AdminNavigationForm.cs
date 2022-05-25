@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Better_Limited_Project.CustomerRecord;
 using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.ProductUtility.ProductList.Controller;
 using Better_Limited_Project.SettingsUtility;
@@ -47,6 +48,12 @@ namespace Better_Limited_Project.Navigation.UI
         {
             var controller = new StaffListController();
             controller.OpenForm(_formController);
+        }
+
+        private void btnCustomer_Click(object sender, EventArgs e)
+        {
+            var form = new CustomerListForm();
+            _formController.OpenContentForm(form);
         }
     }
 }

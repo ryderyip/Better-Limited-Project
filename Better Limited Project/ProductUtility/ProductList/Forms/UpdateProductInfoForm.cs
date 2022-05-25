@@ -13,7 +13,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
         private readonly IStock _stock;
         public delegate void UpdateProductInfoClickedEventHandler(object sender, EventArgs e);
         public event UpdateProductInfoClickedEventHandler? UpdateProductInfoClicked;
-      
+
         public UpdateProductInfoForm(string productId, string workplaceId)
         {
             _workplaceId = workplaceId;
@@ -27,19 +27,19 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             nudNewSellingPirce.Maximum = Product.MaximumPrice;
             nudNewSellingPirce.DecimalPlaces = 2;
             nudNewSellingPirce.ThousandsSeparator = true;
-            
+
             nudNewReorderLevel.Maximum = Product.MaximumReorderLevel;
             nudNewReorderLevel.DecimalPlaces = 0;
             nudNewReorderLevel.Increment = 1;
             FillFields();
         }
-        
+
         private void FillFields()
         {
             var product = _stock.Product;
             txtProductID.Text = product.Id;
             txtName.Text = product.Name;
-            
+
             // TODO deal with this fucking annoying cultureinfo shit
             if (_stock is RetailStoreStock stock)
             {
@@ -62,7 +62,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
         private void btnUpdateInfo_Click(object sender, EventArgs e)
         {
             decimal newSellingPrice = nudNewSellingPirce.Value;
-            int newReorderLevel = (int) nudNewReorderLevel.Value;
+            int newReorderLevel = (int)nudNewReorderLevel.Value;
             bool phasingOut = radioBtnPhasing_Out_On.Checked;
 
             if (_stock is RetailStoreStock retailStoreStock)
@@ -73,7 +73,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             UpdateProductInfoClicked?.Invoke(this, EventArgs.Empty);
             Close();
         }
-        
+
         private void HideSellingPrice()
         {
             txtSellingPrice.Visible = false;

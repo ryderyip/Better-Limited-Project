@@ -2,7 +2,7 @@
 using System.Net.Mail;
 using System.Text.RegularExpressions;
 
-namespace Better_Limited_Project.Sales.Sales.OrderPlacing.CustomerRecord.CustomerInformationValidation
+namespace Better_Limited_Project.CustomerRecord.CustomerInformationValidation
 {
     public static class CustomerInformationValidator
     {

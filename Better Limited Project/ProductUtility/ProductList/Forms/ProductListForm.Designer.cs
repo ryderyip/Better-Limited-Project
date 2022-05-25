@@ -39,7 +39,7 @@
             this.dgvProductList = new System.Windows.Forms.DataGridView();
             this.btnNewProductClicked = new System.Windows.Forms.Button();
             this.gpWorkplaceSelect.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.dgvProductList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductList)).BeginInit();
             this.SuspendLayout();
             // 
             // lblSearchKeywords
@@ -169,7 +169,7 @@
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ProductListForm_KeyPress);
             this.gpWorkplaceSelect.ResumeLayout(false);
             this.gpWorkplaceSelect.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.dgvProductList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
