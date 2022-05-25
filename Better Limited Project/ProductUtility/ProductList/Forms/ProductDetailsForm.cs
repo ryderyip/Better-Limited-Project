@@ -50,7 +50,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             tbReorderLevel.Text = _stock.RestockLevel.ToString();
             tbDescription.Text = product.Description;
 
-            var supplier = product.Supplier;
+            var supplier = product.SupplierEntity.Supplier;
             tbSupplierName.Text = supplier.Name;
             tbSupplierPhone.Text = supplier.Phone;
             tbSupplierEmail.Text = supplier.Email;

@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using Better_Limited_Project.CustomerRecord;
 using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.ProductUtility.ProductList.Controller;
+using Better_Limited_Project.ProductUtility.SupplierUtility;
 using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 using Better_Limited_Project.StaffUtility.StaffList;
@@ -53,6 +54,12 @@ namespace Better_Limited_Project.Navigation.UI
         private void btnCustomer_Click(object sender, EventArgs e)
         {
             var form = new CustomerListForm();
+            _formController.OpenContentForm(form);
+        }
+
+        private void btnSupplier_Click(object sender, EventArgs e)
+        {
+            var form = new SupplierListForm();
             _formController.OpenContentForm(form);
         }
     }

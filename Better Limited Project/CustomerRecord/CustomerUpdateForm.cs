@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using Better_Limited_Project.CustomerRecord.CustomerInformationValidation;
+using Better_Limited_Project.Tools;
 
 namespace Better_Limited_Project.CustomerRecord
 {
@@ -55,14 +55,14 @@ namespace Better_Limited_Project.CustomerRecord
                 return false;
             }
             
-            if (!CustomerInformationValidator.IsValidPhoneNumber(tbNewPhone.Text))
+            if (!CommonInformationVerifier.IsValidPhoneNumber(tbNewPhone.Text))
             {
                 MessageBox.Show("Invalid phone number. Please enter an 8-digit Hong Kong phone number. E.g. 12345678.");
                 return false;
             }
 
             if (!string.IsNullOrWhiteSpace(tbNewEmail.Text)
-                && !CustomerInformationValidator.IsValidEmailAddress(tbNewEmail.Text))
+                && !CommonInformationVerifier.IsValidEmailAddress(tbNewEmail.Text))
             {
                 MessageBox.Show("Invalid email address. Please enter a valid email address or " +
                                 "leave it blank.");

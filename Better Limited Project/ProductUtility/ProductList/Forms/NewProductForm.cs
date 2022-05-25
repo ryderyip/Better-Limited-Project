@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.ProductUtility.Repository;
+using Better_Limited_Project.ProductUtility.SupplierUtility;
 
 namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 {
@@ -11,7 +12,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
     {
         private const int MaximumDescriptionLength = 1200;
         private readonly List<Category> _categories;
-        private readonly List<Supplier> _suppliers;
+        private readonly List<SupplierEntity> _suppliers;
 
         public NewProductForm()
         {
@@ -26,7 +27,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             nudPrice.Maximum = Product.MaximumPrice;
             tbDescription.MaxLength = MaximumDescriptionLength;
             _categories.ForEach(category => cbCategory.Items.Add(category.Name));
-            _suppliers.ForEach(supplier => cbSupplier.Items.Add(supplier.Name));
+            _suppliers.ForEach(supplier => cbSupplier.Items.Add(supplier.Supplier.Name));
             cbCategory.SelectedIndex = 0;
             cbSupplier.SelectedIndex = 0;
         }

@@ -2,9 +2,9 @@
 using System.Net.Mail;
 using System.Text.RegularExpressions;
 
-namespace Better_Limited_Project.CustomerRecord.CustomerInformationValidation
+namespace Better_Limited_Project.Tools
 {
-    public static class CustomerInformationValidator
+    public static class CommonInformationVerifier
     {
         public static bool IsValidPhoneNumber(string phoneNumber)
         {

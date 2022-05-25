@@ -81,6 +81,7 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnSupplier.TabIndex = 27;
             this.btnSupplier.Text = "Supplier";
             this.btnSupplier.UseVisualStyleBackColor = true;
+            this.btnSupplier.Click += new System.EventHandler(this.btnSupplier_Click);
             // 
             // btnSettings
             // 

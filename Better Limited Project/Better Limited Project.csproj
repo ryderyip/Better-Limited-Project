@@ -124,7 +124,6 @@
       <DependentUpon>CustomerDetailsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomerRecord\CustomerEntity.cs" />
-    <Compile Include="CustomerRecord\CustomerInformationValidation\CustomerInformationValidator.cs" />
     <Compile Include="CustomerRecord\CustomerListForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,7 +233,13 @@
     <Compile Include="ProductUtility\Entity\IStock.cs" />
     <Compile Include="ProductUtility\Entity\Product.cs" />
     <Compile Include="ProductUtility\Entity\RetailStoreStock.cs" />
-    <Compile Include="ProductUtility\Entity\Supplier.cs" />
+    <Compile Include="ProductUtility\SupplierUtility\CreateSupplierForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductUtility\SupplierUtility\CreateSupplierForm.Designer.cs">
+      <DependentUpon>CreateSupplierForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductUtility\SupplierUtility\Supplier.cs" />
     <Compile Include="ProductUtility\Entity\WarehouseStock.cs" />
     <Compile Include="ProductUtility\GoodsReceiving\CreateGoodsReceivedRecordForm.cs">
       <SubType>Form</SubType>
@@ -318,6 +323,25 @@
     <Compile Include="ProductUtility\Repository\ProductRepository.cs" />
     <Compile Include="ProductUtility\Repository\StockRepository.cs" />
     <Compile Include="ProductUtility\Repository\SupplierRepository.cs" />
+    <Compile Include="ProductUtility\SupplierUtility\SupplierDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductUtility\SupplierUtility\SupplierDetailsForm.Designer.cs">
+      <DependentUpon>SupplierDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductUtility\SupplierUtility\SupplierEntity.cs" />
+    <Compile Include="ProductUtility\SupplierUtility\SupplierListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductUtility\SupplierUtility\SupplierListForm.Designer.cs">
+      <DependentUpon>SupplierListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductUtility\SupplierUtility\UpdateSupplierForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductUtility\SupplierUtility\UpdateSupplierForm.Designer.cs">
+      <DependentUpon>UpdateSupplierForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sales\PaymentUtility\CashPaymentForm.cs">
@@ -533,6 +557,7 @@
     <Compile Include="StaffUtility\StaffProfile\ProfileForm.Designer.cs">
       <DependentUpon>ProfileForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tools\CommonInformationVerifier.cs" />
     <Compile Include="Tools\DgvKeywordSearchHelper.cs" />
     <Compile Include="Tools\StringHelper.cs" />
     <Compile Include="Tools\ISearchable.cs" />
@@ -606,6 +631,18 @@
     <EmbeddedResource Include="ProductUtility\ProductList\Forms\UpdateStockLevelForm.resx" />
     <EmbeddedResource Include="ProductUtility\PurchaseOrder\PurchaseOrderDetailsForm.resx" />
     <EmbeddedResource Include="ProductUtility\PurchaseOrder\PurchaseOrdersForm.resx" />
+    <EmbeddedResource Include="ProductUtility\SupplierUtility\CreateSupplierForm.resx">
+      <DependentUpon>CreateSupplierForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductUtility\SupplierUtility\SupplierDetailsForm.resx">
+      <DependentUpon>SupplierDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductUtility\SupplierUtility\SupplierListForm.resx">
+      <DependentUpon>SupplierListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductUtility\SupplierUtility\UpdateSupplierForm.resx">
+      <DependentUpon>UpdateSupplierForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

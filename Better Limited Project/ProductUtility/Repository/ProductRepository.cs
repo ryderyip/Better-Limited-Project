@@ -23,7 +23,7 @@ namespace Better_Limited_Project.ProductUtility.Repository
             command.Parameters.AddWithValue("@desc", product.Description);
             command.Parameters.AddWithValue("@isPhasingOut", product.IsPhasingOut);
             command.Parameters.AddWithValue("@categoryId", product.Category.Id);
-            command.Parameters.AddWithValue("@supplierId", product.Supplier.Id);
+            command.Parameters.AddWithValue("@supplierId", product.SupplierEntity.Id);
             DataTableRepository.ExecuteNonQuery(command);
         }
 
