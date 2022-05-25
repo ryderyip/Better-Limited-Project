@@ -1,17 +1,23 @@
-﻿namespace Better_Limited_Project.Sales.Sales.SalesOrder.CustomerRecord
+﻿namespace Better_Limited_Project.Sales.Sales.OrderPlacing.CustomerRecord
 {
     public class Customer
     {
-        public string? Id { get; set; }
         public string Name { get;  }
         public string Phone { get;  }
-        public string? Email { get; set; }
-        public Address? Address { get; set; }
+        public string? Email { get; }
+        public Address Address { get; }
         
-        public Customer(string name, string phone)
+        public Customer(string name, string phone, Address address)
         {
             Name = name;
             Phone = phone;
+            Address = address;
+        }
+        
+        public Customer(string name, string phone, Address address, string? email)
+        : this(name, phone, address)
+        {
+            Email = email;
         }
     }
 }

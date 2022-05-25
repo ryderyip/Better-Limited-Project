@@ -1,4 +1,4 @@
-﻿namespace Better_Limited_Project.ServieUtility.Reordering
+﻿namespace Better_Limited_Project.ServiceUtility.Reordering
 {
     partial class ReorderRequestDetailsForm
     {

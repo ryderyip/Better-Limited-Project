@@ -1,28 +1,40 @@
 ﻿using System;
 using System.Windows.Forms;
+using Better_Limited_Project.FormControlling;
 
-namespace Better_Limited_Project.Sales.Sales.SalesOrder.CustomerRecord
+namespace Better_Limited_Project.Sales.Sales.OrderPlacing.CustomerRecord
 {
     public partial class IsFirstTimeCustomerSelectionForm : Form
     {
-        public delegate void ButtonClickedEventHandler(object sender, bool isFirstTimeCustomer);
-        public event ButtonClickedEventHandler ButtonClicked;
+        private readonly FormController _formController;
+        private readonly Cart _cart;
 
-        public IsFirstTimeCustomerSelectionForm()
+        public IsFirstTimeCustomerSelectionForm(FormController formController, Cart cart)
         {
+            _formController = formController;
+            _cart = cart;
             InitializeComponent();
         }
 
         private void btnFirstTime_Click(object sender, EventArgs e)
         {
-            ButtonClicked?.Invoke(this, true);
+            Closed += (_, _) =>
+            {
+                var form = new CreateCustomerRecordForm(_formController, _cart);
+                _formController.OpenFullForm(form);
+            };
             Close();
         }
 
         private void btnOldCustomer_Click(object sender, EventArgs e)
         {
-            ButtonClicked?.Invoke(this, false);
+            Closed += (_, _) =>
+            {
+                var form = new FindCustomerRecordForm(_formController, _cart);
+                _formController.OpenFullForm(form);
+            };
             Close();
+            _formController.ContentForm?.Close();
         }
 
         private void IsFirstTimeCustomerSelectionForm_KeyPress(object sender, KeyPressEventArgs e)

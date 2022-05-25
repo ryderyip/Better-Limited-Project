@@ -2,14 +2,14 @@
 using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.ProductUtility.Entity;
 
-namespace Better_Limited_Project.Sales.Payment
+namespace Better_Limited_Project.Sales.PaymentUtility.PaymentProcesses
 {
-    public class CashPaymentProcedure : IPaymentProcedure
+    public class CreditCardPaymentProcedure : IPaymentProcedure
     {
         private readonly FormController _formController;
         private readonly IEnumerable<RetailStoreStock> _selectedProducts;
 
-        public CashPaymentProcedure(FormController formController, IEnumerable<RetailStoreStock> productQuantities)
+        public CreditCardPaymentProcedure(FormController formController, IEnumerable<RetailStoreStock> productQuantities)
         {
             _formController = formController;
             _selectedProducts = productQuantities;

@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Linq;
+using System.Windows.Forms;
 
 namespace Better_Limited_Project.FormControlling
 {
@@ -48,21 +49,21 @@ namespace Better_Limited_Project.FormControlling
         private void OpenOuterForm()
         {
             if (!IsFormOpened(_outerForm))
+            {
+                _outerForm.StartPosition = FormStartPosition.CenterScreen;
                 _outerForm.Show();
+            }
         }
 
         private bool IsFormOpened(Form form)
         {
-            FormCollection fc = Application.OpenForms;
+            return Application.OpenForms.Cast<Form>().Any(frm => frm.Text == form.Name);
+        }
 
-            foreach (Form frm in fc)
-            {
-                if (frm.Text == form.Name)
-                {
-                    return true; 
-                }
-            }
-            return false;
+        public void Close()
+        {
+            ContentForm?.Close();
+            _outerForm.Close();
         }
     }
 }

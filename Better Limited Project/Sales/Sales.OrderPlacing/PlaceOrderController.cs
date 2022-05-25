@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.ProductUtility.Repository;
-using Better_Limited_Project.Sales.Payment;
-using Better_Limited_Project.Sales.Sales.Payment;
-using Better_Limited_Project.Sales.Sales.SalesOrder;
+using Better_Limited_Project.Sales.PaymentUtility;
+using Better_Limited_Project.Sales.Sales.OrderPlacing.CustomerRecord;
 using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.Tools;
 
@@ -19,14 +17,20 @@ namespace Better_Limited_Project.Sales.Sales.OrderPlacing
         private Pager<RetailStoreStock> _pager;
         private const int PageSize = 6;
         private readonly FormController _formController;
-        private string? _customerName;
-        private DeliverySession? _deliverySession;
-        private PaymentMethod? _paymentMethod;
         private readonly Cart _cart;
 
         public PlaceOrderController()
         {
             _cart = new Cart(UserSettings.GetSettings().Workplace!.Id);
+            _pager = new Pager<RetailStoreStock>(PageSize);
+            _form = new PlaceOrderForm(_pager, _cart);
+            _formController = new FormController(OuterFormGenerator.Generate());
+            Initialize();
+        }
+        
+        public PlaceOrderController(Cart cart)
+        {
+            _cart = cart;
             _pager = new Pager<RetailStoreStock>(PageSize);
             _form = new PlaceOrderForm(_pager, _cart);
             _formController = new FormController(OuterFormGenerator.Generate());
@@ -46,67 +50,19 @@ namespace Better_Limited_Project.Sales.Sales.OrderPlacing
             if (_cart.IsEmpty())
                 return; // TODO prompt a non intruding message
 
-            // ------------DEBUG------------
-            // MessageBox.Show(_cart.get);
-            // ------------DEBUG------------
-            
             if (IsNeedDelivery() || IsNeedInstallation())
             {
-                var procedure = new RetrieveCustomerRecordProcedure(_formController);
-                procedure.CustomerRecordRetrieved += OnCustomerRecordRetrieved;
-                procedure.Cancelled += (_, _) => ReinitializePlaceOrderForm();
-                procedure.Start();
+                var form = new IsFirstTimeCustomerSelectionForm(_formController, _cart);
+                form.StartPosition = FormStartPosition.CenterScreen;
+                form.ShowDialog();
             }
 
             else
-                StartPaymentProcedure();
-        }
-
-        private void OnCustomerRecordRetrieved(object sender, string customerName)
-        {
-            _customerName = customerName;
-            var form = new DeliverySessionSelectionForm();
-            form.NextClicked += DeliverySessionSelected;
-            form.StartPosition = FormStartPosition.CenterScreen;
-            form.ShowDialog();
-        }
-
-        private void DeliverySessionSelected(object sender, DeliverySession deliverySession)
-        {
-            _deliverySession = deliverySession;
-            StartPaymentProcedure();
-        }
-
-        private void StartPaymentProcedure()
-        {
-            var form = new PaymentMethodSelectionForm();
-            form.NextClicked += PaymentMethodSelected;
-            form.StartPosition = FormStartPosition.CenterParent;
-            form.ShowDialog();
-        }
-
-        private void PaymentMethodSelected(object sender, PaymentMethod paymentMethod)
-        {
-            throw new NotImplementedException("after payment method selected");
-            /*_paymentMethod = paymentMethod;
-            ConfirmPlacingOrderForm form = IsNeedDelivery() || IsNeedInstallation()
-                ? new ConfirmPlacingOrderForm(_productQuantities, _customerName)
-                : new ConfirmPlacingOrderForm(_productQuantities);
-
-            form.StartPosition = FormStartPosition.CenterParent;
-            form.OrderConfirmed += OnPlacingOrderConfirmed;
-            form.StartPosition = FormStartPosition.CenterScreen;
-            form.ShowDialog();*/
-        }
-
-        private void OnPlacingOrderConfirmed(object sender, EventArgs e)
-        {
-            throw new NotImplementedException("after order confirmed");
-            /*var procedure = PaymentProcedureFactory.GeneratePaymentProcedure(_paymentMethod!.Value,
-                _formController, _productQuantities!);
-
-            procedure.PaymentCompleted += OnPaymentCompleted;
-            procedure.Start();*/
+            {
+                var form = new ConfirmPlacingOrderForm(_cart);
+                form.StartPosition = FormStartPosition.CenterScreen;
+                form.ShowDialog();
+            }
         }
 
         private void OnPaymentCompleted(object sender, PaymentStatus status)
@@ -134,13 +90,9 @@ namespace Better_Limited_Project.Sales.Sales.OrderPlacing
 
         private void PopulatePagerWithProducts()
         {
-            GetStocks().ForEach(stock => _pager.AddItem(stock));
-        }
-        
-        private List<RetailStoreStock> GetStocks()
-        {
             var retailStoreId = UserSettings.GetSettings().Workplace?.Id!;
-            return StockRepository.GetRetailStoreStocks(retailStoreId).ToList();
+            StockRepository.GetRetailStoreStocks(retailStoreId).ToList()
+                .ForEach(stock => _pager.AddItem(stock));
         }
 
         public void OpenForm()

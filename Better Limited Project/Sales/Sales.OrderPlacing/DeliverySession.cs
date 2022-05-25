@@ -1,4 +1,4 @@
-﻿namespace Better_Limited_Project.Sales.Sales.SalesOrder
+﻿namespace Better_Limited_Project.Sales.Sales.OrderPlacing
 {
     public enum DeliverySession
     {

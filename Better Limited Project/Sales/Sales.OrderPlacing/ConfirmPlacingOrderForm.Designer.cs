@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblDeliveryInfo = new System.Windows.Forms.Label();
-            this.txtCustEmailAddress = new System.Windows.Forms.TextBox();
-            this.txtCustName = new System.Windows.Forms.TextBox();
-            this.lblCustEmailAddress = new System.Windows.Forms.Label();
-            this.lblCustName = new System.Windows.Forms.Label();
             this.lblCustomerInfo = new System.Windows.Forms.Label();
+            this.lblCustName = new System.Windows.Forms.Label();
+            this.lblCustEmailAddress = new System.Windows.Forms.Label();
+            this.txtCustName = new System.Windows.Forms.TextBox();
+            this.txtCustEmailAddress = new System.Windows.Forms.TextBox();
+            this.lblDeliveryInfo = new System.Windows.Forms.Label();
             this.lblCustPhoneNumber = new System.Windows.Forms.Label();
             this.txtCustPhoneNumber = new System.Windows.Forms.TextBox();
             this.lblAddress1 = new System.Windows.Forms.Label();
@@ -42,47 +42,20 @@
             this.txtAddress2 = new System.Windows.Forms.TextBox();
             this.lblTotalPrice = new System.Windows.Forms.Label();
             this.txtTotalPrice = new System.Windows.Forms.TextBox();
-            this.btnBack = new System.Windows.Forms.Button();
             this.btnPay = new System.Windows.Forms.Button();
             this.dgvProducts = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize) (this.dgvProducts)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblDeliveryInfo
+            // lblCustomerInfo
             // 
-            this.lblDeliveryInfo.AutoSize = true;
-            this.lblDeliveryInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblDeliveryInfo.Location = new System.Drawing.Point(44, 280);
-            this.lblDeliveryInfo.Name = "lblDeliveryInfo";
-            this.lblDeliveryInfo.Size = new System.Drawing.Size(109, 20);
-            this.lblDeliveryInfo.TabIndex = 65;
-            this.lblDeliveryInfo.Text = "Delivery Info";
-            // 
-            // txtCustEmailAddress
-            // 
-            this.txtCustEmailAddress.Location = new System.Drawing.Point(129, 213);
-            this.txtCustEmailAddress.Name = "txtCustEmailAddress";
-            this.txtCustEmailAddress.ReadOnly = true;
-            this.txtCustEmailAddress.Size = new System.Drawing.Size(100, 20);
-            this.txtCustEmailAddress.TabIndex = 64;
-            // 
-            // txtCustName
-            // 
-            this.txtCustName.Location = new System.Drawing.Point(129, 129);
-            this.txtCustName.Name = "txtCustName";
-            this.txtCustName.ReadOnly = true;
-            this.txtCustName.Size = new System.Drawing.Size(100, 20);
-            this.txtCustName.TabIndex = 63;
-            // 
-            // lblCustEmailAddress
-            // 
-            this.lblCustEmailAddress.AutoSize = true;
-            this.lblCustEmailAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblCustEmailAddress.Location = new System.Drawing.Point(27, 214);
-            this.lblCustEmailAddress.Name = "lblCustEmailAddress";
-            this.lblCustEmailAddress.Size = new System.Drawing.Size(89, 15);
-            this.lblCustEmailAddress.TabIndex = 61;
-            this.lblCustEmailAddress.Text = "Email Address:";
+            this.lblCustomerInfo.AutoSize = true;
+            this.lblCustomerInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblCustomerInfo.Location = new System.Drawing.Point(44, 89);
+            this.lblCustomerInfo.Name = "lblCustomerInfo";
+            this.lblCustomerInfo.Size = new System.Drawing.Size(123, 20);
+            this.lblCustomerInfo.TabIndex = 58;
+            this.lblCustomerInfo.Text = "Customer Info";
             // 
             // lblCustName
             // 
@@ -94,15 +67,43 @@
             this.lblCustName.TabIndex = 60;
             this.lblCustName.Text = "Name:";
             // 
-            // lblCustomerInfo
+            // lblCustEmailAddress
             // 
-            this.lblCustomerInfo.AutoSize = true;
-            this.lblCustomerInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblCustomerInfo.Location = new System.Drawing.Point(44, 89);
-            this.lblCustomerInfo.Name = "lblCustomerInfo";
-            this.lblCustomerInfo.Size = new System.Drawing.Size(123, 20);
-            this.lblCustomerInfo.TabIndex = 58;
-            this.lblCustomerInfo.Text = "Customer Info";
+            this.lblCustEmailAddress.AutoSize = true;
+            this.lblCustEmailAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblCustEmailAddress.Location = new System.Drawing.Point(27, 214);
+            this.lblCustEmailAddress.Name = "lblCustEmailAddress";
+            this.lblCustEmailAddress.Size = new System.Drawing.Size(89, 15);
+            this.lblCustEmailAddress.TabIndex = 61;
+            this.lblCustEmailAddress.Text = "Email Address:";
+            // 
+            // txtCustName
+            // 
+            this.txtCustName.Location = new System.Drawing.Point(129, 129);
+            this.txtCustName.Name = "txtCustName";
+            this.txtCustName.ReadOnly = true;
+            this.txtCustName.Size = new System.Drawing.Size(100, 20);
+            this.txtCustName.TabIndex = 63;
+            this.txtCustName.Text = "-";
+            // 
+            // txtCustEmailAddress
+            // 
+            this.txtCustEmailAddress.Location = new System.Drawing.Point(129, 213);
+            this.txtCustEmailAddress.Name = "txtCustEmailAddress";
+            this.txtCustEmailAddress.ReadOnly = true;
+            this.txtCustEmailAddress.Size = new System.Drawing.Size(200, 20);
+            this.txtCustEmailAddress.TabIndex = 64;
+            this.txtCustEmailAddress.Text = "-";
+            // 
+            // lblDeliveryInfo
+            // 
+            this.lblDeliveryInfo.AutoSize = true;
+            this.lblDeliveryInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblDeliveryInfo.Location = new System.Drawing.Point(44, 280);
+            this.lblDeliveryInfo.Name = "lblDeliveryInfo";
+            this.lblDeliveryInfo.Size = new System.Drawing.Size(109, 20);
+            this.lblDeliveryInfo.TabIndex = 65;
+            this.lblDeliveryInfo.Text = "Delivery Info";
             // 
             // lblCustPhoneNumber
             // 
@@ -121,12 +122,13 @@
             this.txtCustPhoneNumber.ReadOnly = true;
             this.txtCustPhoneNumber.Size = new System.Drawing.Size(100, 20);
             this.txtCustPhoneNumber.TabIndex = 71;
+            this.txtCustPhoneNumber.Text = "-";
             // 
             // lblAddress1
             // 
             this.lblAddress1.AutoSize = true;
             this.lblAddress1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblAddress1.Location = new System.Drawing.Point(59, 329);
+            this.lblAddress1.Location = new System.Drawing.Point(59, 320);
             this.lblAddress1.Name = "lblAddress1";
             this.lblAddress1.Size = new System.Drawing.Size(64, 15);
             this.lblAddress1.TabIndex = 72;
@@ -134,17 +136,18 @@
             // 
             // txtAddress1
             // 
-            this.txtAddress1.Location = new System.Drawing.Point(129, 329);
+            this.txtAddress1.Location = new System.Drawing.Point(129, 320);
             this.txtAddress1.Name = "txtAddress1";
             this.txtAddress1.ReadOnly = true;
-            this.txtAddress1.Size = new System.Drawing.Size(217, 20);
+            this.txtAddress1.Size = new System.Drawing.Size(257, 20);
             this.txtAddress1.TabIndex = 73;
+            this.txtAddress1.Text = "-";
             // 
             // lblAddress2
             // 
             this.lblAddress2.AutoSize = true;
             this.lblAddress2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblAddress2.Location = new System.Drawing.Point(58, 368);
+            this.lblAddress2.Location = new System.Drawing.Point(58, 359);
             this.lblAddress2.Name = "lblAddress2";
             this.lblAddress2.Size = new System.Drawing.Size(64, 15);
             this.lblAddress2.TabIndex = 74;
@@ -152,50 +155,39 @@
             // 
             // txtAddress2
             // 
-            this.txtAddress2.Location = new System.Drawing.Point(129, 368);
+            this.txtAddress2.Location = new System.Drawing.Point(129, 359);
             this.txtAddress2.Name = "txtAddress2";
             this.txtAddress2.ReadOnly = true;
-            this.txtAddress2.Size = new System.Drawing.Size(217, 20);
+            this.txtAddress2.Size = new System.Drawing.Size(257, 20);
             this.txtAddress2.TabIndex = 75;
+            this.txtAddress2.Text = "-";
             // 
             // lblTotalPrice
             // 
             this.lblTotalPrice.AutoSize = true;
             this.lblTotalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblTotalPrice.Location = new System.Drawing.Point(518, 336);
+            this.lblTotalPrice.Location = new System.Drawing.Point(566, 343);
             this.lblTotalPrice.Name = "lblTotalPrice";
-            this.lblTotalPrice.Size = new System.Drawing.Size(73, 16);
+            this.lblTotalPrice.Size = new System.Drawing.Size(76, 16);
             this.lblTotalPrice.TabIndex = 93;
-            this.lblTotalPrice.Text = "Total Price";
+            this.lblTotalPrice.Text = "Total Price:";
             // 
             // txtTotalPrice
             // 
-            this.txtTotalPrice.Location = new System.Drawing.Point(648, 333);
+            this.txtTotalPrice.Location = new System.Drawing.Point(648, 342);
             this.txtTotalPrice.Name = "txtTotalPrice";
             this.txtTotalPrice.ReadOnly = true;
             this.txtTotalPrice.Size = new System.Drawing.Size(100, 20);
             this.txtTotalPrice.TabIndex = 94;
-            // 
-            // btnBack
-            // 
-            this.btnBack.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.btnBack.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnBack.Location = new System.Drawing.Point(548, 419);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(89, 36);
-            this.btnBack.TabIndex = 105;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = false;
             // 
             // btnPay
             // 
             this.btnPay.BackColor = System.Drawing.Color.DarkOrange;
             this.btnPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.btnPay.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnPay.Location = new System.Drawing.Point(659, 419);
+            this.btnPay.Location = new System.Drawing.Point(607, 404);
             this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(89, 36);
+            this.btnPay.Size = new System.Drawing.Size(141, 51);
             this.btnPay.TabIndex = 106;
             this.btnPay.Text = "Pay";
             this.btnPay.UseVisualStyleBackColor = false;
@@ -216,10 +208,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 488);
             this.Controls.Add(this.dgvProducts);
             this.Controls.Add(this.btnPay);
-            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.txtTotalPrice);
             this.Controls.Add(this.lblTotalPrice);
             this.Controls.Add(this.txtAddress2);
@@ -234,23 +226,19 @@
             this.Controls.Add(this.lblCustEmailAddress);
             this.Controls.Add(this.lblCustName);
             this.Controls.Add(this.lblCustomerInfo);
+            this.Location = new System.Drawing.Point(15, 15);
             this.Name = "ConfirmPlacingOrderForm";
-            this.Text = "ConfirmPlacingOrderForm";
             ((System.ComponentModel.ISupportInitialize) (this.dgvProducts)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
 
-        private System.Windows.Forms.DataGridView dgvProducts;
-
-        #endregion
-
-        private System.Windows.Forms.Label lblDeliveryInfo;
-        private System.Windows.Forms.TextBox txtCustEmailAddress;
-        private System.Windows.Forms.TextBox txtCustName;
-        private System.Windows.Forms.Label lblCustEmailAddress;
-        private System.Windows.Forms.Label lblCustName;
         private System.Windows.Forms.Label lblCustomerInfo;
+        private System.Windows.Forms.Label lblCustName;
+        private System.Windows.Forms.Label lblCustEmailAddress;
+        private System.Windows.Forms.TextBox txtCustName;
+        private System.Windows.Forms.TextBox txtCustEmailAddress;
+        private System.Windows.Forms.Label lblDeliveryInfo;
         private System.Windows.Forms.Label lblCustPhoneNumber;
         private System.Windows.Forms.TextBox txtCustPhoneNumber;
         private System.Windows.Forms.Label lblAddress1;
@@ -259,7 +247,9 @@
         private System.Windows.Forms.TextBox txtAddress2;
         private System.Windows.Forms.Label lblTotalPrice;
         private System.Windows.Forms.TextBox txtTotalPrice;
-        private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnPay;
+        private System.Windows.Forms.DataGridView dgvProducts;
+
+        #endregion
     }
 }

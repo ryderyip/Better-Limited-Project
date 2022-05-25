@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using Better_Limited_Project.DatabaseUtility;
 using MySql.Data.MySqlClient;
 
-namespace Better_Limited_Project.Sales.Sales.SalesOrder.CustomerRecord
+namespace Better_Limited_Project.Sales.Sales.OrderPlacing.CustomerRecord
 {
     public static class AddressRepository
     {
@@ -31,8 +33,30 @@ namespace Better_Limited_Project.Sales.Sales.SalesOrder.CustomerRecord
         {
             string address1 = row.Field<string>("address1");
             string address2 = row.Field<string>("address2");
-            
             return new Address(address1, address2);
+        }
+
+        /// <returns></returns>
+        public static string CreateAndReturnId(Address address)
+        {
+            var command = new MySqlCommand(
+                @"insert into delivery_address (address1, address2)
+                        value (@address1, @address2);
+                        select last_insert_id() as id;");
+            command.Parameters.AddWithValue("@address1", address.Address1);
+            command.Parameters.AddWithValue("@address2", address.Address2);
+            var datatable = DataTableRepository.RetrieveDataTable(command);
+            return datatable.Rows[0]["id"].ToString();
+        }
+
+        public static IEnumerable<Address> GetAddresses()
+        {
+            var command = new MySqlCommand(
+                @"select id, address1, address2
+                            from delivery_address;");
+            var dataTable = DataTableRepository.RetrieveDataTable(command);
+
+            return from DataRow row in dataTable.Rows select ConvertToAddress(row);
         }
     }
 }

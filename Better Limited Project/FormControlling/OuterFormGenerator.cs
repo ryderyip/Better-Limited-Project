@@ -14,5 +14,12 @@ namespace Better_Limited_Project.FormControlling
             form.Size = new Size(Width, Height);
             return form;
         }
+
+        /*public static Form Generate(Size size)
+        {
+            var form = new Form();
+            form.Size = size;
+            return form;
+        }*/
     }
 }

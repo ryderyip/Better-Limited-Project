@@ -2,7 +2,7 @@
 using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.ProductUtility.Entity;
 
-namespace Better_Limited_Project.Sales.Payment
+namespace Better_Limited_Project.Sales.PaymentUtility.PaymentProcesses
 {
     public class OctopusCardPaymentProcedure : IPaymentProcedure
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
 using Better_Limited_Project.ProductUtility.Entity;
-using Better_Limited_Project.Sales.Sales.SalesOrder.SalesOrderPager;
+using Better_Limited_Project.Sales.Sales.OrderPlacing.SalesOrderPager;
 
 namespace Better_Limited_Project.Sales.Sales.OrderPlacing
 {

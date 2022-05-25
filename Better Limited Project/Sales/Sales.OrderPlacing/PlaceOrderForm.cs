@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.ProductUtility.Entity;
-using Better_Limited_Project.Sales.Sales.SalesOrder.SalesOrderPager;
+using Better_Limited_Project.Sales.Sales.OrderPlacing.SalesOrderPager;
 using Better_Limited_Project.Tools;
 
 namespace Better_Limited_Project.Sales.Sales.OrderPlacing
@@ -20,13 +20,21 @@ namespace Better_Limited_Project.Sales.Sales.OrderPlacing
         {
             _pager = pager;
             _cart = cart;
-            _cart.Updated += OnCartUpdated;
+            _cart.Updated += (_, _) => RefreshCart();
             _filteredPager = pager;
             _pageFiller = new PlaceOrderFormPageFiller();
             InitializeComponent();
         }
 
-        private void OnCartUpdated(object sender, IEnumerable<Tuple<Product, int, decimal>> cart)
+        private void OnFormShown(object sender, EventArgs e)
+        {
+            CollectControls();
+            var products = _pager.GetCurrentPage().ToArray();
+            _pageFiller.FillPageWithProducts(products);
+            RefreshCart();
+        }
+        
+        private void RefreshCart()
         {
             SetCartDgvSchemaOnFormShown();
             
@@ -34,18 +42,12 @@ namespace Better_Limited_Project.Sales.Sales.OrderPlacing
                 .ToString("C", new CultureInfo("zh-HK"));
             
             dgvCart.Rows.Clear();
-            cart.ToList().ForEach(triplet 
-                => dgvCart.Rows.Add(triplet.Item1.Name, 
-                    triplet.Item3, triplet.Item2, triplet.Item1.Category.Name));
+            _cart.GetCartItems().ToList().ForEach(cartItem 
+                => dgvCart.Rows.Add(cartItem.Product.Name, 
+                    cartItem.Price.ToString("C", new CultureInfo("zh-HK")), 
+                    cartItem.Quantity, cartItem.Product.Category.Name));
         }
-        
-        private void OnFormShown(object sender, EventArgs e)
-        {
-            CollectControls();
-            var products = _pager.GetCurrentPage().ToArray();
-            _pageFiller.FillPageWithProducts(products);
-        }
-        
+
         private void CollectControls()
         {
             _pageFiller.AddControlCollection(new PlaceOrderItemControlCollection(lblProduct1Name,

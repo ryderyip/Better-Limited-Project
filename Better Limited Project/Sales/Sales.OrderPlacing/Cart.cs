@@ -6,17 +6,18 @@ using Better_Limited_Project.ProductUtility.Repository;
 
 namespace Better_Limited_Project.Sales.Sales.OrderPlacing
 {
-    public class Cart
+    public class Cart // TODO redesign this
     {
-        public event EventHandler<IEnumerable<Tuple<Product, int, decimal>>>? Updated;
+        public event EventHandler? Updated;
         private readonly Dictionary<string, Product> _products = new();
         private readonly Dictionary<string, int> _quantities = new();
         private readonly Dictionary<string, decimal> _prices = new();
+        private readonly List<RetailStoreStock> _stock;
 
         public Cart(string retailStoreId)
         {
-            StockRepository.GetRetailStoreStocks(retailStoreId).ToList()
-                .ForEach(stock => _prices.Add(stock.Product.Id, stock.SellingPrice));
+            _stock = StockRepository.GetRetailStoreStocks(retailStoreId).ToList();
+            _stock.ForEach(stock => _prices.Add(stock.Product.Id, stock.SellingPrice));
         }
 
         public void Add(Product product, int quantity)
@@ -29,7 +30,15 @@ namespace Better_Limited_Project.Sales.Sales.OrderPlacing
                 _quantities.Add(product.Id, quantity);
             }
 
-            Updated?.Invoke(this, ConvertToProductQuantityTuple());
+            Updated?.Invoke(this, EventArgs.Empty);
+        }
+
+        public IEnumerable<CartItem> GetCartItems()
+        {
+            return _quantities.Keys.ToList()
+                .Zip(_quantities.Values.ToList(),
+                    (prodId, qty) => 
+                        new CartItem(_products[prodId], qty, _prices[prodId]));
         }
 
         public void Remove(Product product)
@@ -48,7 +57,7 @@ namespace Better_Limited_Project.Sales.Sales.OrderPlacing
         {
             _products.Clear();
             _quantities.Clear();
-            Updated?.Invoke(this, ConvertToProductQuantityTuple());
+            Updated?.Invoke(this, EventArgs.Empty);
         }
 
         public bool IsEmpty()
@@ -58,15 +67,26 @@ namespace Better_Limited_Project.Sales.Sales.OrderPlacing
 
         public decimal GetTotalPrice()
         {
-            return _quantities.Sum(pair => _prices[pair.Key] * pair.Value);
+            return GetCartItems().Sum(item => item.Price * item.Quantity);
         }
 
-        private IEnumerable<Tuple<Product, int, decimal>> ConvertToProductQuantityTuple()
+        public decimal GetTotalDepositPrice()
         {
-            return _quantities.Keys.ToList()
-                .Zip(_quantities.Values.ToList(),
-                    (prodId, qty) => 
-                        new Tuple<Product, int, decimal>(_products[prodId], qty, _prices[prodId]));
+            decimal deposit = GetCartItems()
+                .Where(item => _stock.Find(stock => stock.Product.Id == item.Product.Id)
+                        .Quantity == 0)
+                .Sum(item => item.Price * item.Quantity);
+            decimal ordinary = GetCartItems()
+                .Where(item => _stock.Find(stock => stock.Product.Id == item.Product.Id)
+                    .Quantity != 0)
+                .Sum(item => item.Price * item.Quantity);
+            return deposit + ordinary;
+        }
+
+        public bool HasOutOfStockItem()
+        {
+            return GetCartItems().Any(item =>
+                _stock.Any(stock => stock.Product.Id == item.Product.Id && stock.Quantity == 0));
         }
     }
 }

@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.ProductUtility.Entity;
-using Better_Limited_Project.Sales.Sales.Payment;
 
-namespace Better_Limited_Project.Sales.Payment
+namespace Better_Limited_Project.Sales.PaymentUtility.PaymentProcesses
 {
     public static class PaymentProcedureFactory
     {

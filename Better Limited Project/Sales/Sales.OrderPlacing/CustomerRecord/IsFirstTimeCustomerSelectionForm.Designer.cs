@@ -1,5 +1,5 @@
 ﻿
-namespace Better_Limited_Project.Sales.Sales.SalesOrder.CustomerRecord
+namespace Better_Limited_Project.Sales.Sales.OrderPlacing.CustomerRecord
 {
     partial class IsFirstTimeCustomerSelectionForm
     {

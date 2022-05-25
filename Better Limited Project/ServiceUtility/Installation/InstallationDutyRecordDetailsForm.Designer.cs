@@ -1,4 +1,4 @@
-﻿namespace Better_Limited_Project.ServieUtility.Installation
+﻿namespace Better_Limited_Project.ServiceUtility.Installation
 {
     partial class InstallationDutyRecordDetailsForm
     {

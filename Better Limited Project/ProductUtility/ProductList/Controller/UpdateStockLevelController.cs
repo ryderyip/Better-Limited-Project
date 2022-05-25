@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using Better_Limited_Project.ProductUtility.ProductList.Forms;
 
-namespace Better_Limited_Project.ProductUtility.ProductList
+namespace Better_Limited_Project.ProductUtility.ProductList.Controller
 {
     public class UpdateStockLevelController
     {

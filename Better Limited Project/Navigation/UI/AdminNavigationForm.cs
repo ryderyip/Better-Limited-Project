@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Better_Limited_Project.FormControlling;
-using Better_Limited_Project.ProductUtility.ProductList.ProductList;
+using Better_Limited_Project.ProductUtility.ProductList.Controller;
 using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 using Better_Limited_Project.StaffUtility.StaffList;

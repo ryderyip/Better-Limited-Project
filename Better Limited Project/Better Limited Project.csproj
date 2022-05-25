@@ -123,6 +123,7 @@
     <Compile Include="FormControlling\FormController.cs" />
     <Compile Include="FormControlling\FormPropertyController.cs" />
     <Compile Include="FormControlling\OuterFormGenerator.cs" />
+    <Compile Include="IEntity.cs" />
     <Compile Include="Login\LoginController.cs" />
     <Compile Include="Login\LoginCredentials.cs" />
     <Compile Include="Login\LoginForm.cs">
@@ -286,34 +287,41 @@
     <Compile Include="ProductUtility\Repository\SupplierRepository.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sales\Payment\CashPaymentProcedure.cs" />
-    <Compile Include="Sales\Payment\CreateCustomerRecordController.cs" />
-    <Compile Include="Sales\Payment\CreditCardPaymentProcedure.cs" />
-    <Compile Include="Sales\Payment\FindCustomerRecordController.cs" />
-    <Compile Include="Sales\Payment\IPaymentProcedure.cs" />
-    <Compile Include="Sales\Payment\OctopusCardPaymentProcedure.cs" />
-    <Compile Include="Sales\Payment\PaymentProcedureFactory.cs" />
-    <Compile Include="Sales\Payment\PaymentStatus.cs" />
-    <Compile Include="Sales\Payment\SalesOrder.cs" />
-    <Compile Include="Sales\Payment\SalesOrderCreator.cs" />
+    <Compile Include="Sales\PaymentUtility\CashPaymentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\PaymentUtility\CashPaymentForm.Designer.cs" />
+    <Compile Include="Sales\PaymentUtility\CreditCardPaymentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\PaymentUtility\CreditCardPaymentForm.Designer.cs" />
+    <Compile Include="Sales\PaymentUtility\OctopusCardPaymentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\PaymentUtility\OctopusCardPaymentForm.Designer.cs" />
+    <Compile Include="Sales\PaymentUtility\Payment.cs" />
+    <Compile Include="Sales\PaymentUtility\PaymentMethod.cs" />
+    <Compile Include="Sales\PaymentUtility\PaymentMethodSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\PaymentUtility\PaymentMethodSelectionForm.Designer.cs" />
+    <Compile Include="Sales\PaymentUtility\PaymentProcesses\CashPaymentProcedure.cs" />
+    <Compile Include="Sales\PaymentUtility\PaymentProcesses\CreditCardPaymentProcedure.cs" />
+    <Compile Include="Sales\PaymentUtility\PaymentProcesses\IPaymentProcedure.cs" />
+    <Compile Include="Sales\PaymentUtility\PaymentProcesses\OctopusCardPaymentProcedure.cs" />
+    <Compile Include="Sales\PaymentUtility\PaymentProcesses\PaymentProcedureFactory.cs" />
+    <Compile Include="Sales\PaymentUtility\PaymentStatus.cs" />
     <Compile Include="Sales\Sales.OrderPlacing\Cart.cs" />
-    <Compile Include="Sales\Sales.Payment\CashPaymentForm.cs">
+    <Compile Include="Sales\Sales.OrderPlacing\CartItem.cs" />
+    <Compile Include="Sales\Sales.OrderPlacing\CustomerRecord\CustomerEntity.cs" />
+    <Compile Include="Sales\Sales.OrderPlacing\CustomerRecord\FindCustomerRecordForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sales\Sales.Payment\CashPaymentForm.Designer.cs" />
-    <Compile Include="Sales\Sales.Payment\CreditCardPaymentForm.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Sales\Sales.OrderPlacing\CustomerRecord\FindCustomerRecordForm.Designer.cs">
+      <DependentUpon>FindCustomerRecordForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sales\Sales.Payment\CreditCardPaymentForm.Designer.cs" />
-    <Compile Include="Sales\Sales.Payment\OctopusCardPaymentForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\Sales.Payment\OctopusCardPaymentForm.Designer.cs" />
-    <Compile Include="Sales\Sales.Payment\PaymentMethod.cs" />
-    <Compile Include="Sales\Sales.Payment\PaymentMethodSelectionForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\Sales.Payment\PaymentMethodSelectionForm.Designer.cs" />
+    <Compile Include="Sales\Sales.OrderPlacing\SalesOrder.cs" />
+    <Compile Include="Sales\Sales.OrderPlacing\SalesOrderEntity.cs" />
     <Compile Include="Sales\Sales.OrderPlacing\ConfirmPlacingOrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -333,10 +341,6 @@
     <Compile Include="Sales\Sales.OrderPlacing\CustomerRecord\IsFirstTimeCustomerSelectionForm.Designer.cs">
       <DependentUpon>IsFirstTimeCustomerSelectionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sales\Sales.OrderPlacing\CustomerRecord\FindCustomerRecordForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\Sales.OrderPlacing\CustomerRecord\FindCustomerRecordForm.Designer.cs" />
     <Compile Include="Sales\Sales.OrderPlacing\DeliverySession.cs" />
     <Compile Include="Sales\Sales.OrderPlacing\DeliverySessionSelectionForm.cs">
       <SubType>Form</SubType>
@@ -348,7 +352,6 @@
     </Compile>
     <Compile Include="Sales\Sales.OrderPlacing\PlaceOrderForm.Designer.cs" />
     <Compile Include="Sales\Sales.OrderPlacing\PlaceOrderFormPageFiller.cs" />
-    <Compile Include="Sales\Sales.OrderPlacing\RetrieveCustomerRecordProcedure.cs" />
     <Compile Include="Sales\Sales.OrderPlacing\SalesOrderDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -578,16 +581,18 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Sales\Sales.Payment\CashPaymentForm.resx" />
-    <EmbeddedResource Include="Sales\Sales.Payment\CreditCardPaymentForm.resx" />
-    <EmbeddedResource Include="Sales\Sales.Payment\OctopusCardPaymentForm.resx" />
-    <EmbeddedResource Include="Sales\Sales.Payment\PaymentMethodSelectionForm.resx" />
+    <EmbeddedResource Include="Sales\PaymentUtility\CashPaymentForm.resx" />
+    <EmbeddedResource Include="Sales\PaymentUtility\CreditCardPaymentForm.resx" />
+    <EmbeddedResource Include="Sales\PaymentUtility\OctopusCardPaymentForm.resx" />
+    <EmbeddedResource Include="Sales\PaymentUtility\PaymentMethodSelectionForm.resx" />
     <EmbeddedResource Include="Sales\Sales.OrderPlacing\ConfirmPlacingOrderForm.resx" />
     <EmbeddedResource Include="Sales\Sales.OrderPlacing\CustomerRecord\CreateCustomerRecordForm.resx" />
+    <EmbeddedResource Include="Sales\Sales.OrderPlacing\CustomerRecord\FindCustomerRecordForm.resx">
+      <DependentUpon>FindCustomerRecordForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sales\Sales.OrderPlacing\CustomerRecord\IsFirstTimeCustomerSelectionForm.resx">
       <DependentUpon>IsFirstTimeCustomerSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sales\Sales.OrderPlacing\CustomerRecord\FindCustomerRecordForm.resx" />
     <EmbeddedResource Include="Sales\Sales.OrderPlacing\DeliverySessionSelectionForm.resx" />
     <EmbeddedResource Include="Sales\Sales.OrderPlacing\PlaceOrderForm.resx" />
     <EmbeddedResource Include="Sales\Sales.OrderPlacing\SalesOrderDetailsForm.resx" />

@@ -1,4 +1,4 @@
-﻿namespace Better_Limited_Project.ServieUtility.Delivery
+﻿namespace Better_Limited_Project.ServiceUtility.Delivery
 {
     partial class DeliveryDutyRecordForm
     {
