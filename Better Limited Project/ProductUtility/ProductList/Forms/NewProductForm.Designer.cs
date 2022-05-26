@@ -108,7 +108,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // 
             this.tbName.Location = new System.Drawing.Point(392, 114);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(120, 20);
+            this.tbName.Size = new System.Drawing.Size(225, 20);
             this.tbName.TabIndex = 75;
             // 
             // lblDescription

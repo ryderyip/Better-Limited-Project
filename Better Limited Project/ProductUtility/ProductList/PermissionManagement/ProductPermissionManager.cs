@@ -5,7 +5,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.PermissionManagement
 {
     public static class ProductPermissionManager
     {
-        public static bool CanCurrentStaffRemoveProduct()
+        public static bool CanCurrentStaffCreateProduct()
         {
             var loginStaff = StaffRepository.GetStaff(LoginSession.GetSession().StaffId);
             return loginStaff.Title switch
@@ -15,16 +15,11 @@ namespace Better_Limited_Project.ProductUtility.ProductList.PermissionManagement
             };
         }
         
-        public static bool CanCurrentStaffCreateProduct()
+        public static bool CanCurrentStaffRemoveProduct()
         {
-            var loginStaff = StaffRepository.GetStaff(LoginSession.GetSession().StaffId);
-            return loginStaff.Department switch
-            {
-                Department.Admin or Department.Purchase => true,
-                _ => false
-            };
+            return CanCurrentStaffCreateProduct();
         }
-
+        
         public static bool CanCurrentStaffSwitchWorkplaceInProductList()
         {
             var loginStaff = StaffRepository.GetStaff(LoginSession.GetSession().StaffId);
@@ -58,12 +53,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.PermissionManagement
 
         public static bool CanCurrentStaffEditProductOriginalInformation()
         {
-            var loginStaff = StaffRepository.GetStaff(LoginSession.GetSession().StaffId);
-            return loginStaff.Title switch
-            {
-                StaffTitle.Admin or StaffTitle.PurchaseManager => true,
-                _ => false
-            };
+            return CanCurrentStaffCreateProduct();
         }
         
         public static bool CanCurrentStaffUpdateProduct()

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
@@ -61,6 +62,11 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
                 PopulateProductDgvWithSellingPrice(stocks);
             else
                 PopulateProductDgvNoSellingPrice(stocks);
+            
+            dgvProductList.Rows.Cast<DataGridViewRow>()
+                .Where(row => int.Parse(row.Cells["quantity"].Value.ToString()) == 0)
+                .ToList()
+                .ForEach(row => row.DefaultCellStyle.BackColor = Color.SandyBrown);
         }
 
         private void PopulateProductDgvNoSellingPrice(List<IStock> stocks)

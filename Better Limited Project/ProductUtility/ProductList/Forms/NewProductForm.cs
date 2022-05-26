@@ -36,9 +36,9 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
         private void btnCreate_Click(object sender, EventArgs e)
         {
             var verifier = new ProductCreationDataVerifier();
-            string name = tbName.Text;
+            string name = tbName.Text.Trim();
             decimal price = nudPrice.Value;
-            string description = tbDescription.Text;
+            string description = tbDescription.Text.Trim();
             string selectedCategoryId = _categories[cbCategory.SelectedIndex].Id;
             string selectedSupplierId = _suppliers[cbSupplier.SelectedIndex].Id;
             bool isPhasingOut = false;
@@ -46,13 +46,6 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             if (!IsAllFieldsFilled())
             {
                 MessageBox.Show("Please fill all fields!");
-                return;
-            }
-
-            if (!verifier.IsNameValid(name))
-            {
-                MessageBox.Show(
-                    $"Name \"{name}\" is not valid. Id must contain at least 4 English characters or numbers.");
                 return;
             }
 
@@ -75,9 +68,9 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             decimal price = nudPrice.Value;
             string description = tbDescription.Text;
 
-            return name.Length != 0
+            return !string.IsNullOrWhiteSpace(name)
                    && price != decimal.Zero
-                   && description.Length != 0;
+                   && !string.IsNullOrWhiteSpace(description);
         }
     }
 }

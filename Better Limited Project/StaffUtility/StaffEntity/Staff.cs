@@ -4,7 +4,7 @@ using Better_Limited_Project.Tools;
 
 namespace Better_Limited_Project.StaffUtility.StaffEntity
 {
-    public class Staff : ISearchable
+    public class Staff
     {
         public Staff(string id, string name, DateTime dateOfBirth, DateTime hiredOn, IGender gender, Department department, StaffTitle title)
         {

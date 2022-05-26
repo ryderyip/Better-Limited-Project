@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblSearchBox = new System.Windows.Forms.Label();
             this.tbSearchBox = new System.Windows.Forms.TextBox();
             this.btnRestock = new System.Windows.Forms.Button();
@@ -35,13 +36,13 @@
             this.lblWorkplaceSelect = new System.Windows.Forms.Label();
             this.gpWorkplaceSelect = new System.Windows.Forms.GroupBox();
             this.dgvProductList = new System.Windows.Forms.DataGridView();
+            this.btnNewProductClicked = new System.Windows.Forms.Button();
+            this.cbCategoryFilter = new System.Windows.Forms.ComboBox();
+            this.lblCategoryFilter = new System.Windows.Forms.Label();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.selling_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnNewProductClicked = new System.Windows.Forms.Button();
-            this.cbCategoryFilter = new System.Windows.Forms.ComboBox();
-            this.lblCategoryFilter = new System.Windows.Forms.Label();
             this.gpWorkplaceSelect.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductList)).BeginInit();
             this.SuspendLayout();
@@ -59,7 +60,7 @@
             // 
             this.tbSearchBox.Location = new System.Drawing.Point(27, 44);
             this.tbSearchBox.Name = "tbSearchBox";
-            this.tbSearchBox.Size = new System.Drawing.Size(205, 20);
+            this.tbSearchBox.Size = new System.Drawing.Size(239, 20);
             this.tbSearchBox.TabIndex = 1;
             this.tbSearchBox.TextChanged += new System.EventHandler(this.tbSearchBox_TextChanged);
             // 
@@ -68,7 +69,7 @@
             this.btnRestock.BackColor = System.Drawing.Color.DarkOrange;
             this.btnRestock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnRestock.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnRestock.Location = new System.Drawing.Point(416, 99);
+            this.btnRestock.Location = new System.Drawing.Point(463, 99);
             this.btnRestock.Name = "btnRestock";
             this.btnRestock.Size = new System.Drawing.Size(107, 40);
             this.btnRestock.TabIndex = 4;
@@ -98,7 +99,7 @@
             // 
             this.gpWorkplaceSelect.Controls.Add(this.lblWorkplaceSelect);
             this.gpWorkplaceSelect.Controls.Add(this.cbWorkplaceSelect);
-            this.gpWorkplaceSelect.Location = new System.Drawing.Point(287, 28);
+            this.gpWorkplaceSelect.Location = new System.Drawing.Point(334, 28);
             this.gpWorkplaceSelect.Name = "gpWorkplaceSelect";
             this.gpWorkplaceSelect.Size = new System.Drawing.Size(236, 62);
             this.gpWorkplaceSelect.TabIndex = 8;
@@ -119,9 +120,42 @@
             this.dgvProductList.Name = "dgvProductList";
             this.dgvProductList.ReadOnly = true;
             this.dgvProductList.RowTemplate.Height = 24;
-            this.dgvProductList.Size = new System.Drawing.Size(496, 265);
+            this.dgvProductList.Size = new System.Drawing.Size(543, 265);
             this.dgvProductList.TabIndex = 2;
             this.dgvProductList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductList_CellDoubleClick);
+            // 
+            // btnNewProductClicked
+            // 
+            this.btnNewProductClicked.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnNewProductClicked.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewProductClicked.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnNewProductClicked.Location = new System.Drawing.Point(325, 99);
+            this.btnNewProductClicked.Name = "btnNewProductClicked";
+            this.btnNewProductClicked.Size = new System.Drawing.Size(132, 39);
+            this.btnNewProductClicked.TabIndex = 9;
+            this.btnNewProductClicked.Text = "New Product";
+            this.btnNewProductClicked.UseVisualStyleBackColor = false;
+            this.btnNewProductClicked.Visible = false;
+            this.btnNewProductClicked.Click += new System.EventHandler(this.btnNewProduct_Click);
+            // 
+            // cbCategoryFilter
+            // 
+            this.cbCategoryFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCategoryFilter.FormattingEnabled = true;
+            this.cbCategoryFilter.Location = new System.Drawing.Point(27, 118);
+            this.cbCategoryFilter.Name = "cbCategoryFilter";
+            this.cbCategoryFilter.Size = new System.Drawing.Size(195, 21);
+            this.cbCategoryFilter.TabIndex = 8;
+            this.cbCategoryFilter.SelectedIndexChanged += new System.EventHandler(this.cbCategoryFilter_SelectedIndexChanged);
+            // 
+            // lblCategoryFilter
+            // 
+            this.lblCategoryFilter.AutoSize = true;
+            this.lblCategoryFilter.Location = new System.Drawing.Point(24, 102);
+            this.lblCategoryFilter.Name = "lblCategoryFilter";
+            this.lblCategoryFilter.Size = new System.Drawing.Size(89, 13);
+            this.lblCategoryFilter.TabIndex = 10;
+            this.lblCategoryFilter.Text = "Filter By Category";
             // 
             // name
             // 
@@ -132,6 +166,9 @@
             // 
             // quantity
             // 
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = null;
+            this.quantity.DefaultCellStyle = dataGridViewCellStyle1;
             this.quantity.HeaderText = "Qty";
             this.quantity.Name = "quantity";
             this.quantity.ReadOnly = true;
@@ -150,44 +187,11 @@
             this.category.ReadOnly = true;
             this.category.Width = 120;
             // 
-            // btnNewProductClicked
-            // 
-            this.btnNewProductClicked.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnNewProductClicked.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewProductClicked.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnNewProductClicked.Location = new System.Drawing.Point(278, 99);
-            this.btnNewProductClicked.Name = "btnNewProductClicked";
-            this.btnNewProductClicked.Size = new System.Drawing.Size(132, 39);
-            this.btnNewProductClicked.TabIndex = 9;
-            this.btnNewProductClicked.Text = "New Product";
-            this.btnNewProductClicked.UseVisualStyleBackColor = false;
-            this.btnNewProductClicked.Visible = false;
-            this.btnNewProductClicked.Click += new System.EventHandler(this.btnNewProduct_Click);
-            // 
-            // cbCategoryFilter
-            // 
-            this.cbCategoryFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCategoryFilter.FormattingEnabled = true;
-            this.cbCategoryFilter.Location = new System.Drawing.Point(27, 118);
-            this.cbCategoryFilter.Name = "cbCategoryFilter";
-            this.cbCategoryFilter.Size = new System.Drawing.Size(147, 21);
-            this.cbCategoryFilter.TabIndex = 8;
-            this.cbCategoryFilter.SelectedIndexChanged += new System.EventHandler(this.cbCategoryFilter_SelectedIndexChanged);
-            // 
-            // lblCategoryFilter
-            // 
-            this.lblCategoryFilter.AutoSize = true;
-            this.lblCategoryFilter.Location = new System.Drawing.Point(24, 102);
-            this.lblCategoryFilter.Name = "lblCategoryFilter";
-            this.lblCategoryFilter.Size = new System.Drawing.Size(89, 13);
-            this.lblCategoryFilter.TabIndex = 10;
-            this.lblCategoryFilter.Text = "Filter By Category";
-            // 
             // ProductListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(548, 449);
+            this.ClientSize = new System.Drawing.Size(655, 449);
             this.Controls.Add(this.lblCategoryFilter);
             this.Controls.Add(this.cbCategoryFilter);
             this.Controls.Add(this.btnNewProductClicked);
@@ -220,11 +224,11 @@
         public System.Windows.Forms.DataGridView dgvProductList;
         public System.Windows.Forms.Button btnRestock;
         private System.Windows.Forms.GroupBox gpWorkplaceSelect;
+        public System.Windows.Forms.ComboBox cbCategoryFilter;
+        private System.Windows.Forms.Label lblCategoryFilter;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn selling_price;
         private System.Windows.Forms.DataGridViewTextBoxColumn category;
-        public System.Windows.Forms.ComboBox cbCategoryFilter;
-        private System.Windows.Forms.Label lblCategoryFilter;
     }
 }

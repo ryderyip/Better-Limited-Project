@@ -563,7 +563,6 @@
     </Compile>
     <Compile Include="Tools\CommonInformationVerifier.cs" />
     <Compile Include="Tools\StringHelper.cs" />
-    <Compile Include="Tools\ISearchable.cs" />
     <Compile Include="Tools\Pager.cs" />
     <Compile Include="Tools\ToolTipGenerator.cs" />
     <EmbeddedResource Include="CustomerRecord\CreateCustomerRecordForm.resx" />

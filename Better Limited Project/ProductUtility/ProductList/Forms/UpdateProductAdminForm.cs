@@ -24,13 +24,30 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
         
         private void btnUpdateInfo_Click(object sender, EventArgs e)
         {
+            var verifier = new ProductCreationDataVerifier();
+            string name = tbNewName.Text.Trim();
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                MessageBox.Show("Please fill in the product name!");
+                return;
+            }
+
+            if (!verifier.IsNameUnique(name) && name != _stock.Product.Name)
+            {
+                MessageBox.Show($"Name \"{name}\" already exists. Please choose another one.");
+                return;
+            }
+            
             decimal newSellingPrice = nudNewSellingPirce.Value;
+            decimal newOriginalPrice = nudNewOriginalPrice.Value;
             int newReorderLevel = (int) nudNewReorderLevel.Value;
             int newStockLevel = (int) nudNewStockLevel.Value;
             bool phasingOut = rbPhasingOutOn.Checked;
 
             if (_stock is RetailStoreStock retailStoreStock)
                 retailStoreStock.SellingPrice = newSellingPrice;
+            _stock.Product.OriginalPrice = newOriginalPrice;
+            _stock.Product.Name = name;
             _stock.RestockLevel = newReorderLevel;
             _stock.Product.IsPhasingOut = phasingOut;
             _stock.Quantity = newStockLevel;
