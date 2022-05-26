@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Windows.Forms;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.ProductUtility.ProductList.PermissionManagement;
+using Better_Limited_Project.Tools;
 
 namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 {
@@ -20,7 +21,13 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
         {
             _productStock = productStock;
             StartPosition = FormStartPosition.CenterScreen;
+            
             InitializeComponent();
+            Load += (_, _) =>
+            {
+                if (!ProductPermissionManager.CanCurrentStaffEditPhasingOut())
+                    DisablePhasingOutEdit();
+            };
         }
 
         private void OnFormShown(object sender, EventArgs e)
@@ -37,13 +44,8 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             nudNewStockLevel.DecimalPlaces = 0;
             nudNewStockLevel.Increment = 1;
 
-            if (ProductInfoEditPermissionManager.GetCurrentStaffPermission()
-                is ProductInfoEditPermission.AllowUpdatePrice)
-            {
-                rbPhasingOutOn.Enabled = false;
-                rbPhasingOutOff.Enabled = false;
-                nudNewReorderLevel.Enabled = false;
-            }
+            /*if (!ProductPermissionManager.CanCurrentStaffEditPhasingOut())
+                DisablePhasingOutEdit();*/
 
             FillFields();
         }
@@ -99,6 +101,12 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             lblSellingPrice.Visible = false;
             lblNewSellingPrice.Visible = false;
             nudNewSellingPirce.Visible = false;
+        }
+        
+        private void DisablePhasingOutEdit()
+        {
+            rbPhasingOutOn.Enabled = false;
+            rbPhasingOutOff.Enabled = false;
         }
     }
 }

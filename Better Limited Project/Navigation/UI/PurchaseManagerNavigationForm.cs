@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Better_Limited_Project.FormControlling;
+using Better_Limited_Project.ProductUtility.ProductList.Forms;
 using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 using Better_Limited_Project.StaffUtility.StaffProfile;
@@ -46,7 +47,8 @@ namespace Better_Limited_Project.Navigation.UI
 
         private void btnProductList_Click(object sender, EventArgs e)
         {
-            throw new System.NotImplementedException();
+            var form = new ProductListForm();
+            _formController.OpenContentForm(form);
         }
     }
 }

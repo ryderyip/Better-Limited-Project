@@ -22,13 +22,12 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
         private void OnShown(object sender, EventArgs e)
         {
             RefreshProductInfo();
-            if (ProductInfoEditPermissionManager.GetCurrentStaffPermission()
-                is ProductInfoEditPermission.None)
+            if (!ProductPermissionManager.CanCurrentStaffEditSellingPrice())
                 btnUpdateProductInfo.Visible = false;
-            if (ProductInfoEditPermissionManager.GetCurrentStaffPermission()
-                is not ProductInfoEditPermission.AllowUpdateAll)
+            if (!ProductPermissionManager.CanCurrentStaffEditProductOriginalInformation())
                 btnEditDescription.Visible = false;
-
+            if (!ProductPermissionManager.CanCurrentStaffRemoveProduct())
+                btnRemoveProduct.Visible = false;
         }
 
         private void FillAllFields()
@@ -71,11 +70,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 
         private void btnUpdateProductInfo_Click(object sender, EventArgs e)
         {
-            var permission = ProductInfoEditPermissionManager.GetCurrentStaffPermission();
-            if (permission is ProductInfoEditPermission.None)
-                return;
-
-            IUpdateProductForm form = permission is ProductInfoEditPermission.AllowUpdateAll
+            IUpdateProductForm form = ProductPermissionManager.CanCurrentStaffEditProductOriginalInformation()
                 ? new UpdateProductAdminForm(_stock)
                 : new UpdateProductForm(_stock);
             form.ProductUpdated += (_, _) => RefreshProductInfo();

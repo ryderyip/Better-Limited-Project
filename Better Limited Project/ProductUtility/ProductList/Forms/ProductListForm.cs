@@ -36,11 +36,10 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 
         private void Initialize()
         {
-            var currentStaffCanCreateProduct = ProductPermissionManager.CanCurrentStaffCreateProduct();
-            if (currentStaffCanCreateProduct)
+            if (ProductPermissionManager.CanCurrentStaffCreateProduct())
                 btnNewProductClicked.Visible = true;
 
-            if (_currentStaff.Department is Department.Admin or Department.Accounting)
+            if (ProductPermissionManager.CanCurrentStaffSwitchWorkplaceInProductList())
             {
                 gpWorkplaceSelect.Visible = true;
                 _workplaces.ForEach(workplace => cbWorkplaceSelect.Items.Add(workplace.Name));
@@ -58,22 +57,29 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
         private void PopulateProductDgv(List<IStock> stocks)
         {
             dgvProductList.Rows.Clear();
-
-            if (_currentStaff.Department is Department.Sales
-                || GetSelectedWorkplace() is RetailStore)
-            {
-                dgvProductList.Columns["selling_price"]!.Visible = true;
-                stocks.Cast<RetailStoreStock>().ToList()
-                    .ForEach(stock => dgvProductList.Rows.Add(stock.Product.Name,
-                        stock.Quantity, stock.SellingPrice == decimal.Zero ? "-" : stock.SellingPrice.ToString("C", new CultureInfo("zh-HK")), 
-                        stock.Product.Category.Name));
-            }
+            if (_currentStaff.Department is Department.Sales)
+                PopulateProductDgvWithSellingPrice(stocks);
             else
-            {
-                dgvProductList.Columns["selling_price"]!.Visible = false;
-                stocks.ForEach(stock => dgvProductList.Rows.Add(stock.Product.Name,
-                    stock.Quantity, 0, stock.Product.Category.Name));
-            }
+                PopulateProductDgvNoSellingPrice(stocks);
+        }
+
+        private void PopulateProductDgvNoSellingPrice(List<IStock> stocks)
+        {
+            dgvProductList.Columns["selling_price"]!.Visible = false;
+            stocks.ForEach(stock => dgvProductList.Rows.Add(stock.Product.Name,
+                stock.Quantity, 0, stock.Product.Category.Name));
+        }
+
+        private void PopulateProductDgvWithSellingPrice(List<IStock> stocks)
+        {
+            dgvProductList.Columns["selling_price"]!.Visible = true;
+            stocks.Cast<RetailStoreStock>().ToList()
+                .ForEach(stock => dgvProductList.Rows.Add(stock.Product.Name,
+                    stock.Quantity,
+                    stock.SellingPrice == decimal.Zero
+                        ? "-"
+                        : stock.SellingPrice.ToString("C", new CultureInfo("zh-HK")),
+                    stock.Product.Category.Name));
         }
 
         private IWorkplace GetSelectedWorkplace()
@@ -131,10 +137,10 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 
         private List<IStock> GetFilteredStock()
         {
-            _stocks = _currentStaff.Department is Department.Sales
+            _stocks = _currentStaff.Department is Department.Sales or Department.Inventory
                 ? _stocks
                 : StockRepository.GetStocks(GetSelectedWorkplace().Id).ToList();
-            
+
             string keyword = tbSearchBox.Text.ToLower();
 
             if (cbCategoryFilter.SelectedItem == null)

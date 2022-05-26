@@ -565,6 +565,7 @@
     <Compile Include="Tools\StringHelper.cs" />
     <Compile Include="Tools\ISearchable.cs" />
     <Compile Include="Tools\Pager.cs" />
+    <Compile Include="Tools\ToolTipGenerator.cs" />
     <EmbeddedResource Include="CustomerRecord\CreateCustomerRecordForm.resx" />
     <EmbeddedResource Include="CustomerRecord\CustomerDetailsForm.resx">
       <DependentUpon>CustomerDetailsForm.cs</DependentUpon>

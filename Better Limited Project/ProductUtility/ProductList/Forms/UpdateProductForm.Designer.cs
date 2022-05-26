@@ -183,7 +183,7 @@
             // 
             // nudNewStockLevel
             // 
-            this.nudNewStockLevel.Location = new System.Drawing.Point(554, 313);
+            this.nudNewStockLevel.Location = new System.Drawing.Point(554, 179);
             this.nudNewStockLevel.Name = "nudNewStockLevel";
             this.nudNewStockLevel.Size = new System.Drawing.Size(70, 20);
             this.nudNewStockLevel.TabIndex = 98;
@@ -192,7 +192,7 @@
             // 
             this.lblNewStockLevel.AutoSize = true;
             this.lblNewStockLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewStockLevel.Location = new System.Drawing.Point(452, 313);
+            this.lblNewStockLevel.Location = new System.Drawing.Point(452, 179);
             this.lblNewStockLevel.Name = "lblNewStockLevel";
             this.lblNewStockLevel.Size = new System.Drawing.Size(100, 15);
             this.lblNewStockLevel.TabIndex = 97;
@@ -200,14 +200,14 @@
             // 
             // nudNewReorderLevel
             // 
-            this.nudNewReorderLevel.Location = new System.Drawing.Point(554, 266);
+            this.nudNewReorderLevel.Location = new System.Drawing.Point(554, 268);
             this.nudNewReorderLevel.Name = "nudNewReorderLevel";
             this.nudNewReorderLevel.Size = new System.Drawing.Size(70, 20);
             this.nudNewReorderLevel.TabIndex = 94;
             // 
             // nudNewSellingPirce
             // 
-            this.nudNewSellingPirce.Location = new System.Drawing.Point(554, 179);
+            this.nudNewSellingPirce.Location = new System.Drawing.Point(554, 315);
             this.nudNewSellingPirce.Name = "nudNewSellingPirce";
             this.nudNewSellingPirce.Size = new System.Drawing.Size(114, 20);
             this.nudNewSellingPirce.TabIndex = 93;
@@ -215,7 +215,7 @@
             // rbPhasingOutOn
             // 
             this.rbPhasingOutOn.AutoSize = true;
-            this.rbPhasingOutOn.Location = new System.Drawing.Point(554, 222);
+            this.rbPhasingOutOn.Location = new System.Drawing.Point(554, 224);
             this.rbPhasingOutOn.Name = "rbPhasingOutOn";
             this.rbPhasingOutOn.Size = new System.Drawing.Size(39, 17);
             this.rbPhasingOutOn.TabIndex = 92;
@@ -226,7 +226,7 @@
             // rbPhasingOutOff
             // 
             this.rbPhasingOutOff.AutoSize = true;
-            this.rbPhasingOutOff.Location = new System.Drawing.Point(599, 222);
+            this.rbPhasingOutOff.Location = new System.Drawing.Point(599, 224);
             this.rbPhasingOutOff.Name = "rbPhasingOutOff";
             this.rbPhasingOutOff.Size = new System.Drawing.Size(39, 17);
             this.rbPhasingOutOff.TabIndex = 91;
@@ -238,7 +238,7 @@
             // 
             this.lblNewPhasingOut.AutoSize = true;
             this.lblNewPhasingOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewPhasingOut.Location = new System.Drawing.Point(476, 222);
+            this.lblNewPhasingOut.Location = new System.Drawing.Point(476, 224);
             this.lblNewPhasingOut.Name = "lblNewPhasingOut";
             this.lblNewPhasingOut.Size = new System.Drawing.Size(76, 15);
             this.lblNewPhasingOut.TabIndex = 90;
@@ -248,7 +248,7 @@
             // 
             this.lblNewReorderLevel.AutoSize = true;
             this.lblNewReorderLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewReorderLevel.Location = new System.Drawing.Point(437, 266);
+            this.lblNewReorderLevel.Location = new System.Drawing.Point(437, 268);
             this.lblNewReorderLevel.Name = "lblNewReorderLevel";
             this.lblNewReorderLevel.Size = new System.Drawing.Size(115, 15);
             this.lblNewReorderLevel.TabIndex = 89;
@@ -258,7 +258,7 @@
             // 
             this.lblNewSellingPrice.AutoSize = true;
             this.lblNewSellingPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewSellingPrice.Location = new System.Drawing.Point(445, 179);
+            this.lblNewSellingPrice.Location = new System.Drawing.Point(445, 315);
             this.lblNewSellingPrice.Name = "lblNewSellingPrice";
             this.lblNewSellingPrice.Size = new System.Drawing.Size(107, 15);
             this.lblNewSellingPrice.TabIndex = 88;
