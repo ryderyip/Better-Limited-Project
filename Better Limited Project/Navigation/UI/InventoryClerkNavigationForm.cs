@@ -3,7 +3,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.ProductUtility.ProductList;
-using Better_Limited_Project.ProductUtility.ProductList.Controller;
+using Better_Limited_Project.ProductUtility.ProductList.Forms;
 using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 using Better_Limited_Project.StaffUtility.StaffProfile;
@@ -89,8 +89,8 @@ namespace Better_Limited_Project.Navigation.UI
                 MessageBox.Show("Please select your current warehouse before access this feature!");
                 return;
             }
-            var controller = ProductListControllerFactory.Generate();
-            controller.OpenForm(_formController);
+            var form = new ProductListForm();
+            _formController.OpenContentForm(form);
         }
 
         private void btnDeliveryDuty_Click(object sender, EventArgs e)

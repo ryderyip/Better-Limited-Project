@@ -31,35 +31,44 @@ namespace Better_Limited_Project.Navigation.UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnProductList = new System.Windows.Forms.Button();
-            this.lblLoggedInAs = new System.Windows.Forms.Label();
-            this.btnProfile = new System.Windows.Forms.Button();
-            this.btnSupplier = new System.Windows.Forms.Button();
-            this.btnSettings = new System.Windows.Forms.Button();
             this.btnStaff = new System.Windows.Forms.Button();
+            this.btnSettings = new System.Windows.Forms.Button();
+            this.btnSupplier = new System.Windows.Forms.Button();
+            this.btnProfile = new System.Windows.Forms.Button();
+            this.lblLoggedInAs = new System.Windows.Forms.Label();
+            this.btnProductList = new System.Windows.Forms.Button();
             this.btnCustomer = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btnProductList
+            // btnStaff
             // 
-            this.btnProductList.Location = new System.Drawing.Point(40, 200);
-            this.btnProductList.Name = "btnProductList";
-            this.btnProductList.Size = new System.Drawing.Size(111, 34);
-            this.btnProductList.TabIndex = 32;
-            this.btnProductList.Text = "Product List";
-            this.btnProductList.UseVisualStyleBackColor = true;
-            this.btnProductList.Click += new System.EventHandler(this.btnProductList_Click);
+            this.btnStaff.Location = new System.Drawing.Point(40, 160);
+            this.btnStaff.Name = "btnStaff";
+            this.btnStaff.Size = new System.Drawing.Size(111, 34);
+            this.btnStaff.TabIndex = 24;
+            this.btnStaff.Text = "Staff";
+            this.btnStaff.UseVisualStyleBackColor = true;
+            this.btnStaff.Click += new System.EventHandler(this.btnStaff_Click);
             // 
-            // lblLoggedInAs
+            // btnSettings
             // 
-            this.lblLoggedInAs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblLoggedInAs.ForeColor = System.Drawing.Color.Red;
-            this.lblLoggedInAs.Location = new System.Drawing.Point(27, 9);
-            this.lblLoggedInAs.Name = "lblLoggedInAs";
-            this.lblLoggedInAs.Size = new System.Drawing.Size(135, 43);
-            this.lblLoggedInAs.TabIndex = 29;
-            this.lblLoggedInAs.Text = "ADMIN MODE\r\nLogged in as";
-            this.lblLoggedInAs.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSettings.Location = new System.Drawing.Point(40, 280);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(111, 34);
+            this.btnSettings.TabIndex = 26;
+            this.btnSettings.Text = "Settings";
+            this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
+            // 
+            // btnSupplier
+            // 
+            this.btnSupplier.Location = new System.Drawing.Point(40, 240);
+            this.btnSupplier.Name = "btnSupplier";
+            this.btnSupplier.Size = new System.Drawing.Size(111, 34);
+            this.btnSupplier.TabIndex = 27;
+            this.btnSupplier.Text = "Supplier";
+            this.btnSupplier.UseVisualStyleBackColor = true;
+            this.btnSupplier.Click += new System.EventHandler(this.btnSupplier_Click);
             // 
             // btnProfile
             // 
@@ -73,35 +82,26 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnProfile.UseVisualStyleBackColor = true;
             this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
             // 
-            // btnSupplier
+            // lblLoggedInAs
             // 
-            this.btnSupplier.Location = new System.Drawing.Point(40, 240);
-            this.btnSupplier.Name = "btnSupplier";
-            this.btnSupplier.Size = new System.Drawing.Size(111, 34);
-            this.btnSupplier.TabIndex = 27;
-            this.btnSupplier.Text = "Supplier";
-            this.btnSupplier.UseVisualStyleBackColor = true;
-            this.btnSupplier.Click += new System.EventHandler(this.btnSupplier_Click);
+            this.lblLoggedInAs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblLoggedInAs.ForeColor = System.Drawing.Color.Red;
+            this.lblLoggedInAs.Location = new System.Drawing.Point(27, 9);
+            this.lblLoggedInAs.Name = "lblLoggedInAs";
+            this.lblLoggedInAs.Size = new System.Drawing.Size(135, 43);
+            this.lblLoggedInAs.TabIndex = 29;
+            this.lblLoggedInAs.Text = "ADMIN MODE\r\nLogged in as";
+            this.lblLoggedInAs.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnSettings
+            // btnProductList
             // 
-            this.btnSettings.Location = new System.Drawing.Point(40, 280);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(111, 34);
-            this.btnSettings.TabIndex = 26;
-            this.btnSettings.Text = "Settings";
-            this.btnSettings.UseVisualStyleBackColor = true;
-            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
-            // 
-            // btnStaff
-            // 
-            this.btnStaff.Location = new System.Drawing.Point(40, 160);
-            this.btnStaff.Name = "btnStaff";
-            this.btnStaff.Size = new System.Drawing.Size(111, 34);
-            this.btnStaff.TabIndex = 24;
-            this.btnStaff.Text = "Staff";
-            this.btnStaff.UseVisualStyleBackColor = true;
-            this.btnStaff.Click += new System.EventHandler(this.btnStaff_Click);
+            this.btnProductList.Location = new System.Drawing.Point(40, 200);
+            this.btnProductList.Name = "btnProductList";
+            this.btnProductList.Size = new System.Drawing.Size(111, 34);
+            this.btnProductList.TabIndex = 32;
+            this.btnProductList.Text = "Product List";
+            this.btnProductList.UseVisualStyleBackColor = true;
+            this.btnProductList.Click += new System.EventHandler(this.btnProductList_Click);
             // 
             // btnCustomer
             // 
@@ -117,6 +117,7 @@ namespace Better_Limited_Project.Navigation.UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(195, 450);
             this.Controls.Add(this.btnCustomer);
             this.Controls.Add(this.btnProductList);
@@ -125,20 +126,18 @@ namespace Better_Limited_Project.Navigation.UI
             this.Controls.Add(this.btnSupplier);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.btnStaff);
+            this.Location = new System.Drawing.Point(15, 15);
             this.Name = "AdminNavigationForm";
-            this.Text = "AdminNavigationForm";
             this.ResumeLayout(false);
         }
 
-        private System.Windows.Forms.Button btnCustomer;
-
-        private System.Windows.Forms.Button btnSupplier;
-
-        private System.Windows.Forms.Button btnProductList;
-        private System.Windows.Forms.Label lblLoggedInAs;
-        private System.Windows.Forms.Button btnProfile;
         private System.Windows.Forms.Button btnStaff;
         private System.Windows.Forms.Button btnSettings;
+        private System.Windows.Forms.Button btnSupplier;
+        private System.Windows.Forms.Button btnProfile;
+        private System.Windows.Forms.Label lblLoggedInAs;
+        private System.Windows.Forms.Button btnProductList;
+        private System.Windows.Forms.Button btnCustomer;
 
         #endregion
     }

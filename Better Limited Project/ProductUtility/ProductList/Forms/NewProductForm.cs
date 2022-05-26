@@ -10,6 +10,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 {
     public partial class NewProductForm : Form
     {
+        public event EventHandler? ProductCreated;
         private const int MaximumDescriptionLength = 1200;
         private readonly List<Category> _categories;
         private readonly List<SupplierEntity> _suppliers;
@@ -35,7 +36,6 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
         private void btnCreate_Click(object sender, EventArgs e)
         {
             var verifier = new ProductCreationDataVerifier();
-            string id = tbId.Text;
             string name = tbName.Text;
             decimal price = nudPrice.Value;
             string description = tbDescription.Text;
@@ -46,18 +46,6 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             if (!IsAllFieldsFilled())
             {
                 MessageBox.Show("Please fill all fields!");
-                return;
-            }
-
-            if (!verifier.IsIdValid(id))
-            {
-                MessageBox.Show($"Id \"{id}\" is not valid. Id must contain at least 4 English characters or numbers.");
-                return;
-            }
-
-            if (!verifier.IsIdUnique(id))
-            {
-                MessageBox.Show($"Id \"{id}\" already exists. Please choose another one.");
                 return;
             }
 
@@ -74,21 +62,20 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
                 return;
             }
 
-            ProductRepository.CreateNewProduct(id, name, price, description, isPhasingOut,
+            ProductRepository.CreateNewProduct(name, price, description, isPhasingOut,
                 selectedCategoryId, selectedSupplierId);
             
+            ProductCreated?.Invoke(this, EventArgs.Empty);
             Close();
         }
 
         private bool IsAllFieldsFilled()
         {
-            string id = tbId.Text;
             string name = tbName.Text;
             decimal price = nudPrice.Value;
             string description = tbDescription.Text;
 
-            return id.Length != 0
-                   && name.Length != 0
+            return name.Length != 0
                    && price != decimal.Zero
                    && description.Length != 0;
         }

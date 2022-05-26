@@ -15,16 +15,6 @@ namespace Better_Limited_Project.ProductUtility.ProductList
             _products = ProductRepository.GetProducts().ToList();
         }
 
-        public bool IsIdValid(string id)
-        {
-            return id.Length >= 4 && Regex.IsMatch(id, "^[a-zA-Z0-9_]*$");
-        }
-
-        public bool IsIdUnique(string id)
-        {
-            return _products.All(product => product.Id != id);
-        }
-
         public bool IsNameValid(string name)
         {
             return name.Length >= 4 && Regex.IsMatch(name, "^[a-zA-Z0-9_ ]*$");

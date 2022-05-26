@@ -51,7 +51,7 @@ namespace Better_Limited_Project.ProductUtility.Repository
             var dataTable = DataTableRepository.RetrieveDataTable(command);
 
             return from DataRow row in dataTable.Rows
-                let productId = row.Field<string>("product_id")
+                let productId = row.Field<int>("product_id").ToString()
                 let productName = row.Field<string>("name")
                 let originalPrice = row.Field<decimal>("original_price")
                 let desc = row.Field<string>("description")
@@ -90,7 +90,7 @@ namespace Better_Limited_Project.ProductUtility.Repository
             var dataTable = DataTableRepository.RetrieveDataTable(command);
 
             return from DataRow row in dataTable.Rows
-                let productId = row.Field<string>("product_id")
+                let productId = row.Field<int>("product_id").ToString()
                 let productName = row.Field<string>("name")
                 let originalPrice = row.Field<decimal>("original_price")
                 let desc = row.Field<string>("description")
@@ -102,20 +102,6 @@ namespace Better_Limited_Project.ProductUtility.Repository
                 let restockLevel = row.Field<int>("restock_level")
                 let warehouse = WarehouseRepository.GetWarehouseById(row.Field<string>("warehouse_id"))
                 select new WarehouseStock(product, warehouse, quantity, restockLevel);
-        }
-        
-        /// <summary>
-        /// Get the stock of a particular product from the specified retail store
-        /// </summary>
-        public static RetailStoreStock GetProductStockFromRetailStore(string productId, string retailStoreId)
-        {
-            return GetRetailStoreStocks(retailStoreId)
-                .First(stock => stock.Product.Id == productId);
-        }
-
-        public static WarehouseStock GetProductStockFromWarehouse(string productId, string warehouseId)
-        {
-            return GetWarehouseStocks(warehouseId).First(stock => stock.Product.Id == productId);
         }
 
         public static void UpdateStock(IStock stock)

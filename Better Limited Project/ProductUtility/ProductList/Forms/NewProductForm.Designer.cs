@@ -33,8 +33,6 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
         {
             this.lblNewProduct = new System.Windows.Forms.Label();
             this.btnCreate = new System.Windows.Forms.Button();
-            this.lblProductID = new System.Windows.Forms.Label();
-            this.tbId = new System.Windows.Forms.TextBox();
             this.lblPrice = new System.Windows.Forms.Label();
             this.nudPrice = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,13 +44,13 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             this.cbSupplier = new System.Windows.Forms.ComboBox();
             this.lblSupplier = new System.Windows.Forms.Label();
             this.lblAlertText = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize) (this.nudPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPrice)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNewProduct
             // 
             this.lblNewProduct.AutoSize = true;
-            this.lblNewProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblNewProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNewProduct.Location = new System.Drawing.Point(330, 18);
             this.lblNewProduct.Name = "lblNewProduct";
             this.lblNewProduct.Size = new System.Drawing.Size(148, 26);
@@ -62,7 +60,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // btnCreate
             // 
             this.btnCreate.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreate.ForeColor = System.Drawing.SystemColors.Window;
             this.btnCreate.Location = new System.Drawing.Point(311, 374);
             this.btnCreate.Name = "btnCreate";
@@ -72,28 +70,11 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             this.btnCreate.UseVisualStyleBackColor = false;
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
-            // lblProductID
-            // 
-            this.lblProductID.AutoSize = true;
-            this.lblProductID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblProductID.Location = new System.Drawing.Point(318, 96);
-            this.lblProductID.Name = "lblProductID";
-            this.lblProductID.Size = new System.Drawing.Size(67, 15);
-            this.lblProductID.TabIndex = 65;
-            this.lblProductID.Text = "Product ID:";
-            // 
-            // tbId
-            // 
-            this.tbId.Location = new System.Drawing.Point(391, 95);
-            this.tbId.Name = "tbId";
-            this.tbId.Size = new System.Drawing.Size(120, 20);
-            this.tbId.TabIndex = 66;
-            // 
             // lblPrice
             // 
             this.lblPrice.AutoSize = true;
-            this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblPrice.Location = new System.Drawing.Point(347, 169);
+            this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrice.Location = new System.Drawing.Point(348, 151);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(38, 15);
             this.lblPrice.TabIndex = 67;
@@ -102,8 +83,12 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // nudPrice
             // 
             this.nudPrice.DecimalPlaces = 2;
-            this.nudPrice.Location = new System.Drawing.Point(391, 169);
-            this.nudPrice.Maximum = new decimal(new int[] {10000000, 0, 0, 0});
+            this.nudPrice.Location = new System.Drawing.Point(392, 151);
+            this.nudPrice.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
             this.nudPrice.Name = "nudPrice";
             this.nudPrice.Size = new System.Drawing.Size(120, 20);
             this.nudPrice.TabIndex = 76;
@@ -112,8 +97,8 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label2.Location = new System.Drawing.Point(296, 133);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(297, 115);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 15);
             this.label2.TabIndex = 78;
@@ -121,16 +106,16 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(391, 132);
+            this.tbName.Location = new System.Drawing.Point(392, 114);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(120, 20);
-            this.tbName.TabIndex = 79;
+            this.tbName.TabIndex = 75;
             // 
             // lblDescription
             // 
             this.lblDescription.AutoSize = true;
-            this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblDescription.Location = new System.Drawing.Point(268, 205);
+            this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescription.Location = new System.Drawing.Point(269, 187);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(117, 15);
             this.lblDescription.TabIndex = 80;
@@ -138,7 +123,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // 
             // tbDescription
             // 
-            this.tbDescription.Location = new System.Drawing.Point(391, 204);
+            this.tbDescription.Location = new System.Drawing.Point(392, 186);
             this.tbDescription.Multiline = true;
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.Size = new System.Drawing.Size(225, 56);
@@ -146,8 +131,9 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // 
             // cbCategory
             // 
+            this.cbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCategory.FormattingEnabled = true;
-            this.cbCategory.Location = new System.Drawing.Point(391, 275);
+            this.cbCategory.Location = new System.Drawing.Point(392, 257);
             this.cbCategory.Name = "cbCategory";
             this.cbCategory.Size = new System.Drawing.Size(120, 21);
             this.cbCategory.TabIndex = 82;
@@ -155,8 +141,8 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // lblCategory
             // 
             this.lblCategory.AutoSize = true;
-            this.lblCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblCategory.Location = new System.Drawing.Point(327, 276);
+            this.lblCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategory.Location = new System.Drawing.Point(328, 258);
             this.lblCategory.Name = "lblCategory";
             this.lblCategory.Size = new System.Drawing.Size(58, 15);
             this.lblCategory.TabIndex = 83;
@@ -164,8 +150,9 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // 
             // cbSupplier
             // 
+            this.cbSupplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSupplier.FormattingEnabled = true;
-            this.cbSupplier.Location = new System.Drawing.Point(391, 312);
+            this.cbSupplier.Location = new System.Drawing.Point(392, 294);
             this.cbSupplier.Name = "cbSupplier";
             this.cbSupplier.Size = new System.Drawing.Size(120, 21);
             this.cbSupplier.TabIndex = 84;
@@ -173,8 +160,8 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // lblSupplier
             // 
             this.lblSupplier.AutoSize = true;
-            this.lblSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblSupplier.Location = new System.Drawing.Point(329, 313);
+            this.lblSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSupplier.Location = new System.Drawing.Point(330, 295);
             this.lblSupplier.Name = "lblSupplier";
             this.lblSupplier.Size = new System.Drawing.Size(56, 15);
             this.lblSupplier.TabIndex = 85;
@@ -183,7 +170,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // lblAlertText
             // 
             this.lblAlertText.AutoSize = true;
-            this.lblAlertText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblAlertText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAlertText.Location = new System.Drawing.Point(342, 44);
             this.lblAlertText.Name = "lblAlertText";
             this.lblAlertText.Size = new System.Drawing.Size(136, 15);
@@ -207,21 +194,18 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             this.Controls.Add(this.label2);
             this.Controls.Add(this.nudPrice);
             this.Controls.Add(this.lblPrice);
-            this.Controls.Add(this.tbId);
-            this.Controls.Add(this.lblProductID);
             this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.lblNewProduct);
             this.Location = new System.Drawing.Point(15, 15);
             this.Name = "NewProductForm";
-            ((System.ComponentModel.ISupportInitialize) (this.nudPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPrice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         private System.Windows.Forms.Label lblNewProduct;
         private System.Windows.Forms.Button btnCreate;
-        private System.Windows.Forms.Label lblProductID;
-        private System.Windows.Forms.TextBox tbId;
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.NumericUpDown nudPrice;
         private System.Windows.Forms.Label label2;

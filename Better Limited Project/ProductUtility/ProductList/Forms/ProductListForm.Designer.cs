@@ -28,75 +28,52 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblSearchKeywords = new System.Windows.Forms.Label();
-            this.txtSearchKeywords = new System.Windows.Forms.TextBox();
-            this.btnUpdateStockLevel = new System.Windows.Forms.Button();
+            this.lblSearchBox = new System.Windows.Forms.Label();
+            this.tbSearchBox = new System.Windows.Forms.TextBox();
             this.btnRestock = new System.Windows.Forms.Button();
-            this.txtNoResults = new System.Windows.Forms.Label();
             this.cbWorkplaceSelect = new System.Windows.Forms.ComboBox();
             this.lblWorkplaceSelect = new System.Windows.Forms.Label();
             this.gpWorkplaceSelect = new System.Windows.Forms.GroupBox();
             this.dgvProductList = new System.Windows.Forms.DataGridView();
-            this.btnNewProductClicked = new System.Windows.Forms.Button();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.selling_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnNewProductClicked = new System.Windows.Forms.Button();
+            this.cbCategoryFilter = new System.Windows.Forms.ComboBox();
+            this.lblCategoryFilter = new System.Windows.Forms.Label();
             this.gpWorkplaceSelect.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductList)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblSearchKeywords
+            // lblSearchBox
             // 
-            this.lblSearchKeywords.AutoSize = true;
-            this.lblSearchKeywords.Location = new System.Drawing.Point(25, 28);
-            this.lblSearchKeywords.Name = "lblSearchKeywords";
-            this.lblSearchKeywords.Size = new System.Drawing.Size(192, 13);
-            this.lblSearchKeywords.TabIndex = 0;
-            this.lblSearchKeywords.Text = "Search by Product ID or Product Name";
+            this.lblSearchBox.AutoSize = true;
+            this.lblSearchBox.Location = new System.Drawing.Point(24, 28);
+            this.lblSearchBox.Name = "lblSearchBox";
+            this.lblSearchBox.Size = new System.Drawing.Size(169, 13);
+            this.lblSearchBox.TabIndex = 0;
+            this.lblSearchBox.Text = "Search by Product Name/Supplier";
             // 
-            // txtSearchKeywords
+            // tbSearchBox
             // 
-            this.txtSearchKeywords.Location = new System.Drawing.Point(27, 44);
-            this.txtSearchKeywords.Name = "txtSearchKeywords";
-            this.txtSearchKeywords.Size = new System.Drawing.Size(209, 20);
-            this.txtSearchKeywords.TabIndex = 1;
-            // 
-            // btnUpdateStockLevel
-            // 
-            this.btnUpdateStockLevel.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnUpdateStockLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnUpdateStockLevel.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnUpdateStockLevel.Location = new System.Drawing.Point(349, 28);
-            this.btnUpdateStockLevel.Name = "btnUpdateStockLevel";
-            this.btnUpdateStockLevel.Size = new System.Drawing.Size(160, 40);
-            this.btnUpdateStockLevel.TabIndex = 3;
-            this.btnUpdateStockLevel.Text = "Update Stock Level";
-            this.btnUpdateStockLevel.UseVisualStyleBackColor = false;
-            this.btnUpdateStockLevel.Click += new System.EventHandler(this.btnUpdateStockLevel_Click);
+            this.tbSearchBox.Location = new System.Drawing.Point(27, 44);
+            this.tbSearchBox.Name = "tbSearchBox";
+            this.tbSearchBox.Size = new System.Drawing.Size(205, 20);
+            this.tbSearchBox.TabIndex = 1;
+            this.tbSearchBox.TextChanged += new System.EventHandler(this.tbSearchBox_TextChanged);
             // 
             // btnRestock
             // 
             this.btnRestock.BackColor = System.Drawing.Color.DarkOrange;
             this.btnRestock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnRestock.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnRestock.Location = new System.Drawing.Point(402, 89);
+            this.btnRestock.Location = new System.Drawing.Point(416, 99);
             this.btnRestock.Name = "btnRestock";
             this.btnRestock.Size = new System.Drawing.Size(107, 40);
             this.btnRestock.TabIndex = 4;
             this.btnRestock.Text = "Restock";
             this.btnRestock.UseVisualStyleBackColor = false;
-            // 
-            // txtNoResults
-            // 
-            this.txtNoResults.AutoSize = true;
-            this.txtNoResults.ForeColor = System.Drawing.Color.Red;
-            this.txtNoResults.Location = new System.Drawing.Point(27, 74);
-            this.txtNoResults.Name = "txtNoResults";
-            this.txtNoResults.Size = new System.Drawing.Size(112, 13);
-            this.txtNoResults.TabIndex = 5;
-            this.txtNoResults.Text = "(No Matching Results)";
-            this.txtNoResults.Visible = false;
             // 
             // cbWorkplaceSelect
             // 
@@ -106,6 +83,7 @@
             this.cbWorkplaceSelect.Name = "cbWorkplaceSelect";
             this.cbWorkplaceSelect.Size = new System.Drawing.Size(211, 21);
             this.cbWorkplaceSelect.TabIndex = 6;
+            this.cbWorkplaceSelect.SelectedIndexChanged += new System.EventHandler(this.cbWorkplaceSelect_SelectedIndexChanged);
             // 
             // lblWorkplaceSelect
             // 
@@ -120,7 +98,7 @@
             // 
             this.gpWorkplaceSelect.Controls.Add(this.lblWorkplaceSelect);
             this.gpWorkplaceSelect.Controls.Add(this.cbWorkplaceSelect);
-            this.gpWorkplaceSelect.Location = new System.Drawing.Point(27, 90);
+            this.gpWorkplaceSelect.Location = new System.Drawing.Point(287, 28);
             this.gpWorkplaceSelect.Name = "gpWorkplaceSelect";
             this.gpWorkplaceSelect.Size = new System.Drawing.Size(236, 62);
             this.gpWorkplaceSelect.TabIndex = 8;
@@ -141,23 +119,9 @@
             this.dgvProductList.Name = "dgvProductList";
             this.dgvProductList.ReadOnly = true;
             this.dgvProductList.RowTemplate.Height = 24;
-            this.dgvProductList.Size = new System.Drawing.Size(482, 265);
+            this.dgvProductList.Size = new System.Drawing.Size(496, 265);
             this.dgvProductList.TabIndex = 2;
             this.dgvProductList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductList_CellDoubleClick);
-            // 
-            // btnNewProductClicked
-            // 
-            this.btnNewProductClicked.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnNewProductClicked.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.btnNewProductClicked.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnNewProductClicked.Location = new System.Drawing.Point(349, 98);
-            this.btnNewProductClicked.Name = "btnNewProductClicked";
-            this.btnNewProductClicked.Size = new System.Drawing.Size(76, 54);
-            this.btnNewProductClicked.TabIndex = 9;
-            this.btnNewProductClicked.Text = "New Product";
-            this.btnNewProductClicked.UseVisualStyleBackColor = false;
-            this.btnNewProductClicked.Visible = false;
-            this.btnNewProductClicked.Click += new System.EventHandler(this.btnNewProduct_Click);
             // 
             // name
             // 
@@ -184,20 +148,54 @@
             this.category.HeaderText = "Category";
             this.category.Name = "category";
             this.category.ReadOnly = true;
+            this.category.Width = 120;
+            // 
+            // btnNewProductClicked
+            // 
+            this.btnNewProductClicked.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnNewProductClicked.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewProductClicked.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnNewProductClicked.Location = new System.Drawing.Point(278, 99);
+            this.btnNewProductClicked.Name = "btnNewProductClicked";
+            this.btnNewProductClicked.Size = new System.Drawing.Size(132, 39);
+            this.btnNewProductClicked.TabIndex = 9;
+            this.btnNewProductClicked.Text = "New Product";
+            this.btnNewProductClicked.UseVisualStyleBackColor = false;
+            this.btnNewProductClicked.Visible = false;
+            this.btnNewProductClicked.Click += new System.EventHandler(this.btnNewProduct_Click);
+            // 
+            // cbCategoryFilter
+            // 
+            this.cbCategoryFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCategoryFilter.FormattingEnabled = true;
+            this.cbCategoryFilter.Location = new System.Drawing.Point(27, 118);
+            this.cbCategoryFilter.Name = "cbCategoryFilter";
+            this.cbCategoryFilter.Size = new System.Drawing.Size(147, 21);
+            this.cbCategoryFilter.TabIndex = 8;
+            this.cbCategoryFilter.SelectedIndexChanged += new System.EventHandler(this.cbCategoryFilter_SelectedIndexChanged);
+            // 
+            // lblCategoryFilter
+            // 
+            this.lblCategoryFilter.AutoSize = true;
+            this.lblCategoryFilter.Location = new System.Drawing.Point(24, 102);
+            this.lblCategoryFilter.Name = "lblCategoryFilter";
+            this.lblCategoryFilter.Size = new System.Drawing.Size(89, 13);
+            this.lblCategoryFilter.TabIndex = 10;
+            this.lblCategoryFilter.Text = "Filter By Category";
             // 
             // ProductListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(548, 449);
+            this.Controls.Add(this.lblCategoryFilter);
+            this.Controls.Add(this.cbCategoryFilter);
             this.Controls.Add(this.btnNewProductClicked);
             this.Controls.Add(this.gpWorkplaceSelect);
-            this.Controls.Add(this.txtNoResults);
             this.Controls.Add(this.btnRestock);
-            this.Controls.Add(this.btnUpdateStockLevel);
             this.Controls.Add(this.dgvProductList);
-            this.Controls.Add(this.txtSearchKeywords);
-            this.Controls.Add(this.lblSearchKeywords);
+            this.Controls.Add(this.tbSearchBox);
+            this.Controls.Add(this.lblSearchBox);
             this.KeyPreview = true;
             this.Name = "ProductListForm";
             this.Text = "ProductListForm";
@@ -214,20 +212,19 @@
 
         public System.Windows.Forms.ComboBox cbWorkplaceSelect;
         private System.Windows.Forms.Label lblWorkplaceSelect;
-        public System.Windows.Forms.GroupBox gpWorkplaceSelect;
-
-        private System.Windows.Forms.Label txtNoResults;
 
         #endregion
 
-        private System.Windows.Forms.Label lblSearchKeywords;
-        public System.Windows.Forms.TextBox txtSearchKeywords;
+        private System.Windows.Forms.Label lblSearchBox;
+        public System.Windows.Forms.TextBox tbSearchBox;
         public System.Windows.Forms.DataGridView dgvProductList;
-        private System.Windows.Forms.Button btnUpdateStockLevel;
         public System.Windows.Forms.Button btnRestock;
+        private System.Windows.Forms.GroupBox gpWorkplaceSelect;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn selling_price;
         private System.Windows.Forms.DataGridViewTextBoxColumn category;
+        public System.Windows.Forms.ComboBox cbCategoryFilter;
+        private System.Windows.Forms.Label lblCategoryFilter;
     }
 }

@@ -7,7 +7,7 @@ namespace Better_Limited_Project.ProductUtility.Entity
     {
         public Product Product { get; }
         public IWorkplace Workplace { get; }
-        public int Quantity { get; }
+        public int Quantity { get; set; }
         public int RestockLevel { get; set; }
         public void Update()
         {

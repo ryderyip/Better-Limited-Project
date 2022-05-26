@@ -56,12 +56,13 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             this.tbSupplierPhone = new System.Windows.Forms.TextBox();
             this.tbSupplierEmail = new System.Windows.Forms.TextBox();
             this.btnRemoveProduct = new System.Windows.Forms.Button();
+            this.btnEditDescription = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnUpdateProductInfo
             // 
             this.btnUpdateProductInfo.BackColor = System.Drawing.Color.Salmon;
-            this.btnUpdateProductInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.btnUpdateProductInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateProductInfo.ForeColor = System.Drawing.SystemColors.Window;
             this.btnUpdateProductInfo.Location = new System.Drawing.Point(316, 367);
             this.btnUpdateProductInfo.Name = "btnUpdateProductInfo";
@@ -74,7 +75,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // lblSellingPrice
             // 
             this.lblSellingPrice.AutoSize = true;
-            this.lblSellingPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblSellingPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSellingPrice.Location = new System.Drawing.Point(63, 288);
             this.lblSellingPrice.Name = "lblSellingPrice";
             this.lblSellingPrice.Size = new System.Drawing.Size(79, 15);
@@ -84,7 +85,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // lblOriginalPrice
             // 
             this.lblOriginalPrice.AutoSize = true;
-            this.lblOriginalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblOriginalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOriginalPrice.Location = new System.Drawing.Point(58, 254);
             this.lblOriginalPrice.Name = "lblOriginalPrice";
             this.lblOriginalPrice.Size = new System.Drawing.Size(84, 15);
@@ -94,7 +95,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // lblProductInfo
             // 
             this.lblProductInfo.AutoSize = true;
-            this.lblProductInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblProductInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProductInfo.Location = new System.Drawing.Point(85, 85);
             this.lblProductInfo.Name = "lblProductInfo";
             this.lblProductInfo.Size = new System.Drawing.Size(168, 20);
@@ -120,7 +121,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // lblProductName
             // 
             this.lblProductName.AutoSize = true;
-            this.lblProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProductName.Location = new System.Drawing.Point(286, 24);
             this.lblProductName.Name = "lblProductName";
             this.lblProductName.Size = new System.Drawing.Size(238, 26);
@@ -131,7 +132,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // lblPhasingOut
             // 
             this.lblPhasingOut.AutoSize = true;
-            this.lblPhasingOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblPhasingOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPhasingOut.Location = new System.Drawing.Point(63, 134);
             this.lblPhasingOut.Name = "lblPhasingOut";
             this.lblPhasingOut.Size = new System.Drawing.Size(76, 15);
@@ -157,7 +158,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // lblReorderLevel
             // 
             this.lblReorderLevel.AutoSize = true;
-            this.lblReorderLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblReorderLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblReorderLevel.Location = new System.Drawing.Point(55, 210);
             this.lblReorderLevel.Name = "lblReorderLevel";
             this.lblReorderLevel.Size = new System.Drawing.Size(87, 15);
@@ -175,7 +176,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // lblQuantity
             // 
             this.lblQuantity.AutoSize = true;
-            this.lblQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQuantity.Location = new System.Drawing.Point(29, 170);
             this.lblQuantity.Name = "lblQuantity";
             this.lblQuantity.Size = new System.Drawing.Size(113, 15);
@@ -194,7 +195,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // lblDescription
             // 
             this.lblDescription.AutoSize = true;
-            this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescription.Location = new System.Drawing.Point(368, 85);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(100, 20);
@@ -204,7 +205,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // lblSupplierInFo
             // 
             this.lblSupplierInFo.AutoSize = true;
-            this.lblSupplierInFo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblSupplierInFo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSupplierInFo.Location = new System.Drawing.Point(576, 85);
             this.lblSupplierInFo.Name = "lblSupplierInFo";
             this.lblSupplierInFo.Size = new System.Drawing.Size(172, 20);
@@ -230,7 +231,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // lblSupplierAddress
             // 
             this.lblSupplierAddress.AutoSize = true;
-            this.lblSupplierAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblSupplierAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSupplierAddress.Location = new System.Drawing.Point(596, 263);
             this.lblSupplierAddress.Name = "lblSupplierAddress";
             this.lblSupplierAddress.Size = new System.Drawing.Size(54, 15);
@@ -240,7 +241,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // lblSupplierName
             // 
             this.lblSupplierName.AutoSize = true;
-            this.lblSupplierName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblSupplierName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSupplierName.Location = new System.Drawing.Point(608, 140);
             this.lblSupplierName.Name = "lblSupplierName";
             this.lblSupplierName.Size = new System.Drawing.Size(44, 15);
@@ -250,7 +251,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // lblSupplierEmail
             // 
             this.lblSupplierEmail.AutoSize = true;
-            this.lblSupplierEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblSupplierEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSupplierEmail.Location = new System.Drawing.Point(608, 223);
             this.lblSupplierEmail.Name = "lblSupplierEmail";
             this.lblSupplierEmail.Size = new System.Drawing.Size(42, 15);
@@ -260,7 +261,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // lblSupplierPhone
             // 
             this.lblSupplierPhone.AutoSize = true;
-            this.lblSupplierPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblSupplierPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSupplierPhone.Location = new System.Drawing.Point(604, 185);
             this.lblSupplierPhone.Name = "lblSupplierPhone";
             this.lblSupplierPhone.Size = new System.Drawing.Size(46, 15);
@@ -296,11 +297,25 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             this.btnRemoveProduct.UseVisualStyleBackColor = false;
             this.btnRemoveProduct.Click += new System.EventHandler(this.btnRemoveProduct_Click);
             // 
+            // btnEditDescription
+            // 
+            this.btnEditDescription.BackColor = System.Drawing.Color.LimeGreen;
+            this.btnEditDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditDescription.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnEditDescription.Location = new System.Drawing.Point(642, 367);
+            this.btnEditDescription.Name = "btnEditDescription";
+            this.btnEditDescription.Size = new System.Drawing.Size(133, 54);
+            this.btnEditDescription.TabIndex = 110;
+            this.btnEditDescription.Text = "Edit Description";
+            this.btnEditDescription.UseVisualStyleBackColor = false;
+            this.btnEditDescription.Click += new System.EventHandler(this.btnEditDescription_Click);
+            // 
             // ProductDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnEditDescription);
             this.Controls.Add(this.btnRemoveProduct);
             this.Controls.Add(this.tbSupplierEmail);
             this.Controls.Add(this.tbSupplierPhone);
@@ -331,6 +346,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             this.Shown += new System.EventHandler(this.OnShown);
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         public System.Windows.Forms.Button btnRemoveProduct;
@@ -369,5 +385,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
         private System.Windows.Forms.Label lblQuantity;
 
         #endregion
+
+        private System.Windows.Forms.Button btnEditDescription;
     }
 }

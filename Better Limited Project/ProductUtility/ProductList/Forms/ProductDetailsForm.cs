@@ -10,38 +10,37 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 {
     public partial class ProductDetailsForm : Form
     {
-        private readonly string _productId;
-        private readonly string _workplaceId;
-
-        public event EventHandler? UpdateProductInfoClicked;
-        public event EventHandler? ProductRemoved;
+        public event EventHandler? ProductUpdated;
         private IStock _stock;
-        private readonly ProductInfoEditPermission _infoEditPermission;
 
-        public ProductDetailsForm(string productId, string workplaceId)
+        public ProductDetailsForm(IStock selectedProductStock)
         {
-            _productId = productId;
-            _workplaceId = workplaceId;
-            _stock = GetStock();
-            _infoEditPermission = ProductInfoEditPermissionManager.GetCurrentStaffPermission();
+            _stock = selectedProductStock;
             InitializeComponent();
         }
 
         private void OnShown(object sender, EventArgs e)
         {
             RefreshProductInfo();
-            if (_infoEditPermission is ProductInfoEditPermission.None)
+            if (ProductInfoEditPermissionManager.GetCurrentStaffPermission()
+                is ProductInfoEditPermission.None)
                 btnUpdateProductInfo.Visible = false;
+            if (ProductInfoEditPermissionManager.GetCurrentStaffPermission()
+                is not ProductInfoEditPermission.AllowUpdateAll)
+                btnEditDescription.Visible = false;
+
         }
-        
-        private void SetAllFields()
+
+        private void FillAllFields()
         {
             var product = _stock.Product;
             lblProductName.Text = product.Name;
             tbOriginalPrice.Text = product.OriginalPrice.ToString("C", new CultureInfo("zh-HK"));
 
             if (_stock is RetailStoreStock stock)
-                tbSellingPrice.Text = stock.SellingPrice.ToString("C", new CultureInfo("zh-HK"));
+                tbSellingPrice.Text = stock.SellingPrice is decimal.Zero
+                    ? "-"
+                    : stock.SellingPrice.ToString("C", new CultureInfo("zh-HK"));
             else
                 HideSellingPrice();
 
@@ -63,28 +62,41 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             lblSellingPrice.Visible = false;
         }
 
-        public void RefreshProductInfo()
+        private void RefreshProductInfo()
         {
-            _stock = GetStock();
-            SetAllFields();
-        }
-
-        private IStock GetStock()
-        {
-            return StockRepository.GetStocks(_workplaceId)
-                .First(stock => stock.Product.Id == _productId);
+            _stock = StockRepository.GetStocks(_stock.Workplace.Id)
+                .First(s => s.Product.Id == _stock.Product.Id);
+            FillAllFields();
         }
 
         private void btnUpdateProductInfo_Click(object sender, EventArgs e)
         {
-            UpdateProductInfoClicked?.Invoke(this, e);
+            var permission = ProductInfoEditPermissionManager.GetCurrentStaffPermission();
+            if (permission is ProductInfoEditPermission.None)
+                return;
+
+            IUpdateProductForm form = permission is ProductInfoEditPermission.AllowUpdateAll
+                ? new UpdateProductAdminForm(_stock)
+                : new UpdateProductForm(_stock);
+            form.ProductUpdated += (_, _) => RefreshProductInfo();
+            form.ProductUpdated += (_, _) => ProductUpdated?.Invoke(this, e);
+            form.ShowForm();
         }
 
         private void btnRemoveProduct_Click(object sender, EventArgs e)
         {
             ProductRepository.DeleteProduct(_stock.Product);
-            ProductRemoved?.Invoke(this, EventArgs.Empty);
+            ProductUpdated?.Invoke(this, EventArgs.Empty);
             Close();
+        }
+
+        private void btnEditDescription_Click(object sender, EventArgs e)
+        {
+            var form = new ProductDescriptionEditForm(_stock.Product);
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.DescriptionUpdated += (_, _) => RefreshProductInfo();
+            form.DescriptionUpdated += (_, _) => ProductUpdated?.Invoke(this, e);
+            form.ShowDialog();
         }
     }
 }
