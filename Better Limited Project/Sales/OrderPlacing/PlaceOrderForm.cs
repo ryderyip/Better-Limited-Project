@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.ProductUtility.Entity;
-using Better_Limited_Project.Sales.Sales.OrderPlacing.SalesOrderPager;
+using Better_Limited_Project.Sales.OrderPlacing.SalesOrderPager;
 using Better_Limited_Project.Tools;
 
-namespace Better_Limited_Project.Sales.Sales.OrderPlacing
+namespace Better_Limited_Project.Sales.OrderPlacing
 {
     public partial class PlaceOrderForm : Form
     {

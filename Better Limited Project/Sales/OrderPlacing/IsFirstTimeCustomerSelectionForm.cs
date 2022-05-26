@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using Better_Limited_Project.CustomerRecord;
 using Better_Limited_Project.FormControlling;
 
-namespace Better_Limited_Project.Sales.Sales.OrderPlacing
+namespace Better_Limited_Project.Sales.OrderPlacing
 {
     public partial class IsFirstTimeCustomerSelectionForm : Form
     {

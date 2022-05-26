@@ -1,4 +1,4 @@
-﻿namespace Better_Limited_Project.Sales.Sales.OrderPlacing
+﻿namespace Better_Limited_Project.Sales.OrderPlacing
 {
     partial class FindCustomerRecordForm
     {

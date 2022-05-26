@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace Better_Limited_Project.Sales.Sales.OrderPlacing.SalesOrderPager
+namespace Better_Limited_Project.Sales.OrderPlacing.SalesOrderPager
 {
     public class PlaceOrderItemControlCollection
     {

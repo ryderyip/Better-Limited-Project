@@ -58,7 +58,10 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
         private void PopulateProductDgv(List<IStock> stocks)
         {
             dgvProductList.Rows.Clear();
-            if (_currentStaff.Department is Department.Sales)
+            if (stocks.Count == 0)
+                return;
+            
+            if (stocks.First() is RetailStoreStock)
                 PopulateProductDgvWithSellingPrice(stocks);
             else
                 PopulateProductDgvNoSellingPrice(stocks);

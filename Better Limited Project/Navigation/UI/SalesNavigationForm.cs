@@ -3,7 +3,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.ProductUtility.ProductList.Forms;
-using Better_Limited_Project.Sales.Sales.OrderPlacing;
+using Better_Limited_Project.Sales.OrderPlacing;
 using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 using Better_Limited_Project.StaffUtility.StaffProfile;

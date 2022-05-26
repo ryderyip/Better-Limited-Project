@@ -4,7 +4,7 @@ using System.Linq;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.ProductUtility.Repository;
 
-namespace Better_Limited_Project.Sales.Sales.OrderPlacing
+namespace Better_Limited_Project.Sales.OrderPlacing
 {
     public class Cart // TODO redesign this
     {
@@ -37,8 +37,18 @@ namespace Better_Limited_Project.Sales.Sales.OrderPlacing
         {
             return _quantities.Keys.ToList()
                 .Zip(_quantities.Values.ToList(),
-                    (prodId, qty) => 
-                        new CartItem(_products[prodId], qty, _prices[prodId]));
+                    (prodId, qty) =>
+                    {
+                        var product = _products[prodId];
+                        decimal price = _prices[prodId];
+                        return new CartItem(product, qty, price, IsDeposit(product, qty));
+                    });
+        }
+
+        private bool IsDeposit(Product product, int qtyRequired)
+        {
+            var productStock = _stock.Find(stock => stock.Product.Id == product.Id);
+            return productStock.Quantity < qtyRequired && productStock.SellingPrice >= Product.DepositThreshold;
         }
 
         public void Remove(Product product)
@@ -75,7 +85,7 @@ namespace Better_Limited_Project.Sales.Sales.OrderPlacing
             decimal deposit = GetCartItems()
                 .Where(item => _stock.Find(stock => stock.Product.Id == item.Product.Id)
                         .Quantity == 0)
-                .Sum(item => item.Price * item.Quantity);
+                .Sum(item => item.Price * item.Quantity * Product.DepositPricePercentage);
             decimal ordinary = GetCartItems()
                 .Where(item => _stock.Find(stock => stock.Product.Id == item.Product.Id)
                     .Quantity != 0)
@@ -83,10 +93,12 @@ namespace Better_Limited_Project.Sales.Sales.OrderPlacing
             return deposit + ordinary;
         }
 
-        public bool HasOutOfStockItem()
+        public bool HasNeedDepositItem()
         {
             return GetCartItems().Any(item =>
-                _stock.Any(stock => stock.Product.Id == item.Product.Id && stock.Quantity == 0));
+                _stock.Any(stock => stock.Product.Id == item.Product.Id 
+                                    && stock.Quantity == 0
+                                    && stock.SellingPrice >= Product.DepositThreshold));
         }
     }
 }

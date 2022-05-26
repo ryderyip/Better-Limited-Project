@@ -7,6 +7,8 @@ namespace Better_Limited_Project.ProductUtility.Entity
     {
         public const decimal MaximumPrice = 99_99_999.99m;
         public const decimal MaximumReorderLevel = 999;
+        public const decimal DepositPricePercentage = 0.2m;
+        public const decimal DepositThreshold = 5000;
 
         public string Id { get; }
         public string Name { get; set; }

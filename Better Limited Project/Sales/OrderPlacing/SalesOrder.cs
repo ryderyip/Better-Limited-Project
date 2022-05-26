@@ -1,7 +1,7 @@
 ﻿using Better_Limited_Project.CustomerRecord;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 
-namespace Better_Limited_Project.Sales.Sales.OrderPlacing
+namespace Better_Limited_Project.Sales.OrderPlacing
 {
     public class SalesOrder
     {
