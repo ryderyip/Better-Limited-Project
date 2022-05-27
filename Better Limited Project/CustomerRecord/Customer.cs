@@ -1,23 +1,20 @@
 ﻿namespace Better_Limited_Project.CustomerRecord
 {
-    public class Customer
+    public class Customer : IEntity
     {
+        public string Id { get; set; }
         public string Name { get;  set; }
         public string Phone { get;  set; }
         public string? Email { get; set; }
-        public AddressEntity AddressEntity { get; set; }
-        
-        public Customer(string name, string phone, AddressEntity addressEntity)
+        public Address Address { get; set; }
+
+        public void Save()
         {
-            Name = name;
-            Phone = phone;
-            AddressEntity = addressEntity;
-        }
-        
-        public Customer(string name, string phone, AddressEntity addressEntity, string? email)
-        : this(name, phone, addressEntity)
-        {
-            Email = email;
+            var repo = new CustomerRepository();
+            if (repo.FindById(Id) == null)
+                repo.Insert(this);
+            else
+                repo.Update(this);
         }
     }
 }

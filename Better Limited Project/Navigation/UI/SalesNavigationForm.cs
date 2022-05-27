@@ -74,8 +74,8 @@ namespace Better_Limited_Project.Navigation.UI
         {
             var currentRetailStore = UserSettings.GetSettings().Workplace;
             return currentRetailStore != null
-                   && RetailStoreRepository.GetRetailStores()
-                       .Any(store => store.Name == currentRetailStore.Name);
+                   && new RetailStoreRepository().FindAll(store => store.Id == currentRetailStore.Id)
+                       .Any();
         }
     }
 }

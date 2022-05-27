@@ -75,7 +75,7 @@ namespace Better_Limited_Project.SettingsUtility
         {
             cbWorkplace.Items.Clear();
             List<IWorkplace> workplaces = _staffDepartment == Department.Sales
-                ? RetailStoreRepository.GetRetailStores().Cast<IWorkplace>().ToList()
+                ? new RetailStoreRepository().GetAll().Cast<IWorkplace>().ToList()
                 : WarehouseRepository.GetWarehouses().Cast<IWorkplace>().ToList();
             foreach (var warehouse in workplaces)
                 cbWorkplace.Items.Add(warehouse.Name);
@@ -116,7 +116,7 @@ namespace Better_Limited_Project.SettingsUtility
         {
             string selectedWorkplaceName = cbWorkplace.SelectedItem.ToString();
             return _staffDepartment == Department.Sales
-                ? RetailStoreRepository.GetRetailStores().First(rs => rs.Name == selectedWorkplaceName)
+                ? new RetailStoreRepository().FindAll(rs => ((RetailStore) rs).Name == selectedWorkplaceName).First() 
                 : WarehouseRepository.GetWarehouses().First(w => w.Name == selectedWorkplaceName);
         }
 

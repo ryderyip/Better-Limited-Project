@@ -11,13 +11,13 @@ namespace Better_Limited_Project.Sales.OrderPlacing
     {
         private readonly FormController _formController;
         private readonly Cart _cart;
-        private readonly List<CustomerEntity> _customers;
+        private readonly List<Customer> _customers;
 
         public FindCustomerRecordForm(FormController formController, Cart cart)
         {
             _formController = formController;
             _cart = cart;
-            _customers = CustomerRepository.GetCustomers().ToList();
+            _customers = new CustomerRepository().GetAll().ToList();
             InitializeComponent();
         }
 
@@ -29,23 +29,22 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             var customer = GetSelectedCustomer();
 
 
-            var form = new ConfirmPlacingOrderForm(_cart, customer);
+            var form = new ConfirmPlacingOrderForm(_cart);
             form.StartPosition = FormStartPosition.CenterScreen;
             form.ShowDialog();
         }
 
-        private CustomerEntity GetSelectedCustomer()
+        private Customer GetSelectedCustomer()
         {
             string selectedCustomerPhone = dgvCustomer.SelectedRows[0].Cells["phone"].Value.ToString();
-            return _customers.Find(customer => customer.Customer.Phone == selectedCustomerPhone);
+            return _customers.Find(customer => customer.Phone == selectedCustomerPhone);
         }
 
         private void OnFormShown(object sender, EventArgs e)
         {
-            _customers.ConvertAll(entity => entity.Customer)
-                .ForEach(customer => dgvCustomer.Rows.Add(customer.Name,
-                customer.Phone, customer.Email, customer.AddressEntity.Address.Address1, 
-                customer.AddressEntity.Address.Address2));
+            _customers.ForEach(customer => dgvCustomer.Rows.Add(customer.Name,
+                customer.Phone, customer.Email, customer.Address.Address1,
+                customer.Address.Address2));
         }
 
         private void btnBack_Click(object sender, EventArgs e)

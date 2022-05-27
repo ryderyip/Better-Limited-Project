@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using Better_Limited_Project.DatabaseUtility;
@@ -67,7 +68,7 @@ namespace Better_Limited_Project.ProductUtility.Repository
             var dataTable = DataTableRepository.RetrieveDataTable(command);
             string newProductId = dataTable.Rows[0]["id"].ToString();
             
-            foreach (var retailStore in RetailStoreRepository.GetRetailStores())
+            foreach (var retailStore in new RetailStoreRepository().GetRetailStores())
             {
                 command = new MySqlCommand(@"insert into retail_store_stock (product_id, retail_store_id, quantity)
                     value (@productId, @retailStoreId, @quantity)");
@@ -93,6 +94,11 @@ namespace Better_Limited_Project.ProductUtility.Repository
             var command = new MySqlCommand(@"delete from product where id = @id;");
             command.Parameters.AddWithValue("@id", product.Id);
             DataTableRepository.ExecuteNonQuery(command);
+        }
+
+        public static Product FindById(string productId)
+        {
+            return GetProducts().First(product => product.Id == productId);
         }
     }
 }

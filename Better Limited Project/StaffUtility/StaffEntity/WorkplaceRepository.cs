@@ -7,7 +7,7 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
     {
         public static IEnumerable<IWorkplace> GetWorkplaces()
         {
-            return RetailStoreRepository.GetRetailStores().Cast<IWorkplace>()
+            return new RetailStoreRepository().GetRetailStores().Cast<IWorkplace>()
                 .Concat(WarehouseRepository.GetWarehouses());
         }
     }

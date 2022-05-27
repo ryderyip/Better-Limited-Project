@@ -1,28 +1,25 @@
 ﻿using System;
 using Better_Limited_Project.StaffUtility.StaffEntity.Gender;
-using Better_Limited_Project.Tools;
 
 namespace Better_Limited_Project.StaffUtility.StaffEntity
 {
-    public class Staff
+    public class Staff : IEntity
     {
-        public Staff(string id, string name, DateTime dateOfBirth, DateTime hiredOn, IGender gender, Department department, StaffTitle title)
-        {
-            Id = id;
-            Name = name;
-            DateOfBirth = dateOfBirth;
-            HiredOn = hiredOn;
-            Gender = gender;
-            Department = department;
-            Title = title;
-        }
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public DateTime HiredOn { get; set; }
+        public IGender Gender { get; set; }
+        public Department Department { get; set; }
+        public StaffTitle Title { get; set; }
 
-        public string Id { get; }
-        public string Name { get; }
-        public DateTime DateOfBirth { get; }
-        public DateTime HiredOn { get; }
-        public IGender Gender { get; }
-        public Department Department { get; }
-        public StaffTitle Title { get; }
+        public void Save()
+        {
+            var repo = new StaffRepository();
+            if (repo.FindById(Id) == null)
+                repo.Insert(this);
+            else
+                repo.Update(this);
+        }
     }
 }

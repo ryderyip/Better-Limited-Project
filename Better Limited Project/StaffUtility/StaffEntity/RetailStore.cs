@@ -8,7 +8,7 @@ using Better_Limited_Project.ProductUtility.Repository;
 namespace Better_Limited_Project.StaffUtility.StaffEntity
 {
     [Serializable]
-    public class RetailStore : IWorkplace
+    public class RetailStore : IWorkplace, IEntity
     {
         public string Id { get; }
         public string Name { get; }

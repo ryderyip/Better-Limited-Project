@@ -47,8 +47,8 @@ namespace Better_Limited_Project.Navigation.UI
 
         private void btnStaff_Click(object sender, EventArgs e)
         {
-            var controller = new StaffListController();
-            controller.OpenForm(_formController);
+            var form = new StaffListForm();
+            _formController.OpenContentForm(form);
         }
 
         private void btnCustomer_Click(object sender, EventArgs e)

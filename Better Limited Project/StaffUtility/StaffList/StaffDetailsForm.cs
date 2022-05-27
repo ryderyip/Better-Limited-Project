@@ -14,7 +14,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
 
         public StaffDetailsForm(string staffId)
         {
-            _staff = StaffRepository.GetStaff(staffId);
+            _staff = new StaffRepository().FindById(staffId);
             _staffLoginUsername = GetLoginUsername();
             Shown += (_, _) => FillAllFields();
             InitializeComponent();
@@ -51,7 +51,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
 
         private void RefreshAllFields()
         {
-            _staff = StaffRepository.GetStaff(_staff.Id);
+            _staff = new StaffRepository().FindById(_staff.Id);
             FillAllFields();
         }
 
@@ -79,7 +79,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
 
         private void RemoveStaff()
         {
-            StaffRepository.RemoveStaff(_staff.Id);
+            new StaffRepository().RemoveStaff(_staff.Id);
             Updated?.Invoke(this, EventArgs.Empty);
             Close();
         }

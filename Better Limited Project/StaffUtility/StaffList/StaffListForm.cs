@@ -11,9 +11,9 @@ namespace Better_Limited_Project.StaffUtility.StaffList
     {
         private List<Staff> _staffs;
 
-        public StaffListForm(IEnumerable<Staff> staffs)
+        public StaffListForm()
         {
-            _staffs = staffs.ToList();
+            _staffs = new StaffRepository().GetAll().ToList();
             InitializeComponent();
         }
 
@@ -61,7 +61,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
         private void ReloadStaffList()
         {
             tbSearch.Text = string.Empty;
-            _staffs = StaffRepository.GetStaffs().ToList();
+            _staffs = new StaffRepository().GetAll().ToList();
             PopulateDgvStaff(_staffs);
         }
 

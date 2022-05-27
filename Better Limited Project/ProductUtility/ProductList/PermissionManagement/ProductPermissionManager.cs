@@ -7,7 +7,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.PermissionManagement
     {
         public static bool CanCurrentStaffCreateProduct()
         {
-            var loginStaff = StaffRepository.GetStaff(LoginSession.GetSession().StaffId);
+            var loginStaff = new StaffRepository().FindById(LoginSession.GetSession().StaffId);
             return loginStaff.Title switch
             {
                 StaffTitle.Admin or StaffTitle.PurchaseManager => true,
@@ -22,7 +22,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.PermissionManagement
         
         public static bool CanCurrentStaffSwitchWorkplaceInProductList()
         {
-            var loginStaff = StaffRepository.GetStaff(LoginSession.GetSession().StaffId);
+            var loginStaff = new StaffRepository().FindById(LoginSession.GetSession().StaffId);
             return loginStaff.Department switch
             {
                 Department.Admin or Department.Purchase or Department.Accounting => true,
@@ -32,7 +32,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.PermissionManagement
 
         public static bool CanCurrentStaffEditPhasingOut()
         {
-            var loginStaff = StaffRepository.GetStaff(LoginSession.GetSession().StaffId);
+            var loginStaff = new StaffRepository().FindById(LoginSession.GetSession().StaffId);
             return loginStaff.Department switch
             {
                 Department.Admin or Department.Purchase or Department.Accounting => true,
@@ -42,7 +42,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.PermissionManagement
 
         public static bool CanCurrentStaffEditSellingPrice()
         {
-            var loginStaff = StaffRepository.GetStaff(LoginSession.GetSession().StaffId);
+            var loginStaff = new StaffRepository().FindById(LoginSession.GetSession().StaffId);
             return loginStaff.Title switch
             {
                 StaffTitle.Admin or StaffTitle.PurchaseManager or StaffTitle.AccountingManager

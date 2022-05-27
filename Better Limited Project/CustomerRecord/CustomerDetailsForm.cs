@@ -7,9 +7,9 @@ namespace Better_Limited_Project.CustomerRecord
     public partial class CustomerDetailsForm : Form
     {
         public event EventHandler? Updated;
-        private CustomerEntity _customer;
+        private Customer _customer;
 
-        public CustomerDetailsForm(CustomerEntity customer)
+        public CustomerDetailsForm(Customer customer)
         {
             _customer = customer;
             InitializeComponent();
@@ -18,11 +18,11 @@ namespace Better_Limited_Project.CustomerRecord
 
         private void FillFields()
         {
-            tbname.Text = _customer.Customer.Name;
-            tbPhone.Text = _customer.Customer.Phone;
-            tbEmailAddress.Text = _customer.Customer.Email ?? "-";
-            tbAddress1.Text = _customer.Customer.AddressEntity.Address.Address1;
-            tbAddress2.Text = _customer.Customer.AddressEntity.Address.Address2;
+            tbname.Text = _customer.Name;
+            tbPhone.Text = _customer.Phone;
+            tbEmailAddress.Text = _customer.Email ?? "-";
+            tbAddress1.Text = _customer.Address.Address1;
+            tbAddress2.Text = _customer.Address.Address2;
         }
 
         private void btnUpdateInfo_Click(object sender, EventArgs e)
@@ -36,13 +36,13 @@ namespace Better_Limited_Project.CustomerRecord
 
         private void RefreshAllFields()
         {
-            _customer = CustomerRepository.GetCustomers().First(customer => customer.Id == _customer.Id);
+            _customer = new CustomerRepository().FindAll(customer => customer.Id == _customer.Id).First();
             FillFields();
         }
 
         private void btnRemoveCustomer_Click(object sender, EventArgs e)
         {
-            CustomerRepository.RemoveCustomer(_customer.Id);
+            new CustomerRepository().Delete(_customer);
             Updated?.Invoke(this, EventArgs.Empty);
             Close();
         }

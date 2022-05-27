@@ -87,16 +87,27 @@ namespace Better_Limited_Project.StaffUtility.StaffList
                 return;
             }
 
-            string name = tbName.Text;
+            string name = tbName.Text.Trim();
             IGender gender = rbGenderMale.Checked ? new Male()
                 : rbGenderFemale.Checked ? new Female()
                 : rbGenderNonbinary.Checked ? new NonBinary()
                 : throw new InvalidOperationException("No gender is selected.");
             DateTime dob = dtpDateOfBirth.Value;
-            string id = new StaffIdGenerator().Generate(selectedDepartment);
 
-            StaffRepository.CreateStaff(id, name, dob, gender, selectedDepartment, selectedTitle);
-            StaffAccountRepository.CreateAccount(id, username, password);
+            var staff = new Staff
+            {
+                Id = new StaffIdGenerator().Generate(selectedDepartment),
+                Name = name,
+                DateOfBirth = dob,
+                Gender = gender,
+                Department = selectedDepartment,
+                Title = selectedTitle,
+                HiredOn = DateTime.Now
+            };
+            staff.Save();
+
+            var staffAccount = new StaffAccount(staff.Id, username, password);
+            staffAccount.Save();
             StaffAdded?.Invoke(this, EventArgs.Empty);
             Close();
         }

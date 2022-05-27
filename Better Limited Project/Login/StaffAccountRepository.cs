@@ -40,13 +40,13 @@ namespace Better_Limited_Project.Login
             return staffAccounts;
         }
 
-        public static void CreateAccount(string id, string username, string password)
+        public static void CreateAccount(StaffAccount account)
         {
             var command = new MySqlCommand(
                 "insert into staff_account value (@id, @username, @password);");
-            command.Parameters.AddWithValue("@id", id);
-            command.Parameters.AddWithValue("@username", username);
-            command.Parameters.AddWithValue("@password", password);
+            command.Parameters.AddWithValue("@id", account.StaffId);
+            command.Parameters.AddWithValue("@username", account.Username);
+            command.Parameters.AddWithValue("@password", account.Password);
             DataTableRepository.ExecuteNonQuery(command);
         }
 

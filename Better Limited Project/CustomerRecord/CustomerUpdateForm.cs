@@ -7,9 +7,9 @@ namespace Better_Limited_Project.CustomerRecord
     public partial class CustomerUpdateForm : Form
     {
         public event EventHandler? Updated;
-        private readonly CustomerEntity _customer;
+        private readonly Customer _customer;
 
-        public CustomerUpdateForm(CustomerEntity customer)
+        public CustomerUpdateForm(Customer customer)
         {
             _customer = customer;
             InitializeComponent();
@@ -18,17 +18,17 @@ namespace Better_Limited_Project.CustomerRecord
 
         private void FillFields()
         {
-            tbname.Text = _customer.Customer.Name;
-            tbPhone.Text = _customer.Customer.Phone;
-            tbEmailAddress.Text = _customer.Customer.Email ?? "-";
-            tbAddress1.Text = _customer.Customer.AddressEntity.Address.Address1;
-            tbAddress2.Text = _customer.Customer.AddressEntity.Address.Address2;
+            tbname.Text = _customer.Name;
+            tbPhone.Text = _customer.Phone;
+            tbEmailAddress.Text = _customer.Email ?? "-";
+            tbAddress1.Text = _customer.Address.Address1;
+            tbAddress2.Text = _customer.Address.Address2;
             
-            tbNewName.Text = _customer.Customer.Name;
-            tbNewPhone.Text = _customer.Customer.Phone;
-            tbNewEmail.Text = _customer.Customer.Email ?? string.Empty;
-            tbNewAddress1.Text = _customer.Customer.AddressEntity.Address.Address1;
-            tbNewAddress2.Text = _customer.Customer.AddressEntity.Address.Address2;
+            tbNewName.Text = _customer.Name;
+            tbNewPhone.Text = _customer.Phone;
+            tbNewEmail.Text = _customer.Email ?? string.Empty;
+            tbNewAddress1.Text = _customer.Address.Address1;
+            tbNewAddress2.Text = _customer.Address.Address2;
         }
 
         private void btnUpdateInfo_Click(object sender, EventArgs e)
@@ -37,12 +37,12 @@ namespace Better_Limited_Project.CustomerRecord
             if (!allInformationValid)
                 return;
 
-            _customer.Customer.Name = tbNewName.Text;
-            _customer.Customer.Phone = tbNewPhone.Text;
-            _customer.Customer.Email = tbNewEmail.Text;
-            _customer.Customer.AddressEntity.Address.Address1 = tbNewAddress1.Text;
-            _customer.Customer.AddressEntity.Address.Address2 = tbNewAddress2.Text;
-            CustomerRepository.Update(_customer);
+            _customer.Name = tbNewName.Text;
+            _customer.Phone = tbNewPhone.Text;
+            _customer.Email = tbNewEmail.Text;
+            _customer.Address.Address1 = tbNewAddress1.Text;
+            _customer.Address.Address2 = tbNewAddress2.Text;
+            _customer.Save();
             Updated?.Invoke(this, EventArgs.Empty);
             Close();
         }

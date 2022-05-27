@@ -18,13 +18,19 @@ namespace Better_Limited_Project.StaffUtility.StaffList
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            string name = tbName.Text;
+            string name = tbName.Text.Trim();
             IGender gender = rbGenderMale.Checked ? new Male()
                 : rbGenderFemale.Checked ? new Female()
                 : new NonBinary();
             DateTime dob = dtpDateOfBirth.Value;
             StaffTitle title = new StaffTitleMapper().Map(cbTitle.SelectedItem.ToString());
-            StaffRepository.UpdateStaff(_staff.Id, name, gender, dob, title);
+            
+            _staff.Name = name;
+            _staff.Gender = gender;
+            _staff.DateOfBirth = dob;
+            _staff.Title = title;
+            _staff.Save();    
+            
             Updated?.Invoke(this, EventArgs.Empty);
             Close();
         }

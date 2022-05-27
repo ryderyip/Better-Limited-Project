@@ -3,42 +3,20 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using Better_Limited_Project.DatabaseUtility;
+using Better_Limited_Project.RepositoryUtility;
 using MySql.Data.MySqlClient;
 
 namespace Better_Limited_Project.CustomerRecord
 {
-    public static class AddressRepository
+    public class AddressRepository : IRepositoryInsert<Address>
     {
-        public static AddressEntity GetAddressById(string id)
+        public static Address GetAddressById(string id)
         {
-            using var conn = Database.GetConnection();
-            conn.Open();
-            var dataTable = new DataTable();
-            string sql = @"select id as id,
-                           address1 as address1,
-                           address2 as address2
-                            from delivery_address where id = @id;";
-            var command = new MySqlCommand(sql, conn);
-            command.Parameters.AddWithValue("@id", id);
-            var dataReader = command.ExecuteReader();
-            dataTable.Load(dataReader);
-            dataReader.Close();
-
-            if (dataTable.Rows.Count == 0)
-                throw new ArgumentException("No address record with the provided address id is found.");
-            return ConvertToAddress(dataTable.Rows[0]);
+            return GetAddresses().FirstOrDefault(address => address.Id == id)
+                   ?? throw new ArgumentException($"Id \"{id}\" does not exist.");
         }
 
-        private static AddressEntity ConvertToAddress(DataRow row)
-        {
-            string id = row.Field<int>("id").ToString();
-            string address1 = row.Field<string>("address1");
-            string address2 = row.Field<string>("address2");
-            var address = new Address(address1, address2);
-            return new AddressEntity(id, address);
-        }
-
-        public static AddressEntity CreateAndReturn(Address address)
+        public void Insert(Address address)
         {
             var command = new MySqlCommand(
                 @"insert into delivery_address (address1, address2)
@@ -47,27 +25,34 @@ namespace Better_Limited_Project.CustomerRecord
             command.Parameters.AddWithValue("@address1", address.Address1);
             command.Parameters.AddWithValue("@address2", address.Address2);
             var datatable = DataTableRepository.RetrieveDataTable(command);
-            return new AddressEntity(datatable.Rows[0]["id"].ToString(), address);
+
+            address.Id = datatable.Rows[0].Field<ulong>("id").ToString();
         }
 
-        public static IEnumerable<AddressEntity> GetAddresses()
+        public static IEnumerable<Address> GetAddresses()
         {
             var command = new MySqlCommand(
                 @"select id, address1, address2
                             from delivery_address;");
             var dataTable = DataTableRepository.RetrieveDataTable(command);
 
-            return from DataRow row in dataTable.Rows select ConvertToAddress(row);
+            return from DataRow row in dataTable.Rows
+                let id = row.Field<int>("id").ToString()
+                let address1 = row.Field<string>("address1")
+                let address2 = row.Field<string>("address2")
+                select new Address
+                {
+                    Id = id, Address1 = address1, Address2 = address2
+                };
         }
 
-        public static void UpdateAddress(AddressEntity addressEntity)
+        public static void UpdateAddress(Address address)
         {
-            var address = addressEntity.Address;
             var command = new MySqlCommand(
                 @"update delivery_address
                         set address1 = @address1, address2 = @address2
                         where id = @id");
-            command.Parameters.AddWithValue("@id", addressEntity.Id);
+            command.Parameters.AddWithValue("@id", address.Id);
             command.Parameters.AddWithValue("@address1", address.Address1);
             command.Parameters.AddWithValue("@address2", address.Address2);
             DataTableRepository.ExecuteNonQuery(command);

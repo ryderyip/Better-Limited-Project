@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.CustomerRecord;
 using Better_Limited_Project.Login;
 using Better_Limited_Project.ProductUtility.Entity;
+using Better_Limited_Project.ProductUtility.Repository;
+using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.Sales.PaymentUtility;
 using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.StaffUtility.StaffEntity;
@@ -16,77 +20,96 @@ namespace Better_Limited_Project.Sales.OrderPlacing
 
         public ConfirmPlacingOrderForm(Cart cart)
         {
-            var staff = StaffRepository.GetStaff(LoginSession.GetSession().StaffId);
-            var retailStore = RetailStoreRepository.GetRetailStoreById(UserSettings.GetSettings().Workplace!.Id);
-            _order = new SalesOrder(staff, retailStore, cart);
+            _order = CreateOrder(cart, null);
+
             Shown += (_, _) => FillFields();
             InitializeComponent();
         }
 
-        public ConfirmPlacingOrderForm(Cart cart, CustomerEntity customer)
+        public ConfirmPlacingOrderForm(Cart cart, Customer customer)
         {
-            var staff = StaffRepository.GetStaff(LoginSession.GetSession().StaffId);
-            var retailStore = RetailStoreRepository.GetRetailStoreById(UserSettings.GetSettings().Workplace!.Id);
-            _order = new SalesOrder(staff, retailStore, cart, customer);
+            _order = CreateOrder(cart, customer);
             Shown += (_, _) => FillFields();
             InitializeComponent();
         }
 
-        /*private Payment GeneratePayment()
+        private SalesOrder CreateOrder(Cart cart, Customer? customer)
         {
-            return _order.Cart.HasOutOfStockItem()
-                ? new Payment(_order.Cart.GetTotalDepositPrice(),
-                    _paymentMethod,
-                    DateTime.Now,
-                    true)
-                : new Payment(_order.Cart.GetTotalPrice(),
-                    _paymentMethod,
-                    DateTime.Now);
-        }*/
+            var staff = new StaffRepository().FindById(LoginSession.GetSession().StaffId);
+            var retailStore = new RetailStoreRepository().GetRetailStoreById(UserSettings.GetSettings().Workplace!.Id);
+
+            return new SalesOrder
+            {
+                Staff = staff, RetailStore = retailStore, Customer = customer,
+                SalesOrderProducts = new List<SalesOrderProduct>(cart.GetCartItems().ToList()
+                    .ConvertAll(cartItem => new SalesOrderProduct
+                    {
+                        Price = cartItem.Price, Product = cartItem.Product,
+                        Quantity = cartItem.Quantity, IsDeposit = cartItem.IsDeposit
+                    }))
+            };
+        }
 
         private void FillFields()
         {
-            if (_order.CustomerEntity != null)
+            if (_order.Customer != null)
             {
-                var customer = _order.CustomerEntity.Customer;
+                var customer = _order.Customer;
                 txtCustName.Text = customer.Name;
                 txtCustPhoneNumber.Text = customer.Phone;
                 txtCustEmailAddress.Text = customer.Email ?? "-";
-                txtAddress1.Text = customer.AddressEntity.Address.Address1;
-                txtAddress2.Text = customer.AddressEntity.Address.Address2;
+                txtAddress1.Text = customer.Address.Address1;
+                txtAddress2.Text = customer.Address.Address2;
             }
 
-            txtTotalPrice.Text = _order.Cart.HasNeedDepositItem()
-                ? _order.Cart.GetTotalDepositPrice().ToString("C", new CultureInfo("zh-HK"))
-                : _order.Cart.GetTotalPrice().ToString("C", new CultureInfo("zh-HK"));
-            SetProductDgv();
-            PopulateProductDgv();
-        }
+            txtTotalPrice.Text = _order.GetDepositPrice().ToString("C", new CultureInfo("zh-HK"));
 
-        private void SetProductDgv()
-        {
-            dgvProducts.Columns.Add("name", "Name");
-            dgvProducts.Columns.Add("price", "Price");
-            dgvProducts.Columns.Add("quantity", "Qty");
-            dgvProducts.Columns.Add("subtotal", "Subtotal");
-            dgvProducts.Columns.Add("is_deposit", "Is Deposit");
+            PopulateProductDgv();
         }
 
         private void PopulateProductDgv()
         {
-            foreach (var cartItem in _order.Cart.GetCartItems())
-                dgvProducts.Rows.Add(cartItem.Product.Name,
-                    cartItem.Price.ToString("C", new CultureInfo("zh-HK")),
-                    cartItem.Quantity,
-                    (cartItem.Quantity * cartItem.Price).ToString("C", new CultureInfo("zh-HK")),
-                    cartItem.IsDeposit ? "Yes" : "No");
+            foreach (var salesOrderProduct in _order.SalesOrderProducts)
+            {
+                decimal subtotal = salesOrderProduct.IsDeposit
+                    ? salesOrderProduct.Price * salesOrderProduct.Quantity * Product.DepositPricePercentage
+                    : salesOrderProduct.Price * salesOrderProduct.Quantity;
+                dgvProducts.Rows.Add(salesOrderProduct.Product.Name,
+                    salesOrderProduct.Price.ToString("C", new CultureInfo("zh-HK")),
+                    salesOrderProduct.Quantity,
+                    salesOrderProduct.IsDeposit ? "Yes" : "No",
+                    subtotal.ToString(
+                        "C", new CultureInfo("zh-HK")));
+            }
         }
 
         private void btnPay_Click(object sender, EventArgs e)
         {
-            var form = new PaymentMethodSelectionForm(_order);
+            var form = new PaymentMethodSelectionForm();
             form.StartPosition = FormStartPosition.CenterScreen;
+            form.Selected += (_, method) => { OnPaymentMethodSelected(method); };
             form.ShowDialog();
+        }
+
+        private void OnPaymentMethodSelected(PaymentMethod method)
+        {
+            var form = PaymentFormFactory.Generate(_order.GetDepositPrice(), method);
+            form.PaymentCompleted += OnPaymentCompleted;
+            form.ShowForm();
+        }
+
+        private void OnPaymentCompleted(object sender, Payment payment)
+        {
+            _order.Save();
+            var stocks = StockRepository.GetStocks(UserSettings.GetSettings().Workplace!.Id).ToList();
+            foreach (var salesOrderProduct in _order.SalesOrderProducts)
+            {
+                salesOrderProduct.Payment = payment;
+                salesOrderProduct.Save();
+                var stock = stocks.First(stock => stock.Product.Id == salesOrderProduct.Product.Id);
+                stock.Quantity -= salesOrderProduct.Quantity;
+                stock.Update();
+            }
         }
     }
 }

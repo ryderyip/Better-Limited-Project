@@ -11,7 +11,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
 
         public StaffIdGenerator()
         {
-            _staffs = StaffRepository.GetStaffs().ToList();
+            _staffs = new StaffRepository().GetAll().ToList();
         }
 
         public string Generate(Department department)

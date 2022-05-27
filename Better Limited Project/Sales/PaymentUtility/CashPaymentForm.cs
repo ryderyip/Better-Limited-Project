@@ -1,17 +1,23 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
 using System.Windows.Forms;
 using Better_Limited_Project.ProductUtility.Entity;
-using Better_Limited_Project.Sales.OrderPlacing;
+using Better_Limited_Project.Sales.OrderPlacing.Entity;
 
 namespace Better_Limited_Project.Sales.PaymentUtility
 {
     public partial class CashPaymentForm : Form, IPaymentForm
     {
-        private readonly SalesOrder _salesOrder;
+        public event EventHandler<Payment>? PaymentCompleted;
+        private readonly Payment _payment;
 
-        public CashPaymentForm(SalesOrder salesOrder)
+        public CashPaymentForm(decimal amount)
         {
-            _salesOrder = salesOrder;
+            _payment = new Payment
+            {
+                Amount = amount, PaymentMethod = PaymentMethod.Cash
+            };
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
         }
@@ -21,23 +27,42 @@ namespace Better_Limited_Project.Sales.PaymentUtility
             ShowDialog();
         }
 
-        private void btnBack_Click(object sender, System.EventArgs e)
+        private void btnBack_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnNext_Click(object sender, System.EventArgs e)
+        private void btnNext_Click(object sender, EventArgs e)
         {
+            decimal owned = _payment.Amount;
+            decimal tendered = nudAmountTendered.Value;
+            if (tendered < owned)
+            {
+                MessageBox.Show("Please pay enough cash.");
+                return;
+            }
             
+            _payment.PaidOn = DateTime.Now;
+            _payment.Save();
+            PaymentCompleted?.Invoke(this, _payment);
+            Close();
         }
 
         private void CashPaymentForm_Shown(object sender, System.EventArgs e)
         {
-            tbCashOwned.Text = _salesOrder.Cart.HasNeedDepositItem()
-                ? _salesOrder.Cart.GetTotalDepositPrice().ToString("C", new CultureInfo("zh-HK"))
-                : _salesOrder.Cart.GetTotalPrice().ToString("C", new CultureInfo("zh-HK"));
+            tbCashOwned.Text = _payment.Amount.ToString("C", new CultureInfo("zh-HK"));
             nudAmountTendered.Maximum = Product.MaximumPrice;
             nudAmountTendered.DecimalPlaces = 2;
+            tbChange.Text = decimal.Zero.ToString("C", new CultureInfo("zh-HK"));
+        }
+
+        private void nudAmountTendered_ValueChanged(object sender, System.EventArgs e)
+        {
+            decimal owned = _payment.Amount;
+            decimal tendered = nudAmountTendered.Value;
+            if (tendered < owned)
+                return;
+            tbChange.Text = (tendered - owned).ToString("C", new CultureInfo("zh-HK"));
         }
     }
 }

@@ -1,20 +1,27 @@
 ﻿using System;
+using Better_Limited_Project.Sales.PaymentUtility.Repository;
 
 namespace Better_Limited_Project.Sales.PaymentUtility
 {
-    public class Payment
+    public class Payment : IEntity
     {
-        public decimal Amount { get; }
-        public PaymentMethod PaymentMethod { get; }
-        public DateTime PaidOn { get; }
-        public bool IsDeposit { get; }
+        private string? _id;
 
-        public Payment(decimal amount, PaymentMethod paymentMethod, DateTime paidOn, bool isDeposit = false)
+        public string Id
         {
-            Amount = amount;
-            PaymentMethod = paymentMethod;
-            PaidOn = paidOn;
-            IsDeposit = isDeposit;
+            get => _id ?? throw new InvalidOperationException("Id is not initialized.");
+            set => _id = value;
+        }
+
+        public decimal Amount { get; set; }
+        public PaymentMethod PaymentMethod { get; set; }
+        public DateTime PaidOn { get; set; } = DateTime.MinValue;
+
+        public void Save()
+        {
+            var repo = new PaymentRepository();
+            if (_id == null)
+                repo.Insert(this);
         }
     }
 }

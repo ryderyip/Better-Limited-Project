@@ -30,11 +30,13 @@
         {
             this.lblHeader = new System.Windows.Forms.Label();
             this.lblCashOwned = new System.Windows.Forms.Label();
-            this.lblAmountTendered = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.tbCashOwned = new System.Windows.Forms.TextBox();
             this.nudAmountTendered = new System.Windows.Forms.NumericUpDown();
+            this.lblAmountTendered = new System.Windows.Forms.Label();
+            this.tbChange = new System.Windows.Forms.TextBox();
+            this.lblChange = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudAmountTendered)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,22 +62,12 @@
             this.lblCashOwned.TabIndex = 45;
             this.lblCashOwned.Text = "Cash Owned";
             // 
-            // lblAmountTendered
-            // 
-            this.lblAmountTendered.AutoSize = true;
-            this.lblAmountTendered.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAmountTendered.Location = new System.Drawing.Point(314, 258);
-            this.lblAmountTendered.Name = "lblAmountTendered";
-            this.lblAmountTendered.Size = new System.Drawing.Size(105, 15);
-            this.lblAmountTendered.TabIndex = 47;
-            this.lblAmountTendered.Text = "Amount Tendered";
-            // 
             // btnBack
             // 
             this.btnBack.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnBack.Location = new System.Drawing.Point(286, 379);
+            this.btnBack.Location = new System.Drawing.Point(286, 404);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(104, 40);
             this.btnBack.TabIndex = 49;
@@ -88,7 +80,7 @@
             this.btnNext.BackColor = System.Drawing.Color.DarkOrange;
             this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNext.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnNext.Location = new System.Drawing.Point(417, 379);
+            this.btnNext.Location = new System.Drawing.Point(417, 404);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(98, 40);
             this.btnNext.TabIndex = 50;
@@ -98,7 +90,7 @@
             // 
             // tbCashOwned
             // 
-            this.tbCashOwned.Location = new System.Drawing.Point(326, 170);
+            this.tbCashOwned.Location = new System.Drawing.Point(326, 142);
             this.tbCashOwned.Name = "tbCashOwned";
             this.tbCashOwned.ReadOnly = true;
             this.tbCashOwned.Size = new System.Drawing.Size(144, 20);
@@ -106,20 +98,55 @@
             // 
             // nudAmountTendered
             // 
-            this.nudAmountTendered.Location = new System.Drawing.Point(317, 285);
+            this.nudAmountTendered.Location = new System.Drawing.Point(313, 246);
             this.nudAmountTendered.Name = "nudAmountTendered";
             this.nudAmountTendered.Size = new System.Drawing.Size(169, 20);
             this.nudAmountTendered.TabIndex = 51;
+            this.nudAmountTendered.ValueChanged += new System.EventHandler(this.nudAmountTendered_ValueChanged);
+            // 
+            // lblAmountTendered
+            // 
+            this.lblAmountTendered.AutoSize = true;
+            this.lblAmountTendered.BackColor = System.Drawing.SystemColors.Control;
+            this.lblAmountTendered.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAmountTendered.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.lblAmountTendered.Location = new System.Drawing.Point(308, 218);
+            this.lblAmountTendered.Name = "lblAmountTendered";
+            this.lblAmountTendered.Size = new System.Drawing.Size(183, 25);
+            this.lblAmountTendered.TabIndex = 52;
+            this.lblAmountTendered.Text = "Amount Tendered";
+            // 
+            // tbChange
+            // 
+            this.tbChange.Location = new System.Drawing.Point(326, 325);
+            this.tbChange.Name = "tbChange";
+            this.tbChange.ReadOnly = true;
+            this.tbChange.Size = new System.Drawing.Size(144, 20);
+            this.tbChange.TabIndex = 53;
+            // 
+            // lblChange
+            // 
+            this.lblChange.AutoSize = true;
+            this.lblChange.BackColor = System.Drawing.SystemColors.Control;
+            this.lblChange.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChange.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.lblChange.Location = new System.Drawing.Point(353, 297);
+            this.lblChange.Name = "lblChange";
+            this.lblChange.Size = new System.Drawing.Size(87, 25);
+            this.lblChange.TabIndex = 54;
+            this.lblChange.Text = "Change";
             // 
             // CashPaymentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 488);
+            this.Controls.Add(this.lblChange);
+            this.Controls.Add(this.tbChange);
+            this.Controls.Add(this.lblAmountTendered);
             this.Controls.Add(this.nudAmountTendered);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.lblAmountTendered);
             this.Controls.Add(this.tbCashOwned);
             this.Controls.Add(this.lblCashOwned);
             this.Controls.Add(this.lblHeader);
@@ -136,10 +163,12 @@
 
         private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.Label lblCashOwned;
-        private System.Windows.Forms.Label lblAmountTendered;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.TextBox tbCashOwned;
         private System.Windows.Forms.NumericUpDown nudAmountTendered;
+        private System.Windows.Forms.Label lblAmountTendered;
+        private System.Windows.Forms.TextBox tbChange;
+        private System.Windows.Forms.Label lblChange;
     }
 }

@@ -7,20 +7,20 @@ namespace Better_Limited_Project.CustomerRecord
 {
     public partial class CustomerListForm : Form
     {
-        private List<CustomerEntity> _customers;
+        private List<Customer> _customers;
 
         public CustomerListForm()
         {
             InitializeComponent();
-            _customers = CustomerRepository.GetCustomers().ToList();
+            _customers = new CustomerRepository().GetAll().ToList();
             Shown += (_, _) => LoadCustomerDgv(_customers);
         }
 
-        private void LoadCustomerDgv(List<CustomerEntity> customer)
+        private void LoadCustomerDgv(List<Customer> customer)
         {
             dgvCustomer.Rows.Clear();
-            customer.ForEach(cEntity => dgvCustomer.Rows.Add(cEntity.Customer.Name,
-                cEntity.Customer.Phone, cEntity.Customer.Email));
+            customer.ForEach(c => dgvCustomer.Rows.Add(c.Name,
+                c.Phone, c.Email));
         }
 
         private void btnNewCustomer_Click(object sender, EventArgs e)
@@ -33,7 +33,7 @@ namespace Better_Limited_Project.CustomerRecord
 
         private void ReloadCustomerDgv()
         {
-            _customers = CustomerRepository.GetCustomers().ToList();
+            _customers = new CustomerRepository().FindAll(_ => true).ToList();
             tbSearchBox.Text = "";
             LoadCustomerDgv(_customers);
         }
@@ -42,16 +42,16 @@ namespace Better_Limited_Project.CustomerRecord
         {
             string searchKeyword = tbSearchBox.Text.ToLower();
             var customers = _customers
-                .Where(customer => customer.Customer.Name.ToLower().Contains(searchKeyword)
-                || customer.Customer.Phone.Contains(searchKeyword)
-                || customer.Customer.Email != null && customer.Customer.Email.ToLower().Contains(searchKeyword)).ToList();
+                .Where(customer => customer.Name.ToLower().Contains(searchKeyword)
+                || customer.Phone.Contains(searchKeyword)
+                || customer.Email != null && customer.Email.ToLower().Contains(searchKeyword)).ToList();
             LoadCustomerDgv(customers);
         }
 
         private void dgvCustomer_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             string selectedCustomerPhone = dgvCustomer.Rows[e.RowIndex].Cells["phone"].Value.ToString();
-            var selectedCustomer = _customers.Find(customer => customer.Customer.Phone == selectedCustomerPhone);
+            var selectedCustomer = _customers.Find(customer => customer.Phone == selectedCustomerPhone);
             var form = new CustomerDetailsForm(selectedCustomer);
             form.StartPosition = FormStartPosition.CenterScreen;
             form.Updated += (_, _) => ReloadCustomerDgv();

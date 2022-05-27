@@ -8,97 +8,98 @@ namespace Better_Limited_Project.Sales.OrderPlacing
 {
     public class Cart // TODO redesign this
     {
+        private readonly string _retailStoreId;
         public event EventHandler? Updated;
-        private readonly Dictionary<string, Product> _products = new();
-        private readonly Dictionary<string, int> _quantities = new();
-        private readonly Dictionary<string, decimal> _prices = new();
-        private readonly List<RetailStoreStock> _stock;
+        private readonly List<CartItem> _cartItems = new();
+        private readonly List<CartItem> _depositCardItems = new();
+        private List<RetailStoreStock> _stocks;
 
         public Cart(string retailStoreId)
         {
-            _stock = StockRepository.GetRetailStoreStocks(retailStoreId).ToList();
-            _stock.ForEach(stock => _prices.Add(stock.Product.Id, stock.SellingPrice));
+            _retailStoreId = retailStoreId;
+            _stocks = GetStocks();
         }
 
-        public void Add(Product product, int quantity)
+        public void Add(Product product)
         {
-            if (_quantities.ContainsKey(product.Id))
-                _quantities[product.Id] += quantity;
+            var stock = _stocks.First(s => s.Product.Id == product.Id);
+
+            var cartItem = _cartItems.FirstOrDefault(item => item.Product.Id == product.Id);
+            
+            // Product already in cart
+            if (cartItem != null)
+            {
+                // Still have stock left
+                if (stock.Quantity != 0)
+                {
+                    cartItem.Quantity++;
+                    stock.Quantity--;
+                }
+                else
+                {
+                    AddToDepositCart(product, stock);
+                }
+            }
+            // Product not in cart
             else
             {
-                _products.Add(product.Id, product);
-                _quantities.Add(product.Id, quantity);
+                if (stock.Quantity != 0)
+                {
+                    _cartItems.Add(new CartItem(product, 1, stock.SellingPrice, false));
+                    stock.Quantity--;
+                }
+                else
+                    AddToDepositCart(product, stock);
             }
 
             Updated?.Invoke(this, EventArgs.Empty);
         }
 
+        private void AddToDepositCart(Product product, RetailStoreStock stock)
+        {
+            var depositCartItem = _depositCardItems.FirstOrDefault(item => item.Product.Id == product.Id);
+            // If already in deposit cart
+            if (depositCartItem != null)
+                depositCartItem.Quantity++;
+            else
+                _depositCardItems.Add(new CartItem(product, 1, stock.SellingPrice, true));
+        }
+
         public IEnumerable<CartItem> GetCartItems()
         {
-            return _quantities.Keys.ToList()
-                .Zip(_quantities.Values.ToList(),
-                    (prodId, qty) =>
-                    {
-                        var product = _products[prodId];
-                        decimal price = _prices[prodId];
-                        return new CartItem(product, qty, price, IsDeposit(product, qty));
-                    });
-        }
-
-        private bool IsDeposit(Product product, int qtyRequired)
-        {
-            var productStock = _stock.Find(stock => stock.Product.Id == product.Id);
-            return productStock.Quantity < qtyRequired && productStock.SellingPrice >= Product.DepositThreshold;
-        }
-
-        public void Remove(Product product)
-        {
-            throw new NotImplementedException("Remove method not implemented");
-            /*if (_quantities.ContainsKey(product.Id))
-            {
-                _products.remo
-                _quantities.Remove(product.Id);
-            }
-
-            CartUpdated?.Invoke(this, ConvertToProductQuantityTuple());*/
+            return _cartItems.Concat(_depositCardItems);
         }
 
         public void Clear()
         {
-            _products.Clear();
-            _quantities.Clear();
+            _cartItems.Clear();
+            _depositCardItems.Clear();
+            _stocks = GetStocks();
+
             Updated?.Invoke(this, EventArgs.Empty);
         }
 
         public bool IsEmpty()
         {
-            return _quantities.Count == 0;
+            return _cartItems.Count == 0 && _depositCardItems.Count == 0;
         }
 
         public decimal GetTotalPrice()
         {
-            return GetCartItems().Sum(item => item.Price * item.Quantity);
-        }
-
-        public decimal GetTotalDepositPrice()
-        {
             decimal deposit = GetCartItems()
-                .Where(item => _stock.Find(stock => stock.Product.Id == item.Product.Id)
-                        .Quantity == 0)
+                .Where(item => _stocks.Find(stock => stock.Product.Id == item.Product.Id)
+                    .Quantity == 0)
                 .Sum(item => item.Price * item.Quantity * Product.DepositPricePercentage);
             decimal ordinary = GetCartItems()
-                .Where(item => _stock.Find(stock => stock.Product.Id == item.Product.Id)
+                .Where(item => _stocks.Find(stock => stock.Product.Id == item.Product.Id)
                     .Quantity != 0)
                 .Sum(item => item.Price * item.Quantity);
             return deposit + ordinary;
         }
-
-        public bool HasNeedDepositItem()
+        
+        private List<RetailStoreStock> GetStocks()
         {
-            return GetCartItems().Any(item =>
-                _stock.Any(stock => stock.Product.Id == item.Product.Id 
-                                    && stock.Quantity == 0
-                                    && stock.SellingPrice >= Product.DepositThreshold));
+            return StockRepository.GetStocks(_retailStoreId).Cast<RetailStoreStock>().ToList();
         }
     }
 }

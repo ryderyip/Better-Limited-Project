@@ -22,7 +22,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
         public ProductListForm()
         {
             _workplaces = WorkplaceRepository.GetWorkplaces().ToList();
-            _currentStaff = StaffRepository.GetStaff(LoginSession.GetSession().StaffId);
+            _currentStaff = new StaffRepository().FindById(LoginSession.GetSession().StaffId);
             _stocks = GetStockByWorkplaceType();
             Shown += (_, _) => Initialize();
             InitializeComponent();

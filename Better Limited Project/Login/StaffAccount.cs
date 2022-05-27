@@ -1,4 +1,6 @@
-﻿namespace Better_Limited_Project.Login
+﻿using System.Linq;
+
+namespace Better_Limited_Project.Login
 {
     public class StaffAccount
     {
@@ -12,5 +14,11 @@
         public string StaffId { get; }
         public string Username { get; }
         public string Password { get; }
+
+        public void Save()
+        {
+            if (StaffAccountRepository.GetStaffAccounts().All(ac => ac.StaffId != StaffId))
+                StaffAccountRepository.CreateAccount(this);
+        }
     }
 }
