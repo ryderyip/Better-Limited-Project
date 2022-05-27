@@ -360,6 +360,12 @@
     <Compile Include="Sales\OrderPlacing\Entity\SalesOrderProduct.cs" />
     <Compile Include="Sales\OrderPlacing\Repository\SalesOrderProductRepository.cs" />
     <Compile Include="Sales\OrderPlacing\Repository\SalesOrderRepository.cs" />
+    <Compile Include="Sales\OrderPlacing\SalesOrderListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\OrderPlacing\SalesOrderListForm.Designer.cs">
+      <DependentUpon>SalesOrderListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sales\PaymentUtility\CashPaymentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -416,10 +422,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Sales\OrderPlacing\SalesOrderDetailsForm.Designer.cs" />
-    <Compile Include="Sales\OrderPlacing\SalesOrderForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\OrderPlacing\SalesOrderForm.Designer.cs" />
     <Compile Include="Sales\OrderPlacing\SalesOrderPager\PlaceOrderItemControlCollection.cs" />
     <Compile Include="Sales\PaymentUtility\Repository\PaymentRepository.cs" />
     <Compile Include="ServiceUtility\Delivery\ArrangeSingleDeliveryForm.cs">
@@ -673,6 +675,9 @@
     <EmbeddedResource Include="Sales\OrderPlacing\ConfirmPlacingOrderForm.resx">
       <DependentUpon>ConfirmPlacingOrderForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sales\OrderPlacing\SalesOrderListForm.resx">
+      <DependentUpon>SalesOrderListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sales\PaymentUtility\CashPaymentForm.resx">
       <DependentUpon>CashPaymentForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -686,7 +691,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\OrderPlacing\PlaceOrderForm.resx" />
     <EmbeddedResource Include="Sales\OrderPlacing\SalesOrderDetailsForm.resx" />
-    <EmbeddedResource Include="Sales\OrderPlacing\SalesOrderForm.resx" />
     <EmbeddedResource Include="ServiceUtility\Delivery\ArrangeSingleDeliveryForm.resx" />
     <EmbeddedResource Include="ServiceUtility\Delivery\ArrangeSplitDeliveryForm.resx" />
     <EmbeddedResource Include="ServiceUtility\Delivery\CreateDeliveryDutyRecordForm.resx" />

@@ -49,7 +49,9 @@ namespace Better_Limited_Project.Navigation.UI
                 MessageBox.Show("Please select your current retail store before access this feature!");
                 return;
             }
-            throw new NotImplementedException("Sales order not implemented");
+
+            var form = new SalesOrderListForm();
+            _formController.OpenContentForm(form);
         }
 
         private void btnProductList_Click(object sender, EventArgs e)

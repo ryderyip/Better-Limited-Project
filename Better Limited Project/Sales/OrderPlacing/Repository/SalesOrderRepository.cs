@@ -29,7 +29,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
                 select new SalesOrder
                 {
                     Id = id,
-                    Customer = new CustomerRepository().FindById(row.Field<int>("customer_id").ToString()),
+                    Customer = new CustomerRepository().FindById(row.Field<int?>("customer_id").ToString()),
                     RetailStore = new RetailStoreRepository().FindById(row.Field<string>("retail_store_id")),
                     Staff = new StaffRepository().FindById(row.Field<string>("created_by_staff_id")),
                     CreatedOn = row.Field<DateTime>("created_on"),
