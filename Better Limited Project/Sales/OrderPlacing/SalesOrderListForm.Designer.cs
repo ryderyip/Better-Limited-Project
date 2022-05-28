@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvSalesOrders = new System.Windows.Forms.DataGridView();
-            this.dtpSearchDate = new System.Windows.Forms.DateTimePicker();
-            this.tbSearchBox = new System.Windows.Forms.TextBox();
-            this.lblSearchBox = new System.Windows.Forms.Label();
-            this.cbEnableSearchByDate = new System.Windows.Forms.CheckBox();
             this.salesOrderId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,6 +36,10 @@
             this.createdOn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.retailStoreName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createdByStaffName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtpSearchDate = new System.Windows.Forms.DateTimePicker();
+            this.tbSearchBox = new System.Windows.Forms.TextBox();
+            this.lblSearchBox = new System.Windows.Forms.Label();
+            this.cbEnableSearchByDate = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSalesOrders)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,43 +59,7 @@
             this.dgvSalesOrders.RowTemplate.Height = 24;
             this.dgvSalesOrders.Size = new System.Drawing.Size(536, 327);
             this.dgvSalesOrders.TabIndex = 51;
-            // 
-            // dtpSearchDate
-            // 
-            this.dtpSearchDate.Enabled = false;
-            this.dtpSearchDate.Location = new System.Drawing.Point(331, 49);
-            this.dtpSearchDate.Name = "dtpSearchDate";
-            this.dtpSearchDate.Size = new System.Drawing.Size(200, 20);
-            this.dtpSearchDate.TabIndex = 50;
-            this.dtpSearchDate.ValueChanged += new System.EventHandler(this.dtpSearchDate_ValueChanged);
-            // 
-            // tbSearchBox
-            // 
-            this.tbSearchBox.Location = new System.Drawing.Point(27, 49);
-            this.tbSearchBox.Name = "tbSearchBox";
-            this.tbSearchBox.Size = new System.Drawing.Size(192, 20);
-            this.tbSearchBox.TabIndex = 48;
-            this.tbSearchBox.TextChanged += new System.EventHandler(this.tbSearchBox_TextChanged);
-            // 
-            // lblSearchBox
-            // 
-            this.lblSearchBox.AutoSize = true;
-            this.lblSearchBox.Location = new System.Drawing.Point(25, 22);
-            this.lblSearchBox.Name = "lblSearchBox";
-            this.lblSearchBox.Size = new System.Drawing.Size(263, 13);
-            this.lblSearchBox.TabIndex = 47;
-            this.lblSearchBox.Text = "Search by Sales Order ID/Customer Name/Phone No.";
-            // 
-            // cbEnableSearchByDate
-            // 
-            this.cbEnableSearchByDate.AutoSize = true;
-            this.cbEnableSearchByDate.Location = new System.Drawing.Point(331, 21);
-            this.cbEnableSearchByDate.Name = "cbEnableSearchByDate";
-            this.cbEnableSearchByDate.Size = new System.Drawing.Size(176, 17);
-            this.cbEnableSearchByDate.TabIndex = 52;
-            this.cbEnableSearchByDate.Text = "Enable Search by Date Created";
-            this.cbEnableSearchByDate.UseVisualStyleBackColor = true;
-            this.cbEnableSearchByDate.CheckedChanged += new System.EventHandler(this.cbEnableSearchByDate_CheckedChanged);
+            this.dgvSalesOrders.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSalesOrders_CellDoubleClick);
             // 
             // salesOrderId
             // 
@@ -141,6 +105,43 @@
             this.createdByStaffName.HeaderText = "Created By Staff";
             this.createdByStaffName.Name = "createdByStaffName";
             this.createdByStaffName.ReadOnly = true;
+            // 
+            // dtpSearchDate
+            // 
+            this.dtpSearchDate.Enabled = false;
+            this.dtpSearchDate.Location = new System.Drawing.Point(331, 49);
+            this.dtpSearchDate.Name = "dtpSearchDate";
+            this.dtpSearchDate.Size = new System.Drawing.Size(200, 20);
+            this.dtpSearchDate.TabIndex = 50;
+            this.dtpSearchDate.ValueChanged += new System.EventHandler(this.dtpSearchDate_ValueChanged);
+            // 
+            // tbSearchBox
+            // 
+            this.tbSearchBox.Location = new System.Drawing.Point(27, 49);
+            this.tbSearchBox.Name = "tbSearchBox";
+            this.tbSearchBox.Size = new System.Drawing.Size(192, 20);
+            this.tbSearchBox.TabIndex = 48;
+            this.tbSearchBox.TextChanged += new System.EventHandler(this.tbSearchBox_TextChanged);
+            // 
+            // lblSearchBox
+            // 
+            this.lblSearchBox.AutoSize = true;
+            this.lblSearchBox.Location = new System.Drawing.Point(25, 22);
+            this.lblSearchBox.Name = "lblSearchBox";
+            this.lblSearchBox.Size = new System.Drawing.Size(263, 13);
+            this.lblSearchBox.TabIndex = 47;
+            this.lblSearchBox.Text = "Search by Sales Order ID/Customer Name/Phone No.";
+            // 
+            // cbEnableSearchByDate
+            // 
+            this.cbEnableSearchByDate.AutoSize = true;
+            this.cbEnableSearchByDate.Location = new System.Drawing.Point(331, 21);
+            this.cbEnableSearchByDate.Name = "cbEnableSearchByDate";
+            this.cbEnableSearchByDate.Size = new System.Drawing.Size(176, 17);
+            this.cbEnableSearchByDate.TabIndex = 52;
+            this.cbEnableSearchByDate.Text = "Enable Search by Date Created";
+            this.cbEnableSearchByDate.UseVisualStyleBackColor = true;
+            this.cbEnableSearchByDate.CheckedChanged += new System.EventHandler(this.cbEnableSearchByDate_CheckedChanged);
             // 
             // SalesOrderListForm
             // 

@@ -16,17 +16,10 @@ namespace Better_Limited_Project.Sales.OrderPlacing
 {
     public partial class ConfirmPlacingOrderForm : Form
     {
+        public event EventHandler? SalesOrderPlaced;
         private readonly SalesOrder _order;
 
-        public ConfirmPlacingOrderForm(Cart cart)
-        {
-            _order = CreateOrder(cart, null);
-
-            Shown += (_, _) => FillFields();
-            InitializeComponent();
-        }
-
-        public ConfirmPlacingOrderForm(Cart cart, Customer customer)
+        public ConfirmPlacingOrderForm(Cart cart, Customer? customer)
         {
             _order = CreateOrder(cart, customer);
             Shown += (_, _) => FillFields();
@@ -104,12 +97,14 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             var stocks = StockRepository.GetStocks(UserSettings.GetSettings().Workplace!.Id).ToList();
             foreach (var salesOrderProduct in _order.SalesOrderProducts)
             {
-                salesOrderProduct.Payment = payment;
-                salesOrderProduct.Save();
                 var stock = stocks.First(stock => stock.Product.Id == salesOrderProduct.Product.Id);
                 stock.Quantity -= salesOrderProduct.Quantity;
+                if (stock.Quantity < 0)
+                    stock.Quantity = 0;
                 stock.Update();
             }
+            Close();
+            SalesOrderPlaced?.Invoke(this, EventArgs.Empty);
         }
     }
 }

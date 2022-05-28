@@ -7,30 +7,23 @@ namespace Better_Limited_Project.Sales.OrderPlacing
 {
     public partial class IsFirstTimeCustomerSelectionForm : Form
     {
-        private readonly FormController _formController;
-        private readonly Cart _cart;
-
-        public IsFirstTimeCustomerSelectionForm(FormController formController, Cart cart)
+        public event EventHandler<bool>? IsFirstTimeCustomerSelected;
+        
+        public IsFirstTimeCustomerSelectionForm()
         {
-            _formController = formController;
-            _cart = cart;
             InitializeComponent();
         }
 
         private void btnFirstTime_Click(object sender, EventArgs e)
         {
-            var form = new CreateCustomerRecordForm();
-            // form.CustomerCreated
-            _formController.OpenFullForm(form);
+            IsFirstTimeCustomerSelected?.Invoke(this, true);
             Close();
         }
 
         private void btnOldCustomer_Click(object sender, EventArgs e)
         {
-            var form = new FindCustomerRecordForm(_formController, _cart);
-            _formController.OpenFullForm(form);
+            IsFirstTimeCustomerSelected?.Invoke(this, false);
             Close();
-            _formController.ContentForm?.Close();
         }
 
         private void IsFirstTimeCustomerSelectionForm_KeyPress(object sender, KeyPressEventArgs e)

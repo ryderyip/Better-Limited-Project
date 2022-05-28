@@ -11,7 +11,6 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
         public decimal Price { get; set; }
         public int Quantity { get; set; }
         public bool IsDeposit { get; set; }
-        public Payment Payment { get; set; }
 
         public SalesOrderProduct()
         {

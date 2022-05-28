@@ -4,6 +4,7 @@ using System.Linq;
 using Better_Limited_Project.CustomerRecord;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;
+using Better_Limited_Project.Sales.PaymentUtility;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.Sales.OrderPlacing.Entity
@@ -23,7 +24,12 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
         public ICollection<SalesOrderProduct> SalesOrderProducts { get; set; }
         public Customer? Customer { get; set; }
         public DateTime CreatedOn { get; set; }
-        
+        public Payment? Payment { get; set; }
+
+        public SalesOrder()
+        {
+        }
+
         public void Save()
         {
             var repo = new SalesOrderRepository();

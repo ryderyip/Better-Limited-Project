@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
@@ -10,20 +11,18 @@ namespace Better_Limited_Project.Sales.OrderPlacing
 {
     public partial class SalesOrderListForm : Form
     {
-        private List<SalesOrder> _salesOrders;
-        private readonly IRepository<SalesOrder> _repository;
+        private readonly List<SalesOrder> _salesOrders;
 
         public SalesOrderListForm()
         {
-            _repository = new SalesOrderRepository();
-            _salesOrders = _repository.GetAll().ToList();
+            IRepository<SalesOrder> repository = new SalesOrderRepository();
+            _salesOrders = repository.GetAll().ToList();
             InitializeComponent();
         }
 
         private void OnFormShown(object sender, System.EventArgs e)
         {
             FillSalesOrderDgv(_salesOrders);
-
         }
 
         private void FillSalesOrderDgv(List<SalesOrder> salesOrders)
@@ -36,6 +35,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
                 order.CreatedOn.ToShortDateString() + " : " + order.CreatedOn.ToShortTimeString(),
                 order.RetailStore.Name,
                 order.Staff.Name));
+            dgvSalesOrders.Sort(createdOn, ListSortDirection.Descending);
         }
 
         private void dtpSearchDate_ValueChanged(object sender, System.EventArgs e)
@@ -70,6 +70,15 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             }
             
             FillSalesOrderDgv(ordersFilteredByKeyword.ToList());
+        }
+
+        private void dgvSalesOrders_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var selectedOrderId = dgvSalesOrders.Rows[e.RowIndex].Cells["salesOrderId"].Value.ToString();
+            var selectedOrder = _salesOrders.Find(so => so.Id == selectedOrderId);
+            var form = new SalesOrderDetailsForm(selectedOrder);
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.ShowDialog();
         }
     }
 }

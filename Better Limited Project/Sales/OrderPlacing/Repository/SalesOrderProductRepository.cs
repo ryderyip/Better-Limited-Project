@@ -15,13 +15,12 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
         {
             var command = new MySqlCommand(
                 @"insert into sales_order_product 
-                        value (@salesOrderId, @productId, @price, @quantity, @isDeposit, @paymentId)");
+                        value (@salesOrderId, @productId, @price, @quantity, @isDeposit)");
             command.Parameters.AddWithValue("salesOrderId", salesOrderProduct.SalesOrderId);
             command.Parameters.AddWithValue("productId", salesOrderProduct.Product.Id);
             command.Parameters.AddWithValue("price", salesOrderProduct.Price);
             command.Parameters.AddWithValue("quantity", salesOrderProduct.Quantity);
             command.Parameters.AddWithValue("isDeposit", salesOrderProduct.IsDeposit);
-            command.Parameters.AddWithValue("paymentId", salesOrderProduct.Payment.Id);
             DataTableRepository.ExecuteNonQuery(command);
         }
 

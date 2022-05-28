@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
+using Better_Limited_Project.CustomerRecord;
 using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.ProductUtility.Repository;
@@ -51,40 +52,47 @@ namespace Better_Limited_Project.Sales.OrderPlacing
 
             if (IsNeedDelivery() || IsNeedInstallation())
             {
-                var form = new IsFirstTimeCustomerSelectionForm(_formController, _cart);
+                var form = new IsFirstTimeCustomerSelectionForm();
+                form.IsFirstTimeCustomerSelected += OnIsFirstTimeCustomerSelected;
                 form.StartPosition = FormStartPosition.CenterScreen;
                 form.ShowDialog();
             }
 
             else
+                AskForConfirmAndPay(null);
+        }
+
+        private void OnIsFirstTimeCustomerSelected(object sender, bool isFirstTime)
+        {
+            if (isFirstTime)
             {
-                var form = new ConfirmPlacingOrderForm(_cart);
+                var form = new CreateCustomerRecordForm();
+                form.CustomerCreated += (_, customer) => AskForConfirmAndPay(customer);
+                form.StartPosition = FormStartPosition.CenterScreen;
+                form.ShowDialog();
+            }
+            else
+            {
+                var form = new FindCustomerRecordForm();
+                form.CustomerRecordFound += (_, customer) => AskForConfirmAndPay(customer);
                 form.StartPosition = FormStartPosition.CenterScreen;
                 form.ShowDialog();
             }
         }
 
-        private void OnPaymentCompleted(object sender, PaymentStatus status)
+        private void AskForConfirmAndPay(Customer? customer)
         {
-            if (status == PaymentStatus.Successful)
-            {
-                _form.Closed += (_, _) =>
-                {
-                    Initialize();
-                    OpenForm();
-                };
-                _form.Close();
-                // TODO send delivery request
-                // TODO send installation request
-            }
-            else
-                ReinitializePlaceOrderForm();
+            var form = new ConfirmPlacingOrderForm(_cart, customer);
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.SalesOrderPlaced += (_, _) => ReinitializePlaceOrderForm();
+            form.ShowDialog();
         }
 
         private void ReinitializePlaceOrderForm()
         {
             Initialize();
             OpenForm();
+            _cart.Clear();
         }
 
         private void PopulatePagerWithProducts()
