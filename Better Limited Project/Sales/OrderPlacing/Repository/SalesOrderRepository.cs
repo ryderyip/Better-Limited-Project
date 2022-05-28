@@ -62,7 +62,11 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
             var dataTable = DataTableRepository.RetrieveDataTable(command);
 
             order.Id = dataTable.Rows[0].Field<string>("id");
-            order.SalesOrderProducts.ToList().ForEach(sop => sop.SalesOrderId = order.Id);
+            order.SalesOrderProducts.ToList().ForEach(sop =>
+            {
+                sop.SalesOrderId = order.Id;
+                sop.Save();
+            });
         }
     }
 }

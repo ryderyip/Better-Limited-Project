@@ -15,6 +15,19 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             InitializeComponent();
             Shown += (_, _) => FillFields();
         }
+        
+        private void OnFormShown(object sender, System.EventArgs e)
+        {
+            foreach (var salesOrderProduct in _salesOrder.SalesOrderProducts)
+            {
+                dgvProducts.Rows.Add(salesOrderProduct.Product.Name,
+                    salesOrderProduct.IsDeposit ? "Yes" : "No",
+                    salesOrderProduct.Product.Category.Name,
+                    salesOrderProduct.Price.ToString("C", new CultureInfo("zh-HK")),
+                    salesOrderProduct.Quantity,
+                    (salesOrderProduct.Price * salesOrderProduct.Quantity).ToString("C", new CultureInfo("zh-HK")));
+            }
+        }
 
         private void FillFields()
         {
@@ -45,5 +58,6 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             return _salesOrder.Payment != null 
                    && _salesOrder.Payment.Amount == _salesOrder.GetTotalPrice();
         }
+
     }
 }
