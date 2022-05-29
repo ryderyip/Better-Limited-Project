@@ -28,7 +28,7 @@ namespace Better_Limited_Project
         private void OnLoggedIn(object sender, string staffId)
         {
             var staff = new StaffRepository().FindById(staffId);
-            LoginSession.SaveSession(staffId);
+            LoginSession.SaveSession(staff);
             OpenNavigationForm(staff);
             OpenProfileForm(staff);
         }

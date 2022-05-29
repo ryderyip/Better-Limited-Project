@@ -247,6 +247,22 @@
       <DependentUpon>UpdateProductAdminForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ProductUtility\ProductList\PermissionManagement\ProductPermissionManager.cs" />
+    <Compile Include="ProductUtility\Reordering\ReorderRequest.cs" />
+    <Compile Include="ProductUtility\Reordering\ReorderRequestProduct.cs" />
+    <Compile Include="ProductUtility\Reordering\ReorderRequestProductRepository.cs" />
+    <Compile Include="ProductUtility\Reordering\ReorderRequestRepository.cs" />
+    <Compile Include="ProductUtility\Reordering\ReorderRequestService.cs" />
+    <Compile Include="ProductUtility\Restocking\CreateRestockRequestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductUtility\Restocking\CreateRestockRequestForm.Designer.cs">
+      <DependentUpon>CreateRestockRequestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductUtility\Restocking\RestockRequest.cs" />
+    <Compile Include="ProductUtility\Restocking\RestockRequestProduct.cs" />
+    <Compile Include="ProductUtility\Restocking\RestockRequestProductRepository.cs" />
+    <Compile Include="ProductUtility\Restocking\RestockRequestRepository.cs" />
+    <Compile Include="ProductUtility\Restocking\RestockRequestService.cs" />
     <Compile Include="ProductUtility\SupplierUtility\CreateSupplierForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -279,10 +295,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ProductUtility\GoodsReturning\GoodsReturnedForm.Designer.cs" />
-    <Compile Include="ProductUtility\ProductList\Forms\CreateRestockRequestForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProductUtility\ProductList\Forms\CreateRestockRequestForm.Designer.cs" />
     <Compile Include="ProductUtility\ProductList\Forms\NewProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -631,7 +643,6 @@
     <EmbeddedResource Include="ProductUtility\GoodsReturning\CreateGoodsReturnedRecordForm.resx" />
     <EmbeddedResource Include="ProductUtility\GoodsReturning\GoodsReturnedDetailsForm.resx" />
     <EmbeddedResource Include="ProductUtility\GoodsReturning\GoodsReturnedForm.resx" />
-    <EmbeddedResource Include="ProductUtility\ProductList\Forms\CreateRestockRequestForm.resx" />
     <EmbeddedResource Include="ProductUtility\ProductList\Forms\NewProductForm.resx">
       <DependentUpon>NewProductForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -653,6 +664,9 @@
     <EmbeddedResource Include="ProductUtility\ProductList\Forms\UpdateSellingPriceForm.resx" />
     <EmbeddedResource Include="ProductUtility\PurchaseOrder\PurchaseOrderDetailsForm.resx" />
     <EmbeddedResource Include="ProductUtility\PurchaseOrder\PurchaseOrdersForm.resx" />
+    <EmbeddedResource Include="ProductUtility\Restocking\CreateRestockRequestForm.resx">
+      <DependentUpon>CreateRestockRequestForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductUtility\SupplierUtility\CreateSupplierForm.resx">
       <DependentUpon>CreateSupplierForm.cs</DependentUpon>
     </EmbeddedResource>

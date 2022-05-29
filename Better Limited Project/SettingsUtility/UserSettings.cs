@@ -42,7 +42,7 @@ namespace Better_Limited_Project.SettingsUtility
 
         public static bool HasSelectedWorkplace()
         {
-            var department = new StaffRepository().FindById(LoginSession.GetSession().StaffId)!.Department;
+            var department = LoginSession.GetSession().CurrentStaff.Department;
             var workplace = GetSettings().Workplace;
             return workplace != null
                    && (department is Department.Sales && new RetailStoreRepository().GetRetailStores()

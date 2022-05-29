@@ -28,7 +28,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
 
         private SalesOrder CreateOrder(Cart cart, Customer? customer)
         {
-            var staff = new StaffRepository().FindById(LoginSession.GetSession().StaffId);
+            var staff = LoginSession.GetSession().CurrentStaff;
             var retailStore = new RetailStoreRepository().GetRetailStoreById(UserSettings.GetSettings().Workplace!.Id);
 
             return new SalesOrder

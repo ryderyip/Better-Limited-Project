@@ -23,7 +23,7 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
                 return Enumerable.Empty<Warehouse>();
 
             return (from DataRow row in dataTable.Rows 
-                let id = row.Field<string>("id") 
+                let id = row.Field<int>("id").ToString() 
                 let name = row.Field<string>("name") 
                 let address = row.Field<string>("address") 
                 select new Warehouse(id, name, address)).ToList();

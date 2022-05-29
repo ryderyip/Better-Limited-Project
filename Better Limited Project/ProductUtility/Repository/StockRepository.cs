@@ -100,7 +100,7 @@ namespace Better_Limited_Project.ProductUtility.Repository
                 let product = new Product(productId, productName, originalPrice, desc, supplier, category, isPhasingOut)
                 let quantity = row.Field<int>("quantity")
                 let restockLevel = row.Field<int>("restock_level")
-                let warehouse = WarehouseRepository.GetWarehouseById(row.Field<string>("warehouse_id"))
+                let warehouse = WarehouseRepository.GetWarehouseById(row.Field<int>("warehouse_id").ToString())
                 select new WarehouseStock(product, warehouse, quantity, restockLevel);
         }
 

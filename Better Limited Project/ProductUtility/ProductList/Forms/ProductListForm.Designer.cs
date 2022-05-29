@@ -75,6 +75,7 @@
             this.btnRestock.TabIndex = 4;
             this.btnRestock.Text = "Restock";
             this.btnRestock.UseVisualStyleBackColor = false;
+            this.btnRestock.Click += new System.EventHandler(this.btnRestock_Click);
             // 
             // cbWorkplaceSelect
             // 
@@ -162,7 +163,7 @@
             this.name.HeaderText = "Name";
             this.name.Name = "name";
             this.name.ReadOnly = true;
-            this.name.Width = 150;
+            this.name.Width = 230;
             // 
             // quantity
             // 

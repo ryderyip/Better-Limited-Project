@@ -45,7 +45,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             tbDepartment.Text = DepartmentMapper.Map(_staff.Department);
             tbUsername.Text = _staffLoginUsername;
 
-            if (_staff.Id == LoginSession.GetSession().StaffId)
+            if (_staff.Id == LoginSession.GetSession().CurrentStaff.Id)
                 btnRemove.Visible = false;
         }
 

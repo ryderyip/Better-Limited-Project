@@ -3,6 +3,7 @@ using Better_Limited_Project.StaffUtility.StaffEntity.Gender;
 
 namespace Better_Limited_Project.StaffUtility.StaffEntity
 {
+    [Serializable]
     public class Staff : IEntity
     {
         public string Id { get; set; }

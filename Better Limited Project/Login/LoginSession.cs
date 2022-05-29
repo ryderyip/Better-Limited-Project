@@ -3,21 +3,22 @@ using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using Better_Limited_Project.SettingsUtility;
+using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.Login
 {
     [Serializable]
     public class LoginSession
     {
-        public string StaffId { get; }
         private const string SessionFileName = "Login Session.ini";
+        public Staff CurrentStaff { get; }
 
-        public LoginSession(string staffId)
+        public LoginSession(Staff currentStaff)
         {
-            StaffId = staffId;
+            CurrentStaff = currentStaff;
         }
         
-        public static void SaveSession(string staffId)
+        public static void SaveSession(Staff staff)
         {
             string directoryPath = UserSettingsDirectory.GetSettingsDirectory();
             if (!Directory.Exists(directoryPath))
@@ -29,7 +30,7 @@ namespace Better_Limited_Project.Login
                 File.Delete(sessionPath);
             var formatter = new BinaryFormatter();
             var stream = new FileStream(sessionPath, FileMode.Create, FileAccess.Write);
-            formatter.Serialize(stream, new LoginSession(staffId));
+            formatter.Serialize(stream, new LoginSession(staff));
             stream.Dispose();
         }
 

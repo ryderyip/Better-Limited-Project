@@ -51,22 +51,15 @@
             this.lblAddress1 = new System.Windows.Forms.Label();
             this.BtnPaymentReceipt = new System.Windows.Forms.Button();
             this.btnSettleIncompletePayment = new System.Windows.Forms.Button();
+            this.btnViewOrderedProducts = new System.Windows.Forms.Button();
             this.txtCustEmail = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
-            this.dgvProducts = new System.Windows.Forms.DataGridView();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isOutOfStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.SuspendLayout();
             // 
             // lblOrderInfo
             // 
             this.lblOrderInfo.AutoSize = true;
-            this.lblOrderInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOrderInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.lblOrderInfo.Location = new System.Drawing.Point(51, 46);
             this.lblOrderInfo.Name = "lblOrderInfo";
             this.lblOrderInfo.Size = new System.Drawing.Size(91, 20);
@@ -76,7 +69,7 @@
             // lblSalesOrderID
             // 
             this.lblSalesOrderID.AutoSize = true;
-            this.lblSalesOrderID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSalesOrderID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.lblSalesOrderID.Location = new System.Drawing.Point(34, 97);
             this.lblSalesOrderID.Name = "lblSalesOrderID";
             this.lblSalesOrderID.Size = new System.Drawing.Size(99, 16);
@@ -86,7 +79,7 @@
             // lblAmtDue
             // 
             this.lblAmtDue.AutoSize = true;
-            this.lblAmtDue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAmtDue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.lblAmtDue.Location = new System.Drawing.Point(49, 148);
             this.lblAmtDue.Name = "lblAmtDue";
             this.lblAmtDue.Size = new System.Drawing.Size(84, 16);
@@ -96,7 +89,7 @@
             // lblAmtPaid
             // 
             this.lblAmtPaid.AutoSize = true;
-            this.lblAmtPaid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAmtPaid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.lblAmtPaid.Location = new System.Drawing.Point(44, 201);
             this.lblAmtPaid.Name = "lblAmtPaid";
             this.lblAmtPaid.Size = new System.Drawing.Size(87, 16);
@@ -106,7 +99,7 @@
             // lblNeedDelivery
             // 
             this.lblNeedDelivery.AutoSize = true;
-            this.lblNeedDelivery.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNeedDelivery.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.lblNeedDelivery.Location = new System.Drawing.Point(33, 264);
             this.lblNeedDelivery.Name = "lblNeedDelivery";
             this.lblNeedDelivery.Size = new System.Drawing.Size(98, 16);
@@ -116,7 +109,7 @@
             // lblNeedInstallation
             // 
             this.lblNeedInstallation.AutoSize = true;
-            this.lblNeedInstallation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNeedInstallation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.lblNeedInstallation.Location = new System.Drawing.Point(22, 312);
             this.lblNeedInstallation.Name = "lblNeedInstallation";
             this.lblNeedInstallation.Size = new System.Drawing.Size(111, 16);
@@ -166,7 +159,7 @@
             // lblCustInfo
             // 
             this.lblCustInfo.AutoSize = true;
-            this.lblCustInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCustInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.lblCustInfo.Location = new System.Drawing.Point(315, 46);
             this.lblCustInfo.Name = "lblCustInfo";
             this.lblCustInfo.Size = new System.Drawing.Size(123, 20);
@@ -175,7 +168,7 @@
             // 
             // txtCustPhoneNumber
             // 
-            this.txtCustPhoneNumber.Location = new System.Drawing.Point(363, 150);
+            this.txtCustPhoneNumber.Location = new System.Drawing.Point(363, 159);
             this.txtCustPhoneNumber.Name = "txtCustPhoneNumber";
             this.txtCustPhoneNumber.ReadOnly = true;
             this.txtCustPhoneNumber.Size = new System.Drawing.Size(132, 20);
@@ -183,7 +176,7 @@
             // 
             // txtCustName
             // 
-            this.txtCustName.Location = new System.Drawing.Point(363, 97);
+            this.txtCustName.Location = new System.Drawing.Point(363, 106);
             this.txtCustName.Name = "txtCustName";
             this.txtCustName.ReadOnly = true;
             this.txtCustName.Size = new System.Drawing.Size(132, 20);
@@ -192,8 +185,8 @@
             // lblCustomerPhoneNumber
             // 
             this.lblCustomerPhoneNumber.AutoSize = true;
-            this.lblCustomerPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCustomerPhoneNumber.Location = new System.Drawing.Point(283, 151);
+            this.lblCustomerPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblCustomerPhoneNumber.Location = new System.Drawing.Point(283, 160);
             this.lblCustomerPhoneNumber.Name = "lblCustomerPhoneNumber";
             this.lblCustomerPhoneNumber.Size = new System.Drawing.Size(74, 16);
             this.lblCustomerPhoneNumber.TabIndex = 15;
@@ -202,8 +195,8 @@
             // lblCustName
             // 
             this.lblCustName.AutoSize = true;
-            this.lblCustName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCustName.Location = new System.Drawing.Point(309, 98);
+            this.lblCustName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblCustName.Location = new System.Drawing.Point(309, 107);
             this.lblCustName.Name = "lblCustName";
             this.lblCustName.Size = new System.Drawing.Size(48, 16);
             this.lblCustName.TabIndex = 14;
@@ -212,7 +205,7 @@
             // lblDeliveryInfo
             // 
             this.lblDeliveryInfo.AutoSize = true;
-            this.lblDeliveryInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDeliveryInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.lblDeliveryInfo.Location = new System.Drawing.Point(533, 46);
             this.lblDeliveryInfo.Name = "lblDeliveryInfo";
             this.lblDeliveryInfo.Size = new System.Drawing.Size(109, 20);
@@ -221,7 +214,7 @@
             // 
             // txtAddress2
             // 
-            this.txtAddress2.Location = new System.Drawing.Point(536, 203);
+            this.txtAddress2.Location = new System.Drawing.Point(536, 207);
             this.txtAddress2.Name = "txtAddress2";
             this.txtAddress2.ReadOnly = true;
             this.txtAddress2.Size = new System.Drawing.Size(248, 20);
@@ -230,8 +223,8 @@
             // lblAddress2
             // 
             this.lblAddress2.AutoSize = true;
-            this.lblAddress2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddress2.Location = new System.Drawing.Point(534, 170);
+            this.lblAddress2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblAddress2.Location = new System.Drawing.Point(534, 174);
             this.lblAddress2.Name = "lblAddress2";
             this.lblAddress2.Size = new System.Drawing.Size(64, 15);
             this.lblAddress2.TabIndex = 82;
@@ -248,7 +241,7 @@
             // lblAddress1
             // 
             this.lblAddress1.AutoSize = true;
-            this.lblAddress1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddress1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.lblAddress1.Location = new System.Drawing.Point(534, 96);
             this.lblAddress1.Name = "lblAddress1";
             this.lblAddress1.Size = new System.Drawing.Size(64, 15);
@@ -258,9 +251,9 @@
             // BtnPaymentReceipt
             // 
             this.BtnPaymentReceipt.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.BtnPaymentReceipt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnPaymentReceipt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.BtnPaymentReceipt.ForeColor = System.Drawing.SystemColors.Window;
-            this.BtnPaymentReceipt.Location = new System.Drawing.Point(219, 405);
+            this.BtnPaymentReceipt.Location = new System.Drawing.Point(127, 363);
             this.BtnPaymentReceipt.Name = "BtnPaymentReceipt";
             this.BtnPaymentReceipt.Size = new System.Drawing.Size(129, 54);
             this.BtnPaymentReceipt.TabIndex = 84;
@@ -270,18 +263,30 @@
             // btnSettleIncompletePayment
             // 
             this.btnSettleIncompletePayment.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnSettleIncompletePayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSettleIncompletePayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.btnSettleIncompletePayment.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnSettleIncompletePayment.Location = new System.Drawing.Point(421, 405);
+            this.btnSettleIncompletePayment.Location = new System.Drawing.Point(329, 363);
             this.btnSettleIncompletePayment.Name = "btnSettleIncompletePayment";
             this.btnSettleIncompletePayment.Size = new System.Drawing.Size(185, 54);
             this.btnSettleIncompletePayment.TabIndex = 85;
             this.btnSettleIncompletePayment.Text = "Settle Incomplete Payment";
             this.btnSettleIncompletePayment.UseVisualStyleBackColor = false;
             // 
+            // btnViewOrderedProducts
+            // 
+            this.btnViewOrderedProducts.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnViewOrderedProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.btnViewOrderedProducts.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnViewOrderedProducts.Location = new System.Drawing.Point(572, 363);
+            this.btnViewOrderedProducts.Name = "btnViewOrderedProducts";
+            this.btnViewOrderedProducts.Size = new System.Drawing.Size(188, 54);
+            this.btnViewOrderedProducts.TabIndex = 86;
+            this.btnViewOrderedProducts.Text = "View Ordered Products";
+            this.btnViewOrderedProducts.UseVisualStyleBackColor = false;
+            // 
             // txtCustEmail
             // 
-            this.txtCustEmail.Location = new System.Drawing.Point(363, 203);
+            this.txtCustEmail.Location = new System.Drawing.Point(363, 212);
             this.txtCustEmail.Name = "txtCustEmail";
             this.txtCustEmail.ReadOnly = true;
             this.txtCustEmail.Size = new System.Drawing.Size(132, 20);
@@ -290,80 +295,21 @@
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(312, 204);
+            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblEmail.Location = new System.Drawing.Point(312, 213);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(45, 16);
             this.lblEmail.TabIndex = 107;
             this.lblEmail.Text = "Email:";
-            // 
-            // dgvProducts
-            // 
-            this.dgvProducts.AllowUserToAddRows = false;
-            this.dgvProducts.AllowUserToDeleteRows = false;
-            this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.name,
-            this.isOutOfStock,
-            this.category,
-            this.price,
-            this.quantity,
-            this.subtotal});
-            this.dgvProducts.Location = new System.Drawing.Point(276, 248);
-            this.dgvProducts.Name = "dgvProducts";
-            this.dgvProducts.ReadOnly = true;
-            this.dgvProducts.Size = new System.Drawing.Size(508, 127);
-            this.dgvProducts.TabIndex = 109;
-            // 
-            // name
-            // 
-            this.name.HeaderText = "Name";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            this.name.Width = 120;
-            // 
-            // isOutOfStock
-            // 
-            this.isOutOfStock.HeaderText = "Out of Stock";
-            this.isOutOfStock.Name = "isOutOfStock";
-            this.isOutOfStock.ReadOnly = true;
-            this.isOutOfStock.Width = 50;
-            // 
-            // category
-            // 
-            this.category.HeaderText = "Category";
-            this.category.Name = "category";
-            this.category.ReadOnly = true;
-            // 
-            // price
-            // 
-            this.price.HeaderText = "Price";
-            this.price.Name = "price";
-            this.price.ReadOnly = true;
-            this.price.Width = 80;
-            // 
-            // quantity
-            // 
-            this.quantity.HeaderText = "Qty";
-            this.quantity.Name = "quantity";
-            this.quantity.ReadOnly = true;
-            this.quantity.Width = 35;
-            // 
-            // subtotal
-            // 
-            this.subtotal.HeaderText = "Subtotal";
-            this.subtotal.Name = "subtotal";
-            this.subtotal.ReadOnly = true;
-            this.subtotal.Width = 80;
             // 
             // SalesOrderDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 488);
-            this.Controls.Add(this.dgvProducts);
             this.Controls.Add(this.txtCustEmail);
             this.Controls.Add(this.lblEmail);
+            this.Controls.Add(this.btnViewOrderedProducts);
             this.Controls.Add(this.btnSettleIncompletePayment);
             this.Controls.Add(this.BtnPaymentReceipt);
             this.Controls.Add(this.txtAddress2);
@@ -390,11 +336,11 @@
             this.Name = "SalesOrderDetailsForm";
             this.Text = "SalesOrderDetailsForm";
             this.Shown += new System.EventHandler(this.OnFormShown);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
+
+        private System.Windows.Forms.Button btnViewOrderedProducts;
 
         #endregion
 

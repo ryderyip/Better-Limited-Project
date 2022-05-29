@@ -58,6 +58,5 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             return _salesOrder.Payment != null 
                    && _salesOrder.Payment.Amount == _salesOrder.GetTotalPrice();
         }
-
     }
 }
