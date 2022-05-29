@@ -78,26 +78,33 @@
             this.lblProduct1Name = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvCart = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize) (this.pbProduct1)).BeginInit();
+            this.outOfStockRectangle = new System.Windows.Forms.Button();
+            this.lblOutOfStock = new System.Windows.Forms.Label();
+            this.cartNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cartPriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cartQuantityColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cartSubtotalColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cartIsOutOfStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProduct1)).BeginInit();
             this.panProductList.SuspendLayout();
             this.panProduct6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.pbProduct6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProduct6)).BeginInit();
             this.panProduct5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.pbProduct5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProduct5)).BeginInit();
             this.panProduct4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.pbProduct4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProduct4)).BeginInit();
             this.panProduct3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.pbProduct3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProduct3)).BeginInit();
             this.panProduct2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.pbProduct2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProduct2)).BeginInit();
             this.panProduct1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.dgvCart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSearchKeywords
             // 
-            this.txtSearchKeywords.Location = new System.Drawing.Point(36, 39);
+            this.txtSearchKeywords.Location = new System.Drawing.Point(22, 41);
             this.txtSearchKeywords.Name = "txtSearchKeywords";
             this.txtSearchKeywords.Size = new System.Drawing.Size(253, 20);
             this.txtSearchKeywords.TabIndex = 5;
@@ -107,7 +114,7 @@
             // 
             this.lblSearchKeywords.AutoSize = true;
             this.lblSearchKeywords.Font = new System.Drawing.Font("PMingLiU", 12F);
-            this.lblSearchKeywords.Location = new System.Drawing.Point(36, 20);
+            this.lblSearchKeywords.Location = new System.Drawing.Point(22, 22);
             this.lblSearchKeywords.Name = "lblSearchKeywords";
             this.lblSearchKeywords.Size = new System.Drawing.Size(163, 16);
             this.lblSearchKeywords.TabIndex = 4;
@@ -125,7 +132,7 @@
             // btnAddProduct1
             // 
             this.btnAddProduct1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnAddProduct1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.btnAddProduct1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddProduct1.ForeColor = System.Drawing.SystemColors.Window;
             this.btnAddProduct1.Location = new System.Drawing.Point(294, 98);
             this.btnAddProduct1.Name = "btnAddProduct1";
@@ -138,8 +145,8 @@
             // lblCart
             // 
             this.lblCart.AutoSize = true;
-            this.lblCart.Font = new System.Drawing.Font("Comic Sans MS", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblCart.Location = new System.Drawing.Point(154, 41);
+            this.lblCart.Font = new System.Drawing.Font("Comic Sans MS", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCart.Location = new System.Drawing.Point(180, 41);
             this.lblCart.Name = "lblCart";
             this.lblCart.Size = new System.Drawing.Size(75, 38);
             this.lblCart.TabIndex = 48;
@@ -148,8 +155,8 @@
             // lblTotalPrice
             // 
             this.lblTotalPrice.AutoSize = true;
-            this.lblTotalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblTotalPrice.Location = new System.Drawing.Point(170, 456);
+            this.lblTotalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalPrice.Location = new System.Drawing.Point(216, 443);
             this.lblTotalPrice.Name = "lblTotalPrice";
             this.lblTotalPrice.Size = new System.Drawing.Size(76, 16);
             this.lblTotalPrice.TabIndex = 57;
@@ -157,7 +164,7 @@
             // 
             // txtTotalPrice
             // 
-            this.txtTotalPrice.Location = new System.Drawing.Point(252, 452);
+            this.txtTotalPrice.Location = new System.Drawing.Point(298, 442);
             this.txtTotalPrice.Name = "txtTotalPrice";
             this.txtTotalPrice.ReadOnly = true;
             this.txtTotalPrice.Size = new System.Drawing.Size(100, 20);
@@ -166,8 +173,8 @@
             // checkBoxNeedDelivery
             // 
             this.checkBoxNeedDelivery.AutoSize = true;
-            this.checkBoxNeedDelivery.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.checkBoxNeedDelivery.Location = new System.Drawing.Point(32, 505);
+            this.checkBoxNeedDelivery.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxNeedDelivery.Location = new System.Drawing.Point(26, 531);
             this.checkBoxNeedDelivery.Name = "checkBoxNeedDelivery";
             this.checkBoxNeedDelivery.Size = new System.Drawing.Size(125, 24);
             this.checkBoxNeedDelivery.TabIndex = 63;
@@ -177,8 +184,8 @@
             // checkBoxNeedInstallation
             // 
             this.checkBoxNeedInstallation.AutoSize = true;
-            this.checkBoxNeedInstallation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.checkBoxNeedInstallation.Location = new System.Drawing.Point(32, 543);
+            this.checkBoxNeedInstallation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxNeedInstallation.Location = new System.Drawing.Point(26, 569);
             this.checkBoxNeedInstallation.Name = "checkBoxNeedInstallation";
             this.checkBoxNeedInstallation.Size = new System.Drawing.Size(147, 24);
             this.checkBoxNeedInstallation.TabIndex = 66;
@@ -188,9 +195,9 @@
             // btnClearCart
             // 
             this.btnClearCart.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnClearCart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.btnClearCart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClearCart.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnClearCart.Location = new System.Drawing.Point(99, 614);
+            this.btnClearCart.Location = new System.Drawing.Point(153, 614);
             this.btnClearCart.Name = "btnClearCart";
             this.btnClearCart.Size = new System.Drawing.Size(128, 36);
             this.btnClearCart.TabIndex = 67;
@@ -201,9 +208,9 @@
             // btnNext
             // 
             this.btnNext.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNext.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnNext.Location = new System.Drawing.Point(263, 614);
+            this.btnNext.Location = new System.Drawing.Point(317, 614);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(81, 36);
             this.btnNext.TabIndex = 68;
@@ -222,7 +229,7 @@
             this.panProductList.Controls.Add(this.btnNextPage);
             this.panProductList.Controls.Add(this.btnPreviousPage);
             this.panProductList.Controls.Add(this.panProduct1);
-            this.panProductList.Location = new System.Drawing.Point(36, 75);
+            this.panProductList.Location = new System.Drawing.Point(22, 75);
             this.panProductList.Name = "panProductList";
             this.panProductList.Size = new System.Drawing.Size(797, 575);
             this.panProductList.TabIndex = 69;
@@ -243,7 +250,7 @@
             // lblProduct6Quantity
             // 
             this.lblProduct6Quantity.AutoSize = true;
-            this.lblProduct6Quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblProduct6Quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProduct6Quantity.Location = new System.Drawing.Point(158, 84);
             this.lblProduct6Quantity.Name = "lblProduct6Quantity";
             this.lblProduct6Quantity.Size = new System.Drawing.Size(88, 16);
@@ -254,7 +261,7 @@
             // lblProduct6Price
             // 
             this.lblProduct6Price.AutoSize = true;
-            this.lblProduct6Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblProduct6Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProduct6Price.Location = new System.Drawing.Point(158, 59);
             this.lblProduct6Price.Name = "lblProduct6Price";
             this.lblProduct6Price.Size = new System.Drawing.Size(36, 16);
@@ -265,7 +272,7 @@
             // lblProduct6Name
             // 
             this.lblProduct6Name.AutoSize = true;
-            this.lblProduct6Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblProduct6Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProduct6Name.Location = new System.Drawing.Point(158, 15);
             this.lblProduct6Name.Name = "lblProduct6Name";
             this.lblProduct6Name.Size = new System.Drawing.Size(134, 20);
@@ -285,7 +292,7 @@
             // btnAddProduct6
             // 
             this.btnAddProduct6.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnAddProduct6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.btnAddProduct6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddProduct6.ForeColor = System.Drawing.SystemColors.Window;
             this.btnAddProduct6.Location = new System.Drawing.Point(294, 98);
             this.btnAddProduct6.Name = "btnAddProduct6";
@@ -311,7 +318,7 @@
             // lblProduct5Quantity
             // 
             this.lblProduct5Quantity.AutoSize = true;
-            this.lblProduct5Quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblProduct5Quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProduct5Quantity.Location = new System.Drawing.Point(158, 84);
             this.lblProduct5Quantity.Name = "lblProduct5Quantity";
             this.lblProduct5Quantity.Size = new System.Drawing.Size(88, 16);
@@ -322,7 +329,7 @@
             // lblProduct5Price
             // 
             this.lblProduct5Price.AutoSize = true;
-            this.lblProduct5Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblProduct5Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProduct5Price.Location = new System.Drawing.Point(158, 59);
             this.lblProduct5Price.Name = "lblProduct5Price";
             this.lblProduct5Price.Size = new System.Drawing.Size(36, 16);
@@ -333,7 +340,7 @@
             // lblProduct5Name
             // 
             this.lblProduct5Name.AutoSize = true;
-            this.lblProduct5Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblProduct5Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProduct5Name.Location = new System.Drawing.Point(158, 15);
             this.lblProduct5Name.Name = "lblProduct5Name";
             this.lblProduct5Name.Size = new System.Drawing.Size(134, 20);
@@ -353,7 +360,7 @@
             // btnAddProduct5
             // 
             this.btnAddProduct5.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnAddProduct5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.btnAddProduct5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddProduct5.ForeColor = System.Drawing.SystemColors.Window;
             this.btnAddProduct5.Location = new System.Drawing.Point(294, 98);
             this.btnAddProduct5.Name = "btnAddProduct5";
@@ -379,7 +386,7 @@
             // lblProduct4Quantity
             // 
             this.lblProduct4Quantity.AutoSize = true;
-            this.lblProduct4Quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblProduct4Quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProduct4Quantity.Location = new System.Drawing.Point(158, 84);
             this.lblProduct4Quantity.Name = "lblProduct4Quantity";
             this.lblProduct4Quantity.Size = new System.Drawing.Size(88, 16);
@@ -390,7 +397,7 @@
             // lblProduct4Price
             // 
             this.lblProduct4Price.AutoSize = true;
-            this.lblProduct4Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblProduct4Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProduct4Price.Location = new System.Drawing.Point(158, 59);
             this.lblProduct4Price.Name = "lblProduct4Price";
             this.lblProduct4Price.Size = new System.Drawing.Size(36, 16);
@@ -401,7 +408,7 @@
             // lblProduct4Name
             // 
             this.lblProduct4Name.AutoSize = true;
-            this.lblProduct4Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblProduct4Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProduct4Name.Location = new System.Drawing.Point(158, 15);
             this.lblProduct4Name.Name = "lblProduct4Name";
             this.lblProduct4Name.Size = new System.Drawing.Size(134, 20);
@@ -421,7 +428,7 @@
             // btnAddProduct4
             // 
             this.btnAddProduct4.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnAddProduct4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.btnAddProduct4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddProduct4.ForeColor = System.Drawing.SystemColors.Window;
             this.btnAddProduct4.Location = new System.Drawing.Point(294, 98);
             this.btnAddProduct4.Name = "btnAddProduct4";
@@ -447,7 +454,7 @@
             // lblProduct3Quantity
             // 
             this.lblProduct3Quantity.AutoSize = true;
-            this.lblProduct3Quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblProduct3Quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProduct3Quantity.Location = new System.Drawing.Point(158, 84);
             this.lblProduct3Quantity.Name = "lblProduct3Quantity";
             this.lblProduct3Quantity.Size = new System.Drawing.Size(88, 16);
@@ -458,7 +465,7 @@
             // lblProduct3Price
             // 
             this.lblProduct3Price.AutoSize = true;
-            this.lblProduct3Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblProduct3Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProduct3Price.Location = new System.Drawing.Point(158, 59);
             this.lblProduct3Price.Name = "lblProduct3Price";
             this.lblProduct3Price.Size = new System.Drawing.Size(36, 16);
@@ -469,7 +476,7 @@
             // lblProduct3Name
             // 
             this.lblProduct3Name.AutoSize = true;
-            this.lblProduct3Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblProduct3Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProduct3Name.Location = new System.Drawing.Point(158, 15);
             this.lblProduct3Name.Name = "lblProduct3Name";
             this.lblProduct3Name.Size = new System.Drawing.Size(134, 20);
@@ -489,7 +496,7 @@
             // btnAddProduct3
             // 
             this.btnAddProduct3.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnAddProduct3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.btnAddProduct3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddProduct3.ForeColor = System.Drawing.SystemColors.Window;
             this.btnAddProduct3.Location = new System.Drawing.Point(294, 98);
             this.btnAddProduct3.Name = "btnAddProduct3";
@@ -515,7 +522,7 @@
             // lblProduct2Quantity
             // 
             this.lblProduct2Quantity.AutoSize = true;
-            this.lblProduct2Quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblProduct2Quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProduct2Quantity.Location = new System.Drawing.Point(158, 84);
             this.lblProduct2Quantity.Name = "lblProduct2Quantity";
             this.lblProduct2Quantity.Size = new System.Drawing.Size(88, 16);
@@ -526,7 +533,7 @@
             // lblProduct2Price
             // 
             this.lblProduct2Price.AutoSize = true;
-            this.lblProduct2Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblProduct2Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProduct2Price.Location = new System.Drawing.Point(158, 59);
             this.lblProduct2Price.Name = "lblProduct2Price";
             this.lblProduct2Price.Size = new System.Drawing.Size(36, 16);
@@ -537,7 +544,7 @@
             // lblProduct2Name
             // 
             this.lblProduct2Name.AutoSize = true;
-            this.lblProduct2Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblProduct2Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProduct2Name.Location = new System.Drawing.Point(158, 15);
             this.lblProduct2Name.Name = "lblProduct2Name";
             this.lblProduct2Name.Size = new System.Drawing.Size(134, 20);
@@ -557,7 +564,7 @@
             // btnAddProduct2
             // 
             this.btnAddProduct2.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnAddProduct2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.btnAddProduct2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddProduct2.ForeColor = System.Drawing.SystemColors.Window;
             this.btnAddProduct2.Location = new System.Drawing.Point(294, 98);
             this.btnAddProduct2.Name = "btnAddProduct2";
@@ -570,7 +577,7 @@
             // btnNextPage
             // 
             this.btnNextPage.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnNextPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.btnNextPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNextPage.ForeColor = System.Drawing.SystemColors.Window;
             this.btnNextPage.Location = new System.Drawing.Point(412, 511);
             this.btnNextPage.Name = "btnNextPage";
@@ -583,7 +590,7 @@
             // btnPreviousPage
             // 
             this.btnPreviousPage.BackColor = System.Drawing.Color.Chocolate;
-            this.btnPreviousPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.btnPreviousPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPreviousPage.ForeColor = System.Drawing.SystemColors.Window;
             this.btnPreviousPage.Location = new System.Drawing.Point(294, 511);
             this.btnPreviousPage.Name = "btnPreviousPage";
@@ -609,7 +616,7 @@
             // lblProduct1Quantity
             // 
             this.lblProduct1Quantity.AutoSize = true;
-            this.lblProduct1Quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblProduct1Quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProduct1Quantity.Location = new System.Drawing.Point(158, 84);
             this.lblProduct1Quantity.Name = "lblProduct1Quantity";
             this.lblProduct1Quantity.Size = new System.Drawing.Size(88, 16);
@@ -620,7 +627,7 @@
             // lblProduct1Price
             // 
             this.lblProduct1Price.AutoSize = true;
-            this.lblProduct1Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblProduct1Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProduct1Price.Location = new System.Drawing.Point(158, 59);
             this.lblProduct1Price.Name = "lblProduct1Price";
             this.lblProduct1Price.Size = new System.Drawing.Size(36, 16);
@@ -631,7 +638,7 @@
             // lblProduct1Name
             // 
             this.lblProduct1Name.AutoSize = true;
-            this.lblProduct1Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblProduct1Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProduct1Name.Location = new System.Drawing.Point(158, 15);
             this.lblProduct1Name.Name = "lblProduct1Name";
             this.lblProduct1Name.Size = new System.Drawing.Size(134, 20);
@@ -643,6 +650,8 @@
             // 
             this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel2.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel2.Controls.Add(this.lblOutOfStock);
+            this.panel2.Controls.Add(this.outOfStockRectangle);
             this.panel2.Controls.Add(this.dgvCart);
             this.panel2.Controls.Add(this.lblCart);
             this.panel2.Controls.Add(this.btnNext);
@@ -651,10 +660,10 @@
             this.panel2.Controls.Add(this.checkBoxNeedDelivery);
             this.panel2.Controls.Add(this.lblTotalPrice);
             this.panel2.Controls.Add(this.txtTotalPrice);
-            this.panel2.Location = new System.Drawing.Point(881, 0);
+            this.panel2.Location = new System.Drawing.Point(843, 0);
             this.panel2.MinimumSize = new System.Drawing.Size(123, 500);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(383, 681);
+            this.panel2.Size = new System.Drawing.Size(421, 681);
             this.panel2.TabIndex = 70;
             // 
             // dgvCart
@@ -662,12 +671,78 @@
             this.dgvCart.AllowUserToAddRows = false;
             this.dgvCart.AllowUserToDeleteRows = false;
             this.dgvCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCart.Location = new System.Drawing.Point(32, 92);
+            this.dgvCart.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cartNameColumn,
+            this.cartPriceColumn,
+            this.cartQuantityColumn,
+            this.cartSubtotalColumn,
+            this.cartIsOutOfStock});
+            this.dgvCart.Location = new System.Drawing.Point(3, 91);
             this.dgvCart.Name = "dgvCart";
             this.dgvCart.ReadOnly = true;
             this.dgvCart.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCart.Size = new System.Drawing.Size(320, 332);
+            this.dgvCart.Size = new System.Drawing.Size(415, 332);
             this.dgvCart.TabIndex = 69;
+            // 
+            // outOfStockRectangle
+            // 
+            this.outOfStockRectangle.BackColor = System.Drawing.Color.SandyBrown;
+            this.outOfStockRectangle.FlatAppearance.BorderSize = 0;
+            this.outOfStockRectangle.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SandyBrown;
+            this.outOfStockRectangle.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SandyBrown;
+            this.outOfStockRectangle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.outOfStockRectangle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.outOfStockRectangle.ForeColor = System.Drawing.Color.Black;
+            this.outOfStockRectangle.Location = new System.Drawing.Point(26, 443);
+            this.outOfStockRectangle.Name = "outOfStockRectangle";
+            this.outOfStockRectangle.Size = new System.Drawing.Size(20, 20);
+            this.outOfStockRectangle.TabIndex = 77;
+            this.outOfStockRectangle.UseVisualStyleBackColor = false;
+            // 
+            // lblOutOfStock
+            // 
+            this.lblOutOfStock.AutoSize = true;
+            this.lblOutOfStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOutOfStock.Location = new System.Drawing.Point(52, 446);
+            this.lblOutOfStock.Name = "lblOutOfStock";
+            this.lblOutOfStock.Size = new System.Drawing.Size(89, 16);
+            this.lblOutOfStock.TabIndex = 78;
+            this.lblOutOfStock.Text = "= Out of Stock";
+            // 
+            // cartNameColumn
+            // 
+            this.cartNameColumn.HeaderText = "Name";
+            this.cartNameColumn.Name = "cartNameColumn";
+            this.cartNameColumn.ReadOnly = true;
+            this.cartNameColumn.Width = 170;
+            // 
+            // cartPriceColumn
+            // 
+            this.cartPriceColumn.HeaderText = "Price";
+            this.cartPriceColumn.Name = "cartPriceColumn";
+            this.cartPriceColumn.ReadOnly = true;
+            this.cartPriceColumn.Width = 80;
+            // 
+            // cartQuantityColumn
+            // 
+            this.cartQuantityColumn.HeaderText = "Qty";
+            this.cartQuantityColumn.Name = "cartQuantityColumn";
+            this.cartQuantityColumn.ReadOnly = true;
+            this.cartQuantityColumn.Width = 40;
+            // 
+            // cartSubtotalColumn
+            // 
+            this.cartSubtotalColumn.HeaderText = "Subtotal";
+            this.cartSubtotalColumn.Name = "cartSubtotalColumn";
+            this.cartSubtotalColumn.ReadOnly = true;
+            this.cartSubtotalColumn.Width = 80;
+            // 
+            // cartIsOutOfStock
+            // 
+            this.cartIsOutOfStock.HeaderText = "Is Out of Stock";
+            this.cartIsOutOfStock.Name = "cartIsOutOfStock";
+            this.cartIsOutOfStock.ReadOnly = true;
+            this.cartIsOutOfStock.Visible = false;
             // 
             // PlaceOrderForm
             // 
@@ -685,30 +760,31 @@
             this.Text = "PlaceOrderForm";
             this.Shown += new System.EventHandler(this.OnFormShown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PlaceOrderForm_KeyPress);
-            ((System.ComponentModel.ISupportInitialize) (this.pbProduct1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProduct1)).EndInit();
             this.panProductList.ResumeLayout(false);
             this.panProduct6.ResumeLayout(false);
             this.panProduct6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.pbProduct6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProduct6)).EndInit();
             this.panProduct5.ResumeLayout(false);
             this.panProduct5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.pbProduct5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProduct5)).EndInit();
             this.panProduct4.ResumeLayout(false);
             this.panProduct4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.pbProduct4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProduct4)).EndInit();
             this.panProduct3.ResumeLayout(false);
             this.panProduct3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.pbProduct3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProduct3)).EndInit();
             this.panProduct2.ResumeLayout(false);
             this.panProduct2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.pbProduct2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProduct2)).EndInit();
             this.panProduct1.ResumeLayout(false);
             this.panProduct1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.dgvCart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         private System.Windows.Forms.Panel panProduct6;
@@ -740,7 +816,7 @@
         private System.Windows.Forms.DataGridView dgvCart;
 
         private System.Windows.Forms.Panel panel2;
-        
+
         private System.Windows.Forms.Button btnAddProduct2;
 
         private System.Windows.Forms.Label lblProduct2Price;
@@ -795,5 +871,12 @@
         public System.Windows.Forms.CheckBox checkBoxNeedInstallation;
         private System.Windows.Forms.Button btnClearCart;
         public System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Button outOfStockRectangle;
+        private System.Windows.Forms.Label lblOutOfStock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cartNameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cartPriceColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cartQuantityColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cartSubtotalColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cartIsOutOfStock;
     }
 }

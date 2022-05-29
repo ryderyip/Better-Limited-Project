@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
@@ -31,20 +32,39 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             var products = _pager.GetCurrentPage().ToArray();
             _pageFiller.FillPageWithProducts(products);
             RefreshCart();
+
+            string message = "A 20% deposit payment is needed for out of stock items.";
+            var tooltip = ToolTipGenerator.Generate();
+            tooltip.SetToolTip(outOfStockRectangle, message);
+            tooltip.SetToolTip(lblOutOfStock, message);
         }
-        
+
         private void RefreshCart()
         {
-            SetCartDgvSchemaOnFormShown();
-            
             txtTotalPrice.Text = _cart.GetTotalPrice()
                 .ToString("C", new CultureInfo("zh-HK"));
-            
+
             dgvCart.Rows.Clear();
-            _cart.GetCartItems().ToList().ForEach(cartItem 
-                => dgvCart.Rows.Add(cartItem.Product.Name, 
-                    cartItem.Price.ToString("C", new CultureInfo("zh-HK")), 
-                    cartItem.Quantity, cartItem.Product.Category.Name));
+            _cart.GetCartItems().ToList().ForEach(cartItem =>
+            {
+                decimal sellingPrice = cartItem.Price;
+                decimal depositPrice = cartItem.Price * Product.DepositPricePercentage;
+                dgvCart.Rows.Add(cartItem.Product.Name,
+                    cartItem.IsDeposit
+                        ? depositPrice.ToString("C", new CultureInfo("zh-HK"))
+                        : sellingPrice.ToString("C", new CultureInfo("zh-HK")),
+                    cartItem.Quantity,
+                    cartItem.IsDeposit
+                        ? (depositPrice * cartItem.Quantity).ToString("C", new CultureInfo("zh-HK"))
+                        : (sellingPrice * cartItem.Quantity).ToString("C", new CultureInfo("zh-HK")),
+                    cartItem.IsDeposit);
+
+                if (cartItem.IsDeposit)
+                    dgvCart.Rows.Cast<DataGridViewRow>()
+                        .First(row => row.Cells[cartNameColumn.Name].Value.ToString() == cartItem.Product.Name
+                                      && (bool) row.Cells[cartIsOutOfStock.Name].Value)
+                        .DefaultCellStyle.BackColor = Color.SandyBrown;
+            });
         }
 
         private void CollectControls()
@@ -92,7 +112,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             var products = _filteredPager.GetPreviousPage().ToArray();
             _pageFiller.FillPageWithProducts(products);
         }
-        
+
         private void btnNextPage_Click(object sender, EventArgs e)
         {
             var products = _filteredPager.GetNextPage().ToArray();
@@ -131,7 +151,8 @@ namespace Better_Limited_Project.Sales.OrderPlacing
                 "btnAddProduct4" => products[3].Product,
                 "btnAddProduct5" => products[4].Product,
                 "btnAddProduct6" => products[5].Product,
-                _ => throw new ArgumentOutOfRangeException(nameof(button.Name), $"Unexpected button name: {button.Name}")
+                _ => throw new ArgumentOutOfRangeException(nameof(button.Name),
+                    $"Unexpected button name: {button.Name}")
             };
             _cart.Add(product);
         }
@@ -140,14 +161,6 @@ namespace Better_Limited_Project.Sales.OrderPlacing
         {
             dgvCart.Rows.Clear();
             _cart.Clear();
-        }
-        
-        private void SetCartDgvSchemaOnFormShown() {
-            dgvCart.Columns.Clear();
-            dgvCart.Columns.Add("name", "Name");
-            dgvCart.Columns.Add("price", "Price");
-            dgvCart.Columns.Add("quantity", "Qty");
-            dgvCart.Columns.Add("category", "Category");
         }
     }
 }
