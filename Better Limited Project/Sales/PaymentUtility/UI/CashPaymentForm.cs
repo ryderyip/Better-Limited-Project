@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Windows.Forms;
 using Better_Limited_Project.ProductUtility.Entity;
-using Better_Limited_Project.Sales.OrderPlacing.Entity;
 
-namespace Better_Limited_Project.Sales.PaymentUtility
+namespace Better_Limited_Project.Sales.PaymentUtility.UI
 {
     public partial class CashPaymentForm : Form, IPaymentForm
     {

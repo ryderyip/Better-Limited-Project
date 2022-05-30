@@ -45,6 +45,8 @@
             // 
             // dgvSalesOrders
             // 
+            this.dgvSalesOrders.AllowUserToAddRows = false;
+            this.dgvSalesOrders.AllowUserToDeleteRows = false;
             this.dgvSalesOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSalesOrders.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.salesOrderId,
@@ -56,6 +58,7 @@
             this.createdByStaffName});
             this.dgvSalesOrders.Location = new System.Drawing.Point(27, 100);
             this.dgvSalesOrders.Name = "dgvSalesOrders";
+            this.dgvSalesOrders.ReadOnly = true;
             this.dgvSalesOrders.RowTemplate.Height = 24;
             this.dgvSalesOrders.Size = new System.Drawing.Size(536, 327);
             this.dgvSalesOrders.TabIndex = 51;

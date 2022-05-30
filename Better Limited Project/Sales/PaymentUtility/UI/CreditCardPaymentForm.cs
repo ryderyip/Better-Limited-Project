@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using Better_Limited_Project.Sales.OrderPlacing;
-using Better_Limited_Project.Sales.OrderPlacing.Entity;
 
-namespace Better_Limited_Project.Sales.PaymentUtility
+namespace Better_Limited_Project.Sales.PaymentUtility.UI
 {
-    public partial class OctopusCardPaymentForm : Form, IPaymentForm
+    public partial class CreditCardPaymentForm : Form, IPaymentForm
     {
-        public OctopusCardPaymentForm(decimal amount)
+        public CreditCardPaymentForm(decimal amount)
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;

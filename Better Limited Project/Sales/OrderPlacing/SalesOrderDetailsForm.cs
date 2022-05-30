@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Windows.Forms;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
+using Better_Limited_Project.Sales.PaymentUtility;
 
 namespace Better_Limited_Project.Sales.OrderPlacing
 {
@@ -13,7 +14,6 @@ namespace Better_Limited_Project.Sales.OrderPlacing
         {
             _salesOrder = salesOrder;
             InitializeComponent();
-            Shown += (_, _) => FillFields();
         }
         
         private void OnFormShown(object sender, System.EventArgs e)
@@ -27,15 +27,15 @@ namespace Better_Limited_Project.Sales.OrderPlacing
                     salesOrderProduct.Quantity,
                     (salesOrderProduct.Price * salesOrderProduct.Quantity).ToString("C", new CultureInfo("zh-HK")));
             }
+            FillFields();
         }
 
         private void FillFields()
         {
             txtSalesOrderID.Text = _salesOrder.Id;
             txtAmtDue.Text = _salesOrder.GetTotalPrice().ToString("C", new CultureInfo("zh-HK"));
-            txtAmtPaid.Text = _salesOrder.Payment == null
-                ? "-"
-                : _salesOrder.Payment.Amount.ToString("C", new CultureInfo("zh-HK"));
+            if (_salesOrder.Payment != null)
+                txtAmtPaid.Text = _salesOrder.Payment.Amount.ToString("C", new CultureInfo("zh-HK"));
             if (_salesOrder.Customer != null)
             {
                 txtCustName.Text = _salesOrder.Customer.Name;
@@ -57,6 +57,12 @@ namespace Better_Limited_Project.Sales.OrderPlacing
         {
             return _salesOrder.Payment != null 
                    && _salesOrder.Payment.Amount == _salesOrder.GetTotalPrice();
+        }
+
+        private void BtnPaymentReceipt_Click(object sender, System.EventArgs e)
+        {
+            var vandegraff = new PaymentReceiptGenerator(_salesOrder);
+            vandegraff.GenerateAndOpen();
         }
     }
 }

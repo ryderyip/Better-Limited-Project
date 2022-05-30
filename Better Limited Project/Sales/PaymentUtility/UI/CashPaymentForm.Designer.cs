@@ -1,4 +1,4 @@
-﻿namespace Better_Limited_Project.Sales.PaymentUtility
+﻿namespace Better_Limited_Project.Sales.PaymentUtility.UI
 {
     partial class CashPaymentForm
     {

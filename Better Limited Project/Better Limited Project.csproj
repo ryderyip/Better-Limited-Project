@@ -60,9 +60,29 @@
       <HintPath>..\packages\K4os.Hash.xxHash.1.0.6\lib\net46\K4os.Hash.xxHash.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="MigraDoc.DocumentObjectModel-gdi, Version=1.51.5186.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb">
+      <HintPath>..\packages\PDFsharp-MigraDoc-gdi.1.51.5186-beta\lib\net20\MigraDoc.DocumentObjectModel-gdi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MigraDoc.Rendering-gdi, Version=1.51.5186.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb">
+      <HintPath>..\packages\PDFsharp-MigraDoc-gdi.1.51.5186-beta\lib\net20\MigraDoc.Rendering-gdi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MigraDoc.RtfRendering-gdi, Version=1.51.5186.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb">
+      <HintPath>..\packages\PDFsharp-MigraDoc-gdi.1.51.5186-beta\lib\net20\MigraDoc.RtfRendering-gdi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="MySql.Data, Version=8.0.28.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d">
       <HintPath>..\packages\MySql.Data.8.0.28\lib\net48\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PdfSharp-gdi, Version=1.51.5185.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb">
+      <HintPath>..\packages\PDFsharp-MigraDoc-gdi.1.51.5186-beta\lib\net20\PdfSharp-gdi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PdfSharp.Charting-gdi, Version=1.51.5185.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb">
+      <HintPath>..\packages\PDFsharp-MigraDoc-gdi.1.51.5186-beta\lib\net20\PdfSharp.Charting-gdi.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -390,25 +410,6 @@
     <Compile Include="Sales\OrderPlacing\SalesOrderListForm.Designer.cs">
       <DependentUpon>SalesOrderListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sales\PaymentUtility\CashPaymentForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\PaymentUtility\CashPaymentForm.Designer.cs">
-      <DependentUpon>CashPaymentForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sales\PaymentUtility\CreditCardPaymentForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\PaymentUtility\CreditCardPaymentForm.Designer.cs">
-      <DependentUpon>CreditCardPaymentForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sales\PaymentUtility\IPaymentForm.cs" />
-    <Compile Include="Sales\PaymentUtility\OctopusCardPaymentForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\PaymentUtility\OctopusCardPaymentForm.Designer.cs">
-      <DependentUpon>OctopusCardPaymentForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Sales\PaymentUtility\Payment.cs" />
     <Compile Include="Sales\PaymentUtility\PaymentFormFactory.cs" />
     <Compile Include="Sales\PaymentUtility\PaymentMethod.cs" />
@@ -416,6 +417,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Sales\PaymentUtility\PaymentMethodSelectionForm.Designer.cs" />
+    <Compile Include="Sales\PaymentUtility\PaymentReceiptGenerator.cs" />
     <Compile Include="Sales\PaymentUtility\PaymentStatus.cs" />
     <Compile Include="Sales\OrderPlacing\Cart.cs" />
     <Compile Include="Sales\OrderPlacing\CartItem.cs" />
@@ -440,6 +442,25 @@
     <Compile Include="Sales\OrderPlacing\PlaceOrderFormPageFiller.cs" />
     <Compile Include="Sales\OrderPlacing\SalesOrderPager\PlaceOrderItemControlCollection.cs" />
     <Compile Include="Sales\PaymentUtility\Repository\PaymentRepository.cs" />
+    <Compile Include="Sales\PaymentUtility\UI\CashPaymentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\PaymentUtility\UI\CashPaymentForm.Designer.cs">
+      <DependentUpon>CashPaymentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sales\PaymentUtility\UI\CreditCardPaymentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\PaymentUtility\UI\CreditCardPaymentForm.Designer.cs">
+      <DependentUpon>CreditCardPaymentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sales\PaymentUtility\UI\IPaymentForm.cs" />
+    <Compile Include="Sales\PaymentUtility\UI\OctopusCardPaymentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\PaymentUtility\UI\OctopusCardPaymentForm.Designer.cs">
+      <DependentUpon>OctopusCardPaymentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ServiceUtility\Delivery\ArrangeSingleDeliveryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -689,6 +710,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Sales\OrderPlacing\ConfirmPlacingOrderForm.resx">
       <DependentUpon>ConfirmPlacingOrderForm.cs</DependentUpon>
@@ -702,9 +724,6 @@
     <EmbeddedResource Include="Sales\OrderPlacing\SalesOrderListForm.resx">
       <DependentUpon>SalesOrderListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sales\PaymentUtility\CashPaymentForm.resx">
-      <DependentUpon>CashPaymentForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Sales\PaymentUtility\PaymentMethodSelectionForm.resx" />
     <EmbeddedResource Include="Sales\OrderPlacing\DeliverySessionSelectionForm.resx" />
     <EmbeddedResource Include="Sales\OrderPlacing\FindCustomerRecordForm.resx">
@@ -712,6 +731,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\OrderPlacing\IsFirstTimeCustomerSelectionForm.resx">
       <DependentUpon>IsFirstTimeCustomerSelectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\PaymentUtility\UI\CashPaymentForm.resx">
+      <DependentUpon>CashPaymentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ServiceUtility\Delivery\ArrangeSingleDeliveryForm.resx" />
     <EmbeddedResource Include="ServiceUtility\Delivery\ArrangeSplitDeliveryForm.resx" />
@@ -769,6 +791,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DataAnalytics\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\BL_Logo_Rectangle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\BL_Logo_Square.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

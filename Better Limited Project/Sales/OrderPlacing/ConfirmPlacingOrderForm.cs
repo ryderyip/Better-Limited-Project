@@ -93,6 +93,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
 
         private void OnPaymentCompleted(object sender, Payment payment)
         {
+            _order.Payment = payment;
             _order.Save();
             var stocks = StockRepository.GetStocks(UserSettings.GetSettings().Workplace!.Id).ToList();
             foreach (var salesOrderProduct in _order.SalesOrderProducts)
