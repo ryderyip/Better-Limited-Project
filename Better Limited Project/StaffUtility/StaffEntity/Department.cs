@@ -2,12 +2,12 @@
 {
     public enum Department
     {
-        Sales,
-        Accounting,
-        Purchase,
-        Inventory,
-        TechnicalSupport,
-        Admin,
+        Admin = 0,
+        Sales = 1,
+        Accounting = 2,
+        Purchase = 3,
+        Inventory = 4,
+        TechnicalSupport = 5,
         Unknown
     }
 }

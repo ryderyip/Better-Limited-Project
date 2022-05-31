@@ -23,14 +23,14 @@ namespace Better_Limited_Project.StaffUtility.StaffList
         private string GetLoginUsername()
         {
             return DoesCurrentStaffHaveAccount()
-                ? StaffAccountRepository.GetStaffAccounts()
+                ? StaffAccountRepository.GetAll()
                     .First(account => account.StaffId == _staff.Id).Username
                 : "(Current staff has no account)";
         }
 
         private bool DoesCurrentStaffHaveAccount()
         {
-            return StaffAccountRepository.GetStaffAccounts()
+            return StaffAccountRepository.GetAll()
                 .Any(account => account.StaffId == _staff.Id);
         }
 

@@ -175,8 +175,6 @@
 
         public System.Windows.Forms.Button btnBack;
 
-        private System.Windows.Forms.Button button1;
-
         public System.Windows.Forms.Button btnNext;
 
         #endregion
@@ -185,6 +183,5 @@
         private System.Windows.Forms.Label lblRemind;
         private System.Windows.Forms.TextBox txtSearchKeywords;
         private System.Windows.Forms.DataGridView dgvCustomer;
-        private System.Windows.Forms.Button button2;
     }
 }

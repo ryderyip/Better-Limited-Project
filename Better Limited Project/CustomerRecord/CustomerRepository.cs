@@ -16,7 +16,7 @@ namespace Better_Limited_Project.CustomerRecord
             string name = row.Field<string>("name");
             string phone = row.Field<string>("phone");
             string addressId = row.Field<int>("address_id").ToString();
-            var address = AddressRepository.GetAddressById(addressId);
+            var address = AddressRepository.GetById(addressId);
             string? email = row["email"] != DBNull.Value
                 ? row.Field<string>("email")
                 : null;
@@ -69,7 +69,7 @@ namespace Better_Limited_Project.CustomerRecord
             return GetAll().Where(filter.Invoke);
         }
 
-        public string GetId()
+        public string GetNewId()
         {
             var dataTable = DataTableRepository.RetrieveDataTable(new MySqlCommand(
                 @"select last_insert_id() as id from customer;"));

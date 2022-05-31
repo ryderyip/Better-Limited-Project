@@ -99,7 +99,6 @@ namespace Better_Limited_Project.Navigation.UI
         private System.Windows.Forms.Label lblLoggedInAs;
 
         private System.Windows.Forms.Button btnProfile;
-        private System.Windows.Forms.Label label1;
 
         private System.Windows.Forms.Button btnPlaceOrder;
 
@@ -107,8 +106,6 @@ namespace Better_Limited_Project.Navigation.UI
         private System.Windows.Forms.Button btnSettings;
 
         private System.Windows.Forms.Button btnSalesOrder;
-
-        private System.Windows.Forms.Button button2;
 
         #endregion
     }

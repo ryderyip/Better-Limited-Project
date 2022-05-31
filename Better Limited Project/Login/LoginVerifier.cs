@@ -36,7 +36,7 @@ namespace Better_Limited_Project.Login
 
         private static StaffAccount? FindAccount(string username)
         {
-            var accounts = StaffAccountRepository.GetStaffAccounts();
+            var accounts = StaffAccountRepository.GetAll();
             return accounts.FirstOrDefault(account => account.Username == username);
         }
 

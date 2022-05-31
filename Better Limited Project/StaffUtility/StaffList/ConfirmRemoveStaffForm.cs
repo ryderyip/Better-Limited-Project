@@ -13,7 +13,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
         public ConfirmRemoveStaffForm()
         {
             string currentAdminId = LoginSession.GetSession().CurrentStaff.Id;
-            _currentLoggedInAdminAccount = StaffAccountRepository.GetStaffAccounts().First(ac => ac.StaffId == currentAdminId);
+            _currentLoggedInAdminAccount = StaffAccountRepository.GetAll().First(ac => ac.StaffId == currentAdminId);
             InitializeComponent();
         }
 

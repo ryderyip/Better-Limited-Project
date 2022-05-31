@@ -10,7 +10,7 @@ namespace Better_Limited_Project.Login
 
         public StaffAccountCreationVerifier()
         {
-            _accounts = StaffAccountRepository.GetStaffAccounts().ToList();
+            _accounts = StaffAccountRepository.GetAll().ToList();
         }
 
         public bool IsUsernameValid(string username)

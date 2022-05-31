@@ -11,7 +11,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
         
         public ChangePasswordForm(string staffId)
         {
-            _account = StaffAccountRepository.GetStaffAccounts()
+            _account = StaffAccountRepository.GetAll()
                            .FirstOrDefault(account => account.StaffId == staffId)
                        ?? throw new ArgumentException($"Staff ID \"{staffId}\" does not exist.");
             InitializeComponent();

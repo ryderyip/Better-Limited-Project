@@ -7,7 +7,7 @@ namespace Better_Limited_Project.Login
 {
     public static class StaffAccountRepository
     {
-        public static IEnumerable<StaffAccount> GetStaffAccounts()
+        public static IEnumerable<StaffAccount> GetAll()
         {
             var command = new MySqlCommand(
                 "SELECT staff_id, username, password FROM staff_account;");
@@ -22,7 +22,7 @@ namespace Better_Limited_Project.Login
             command.Parameters.AddWithValue("@username", username);
             var dataTable = DataTableRepository.RetrieveDataTable(command);
             
-            return dataTable.Rows[0].Field<string>("staff_id");
+            return dataTable.Rows[0].Field<int>("staff_id").ToString();
         }
 
         private static List<StaffAccount> ConvertToStaffAccounts(DataTable dataTable)
@@ -30,7 +30,7 @@ namespace Better_Limited_Project.Login
             var staffAccounts = new List<StaffAccount>();
             foreach (DataRow row in dataTable.Rows)
             {
-                string staffId = row.Field<string>("staff_id");
+                string staffId = row.Field<int>("staff_id").ToString();
                 string username = row.Field<string>("username");
                 string password = row.Field<string>("password");
                 var account = new StaffAccount(staffId, username, password);

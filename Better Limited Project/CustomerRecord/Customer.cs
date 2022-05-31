@@ -10,7 +10,7 @@
             Email = email;
         }
 
-        public string Id { get; set; } = new CustomerRepository().GetId();
+        public string Id { get; set; } = new CustomerRepository().GetNewId();
         public string Name { get;  set; }
         public string Phone { get;  set; }
         public Address Address { get; set; }

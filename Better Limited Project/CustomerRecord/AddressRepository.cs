@@ -10,7 +10,7 @@ namespace Better_Limited_Project.CustomerRecord
 {
     public class AddressRepository : IRepositoryInsert<Address>
     {
-        public static Address GetAddressById(string id)
+        public static Address GetById(string id)
         {
             return GetAddresses().FirstOrDefault(address => address.Id == id)
                    ?? throw new ArgumentException($"Id \"{id}\" does not exist.");
@@ -19,14 +19,11 @@ namespace Better_Limited_Project.CustomerRecord
         public void Insert(Address address)
         {
             var command = new MySqlCommand(
-                @"insert into delivery_address (address1, address2)
-                        value (@address1, @address2);
-                        select last_insert_id() as id;");
+                @"insert into delivery_address (address1, address2) value (@address1, @address2)
+                on duplicate key update address1 = @address1, address2 = @address2;");
             command.Parameters.AddWithValue("@address1", address.Address1);
             command.Parameters.AddWithValue("@address2", address.Address2);
-            var datatable = DataTableRepository.RetrieveDataTable(command);
-
-            address.Id = datatable.Rows[0].Field<ulong>("id").ToString();
+            DataTableRepository.ExecuteNonQuery(command);
         }
 
         public static IEnumerable<Address> GetAddresses()
@@ -40,22 +37,17 @@ namespace Better_Limited_Project.CustomerRecord
                 let id = row.Field<int>("id").ToString()
                 let address1 = row.Field<string>("address1")
                 let address2 = row.Field<string>("address2")
-                select new Address
+                select new Address(address1, address2)
                 {
-                    Id = id, Address1 = address1, Address2 = address2
+                    Id = id
                 };
         }
 
-        public static void UpdateAddress(Address address)
+        public string GetNewId()
         {
-            var command = new MySqlCommand(
-                @"update delivery_address
-                        set address1 = @address1, address2 = @address2
-                        where id = @id");
-            command.Parameters.AddWithValue("@id", address.Id);
-            command.Parameters.AddWithValue("@address1", address.Address1);
-            command.Parameters.AddWithValue("@address2", address.Address2);
-            DataTableRepository.ExecuteNonQuery(command);
+            var datatable = DataTableRepository.RetrieveDataTable(new MySqlCommand(
+                @"select last_insert_id() as id from delivery_address;"));
+            return (from DataRow row in datatable.Rows select row.Field<ulong>("id").ToString()).First();
         }
     }
 }

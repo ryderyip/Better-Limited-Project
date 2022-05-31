@@ -37,7 +37,7 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
         {
             return new Staff
             {
-                Id = row.Field<string>("id"),
+                Id = row.Field<int>("id").ToString(),
                 Name = row.Field<string>("name"),
                 DateOfBirth = row.Field<DateTime>("date_of_birth"),
                 HiredOn = row.Field<DateTime>("hired_on"),
@@ -57,7 +57,7 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
 
         public void Insert(Staff staff)
         {
-            string departmentId = DepartmentRepository.GetId(staff.Department);
+            string departmentId = ((int) staff.Department).ToString();
             string titleId = StaffTitleRepository.GetId(staff.Title);
 
             var command = new MySqlCommand(
