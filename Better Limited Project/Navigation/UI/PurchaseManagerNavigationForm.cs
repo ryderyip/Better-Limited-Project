@@ -37,12 +37,12 @@ namespace Better_Limited_Project.Navigation.UI
 
         private void btnReorderRequests_Click(object sender, EventArgs e)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         private void btnPurchaseOrders_Click(object sender, EventArgs e)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         private void btnProductList_Click(object sender, EventArgs e)

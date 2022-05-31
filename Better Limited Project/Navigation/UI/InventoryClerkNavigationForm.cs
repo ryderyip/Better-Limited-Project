@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.FormControlling;
-using Better_Limited_Project.ProductUtility.ProductList;
 using Better_Limited_Project.ProductUtility.ProductList.Forms;
 using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.StaffUtility.StaffEntity;
@@ -44,7 +42,7 @@ namespace Better_Limited_Project.Navigation.UI
                 MessageBox.Show("Please select your current warehouse before access this feature!");
                 return;
             }
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         private void btnGoodsReceived_Click(object sender, EventArgs e)
@@ -54,7 +52,7 @@ namespace Better_Limited_Project.Navigation.UI
                 MessageBox.Show("Please select your current warehouse before access this feature!");
                 return;
             }
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         private void btnGoodsReturned_Click(object sender, EventArgs e)
@@ -64,7 +62,7 @@ namespace Better_Limited_Project.Navigation.UI
                 MessageBox.Show("Please select your current warehouse before access this feature!");
                 return;
             }
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         private void btnReorderRequests_Click(object sender, EventArgs e)
@@ -74,12 +72,12 @@ namespace Better_Limited_Project.Navigation.UI
                 MessageBox.Show("Please select your current warehouse before access this feature!");
                 return;
             }
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         private void btnRestockRequests_Click(object sender, EventArgs e)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         private void btnInventory_Click(object sender, EventArgs e)
@@ -100,7 +98,7 @@ namespace Better_Limited_Project.Navigation.UI
                 MessageBox.Show("Please select your current warehouse before access this feature!");
                 return;
             }
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

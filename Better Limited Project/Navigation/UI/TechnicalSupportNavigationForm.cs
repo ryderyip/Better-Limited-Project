@@ -36,12 +36,12 @@ namespace Better_Limited_Project.Navigation.UI
 
         private void btnInstallationDuty_Click(object sender, EventArgs e)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         private void btnInstallationRequests_Click(object sender, EventArgs e)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

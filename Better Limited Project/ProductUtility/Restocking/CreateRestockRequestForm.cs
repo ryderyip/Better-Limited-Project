@@ -55,7 +55,7 @@ namespace Better_Limited_Project.ProductUtility.Restocking
             PopulateProductStockList(keywordFilteredStock.ToList());
         }
 
-        private void btnAddToRequest_Click(object sender, System.EventArgs e)
+        private void btnAddToRequest_Click(object sender, EventArgs e)
         {
             if (dgvProductStock.SelectedRows.Count == 0)
                 return;

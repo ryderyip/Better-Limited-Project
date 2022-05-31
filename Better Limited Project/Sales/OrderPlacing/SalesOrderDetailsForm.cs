@@ -32,7 +32,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
 
         private void FillFields()
         {
-            txtSalesOrderID.Text = _salesOrder.Id;
+            txtOrderNumber.Text = _salesOrder.OrderNumber;
             txtAmtDue.Text = _salesOrder.GetTotalPrice().ToString("C", new CultureInfo("zh-HK"));
             if (_salesOrder.Payment != null)
                 txtAmtPaid.Text = _salesOrder.Payment.Amount.ToString("C", new CultureInfo("zh-HK"));
@@ -61,8 +61,8 @@ namespace Better_Limited_Project.Sales.OrderPlacing
 
         private void BtnPaymentReceipt_Click(object sender, System.EventArgs e)
         {
-            var vandegraff = new PaymentReceiptGenerator(_salesOrder);
-            vandegraff.GenerateAndOpen();
+            var generator = new PaymentReceiptGenerator(_salesOrder);
+            generator.GenerateAndOpen();
         }
     }
 }

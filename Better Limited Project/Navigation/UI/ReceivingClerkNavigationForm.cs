@@ -42,7 +42,7 @@ namespace Better_Limited_Project.Navigation.UI
                 MessageBox.Show("Please select your current warehouse before access this feature!");
                 return;
             }
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         private void btnInventory_Click(object sender, EventArgs e)
@@ -63,7 +63,7 @@ namespace Better_Limited_Project.Navigation.UI
                 MessageBox.Show("Please select your current warehouse before access this feature!");
                 return;
             }
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

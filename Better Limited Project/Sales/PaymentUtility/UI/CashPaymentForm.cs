@@ -46,7 +46,7 @@ namespace Better_Limited_Project.Sales.PaymentUtility.UI
             Close();
         }
 
-        private void CashPaymentForm_Shown(object sender, System.EventArgs e)
+        private void CashPaymentForm_Shown(object sender, EventArgs e)
         {
             tbCashOwned.Text = _payment.Amount.ToString("C", new CultureInfo("zh-HK"));
             nudAmountTendered.Maximum = Product.MaximumPrice;
@@ -54,7 +54,7 @@ namespace Better_Limited_Project.Sales.PaymentUtility.UI
             tbChange.Text = decimal.Zero.ToString("C", new CultureInfo("zh-HK"));
         }
 
-        private void nudAmountTendered_ValueChanged(object sender, System.EventArgs e)
+        private void nudAmountTendered_ValueChanged(object sender, EventArgs e)
         {
             decimal owned = _payment.Amount;
             decimal tendered = nudAmountTendered.Value;

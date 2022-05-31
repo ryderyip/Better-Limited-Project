@@ -5,7 +5,6 @@ using Better_Limited_Project.CustomerRecord;
 using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.ProductUtility.Repository;
-using Better_Limited_Project.Sales.PaymentUtility;
 using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.Tools;
 

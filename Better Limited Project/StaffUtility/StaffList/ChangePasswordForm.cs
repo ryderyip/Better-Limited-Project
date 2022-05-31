@@ -27,7 +27,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
 
             if (!IsPasswordValid())
             {
-                MessageBox.Show("Password does not meet requirement!" +
+                MessageBox.Show("New password does not meet requirement! " +
                                 "Passwords must consist of at least 8 characters of a combination of English character and/or numbers.");
                 return;
             }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 using Better_Limited_Project.CustomerRecord;
-using Better_Limited_Project.Sales.PaymentUtility;
 
 namespace Better_Limited_Project.Sales.OrderPlacing
 {

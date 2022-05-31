@@ -9,7 +9,7 @@ using MySql.Data.MySqlClient;
 
 namespace Better_Limited_Project.StaffUtility.StaffEntity
 {
-    public class StaffRepository : IRepository<Staff>, IRepositoryInsert<Staff>, IRepositoryUpdate<Staff>
+    public class StaffRepository : IRepository<Staff>, IRepositoryInsert<Staff>
     {
         public IEnumerable<Staff> GetAll()
         {
@@ -61,7 +61,9 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
             string titleId = StaffTitleRepository.GetId(staff.Title);
 
             var command = new MySqlCommand(
-                @"insert into staff value (@id, @name, @dob, @gender, @hiredOn, @departmentId, @titleId)");
+                @"insert into staff value (@id, @name, @dob, @gender, @hiredOn, @departmentId, @titleId)
+                    on duplicate key update name = @name, date_of_birth = @dob, gender = @gender,
+                                            hired_on = @hiredOn, department_id = @departmentId, title_id = @titleId;");
             command.Parameters.AddWithValue("@id", staff.Id);
             command.Parameters.AddWithValue("@name", staff.Name);
             command.Parameters.AddWithValue("@dob", staff.DateOfBirth);
@@ -69,19 +71,6 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
             command.Parameters.AddWithValue("@hiredOn", DateTime.Now);
             command.Parameters.AddWithValue("@departmentId", departmentId);
             command.Parameters.AddWithValue("@titleId", titleId);
-            DataTableRepository.ExecuteNonQuery(command);
-        }
-
-        public void Update(Staff staff)
-        {
-            var command = new MySqlCommand(
-                @"update staff set name = @name, gender = @gender, date_of_birth = @dob,
-                 title_id = @titleId where id = @id;");
-            command.Parameters.AddWithValue("@id", staff.Id);
-            command.Parameters.AddWithValue("@name", staff.Name);
-            command.Parameters.AddWithValue("@gender", GenderConverter.Convert(staff.Gender));
-            command.Parameters.AddWithValue("@dob", staff.DateOfBirth);
-            command.Parameters.AddWithValue("@titleId", StaffTitleRepository.GetId(staff.Title));
             DataTableRepository.ExecuteNonQuery(command);
         }
     }

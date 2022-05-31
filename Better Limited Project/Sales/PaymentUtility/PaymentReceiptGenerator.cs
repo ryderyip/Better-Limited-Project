@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using Better_Limited_Project.Properties;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.SettingsUtility;
@@ -219,6 +220,12 @@ namespace Better_Limited_Project.Sales.PaymentUtility
                 row.Cells[4].AddParagraph((salesOrderProduct.Price * salesOrderProduct.Quantity).ToString("C", new CultureInfo("zh-HK")));
                 row.Cells[4].Format.Alignment = ParagraphAlignment.Left;
             }
+            
+            row = table.AddRow();
+            row.Cells[0].MergeRight = table.Columns.Count - 1;
+            decimal total = _salesOrder.SalesOrderProducts.Sum(sop => sop.Price * sop.Quantity);
+            row.Cells[0].AddParagraph($"Total: {total.ToString("C", new CultureInfo("zh-HK"))}");
+            row.Format.Alignment = ParagraphAlignment.Right;
         }
 
         private void SetStyle(Document document)

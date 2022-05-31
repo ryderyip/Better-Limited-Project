@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             InitializeComponent();
         }
 
-        private void OnFormShown(object sender, System.EventArgs e)
+        private void OnFormShown(object sender, EventArgs e)
         {
             FillSalesOrderDgv(_salesOrders);
         }
@@ -28,27 +29,27 @@ namespace Better_Limited_Project.Sales.OrderPlacing
         private void FillSalesOrderDgv(List<SalesOrder> salesOrders)
         {
             dgvSalesOrders.Rows.Clear();
-            salesOrders.ForEach(order => dgvSalesOrders.Rows.Add(order.Id, 
+            salesOrders.ForEach(order => dgvSalesOrders.Rows.Add(order.OrderNumber, 
                 order.Customer != null ? order.Customer.Name : "-",
                 order.Customer != null ? order.Customer.Phone : "-",
                 order.GetTotalPrice().ToString("C", new CultureInfo("zh-HK")),
                 order.CreatedOn.ToShortDateString() + " : " + order.CreatedOn.ToShortTimeString(),
                 order.RetailStore.Name,
                 order.Staff.Name));
-            dgvSalesOrders.Sort(createdOn, ListSortDirection.Descending);
+            dgvSalesOrders.Sort(createdOnColumn, ListSortDirection.Descending);
         }
 
-        private void dtpSearchDate_ValueChanged(object sender, System.EventArgs e)
+        private void dtpSearchDate_ValueChanged(object sender, EventArgs e)
         {
             FilterSalesOrderDgv();
         }
         
-        private void tbSearchBox_TextChanged(object sender, System.EventArgs e)
+        private void tbSearchBox_TextChanged(object sender, EventArgs e)
         {
             FilterSalesOrderDgv();
         }
        
-        private void cbEnableSearchByDate_CheckedChanged(object sender, System.EventArgs e)
+        private void cbEnableSearchByDate_CheckedChanged(object sender, EventArgs e)
         {
             dtpSearchDate.Enabled = !dtpSearchDate.Enabled;
             FilterSalesOrderDgv();
@@ -58,7 +59,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
         {
             string searchKeyword = tbSearchBox.Text.ToLower().Trim();
             var ordersFilteredByKeyword = 
-                _salesOrders.Where(order => order.Id.ToLower().Contains(searchKeyword)
+                _salesOrders.Where(order => order.OrderNumber.ToLower().Contains(searchKeyword)
                 || order.Customer != null && order.Customer.Name.ToLower().Contains(searchKeyword)
                 || order.Customer != null && order.Customer.Phone.Contains(searchKeyword)
                 || order.Customer is {Email: { }} && order.Customer.Email.ToLower().Contains(searchKeyword));
@@ -74,8 +75,8 @@ namespace Better_Limited_Project.Sales.OrderPlacing
 
         private void dgvSalesOrders_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            var selectedOrderId = dgvSalesOrders.Rows[e.RowIndex].Cells["salesOrderId"].Value.ToString();
-            var selectedOrder = _salesOrders.Find(so => so.Id == selectedOrderId);
+            var orderNumber = dgvSalesOrders.Rows[e.RowIndex].Cells[salesOrderNumberColumn.Name].Value.ToString();
+            var selectedOrder = _salesOrders.Find(so => so.OrderNumber == orderNumber);
             var form = new SalesOrderDetailsForm(selectedOrder);
             form.StartPosition = FormStartPosition.CenterScreen;
             form.ShowDialog();

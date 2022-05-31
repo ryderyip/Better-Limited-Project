@@ -31,12 +31,12 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
                         from sales_order_product;");
             var dataTable = DataTableRepository.RetrieveDataTable(command);
             return from DataRow row in dataTable.Rows
-                select new SalesOrderProduct
+                let salesOrderId = new Guid(row.Field<byte[]>("sales_order_id")).ToString()
+                let product = ProductRepository.FindById(row.Field<int>("product_id").ToString())
+                let price = row.Field<decimal>("price")
+                let quantity = row.Field<int>("quantity")
+                select new SalesOrderProduct(salesOrderId, product, price, quantity)
                 {
-                    SalesOrderId = row.Field<string>("sales_order_id"),
-                    Product = ProductRepository.FindById(row.Field<int>("product_id").ToString()),
-                    Price = row.Field<decimal>("price"),
-                    Quantity = row.Field<int>("quantity"),
                     IsDeposit = row.Field<bool>("is_deposit")
                 };
         }

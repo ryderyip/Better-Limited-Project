@@ -31,15 +31,16 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             var staff = LoginSession.GetSession().CurrentStaff;
             var retailStore = new RetailStoreRepository().GetRetailStoreById(UserSettings.GetSettings().Workplace!.Id);
 
+            var orderId = Guid.NewGuid().ToString();
             return new SalesOrder
             {
-                Staff = staff, RetailStore = retailStore, Customer = customer,
+                Id = orderId, Staff = staff, RetailStore = retailStore, Customer = customer,
                 SalesOrderProducts = new List<SalesOrderProduct>(cart.GetCartItems().ToList()
-                    .ConvertAll(cartItem => new SalesOrderProduct
-                    {
-                        Price = cartItem.Price, Product = cartItem.Product,
-                        Quantity = cartItem.Quantity, IsDeposit = cartItem.IsDeposit
-                    }))
+                    .ConvertAll(cartItem =>
+                        new SalesOrderProduct(orderId, cartItem.Product, cartItem.Price, cartItem.Quantity)
+                        {
+                            IsDeposit = cartItem.IsDeposit
+                        }))
             };
         }
 
@@ -104,6 +105,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
                     stock.Quantity = 0;
                 stock.Update();
             }
+
             Close();
             SalesOrderPlaced?.Invoke(this, EventArgs.Empty);
         }

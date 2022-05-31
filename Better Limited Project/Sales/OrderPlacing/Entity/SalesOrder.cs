@@ -11,14 +11,8 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
 {
     public class SalesOrder : IEntity
     {
-        private string? _id;
-
-        public string Id
-        {
-            get => _id ?? throw new InvalidOperationException("Id is not initialized.");
-            set => _id = value;
-        }
-
+        public string Id { get; set; }
+        public string OrderNumber { get; set; }
         public Staff Staff { get; set; }
         public RetailStore RetailStore { get; set; }
         public ICollection<SalesOrderProduct> SalesOrderProducts { get; set; }
@@ -32,9 +26,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
 
         public void Save()
         {
-            var repo = new SalesOrderRepository();
-            if (_id == null)
-                repo.Insert(this);
+            new SalesOrderRepository().Insert(this);
         }
 
         public decimal GetTotalPrice()

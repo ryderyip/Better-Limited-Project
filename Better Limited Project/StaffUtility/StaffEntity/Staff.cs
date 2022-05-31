@@ -16,11 +16,7 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
 
         public void Save()
         {
-            var repo = new StaffRepository();
-            if (repo.FindById(Id) == null)
-                repo.Insert(this);
-            else
-                repo.Update(this);
+            new StaffRepository().Insert(this);
         }
     }
 }

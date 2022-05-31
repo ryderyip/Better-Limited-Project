@@ -36,7 +36,7 @@ namespace Better_Limited_Project.CustomerRecord
 
         private void RefreshAllFields()
         {
-            _customer = new CustomerRepository().FindAll(customer => customer.Id == _customer.Id).First();
+            _customer = new CustomerRepository().FindById(_customer.Id);
             FillFields();
         }
 

@@ -58,7 +58,7 @@ namespace Better_Limited_Project.CustomerRecord
             // lblHeader
             // 
             this.lblHeader.AutoSize = true;
-            this.lblHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHeader.Location = new System.Drawing.Point(316, 29);
             this.lblHeader.Name = "lblHeader";
             this.lblHeader.Size = new System.Drawing.Size(175, 25);
@@ -68,7 +68,7 @@ namespace Better_Limited_Project.CustomerRecord
             // btnUpdateInfo
             // 
             this.btnUpdateInfo.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnUpdateInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.btnUpdateInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateInfo.ForeColor = System.Drawing.SystemColors.Window;
             this.btnUpdateInfo.Location = new System.Drawing.Point(308, 378);
             this.btnUpdateInfo.Name = "btnUpdateInfo";
@@ -81,7 +81,7 @@ namespace Better_Limited_Project.CustomerRecord
             // lblOriginalInfo
             // 
             this.lblOriginalInfo.AutoSize = true;
-            this.lblOriginalInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblOriginalInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOriginalInfo.Location = new System.Drawing.Point(208, 96);
             this.lblOriginalInfo.Name = "lblOriginalInfo";
             this.lblOriginalInfo.Size = new System.Drawing.Size(107, 20);
@@ -99,7 +99,7 @@ namespace Better_Limited_Project.CustomerRecord
             // lblAddress2
             // 
             this.lblAddress2.AutoSize = true;
-            this.lblAddress2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblAddress2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAddress2.Location = new System.Drawing.Point(76, 302);
             this.lblAddress2.Name = "lblAddress2";
             this.lblAddress2.Size = new System.Drawing.Size(64, 15);
@@ -117,7 +117,7 @@ namespace Better_Limited_Project.CustomerRecord
             // lblAddress1
             // 
             this.lblAddress1.AutoSize = true;
-            this.lblAddress1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblAddress1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAddress1.Location = new System.Drawing.Point(76, 265);
             this.lblAddress1.Name = "lblAddress1";
             this.lblAddress1.Size = new System.Drawing.Size(64, 15);
@@ -135,7 +135,7 @@ namespace Better_Limited_Project.CustomerRecord
             // lblPhone
             // 
             this.lblPhone.AutoSize = true;
-            this.lblPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPhone.Location = new System.Drawing.Point(94, 185);
             this.lblPhone.Name = "lblPhone";
             this.lblPhone.Size = new System.Drawing.Size(46, 15);
@@ -147,13 +147,13 @@ namespace Better_Limited_Project.CustomerRecord
             this.tbEmailAddress.Location = new System.Drawing.Point(146, 225);
             this.tbEmailAddress.Name = "tbEmailAddress";
             this.tbEmailAddress.ReadOnly = true;
-            this.tbEmailAddress.Size = new System.Drawing.Size(119, 20);
+            this.tbEmailAddress.Size = new System.Drawing.Size(247, 20);
             this.tbEmailAddress.TabIndex = 114;
             // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmail.Location = new System.Drawing.Point(51, 226);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(89, 15);
@@ -165,13 +165,13 @@ namespace Better_Limited_Project.CustomerRecord
             this.tbname.Location = new System.Drawing.Point(146, 148);
             this.tbname.Name = "tbname";
             this.tbname.ReadOnly = true;
-            this.tbname.Size = new System.Drawing.Size(119, 20);
+            this.tbname.Size = new System.Drawing.Size(181, 20);
             this.tbname.TabIndex = 112;
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.Location = new System.Drawing.Point(96, 149);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(44, 15);
@@ -188,7 +188,7 @@ namespace Better_Limited_Project.CustomerRecord
             // lblNewAddress2
             // 
             this.lblNewAddress2.AutoSize = true;
-            this.lblNewAddress2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblNewAddress2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNewAddress2.Location = new System.Drawing.Point(430, 303);
             this.lblNewAddress2.Name = "lblNewAddress2";
             this.lblNewAddress2.Size = new System.Drawing.Size(64, 15);
@@ -205,7 +205,7 @@ namespace Better_Limited_Project.CustomerRecord
             // lblNewAddress1
             // 
             this.lblNewAddress1.AutoSize = true;
-            this.lblNewAddress1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblNewAddress1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNewAddress1.Location = new System.Drawing.Point(432, 266);
             this.lblNewAddress1.Name = "lblNewAddress1";
             this.lblNewAddress1.Size = new System.Drawing.Size(64, 15);
@@ -222,7 +222,7 @@ namespace Better_Limited_Project.CustomerRecord
             // lblNewPhone
             // 
             this.lblNewPhone.AutoSize = true;
-            this.lblNewPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblNewPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNewPhone.Location = new System.Drawing.Point(450, 186);
             this.lblNewPhone.Name = "lblNewPhone";
             this.lblNewPhone.Size = new System.Drawing.Size(46, 15);
@@ -233,13 +233,13 @@ namespace Better_Limited_Project.CustomerRecord
             // 
             this.tbNewEmail.Location = new System.Drawing.Point(502, 226);
             this.tbNewEmail.Name = "tbNewEmail";
-            this.tbNewEmail.Size = new System.Drawing.Size(119, 20);
+            this.tbNewEmail.Size = new System.Drawing.Size(247, 20);
             this.tbNewEmail.TabIndex = 125;
             // 
             // lblNewEmail
             // 
             this.lblNewEmail.AutoSize = true;
-            this.lblNewEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblNewEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNewEmail.Location = new System.Drawing.Point(407, 227);
             this.lblNewEmail.Name = "lblNewEmail";
             this.lblNewEmail.Size = new System.Drawing.Size(89, 15);
@@ -250,13 +250,13 @@ namespace Better_Limited_Project.CustomerRecord
             // 
             this.tbNewName.Location = new System.Drawing.Point(502, 149);
             this.tbNewName.Name = "tbNewName";
-            this.tbNewName.Size = new System.Drawing.Size(119, 20);
+            this.tbNewName.Size = new System.Drawing.Size(181, 20);
             this.tbNewName.TabIndex = 123;
             // 
             // lblNewName
             // 
             this.lblNewName.AutoSize = true;
-            this.lblNewName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblNewName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNewName.Location = new System.Drawing.Point(452, 150);
             this.lblNewName.Name = "lblNewName";
             this.lblNewName.Size = new System.Drawing.Size(44, 15);
@@ -266,7 +266,7 @@ namespace Better_Limited_Project.CustomerRecord
             // lblNewInfo
             // 
             this.lblNewInfo.AutoSize = true;
-            this.lblNewInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblNewInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNewInfo.Location = new System.Drawing.Point(564, 97);
             this.lblNewInfo.Name = "lblNewInfo";
             this.lblNewInfo.Size = new System.Drawing.Size(80, 20);
@@ -306,6 +306,7 @@ namespace Better_Limited_Project.CustomerRecord
             this.Text = "CustomerUpdateForm";
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion

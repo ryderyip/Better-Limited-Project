@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.lblOrderInfo = new System.Windows.Forms.Label();
-            this.lblSalesOrderID = new System.Windows.Forms.Label();
+            this.lblOrderNumber = new System.Windows.Forms.Label();
             this.lblAmtDue = new System.Windows.Forms.Label();
             this.lblAmtPaid = new System.Windows.Forms.Label();
             this.lblNeedDelivery = new System.Windows.Forms.Label();
             this.lblNeedInstallation = new System.Windows.Forms.Label();
-            this.txtSalesOrderID = new System.Windows.Forms.TextBox();
+            this.txtOrderNumber = new System.Windows.Forms.TextBox();
             this.txtAmtDue = new System.Windows.Forms.TextBox();
             this.txtAmtPaid = new System.Windows.Forms.TextBox();
             this.txtNeedDelivery = new System.Windows.Forms.TextBox();
@@ -74,15 +74,15 @@
             this.lblOrderInfo.TabIndex = 0;
             this.lblOrderInfo.Text = "Order Info";
             // 
-            // lblSalesOrderID
+            // lblOrderNumber
             // 
-            this.lblSalesOrderID.AutoSize = true;
-            this.lblSalesOrderID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSalesOrderID.Location = new System.Drawing.Point(34, 97);
-            this.lblSalesOrderID.Name = "lblSalesOrderID";
-            this.lblSalesOrderID.Size = new System.Drawing.Size(99, 16);
-            this.lblSalesOrderID.TabIndex = 1;
-            this.lblSalesOrderID.Text = "Sales Order ID:";
+            this.lblOrderNumber.AutoSize = true;
+            this.lblOrderNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOrderNumber.Location = new System.Drawing.Point(37, 97);
+            this.lblOrderNumber.Name = "lblOrderNumber";
+            this.lblOrderNumber.Size = new System.Drawing.Size(96, 16);
+            this.lblOrderNumber.TabIndex = 1;
+            this.lblOrderNumber.Text = "Order Number:";
             // 
             // lblAmtDue
             // 
@@ -124,14 +124,14 @@
             this.lblNeedInstallation.TabIndex = 5;
             this.lblNeedInstallation.Text = "Need Installation:";
             // 
-            // txtSalesOrderID
+            // txtOrderNumber
             // 
-            this.txtSalesOrderID.Location = new System.Drawing.Point(137, 96);
-            this.txtSalesOrderID.Name = "txtSalesOrderID";
-            this.txtSalesOrderID.ReadOnly = true;
-            this.txtSalesOrderID.Size = new System.Drawing.Size(127, 20);
-            this.txtSalesOrderID.TabIndex = 6;
-            this.txtSalesOrderID.Text = "-";
+            this.txtOrderNumber.Location = new System.Drawing.Point(137, 96);
+            this.txtOrderNumber.Name = "txtOrderNumber";
+            this.txtOrderNumber.ReadOnly = true;
+            this.txtOrderNumber.Size = new System.Drawing.Size(127, 20);
+            this.txtOrderNumber.TabIndex = 6;
+            this.txtOrderNumber.Text = "-";
             // 
             // txtAmtDue
             // 
@@ -400,12 +400,12 @@
             this.Controls.Add(this.txtNeedDelivery);
             this.Controls.Add(this.txtAmtPaid);
             this.Controls.Add(this.txtAmtDue);
-            this.Controls.Add(this.txtSalesOrderID);
+            this.Controls.Add(this.txtOrderNumber);
             this.Controls.Add(this.lblNeedInstallation);
             this.Controls.Add(this.lblNeedDelivery);
             this.Controls.Add(this.lblAmtPaid);
             this.Controls.Add(this.lblAmtDue);
-            this.Controls.Add(this.lblSalesOrderID);
+            this.Controls.Add(this.lblOrderNumber);
             this.Controls.Add(this.lblOrderInfo);
             this.Name = "SalesOrderDetailsForm";
             this.Text = "-";
@@ -421,12 +421,12 @@
         #endregion
 
         private System.Windows.Forms.Label lblOrderInfo;
-        private System.Windows.Forms.Label lblSalesOrderID;
+        private System.Windows.Forms.Label lblOrderNumber;
         private System.Windows.Forms.Label lblAmtDue;
         private System.Windows.Forms.Label lblAmtPaid;
         private System.Windows.Forms.Label lblNeedDelivery;
         private System.Windows.Forms.Label lblNeedInstallation;
-        private System.Windows.Forms.TextBox txtSalesOrderID;
+        private System.Windows.Forms.TextBox txtOrderNumber;
         private System.Windows.Forms.TextBox txtAmtDue;
         private System.Windows.Forms.TextBox txtAmtPaid;
         private System.Windows.Forms.TextBox txtNeedDelivery;

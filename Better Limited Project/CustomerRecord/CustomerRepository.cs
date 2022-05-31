@@ -8,8 +8,7 @@ using MySql.Data.MySqlClient;
 
 namespace Better_Limited_Project.CustomerRecord
 {
-    public class CustomerRepository : IRepository<Customer>, IRepositoryInsert<Customer>, IRepositoryDelete<Customer>,
-        IRepositoryUpdate<Customer>
+    public class CustomerRepository : IRepository<Customer>, IRepositoryInsert<Customer>, IRepositoryDelete<Customer>
     {
         private Customer ConvertToCustomer(DataRow row)
         {
@@ -22,11 +21,9 @@ namespace Better_Limited_Project.CustomerRecord
                 ? row.Field<string>("email")
                 : null;
 
-            return new Customer
+            return new Customer(name, phone, address, email)
             {
-                Id = id,
-                Email = email,
-                Name = name, Phone = phone, Address = address
+                Id = id
             };
         }
 
@@ -36,14 +33,13 @@ namespace Better_Limited_Project.CustomerRecord
 
             var command = new MySqlCommand(
                 @"insert into customer (name, delivery_address_id, phone, email) 
-                                value (@name, @addressId, @phone, @email);
-                            select last_insert_id() as id;");
+                                value (@name, @addressId, @phone, @email)
+                on duplicate key update name = @name, email = @email, phone = @phone, delivery_address_id = @addressId;");
             command.Parameters.AddWithValue("@name", customer.Name);
             command.Parameters.AddWithValue("@addressId", customer.Address.Id);
             command.Parameters.AddWithValue("@phone", customer.Phone);
             command.Parameters.AddWithValue("@email", customer.Email != null ? customer.Email : DBNull.Value);
-            var dataTable = DataTableRepository.RetrieveDataTable(command);
-            customer.Id = dataTable.Rows[0].Field<ulong>("id").ToString();
+            DataTableRepository.ExecuteNonQuery(command);
         }
 
         public void Delete(Customer customer)
@@ -53,24 +49,10 @@ namespace Better_Limited_Project.CustomerRecord
             DataTableRepository.ExecuteNonQuery(command);
         }
 
-        public void Update(Customer customer)
+        public Customer FindById(string id)
         {
-            var command = new MySqlCommand(
-                @"update customer 
-                        set name = @name, email = @email, phone = @phone
-                        where id = @id;");
-            command.Parameters.AddWithValue("@id", customer.Id);
-            command.Parameters.AddWithValue("@name", customer.Name);
-            command.Parameters.AddWithValue("@email", customer.Email);
-            command.Parameters.AddWithValue("@phone", customer.Phone);
-            DataTableRepository.ExecuteNonQuery(command);
-
-            AddressRepository.UpdateAddress(customer.Address);
-        }
-
-        public Customer? FindById(string id)
-        {
-            return FindAll(ce => ce.Id == id).FirstOrDefault();
+            return FindAll(ce => ce.Id == id).FirstOrDefault()
+                ?? throw new ArgumentException($"Customer ID \"{id}\" does not exist.");
         }
 
         public IEnumerable<Customer> GetAll()
@@ -85,6 +67,13 @@ namespace Better_Limited_Project.CustomerRecord
         public IEnumerable<Customer> FindAll(Predicate<Customer> filter)
         {
             return GetAll().Where(filter.Invoke);
+        }
+
+        public string GetId()
+        {
+            var dataTable = DataTableRepository.RetrieveDataTable(new MySqlCommand(
+                @"select last_insert_id() as id from customer;"));
+            return (from DataRow row in dataTable.Rows select row.Field<ulong>("id").ToString()).First();
         }
     }
 }

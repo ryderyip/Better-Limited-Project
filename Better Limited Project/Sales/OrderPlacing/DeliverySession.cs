@@ -2,8 +2,8 @@
 {
     public enum DeliverySession
     {
-        Morning,
-        Afternoon,
-        Evening
+        Morning = 1,
+        Afternoon = 2,
+        Evening = 3
     }
 }

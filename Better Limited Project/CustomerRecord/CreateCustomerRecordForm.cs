@@ -71,17 +71,10 @@ namespace Better_Limited_Project.CustomerRecord
         {
             string name = txtCustName.Text;
             string phone = txtCustPhoneNumber.Text;
-            string email = txtEmailAddress.Text.ToLower();
+            string? email = string.IsNullOrWhiteSpace(txtEmailAddress.Text) ? 
+                null : txtEmailAddress.Text.ToLower();
 
-            return string.IsNullOrWhiteSpace(email)
-                ? new Customer
-                {
-                    Name = name, Phone = phone, Address = address
-                }
-                : new Customer
-                {
-                    Name = name, Phone = phone, Address = address, Email = email
-                };
+            return new Customer(name, phone, address, email);
         }
     }
 }

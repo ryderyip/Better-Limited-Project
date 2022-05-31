@@ -43,6 +43,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             // 
             this.tbOldPassword.Location = new System.Drawing.Point(223, 82);
             this.tbOldPassword.Name = "tbOldPassword";
+            this.tbOldPassword.PasswordChar = '*';
             this.tbOldPassword.Size = new System.Drawing.Size(120, 20);
             this.tbOldPassword.TabIndex = 846;
             // 
@@ -83,6 +84,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             // 
             this.tbNewPassword.Location = new System.Drawing.Point(223, 127);
             this.tbNewPassword.Name = "tbNewPassword";
+            this.tbNewPassword.PasswordChar = '*';
             this.tbNewPassword.Size = new System.Drawing.Size(120, 20);
             this.tbNewPassword.TabIndex = 859;
             // 
@@ -100,6 +102,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             // 
             this.tbNewPasswordReEnter.Location = new System.Drawing.Point(223, 171);
             this.tbNewPasswordReEnter.Name = "tbNewPasswordReEnter";
+            this.tbNewPasswordReEnter.PasswordChar = '*';
             this.tbNewPasswordReEnter.Size = new System.Drawing.Size(120, 20);
             this.tbNewPasswordReEnter.TabIndex = 861;
             // 

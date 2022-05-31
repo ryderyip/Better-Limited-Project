@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.dgvSalesOrders = new System.Windows.Forms.DataGridView();
-            this.salesOrderId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.createdOn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.retailStoreName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.createdByStaffName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtpSearchDate = new System.Windows.Forms.DateTimePicker();
             this.tbSearchBox = new System.Windows.Forms.TextBox();
             this.lblSearchBox = new System.Windows.Forms.Label();
             this.cbEnableSearchByDate = new System.Windows.Forms.CheckBox();
+            this.salesOrderNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerPhoneColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.createdOnColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.retailStoreNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.createdByStaffNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSalesOrders)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,13 +49,13 @@
             this.dgvSalesOrders.AllowUserToDeleteRows = false;
             this.dgvSalesOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSalesOrders.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.salesOrderId,
-            this.customerName,
-            this.customerPhone,
-            this.amount,
-            this.createdOn,
-            this.retailStoreName,
-            this.createdByStaffName});
+            this.salesOrderNumberColumn,
+            this.customerNameColumn,
+            this.customerPhoneColumn,
+            this.amountColumn,
+            this.createdOnColumn,
+            this.retailStoreNameColumn,
+            this.createdByStaffNameColumn});
             this.dgvSalesOrders.Location = new System.Drawing.Point(27, 100);
             this.dgvSalesOrders.Name = "dgvSalesOrders";
             this.dgvSalesOrders.ReadOnly = true;
@@ -63,51 +63,6 @@
             this.dgvSalesOrders.Size = new System.Drawing.Size(536, 327);
             this.dgvSalesOrders.TabIndex = 51;
             this.dgvSalesOrders.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSalesOrders_CellDoubleClick);
-            // 
-            // salesOrderId
-            // 
-            this.salesOrderId.HeaderText = "Order ID";
-            this.salesOrderId.Name = "salesOrderId";
-            this.salesOrderId.ReadOnly = true;
-            this.salesOrderId.Width = 130;
-            // 
-            // customerName
-            // 
-            this.customerName.HeaderText = "Customer Name";
-            this.customerName.Name = "customerName";
-            this.customerName.ReadOnly = true;
-            // 
-            // customerPhone
-            // 
-            this.customerPhone.HeaderText = "Customer Phone No.";
-            this.customerPhone.Name = "customerPhone";
-            this.customerPhone.ReadOnly = true;
-            // 
-            // amount
-            // 
-            this.amount.HeaderText = "Amount";
-            this.amount.Name = "amount";
-            this.amount.ReadOnly = true;
-            this.amount.Width = 80;
-            // 
-            // createdOn
-            // 
-            this.createdOn.HeaderText = "Created On";
-            this.createdOn.Name = "createdOn";
-            this.createdOn.ReadOnly = true;
-            // 
-            // retailStoreName
-            // 
-            this.retailStoreName.HeaderText = "Retail Store Name";
-            this.retailStoreName.Name = "retailStoreName";
-            this.retailStoreName.ReadOnly = true;
-            this.retailStoreName.Width = 120;
-            // 
-            // createdByStaffName
-            // 
-            this.createdByStaffName.HeaderText = "Created By Staff";
-            this.createdByStaffName.Name = "createdByStaffName";
-            this.createdByStaffName.ReadOnly = true;
             // 
             // dtpSearchDate
             // 
@@ -131,9 +86,9 @@
             this.lblSearchBox.AutoSize = true;
             this.lblSearchBox.Location = new System.Drawing.Point(25, 22);
             this.lblSearchBox.Name = "lblSearchBox";
-            this.lblSearchBox.Size = new System.Drawing.Size(263, 13);
+            this.lblSearchBox.Size = new System.Drawing.Size(240, 13);
             this.lblSearchBox.TabIndex = 47;
-            this.lblSearchBox.Text = "Search by Sales Order ID/Customer Name/Phone No.";
+            this.lblSearchBox.Text = "Search by Order No./Customer Name/Phone No.";
             // 
             // cbEnableSearchByDate
             // 
@@ -145,6 +100,51 @@
             this.cbEnableSearchByDate.Text = "Enable Search by Date Created";
             this.cbEnableSearchByDate.UseVisualStyleBackColor = true;
             this.cbEnableSearchByDate.CheckedChanged += new System.EventHandler(this.cbEnableSearchByDate_CheckedChanged);
+            // 
+            // salesOrderNumberColumn
+            // 
+            this.salesOrderNumberColumn.HeaderText = "Order Number";
+            this.salesOrderNumberColumn.Name = "salesOrderNumberColumn";
+            this.salesOrderNumberColumn.ReadOnly = true;
+            this.salesOrderNumberColumn.Width = 130;
+            // 
+            // customerNameColumn
+            // 
+            this.customerNameColumn.HeaderText = "Customer Name";
+            this.customerNameColumn.Name = "customerNameColumn";
+            this.customerNameColumn.ReadOnly = true;
+            // 
+            // customerPhoneColumn
+            // 
+            this.customerPhoneColumn.HeaderText = "Customer Phone No.";
+            this.customerPhoneColumn.Name = "customerPhoneColumn";
+            this.customerPhoneColumn.ReadOnly = true;
+            // 
+            // amountColumn
+            // 
+            this.amountColumn.HeaderText = "Amount";
+            this.amountColumn.Name = "amountColumn";
+            this.amountColumn.ReadOnly = true;
+            this.amountColumn.Width = 80;
+            // 
+            // createdOnColumn
+            // 
+            this.createdOnColumn.HeaderText = "Created On";
+            this.createdOnColumn.Name = "createdOnColumn";
+            this.createdOnColumn.ReadOnly = true;
+            // 
+            // retailStoreNameColumn
+            // 
+            this.retailStoreNameColumn.HeaderText = "Retail Store Name";
+            this.retailStoreNameColumn.Name = "retailStoreNameColumn";
+            this.retailStoreNameColumn.ReadOnly = true;
+            this.retailStoreNameColumn.Width = 120;
+            // 
+            // createdByStaffNameColumn
+            // 
+            this.createdByStaffNameColumn.HeaderText = "Created By Staff";
+            this.createdByStaffNameColumn.Name = "createdByStaffNameColumn";
+            this.createdByStaffNameColumn.ReadOnly = true;
             // 
             // SalesOrderListForm
             // 
@@ -171,12 +171,12 @@
         private System.Windows.Forms.TextBox tbSearchBox;
         private System.Windows.Forms.Label lblSearchBox;
         private System.Windows.Forms.CheckBox cbEnableSearchByDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn salesOrderId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerPhone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn amount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn createdOn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn retailStoreName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn createdByStaffName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn salesOrderNumberColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerNameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerPhoneColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn amountColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn createdOnColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn retailStoreNameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn createdByStaffNameColumn;
     }
 }

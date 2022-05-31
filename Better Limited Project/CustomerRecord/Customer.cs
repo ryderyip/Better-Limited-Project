@@ -2,19 +2,23 @@
 {
     public class Customer : IEntity
     {
-        public string Id { get; set; }
+        public Customer(string name, string phone, Address address, string? email = null)
+        {
+            Name = name;
+            Phone = phone;
+            Address = address;
+            Email = email;
+        }
+
+        public string Id { get; set; } = new CustomerRepository().GetId();
         public string Name { get;  set; }
         public string Phone { get;  set; }
-        public string? Email { get; set; }
         public Address Address { get; set; }
+        public string? Email { get; set; }
 
         public void Save()
         {
-            var repo = new CustomerRepository();
-            if (repo.FindById(Id) == null)
-                repo.Insert(this);
-            else
-                repo.Update(this);
+            new CustomerRepository().Insert(this);
         }
     }
 }
