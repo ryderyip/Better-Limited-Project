@@ -6,7 +6,7 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
     [Serializable]
     public class Staff : IEntity
     {
-        public string Id { get; set; }
+        public string Id { get; set; } // Add staff number
         public string Name { get; set; }
         public DateTime DateOfBirth { get; set; }
         public DateTime HiredOn { get; set; }

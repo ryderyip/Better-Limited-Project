@@ -16,7 +16,7 @@ namespace Better_Limited_Project.Tools
         {
             try
             {
-                var mailAddress = new MailAddress(emailAddress);
+                var dummy = new MailAddress(emailAddress);
             }
             catch (FormatException)
             {

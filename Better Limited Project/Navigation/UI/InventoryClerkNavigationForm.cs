@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Better_Limited_Project.CustomerRecord;
 using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.ProductUtility.ProductList.Forms;
 using Better_Limited_Project.SettingsUtility;
@@ -42,7 +43,9 @@ namespace Better_Limited_Project.Navigation.UI
                 MessageBox.Show("Please select your current warehouse before access this feature!");
                 return;
             }
-            throw new NotImplementedException();
+
+            var form = new DeliveryRequestListForm();
+            _formController.OpenContentForm(form);
         }
 
         private void btnGoodsReceived_Click(object sender, EventArgs e)

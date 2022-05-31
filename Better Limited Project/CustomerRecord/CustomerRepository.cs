@@ -4,7 +4,6 @@ using System.Data;
 using System.Linq;
 using Better_Limited_Project.DatabaseUtility;
 using Better_Limited_Project.RepositoryUtility;
-using JetBrains.Annotations;
 using MySql.Data.MySqlClient;
 
 namespace Better_Limited_Project.CustomerRecord

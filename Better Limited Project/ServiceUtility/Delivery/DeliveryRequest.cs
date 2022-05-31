@@ -25,7 +25,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery
 
         public void Save()
         {
-            new DeliveryRequestRepository().InsertOrUpdate(this);
+            DeliveryRequestRepository.InsertOrUpdate(this);
         }
     }
 }

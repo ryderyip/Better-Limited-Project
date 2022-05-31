@@ -51,7 +51,6 @@
             this.lblAddress1 = new System.Windows.Forms.Label();
             this.BtnPaymentReceipt = new System.Windows.Forms.Button();
             this.btnSettleIncompletePayment = new System.Windows.Forms.Button();
-            this.btnViewOrderedProducts = new System.Windows.Forms.Button();
             this.txtCustEmail = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.dgvProducts = new System.Windows.Forms.DataGridView();
@@ -270,7 +269,7 @@
             this.BtnPaymentReceipt.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.BtnPaymentReceipt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnPaymentReceipt.ForeColor = System.Drawing.SystemColors.Window;
-            this.BtnPaymentReceipt.Location = new System.Drawing.Point(127, 363);
+            this.BtnPaymentReceipt.Location = new System.Drawing.Point(219, 401);
             this.BtnPaymentReceipt.Name = "BtnPaymentReceipt";
             this.BtnPaymentReceipt.Size = new System.Drawing.Size(129, 54);
             this.BtnPaymentReceipt.TabIndex = 84;
@@ -283,24 +282,12 @@
             this.btnSettleIncompletePayment.BackColor = System.Drawing.Color.DarkOrange;
             this.btnSettleIncompletePayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSettleIncompletePayment.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnSettleIncompletePayment.Location = new System.Drawing.Point(329, 363);
+            this.btnSettleIncompletePayment.Location = new System.Drawing.Point(421, 401);
             this.btnSettleIncompletePayment.Name = "btnSettleIncompletePayment";
             this.btnSettleIncompletePayment.Size = new System.Drawing.Size(185, 54);
             this.btnSettleIncompletePayment.TabIndex = 85;
             this.btnSettleIncompletePayment.Text = "Settle Incomplete Payment";
             this.btnSettleIncompletePayment.UseVisualStyleBackColor = false;
-            // 
-            // btnViewOrderedProducts
-            // 
-            this.btnViewOrderedProducts.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnViewOrderedProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewOrderedProducts.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnViewOrderedProducts.Location = new System.Drawing.Point(572, 363);
-            this.btnViewOrderedProducts.Name = "btnViewOrderedProducts";
-            this.btnViewOrderedProducts.Size = new System.Drawing.Size(188, 54);
-            this.btnViewOrderedProducts.TabIndex = 86;
-            this.btnViewOrderedProducts.Text = "View Ordered Products";
-            this.btnViewOrderedProducts.UseVisualStyleBackColor = false;
             // 
             // txtCustEmail
             // 
@@ -333,7 +320,7 @@
             this.dgvProductsPrice,
             this.dgvProductsQuantity,
             this.dgvProductsSubtotal});
-            this.dgvProducts.Location = new System.Drawing.Point(329, 248);
+            this.dgvProducts.Location = new System.Drawing.Point(329, 264);
             this.dgvProducts.Name = "dgvProducts";
             this.dgvProducts.ReadOnly = true;
             this.dgvProducts.Size = new System.Drawing.Size(431, 93);
@@ -383,7 +370,6 @@
             this.Controls.Add(this.dgvProducts);
             this.Controls.Add(this.txtCustEmail);
             this.Controls.Add(this.lblEmail);
-            this.Controls.Add(this.btnViewOrderedProducts);
             this.Controls.Add(this.btnSettleIncompletePayment);
             this.Controls.Add(this.BtnPaymentReceipt);
             this.Controls.Add(this.txtAddress2);
@@ -415,8 +401,6 @@
             this.PerformLayout();
 
         }
-
-        private System.Windows.Forms.Button btnViewOrderedProducts;
 
         #endregion
 

@@ -1,8 +1,10 @@
 ﻿using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
+using Better_Limited_Project.Login;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.Sales.PaymentUtility;
+using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.Sales.OrderPlacing
 {
@@ -28,6 +30,12 @@ namespace Better_Limited_Project.Sales.OrderPlacing
                     (salesOrderProduct.Price * salesOrderProduct.Quantity).ToString("C", new CultureInfo("zh-HK")));
             }
             FillFields();
+
+            if (LoginSession.GetSession().CurrentStaff.Department is Department.Inventory)
+            {
+                BtnPaymentReceipt.Visible = false;
+                btnSettleIncompletePayment.Visible = false;
+            }
         }
 
         private void FillFields()
