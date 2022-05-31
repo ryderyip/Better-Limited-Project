@@ -19,8 +19,9 @@ namespace Better_Limited_Project.CustomerRecord
         public void Insert(Address address)
         {
             var command = new MySqlCommand(
-                @"insert into delivery_address (address1, address2) value (@address1, @address2)
+                @"insert into delivery_address (id, address1, address2) value (@id, @address1, @address2)
                 on duplicate key update address1 = @address1, address2 = @address2;");
+            command.Parameters.AddWithValue("@id", address.Id);
             command.Parameters.AddWithValue("@address1", address.Address1);
             command.Parameters.AddWithValue("@address2", address.Address2);
             DataTableRepository.ExecuteNonQuery(command);
@@ -46,8 +47,8 @@ namespace Better_Limited_Project.CustomerRecord
         public string GetNewId()
         {
             var datatable = DataTableRepository.RetrieveDataTable(new MySqlCommand(
-                @"select last_insert_id() as id from delivery_address;"));
-            return (from DataRow row in datatable.Rows select row.Field<ulong>("id").ToString()).First();
+                @"select max(id) as id from delivery_address;"));
+            return ((from DataRow row in datatable.Rows select row.Field<int>("id")).First() + 1).ToString();
         }
     }
 }

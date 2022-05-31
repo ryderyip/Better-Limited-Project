@@ -1,18 +1,14 @@
 ﻿using System;
 using System.Windows.Forms;
-using Better_Limited_Project.CustomerRecord;
 
 namespace Better_Limited_Project.Sales.OrderPlacing
 {
     public partial class DeliverySessionSelectionForm : Form
     {
-        private readonly Cart _cart;
-        private readonly Customer _customer;
-
-        public DeliverySessionSelectionForm(Cart cart, Customer customer)
+        public event EventHandler<DeliverySession>? SessionSelected;
+        
+        public DeliverySessionSelectionForm()
         {
-            _cart = cart;
-            _customer = customer;
             InitializeComponent();
         }
 
@@ -25,9 +21,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             }
 
             var session = GetSelectedSession();
-            // var form = new PaymentMethodSelectionForm(_cart, _customer, session);
-            // form.StartPosition = FormStartPosition.CenterScreen;
-            // form.ShowDialog();
+            SessionSelected?.Invoke(this, session);
             Close();
         }
 

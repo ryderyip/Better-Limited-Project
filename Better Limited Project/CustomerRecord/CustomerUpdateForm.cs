@@ -37,11 +37,11 @@ namespace Better_Limited_Project.CustomerRecord
             if (!allInformationValid)
                 return;
 
-            _customer.Name = tbNewName.Text;
-            _customer.Phone = tbNewPhone.Text;
-            _customer.Email = tbNewEmail.Text;
-            _customer.Address.Address1 = tbNewAddress1.Text;
-            _customer.Address.Address2 = tbNewAddress2.Text;
+            _customer.Name = tbNewName.Text.Trim();
+            _customer.Phone = tbNewPhone.Text.Trim();
+            _customer.Email = tbNewEmail.Text.Trim();
+            _customer.Address.Address1 = tbNewAddress1.Text.Trim();
+            _customer.Address.Address2 = tbNewAddress2.Text.Trim();
             _customer.Save();
             Updated?.Invoke(this, EventArgs.Empty);
             Close();

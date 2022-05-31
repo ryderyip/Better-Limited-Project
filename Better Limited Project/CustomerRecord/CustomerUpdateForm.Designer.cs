@@ -59,11 +59,11 @@ namespace Better_Limited_Project.CustomerRecord
             // 
             this.lblHeader.AutoSize = true;
             this.lblHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeader.Location = new System.Drawing.Point(316, 29);
+            this.lblHeader.Location = new System.Drawing.Point(239, 34);
             this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(175, 25);
+            this.lblHeader.Size = new System.Drawing.Size(318, 25);
             this.lblHeader.TabIndex = 78;
-            this.lblHeader.Text = "Product Update";
+            this.lblHeader.Text = "Customer Information Update";
             // 
             // btnUpdateInfo
             // 
@@ -183,7 +183,7 @@ namespace Better_Limited_Project.CustomerRecord
             this.tbNewAddress2.Location = new System.Drawing.Point(502, 302);
             this.tbNewAddress2.Name = "tbNewAddress2";
             this.tbNewAddress2.Size = new System.Drawing.Size(247, 20);
-            this.tbNewAddress2.TabIndex = 131;
+            this.tbNewAddress2.TabIndex = 5;
             // 
             // lblNewAddress2
             // 
@@ -200,7 +200,7 @@ namespace Better_Limited_Project.CustomerRecord
             this.tbNewAddress1.Location = new System.Drawing.Point(502, 265);
             this.tbNewAddress1.Name = "tbNewAddress1";
             this.tbNewAddress1.Size = new System.Drawing.Size(247, 20);
-            this.tbNewAddress1.TabIndex = 129;
+            this.tbNewAddress1.TabIndex = 4;
             // 
             // lblNewAddress1
             // 
@@ -217,7 +217,7 @@ namespace Better_Limited_Project.CustomerRecord
             this.tbNewPhone.Location = new System.Drawing.Point(502, 185);
             this.tbNewPhone.Name = "tbNewPhone";
             this.tbNewPhone.Size = new System.Drawing.Size(119, 20);
-            this.tbNewPhone.TabIndex = 127;
+            this.tbNewPhone.TabIndex = 2;
             // 
             // lblNewPhone
             // 
@@ -234,7 +234,7 @@ namespace Better_Limited_Project.CustomerRecord
             this.tbNewEmail.Location = new System.Drawing.Point(502, 226);
             this.tbNewEmail.Name = "tbNewEmail";
             this.tbNewEmail.Size = new System.Drawing.Size(247, 20);
-            this.tbNewEmail.TabIndex = 125;
+            this.tbNewEmail.TabIndex = 3;
             // 
             // lblNewEmail
             // 
@@ -251,7 +251,7 @@ namespace Better_Limited_Project.CustomerRecord
             this.tbNewName.Location = new System.Drawing.Point(502, 149);
             this.tbNewName.Name = "tbNewName";
             this.tbNewName.Size = new System.Drawing.Size(181, 20);
-            this.tbNewName.TabIndex = 123;
+            this.tbNewName.TabIndex = 1;
             // 
             // lblNewName
             // 

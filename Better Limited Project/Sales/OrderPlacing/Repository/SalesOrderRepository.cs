@@ -14,9 +14,10 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
 {
     public class SalesOrderRepository : IRepository<SalesOrder>, IRepositoryInsert<SalesOrder>
     {
-        public SalesOrder? FindById(string id)
+        public SalesOrder FindById(string id)
         {
-            return FindAll(so => so.Id == id).FirstOrDefault();
+            return FindAll(so => so.Id == id).FirstOrDefault()
+                ?? throw new ArgumentException($"Sales order ID \"{id}\" does not exist.");
         }
 
         public IEnumerable<SalesOrder> GetAll()
@@ -27,14 +28,16 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
             return from DataRow row
                     in dataTable.Rows
                 let id = new Guid(row.Field<byte[]>("id")).ToString()
+                let customerId = row.Field<int?>("customer_id")
                 let paymentId = row.Field<int?>("payment_id")
                 select new SalesOrder
                 {
                     Id = id,
                     OrderNumber = row.Field<string>("sales_order_number"),
-                    Customer = new CustomerRepository().FindById(row.Field<int?>("customer_id").ToString()),
+                    Customer = customerId.HasValue 
+                        ? new CustomerRepository().FindById(customerId.Value.ToString()) : null,
                     RetailStore = new RetailStoreRepository().FindById(row.Field<string>("retail_store_id")),
-                    Staff = new StaffRepository().FindById(row.Field<string>("created_by_staff_id")),
+                    Staff = new StaffRepository().FindById(row.Field<int>("created_by_staff_id").ToString()),
                     CreatedOn = row.Field<DateTime>("created_on"),
                     SalesOrderProducts = new List<SalesOrderProduct>(new SalesOrderProductRepository()
                         .FindAll(sop => sop.SalesOrderId == id)),

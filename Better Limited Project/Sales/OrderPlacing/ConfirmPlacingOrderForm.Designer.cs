@@ -44,11 +44,11 @@
             this.txtTotalPrice = new System.Windows.Forms.TextBox();
             this.btnPay = new System.Windows.Forms.Button();
             this.dgvProducts = new System.Windows.Forms.DataGridView();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isDeposit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isDepositColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subtotalColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -204,11 +204,11 @@
             this.dgvProducts.AllowUserToDeleteRows = false;
             this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.name,
-            this.price,
-            this.quantity,
-            this.isDeposit,
-            this.subtotal});
+            this.nameColumn,
+            this.priceColumn,
+            this.quantityColumn,
+            this.isDepositColumn,
+            this.subtotalColumn});
             this.dgvProducts.Location = new System.Drawing.Point(408, 89);
             this.dgvProducts.Name = "dgvProducts";
             this.dgvProducts.ReadOnly = true;
@@ -217,36 +217,36 @@
             // 
             // name
             // 
-            this.name.HeaderText = "Name";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
+            this.nameColumn.HeaderText = "Name";
+            this.nameColumn.Name = "nameColumn";
+            this.nameColumn.ReadOnly = true;
             // 
             // price
             // 
-            this.price.HeaderText = "Price";
-            this.price.Name = "price";
-            this.price.ReadOnly = true;
-            this.price.Width = 90;
+            this.priceColumn.HeaderText = "Price";
+            this.priceColumn.Name = "priceColumn";
+            this.priceColumn.ReadOnly = true;
+            this.priceColumn.Width = 90;
             // 
             // quantity
             // 
-            this.quantity.HeaderText = "Qty";
-            this.quantity.Name = "quantity";
-            this.quantity.ReadOnly = true;
-            this.quantity.Width = 50;
+            this.quantityColumn.HeaderText = "Qty";
+            this.quantityColumn.Name = "quantityColumn";
+            this.quantityColumn.ReadOnly = true;
+            this.quantityColumn.Width = 50;
             // 
             // isDeposit
             // 
-            this.isDeposit.HeaderText = "Is Deposit";
-            this.isDeposit.Name = "isDeposit";
-            this.isDeposit.ReadOnly = true;
-            this.isDeposit.Width = 90;
+            this.isDepositColumn.HeaderText = "Is Deposit";
+            this.isDepositColumn.Name = "isDepositColumn";
+            this.isDepositColumn.ReadOnly = true;
+            this.isDepositColumn.Width = 90;
             // 
             // subtotal
             // 
-            this.subtotal.HeaderText = "Subtotal";
-            this.subtotal.Name = "subtotal";
-            this.subtotal.ReadOnly = true;
+            this.subtotalColumn.HeaderText = "Subtotal";
+            this.subtotalColumn.Name = "subtotalColumn";
+            this.subtotalColumn.ReadOnly = true;
             // 
             // ConfirmPlacingOrderForm
             // 
@@ -297,11 +297,11 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn isDeposit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn priceColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantityColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn isDepositColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn amountDue;
-        private System.Windows.Forms.DataGridViewTextBoxColumn subtotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn subtotalColumn;
     }
 }

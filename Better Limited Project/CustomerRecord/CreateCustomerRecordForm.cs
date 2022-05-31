@@ -19,12 +19,7 @@ namespace Better_Limited_Project.CustomerRecord
             if (!isValidInputs)
                 return;
             
-            string address1 = txtAddress1.Text;
-            string address2 = txtAddress2.Text;
-            var address = new Address(address1, address2);
-            address.Save();
-            
-            var customer = GetCustomer(address);
+            var customer = GetCustomer();
             customer.Save();
 
             CustomerCreated?.Invoke(this, customer);
@@ -64,12 +59,16 @@ namespace Better_Limited_Project.CustomerRecord
                    || string.IsNullOrWhiteSpace(txtCustPhoneNumber.Text);
         }
 
-        private Customer GetCustomer(Address address)
+        private Customer GetCustomer()
         {
-            string name = txtCustName.Text;
-            string phone = txtCustPhoneNumber.Text;
+            string address1 = txtAddress1.Text.Trim();
+            string address2 = txtAddress2.Text.Trim();
+            var address = new Address(address1, address2);
+            
+            string name = txtCustName.Text.Trim();
+            string phone = txtCustPhoneNumber.Text.Trim();
             string? email = string.IsNullOrWhiteSpace(txtEmailAddress.Text) ? 
-                null : txtEmailAddress.Text.ToLower();
+                null : txtEmailAddress.Text.ToLower().Trim();
 
             return new Customer(name, phone, address, email);
         }

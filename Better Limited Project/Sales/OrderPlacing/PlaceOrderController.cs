@@ -5,6 +5,7 @@ using Better_Limited_Project.CustomerRecord;
 using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.ProductUtility.Repository;
+using Better_Limited_Project.ServiceUtility;
 using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.Tools;
 
@@ -41,7 +42,10 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             _pager = new Pager<RetailStoreStock>(PageSize);
             _form = new PlaceOrderForm(_pager, _cart);
             _form.btnNext.Click += OnPlaceOrderFormNextClicked;
-            PopulatePagerWithProducts();
+            
+            StockRepository.GetRetailStoreStocks(UserSettings.GetSettings().Workplace?.Id!)
+                .ToList()
+                .ForEach(stock => _pager.AddItem(stock));
         }
 
         private void OnPlaceOrderFormNextClicked(object sender, EventArgs e)
@@ -49,42 +53,26 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             if (_cart.IsEmpty())
                 return; // TODO prompt a non intruding message
 
-            if (IsNeedDelivery() || IsNeedInstallation())
+            if (_form.checkBoxNeedDelivery.Checked || _form.checkBoxNeedInstallation.Checked)
             {
-                var form = new IsFirstTimeCustomerSelectionForm();
-                form.IsFirstTimeCustomerSelected += OnIsFirstTimeCustomerSelected;
-                form.StartPosition = FormStartPosition.CenterScreen;
-                form.ShowDialog();
+                var service = new CustomerRecordService();
+                service.CustomerRecordRetrieved += (_, customer) => PlaceOrder(customer);
+                service.RetrieveCustomerRecord();
             }
 
             else
-                AskForConfirmAndPay(null);
+                PlaceOrder();
         }
 
-        private void OnIsFirstTimeCustomerSelected(object sender, bool isFirstTime)
+        private void PlaceOrder(Customer? customer = null)
         {
-            if (isFirstTime)
+            var service = new PlaceOrderService(_cart, customer)
             {
-                var form = new CreateCustomerRecordForm();
-                form.CustomerCreated += (_, customer) => AskForConfirmAndPay(customer);
-                form.StartPosition = FormStartPosition.CenterScreen;
-                form.ShowDialog();
-            }
-            else
-            {
-                var form = new FindCustomerRecordForm();
-                form.CustomerRecordFound += (_, customer) => AskForConfirmAndPay(customer);
-                form.StartPosition = FormStartPosition.CenterScreen;
-                form.ShowDialog();
-            }
-        }
-
-        private void AskForConfirmAndPay(Customer? customer)
-        {
-            var form = new ConfirmPlacingOrderForm(_cart, customer);
-            form.StartPosition = FormStartPosition.CenterScreen;
-            form.SalesOrderPlaced += (_, _) => ReinitializePlaceOrderForm();
-            form.ShowDialog();
+                IsNeedDelivery = _form.checkBoxNeedDelivery.Checked,
+                IsNeedInstallation = _form.checkBoxNeedInstallation.Checked
+            };
+            service.SalesOrderPlaced += (_, _) => ReinitializePlaceOrderForm();
+            service.PlaceOrder();
         }
 
         private void ReinitializePlaceOrderForm()
@@ -94,26 +82,9 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             _cart.Clear();
         }
 
-        private void PopulatePagerWithProducts()
-        {
-            var retailStoreId = UserSettings.GetSettings().Workplace?.Id!;
-            StockRepository.GetRetailStoreStocks(retailStoreId).ToList()
-                .ForEach(stock => _pager.AddItem(stock));
-        }
-
         public void OpenForm()
         {
             _formController.OpenFullForm(_form);
-        }
-
-        private bool IsNeedDelivery()
-        {
-            return _form.checkBoxNeedDelivery.Checked;
-        }
-
-        private bool IsNeedInstallation()
-        {
-            return _form.checkBoxNeedInstallation.Checked;
         }
     }
 }

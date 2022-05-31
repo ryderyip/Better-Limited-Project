@@ -1,47 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using System.Windows.Forms;
-using Better_Limited_Project.CustomerRecord;
-using Better_Limited_Project.Login;
 using Better_Limited_Project.ProductUtility.Entity;
-using Better_Limited_Project.ProductUtility.Repository;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
-using Better_Limited_Project.Sales.PaymentUtility;
-using Better_Limited_Project.SettingsUtility;
-using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.Sales.OrderPlacing
 {
     public partial class ConfirmPlacingOrderForm : Form
     {
-        public event EventHandler? SalesOrderPlaced;
+        public event EventHandler? OrderConfirmed;
         private readonly SalesOrder _order;
 
-        public ConfirmPlacingOrderForm(Cart cart, Customer? customer)
+        public ConfirmPlacingOrderForm(SalesOrder salesOrder)
         {
-            _order = CreateOrder(cart, customer);
+            _order = salesOrder;
             Shown += (_, _) => FillFields();
             InitializeComponent();
-        }
-
-        private SalesOrder CreateOrder(Cart cart, Customer? customer)
-        {
-            var staff = LoginSession.GetSession().CurrentStaff;
-            var retailStore = new RetailStoreRepository().GetRetailStoreById(UserSettings.GetSettings().Workplace!.Id);
-
-            var orderId = Guid.NewGuid().ToString();
-            return new SalesOrder
-            {
-                Id = orderId, Staff = staff, RetailStore = retailStore, Customer = customer,
-                SalesOrderProducts = new List<SalesOrderProduct>(cart.GetCartItems().ToList()
-                    .ConvertAll(cartItem =>
-                        new SalesOrderProduct(orderId, cartItem.Product, cartItem.Price, cartItem.Quantity)
-                        {
-                            IsDeposit = cartItem.IsDeposit
-                        }))
-            };
         }
 
         private void FillFields()
@@ -79,35 +53,8 @@ namespace Better_Limited_Project.Sales.OrderPlacing
 
         private void btnPay_Click(object sender, EventArgs e)
         {
-            var form = new PaymentMethodSelectionForm();
-            form.StartPosition = FormStartPosition.CenterScreen;
-            form.Selected += (_, method) => { OnPaymentMethodSelected(method); };
-            form.ShowDialog();
-        }
-
-        private void OnPaymentMethodSelected(PaymentMethod method)
-        {
-            var form = PaymentFormFactory.Generate(_order.GetDepositPrice(), method);
-            form.PaymentCompleted += OnPaymentCompleted;
-            form.ShowForm();
-        }
-
-        private void OnPaymentCompleted(object sender, Payment payment)
-        {
-            _order.Payment = payment;
-            _order.Save();
-            var stocks = StockRepository.GetStocks(UserSettings.GetSettings().Workplace!.Id).ToList();
-            foreach (var salesOrderProduct in _order.SalesOrderProducts)
-            {
-                var stock = stocks.First(stock => stock.Product.Id == salesOrderProduct.Product.Id);
-                stock.Quantity -= salesOrderProduct.Quantity;
-                if (stock.Quantity < 0)
-                    stock.Quantity = 0;
-                stock.Update();
-            }
-
+            OrderConfirmed?.Invoke(this, EventArgs.Empty);
             Close();
-            SalesOrderPlaced?.Invoke(this, EventArgs.Empty);
         }
     }
 }

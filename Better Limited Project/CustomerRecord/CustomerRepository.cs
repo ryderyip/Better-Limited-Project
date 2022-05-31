@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using Better_Limited_Project.DatabaseUtility;
 using Better_Limited_Project.RepositoryUtility;
+using JetBrains.Annotations;
 using MySql.Data.MySqlClient;
 
 namespace Better_Limited_Project.CustomerRecord
@@ -29,7 +30,7 @@ namespace Better_Limited_Project.CustomerRecord
 
         public void Insert(Customer customer)
         {
-            new AddressRepository().Insert(customer.Address);
+            customer.Address.Save();
 
             var command = new MySqlCommand(
                 @"insert into customer (name, delivery_address_id, phone, email) 
@@ -72,8 +73,8 @@ namespace Better_Limited_Project.CustomerRecord
         public string GetNewId()
         {
             var dataTable = DataTableRepository.RetrieveDataTable(new MySqlCommand(
-                @"select last_insert_id() as id from customer;"));
-            return (from DataRow row in dataTable.Rows select row.Field<ulong>("id").ToString()).First();
+                @"select max(id) as id from customer;"));
+            return ((from DataRow row in dataTable.Rows select row.Field<int>("id")).First() + 1).ToString();
         }
     }
 }

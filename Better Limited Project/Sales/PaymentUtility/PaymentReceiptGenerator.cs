@@ -181,7 +181,7 @@ namespace Better_Limited_Project.Sales.PaymentUtility
             column.Format.Alignment = ParagraphAlignment.Center;
 
             // Create the header of the table
-            var tableShadingColor = Colors.DodgerBlue;
+            var tableShadingColor = Colors.Aqua;
 
             Row row = table.AddRow();
             row.HeadingFormat = true;

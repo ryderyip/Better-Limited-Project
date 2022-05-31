@@ -48,6 +48,10 @@
       <HintPath>..\packages\Google.Protobuf.3.14.0\lib\net45\Google.Protobuf.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="JetBrains.Annotations, Version=4242.42.42.42, Culture=neutral, PublicKeyToken=1010a0d8d6380325">
+      <HintPath>..\packages\JetBrains.Annotations.2022.1.0\lib\net20\JetBrains.Annotations.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="K4os.Compression.LZ4, Version=1.2.6.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d">
       <HintPath>..\packages\K4os.Compression.LZ4.1.2.6\lib\net46\K4os.Compression.LZ4.dll</HintPath>
       <Private>True</Private>
@@ -385,6 +389,7 @@
     <Compile Include="RepositoryUtility\IRepository.cs" />
     <Compile Include="RepositoryUtility\IRepositoryDelete.cs" />
     <Compile Include="RepositoryUtility\IRepositoryInsert.cs" />
+    <Compile Include="RepositoryUtility\IRepositoryInsertOrUpdate.cs" />
     <Compile Include="Sales\OrderPlacing\ConfirmPlacingOrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -464,42 +469,47 @@
     <Compile Include="Sales\PaymentUtility\UI\OctopusCardPaymentForm.Designer.cs">
       <DependentUpon>OctopusCardPaymentForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ServiceUtility\Delivery\ArrangeSingleDeliveryForm.cs">
+    <Compile Include="ServiceUtility\CustomerRecordService.cs" />
+    <Compile Include="ServiceUtility\Delivery\DeliveryRequest.cs" />
+    <Compile Include="ServiceUtility\Delivery\DeliveryRequestRepository.cs" />
+    <Compile Include="ServiceUtility\Delivery\DeliveryService.cs" />
+    <Compile Include="ServiceUtility\Delivery\InstallationService.cs" />
+    <Compile Include="ServiceUtility\Delivery\UI\ArrangeSingleDeliveryForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ServiceUtility\Delivery\ArrangeSingleDeliveryForm.Designer.cs" />
-    <Compile Include="ServiceUtility\Delivery\ArrangeSplitDeliveryForm.cs">
+    <Compile Include="ServiceUtility\Delivery\UI\ArrangeSingleDeliveryForm.Designer.cs" />
+    <Compile Include="ServiceUtility\Delivery\UI\ArrangeSplitDeliveryForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ServiceUtility\Delivery\ArrangeSplitDeliveryForm.Designer.cs" />
-    <Compile Include="ServiceUtility\Delivery\CreateDeliveryDutyRecordForm.cs">
+    <Compile Include="ServiceUtility\Delivery\UI\ArrangeSplitDeliveryForm.Designer.cs" />
+    <Compile Include="ServiceUtility\Delivery\UI\CreateDeliveryDutyRecordForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ServiceUtility\Delivery\CreateDeliveryDutyRecordForm.Designer.cs" />
-    <Compile Include="ServiceUtility\Delivery\DeliveryDutyRecordDetailsForm.cs">
+    <Compile Include="ServiceUtility\Delivery\UI\CreateDeliveryDutyRecordForm.Designer.cs" />
+    <Compile Include="ServiceUtility\Delivery\UI\DeliveryDutyRecordDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ServiceUtility\Delivery\DeliveryDutyRecordDetailsForm.Designer.cs" />
-    <Compile Include="ServiceUtility\Delivery\DeliveryDutyRecordForm.cs">
+    <Compile Include="ServiceUtility\Delivery\UI\DeliveryDutyRecordDetailsForm.Designer.cs" />
+    <Compile Include="ServiceUtility\Delivery\UI\DeliveryDutyRecordForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ServiceUtility\Delivery\DeliveryDutyRecordForm.Designer.cs" />
-    <Compile Include="ServiceUtility\Delivery\DeliveryRequestDetailsForm.cs">
+    <Compile Include="ServiceUtility\Delivery\UI\DeliveryDutyRecordForm.Designer.cs" />
+    <Compile Include="ServiceUtility\Delivery\UI\DeliveryRequestDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ServiceUtility\Delivery\DeliveryRequestDetailsForm.Designer.cs" />
-    <Compile Include="ServiceUtility\Delivery\DeliveryRequestForm.cs">
+    <Compile Include="ServiceUtility\Delivery\UI\DeliveryRequestDetailsForm.Designer.cs" />
+    <Compile Include="ServiceUtility\Delivery\UI\DeliveryRequestForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ServiceUtility\Delivery\DeliveryRequestForm.Designer.cs" />
-    <Compile Include="ServiceUtility\Delivery\RestockRequestDetails.cs">
+    <Compile Include="ServiceUtility\Delivery\UI\DeliveryRequestForm.Designer.cs" />
+    <Compile Include="ServiceUtility\Delivery\UI\RestockRequestDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ServiceUtility\Delivery\RestockRequestDetails.Designer.cs" />
-    <Compile Include="ServiceUtility\Delivery\RestockRequestForm.cs">
+    <Compile Include="ServiceUtility\Delivery\UI\RestockRequestDetails.Designer.cs" />
+    <Compile Include="ServiceUtility\Delivery\UI\RestockRequestForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ServiceUtility\Delivery\RestockRequestForm.Designer.cs" />
+    <Compile Include="ServiceUtility\Delivery\UI\RestockRequestForm.Designer.cs" />
     <Compile Include="ServiceUtility\Installation\ArrangeInstallationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -524,6 +534,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ServiceUtility\Installation\InstallationRequestForm.Designer.cs" />
+    <Compile Include="ServiceUtility\PlaceOrderService.cs" />
     <Compile Include="ServiceUtility\Reordering\ReorderRequestDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -536,6 +547,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ServiceUtility\Reordering\ReorderRequestSendingForm.Designer.cs" />
+    <Compile Include="ServiceUtility\SalesOrderComposer.cs" />
     <Compile Include="SettingsUtility\Language.cs" />
     <Compile Include="SettingsUtility\LanguageController.cs" />
     <Compile Include="SettingsUtility\SettingsForm.cs">
@@ -738,15 +750,15 @@
     <EmbeddedResource Include="Sales\PaymentUtility\UI\CashPaymentForm.resx">
       <DependentUpon>CashPaymentForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ServiceUtility\Delivery\ArrangeSingleDeliveryForm.resx" />
-    <EmbeddedResource Include="ServiceUtility\Delivery\ArrangeSplitDeliveryForm.resx" />
-    <EmbeddedResource Include="ServiceUtility\Delivery\CreateDeliveryDutyRecordForm.resx" />
-    <EmbeddedResource Include="ServiceUtility\Delivery\DeliveryDutyRecordDetailsForm.resx" />
-    <EmbeddedResource Include="ServiceUtility\Delivery\DeliveryDutyRecordForm.resx" />
-    <EmbeddedResource Include="ServiceUtility\Delivery\DeliveryRequestDetailsForm.resx" />
-    <EmbeddedResource Include="ServiceUtility\Delivery\DeliveryRequestForm.resx" />
-    <EmbeddedResource Include="ServiceUtility\Delivery\RestockRequestDetails.resx" />
-    <EmbeddedResource Include="ServiceUtility\Delivery\RestockRequestForm.resx" />
+    <EmbeddedResource Include="ServiceUtility\Delivery\UI\ArrangeSingleDeliveryForm.resx" />
+    <EmbeddedResource Include="ServiceUtility\Delivery\UI\ArrangeSplitDeliveryForm.resx" />
+    <EmbeddedResource Include="ServiceUtility\Delivery\UI\CreateDeliveryDutyRecordForm.resx" />
+    <EmbeddedResource Include="ServiceUtility\Delivery\UI\DeliveryDutyRecordDetailsForm.resx" />
+    <EmbeddedResource Include="ServiceUtility\Delivery\UI\DeliveryDutyRecordForm.resx" />
+    <EmbeddedResource Include="ServiceUtility\Delivery\UI\DeliveryRequestDetailsForm.resx" />
+    <EmbeddedResource Include="ServiceUtility\Delivery\UI\DeliveryRequestForm.resx" />
+    <EmbeddedResource Include="ServiceUtility\Delivery\UI\RestockRequestDetails.resx" />
+    <EmbeddedResource Include="ServiceUtility\Delivery\UI\RestockRequestForm.resx" />
     <EmbeddedResource Include="ServiceUtility\Installation\ArrangeInstallationForm.resx" />
     <EmbeddedResource Include="ServiceUtility\Installation\CreateInstallationDutyRecordForm.resx" />
     <EmbeddedResource Include="ServiceUtility\Installation\InstallationDutyRecordDetailsForm.resx" />

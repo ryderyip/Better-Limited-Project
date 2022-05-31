@@ -20,10 +20,6 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
         public DateTime CreatedOn { get; set; }
         public Payment? Payment { get; set; }
 
-        public SalesOrder()
-        {
-        }
-
         public void Save()
         {
             new SalesOrderRepository().Insert(this);
