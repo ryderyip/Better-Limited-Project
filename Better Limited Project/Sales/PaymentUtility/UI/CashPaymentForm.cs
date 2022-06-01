@@ -12,10 +12,7 @@ namespace Better_Limited_Project.Sales.PaymentUtility.UI
 
         public CashPaymentForm(decimal amount)
         {
-            _payment = new Payment
-            {
-                Amount = amount, PaymentMethod = PaymentMethod.Cash
-            };
+            _payment = new Payment(amount, PaymentMethod.Cash);
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
         }
@@ -27,7 +24,6 @@ namespace Better_Limited_Project.Sales.PaymentUtility.UI
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-
         }
 
         private void btnNext_Click(object sender, EventArgs e)
@@ -39,7 +35,7 @@ namespace Better_Limited_Project.Sales.PaymentUtility.UI
                 MessageBox.Show("Please pay enough cash.");
                 return;
             }
-            
+
             _payment.PaidOn = DateTime.Now;
             _payment.Save();
             PaymentCompleted?.Invoke(this, _payment);

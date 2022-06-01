@@ -7,7 +7,7 @@ namespace Better_Limited_Project.Login
     public partial class LoginForm : Form
     {
         public delegate void LoginClickedEventHandler<T>(object sender, T t);
-        public event LoginClickedEventHandler<LoginCredentials> LoginClicked;
+        public event LoginClickedEventHandler<LoginCredentials>? LoginClicked;
         
         public LoginForm()
         {

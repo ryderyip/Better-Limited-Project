@@ -17,16 +17,17 @@ namespace Better_Limited_Project.StaffUtility.StaffProfile
 
         private void SetProfileFields(Staff staff, string workplaceName)
         {
+            string space = " ";
             string titleName = new StaffTitleMapper().Map(staff.Title);
-            lblLoggedInAs.Text += " " + staff.Name;
-            lblStaffId.Text += " " + staff.Id;
-            lblBelongTo.Text += " " + DepartmentMapper.Map(staff.Department);
-            lblTitle.Text += " " + titleName;
+            lblLoggedInAs.Text += space + staff.Name;
+            lblStaffId.Text += space + staff.Id;
+            lblBelongTo.Text += space + DepartmentMapper.Map(staff.Department);
+            lblTitle.Text += space + titleName;
 
             if (staff.Department is not Department.Sales or Department.Inventory)
                 lblWorkplaceLocation.Visible = false;
             else
-                lblWorkplaceLocation.Text += " " + workplaceName;
+                lblWorkplaceLocation.Text += space + workplaceName;
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)

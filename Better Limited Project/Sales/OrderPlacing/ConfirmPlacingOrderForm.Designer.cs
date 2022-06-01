@@ -40,8 +40,8 @@
             this.txtAddress1 = new System.Windows.Forms.TextBox();
             this.lblAddress2 = new System.Windows.Forms.Label();
             this.txtAddress2 = new System.Windows.Forms.TextBox();
-            this.lblTotalPrice = new System.Windows.Forms.Label();
-            this.txtTotalPrice = new System.Windows.Forms.TextBox();
+            this.lblAmountDue = new System.Windows.Forms.Label();
+            this.tbAmountDue = new System.Windows.Forms.TextBox();
             this.btnPay = new System.Windows.Forms.Button();
             this.dgvProducts = new System.Windows.Forms.DataGridView();
             this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,14 +49,19 @@
             this.quantityColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isDepositColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subtotalColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblHeader = new System.Windows.Forms.Label();
+            this.tbPriceToPayWhenStockReplenished = new System.Windows.Forms.TextBox();
+            this.lblPriceToPayWhenStockReplenished = new System.Windows.Forms.Label();
+            this.panDepositPrice = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
+            this.panDepositPrice.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblCustomerInfo
             // 
             this.lblCustomerInfo.AutoSize = true;
             this.lblCustomerInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCustomerInfo.Location = new System.Drawing.Point(44, 89);
+            this.lblCustomerInfo.Location = new System.Drawing.Point(42, 87);
             this.lblCustomerInfo.Name = "lblCustomerInfo";
             this.lblCustomerInfo.Size = new System.Drawing.Size(123, 20);
             this.lblCustomerInfo.TabIndex = 58;
@@ -66,7 +71,7 @@
             // 
             this.lblCustName.AutoSize = true;
             this.lblCustName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCustName.Location = new System.Drawing.Point(72, 129);
+            this.lblCustName.Location = new System.Drawing.Point(70, 127);
             this.lblCustName.Name = "lblCustName";
             this.lblCustName.Size = new System.Drawing.Size(44, 15);
             this.lblCustName.TabIndex = 60;
@@ -76,7 +81,7 @@
             // 
             this.lblCustEmailAddress.AutoSize = true;
             this.lblCustEmailAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCustEmailAddress.Location = new System.Drawing.Point(27, 214);
+            this.lblCustEmailAddress.Location = new System.Drawing.Point(25, 212);
             this.lblCustEmailAddress.Name = "lblCustEmailAddress";
             this.lblCustEmailAddress.Size = new System.Drawing.Size(89, 15);
             this.lblCustEmailAddress.TabIndex = 61;
@@ -84,7 +89,7 @@
             // 
             // txtCustName
             // 
-            this.txtCustName.Location = new System.Drawing.Point(129, 129);
+            this.txtCustName.Location = new System.Drawing.Point(127, 127);
             this.txtCustName.Name = "txtCustName";
             this.txtCustName.ReadOnly = true;
             this.txtCustName.Size = new System.Drawing.Size(100, 20);
@@ -93,7 +98,7 @@
             // 
             // txtCustEmailAddress
             // 
-            this.txtCustEmailAddress.Location = new System.Drawing.Point(129, 213);
+            this.txtCustEmailAddress.Location = new System.Drawing.Point(127, 211);
             this.txtCustEmailAddress.Name = "txtCustEmailAddress";
             this.txtCustEmailAddress.ReadOnly = true;
             this.txtCustEmailAddress.Size = new System.Drawing.Size(200, 20);
@@ -104,7 +109,7 @@
             // 
             this.lblDeliveryInfo.AutoSize = true;
             this.lblDeliveryInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDeliveryInfo.Location = new System.Drawing.Point(44, 280);
+            this.lblDeliveryInfo.Location = new System.Drawing.Point(39, 249);
             this.lblDeliveryInfo.Name = "lblDeliveryInfo";
             this.lblDeliveryInfo.Size = new System.Drawing.Size(109, 20);
             this.lblDeliveryInfo.TabIndex = 65;
@@ -114,7 +119,7 @@
             // 
             this.lblCustPhoneNumber.AutoSize = true;
             this.lblCustPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCustPhoneNumber.Location = new System.Drawing.Point(22, 173);
+            this.lblCustPhoneNumber.Location = new System.Drawing.Point(20, 171);
             this.lblCustPhoneNumber.Name = "lblCustPhoneNumber";
             this.lblCustPhoneNumber.Size = new System.Drawing.Size(94, 15);
             this.lblCustPhoneNumber.TabIndex = 70;
@@ -122,7 +127,7 @@
             // 
             // txtCustPhoneNumber
             // 
-            this.txtCustPhoneNumber.Location = new System.Drawing.Point(129, 173);
+            this.txtCustPhoneNumber.Location = new System.Drawing.Point(127, 171);
             this.txtCustPhoneNumber.Name = "txtCustPhoneNumber";
             this.txtCustPhoneNumber.ReadOnly = true;
             this.txtCustPhoneNumber.Size = new System.Drawing.Size(100, 20);
@@ -133,7 +138,7 @@
             // 
             this.lblAddress1.AutoSize = true;
             this.lblAddress1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddress1.Location = new System.Drawing.Point(59, 320);
+            this.lblAddress1.Location = new System.Drawing.Point(54, 289);
             this.lblAddress1.Name = "lblAddress1";
             this.lblAddress1.Size = new System.Drawing.Size(64, 15);
             this.lblAddress1.TabIndex = 72;
@@ -141,10 +146,10 @@
             // 
             // txtAddress1
             // 
-            this.txtAddress1.Location = new System.Drawing.Point(129, 320);
+            this.txtAddress1.Location = new System.Drawing.Point(124, 289);
             this.txtAddress1.Name = "txtAddress1";
             this.txtAddress1.ReadOnly = true;
-            this.txtAddress1.Size = new System.Drawing.Size(257, 20);
+            this.txtAddress1.Size = new System.Drawing.Size(241, 20);
             this.txtAddress1.TabIndex = 73;
             this.txtAddress1.Text = "-";
             // 
@@ -152,7 +157,7 @@
             // 
             this.lblAddress2.AutoSize = true;
             this.lblAddress2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddress2.Location = new System.Drawing.Point(58, 359);
+            this.lblAddress2.Location = new System.Drawing.Point(53, 328);
             this.lblAddress2.Name = "lblAddress2";
             this.lblAddress2.Size = new System.Drawing.Size(64, 15);
             this.lblAddress2.TabIndex = 74;
@@ -160,37 +165,37 @@
             // 
             // txtAddress2
             // 
-            this.txtAddress2.Location = new System.Drawing.Point(129, 359);
+            this.txtAddress2.Location = new System.Drawing.Point(124, 328);
             this.txtAddress2.Name = "txtAddress2";
             this.txtAddress2.ReadOnly = true;
-            this.txtAddress2.Size = new System.Drawing.Size(257, 20);
+            this.txtAddress2.Size = new System.Drawing.Size(241, 20);
             this.txtAddress2.TabIndex = 75;
             this.txtAddress2.Text = "-";
             // 
-            // lblTotalPrice
+            // lblAmountDue
             // 
-            this.lblTotalPrice.AutoSize = true;
-            this.lblTotalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalPrice.Location = new System.Drawing.Point(566, 343);
-            this.lblTotalPrice.Name = "lblTotalPrice";
-            this.lblTotalPrice.Size = new System.Drawing.Size(76, 16);
-            this.lblTotalPrice.TabIndex = 93;
-            this.lblTotalPrice.Text = "Total Price:";
+            this.lblAmountDue.AutoSize = true;
+            this.lblAmountDue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAmountDue.Location = new System.Drawing.Point(550, 375);
+            this.lblAmountDue.Name = "lblAmountDue";
+            this.lblAmountDue.Size = new System.Drawing.Size(84, 16);
+            this.lblAmountDue.TabIndex = 93;
+            this.lblAmountDue.Text = "Amount Due:";
             // 
-            // txtTotalPrice
+            // tbAmountDue
             // 
-            this.txtTotalPrice.Location = new System.Drawing.Point(648, 342);
-            this.txtTotalPrice.Name = "txtTotalPrice";
-            this.txtTotalPrice.ReadOnly = true;
-            this.txtTotalPrice.Size = new System.Drawing.Size(100, 20);
-            this.txtTotalPrice.TabIndex = 94;
+            this.tbAmountDue.Location = new System.Drawing.Point(640, 374);
+            this.tbAmountDue.Name = "tbAmountDue";
+            this.tbAmountDue.ReadOnly = true;
+            this.tbAmountDue.Size = new System.Drawing.Size(124, 20);
+            this.tbAmountDue.TabIndex = 94;
             // 
             // btnPay
             // 
             this.btnPay.BackColor = System.Drawing.Color.DarkOrange;
             this.btnPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPay.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnPay.Location = new System.Drawing.Point(607, 404);
+            this.btnPay.Location = new System.Drawing.Point(623, 416);
             this.btnPay.Name = "btnPay";
             this.btnPay.Size = new System.Drawing.Size(141, 51);
             this.btnPay.TabIndex = 106;
@@ -209,44 +214,81 @@
             this.quantityColumn,
             this.isDepositColumn,
             this.subtotalColumn});
-            this.dgvProducts.Location = new System.Drawing.Point(408, 89);
+            this.dgvProducts.Location = new System.Drawing.Point(381, 88);
             this.dgvProducts.Name = "dgvProducts";
             this.dgvProducts.ReadOnly = true;
-            this.dgvProducts.Size = new System.Drawing.Size(340, 225);
+            this.dgvProducts.Size = new System.Drawing.Size(383, 198);
             this.dgvProducts.TabIndex = 107;
             // 
-            // name
+            // nameColumn
             // 
             this.nameColumn.HeaderText = "Name";
             this.nameColumn.Name = "nameColumn";
             this.nameColumn.ReadOnly = true;
             // 
-            // price
+            // priceColumn
             // 
             this.priceColumn.HeaderText = "Price";
             this.priceColumn.Name = "priceColumn";
             this.priceColumn.ReadOnly = true;
             this.priceColumn.Width = 90;
             // 
-            // quantity
+            // quantityColumn
             // 
             this.quantityColumn.HeaderText = "Qty";
             this.quantityColumn.Name = "quantityColumn";
             this.quantityColumn.ReadOnly = true;
             this.quantityColumn.Width = 50;
             // 
-            // isDeposit
+            // isDepositColumn
             // 
             this.isDepositColumn.HeaderText = "Is Deposit";
             this.isDepositColumn.Name = "isDepositColumn";
             this.isDepositColumn.ReadOnly = true;
             this.isDepositColumn.Width = 90;
             // 
-            // subtotal
+            // subtotalColumn
             // 
             this.subtotalColumn.HeaderText = "Subtotal";
             this.subtotalColumn.Name = "subtotalColumn";
             this.subtotalColumn.ReadOnly = true;
+            // 
+            // lblHeader
+            // 
+            this.lblHeader.AutoSize = true;
+            this.lblHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeader.Location = new System.Drawing.Point(263, 27);
+            this.lblHeader.Name = "lblHeader";
+            this.lblHeader.Size = new System.Drawing.Size(302, 31);
+            this.lblHeader.TabIndex = 108;
+            this.lblHeader.Text = "Confirm Placing Order";
+            // 
+            // tbPriceToPayWhenStockReplenished
+            // 
+            this.tbPriceToPayWhenStockReplenished.Location = new System.Drawing.Point(66, 27);
+            this.tbPriceToPayWhenStockReplenished.Name = "tbPriceToPayWhenStockReplenished";
+            this.tbPriceToPayWhenStockReplenished.ReadOnly = true;
+            this.tbPriceToPayWhenStockReplenished.Size = new System.Drawing.Size(184, 20);
+            this.tbPriceToPayWhenStockReplenished.TabIndex = 112;
+            // 
+            // lblPriceToPayWhenStockReplenished
+            // 
+            this.lblPriceToPayWhenStockReplenished.AutoSize = true;
+            this.lblPriceToPayWhenStockReplenished.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPriceToPayWhenStockReplenished.Location = new System.Drawing.Point(9, 8);
+            this.lblPriceToPayWhenStockReplenished.Name = "lblPriceToPayWhenStockReplenished";
+            this.lblPriceToPayWhenStockReplenished.Size = new System.Drawing.Size(241, 16);
+            this.lblPriceToPayWhenStockReplenished.TabIndex = 111;
+            this.lblPriceToPayWhenStockReplenished.Text = "Price To Pay When Stock Replenished";
+            // 
+            // panDepositPrice
+            // 
+            this.panDepositPrice.Controls.Add(this.tbPriceToPayWhenStockReplenished);
+            this.panDepositPrice.Controls.Add(this.lblPriceToPayWhenStockReplenished);
+            this.panDepositPrice.Location = new System.Drawing.Point(520, 301);
+            this.panDepositPrice.Name = "panDepositPrice";
+            this.panDepositPrice.Size = new System.Drawing.Size(256, 58);
+            this.panDepositPrice.TabIndex = 113;
             // 
             // ConfirmPlacingOrderForm
             // 
@@ -254,10 +296,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 488);
+            this.Controls.Add(this.panDepositPrice);
+            this.Controls.Add(this.lblHeader);
             this.Controls.Add(this.dgvProducts);
             this.Controls.Add(this.btnPay);
-            this.Controls.Add(this.txtTotalPrice);
-            this.Controls.Add(this.lblTotalPrice);
+            this.Controls.Add(this.tbAmountDue);
+            this.Controls.Add(this.lblAmountDue);
             this.Controls.Add(this.txtAddress2);
             this.Controls.Add(this.lblAddress2);
             this.Controls.Add(this.txtAddress1);
@@ -273,6 +317,8 @@
             this.Location = new System.Drawing.Point(15, 15);
             this.Name = "ConfirmPlacingOrderForm";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
+            this.panDepositPrice.ResumeLayout(false);
+            this.panDepositPrice.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -290,8 +336,8 @@
         private System.Windows.Forms.TextBox txtAddress1;
         private System.Windows.Forms.Label lblAddress2;
         private System.Windows.Forms.TextBox txtAddress2;
-        private System.Windows.Forms.Label lblTotalPrice;
-        private System.Windows.Forms.TextBox txtTotalPrice;
+        private System.Windows.Forms.Label lblAmountDue;
+        private System.Windows.Forms.TextBox tbAmountDue;
         private System.Windows.Forms.Button btnPay;
         private System.Windows.Forms.DataGridView dgvProducts;
 
@@ -301,7 +347,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn priceColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn isDepositColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn amountDue;
         private System.Windows.Forms.DataGridViewTextBoxColumn subtotalColumn;
+        private System.Windows.Forms.Label lblHeader;
+        private System.Windows.Forms.TextBox tbPriceToPayWhenStockReplenished;
+        private System.Windows.Forms.Label lblPriceToPayWhenStockReplenished;
+        private System.Windows.Forms.Panel panDepositPrice;
     }
 }

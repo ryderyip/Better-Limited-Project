@@ -60,6 +60,8 @@
             this.dgvProductsPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvProductsQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvProductsSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tbTotalAmount = new System.Windows.Forms.TextBox();
+            this.lblTotalAmount = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,7 +89,7 @@
             // 
             this.lblAmtDue.AutoSize = true;
             this.lblAmtDue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAmtDue.Location = new System.Drawing.Point(49, 148);
+            this.lblAmtDue.Location = new System.Drawing.Point(49, 223);
             this.lblAmtDue.Name = "lblAmtDue";
             this.lblAmtDue.Size = new System.Drawing.Size(84, 16);
             this.lblAmtDue.TabIndex = 2;
@@ -97,7 +99,7 @@
             // 
             this.lblAmtPaid.AutoSize = true;
             this.lblAmtPaid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAmtPaid.Location = new System.Drawing.Point(44, 201);
+            this.lblAmtPaid.Location = new System.Drawing.Point(44, 183);
             this.lblAmtPaid.Name = "lblAmtPaid";
             this.lblAmtPaid.Size = new System.Drawing.Size(87, 16);
             this.lblAmtPaid.TabIndex = 3;
@@ -107,7 +109,7 @@
             // 
             this.lblNeedDelivery.AutoSize = true;
             this.lblNeedDelivery.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNeedDelivery.Location = new System.Drawing.Point(33, 264);
+            this.lblNeedDelivery.Location = new System.Drawing.Point(33, 265);
             this.lblNeedDelivery.Name = "lblNeedDelivery";
             this.lblNeedDelivery.Size = new System.Drawing.Size(98, 16);
             this.lblNeedDelivery.TabIndex = 4;
@@ -117,7 +119,7 @@
             // 
             this.lblNeedInstallation.AutoSize = true;
             this.lblNeedInstallation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNeedInstallation.Location = new System.Drawing.Point(22, 312);
+            this.lblNeedInstallation.Location = new System.Drawing.Point(22, 313);
             this.lblNeedInstallation.Name = "lblNeedInstallation";
             this.lblNeedInstallation.Size = new System.Drawing.Size(111, 16);
             this.lblNeedInstallation.TabIndex = 5;
@@ -134,7 +136,7 @@
             // 
             // txtAmtDue
             // 
-            this.txtAmtDue.Location = new System.Drawing.Point(137, 147);
+            this.txtAmtDue.Location = new System.Drawing.Point(137, 222);
             this.txtAmtDue.Name = "txtAmtDue";
             this.txtAmtDue.ReadOnly = true;
             this.txtAmtDue.Size = new System.Drawing.Size(100, 20);
@@ -143,7 +145,7 @@
             // 
             // txtAmtPaid
             // 
-            this.txtAmtPaid.Location = new System.Drawing.Point(137, 200);
+            this.txtAmtPaid.Location = new System.Drawing.Point(137, 182);
             this.txtAmtPaid.Name = "txtAmtPaid";
             this.txtAmtPaid.ReadOnly = true;
             this.txtAmtPaid.Size = new System.Drawing.Size(100, 20);
@@ -152,7 +154,7 @@
             // 
             // txtNeedDelivery
             // 
-            this.txtNeedDelivery.Location = new System.Drawing.Point(137, 263);
+            this.txtNeedDelivery.Location = new System.Drawing.Point(137, 264);
             this.txtNeedDelivery.Name = "txtNeedDelivery";
             this.txtNeedDelivery.ReadOnly = true;
             this.txtNeedDelivery.Size = new System.Drawing.Size(55, 20);
@@ -161,7 +163,7 @@
             // 
             // txtNeedInstallation
             // 
-            this.txtNeedInstallation.Location = new System.Drawing.Point(137, 311);
+            this.txtNeedInstallation.Location = new System.Drawing.Point(137, 312);
             this.txtNeedInstallation.Name = "txtNeedInstallation";
             this.txtNeedInstallation.ReadOnly = true;
             this.txtNeedInstallation.Size = new System.Drawing.Size(55, 20);
@@ -362,11 +364,32 @@
             this.dgvProductsSubtotal.Name = "dgvProductsSubtotal";
             this.dgvProductsSubtotal.ReadOnly = true;
             // 
+            // tbTotalAmount
+            // 
+            this.tbTotalAmount.Location = new System.Drawing.Point(137, 140);
+            this.tbTotalAmount.Name = "tbTotalAmount";
+            this.tbTotalAmount.ReadOnly = true;
+            this.tbTotalAmount.Size = new System.Drawing.Size(100, 20);
+            this.tbTotalAmount.TabIndex = 111;
+            this.tbTotalAmount.Text = "-";
+            // 
+            // lblTotalAmount
+            // 
+            this.lblTotalAmount.AutoSize = true;
+            this.lblTotalAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalAmount.Location = new System.Drawing.Point(41, 141);
+            this.lblTotalAmount.Name = "lblTotalAmount";
+            this.lblTotalAmount.Size = new System.Drawing.Size(90, 16);
+            this.lblTotalAmount.TabIndex = 110;
+            this.lblTotalAmount.Text = "Total Amount:";
+            // 
             // SalesOrderDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 488);
+            this.Controls.Add(this.tbTotalAmount);
+            this.Controls.Add(this.lblTotalAmount);
             this.Controls.Add(this.dgvProducts);
             this.Controls.Add(this.txtCustEmail);
             this.Controls.Add(this.lblEmail);
@@ -436,5 +459,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvProductsPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvProductsQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvProductsSubtotal;
+        private System.Windows.Forms.TextBox tbTotalAmount;
+        private System.Windows.Forms.Label lblTotalAmount;
     }
 }

@@ -6,7 +6,7 @@ namespace Better_Limited_Project.Login
     public class LoginController
     {
         public delegate void LoggedInEventHandler<T>(object sender, T staffId);
-        public event LoggedInEventHandler<string> LoggedIn;
+        public event LoggedInEventHandler<string>? LoggedIn;
 
         private readonly LoginForm _loginForm;
 

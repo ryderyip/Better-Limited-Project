@@ -32,7 +32,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             salesOrders.ForEach(order => dgvSalesOrders.Rows.Add(order.OrderNumber, 
                 order.Customer != null ? order.Customer.Name : "-",
                 order.Customer != null ? order.Customer.Phone : "-",
-                order.GetTotalPrice().ToString("C", new CultureInfo("zh-HK")),
+                order.GetTotalAmount().ToString("C", new CultureInfo("zh-HK")),
                 order.CreatedOn.ToShortDateString() + " : " + order.CreatedOn.ToShortTimeString(),
                 order.RetailStore.Name,
                 order.Staff.Name));

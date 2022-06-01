@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Better_Limited_Project.CustomerRecord;
 using Better_Limited_Project.Login;
 using Better_Limited_Project.Sales.OrderPlacing;
@@ -17,17 +15,17 @@ namespace Better_Limited_Project.ServiceUtility
             var staff = LoginSession.GetSession().CurrentStaff;
             var retailStore = new RetailStoreRepository().GetRetailStoreById(UserSettings.GetSettings().Workplace!.Id);
 
-            var orderId = Guid.NewGuid().ToString();
-            return new SalesOrder
+            var salesOrder = new SalesOrder(staff, retailStore)
             {
-                Id = orderId, Staff = staff, RetailStore = retailStore, Customer = customer,
-                SalesOrderProducts = new List<SalesOrderProduct>(cart.GetCartItems().ToList()
-                    .ConvertAll(cartItem =>
-                        new SalesOrderProduct(orderId, cartItem.Product, cartItem.Price, cartItem.Quantity)
-                        {
-                            IsDeposit = cartItem.IsDeposit
-                        }))
+                Customer = customer
             };
+            
+            var salesOrderProducts = cart.GetCartItems().ToList().ConvertAll(cartItem =>
+                new SalesOrderProduct(salesOrder.Id, cartItem.Product, cartItem.Price, cartItem.Quantity,
+                    cartItem.IsDeposit));
+            
+            salesOrderProducts.ForEach(sop => salesOrder.SalesOrderProducts.Add(sop));
+            return salesOrder;
         }
     }
 }

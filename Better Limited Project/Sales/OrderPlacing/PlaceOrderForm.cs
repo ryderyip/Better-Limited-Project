@@ -41,9 +41,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
 
         private void RefreshCart()
         {
-            txtTotalPrice.Text = _cart.GetTotalPrice()
-                .ToString("C", new CultureInfo("zh-HK"));
-
+            decimal total = 0;
             dgvCart.Rows.Clear();
             _cart.GetCartItems().ToList().ForEach(cartItem =>
             {
@@ -59,12 +57,15 @@ namespace Better_Limited_Project.Sales.OrderPlacing
                         : (sellingPrice * cartItem.Quantity).ToString("C", new CultureInfo("zh-HK")),
                     cartItem.IsDeposit);
 
+                total += cartItem.IsDeposit ? depositPrice * cartItem.Quantity : sellingPrice * cartItem.Quantity;
+
                 if (cartItem.IsDeposit)
                     dgvCart.Rows.Cast<DataGridViewRow>()
                         .First(row => row.Cells[cartNameColumn.Name].Value.ToString() == cartItem.Product.Name
                                       && (bool) row.Cells[cartIsOutOfStock.Name].Value)
                         .DefaultCellStyle.BackColor = Color.SandyBrown;
             });
+            txtTotalPrice.Text = total.ToString("C", new CultureInfo("zh-HK"));
         }
 
         private void CollectControls()

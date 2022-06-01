@@ -9,7 +9,8 @@ namespace Better_Limited_Project.DatabaseUtility
             "username=root; " +
             "password=; " +
             "database=better_limited;" +
-            "convert zero datetime=True ";
+            "convert zero datetime=True;" +
+            "old guids=true;";
 
         public static MySqlConnection GetConnection()
         {

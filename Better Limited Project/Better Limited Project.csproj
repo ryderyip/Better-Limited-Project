@@ -404,12 +404,14 @@
     </Compile>
     <Compile Include="Sales\OrderPlacing\Entity\SalesOrder.cs" />
     <Compile Include="Sales\OrderPlacing\Entity\SalesOrderProduct.cs" />
+    <Compile Include="Sales\OrderPlacing\Entity\SalesOrderProductPayment.cs" />
     <Compile Include="Sales\OrderPlacing\PlaceOrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Sales\OrderPlacing\PlaceOrderForm.Designer.cs">
       <DependentUpon>PlaceOrderForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sales\OrderPlacing\Repository\SalesOrderProductPaymentRepository.cs" />
     <Compile Include="Sales\OrderPlacing\Repository\SalesOrderProductRepository.cs" />
     <Compile Include="Sales\OrderPlacing\Repository\SalesOrderRepository.cs" />
     <Compile Include="Sales\OrderPlacing\SalesOrderDetailsForm.cs">

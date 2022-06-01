@@ -23,7 +23,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             foreach (var salesOrderProduct in _salesOrder.SalesOrderProducts)
             {
                 dgvProducts.Rows.Add(salesOrderProduct.Product.Name,
-                    salesOrderProduct.IsDeposit ? "Yes" : "No",
+                    salesOrderProduct.IsOutOfStock ? "Yes" : "No",
                     salesOrderProduct.Product.Category.Name,
                     salesOrderProduct.Price.ToString("C", new CultureInfo("zh-HK")),
                     salesOrderProduct.Quantity,
@@ -41,30 +41,25 @@ namespace Better_Limited_Project.Sales.OrderPlacing
         private void FillFields()
         {
             txtOrderNumber.Text = _salesOrder.OrderNumber;
-            txtAmtDue.Text = _salesOrder.GetTotalPrice().ToString("C", new CultureInfo("zh-HK"));
-            if (_salesOrder.Payment != null)
-                txtAmtPaid.Text = _salesOrder.Payment.Amount.ToString("C", new CultureInfo("zh-HK"));
+            tbTotalAmount.Text = _salesOrder.GetTotalAmount().ToString("C", new CultureInfo("zh-HK"));
+            decimal amountDue = _salesOrder.GetTotalAmount() - _salesOrder.GetAmountPaid();
+            txtAmtDue.Text = amountDue.ToString("C", new CultureInfo("zh-HK"));
+            txtAmtPaid.Text = _salesOrder.GetAmountPaid().ToString("C", new CultureInfo("zh-HK"));
             if (_salesOrder.Customer != null)
             {
                 txtCustName.Text = _salesOrder.Customer.Name;
                 txtCustPhoneNumber.Text = _salesOrder.Customer.Phone;
-                txtCustEmail.Text = _salesOrder.Customer.Email;
+                txtCustEmail.Text = _salesOrder.Customer.Email ?? txtCustEmail.Text;
                 // TODO set need delivery, installation
                 txtAddress1.Text = _salesOrder.Customer.Address.Address1;
                 txtAddress2.Text = _salesOrder.Customer.Address.Address2;
             }
 
-            if (IsPaymentCompleted())
+            if (_salesOrder.IsAllPaymentCompleted())
             {
                 btnSettleIncompletePayment.Enabled = false;
                 btnSettleIncompletePayment.BackColor = Color.Gray;
             }
-        }
-
-        private bool IsPaymentCompleted()
-        {
-            return _salesOrder.Payment != null 
-                   && _salesOrder.Payment.Amount == _salesOrder.GetTotalPrice();
         }
 
         private void BtnPaymentReceipt_Click(object sender, System.EventArgs e)

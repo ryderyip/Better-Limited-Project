@@ -84,19 +84,6 @@ namespace Better_Limited_Project.Sales.OrderPlacing
         {
             return _cartItems.Count == 0 && _depositCardItems.Count == 0;
         }
-
-        public decimal GetTotalPrice()
-        {
-            decimal deposit = GetCartItems()
-                .Where(item => _stocks.Find(stock => stock.Product.Id == item.Product.Id)
-                    .Quantity == 0)
-                .Sum(item => item.Price * item.Quantity * Product.DepositPricePercentage);
-            decimal ordinary = GetCartItems()
-                .Where(item => _stocks.Find(stock => stock.Product.Id == item.Product.Id)
-                    .Quantity != 0)
-                .Sum(item => item.Price * item.Quantity);
-            return deposit + ordinary;
-        }
         
         private List<RetailStoreStock> GetStocks()
         {

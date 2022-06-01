@@ -137,7 +137,7 @@ namespace Better_Limited_Project.Sales.PaymentUtility
                 addressFrame.RelativeVertical = RelativeVertical.Page;
 
                 paragraph = addressFrame.AddParagraph();
-                paragraph.Format.Font.Name = "Helvetica";
+                paragraph.Format.Font.Name = "Times New Roman";
                 paragraph.Format.Font.Size = 9;
                 paragraph.Format.SpaceAfter = 3;
                 paragraph.AddFormattedText("To:", TextFormat.Bold);
@@ -147,7 +147,7 @@ namespace Better_Limited_Project.Sales.PaymentUtility
                                                       $"Address 2: {_salesOrder.Customer.Address.Address2}\n" +
                                                       $"Phone No.: {_salesOrder.Customer.Phone}\n" +
                                                       $"Email Address: {_salesOrder.Customer.Email ?? "-"}");
-                paragraph.Format.Font = new Font("Helvetica", 9);
+                paragraph.Format.Font = new Font("Times New Roman", 9);
                 paragraph.Format.SpaceAfter = 3;
             }
 

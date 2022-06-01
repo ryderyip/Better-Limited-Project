@@ -30,7 +30,13 @@ namespace Better_Limited_Project.Sales.OrderPlacing
                 txtAddress2.Text = customer.Address.Address2;
             }
 
-            txtTotalPrice.Text = _order.GetDepositPrice().ToString("C", new CultureInfo("zh-HK"));
+            decimal amountDue = _order.GetInStockItemPrice() + _order.GetDepositPrice();
+            decimal priceToPayWhenStockReplenished = _order.GetTotalAmount() - amountDue;
+            tbPriceToPayWhenStockReplenished.Text = priceToPayWhenStockReplenished.ToString("C", new CultureInfo("zh-HK"));
+            tbAmountDue.Text = amountDue.ToString("C", new CultureInfo("zh-HK"));
+
+            if (_order.GetDepositPrice() == 0)
+                panDepositPrice.Visible = false;
 
             PopulateProductDgv();
         }
@@ -39,15 +45,14 @@ namespace Better_Limited_Project.Sales.OrderPlacing
         {
             foreach (var salesOrderProduct in _order.SalesOrderProducts)
             {
-                decimal subtotal = salesOrderProduct.IsDeposit
+                decimal subtotal = salesOrderProduct.IsOutOfStock
                     ? salesOrderProduct.Price * salesOrderProduct.Quantity * Product.DepositPricePercentage
                     : salesOrderProduct.Price * salesOrderProduct.Quantity;
                 dgvProducts.Rows.Add(salesOrderProduct.Product.Name,
                     salesOrderProduct.Price.ToString("C", new CultureInfo("zh-HK")),
                     salesOrderProduct.Quantity,
-                    salesOrderProduct.IsDeposit ? "Yes" : "No",
-                    subtotal.ToString(
-                        "C", new CultureInfo("zh-HK")));
+                    salesOrderProduct.IsOutOfStock ? "Yes" : "No",
+                    subtotal.ToString("C", new CultureInfo("zh-HK")));
             }
         }
 

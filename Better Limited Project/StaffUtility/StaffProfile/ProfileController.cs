@@ -7,10 +7,9 @@ namespace Better_Limited_Project.StaffUtility.StaffProfile
 {
     public class ProfileController
     {
-        private ProfileForm _profileForm;
         private readonly FormController _formController;
-        public delegate void LogOutClickedEventHandler(object sender, EventArgs e);
-        public event LogOutClickedEventHandler LogOutClicked;
+        private ProfileForm _profileForm;
+        public event EventHandler? LogOutClicked;
 
         public ProfileController(FormController formController)
         {
@@ -37,7 +36,8 @@ namespace Better_Limited_Project.StaffUtility.StaffProfile
 
         private bool IsProfileFormAlreadyOpened()
         {
-            return _formController.ContentForm.GetType() == typeof(ProfileForm);
+            return _formController.ContentForm != null 
+                   && _formController.ContentForm.GetType() == typeof(ProfileForm);
         }
     }
 }

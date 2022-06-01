@@ -18,7 +18,7 @@ namespace Better_Limited_Project.ServiceUtility
         public event EventHandler? SalesOrderPlaced;
         public bool IsNeedDelivery { get; set; }
         public bool IsNeedInstallation { get; set; }
-        
+
         public PlaceOrderService(Cart cart, Customer? customer = null)
         {
             _cart = cart;
@@ -39,12 +39,13 @@ namespace Better_Limited_Project.ServiceUtility
             var form = new PaymentMethodSelectionForm();
             form.StartPosition = FormStartPosition.CenterScreen;
             form.Selected += (_, method) => OpenPaymentForm(salesOrder, method);
-            form.ShowDialog(); 
+            form.ShowDialog();
         }
-        
+
         private void OpenPaymentForm(SalesOrder salesOrder, PaymentMethod method)
         {
-            var form = PaymentFormFactory.Generate(salesOrder.GetDepositPrice(), method);
+            decimal amountDue = salesOrder.GetInStockItemPrice() + salesOrder.GetDepositPrice();
+            var form = PaymentFormFactory.Generate(amountDue, method);
             form.PaymentCompleted += (_, payment) =>
             {
                 SaveSalesOrderToDatabase(salesOrder, payment);
@@ -63,7 +64,7 @@ namespace Better_Limited_Project.ServiceUtility
             form.SessionSelected += (_, session) => new DeliveryService().SendRequest(salesOrder, session);
             form.ShowDialog();
         }
-        
+
         private void SendInstallationServiceRequest(SalesOrder salesOrder)
         {
             var service = new InstallationService();
@@ -72,8 +73,21 @@ namespace Better_Limited_Project.ServiceUtility
 
         private void SaveSalesOrderToDatabase(SalesOrder salesOrder, Payment payment)
         {
-            salesOrder.Payment = payment;
             salesOrder.Save();
+            
+            salesOrder.SalesOrderProducts.Where(sop => !sop.IsOutOfStock).ToList()
+                .ForEach(sop =>
+                {
+                    sop.Payments.Add(new SalesOrderProductPayment(sop.SalesOrderId, sop.Product.Id,
+                        payment.Id, sop.Quantity, sop.IsOutOfStock));
+                    sop.Payments.ToList().ForEach(p =>
+                    {
+                        p.SalesOrderId = sop.SalesOrderId;
+                        p.Save();
+                    });
+                    sop.Save();
+                });
+            
             var stocks = StockRepository.GetStocks(UserSettings.GetSettings().Workplace!.Id).ToList();
             foreach (var salesOrderProduct in salesOrder.SalesOrderProducts)
             {
