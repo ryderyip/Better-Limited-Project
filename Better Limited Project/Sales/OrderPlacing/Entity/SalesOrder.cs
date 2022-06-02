@@ -4,7 +4,10 @@ using System.Linq;
 using Better_Limited_Project.CustomerRecord;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;
+using Better_Limited_Project.Sales.PaymentUtility;
 using Better_Limited_Project.Sales.PaymentUtility.Repository;
+using Better_Limited_Project.ServiceUtility.Delivery;
+using Better_Limited_Project.ServiceUtility.Installation;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.Sales.OrderPlacing.Entity
@@ -45,7 +48,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
             return SalesOrderProducts.Sum(sop => sop.Price * sop.Quantity);
         }
 
-        public decimal GetDepositPrice()
+        public decimal GetDepositAmount()
         {
             return SalesOrderProducts
                 .Where(sop => sop.IsOutOfStock)
@@ -61,21 +64,26 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
 
         public decimal GetAmountPaid()
         {
-            decimal amount = 0;
-            foreach (var salesOrderProduct in SalesOrderProducts)
-            {
-                amount += salesOrderProduct.Payments.Sum(sopp => PaymentRepository.FindById(sopp.PaymentId).Amount);
-            }
-
-            return amount;
-            /*return SalesOrderProducts.Sum(sop =>
-                sop.Payments.Sum(sopp => PaymentRepository.FindById(sopp.PaymentId).Amount));*/
+            return (from sop in SalesOrderProducts select sop.Payments).SelectMany(payments => payments)
+                .GroupBy(p => p.PaymentId)
+                .Sum(paymentIdPayment => PaymentRepository.FindById(paymentIdPayment.Key).Amount);
         }
 
         public bool IsAllPaymentCompleted()
         {
             return SalesOrderProducts.All(sop => sop.Payments.Count != 0)
                    && GetTotalAmount() >= GetAmountPaid();
+        }
+
+        public bool IsNeedDelivery()
+        {
+            return DeliveryRequestRepository.GetAll().Any(dr => dr.SalesOrderId == Id);
+        }
+
+        public bool IsNeedInstallation()
+        {
+            return false;
+            // return new InstallationRequestRepository().GetAll().Any(ir => ir.)
         }
     }
 }

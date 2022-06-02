@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using System.Globalization;
+using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.Login;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
@@ -23,7 +24,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             foreach (var salesOrderProduct in _salesOrder.SalesOrderProducts)
             {
                 dgvProducts.Rows.Add(salesOrderProduct.Product.Name,
-                    salesOrderProduct.IsOutOfStock ? "Yes" : "No",
+                    salesOrderProduct.IsOutOfStock ? "Yes" : "No", // TODO change to status
                     salesOrderProduct.Product.Category.Name,
                     salesOrderProduct.Price.ToString("C", new CultureInfo("zh-HK")),
                     salesOrderProduct.Quantity,
@@ -35,7 +36,14 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             {
                 BtnPaymentReceipt.Visible = false;
                 btnSettleIncompletePayment.Visible = false;
+                btnDepositReceipt.Visible = false;
             }
+
+            if (!_salesOrder.IsNeedDelivery() && _salesOrder.IsNeedInstallation())
+                dgvProductsStatus.Visible = false;
+
+            if (_salesOrder.SalesOrderProducts.All(sop => !sop.IsOutOfStock))
+                btnDepositReceipt.Enabled = false;
         }
 
         private void FillFields()
@@ -45,6 +53,8 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             decimal amountDue = _salesOrder.GetTotalAmount() - _salesOrder.GetAmountPaid();
             txtAmtDue.Text = amountDue.ToString("C", new CultureInfo("zh-HK"));
             txtAmtPaid.Text = _salesOrder.GetAmountPaid().ToString("C", new CultureInfo("zh-HK"));
+            txtNeedDelivery.Text = _salesOrder.IsNeedDelivery() ? "Yes" : "No";
+            txtNeedInstallation.Text = _salesOrder.IsNeedInstallation() ? "Yes" : "No";
             if (_salesOrder.Customer != null)
             {
                 txtCustName.Text = _salesOrder.Customer.Name;
@@ -64,7 +74,19 @@ namespace Better_Limited_Project.Sales.OrderPlacing
 
         private void BtnPaymentReceipt_Click(object sender, System.EventArgs e)
         {
+            if (_salesOrder.SalesOrderProducts.All(sop => sop.IsOutOfStock))
+            {
+                MessageBox.Show("There are currently no completed product payments. " +
+                                "(To see deposit receipts, click the button on the right.)");
+                return;
+            }
             var generator = new PaymentReceiptGenerator(_salesOrder);
+            generator.GenerateAndOpen();
+        }
+
+        private void btnDepositReceipt_Click(object sender, System.EventArgs e)
+        {
+            var generator = new DepositReceiptGenerator(_salesOrder);
             generator.GenerateAndOpen();
         }
     }

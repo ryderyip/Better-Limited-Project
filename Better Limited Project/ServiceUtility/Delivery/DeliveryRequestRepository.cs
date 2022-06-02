@@ -24,8 +24,8 @@ namespace Better_Limited_Project.ServiceUtility.Delivery
                        arranged_on, arranged_by_staff_id, delivery_session_id 
                 from delivery_request;"));
             return from DataRow row in dt.Rows
-                let id = new Guid(row.Field<byte[]>("id")).ToString()
-                let salesOrderId = new Guid(row.Field<byte[]>("sales_order_id")).ToString()
+                let id = row.Field<Guid>("id").ToString()
+                let salesOrderId = row.Field<Guid>("sales_order_id").ToString()
                 let createOn = row.Field<DateTime>("created_on")
                 let createdBy = new StaffRepository().FindById(row.Field<int>("created_by_staff_id").ToString())
                 let session = (DeliverySession) row.Field<int>("delivery_session_id")

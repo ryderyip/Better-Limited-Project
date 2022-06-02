@@ -30,12 +30,12 @@ namespace Better_Limited_Project.Sales.OrderPlacing
                 txtAddress2.Text = customer.Address.Address2;
             }
 
-            decimal amountDue = _order.GetInStockItemPrice() + _order.GetDepositPrice();
+            decimal amountDue = _order.GetInStockItemPrice() + _order.GetDepositAmount();
             decimal priceToPayWhenStockReplenished = _order.GetTotalAmount() - amountDue;
             tbPriceToPayWhenStockReplenished.Text = priceToPayWhenStockReplenished.ToString("C", new CultureInfo("zh-HK"));
             tbAmountDue.Text = amountDue.ToString("C", new CultureInfo("zh-HK"));
 
-            if (_order.GetDepositPrice() == 0)
+            if (_order.GetDepositAmount() == 0)
                 panDepositPrice.Visible = false;
 
             PopulateProductDgv();

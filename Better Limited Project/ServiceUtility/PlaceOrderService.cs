@@ -44,7 +44,7 @@ namespace Better_Limited_Project.ServiceUtility
 
         private void OpenPaymentForm(SalesOrder salesOrder, PaymentMethod method)
         {
-            decimal amountDue = salesOrder.GetInStockItemPrice() + salesOrder.GetDepositPrice();
+            decimal amountDue = salesOrder.GetInStockItemPrice() + salesOrder.GetDepositAmount();
             var form = PaymentFormFactory.Generate(amountDue, method);
             form.PaymentCompleted += (_, payment) =>
             {
@@ -74,8 +74,8 @@ namespace Better_Limited_Project.ServiceUtility
         private void SaveSalesOrderToDatabase(SalesOrder salesOrder, Payment payment)
         {
             salesOrder.Save();
-            
-            salesOrder.SalesOrderProducts.Where(sop => !sop.IsOutOfStock).ToList()
+
+            salesOrder.SalesOrderProducts.ToList()
                 .ForEach(sop =>
                 {
                     sop.Payments.Add(new SalesOrderProductPayment(sop.SalesOrderId, sop.Product.Id,
@@ -87,7 +87,7 @@ namespace Better_Limited_Project.ServiceUtility
                     });
                     sop.Save();
                 });
-            
+
             var stocks = StockRepository.GetStocks(UserSettings.GetSettings().Workplace!.Id).ToList();
             foreach (var salesOrderProduct in salesOrder.SalesOrderProducts)
             {

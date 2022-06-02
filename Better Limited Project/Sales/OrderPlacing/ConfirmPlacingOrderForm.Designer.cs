@@ -109,7 +109,7 @@
             // 
             this.lblDeliveryInfo.AutoSize = true;
             this.lblDeliveryInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDeliveryInfo.Location = new System.Drawing.Point(39, 249);
+            this.lblDeliveryInfo.Location = new System.Drawing.Point(42, 301);
             this.lblDeliveryInfo.Name = "lblDeliveryInfo";
             this.lblDeliveryInfo.Size = new System.Drawing.Size(109, 20);
             this.lblDeliveryInfo.TabIndex = 65;
@@ -138,7 +138,7 @@
             // 
             this.lblAddress1.AutoSize = true;
             this.lblAddress1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddress1.Location = new System.Drawing.Point(54, 289);
+            this.lblAddress1.Location = new System.Drawing.Point(57, 341);
             this.lblAddress1.Name = "lblAddress1";
             this.lblAddress1.Size = new System.Drawing.Size(64, 15);
             this.lblAddress1.TabIndex = 72;
@@ -146,7 +146,7 @@
             // 
             // txtAddress1
             // 
-            this.txtAddress1.Location = new System.Drawing.Point(124, 289);
+            this.txtAddress1.Location = new System.Drawing.Point(127, 341);
             this.txtAddress1.Name = "txtAddress1";
             this.txtAddress1.ReadOnly = true;
             this.txtAddress1.Size = new System.Drawing.Size(241, 20);
@@ -157,7 +157,7 @@
             // 
             this.lblAddress2.AutoSize = true;
             this.lblAddress2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddress2.Location = new System.Drawing.Point(53, 328);
+            this.lblAddress2.Location = new System.Drawing.Point(56, 380);
             this.lblAddress2.Name = "lblAddress2";
             this.lblAddress2.Size = new System.Drawing.Size(64, 15);
             this.lblAddress2.TabIndex = 74;
@@ -165,7 +165,7 @@
             // 
             // txtAddress2
             // 
-            this.txtAddress2.Location = new System.Drawing.Point(124, 328);
+            this.txtAddress2.Location = new System.Drawing.Point(127, 380);
             this.txtAddress2.Name = "txtAddress2";
             this.txtAddress2.ReadOnly = true;
             this.txtAddress2.Size = new System.Drawing.Size(241, 20);
@@ -265,10 +265,10 @@
             // 
             // tbPriceToPayWhenStockReplenished
             // 
-            this.tbPriceToPayWhenStockReplenished.Location = new System.Drawing.Point(66, 27);
+            this.tbPriceToPayWhenStockReplenished.Location = new System.Drawing.Point(120, 27);
             this.tbPriceToPayWhenStockReplenished.Name = "tbPriceToPayWhenStockReplenished";
             this.tbPriceToPayWhenStockReplenished.ReadOnly = true;
-            this.tbPriceToPayWhenStockReplenished.Size = new System.Drawing.Size(184, 20);
+            this.tbPriceToPayWhenStockReplenished.Size = new System.Drawing.Size(124, 20);
             this.tbPriceToPayWhenStockReplenished.TabIndex = 112;
             // 
             // lblPriceToPayWhenStockReplenished

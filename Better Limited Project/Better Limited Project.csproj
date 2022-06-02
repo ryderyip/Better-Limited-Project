@@ -426,6 +426,7 @@
     <Compile Include="Sales\OrderPlacing\SalesOrderListForm.Designer.cs">
       <DependentUpon>SalesOrderListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sales\PaymentUtility\DepositReceiptGenerator.cs" />
     <Compile Include="Sales\PaymentUtility\Payment.cs" />
     <Compile Include="Sales\PaymentUtility\PaymentFormFactory.cs" />
     <Compile Include="Sales\PaymentUtility\PaymentMethod.cs" />
@@ -518,30 +519,32 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ServiceUtility\Delivery\UI\RestockRequestForm.Designer.cs" />
-    <Compile Include="ServiceUtility\Installation\ArrangeInstallationForm.cs">
+    <Compile Include="ServiceUtility\Installation\InstallationRequest.cs" />
+    <Compile Include="ServiceUtility\Installation\InstallationRequestRepository.cs" />
+    <Compile Include="ServiceUtility\Installation\UI\ArrangeInstallationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ServiceUtility\Installation\ArrangeInstallationForm.Designer.cs" />
-    <Compile Include="ServiceUtility\Installation\CreateInstallationDutyRecordForm.cs">
+    <Compile Include="ServiceUtility\Installation\UI\ArrangeInstallationForm.Designer.cs" />
+    <Compile Include="ServiceUtility\Installation\UI\CreateInstallationDutyRecordForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ServiceUtility\Installation\CreateInstallationDutyRecordForm.Designer.cs" />
-    <Compile Include="ServiceUtility\Installation\InstallationDutyRecordDetailsForm.cs">
+    <Compile Include="ServiceUtility\Installation\UI\CreateInstallationDutyRecordForm.Designer.cs" />
+    <Compile Include="ServiceUtility\Installation\UI\InstallationDutyRecordDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ServiceUtility\Installation\InstallationDutyRecordDetailsForm.Designer.cs" />
-    <Compile Include="ServiceUtility\Installation\InstallationDutyRecordForm.cs">
+    <Compile Include="ServiceUtility\Installation\UI\InstallationDutyRecordDetailsForm.Designer.cs" />
+    <Compile Include="ServiceUtility\Installation\UI\InstallationDutyRecordForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ServiceUtility\Installation\InstallationDutyRecordForm.Designer.cs" />
-    <Compile Include="ServiceUtility\Installation\InstallationRequestDetailsForm.cs">
+    <Compile Include="ServiceUtility\Installation\UI\InstallationDutyRecordForm.Designer.cs" />
+    <Compile Include="ServiceUtility\Installation\UI\InstallationRequestDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ServiceUtility\Installation\InstallationRequestDetailsForm.Designer.cs" />
-    <Compile Include="ServiceUtility\Installation\InstallationRequestForm.cs">
+    <Compile Include="ServiceUtility\Installation\UI\InstallationRequestDetailsForm.Designer.cs" />
+    <Compile Include="ServiceUtility\Installation\UI\InstallationRequestForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ServiceUtility\Installation\InstallationRequestForm.Designer.cs" />
+    <Compile Include="ServiceUtility\Installation\UI\InstallationRequestForm.Designer.cs" />
     <Compile Include="ServiceUtility\PlaceOrderService.cs" />
     <Compile Include="ServiceUtility\Reordering\ReorderRequestDetailsForm.cs">
       <SubType>Form</SubType>
@@ -767,12 +770,12 @@
     <EmbeddedResource Include="ServiceUtility\Delivery\UI\DeliveryDutyRecordForm.resx" />
     <EmbeddedResource Include="ServiceUtility\Delivery\UI\RestockRequestDetails.resx" />
     <EmbeddedResource Include="ServiceUtility\Delivery\UI\RestockRequestForm.resx" />
-    <EmbeddedResource Include="ServiceUtility\Installation\ArrangeInstallationForm.resx" />
-    <EmbeddedResource Include="ServiceUtility\Installation\CreateInstallationDutyRecordForm.resx" />
-    <EmbeddedResource Include="ServiceUtility\Installation\InstallationDutyRecordDetailsForm.resx" />
-    <EmbeddedResource Include="ServiceUtility\Installation\InstallationDutyRecordForm.resx" />
-    <EmbeddedResource Include="ServiceUtility\Installation\InstallationRequestDetailsForm.resx" />
-    <EmbeddedResource Include="ServiceUtility\Installation\InstallationRequestForm.resx" />
+    <EmbeddedResource Include="ServiceUtility\Installation\UI\ArrangeInstallationForm.resx" />
+    <EmbeddedResource Include="ServiceUtility\Installation\UI\CreateInstallationDutyRecordForm.resx" />
+    <EmbeddedResource Include="ServiceUtility\Installation\UI\InstallationDutyRecordDetailsForm.resx" />
+    <EmbeddedResource Include="ServiceUtility\Installation\UI\InstallationDutyRecordForm.resx" />
+    <EmbeddedResource Include="ServiceUtility\Installation\UI\InstallationRequestDetailsForm.resx" />
+    <EmbeddedResource Include="ServiceUtility\Installation\UI\InstallationRequestForm.resx" />
     <EmbeddedResource Include="ServiceUtility\Reordering\ReorderRequestDetailsForm.resx" />
     <EmbeddedResource Include="ServiceUtility\Reordering\ReorderRequestForm.resx" />
     <EmbeddedResource Include="ServiceUtility\Reordering\ReorderRequestSendingForm.resx" />
