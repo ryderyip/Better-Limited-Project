@@ -21,8 +21,7 @@ namespace Better_Limited_Project.ServiceUtility
             };
             
             var salesOrderProducts = cart.GetCartItems().ToList().ConvertAll(cartItem =>
-                new SalesOrderProduct(salesOrder.Id, cartItem.Product, cartItem.Price, cartItem.Quantity,
-                    cartItem.IsDeposit));
+                new SalesOrderProduct(salesOrder.Id, cartItem.Product, cartItem.Price, cartItem.Quantity, cartItem.IsDeposit));
             
             salesOrderProducts.ForEach(sop => salesOrder.SalesOrderProducts.Add(sop));
             return salesOrder;

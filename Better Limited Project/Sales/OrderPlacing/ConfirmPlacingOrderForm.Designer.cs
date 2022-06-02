@@ -44,15 +44,16 @@
             this.tbAmountDue = new System.Windows.Forms.TextBox();
             this.btnPay = new System.Windows.Forms.Button();
             this.dgvProducts = new System.Windows.Forms.DataGridView();
-            this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isDepositColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subtotalColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblHeader = new System.Windows.Forms.Label();
             this.tbPriceToPayWhenStockReplenished = new System.Windows.Forms.TextBox();
             this.lblPriceToPayWhenStockReplenished = new System.Windows.Forms.Label();
             this.panDepositPrice = new System.Windows.Forms.Panel();
+            this.lblOutOfStock = new System.Windows.Forms.Label();
+            this.outOfStockRectangle = new System.Windows.Forms.Button();
+            this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subtotalColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.panDepositPrice.SuspendLayout();
             this.SuspendLayout();
@@ -212,46 +213,12 @@
             this.nameColumn,
             this.priceColumn,
             this.quantityColumn,
-            this.isDepositColumn,
             this.subtotalColumn});
             this.dgvProducts.Location = new System.Drawing.Point(381, 88);
             this.dgvProducts.Name = "dgvProducts";
             this.dgvProducts.ReadOnly = true;
             this.dgvProducts.Size = new System.Drawing.Size(383, 198);
             this.dgvProducts.TabIndex = 107;
-            // 
-            // nameColumn
-            // 
-            this.nameColumn.HeaderText = "Name";
-            this.nameColumn.Name = "nameColumn";
-            this.nameColumn.ReadOnly = true;
-            // 
-            // priceColumn
-            // 
-            this.priceColumn.HeaderText = "Price";
-            this.priceColumn.Name = "priceColumn";
-            this.priceColumn.ReadOnly = true;
-            this.priceColumn.Width = 90;
-            // 
-            // quantityColumn
-            // 
-            this.quantityColumn.HeaderText = "Qty";
-            this.quantityColumn.Name = "quantityColumn";
-            this.quantityColumn.ReadOnly = true;
-            this.quantityColumn.Width = 50;
-            // 
-            // isDepositColumn
-            // 
-            this.isDepositColumn.HeaderText = "Is Deposit";
-            this.isDepositColumn.Name = "isDepositColumn";
-            this.isDepositColumn.ReadOnly = true;
-            this.isDepositColumn.Width = 90;
-            // 
-            // subtotalColumn
-            // 
-            this.subtotalColumn.HeaderText = "Subtotal";
-            this.subtotalColumn.Name = "subtotalColumn";
-            this.subtotalColumn.ReadOnly = true;
             // 
             // lblHeader
             // 
@@ -265,7 +232,7 @@
             // 
             // tbPriceToPayWhenStockReplenished
             // 
-            this.tbPriceToPayWhenStockReplenished.Location = new System.Drawing.Point(120, 27);
+            this.tbPriceToPayWhenStockReplenished.Location = new System.Drawing.Point(259, 25);
             this.tbPriceToPayWhenStockReplenished.Name = "tbPriceToPayWhenStockReplenished";
             this.tbPriceToPayWhenStockReplenished.ReadOnly = true;
             this.tbPriceToPayWhenStockReplenished.Size = new System.Drawing.Size(124, 20);
@@ -275,7 +242,7 @@
             // 
             this.lblPriceToPayWhenStockReplenished.AutoSize = true;
             this.lblPriceToPayWhenStockReplenished.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPriceToPayWhenStockReplenished.Location = new System.Drawing.Point(9, 8);
+            this.lblPriceToPayWhenStockReplenished.Location = new System.Drawing.Point(148, 6);
             this.lblPriceToPayWhenStockReplenished.Name = "lblPriceToPayWhenStockReplenished";
             this.lblPriceToPayWhenStockReplenished.Size = new System.Drawing.Size(241, 16);
             this.lblPriceToPayWhenStockReplenished.TabIndex = 111;
@@ -283,12 +250,65 @@
             // 
             // panDepositPrice
             // 
+            this.panDepositPrice.Controls.Add(this.lblOutOfStock);
+            this.panDepositPrice.Controls.Add(this.outOfStockRectangle);
             this.panDepositPrice.Controls.Add(this.tbPriceToPayWhenStockReplenished);
             this.panDepositPrice.Controls.Add(this.lblPriceToPayWhenStockReplenished);
-            this.panDepositPrice.Location = new System.Drawing.Point(520, 301);
+            this.panDepositPrice.Location = new System.Drawing.Point(381, 301);
             this.panDepositPrice.Name = "panDepositPrice";
-            this.panDepositPrice.Size = new System.Drawing.Size(256, 58);
+            this.panDepositPrice.Size = new System.Drawing.Size(395, 58);
             this.panDepositPrice.TabIndex = 113;
+            // 
+            // lblOutOfStock
+            // 
+            this.lblOutOfStock.AutoSize = true;
+            this.lblOutOfStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOutOfStock.Location = new System.Drawing.Point(36, 25);
+            this.lblOutOfStock.Name = "lblOutOfStock";
+            this.lblOutOfStock.Size = new System.Drawing.Size(96, 13);
+            this.lblOutOfStock.TabIndex = 115;
+            this.lblOutOfStock.Text = "= Deposit Payment";
+            // 
+            // outOfStockRectangle
+            // 
+            this.outOfStockRectangle.BackColor = System.Drawing.Color.SandyBrown;
+            this.outOfStockRectangle.FlatAppearance.BorderSize = 0;
+            this.outOfStockRectangle.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SandyBrown;
+            this.outOfStockRectangle.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SandyBrown;
+            this.outOfStockRectangle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.outOfStockRectangle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.outOfStockRectangle.ForeColor = System.Drawing.Color.Black;
+            this.outOfStockRectangle.Location = new System.Drawing.Point(10, 22);
+            this.outOfStockRectangle.Name = "outOfStockRectangle";
+            this.outOfStockRectangle.Size = new System.Drawing.Size(20, 20);
+            this.outOfStockRectangle.TabIndex = 114;
+            this.outOfStockRectangle.UseVisualStyleBackColor = false;
+            // 
+            // nameColumn
+            // 
+            this.nameColumn.HeaderText = "Name";
+            this.nameColumn.Name = "nameColumn";
+            this.nameColumn.ReadOnly = true;
+            // 
+            // priceColumn
+            // 
+            this.priceColumn.HeaderText = "Price";
+            this.priceColumn.Name = "priceColumn";
+            this.priceColumn.ReadOnly = true;
+            this.priceColumn.Width = 120;
+            // 
+            // quantityColumn
+            // 
+            this.quantityColumn.HeaderText = "Qty";
+            this.quantityColumn.Name = "quantityColumn";
+            this.quantityColumn.ReadOnly = true;
+            this.quantityColumn.Width = 50;
+            // 
+            // subtotalColumn
+            // 
+            this.subtotalColumn.HeaderText = "Subtotal";
+            this.subtotalColumn.Name = "subtotalColumn";
+            this.subtotalColumn.ReadOnly = true;
             // 
             // ConfirmPlacingOrderForm
             // 
@@ -342,15 +362,15 @@
         private System.Windows.Forms.DataGridView dgvProducts;
 
         #endregion
-
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn priceColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantityColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn isDepositColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn subtotalColumn;
         private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.TextBox tbPriceToPayWhenStockReplenished;
         private System.Windows.Forms.Label lblPriceToPayWhenStockReplenished;
         private System.Windows.Forms.Panel panDepositPrice;
+        private System.Windows.Forms.Label lblOutOfStock;
+        private System.Windows.Forms.Button outOfStockRectangle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn priceColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantityColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn subtotalColumn;
     }
 }

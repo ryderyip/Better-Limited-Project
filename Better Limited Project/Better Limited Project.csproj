@@ -402,6 +402,8 @@
     <Compile Include="Sales\OrderPlacing\ConfirmPlacingOrderForm.Designer.cs">
       <DependentUpon>ConfirmPlacingOrderForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sales\OrderPlacing\Entity\DeliveryStatus.cs" />
+    <Compile Include="Sales\OrderPlacing\Entity\SalesOrderProductStatus.cs" />
     <Compile Include="Sales\OrderPlacing\Entity\SalesOrder.cs" />
     <Compile Include="Sales\OrderPlacing\Entity\SalesOrderProduct.cs" />
     <Compile Include="Sales\OrderPlacing\Entity\SalesOrderProductPayment.cs" />
@@ -600,10 +602,12 @@
     <Compile Include="StaffUtility\StaffList\ChangePasswordForm.Designer.cs">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="StaffUtility\StaffList\ConfirmRemoveStaffForm.cs">
+    <Compile Include="StaffUtility\StaffList\ConfirmRemovalForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StaffUtility\StaffList\ConfirmRemoveStaffForm.Designer.cs" />
+    <Compile Include="StaffUtility\StaffList\ConfirmRemovalForm.Designer.cs">
+      <DependentUpon>ConfirmRemovalForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="StaffUtility\StaffList\NewStaffForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -637,6 +641,7 @@
       <DependentUpon>ProfileForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Tools\CommonInformationVerifier.cs" />
+    <Compile Include="Tools\EnumToStringHelper.cs" />
     <Compile Include="Tools\StringHelper.cs" />
     <Compile Include="Tools\Pager.cs" />
     <Compile Include="Tools\ToolTipGenerator.cs" />
@@ -785,7 +790,9 @@
     <EmbeddedResource Include="StaffUtility\StaffList\ChangePasswordForm.resx">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StaffUtility\StaffList\ConfirmRemoveStaffForm.resx" />
+    <EmbeddedResource Include="StaffUtility\StaffList\ConfirmRemovalForm.resx">
+      <DependentUpon>ConfirmRemovalForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StaffUtility\StaffList\NewStaffForm.resx">
       <DependentUpon>NewStaffForm.cs</DependentUpon>
     </EmbeddedResource>

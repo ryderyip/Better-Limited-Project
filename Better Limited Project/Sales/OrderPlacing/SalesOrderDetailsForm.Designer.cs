@@ -54,15 +54,15 @@
             this.txtCustEmail = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.dgvProducts = new System.Windows.Forms.DataGridView();
-            this.tbTotalAmount = new System.Windows.Forms.TextBox();
-            this.lblTotalAmount = new System.Windows.Forms.Label();
-            this.btnDepositReceipt = new System.Windows.Forms.Button();
             this.dgvProductsName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvProductsStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvProductsCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvProductsPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvProductsQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvProductsSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tbTotalAmount = new System.Windows.Forms.TextBox();
+            this.lblTotalAmount = new System.Windows.Forms.Label();
+            this.btnDepositReceipt = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -291,6 +291,7 @@
             this.btnSettleIncompletePayment.TabIndex = 85;
             this.btnSettleIncompletePayment.Text = "Settle Incomplete Payment";
             this.btnSettleIncompletePayment.UseVisualStyleBackColor = false;
+            this.btnSettleIncompletePayment.Click += new System.EventHandler(this.btnSettleIncompletePayment_Click);
             // 
             // txtCustEmail
             // 
@@ -328,38 +329,6 @@
             this.dgvProducts.ReadOnly = true;
             this.dgvProducts.Size = new System.Drawing.Size(510, 93);
             this.dgvProducts.TabIndex = 109;
-            // 
-            // tbTotalAmount
-            // 
-            this.tbTotalAmount.Location = new System.Drawing.Point(137, 140);
-            this.tbTotalAmount.Name = "tbTotalAmount";
-            this.tbTotalAmount.ReadOnly = true;
-            this.tbTotalAmount.Size = new System.Drawing.Size(100, 20);
-            this.tbTotalAmount.TabIndex = 111;
-            this.tbTotalAmount.Text = "-";
-            // 
-            // lblTotalAmount
-            // 
-            this.lblTotalAmount.AutoSize = true;
-            this.lblTotalAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalAmount.Location = new System.Drawing.Point(41, 141);
-            this.lblTotalAmount.Name = "lblTotalAmount";
-            this.lblTotalAmount.Size = new System.Drawing.Size(90, 16);
-            this.lblTotalAmount.TabIndex = 110;
-            this.lblTotalAmount.Text = "Total Amount:";
-            // 
-            // btnDepositReceipt
-            // 
-            this.btnDepositReceipt.BackColor = System.Drawing.Color.ForestGreen;
-            this.btnDepositReceipt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDepositReceipt.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnDepositReceipt.Location = new System.Drawing.Point(581, 404);
-            this.btnDepositReceipt.Name = "btnDepositReceipt";
-            this.btnDepositReceipt.Size = new System.Drawing.Size(129, 54);
-            this.btnDepositReceipt.TabIndex = 112;
-            this.btnDepositReceipt.Text = "Deposit Receipt";
-            this.btnDepositReceipt.UseVisualStyleBackColor = false;
-            this.btnDepositReceipt.Click += new System.EventHandler(this.btnDepositReceipt_Click);
             // 
             // dgvProductsName
             // 
@@ -402,6 +371,38 @@
             this.dgvProductsSubtotal.Name = "dgvProductsSubtotal";
             this.dgvProductsSubtotal.ReadOnly = true;
             this.dgvProductsSubtotal.Width = 90;
+            // 
+            // tbTotalAmount
+            // 
+            this.tbTotalAmount.Location = new System.Drawing.Point(137, 140);
+            this.tbTotalAmount.Name = "tbTotalAmount";
+            this.tbTotalAmount.ReadOnly = true;
+            this.tbTotalAmount.Size = new System.Drawing.Size(100, 20);
+            this.tbTotalAmount.TabIndex = 111;
+            this.tbTotalAmount.Text = "-";
+            // 
+            // lblTotalAmount
+            // 
+            this.lblTotalAmount.AutoSize = true;
+            this.lblTotalAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalAmount.Location = new System.Drawing.Point(41, 141);
+            this.lblTotalAmount.Name = "lblTotalAmount";
+            this.lblTotalAmount.Size = new System.Drawing.Size(90, 16);
+            this.lblTotalAmount.TabIndex = 110;
+            this.lblTotalAmount.Text = "Total Amount:";
+            // 
+            // btnDepositReceipt
+            // 
+            this.btnDepositReceipt.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnDepositReceipt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDepositReceipt.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnDepositReceipt.Location = new System.Drawing.Point(581, 404);
+            this.btnDepositReceipt.Name = "btnDepositReceipt";
+            this.btnDepositReceipt.Size = new System.Drawing.Size(129, 54);
+            this.btnDepositReceipt.TabIndex = 112;
+            this.btnDepositReceipt.Text = "Deposit Receipt";
+            this.btnDepositReceipt.UseVisualStyleBackColor = false;
+            this.btnDepositReceipt.Click += new System.EventHandler(this.btnDepositReceipt_Click);
             // 
             // SalesOrderDetailsForm
             // 

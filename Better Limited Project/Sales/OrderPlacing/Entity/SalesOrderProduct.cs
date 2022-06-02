@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;
+using Better_Limited_Project.Sales.PaymentUtility.Repository;
 
 namespace Better_Limited_Project.Sales.OrderPlacing.Entity
 {
@@ -26,6 +28,14 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
         {
             var repo = new SalesOrderProductRepository();
             repo.InsertOrUpdate(this);
+        }
+
+        public SalesOrderProductStatus GetStatus()
+        {
+            decimal due = Price * Quantity;
+            if (Payments.Sum(sopp => PaymentRepository.FindById(sopp.PaymentId).Amount) >= due)
+                return SalesOrderProductStatus.FullyPaid;
+            return Payments.Count != 0 ? SalesOrderProductStatus.DepositPaid : SalesOrderProductStatus.AwaitingPayment;
         }
     }
 }

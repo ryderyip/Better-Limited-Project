@@ -15,10 +15,8 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
         {
             var command = new MySqlCommand(
                 @"SELECT s.id, s.name, date_of_birth, 
-                            gender, hired_on, d.name as department, st.name as staff_title
-                        FROM staff s 
-                        INNER join staff_title st on s.title_id = st.id
-                        INNER join department d on s.department_id = d.id;");
+                            gender, hired_on, department_id, title_id as staff_title
+                        FROM staff s;");
             var dataTable = DataTableRepository.RetrieveDataTable(command);
             return from DataRow row in dataTable.Rows select ConvertToStaff(row);
         }
@@ -30,7 +28,14 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
 
         public Staff FindById(string staffId)
         {
-            return GetAll().First(staff => staff.Id == staffId);
+            var command = new MySqlCommand(
+                @"select id, name, date_of_birth, gender, hired_on, department_id, title_id from staff
+                where id = @id");
+            command.Parameters.AddWithValue("@id", staffId);
+            var datatable = DataTableRepository.RetrieveDataTable(command);
+            if (datatable.Rows.Count == 0)
+                throw new ArgumentException($"Staff ID \"{staffId}\" does not exist.");
+            return ConvertToStaff(datatable.Rows[0]);
         }
 
         private Staff ConvertToStaff(DataRow row)
@@ -42,8 +47,8 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
                 DateOfBirth = row.Field<DateTime>("date_of_birth"),
                 HiredOn = row.Field<DateTime>("hired_on"),
                 Gender = GenderConverter.Convert(row.Field<string>("gender")[0]),
-                Department = DepartmentMapper.Map(row.Field<string>("department")),
-                Title = new StaffTitleMapper().Map(row.Field<string>("staff_title"))
+                Department = (Department) row.Field<int>("department_id"),
+                Title = (StaffTitle) row.Field<int>("title_id")
             };
         }
 

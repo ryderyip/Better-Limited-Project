@@ -77,9 +77,9 @@
             this.lblProduct1Price = new System.Windows.Forms.Label();
             this.lblProduct1Name = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dgvCart = new System.Windows.Forms.DataGridView();
-            this.outOfStockRectangle = new System.Windows.Forms.Button();
             this.lblOutOfStock = new System.Windows.Forms.Label();
+            this.outOfStockRectangle = new System.Windows.Forms.Button();
+            this.dgvCart = new System.Windows.Forms.DataGridView();
             this.cartNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cartPriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cartQuantityColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -184,6 +184,7 @@
             // checkBoxNeedInstallation
             // 
             this.checkBoxNeedInstallation.AutoSize = true;
+            this.checkBoxNeedInstallation.Enabled = false;
             this.checkBoxNeedInstallation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxNeedInstallation.Location = new System.Drawing.Point(26, 569);
             this.checkBoxNeedInstallation.Name = "checkBoxNeedInstallation";
@@ -666,6 +667,31 @@
             this.panel2.Size = new System.Drawing.Size(421, 681);
             this.panel2.TabIndex = 70;
             // 
+            // lblOutOfStock
+            // 
+            this.lblOutOfStock.AutoSize = true;
+            this.lblOutOfStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOutOfStock.Location = new System.Drawing.Point(52, 446);
+            this.lblOutOfStock.Name = "lblOutOfStock";
+            this.lblOutOfStock.Size = new System.Drawing.Size(89, 16);
+            this.lblOutOfStock.TabIndex = 78;
+            this.lblOutOfStock.Text = "= Out of Stock";
+            // 
+            // outOfStockRectangle
+            // 
+            this.outOfStockRectangle.BackColor = System.Drawing.Color.SandyBrown;
+            this.outOfStockRectangle.FlatAppearance.BorderSize = 0;
+            this.outOfStockRectangle.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SandyBrown;
+            this.outOfStockRectangle.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SandyBrown;
+            this.outOfStockRectangle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.outOfStockRectangle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.outOfStockRectangle.ForeColor = System.Drawing.Color.Black;
+            this.outOfStockRectangle.Location = new System.Drawing.Point(26, 443);
+            this.outOfStockRectangle.Name = "outOfStockRectangle";
+            this.outOfStockRectangle.Size = new System.Drawing.Size(20, 20);
+            this.outOfStockRectangle.TabIndex = 77;
+            this.outOfStockRectangle.UseVisualStyleBackColor = false;
+            // 
             // dgvCart
             // 
             this.dgvCart.AllowUserToAddRows = false;
@@ -683,31 +709,6 @@
             this.dgvCart.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCart.Size = new System.Drawing.Size(415, 332);
             this.dgvCart.TabIndex = 69;
-            // 
-            // outOfStockRectangle
-            // 
-            this.outOfStockRectangle.BackColor = System.Drawing.Color.SandyBrown;
-            this.outOfStockRectangle.FlatAppearance.BorderSize = 0;
-            this.outOfStockRectangle.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SandyBrown;
-            this.outOfStockRectangle.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SandyBrown;
-            this.outOfStockRectangle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.outOfStockRectangle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.outOfStockRectangle.ForeColor = System.Drawing.Color.Black;
-            this.outOfStockRectangle.Location = new System.Drawing.Point(26, 443);
-            this.outOfStockRectangle.Name = "outOfStockRectangle";
-            this.outOfStockRectangle.Size = new System.Drawing.Size(20, 20);
-            this.outOfStockRectangle.TabIndex = 77;
-            this.outOfStockRectangle.UseVisualStyleBackColor = false;
-            // 
-            // lblOutOfStock
-            // 
-            this.lblOutOfStock.AutoSize = true;
-            this.lblOutOfStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOutOfStock.Location = new System.Drawing.Point(52, 446);
-            this.lblOutOfStock.Name = "lblOutOfStock";
-            this.lblOutOfStock.Size = new System.Drawing.Size(89, 16);
-            this.lblOutOfStock.TabIndex = 78;
-            this.lblOutOfStock.Text = "= Out of Stock";
             // 
             // cartNameColumn
             // 

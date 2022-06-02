@@ -6,6 +6,7 @@ using Better_Limited_Project.Login;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.Sales.PaymentUtility;
 using Better_Limited_Project.StaffUtility.StaffEntity;
+using Better_Limited_Project.Tools;
 
 namespace Better_Limited_Project.Sales.OrderPlacing
 {
@@ -24,7 +25,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             foreach (var salesOrderProduct in _salesOrder.SalesOrderProducts)
             {
                 dgvProducts.Rows.Add(salesOrderProduct.Product.Name,
-                    salesOrderProduct.IsOutOfStock ? "Yes" : "No", // TODO change to status
+                    EnumToStringHelper.GetDisplayValue(salesOrderProduct.GetStatus()),
                     salesOrderProduct.Product.Category.Name,
                     salesOrderProduct.Price.ToString("C", new CultureInfo("zh-HK")),
                     salesOrderProduct.Quantity,
@@ -42,7 +43,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             if (!_salesOrder.IsNeedDelivery() && _salesOrder.IsNeedInstallation())
                 dgvProductsStatus.Visible = false;
 
-            if (_salesOrder.SalesOrderProducts.All(sop => !sop.IsOutOfStock))
+            if (_salesOrder.SalesOrderProducts.All(sop => sop.Payments.All(sopp => !sopp.IsDeposit)))
                 btnDepositReceipt.Enabled = false;
         }
 
@@ -60,12 +61,11 @@ namespace Better_Limited_Project.Sales.OrderPlacing
                 txtCustName.Text = _salesOrder.Customer.Name;
                 txtCustPhoneNumber.Text = _salesOrder.Customer.Phone;
                 txtCustEmail.Text = _salesOrder.Customer.Email ?? txtCustEmail.Text;
-                // TODO set need delivery, installation
                 txtAddress1.Text = _salesOrder.Customer.Address.Address1;
                 txtAddress2.Text = _salesOrder.Customer.Address.Address2;
             }
 
-            if (_salesOrder.IsAllPaymentCompleted())
+            if (!_salesOrder.IsAllPaymentCompleted())
             {
                 btnSettleIncompletePayment.Enabled = false;
                 btnSettleIncompletePayment.BackColor = Color.Gray;
@@ -74,7 +74,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
 
         private void BtnPaymentReceipt_Click(object sender, System.EventArgs e)
         {
-            if (_salesOrder.SalesOrderProducts.All(sop => sop.IsOutOfStock))
+            if (_salesOrder.SalesOrderProducts.All(sop => sop.Payments.Any(sopp => sopp.IsDeposit)))
             {
                 MessageBox.Show("There are currently no completed product payments. " +
                                 "(To see deposit receipts, click the button on the right.)");
@@ -88,6 +88,11 @@ namespace Better_Limited_Project.Sales.OrderPlacing
         {
             var generator = new DepositReceiptGenerator(_salesOrder);
             generator.GenerateAndOpen();
+        }
+
+        private void btnSettleIncompletePayment_Click(object sender, System.EventArgs e)
+        {
+            
         }
     }
 }

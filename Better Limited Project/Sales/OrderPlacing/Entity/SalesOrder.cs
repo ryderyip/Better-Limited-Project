@@ -4,10 +4,8 @@ using System.Linq;
 using Better_Limited_Project.CustomerRecord;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;
-using Better_Limited_Project.Sales.PaymentUtility;
 using Better_Limited_Project.Sales.PaymentUtility.Repository;
 using Better_Limited_Project.ServiceUtility.Delivery;
-using Better_Limited_Project.ServiceUtility.Installation;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.Sales.OrderPlacing.Entity
@@ -40,7 +38,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
 
         public void Save()
         {
-            new SalesOrderRepository().Insert(this);
+            new SalesOrderRepository().InsertOrUpdate(this);
         }
 
         public decimal GetTotalAmount()

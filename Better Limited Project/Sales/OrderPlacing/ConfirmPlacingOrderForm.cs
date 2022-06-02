@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Globalization;
+using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
+using Color = System.Drawing.Color;
 
 namespace Better_Limited_Project.Sales.OrderPlacing
 {
@@ -43,16 +45,24 @@ namespace Better_Limited_Project.Sales.OrderPlacing
 
         private void PopulateProductDgv()
         {
-            foreach (var salesOrderProduct in _order.SalesOrderProducts)
+            foreach (var salesOrderProduct in _order.SalesOrderProducts.Where(sop => !sop.IsOutOfStock))
             {
-                decimal subtotal = salesOrderProduct.IsOutOfStock
-                    ? salesOrderProduct.Price * salesOrderProduct.Quantity * Product.DepositPricePercentage
-                    : salesOrderProduct.Price * salesOrderProduct.Quantity;
+                decimal subtotal = salesOrderProduct.Price * salesOrderProduct.Quantity;
                 dgvProducts.Rows.Add(salesOrderProduct.Product.Name,
                     salesOrderProduct.Price.ToString("C", new CultureInfo("zh-HK")),
                     salesOrderProduct.Quantity,
-                    salesOrderProduct.IsOutOfStock ? "Yes" : "No",
                     subtotal.ToString("C", new CultureInfo("zh-HK")));
+            }
+
+            foreach (var salesOrderProduct in _order.SalesOrderProducts.Where(sop => sop.IsOutOfStock))
+            {
+                decimal depositAmount = salesOrderProduct.Price * Product.DepositPricePercentage;
+                decimal subtotal = depositAmount * salesOrderProduct.Quantity;
+                int rowIndex = dgvProducts.Rows.Add(salesOrderProduct.Product.Name,
+                    depositAmount.ToString("C", new CultureInfo("zh-HK")) + " (20%)",
+                    salesOrderProduct.Quantity,
+                    subtotal.ToString("C", new CultureInfo("zh-HK")));
+                dgvProducts.Rows[rowIndex].DefaultCellStyle.BackColor = Color.SandyBrown;
             }
         }
 

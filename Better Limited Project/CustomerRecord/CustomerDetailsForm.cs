@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Better_Limited_Project.StaffUtility.StaffList;
 
 namespace Better_Limited_Project.CustomerRecord
 {
@@ -41,9 +42,15 @@ namespace Better_Limited_Project.CustomerRecord
 
         private void btnRemoveCustomer_Click(object sender, EventArgs e)
         {
-            new CustomerRepository().Delete(_customer);
-            Updated?.Invoke(this, EventArgs.Empty);
-            Close();
+            var form = new ConfirmRemovalForm();
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.Confirmed += (_, _) =>
+            {
+                new CustomerRepository().Delete(_customer);
+                Updated?.Invoke(this, EventArgs.Empty);
+                Close();
+            };
+            form.ShowDialog();
         }
     }
 }

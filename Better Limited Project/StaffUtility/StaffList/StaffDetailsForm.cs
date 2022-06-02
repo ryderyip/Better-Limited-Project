@@ -71,7 +71,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            var form = new ConfirmRemoveStaffForm();
+            var form = new ConfirmRemovalForm();
             form.StartPosition = FormStartPosition.CenterScreen;
             form.Confirmed += (_, _) => RemoveStaff();
             form.ShowDialog();
@@ -79,9 +79,15 @@ namespace Better_Limited_Project.StaffUtility.StaffList
 
         private void RemoveStaff()
         {
-            new StaffRepository().RemoveStaff(_staff.Id);
-            Updated?.Invoke(this, EventArgs.Empty);
-            Close();
+            var form = new ConfirmRemovalForm();
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.Confirmed += (_, _) =>
+            {
+                new StaffRepository().RemoveStaff(_staff.Id);
+                Updated?.Invoke(this, EventArgs.Empty);
+                Close();
+            };
+            form.ShowDialog();
         }
 
         private void btnChangePassword_Click(object sender, EventArgs e)

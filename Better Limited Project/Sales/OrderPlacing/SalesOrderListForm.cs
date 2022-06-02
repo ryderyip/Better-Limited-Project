@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
-using Better_Limited_Project.RepositoryUtility;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;
 
@@ -12,12 +11,11 @@ namespace Better_Limited_Project.Sales.OrderPlacing
 {
     public partial class SalesOrderListForm : Form
     {
-        private readonly List<SalesOrder> _salesOrders;
+        private readonly List<SalesOrder> _salesOrders;// TODO performance
 
         public SalesOrderListForm()
         {
-            IRepository<SalesOrder> repository = new SalesOrderRepository();
-            _salesOrders = repository.GetAll().ToList();
+            _salesOrders = new SalesOrderRepository().GetAll().ToList();
             InitializeComponent();
         }
 

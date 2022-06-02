@@ -4,6 +4,8 @@ using System.Data;
 using System.Linq;
 using Better_Limited_Project.DatabaseUtility;
 using Better_Limited_Project.RepositoryUtility;
+
+
 using MySql.Data.MySqlClient;
 
 namespace Better_Limited_Project.CustomerRecord
@@ -44,15 +46,24 @@ namespace Better_Limited_Project.CustomerRecord
 
         public void Delete(Customer customer)
         {
-            var command = new MySqlCommand(@"delete from customer where id = @id;");
-            command.Parameters.AddWithValue("@id", customer.Id);
+            var command = new MySqlCommand(
+                @"delete from customer where id = @customerId;");
+            command.Parameters.AddWithValue("@customerId", customer.Id);
             DataTableRepository.ExecuteNonQuery(command);
         }
 
         public Customer FindById(string id)
         {
-            return FindAll(ce => ce.Id == id).FirstOrDefault()
-                ?? throw new ArgumentException($"Customer ID \"{id}\" does not exist.");
+            var command = new MySqlCommand(
+                @"select id, name, delivery_address_id as address_id, phone, email from customer
+                    where id = @id;");
+            command.Parameters.AddWithValue("@id", id);
+            var datatable = DataTableRepository.RetrieveDataTable(command);
+            
+            if (datatable.Rows.Count == 0)
+                throw new ArgumentException($"Customer ID \"{id}\" does not exist.");
+            
+            return ConvertToCustomer(datatable.Rows[0]);
         }
 
         public IEnumerable<Customer> GetAll()

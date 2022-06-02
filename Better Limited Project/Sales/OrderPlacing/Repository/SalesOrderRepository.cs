@@ -5,14 +5,13 @@ using System.Linq;
 using Better_Limited_Project.CustomerRecord;
 using Better_Limited_Project.DatabaseUtility;
 using Better_Limited_Project.Login;
-using Better_Limited_Project.RepositoryUtility;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 using MySql.Data.MySqlClient;
 
 namespace Better_Limited_Project.Sales.OrderPlacing.Repository
 {
-    public class SalesOrderRepository : IRepository<SalesOrder>, IRepositoryInsert<SalesOrder>
+    public class SalesOrderRepository
     {
         public SalesOrder FindById(string id)
         {
@@ -49,11 +48,12 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
             return GetAll().Where(filter.Invoke);
         }
 
-        public void Insert(SalesOrder order)
+        public void InsertOrUpdate(SalesOrder order)
         {
             var command = new MySqlCommand(
-                @"insert ignore into sales_order (id, sales_order_number, customer_id, retail_store_id, created_by_staff_id, created_on) 
-                        value (@id, @orderNumber, @customerId, @retailStoreId, @createdByStaffId, now());");
+                @"insert into sales_order (id, sales_order_number, customer_id, retail_store_id, created_by_staff_id, created_on) 
+                        value (@id, @orderNumber, @customerId, @retailStoreId, @createdByStaffId, now())
+                    on duplicate key update customer_id = @customerId, retail_store_id = @retailStoreId, created_by_staff_id = @createdByStaffId;");
 
             command.Parameters.AddWithValue("@id", order.Id);
             command.Parameters.AddWithValue("@orderNumber", order.OrderNumber);

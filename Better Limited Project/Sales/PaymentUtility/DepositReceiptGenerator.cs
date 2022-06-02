@@ -4,7 +4,6 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using Better_Limited_Project.ProductUtility.Entity;
-using Better_Limited_Project.Properties;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.Sales.PaymentUtility.Repository;
 using Better_Limited_Project.SettingsUtility;
@@ -153,7 +152,7 @@ namespace Better_Limited_Project.Sales.PaymentUtility
             table.SetEdge(0, 0, 4, 1, Edge.Box, BorderStyle.Single, 0.75, Color.Empty);
 
             int rowCount = 0;
-            foreach (var salesOrderProduct in _salesOrder.SalesOrderProducts.Where(sop => sop.IsOutOfStock))
+            foreach (var salesOrderProduct in _salesOrder.SalesOrderProducts.Where(sop => sop.Payments.Any(sopp => sopp.IsDeposit)))
             {
                 row = table.AddRow();
                 row.Format.Alignment = ParagraphAlignment.Center;

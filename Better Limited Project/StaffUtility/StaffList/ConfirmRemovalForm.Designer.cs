@@ -1,7 +1,7 @@
 ﻿
 namespace Better_Limited_Project.StaffUtility.StaffList
 {
-    partial class ConfirmRemoveStaffForm
+    partial class ConfirmRemovalForm
     {
         /// <summary>
         /// Required designer variable.
@@ -38,7 +38,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             // lblText
             // 
             this.lblText.AutoSize = true;
-            this.lblText.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblText.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblText.Location = new System.Drawing.Point(101, 26);
             this.lblText.Name = "lblText";
             this.lblText.Size = new System.Drawing.Size(210, 26);
@@ -57,7 +57,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             // lblMessage
             // 
             this.lblMessage.AutoSize = true;
-            this.lblMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMessage.Location = new System.Drawing.Point(103, 80);
             this.lblMessage.Name = "lblMessage";
             this.lblMessage.Size = new System.Drawing.Size(152, 15);
@@ -73,25 +73,26 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(120, 54);
             this.btnRemove.TabIndex = 109;
-            this.btnRemove.Text = "Remove Staff";
+            this.btnRemove.Text = "Confirm";
             this.btnRemove.UseVisualStyleBackColor = false;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
-            // ConfirmRemoveStaffForm
+            // ConfirmRemovalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(412, 220);
+            this.ClientSize = new System.Drawing.Size(412, 229);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.lblMessage);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.lblText);
             this.KeyPreview = true;
-            this.Name = "ConfirmRemoveStaffForm";
+            this.Name = "ConfirmRemovalForm";
             this.Text = "ConfirmRemoveStaffForm";
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ConfirmRemoveStaffForm_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
@@ -99,6 +100,6 @@ namespace Better_Limited_Project.StaffUtility.StaffList
         private System.Windows.Forms.Label lblText;
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.Label lblMessage;
-        public System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.Button btnRemove;
     }
 }
