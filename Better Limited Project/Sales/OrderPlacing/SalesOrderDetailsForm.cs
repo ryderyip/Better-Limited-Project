@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.Login;
+using Better_Limited_Project.ProductUtility.Repository;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.Sales.PaymentUtility;
 using Better_Limited_Project.StaffUtility.StaffEntity;
@@ -24,9 +25,10 @@ namespace Better_Limited_Project.Sales.OrderPlacing
         {
             foreach (var salesOrderProduct in _salesOrder.SalesOrderProducts)
             {
-                dgvProducts.Rows.Add(salesOrderProduct.Product.Name,
+                var product = salesOrderProduct.GetProduct();
+                dgvProducts.Rows.Add(product.Name,
                     EnumToStringHelper.GetDisplayValue(salesOrderProduct.GetStatus()),
-                    salesOrderProduct.Product.Category.Name,
+                    product.Category.Name,
                     salesOrderProduct.Price.ToString("C", new CultureInfo("zh-HK")),
                     salesOrderProduct.Quantity,
                     (salesOrderProduct.Price * salesOrderProduct.Quantity).ToString("C", new CultureInfo("zh-HK")));

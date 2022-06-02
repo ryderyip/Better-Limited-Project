@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using Better_Limited_Project.DatabaseUtility;
-using Better_Limited_Project.ProductUtility.Repository;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using MySql.Data.MySqlClient;
 
@@ -18,7 +17,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
                         value (@salesOrderId, @productId, @price, @quantity, @is_out_of_stock)
                     on duplicate key update price = @price, quantity = @quantity, is_out_of_stock = @is_out_of_stock");
             command.Parameters.AddWithValue("@salesOrderId", salesOrderProduct.SalesOrderId);
-            command.Parameters.AddWithValue("@productId", salesOrderProduct.Product.Id);
+            command.Parameters.AddWithValue("@productId", salesOrderProduct.ProductId);
             command.Parameters.AddWithValue("@price", salesOrderProduct.Price);
             command.Parameters.AddWithValue("@quantity", salesOrderProduct.Quantity);
             command.Parameters.AddWithValue("@is_out_of_stock", salesOrderProduct.IsOutOfStock);
@@ -32,12 +31,12 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
             var dataTable = DataTableRepository.RetrieveDataTable(command);
             return from DataRow row in dataTable.Rows
                 let salesOrderId = row.Field<Guid>("sales_order_id").ToString()
-                let product = ProductRepository.FindById(row.Field<int>("product_id").ToString())
+                let productId = row.Field<int>("product_id").ToString()
                 let price = row.Field<decimal>("price")
                 let quantity = row.Field<int>("quantity")
                 let isOutOfStock = row.Field<bool>("is_out_of_stock")
-                let payments = SalesOrderProductPaymentRepository.GetByIds(salesOrderId, product.Id).ToList()
-                select new SalesOrderProduct(salesOrderId, product, price, quantity, isOutOfStock)
+                let payments = SalesOrderProductPaymentRepository.GetByIds(salesOrderId, productId).ToList()
+                select new SalesOrderProduct(salesOrderId, productId, price, quantity, isOutOfStock)
                 {
                     Payments = payments
                 };

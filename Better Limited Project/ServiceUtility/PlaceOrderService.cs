@@ -78,7 +78,7 @@ namespace Better_Limited_Project.ServiceUtility
             salesOrder.SalesOrderProducts.ToList()
                 .ForEach(sop =>
                 {
-                    sop.Payments.Add(new SalesOrderProductPayment(sop.SalesOrderId, sop.Product.Id,
+                    sop.Payments.Add(new SalesOrderProductPayment(sop.SalesOrderId, sop.ProductId,
                         payment.Id, sop.Quantity, sop.IsOutOfStock));
                     sop.Payments.ToList().ForEach(p =>
                     {
@@ -91,7 +91,7 @@ namespace Better_Limited_Project.ServiceUtility
             var stocks = StockRepository.GetStocks(UserSettings.GetSettings().Workplace!.Id).ToList();
             foreach (var salesOrderProduct in salesOrder.SalesOrderProducts)
             {
-                var stock = stocks.First(stock => stock.Product.Id == salesOrderProduct.Product.Id);
+                var stock = stocks.First(stock => stock.Product.Id == salesOrderProduct.ProductId);
                 stock.Quantity -= salesOrderProduct.Quantity;
                 if (stock.Quantity < 0)
                     stock.Quantity = 0;

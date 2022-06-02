@@ -48,7 +48,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             foreach (var salesOrderProduct in _order.SalesOrderProducts.Where(sop => !sop.IsOutOfStock))
             {
                 decimal subtotal = salesOrderProduct.Price * salesOrderProduct.Quantity;
-                dgvProducts.Rows.Add(salesOrderProduct.Product.Name,
+                dgvProducts.Rows.Add(salesOrderProduct.GetProduct().Name,
                     salesOrderProduct.Price.ToString("C", new CultureInfo("zh-HK")),
                     salesOrderProduct.Quantity,
                     subtotal.ToString("C", new CultureInfo("zh-HK")));
@@ -58,7 +58,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             {
                 decimal depositAmount = salesOrderProduct.Price * Product.DepositPricePercentage;
                 decimal subtotal = depositAmount * salesOrderProduct.Quantity;
-                int rowIndex = dgvProducts.Rows.Add(salesOrderProduct.Product.Name,
+                int rowIndex = dgvProducts.Rows.Add(salesOrderProduct.GetProduct().Name,
                     depositAmount.ToString("C", new CultureInfo("zh-HK")) + " (20%)",
                     salesOrderProduct.Quantity,
                     subtotal.ToString("C", new CultureInfo("zh-HK")));

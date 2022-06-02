@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using Better_Limited_Project.ProductUtility.Repository;
 using Better_Limited_Project.Properties;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.SettingsUtility;
@@ -211,7 +212,7 @@ namespace Better_Limited_Project.Sales.PaymentUtility
                 row.Format.Alignment = ParagraphAlignment.Center;
                 row.Cells[0].AddParagraph((++rowCount).ToString());
                 row.Cells[0].Format.Alignment = ParagraphAlignment.Left;
-                row.Cells[1].AddParagraph(salesOrderProduct.Product.Name);
+                row.Cells[1].AddParagraph(salesOrderProduct.GetProduct().Name);
                 row.Cells[1].Format.Alignment = ParagraphAlignment.Left;
                 row.Cells[2].AddParagraph(salesOrderProduct.Price.ToString("C", new CultureInfo("zh-HK")));
                 row.Cells[2].Format.Alignment = ParagraphAlignment.Left;
