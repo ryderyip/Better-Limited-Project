@@ -42,6 +42,8 @@
             this.lblDeliveryInfo = new System.Windows.Forms.Label();
             this.tbDeliverySession = new System.Windows.Forms.TextBox();
             this.lblDeliverySession = new System.Windows.Forms.Label();
+            this.tbCreatedIn = new System.Windows.Forms.TextBox();
+            this.lblCreatedIn = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnDeliverytNote
@@ -89,7 +91,7 @@
             // 
             // tbArrangedBy
             // 
-            this.tbArrangedBy.Location = new System.Drawing.Point(342, 272);
+            this.tbArrangedBy.Location = new System.Drawing.Point(342, 304);
             this.tbArrangedBy.Name = "tbArrangedBy";
             this.tbArrangedBy.ReadOnly = true;
             this.tbArrangedBy.Size = new System.Drawing.Size(232, 20);
@@ -99,7 +101,7 @@
             // 
             this.lblArrangedBy.AutoSize = true;
             this.lblArrangedBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblArrangedBy.Location = new System.Drawing.Point(250, 273);
+            this.lblArrangedBy.Location = new System.Drawing.Point(250, 305);
             this.lblArrangedBy.Name = "lblArrangedBy";
             this.lblArrangedBy.Size = new System.Drawing.Size(86, 16);
             this.lblArrangedBy.TabIndex = 133;
@@ -107,7 +109,7 @@
             // 
             // tbArrangedOn
             // 
-            this.tbArrangedOn.Location = new System.Drawing.Point(342, 222);
+            this.tbArrangedOn.Location = new System.Drawing.Point(342, 254);
             this.tbArrangedOn.Name = "tbArrangedOn";
             this.tbArrangedOn.ReadOnly = true;
             this.tbArrangedOn.Size = new System.Drawing.Size(232, 20);
@@ -115,7 +117,7 @@
             // 
             // tbCreatedBy
             // 
-            this.tbCreatedBy.Location = new System.Drawing.Point(342, 172);
+            this.tbCreatedBy.Location = new System.Drawing.Point(342, 204);
             this.tbCreatedBy.Name = "tbCreatedBy";
             this.tbCreatedBy.ReadOnly = true;
             this.tbCreatedBy.Size = new System.Drawing.Size(232, 20);
@@ -125,7 +127,7 @@
             // 
             this.lblArrangedOn.AutoSize = true;
             this.lblArrangedOn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblArrangedOn.Location = new System.Drawing.Point(250, 223);
+            this.lblArrangedOn.Location = new System.Drawing.Point(250, 255);
             this.lblArrangedOn.Name = "lblArrangedOn";
             this.lblArrangedOn.Size = new System.Drawing.Size(87, 16);
             this.lblArrangedOn.TabIndex = 129;
@@ -135,7 +137,7 @@
             // 
             this.lblCreatedby.AutoSize = true;
             this.lblCreatedby.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCreatedby.Location = new System.Drawing.Point(259, 173);
+            this.lblCreatedby.Location = new System.Drawing.Point(259, 205);
             this.lblCreatedby.Name = "lblCreatedby";
             this.lblCreatedby.Size = new System.Drawing.Size(78, 16);
             this.lblCreatedby.TabIndex = 128;
@@ -166,7 +168,7 @@
             // 
             // tbDeliverySession
             // 
-            this.tbDeliverySession.Location = new System.Drawing.Point(342, 322);
+            this.tbDeliverySession.Location = new System.Drawing.Point(342, 354);
             this.tbDeliverySession.Name = "tbDeliverySession";
             this.tbDeliverySession.ReadOnly = true;
             this.tbDeliverySession.Size = new System.Drawing.Size(232, 20);
@@ -176,17 +178,37 @@
             // 
             this.lblDeliverySession.AutoSize = true;
             this.lblDeliverySession.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDeliverySession.Location = new System.Drawing.Point(227, 323);
+            this.lblDeliverySession.Location = new System.Drawing.Point(227, 355);
             this.lblDeliverySession.Name = "lblDeliverySession";
             this.lblDeliverySession.Size = new System.Drawing.Size(110, 16);
             this.lblDeliverySession.TabIndex = 143;
             this.lblDeliverySession.Text = "Delivery Session";
+            // 
+            // tbCreatedIn
+            // 
+            this.tbCreatedIn.Location = new System.Drawing.Point(342, 164);
+            this.tbCreatedIn.Name = "tbCreatedIn";
+            this.tbCreatedIn.ReadOnly = true;
+            this.tbCreatedIn.Size = new System.Drawing.Size(232, 20);
+            this.tbCreatedIn.TabIndex = 146;
+            // 
+            // lblCreatedIn
+            // 
+            this.lblCreatedIn.AutoSize = true;
+            this.lblCreatedIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCreatedIn.Location = new System.Drawing.Point(265, 165);
+            this.lblCreatedIn.Name = "lblCreatedIn";
+            this.lblCreatedIn.Size = new System.Drawing.Size(72, 16);
+            this.lblCreatedIn.TabIndex = 145;
+            this.lblCreatedIn.Text = "Created In:";
             // 
             // DeliveryRequestDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 488);
+            this.Controls.Add(this.tbCreatedIn);
+            this.Controls.Add(this.lblCreatedIn);
             this.Controls.Add(this.tbDeliverySession);
             this.Controls.Add(this.lblDeliverySession);
             this.Controls.Add(this.btnViewOrderDetails);
@@ -224,5 +246,7 @@
         private System.Windows.Forms.Label lblDeliveryInfo;
         private System.Windows.Forms.TextBox tbDeliverySession;
         private System.Windows.Forms.Label lblDeliverySession;
+        private System.Windows.Forms.TextBox tbCreatedIn;
+        private System.Windows.Forms.Label lblCreatedIn;
     }
 }

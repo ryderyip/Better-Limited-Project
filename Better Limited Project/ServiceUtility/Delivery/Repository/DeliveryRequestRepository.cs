@@ -4,10 +4,9 @@ using System.Data;
 using System.Linq;
 using Better_Limited_Project.DatabaseUtility;
 using Better_Limited_Project.Sales.OrderPlacing;
-using Better_Limited_Project.StaffUtility.StaffEntity;
 using MySql.Data.MySqlClient;
 
-namespace Better_Limited_Project.ServiceUtility.Delivery
+namespace Better_Limited_Project.ServiceUtility.Delivery.Repository
 {
     public static class DeliveryRequestRepository
     {
@@ -27,17 +26,13 @@ namespace Better_Limited_Project.ServiceUtility.Delivery
                 let id = row.Field<Guid>("id").ToString()
                 let salesOrderId = row.Field<Guid>("sales_order_id").ToString()
                 let createOn = row.Field<DateTime>("created_on")
-                let createdBy = new StaffRepository().FindById(row.Field<int>("created_by_staff_id").ToString())
+                let createdBy = row.Field<int>("created_by_staff_id").ToString()
                 let session = (DeliverySession) row.Field<int>("delivery_session_id")
-                let arrangedBy = row.Field<int?>("arranged_by_staff_id") != null
-                    ? new StaffRepository().FindById(row.Field<int?>("arranged_by_staff_id").Value.ToString())
-                    : null
-                let arrangedOn = row.Field<DateTime?>("arranged_on") != null
-                    ? row.Field<DateTime?>("arranged_on")
-                    : null
+                let arrangedByStaffId = row.Field<int?>("arranged_by_staff_id")?.ToString()
+                let arrangedOn = row.Field<DateTime?>("arranged_on")
                 select new DeliveryRequest(id, salesOrderId, createOn, createdBy, session)
                 {
-                    ArrangedBy = arrangedBy,
+                    ArrangedByStaffId = arrangedByStaffId,
                     ArrangedOn = arrangedOn
                 };
         }
@@ -50,17 +45,19 @@ namespace Better_Limited_Project.ServiceUtility.Delivery
         public static void InsertOrUpdate(DeliveryRequest deliveryRequest)
         {
             var command = new MySqlCommand(
-                @"insert into delivery_request (id, sales_order_id, created_on, created_by_staff_id, delivery_session_id) 
-                value (@id, @salesOrderId, @createOn, @createByStaffId, @deliverySessionId)
+                @"insert into delivery_request (id, sales_order_id, created_on, created_by_staff_id, delivery_session_id, arranged_by_staff_id, arranged_on) 
+                value (@id, @salesOrderId, @createOn, @createByStaffId, @deliverySessionId, @arrangedByStaffId, @arrangedOn)
                 on duplicate key update sales_order_id = @salesOrderId,
                                         created_on = @createOn,
                                         created_by_staff_id = @createByStaffId,
                                         delivery_session_id = @deliverySessionId;");
             command.Parameters.AddWithValue("@id", deliveryRequest.Id);
-            command.Parameters.AddWithValue("@salesOrderId", deliveryRequest.SalesOrderId);
+            command.Parameters.AddWithValue("@salesOrderId", Guid.Parse(deliveryRequest.SalesOrderId));
             command.Parameters.AddWithValue("@createOn", deliveryRequest.CreateOn);
-            command.Parameters.AddWithValue("@createByStaffId", deliveryRequest.CreatedBy.Id);
+            command.Parameters.AddWithValue("@createByStaffId", deliveryRequest.CreatedByStaffId);
             command.Parameters.AddWithValue("@deliverySessionId", (int) deliveryRequest.DeliverySession);
+            command.Parameters.AddWithValue("@arrangedByStaffId", deliveryRequest.ArrangedByStaffId != null ? deliveryRequest.ArrangedByStaffId : DBNull.Value);
+            command.Parameters.AddWithValue("@arrangedOn", deliveryRequest.ArrangedOn != null ? deliveryRequest.ArrangedOn.Value : DBNull.Value);
             DataTableRepository.ExecuteNonQuery(command);
         }
     }

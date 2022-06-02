@@ -5,13 +5,14 @@ using System.Windows.Forms;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;
 using Better_Limited_Project.ServiceUtility.Delivery;
+using Better_Limited_Project.ServiceUtility.Delivery.Repository;
 using Better_Limited_Project.ServiceUtility.Delivery.UI;
 
 namespace Better_Limited_Project.CustomerRecord
 {
     public partial class DeliveryRequestListForm : Form
     {
-        private List<DeliveryRequest> _deliveryRequests;
+        private readonly List<DeliveryRequest> _deliveryRequests;
         private readonly List<SalesOrder> _salesOrders;
 
         public DeliveryRequestListForm()

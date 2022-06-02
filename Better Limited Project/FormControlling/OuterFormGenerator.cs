@@ -15,11 +15,11 @@ namespace Better_Limited_Project.FormControlling
             return form;
         }
 
-        /*public static Form Generate(Size size)
+        public static Form Generate(Size size)
         {
             var form = new Form();
             form.Size = size;
             return form;
-        }*/
+        }
     }
 }

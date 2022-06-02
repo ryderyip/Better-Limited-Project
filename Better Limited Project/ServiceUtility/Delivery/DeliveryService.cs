@@ -12,7 +12,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery
             string orderId = salesOrder.Id;
             var createdOn = DateTime.Now;
             var createdBy = salesOrder.Staff;
-            var request = new DeliveryRequest(id, orderId, createdOn, createdBy, deliverySession);
+            var request = new DeliveryRequest(id, orderId, createdOn, createdBy.Id, deliverySession);
             request.Save();
         }
     }

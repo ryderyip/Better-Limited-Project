@@ -1,4 +1,4 @@
-﻿namespace Better_Limited_Project.ServiceUtility.Installation
+﻿namespace Better_Limited_Project.ServiceUtility.Installation.UI
 {
     partial class InstallationRequestDetailsForm
     {

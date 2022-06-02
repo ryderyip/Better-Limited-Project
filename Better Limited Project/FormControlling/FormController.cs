@@ -48,16 +48,16 @@ namespace Better_Limited_Project.FormControlling
 
         private void OpenOuterForm()
         {
-            if (!IsFormOpened(_outerForm))
+            if (!IsFormOpened(_outerForm.Name))
             {
                 _outerForm.StartPosition = FormStartPosition.CenterScreen;
                 _outerForm.Show();
             }
         }
 
-        private bool IsFormOpened(Form form)
+        public static bool IsFormOpened(string formName)
         {
-            return Application.OpenForms.Cast<Form>().Any(frm => frm.Text == form.Name);
+            return Application.OpenForms.Cast<Form>().Any(frm => frm.Text == formName);
         }
 
         public void Close()
