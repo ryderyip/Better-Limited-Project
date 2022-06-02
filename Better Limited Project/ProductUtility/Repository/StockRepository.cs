@@ -62,7 +62,7 @@ namespace Better_Limited_Project.ProductUtility.Repository
                 let sellingPrice = row.Field<decimal>("selling_price")
                 let quantity = row.Field<int>("quantity")
                 let restockLevel = row.Field<int>("restock_level")
-                let retailStore = new RetailStoreRepository().FindById(row.Field<string>("retail_store_id"))
+                let retailStore = new RetailStoreRepository().GetById(row.Field<string>("retail_store_id"))
                 select new RetailStoreStock(product, retailStore, quantity, sellingPrice, restockLevel);
         }
 

@@ -23,7 +23,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
         public decimal Price { get; set; }
         public int Quantity { get; set; }
         public bool IsOutOfStock { get; set; }
-        public ICollection<SalesOrderProductPayment> Payments { get; set; } = new List<SalesOrderProductPayment>();
+        public ICollection<string> SalesOrderProductPaymentIds { get; set; } = new List<string>();
 
         public void Save()
         {
@@ -33,10 +33,16 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
 
         public SalesOrderProductStatus GetStatus()
         {
+            var payments = GetPayments().ToList();
             decimal due = Price * Quantity;
-            if (Payments.Sum(sopp => PaymentRepository.FindById(sopp.PaymentId).Amount) >= due)
+            if (payments.Sum(sopp => PaymentRepository.FindById(sopp.PaymentId).Amount) >= due)
                 return SalesOrderProductStatus.FullyPaid;
-            return Payments.Count != 0 ? SalesOrderProductStatus.DepositPaid : SalesOrderProductStatus.AwaitingPayment;
+            return payments.Count != 0 ? SalesOrderProductStatus.DepositPaid : SalesOrderProductStatus.AwaitingPayment;
+        }
+
+        public IEnumerable<SalesOrderProductPayment> GetPayments()
+        {
+            return SalesOrderProductPaymentRepository.GetByIds(SalesOrderId, ProductId);
         }
 
         public Product GetProduct()

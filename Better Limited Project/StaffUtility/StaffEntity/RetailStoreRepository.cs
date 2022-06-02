@@ -8,14 +8,14 @@ using MySql.Data.MySqlClient;
 
 namespace Better_Limited_Project.StaffUtility.StaffEntity
 {
-    public class RetailStoreRepository : IRepository<RetailStore>
+    public class RetailStoreRepository
     {
         public IEnumerable<RetailStore> GetRetailStores()
         {
             return FindAll(_ => true);
         }
 
-        public RetailStore GetRetailStoreById(string id)
+        public RetailStore GetById(string id)
         {
             var command = new MySqlCommand(
                 @"select id, name, address
@@ -37,11 +37,6 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
                 let name = row.Field<string>("name")
                 let address = row.Field<string>("address")
                 select new RetailStore(id, name, address)).ToList();
-        }
-
-        public RetailStore? FindById(string id)
-        {
-            return FindAll(rs => rs.Id == id).FirstOrDefault();
         }
 
         public IEnumerable<RetailStore> GetAll()

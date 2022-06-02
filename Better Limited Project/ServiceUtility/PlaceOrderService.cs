@@ -78,9 +78,10 @@ namespace Better_Limited_Project.ServiceUtility
             salesOrder.SalesOrderProducts.ToList()
                 .ForEach(sop =>
                 {
-                    sop.Payments.Add(new SalesOrderProductPayment(sop.SalesOrderId, sop.ProductId,
+                    var payments = sop.GetPayments().ToList();
+                    payments.Add(new SalesOrderProductPayment(sop.SalesOrderId, sop.ProductId,
                         payment.Id, sop.Quantity, sop.IsOutOfStock));
-                    sop.Payments.ToList().ForEach(p =>
+                    payments.ToList().ForEach(p =>
                     {
                         p.SalesOrderId = sop.SalesOrderId;
                         p.Save();

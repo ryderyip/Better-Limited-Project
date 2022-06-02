@@ -35,10 +35,10 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
                 let price = row.Field<decimal>("price")
                 let quantity = row.Field<int>("quantity")
                 let isOutOfStock = row.Field<bool>("is_out_of_stock")
-                let payments = SalesOrderProductPaymentRepository.GetByIds(salesOrderId, productId).ToList()
                 select new SalesOrderProduct(salesOrderId, productId, price, quantity, isOutOfStock)
                 {
-                    Payments = payments
+                    SalesOrderProductPaymentIds = SalesOrderProductPaymentRepository.GetByIds(salesOrderId, productId)
+                        .Select(sopp => sopp.PaymentId).ToList()
                 };
         }
 

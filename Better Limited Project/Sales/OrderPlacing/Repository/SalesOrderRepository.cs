@@ -30,7 +30,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
                 let orderNumber = row.Field<string>("sales_order_number")
                 let customerId = row.Field<int?>("customer_id")
                 let staff = new StaffRepository().FindById(row.Field<int>("created_by_staff_id").ToString())
-                let retailStore = new RetailStoreRepository().FindById(row.Field<string>("retail_store_id"))
+                let retailStore = new RetailStoreRepository().GetById(row.Field<string>("retail_store_id"))
                 select new SalesOrder(id.ToString(), orderNumber, staff, retailStore)
                 {
                     Customer = customerId.HasValue 

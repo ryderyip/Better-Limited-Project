@@ -13,7 +13,7 @@ namespace Better_Limited_Project.ServiceUtility
         public static SalesOrder Compose(Cart cart, Customer? customer)
         {
             var staff = LoginSession.GetSession().CurrentStaff;
-            var retailStore = new RetailStoreRepository().GetRetailStoreById(UserSettings.GetSettings().Workplace!.Id);
+            var retailStore = new RetailStoreRepository().GetById(UserSettings.GetSettings().Workplace!.Id);
 
             var salesOrder = new SalesOrder(staff, retailStore)
             {

@@ -45,7 +45,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             if (!_salesOrder.IsNeedDelivery() && _salesOrder.IsNeedInstallation())
                 dgvProductsStatus.Visible = false;
 
-            if (_salesOrder.SalesOrderProducts.All(sop => sop.Payments.All(sopp => !sopp.IsDeposit)))
+            if (_salesOrder.SalesOrderProducts.All(sop => sop.GetPayments().All(sopp => !sopp.IsDeposit)))
                 btnDepositReceipt.Enabled = false;
         }
 
@@ -76,7 +76,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
 
         private void BtnPaymentReceipt_Click(object sender, System.EventArgs e)
         {
-            if (_salesOrder.SalesOrderProducts.All(sop => sop.Payments.Any(sopp => sopp.IsDeposit)))
+            if (_salesOrder.SalesOrderProducts.All(sop => sop.GetPayments().Any(sopp => sopp.IsDeposit)))
             {
                 MessageBox.Show("There are currently no completed product payments. " +
                                 "(To see deposit receipts, click the button on the right.)");
