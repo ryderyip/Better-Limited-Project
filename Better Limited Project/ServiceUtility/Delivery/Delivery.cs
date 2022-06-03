@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Better_Limited_Project.Sales.OrderPlacing;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
-using Better_Limited_Project.Sales.OrderPlacing.Repository;
 using Better_Limited_Project.ServiceUtility.Delivery.Repository;
 
 namespace Better_Limited_Project.ServiceUtility.Delivery
@@ -14,7 +13,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery
 
         public Delivery(string deliveryRequestId, DateTime scheduledOn)
         {
-            Id = Guid.NewGuid().ToString();
+            Id = DeliveryRepository.GetNewId();
             DeliveryRequestId = deliveryRequestId;
             CreatedOn = DateTime.Now;
             ScheduledOn = scheduledOn;

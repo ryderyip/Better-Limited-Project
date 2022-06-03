@@ -16,7 +16,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
                 @"select payment_id, product_quantity, is_deposit from sales_order_product_payment
                     where sales_order_id = @salesOrderId 
                       and product_id = @productId;");
-            command.Parameters.AddWithValue("@salesOrderId", Guid.Parse(salesOrderId));
+            command.Parameters.AddWithValue("@salesOrderId", salesOrderId);
             command.Parameters.AddWithValue("@productId", productId);
             var datatable = DataTableRepository.RetrieveDataTable(command);
             return from DataRow row in datatable.Rows

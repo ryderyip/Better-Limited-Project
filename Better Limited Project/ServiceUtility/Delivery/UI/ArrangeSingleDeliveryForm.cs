@@ -48,11 +48,12 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
 
         private void btnChooseCourier_Click(object sender, EventArgs e)
         {
-            var busyCouriersOnSelectDate = DeliveryRepository.GetAll().GroupBy(d => d.ScheduledOn.Date)
-                .First(group => group.Key.Date == dtpSelectDeliveryDate.Value.Date)
-                .SelectMany(d => d.GetCouriers());
-            var freeCouriers = CourierRepository.GetAll().Where(c => busyCouriersOnSelectDate.All(bc => bc.Id == c.Id));
-            
+            var selectedDate = dtpSelectDeliveryDate.Value.Date;
+            var freeCouriers = from courier in CourierRepository.GetAll()
+                let deliveries = DeliveryCourierRepository.FindByCourierId(courier.Id)
+                where !deliveries.Any() || deliveries.All(d => d.ScheduledOn.Date != selectedDate)
+                select courier;
+
             var courierSelector = new CourierSelectorForm(freeCouriers);
             courierSelector.CouriersSelected += (_, selectedCouriers) =>
             {
@@ -62,13 +63,13 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             courierSelector.StartPosition = FormStartPosition.CenterScreen;
             courierSelector.ShowDialog();
         }
-        
+
 
         private void btnSplitDelivery_Click(object sender, EventArgs e)
         {
             SwitchFormClicked?.Invoke(this, EventArgs.Empty);
         }
-        
+
         private void btnArrangeDelivery_Click(object sender, EventArgs e)
         {
             if (_selectedCouriers.Count == 0)
@@ -76,19 +77,27 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
                 MessageBox.Show("Please choose at least one courier for this delivery.");
                 return;
             }
-            
+
             var scheduledOn = dtpSelectDeliveryDate.Value;
+
+            if (scheduledOn.DayOfWeek is DayOfWeek.Sunday)
+            {
+                MessageBox.Show("Sunday is company holiday and will not have deliveries. " +
+                                "Please choose another day.");
+                return;
+            }
+            
             scheduledOn += DeliverySessionTimeConverter.GetTimeSpan(_deliveryRequest.DeliverySession);
             var delivery = new Delivery(_deliveryRequest.Id, scheduledOn);
             delivery.Save();
-            
+
             _selectedCouriers.Select(c => new DeliveryCourier(delivery.Id, c.Id))
                 .ToList().ForEach(dc => dc.Save());
-            
+
             _deliveryRequest.ArrangedOn = DateTime.Now;
             _deliveryRequest.ArrangedByStaffId = LoginSession.GetSession().CurrentStaff.Id;
             _deliveryRequest.Save();
-            
+
             DeliveryArranged?.Invoke(this, EventArgs.Empty);
         }
     }

@@ -4,11 +4,9 @@ using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;
-using Better_Limited_Project.ServiceUtility.Delivery;
 using Better_Limited_Project.ServiceUtility.Delivery.Repository;
-using Better_Limited_Project.ServiceUtility.Delivery.UI;
 
-namespace Better_Limited_Project.CustomerRecord
+namespace Better_Limited_Project.ServiceUtility.Delivery.UI
 {
     public partial class DeliveryRequestListForm : Form
     {
@@ -20,11 +18,16 @@ namespace Better_Limited_Project.CustomerRecord
             _deliveryRequests = DeliveryRequestRepository.GetAll().ToList();
             _salesOrders = new SalesOrderRepository()
                 .FindAll(so => _deliveryRequests.Any(dr => dr.SalesOrderId == so.Id)).ToList();
-            Shown += (_, _) => PopulateDgv(_deliveryRequests);
+            Shown += (_, _) => ApplyFilterOnDgv();
             InitializeComponent();
         }
 
         private void tbSearchBox_TextChanged(object sender, System.EventArgs e)
+        {
+            ApplyFilterOnDgv();
+        }
+        
+        private void cbShowArrangedRequests_CheckedChanged(object sender, System.EventArgs e)
         {
             ApplyFilterOnDgv();
         }
@@ -34,6 +37,7 @@ namespace Better_Limited_Project.CustomerRecord
             string searchKeyword = tbSearchBox.Text.ToLower().Trim();
             var requests = _deliveryRequests.Where(dr => _salesOrders.Find(so => so.Id == dr.SalesOrderId)
                     .OrderNumber.ToLower().Contains(searchKeyword));
+            requests = !cbShowArrangedRequests.Checked ? requests.Where(dr => !dr.IsArranged()) : requests;
 
             PopulateDgv(requests);
         }

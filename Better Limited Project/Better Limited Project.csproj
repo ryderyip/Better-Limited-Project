@@ -163,12 +163,6 @@
     <Compile Include="CustomerRecord\CustomerUpdateForm.Designer.cs">
       <DependentUpon>CustomerUpdateForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomerRecord\DeliveryRequestListForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CustomerRecord\DeliveryRequestListForm.Designer.cs">
-      <DependentUpon>DeliveryRequestListForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="DatabaseUtility\Database.cs" />
     <Compile Include="DatabaseUtility\DataTableRepository.cs" />
     <Compile Include="DevTools\AutoLogin\AutoLoginHelper.cs" />
@@ -532,6 +526,12 @@
     <Compile Include="ServiceUtility\Delivery\UI\DeliveryRequestDetailsForm.Designer.cs">
       <DependentUpon>DeliveryRequestDetailsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ServiceUtility\Delivery\UI\DeliveryRequestListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServiceUtility\Delivery\UI\DeliveryRequestListForm.Designer.cs">
+      <DependentUpon>DeliveryRequestListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ServiceUtility\Delivery\UI\RestockRequestDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -674,9 +674,6 @@
     <EmbeddedResource Include="CustomerRecord\CustomerUpdateForm.resx">
       <DependentUpon>CustomerUpdateForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomerRecord\DeliveryRequestListForm.resx">
-      <DependentUpon>DeliveryRequestListForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DevTools\AutoLogin\StaffRoleChooserForm.resx">
       <DependentUpon>StaffRoleChooserForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -799,6 +796,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ServiceUtility\Delivery\UI\CreateDeliveryDutyRecordForm.resx" />
     <EmbeddedResource Include="ServiceUtility\Delivery\UI\DeliveryDutyRecordForm.resx" />
+    <EmbeddedResource Include="ServiceUtility\Delivery\UI\DeliveryRequestListForm.resx">
+      <DependentUpon>DeliveryRequestListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ServiceUtility\Delivery\UI\RestockRequestDetails.resx" />
     <EmbeddedResource Include="ServiceUtility\Delivery\UI\RestockRequestForm.resx" />
     <EmbeddedResource Include="ServiceUtility\Installation\UI\ArrangeInstallationForm.resx" />

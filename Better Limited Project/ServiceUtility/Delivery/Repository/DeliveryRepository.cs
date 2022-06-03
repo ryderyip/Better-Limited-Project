@@ -38,8 +38,8 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.Repository
 
         private static Delivery ConvertToDelivery(DataRow row)
         {
-            string id = row.Field<Guid>("id").ToString();
-            string deliveryRequestId = row.Field<Guid>("delivery_request_id").ToString();
+            string id = row.Field<int>("id").ToString();
+            string deliveryRequestId = row.Field<int>("delivery_request_id").ToString();
             var createdOn = row.Field<DateTime>("created_on");
             var scheduledOn = row.Field<DateTime>("scheduled_on");
             var deliveryStatus = (DeliveryStatus) row.Field<int>("delivery_status_id");
@@ -65,7 +65,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.Repository
                     delivery_status_id = @deliveryStatusId, dispatched_on = @dispatchedOn, 
                     delivered_on = @deliveredOn;");
             command.Parameters.AddWithValue("@id", delivery.Id);
-            command.Parameters.AddWithValue("@deliveryRequestId", Guid.Parse(delivery.DeliveryRequestId));
+            command.Parameters.AddWithValue("@deliveryRequestId", delivery.DeliveryRequestId);
             command.Parameters.AddWithValue("@createdOn", delivery.CreatedOn);
             command.Parameters.AddWithValue("@scheduledOn", delivery.ScheduledOn);
             command.Parameters.AddWithValue("@deliveryStatusId", (int) delivery.DeliveryStatus);
@@ -74,6 +74,14 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.Repository
             command.Parameters.AddWithValue("@deliveredOn",
                 delivery.DeliveredOn != null ? delivery.DeliveredOn.Value : DBNull.Value);
             DataTableRepository.ExecuteNonQuery(command);
+        }
+
+        public static string GetNewId()
+        {
+            var dataTable = DataTableRepository.RetrieveDataTable(new MySqlCommand(
+                @"select max(id) + 1 as id from delivery;"));
+            return dataTable.Rows[0]["id"] == DBNull.Value
+                ? "1" : dataTable.Rows[0].Field<long>("id").ToString();
         }
     }
 }

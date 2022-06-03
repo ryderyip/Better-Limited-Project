@@ -23,8 +23,8 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.Repository
                        arranged_on, arranged_by_staff_id, delivery_session_id 
                 from delivery_request;"));
             return from DataRow row in dt.Rows
-                let id = row.Field<Guid>("id").ToString()
-                let salesOrderId = row.Field<Guid>("sales_order_id").ToString()
+                let id = row.Field<int>("id").ToString()
+                let salesOrderId = row.Field<int>("sales_order_id").ToString()
                 let createOn = row.Field<DateTime>("created_on")
                 let createdBy = row.Field<int>("created_by_staff_id").ToString()
                 let session = (DeliverySession) row.Field<int>("delivery_session_id")
@@ -50,15 +50,25 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.Repository
                 on duplicate key update sales_order_id = @salesOrderId,
                                         created_on = @createOn,
                                         created_by_staff_id = @createByStaffId,
-                                        delivery_session_id = @deliverySessionId;");
+                                        delivery_session_id = @deliverySessionId,
+                                        arranged_by_staff_id = @arrangedByStaffId,
+                                        arranged_on = @arrangedOn;");
             command.Parameters.AddWithValue("@id", deliveryRequest.Id);
-            command.Parameters.AddWithValue("@salesOrderId", Guid.Parse(deliveryRequest.SalesOrderId));
+            command.Parameters.AddWithValue("@salesOrderId", deliveryRequest.SalesOrderId);
             command.Parameters.AddWithValue("@createOn", deliveryRequest.CreateOn);
             command.Parameters.AddWithValue("@createByStaffId", deliveryRequest.CreatedByStaffId);
             command.Parameters.AddWithValue("@deliverySessionId", (int) deliveryRequest.DeliverySession);
             command.Parameters.AddWithValue("@arrangedByStaffId", deliveryRequest.ArrangedByStaffId != null ? deliveryRequest.ArrangedByStaffId : DBNull.Value);
             command.Parameters.AddWithValue("@arrangedOn", deliveryRequest.ArrangedOn != null ? deliveryRequest.ArrangedOn.Value : DBNull.Value);
             DataTableRepository.ExecuteNonQuery(command);
+        }
+        
+        public static string GetNewId()
+        {
+            var dataTable = DataTableRepository.RetrieveDataTable(new MySqlCommand(
+                @"select max(id) + 1 as id from delivery_request;"));
+            return dataTable.Rows[0]["id"] == DBNull.Value
+                ? "1" : dataTable.Rows[0].Field<long>("id").ToString();
         }
     }
 }

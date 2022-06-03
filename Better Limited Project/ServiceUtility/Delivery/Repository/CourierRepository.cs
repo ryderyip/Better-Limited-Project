@@ -49,7 +49,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.Repository
         {
             var dataTable = DataTableRepository.RetrieveDataTable(new MySqlCommand(
                 @"select max(id) + 1 as id from courier;"));
-            return dataTable.Rows[0].Field<int>("id").ToString();
+            return dataTable.Rows[0].Field<long>("id").ToString();
         }
     }
 }

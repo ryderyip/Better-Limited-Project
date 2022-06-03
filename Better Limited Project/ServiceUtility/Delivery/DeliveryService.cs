@@ -1,6 +1,7 @@
 ﻿using System;
 using Better_Limited_Project.Sales.OrderPlacing;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
+using Better_Limited_Project.ServiceUtility.Delivery.Repository;
 
 namespace Better_Limited_Project.ServiceUtility.Delivery
 {
@@ -8,7 +9,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery
     {
         public void SendRequest(SalesOrder salesOrder, DeliverySession deliverySession)
         {
-            var id = Guid.NewGuid().ToString();
+            var id = DeliveryRequestRepository.GetNewId();
             string orderId = salesOrder.Id;
             var createdOn = DateTime.Now;
             var createdBy = salesOrder.Staff;

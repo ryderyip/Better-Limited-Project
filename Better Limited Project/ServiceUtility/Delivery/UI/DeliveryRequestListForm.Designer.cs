@@ -1,5 +1,5 @@
 ﻿
-namespace Better_Limited_Project.CustomerRecord
+namespace Better_Limited_Project.ServiceUtility.Delivery.UI
 {
     partial class DeliveryRequestListForm
     {
@@ -30,12 +30,13 @@ namespace Better_Limited_Project.CustomerRecord
         private void InitializeComponent()
         {
             this.dgvDeliveryRequests = new System.Windows.Forms.DataGridView();
-            this.tbSearchBox = new System.Windows.Forms.TextBox();
-            this.lblSearchBox = new System.Windows.Forms.Label();
             this.orderNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createdOnColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.arrangedOnColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deliverySessionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tbSearchBox = new System.Windows.Forms.TextBox();
+            this.lblSearchBox = new System.Windows.Forms.Label();
+            this.cbShowArrangedRequests = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDeliveryRequests)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,23 +57,6 @@ namespace Better_Limited_Project.CustomerRecord
             this.dgvDeliveryRequests.Size = new System.Drawing.Size(473, 323);
             this.dgvDeliveryRequests.TabIndex = 20;
             this.dgvDeliveryRequests.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDeliveryRequests_CellDoubleClick);
-            // 
-            // tbSearchBox
-            // 
-            this.tbSearchBox.Location = new System.Drawing.Point(26, 44);
-            this.tbSearchBox.Name = "tbSearchBox";
-            this.tbSearchBox.Size = new System.Drawing.Size(209, 20);
-            this.tbSearchBox.TabIndex = 19;
-            this.tbSearchBox.TextChanged += new System.EventHandler(this.tbSearchBox_TextChanged);
-            // 
-            // lblSearchBox
-            // 
-            this.lblSearchBox.AutoSize = true;
-            this.lblSearchBox.Location = new System.Drawing.Point(24, 28);
-            this.lblSearchBox.Name = "lblSearchBox";
-            this.lblSearchBox.Size = new System.Drawing.Size(124, 13);
-            this.lblSearchBox.TabIndex = 18;
-            this.lblSearchBox.Text = "Search by Order Number";
             // 
             // orderNumberColumn
             // 
@@ -100,11 +84,40 @@ namespace Better_Limited_Project.CustomerRecord
             this.deliverySessionColumn.ReadOnly = true;
             this.deliverySessionColumn.Width = 80;
             // 
+            // tbSearchBox
+            // 
+            this.tbSearchBox.Location = new System.Drawing.Point(26, 44);
+            this.tbSearchBox.Name = "tbSearchBox";
+            this.tbSearchBox.Size = new System.Drawing.Size(209, 20);
+            this.tbSearchBox.TabIndex = 19;
+            this.tbSearchBox.TextChanged += new System.EventHandler(this.tbSearchBox_TextChanged);
+            // 
+            // lblSearchBox
+            // 
+            this.lblSearchBox.AutoSize = true;
+            this.lblSearchBox.Location = new System.Drawing.Point(24, 28);
+            this.lblSearchBox.Name = "lblSearchBox";
+            this.lblSearchBox.Size = new System.Drawing.Size(124, 13);
+            this.lblSearchBox.TabIndex = 18;
+            this.lblSearchBox.Text = "Search by Order Number";
+            // 
+            // cbShowArrangedRequests
+            // 
+            this.cbShowArrangedRequests.AutoSize = true;
+            this.cbShowArrangedRequests.Location = new System.Drawing.Point(279, 46);
+            this.cbShowArrangedRequests.Name = "cbShowArrangedRequests";
+            this.cbShowArrangedRequests.Size = new System.Drawing.Size(147, 17);
+            this.cbShowArrangedRequests.TabIndex = 21;
+            this.cbShowArrangedRequests.Text = "Show Arranged Requests";
+            this.cbShowArrangedRequests.UseVisualStyleBackColor = true;
+            this.cbShowArrangedRequests.CheckedChanged += cbShowArrangedRequests_CheckedChanged;
+            // 
             // DeliveryRequestListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(530, 450);
+            this.Controls.Add(this.cbShowArrangedRequests);
             this.Controls.Add(this.dgvDeliveryRequests);
             this.Controls.Add(this.tbSearchBox);
             this.Controls.Add(this.lblSearchBox);
@@ -125,5 +138,6 @@ namespace Better_Limited_Project.CustomerRecord
         private System.Windows.Forms.DataGridViewTextBoxColumn createdOnColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn arrangedOnColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn deliverySessionColumn;
+        private System.Windows.Forms.CheckBox cbShowArrangedRequests;
     }
 }

@@ -34,8 +34,9 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             tbArrangedOn.Text = _deliveryRequest.ArrangedOn.HasValue
                 ? $"{_deliveryRequest.ArrangedOn.Value.ToLongDateString()} | {_deliveryRequest.ArrangedOn.Value.ToShortTimeString()}"
                 : "-";
-            tbArrangedBy.Text = _deliveryRequest.ArrangedByStaffId != null
-                ? $"{_deliveryRequest.GetArrangedByStaff().Name}"
+            var arrangedByStaff = _deliveryRequest.GetArrangedByStaff();
+            tbArrangedBy.Text = arrangedByStaff != null
+                ? $"{arrangedByStaff.Name}"
                 : "-";
             tbDeliverySession.Text = _deliveryRequest.DeliverySession.ToString();
         }
@@ -55,20 +56,24 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
                 var outOfStockProductNames = order.SalesOrderProducts.ToList().Select(sop => sop.GetProduct().Name);
                 MessageBox.Show($"{order.RetailStore.Name} does not have enough stock " +
                                 $"for the following product(s):\n" +
-                                $"{string.Join("\n", outOfStockProductNames)}");
-                
+                                $"{string.Join("\n", outOfStockProductNames)}\n" +
+                                $""); // TODO fix logic
+                return;
             }
 
             var controller = new ArrangeDeliveryController(_deliveryRequest);
-            controller.DeliveryArranged += (_, _) => RefreshData();
+            controller.DeliveryArranged += (_, _) =>
+            {
+                RefreshData();
+                InfoUpdated?.Invoke(this, EventArgs.Empty);
+            };
             controller.OpenForm();
         }
 
         private void RefreshData()
         {
             _deliveryRequest = DeliveryRequestRepository.FindById(_deliveryRequest.Id);
-            FillFields();
-            InfoUpdated?.Invoke(this, EventArgs.Empty);
+            Initialize();
         }
     }
 }

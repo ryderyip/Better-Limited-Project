@@ -19,7 +19,11 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             _deliveryRequest = deliveryRequest;
             _form = new ArrangeSingleDeliveryForm(_deliveryRequest, _selectedDeliveryCouriers);
             _formController = new FormController(OuterFormGenerator.Generate(((ArrangeSingleDeliveryForm) _form).Size));
-            _form.DeliveryArranged += DeliveryArranged;
+            _form.DeliveryArranged += (_, _) =>
+            {
+                DeliveryArranged?.Invoke(this, EventArgs.Empty);
+                _formController.Close();
+            };
             _form.SwitchFormClicked += (_, _) => SwitchForm();
         }
 

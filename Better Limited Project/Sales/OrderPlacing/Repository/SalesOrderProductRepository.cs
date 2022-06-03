@@ -30,7 +30,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
                 @"select sales_order_id, product_id, price, quantity, is_out_of_stock from sales_order_product;");
             var dataTable = DataTableRepository.RetrieveDataTable(command);
             return from DataRow row in dataTable.Rows
-                let salesOrderId = row.Field<Guid>("sales_order_id").ToString()
+                let salesOrderId = row.Field<int>("sales_order_id").ToString()
                 let productId = row.Field<int>("product_id").ToString()
                 let price = row.Field<decimal>("price")
                 let quantity = row.Field<int>("quantity")

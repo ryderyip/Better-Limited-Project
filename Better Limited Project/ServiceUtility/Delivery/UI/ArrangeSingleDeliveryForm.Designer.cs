@@ -186,14 +186,13 @@
             this.nameColumn.HeaderText = "Name";
             this.nameColumn.Name = "nameColumn";
             this.nameColumn.ReadOnly = true;
-            this.nameColumn.Width = 200;
+            this.nameColumn.Width = 250;
             // 
             // quantityColumn
             // 
             this.quantityColumn.HeaderText = "Quantity";
             this.quantityColumn.Name = "quantityColumn";
             this.quantityColumn.ReadOnly = true;
-            this.quantityColumn.Width = 150;
             // 
             // ArrangeSingleDeliveryForm
             // 
