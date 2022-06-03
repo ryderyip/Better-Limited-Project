@@ -38,6 +38,7 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnPlaceOrder = new System.Windows.Forms.Button();
             this.btnProfile = new System.Windows.Forms.Button();
             this.lblLoggedInAs = new System.Windows.Forms.Label();
+            this.btnCustomer = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSalesOrder
@@ -80,11 +81,19 @@ namespace Better_Limited_Project.Navigation.UI
             resources.ApplyResources(this.lblLoggedInAs, "lblLoggedInAs");
             this.lblLoggedInAs.Name = "lblLoggedInAs";
             // 
+            // btnCustomer
+            // 
+            resources.ApplyResources(this.btnCustomer, "btnCustomer");
+            this.btnCustomer.Name = "btnCustomer";
+            this.btnCustomer.UseVisualStyleBackColor = true;
+            this.btnCustomer.Click += new System.EventHandler(this.btnCustomer_Click);
+            // 
             // SalesNavigationForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.btnCustomer);
             this.Controls.Add(this.lblLoggedInAs);
             this.Controls.Add(this.btnProfile);
             this.Controls.Add(this.btnPlaceOrder);
@@ -108,5 +117,7 @@ namespace Better_Limited_Project.Navigation.UI
         private System.Windows.Forms.Button btnSalesOrder;
 
         #endregion
+
+        private System.Windows.Forms.Button btnCustomer;
     }
 }

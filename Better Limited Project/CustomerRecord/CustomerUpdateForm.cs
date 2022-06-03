@@ -39,7 +39,7 @@ namespace Better_Limited_Project.CustomerRecord
 
             _customer.Name = tbNewName.Text.Trim();
             _customer.Phone = tbNewPhone.Text.Trim();
-            _customer.Email = tbNewEmail.Text.Trim();
+            _customer.Email = tbNewEmail.Text.ToLower().Trim();
             _customer.Address.Address1 = tbNewAddress1.Text.Trim();
             _customer.Address.Address2 = tbNewAddress2.Text.Trim();
             _customer.Save();

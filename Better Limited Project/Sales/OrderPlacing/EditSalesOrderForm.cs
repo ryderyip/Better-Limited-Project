@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
+using Better_Limited_Project.CustomerRecord;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.ServiceUtility.Delivery;
 using Better_Limited_Project.ServiceUtility.Delivery.Repository;
@@ -20,14 +21,55 @@ namespace Better_Limited_Project.Sales.OrderPlacing
 
         private void btnManageDelivery_Click(object sender, EventArgs e)
         {
+            if (_salesOrder.Customer == null)
+            {
+                var confirmResult = MessageBox.Show("To request for a delivery, customer's information is needed.\n" +
+                                                    "Start creating a customer record?",
+                    "Create Customer Record", MessageBoxButtons.YesNo);
+                if (confirmResult is DialogResult.Yes)
+                {
+                    var form = new IsFirstTimeCustomerSelectionForm();
+                    form.StartPosition = FormStartPosition.CenterScreen;
+                    form.IsFirstTimeCustomerSelected += (_, isFirstTime) =>
+                    {
+                        if (isFirstTime)
+                        {
+                            var createCustomerRecordForm = new CreateCustomerRecordForm();
+                            createCustomerRecordForm.StartPosition = FormStartPosition.CenterScreen;
+                            createCustomerRecordForm.CustomerCreated += (_, customer) =>
+                            {
+                                _salesOrder.Customer = customer;
+                                _salesOrder.Save();
+                                SalesOrderUpdated?.Invoke(this, EventArgs.Empty);
+                            };
+                            createCustomerRecordForm.ShowDialog();
+                        }
+                        else
+                        {
+                            var findCustomerForm = new FindCustomerRecordForm();
+                            findCustomerForm.StartPosition = FormStartPosition.CenterScreen;
+                            findCustomerForm.CustomerRecordFound += (_, customer) =>
+                            {
+                                _salesOrder.Customer = customer;
+                                _salesOrder.Save();
+                                SalesOrderUpdated?.Invoke(this, EventArgs.Empty);
+                            };
+                            findCustomerForm.ShowDialog();
+                        }
+                    };
+                    form.ShowDialog();
+                }
+                return;
+            }
+
             var deliveryRequest = DeliveryRequestRepository.FindAll(dr => dr.SalesOrderId == _salesOrder.Id)
                 .FirstOrDefault();
             if (deliveryRequest != default)
             {
                 var confirmResult = MessageBox.Show("Current sales order has requested for a delivery.\n" +
                                                     "Confirm removing delivery request?",
-                    "Removing Delivery Request", MessageBoxButtons.YesNo);
-                if (confirmResult == DialogResult.Yes)
+                    "Remove Delivery Request", MessageBoxButtons.YesNo);
+                if (confirmResult is DialogResult.Yes)
                 {
                     if (deliveryRequest.IsArranged())
                     {
@@ -45,8 +87,8 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             {
                 var confirmResult = MessageBox.Show("Current sales order has not requested for a delivery.\n" +
                                                     "Confirm sending a delivery request for this order?",
-                    "Sending Delivery Request", MessageBoxButtons.YesNo);
-                if (confirmResult == DialogResult.Yes)
+                    "Send Delivery Request", MessageBoxButtons.YesNo);
+                if (confirmResult is DialogResult.Yes)
                     AskForDeliverySessionAndSendDeliveryRequest();
             }
         }

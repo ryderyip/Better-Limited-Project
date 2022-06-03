@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
@@ -13,6 +14,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
 {
     public partial class SalesOrderDetailsForm : Form
     {
+        public EventHandler? OrderUpdated;
         private SalesOrder _salesOrder;
 
         public SalesOrderDetailsForm(SalesOrder salesOrder)
@@ -21,7 +23,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             InitializeComponent();
         }
         
-        private void OnFormShown(object sender, System.EventArgs e)
+        private void OnFormShown(object sender, EventArgs e)
         {
             Initialize();
         }
@@ -47,6 +49,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
                 BtnPaymentReceipt.Visible = false;
                 btnSettleIncompletePayment.Visible = false;
                 btnDepositReceipt.Visible = false;
+                btnEditOrder.Visible = false;
             }
 
             if (!_salesOrder.IsNeedDelivery() && _salesOrder.IsNeedInstallation())
@@ -81,7 +84,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             }
         }
 
-        private void BtnPaymentReceipt_Click(object sender, System.EventArgs e)
+        private void BtnPaymentReceipt_Click(object sender, EventArgs e)
         {
             if (_salesOrder.SalesOrderProducts.All(sop => sop.GetPayments().Any(sopp => sopp.IsDeposit)))
             {
@@ -93,18 +96,18 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             generator.GenerateAndOpen();
         }
 
-        private void btnDepositReceipt_Click(object sender, System.EventArgs e)
+        private void btnDepositReceipt_Click(object sender, EventArgs e)
         {
             var generator = new DepositReceiptGenerator(_salesOrder);
             generator.GenerateAndOpen();
         }
 
-        private void btnSettleIncompletePayment_Click(object sender, System.EventArgs e)
+        private void btnSettleIncompletePayment_Click(object sender, EventArgs e)
         {
             
         }
 
-        private void btnEditOrder_Click(object sender, System.EventArgs e)
+        private void btnEditOrder_Click(object sender, EventArgs e)
         {
             var form = new EditSalesOrderForm(_salesOrder);
             form.StartPosition = FormStartPosition.CenterScreen;
@@ -112,6 +115,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             {
                 _salesOrder = new SalesOrderRepository().FindById(_salesOrder.Id);
                 Initialize();
+                OrderUpdated?.Invoke(this, EventArgs.Empty);
             };
             form.ShowDialog();
         }

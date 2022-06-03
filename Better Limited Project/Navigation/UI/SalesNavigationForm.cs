@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
+using Better_Limited_Project.CustomerRecord;
 using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.ProductUtility.ProductList.Forms;
 using Better_Limited_Project.Sales.OrderPlacing;
@@ -78,6 +79,12 @@ namespace Better_Limited_Project.Navigation.UI
             return currentRetailStore != null
                    && new RetailStoreRepository().FindAll(store => store.Id == currentRetailStore.Id)
                        .Any();
+        }
+
+        private void btnCustomer_Click(object sender, EventArgs e)
+        {
+            var form = new CustomerListForm();
+            _formController.OpenContentForm(form);
         }
     }
 }

@@ -42,6 +42,13 @@ namespace Better_Limited_Project.CustomerRecord
 
         private void btnRemoveCustomer_Click(object sender, EventArgs e)
         {
+            if (_customer.HasDuePayment() || _customer.HasYetToArriveDelivery())
+            {
+                MessageBox.Show("This customer has due payment or has delivery yet to arrive.\n" +
+                                "Customer removal failed.");
+                return;
+            }
+            
             var form = new ConfirmRemovalForm();
             form.StartPosition = FormStartPosition.CenterScreen;
             form.Confirmed += (_, _) =>

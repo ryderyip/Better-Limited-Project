@@ -11,7 +11,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
 {
     public partial class SalesOrderListForm : Form
     {
-        private readonly List<SalesOrder> _salesOrders;
+        private List<SalesOrder> _salesOrders;
 
         public SalesOrderListForm()
         {
@@ -77,6 +77,11 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             var selectedOrder = _salesOrders.Find(so => so.OrderNumber == orderNumber);
             var form = new SalesOrderDetailsForm(selectedOrder);
             form.StartPosition = FormStartPosition.CenterScreen;
+            form.OrderUpdated += (_, _) =>
+            {
+                _salesOrders = new SalesOrderRepository().GetAll().ToList();
+                FillSalesOrderDgv(_salesOrders);
+            };
             form.ShowDialog();
         }
     }

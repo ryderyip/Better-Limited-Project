@@ -83,5 +83,11 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
             return false;
             // return new InstallationRequestRepository().GetAll().Any(ir => ir.)
         }
+
+        public bool IsAllDeliveryArrived()
+        {
+            var deliveries = DeliveryRepository.FindAll(d => d.GetDeliveryRequest().SalesOrderId == Id).ToList();
+            return !deliveries.Any() || deliveries.All(d => d.DeliveryStatus is DeliveryStatus.Delivered);
+        }
     }
 }

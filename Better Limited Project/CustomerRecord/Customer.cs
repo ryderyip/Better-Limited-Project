@@ -1,4 +1,7 @@
-﻿namespace Better_Limited_Project.CustomerRecord
+﻿using System.Linq;
+using Better_Limited_Project.Sales.OrderPlacing.Repository;
+
+namespace Better_Limited_Project.CustomerRecord
 {
     public class Customer : IEntity
     {
@@ -19,6 +22,18 @@
         public void Save()
         {
             new CustomerRepository().Insert(this);
+        }
+
+        public bool HasDuePayment()
+        {
+            var orders = new SalesOrderRepository().FindAll(o => o.Customer != null && o.Customer.Id == Id);
+            return orders.Any(o => !o.IsAllPaymentCompleted());
+        }
+
+        public bool HasYetToArriveDelivery()
+        {
+            var orders = new SalesOrderRepository().FindAll(o => o.Customer != null && o.Customer.Id == Id);
+            return orders.Any(o => !o.IsAllDeliveryArrived());
         }
     }
 }

@@ -8,7 +8,7 @@ namespace Better_Limited_Project.ServiceUtility.Installation
     {
         public void InsertOrUpdate(InstallationRequest entity)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public InstallationRequest FindById(string id)
