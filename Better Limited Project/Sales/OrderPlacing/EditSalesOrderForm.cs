@@ -18,10 +18,6 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             InitializeComponent();
         }
 
-        private void btnAddProduct_Click(object sender, EventArgs e)
-        {
-        }
-
         private void btnManageDelivery_Click(object sender, EventArgs e)
         {
             var deliveryRequest = DeliveryRequestRepository.FindAll(dr => dr.SalesOrderId == _salesOrder.Id)

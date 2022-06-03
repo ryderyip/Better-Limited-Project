@@ -32,7 +32,6 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             this.lblHeader = new System.Windows.Forms.Label();
             this.btnManageInstallation = new System.Windows.Forms.Button();
             this.btnManageDelivery = new System.Windows.Forms.Button();
-            this.btnAddProduct = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblHeader
@@ -50,7 +49,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             this.btnManageInstallation.BackColor = System.Drawing.Color.SeaGreen;
             this.btnManageInstallation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManageInstallation.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnManageInstallation.Location = new System.Drawing.Point(44, 200);
+            this.btnManageInstallation.Location = new System.Drawing.Point(44, 157);
             this.btnManageInstallation.Name = "btnManageInstallation";
             this.btnManageInstallation.Size = new System.Drawing.Size(198, 47);
             this.btnManageInstallation.TabIndex = 145;
@@ -62,7 +61,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             this.btnManageDelivery.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnManageDelivery.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManageDelivery.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnManageDelivery.Location = new System.Drawing.Point(44, 137);
+            this.btnManageDelivery.Location = new System.Drawing.Point(44, 88);
             this.btnManageDelivery.Name = "btnManageDelivery";
             this.btnManageDelivery.Size = new System.Drawing.Size(198, 47);
             this.btnManageDelivery.TabIndex = 144;
@@ -70,27 +69,13 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             this.btnManageDelivery.UseVisualStyleBackColor = false;
             this.btnManageDelivery.Click += new System.EventHandler(this.btnManageDelivery_Click);
             // 
-            // btnAddProduct
-            // 
-            this.btnAddProduct.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnAddProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddProduct.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnAddProduct.Location = new System.Drawing.Point(44, 74);
-            this.btnAddProduct.Name = "btnAddProduct";
-            this.btnAddProduct.Size = new System.Drawing.Size(198, 47);
-            this.btnAddProduct.TabIndex = 143;
-            this.btnAddProduct.Text = "Add Product";
-            this.btnAddProduct.UseVisualStyleBackColor = false;
-            this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
-            // 
             // EditSalesOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(286, 286);
+            this.ClientSize = new System.Drawing.Size(286, 244);
             this.Controls.Add(this.btnManageInstallation);
             this.Controls.Add(this.btnManageDelivery);
-            this.Controls.Add(this.btnAddProduct);
             this.Controls.Add(this.lblHeader);
             this.Name = "EditSalesOrderForm";
             this.Text = "EditSalesOrderForm";
@@ -104,6 +89,5 @@ namespace Better_Limited_Project.Sales.OrderPlacing
         private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.Button btnManageInstallation;
         private System.Windows.Forms.Button btnManageDelivery;
-        private System.Windows.Forms.Button btnAddProduct;
     }
 }
