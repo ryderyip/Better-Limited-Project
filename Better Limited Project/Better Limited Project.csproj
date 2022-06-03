@@ -397,6 +397,12 @@
       <DependentUpon>ConfirmPlacingOrderForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Sales\OrderPlacing\DeliverySessionTimeConverter.cs" />
+    <Compile Include="Sales\OrderPlacing\EditSalesOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\OrderPlacing\EditSalesOrderForm.Designer.cs">
+      <DependentUpon>EditSalesOrderForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sales\OrderPlacing\Entity\DeliveryStatus.cs" />
     <Compile Include="Sales\OrderPlacing\Entity\SalesOrderProductStatus.cs" />
     <Compile Include="Sales\OrderPlacing\Entity\SalesOrder.cs" />
@@ -764,6 +770,9 @@
     </Compile>
     <EmbeddedResource Include="Sales\OrderPlacing\ConfirmPlacingOrderForm.resx">
       <DependentUpon>ConfirmPlacingOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\OrderPlacing\EditSalesOrderForm.resx">
+      <DependentUpon>EditSalesOrderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\OrderPlacing\PlaceOrderForm.resx">
       <DependentUpon>PlaceOrderForm.cs</DependentUpon>

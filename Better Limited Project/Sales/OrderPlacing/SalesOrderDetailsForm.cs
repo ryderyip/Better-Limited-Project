@@ -3,8 +3,8 @@ using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.Login;
-using Better_Limited_Project.ProductUtility.Repository;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
+using Better_Limited_Project.Sales.OrderPlacing.Repository;
 using Better_Limited_Project.Sales.PaymentUtility;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 using Better_Limited_Project.Tools;
@@ -13,7 +13,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
 {
     public partial class SalesOrderDetailsForm : Form
     {
-        private readonly SalesOrder _salesOrder;
+        private SalesOrder _salesOrder;
 
         public SalesOrderDetailsForm(SalesOrder salesOrder)
         {
@@ -23,6 +23,12 @@ namespace Better_Limited_Project.Sales.OrderPlacing
         
         private void OnFormShown(object sender, System.EventArgs e)
         {
+            Initialize();
+        }
+
+        private void Initialize()
+        {
+            dgvProducts.Rows.Clear();
             foreach (var salesOrderProduct in _salesOrder.SalesOrderProducts)
             {
                 var product = salesOrderProduct.GetProduct();
@@ -33,6 +39,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
                     salesOrderProduct.Quantity,
                     (salesOrderProduct.Price * salesOrderProduct.Quantity).ToString("C", new CultureInfo("zh-HK")));
             }
+
             FillFields();
 
             if (LoginSession.GetSession().CurrentStaff.Department is Department.Inventory)
@@ -95,6 +102,18 @@ namespace Better_Limited_Project.Sales.OrderPlacing
         private void btnSettleIncompletePayment_Click(object sender, System.EventArgs e)
         {
             
+        }
+
+        private void btnEditOrder_Click(object sender, System.EventArgs e)
+        {
+            var form = new EditSalesOrderForm(_salesOrder);
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.SalesOrderUpdated += (_, _) =>
+            {
+                _salesOrder = new SalesOrderRepository().FindById(_salesOrder.Id);
+                Initialize();
+            };
+            form.ShowDialog();
         }
     }
 }

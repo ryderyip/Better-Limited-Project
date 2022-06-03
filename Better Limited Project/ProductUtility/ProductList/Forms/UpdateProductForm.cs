@@ -57,7 +57,6 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             txtName.Text = product.Name;
             
 
-            // TODO deal with this fucking annoying cultureinfo shit
             if (_productStock is RetailStoreStock stock)
             {
                 txtSellingPrice.Text = stock.SellingPrice.ToString("C", new CultureInfo("zh-HK"));

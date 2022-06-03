@@ -63,6 +63,7 @@
             this.tbTotalAmount = new System.Windows.Forms.TextBox();
             this.lblTotalAmount = new System.Windows.Forms.Label();
             this.btnDepositReceipt = new System.Windows.Forms.Button();
+            this.btnEditOrder = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -272,7 +273,7 @@
             this.BtnPaymentReceipt.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.BtnPaymentReceipt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnPaymentReceipt.ForeColor = System.Drawing.SystemColors.Window;
-            this.BtnPaymentReceipt.Location = new System.Drawing.Point(128, 404);
+            this.BtnPaymentReceipt.Location = new System.Drawing.Point(200, 404);
             this.BtnPaymentReceipt.Name = "BtnPaymentReceipt";
             this.BtnPaymentReceipt.Size = new System.Drawing.Size(129, 54);
             this.BtnPaymentReceipt.TabIndex = 84;
@@ -285,7 +286,7 @@
             this.btnSettleIncompletePayment.BackColor = System.Drawing.Color.DarkOrange;
             this.btnSettleIncompletePayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSettleIncompletePayment.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnSettleIncompletePayment.Location = new System.Drawing.Point(330, 404);
+            this.btnSettleIncompletePayment.Location = new System.Drawing.Point(387, 404);
             this.btnSettleIncompletePayment.Name = "btnSettleIncompletePayment";
             this.btnSettleIncompletePayment.Size = new System.Drawing.Size(185, 54);
             this.btnSettleIncompletePayment.TabIndex = 85;
@@ -396,7 +397,7 @@
             this.btnDepositReceipt.BackColor = System.Drawing.Color.ForestGreen;
             this.btnDepositReceipt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDepositReceipt.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnDepositReceipt.Location = new System.Drawing.Point(581, 404);
+            this.btnDepositReceipt.Location = new System.Drawing.Point(630, 404);
             this.btnDepositReceipt.Name = "btnDepositReceipt";
             this.btnDepositReceipt.Size = new System.Drawing.Size(129, 54);
             this.btnDepositReceipt.TabIndex = 112;
@@ -404,11 +405,25 @@
             this.btnDepositReceipt.UseVisualStyleBackColor = false;
             this.btnDepositReceipt.Click += new System.EventHandler(this.btnDepositReceipt_Click);
             // 
+            // btnEditOrder
+            // 
+            this.btnEditOrder.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnEditOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditOrder.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnEditOrder.Location = new System.Drawing.Point(25, 404);
+            this.btnEditOrder.Name = "btnEditOrder";
+            this.btnEditOrder.Size = new System.Drawing.Size(117, 54);
+            this.btnEditOrder.TabIndex = 113;
+            this.btnEditOrder.Text = "Edit Order";
+            this.btnEditOrder.UseVisualStyleBackColor = false;
+            this.btnEditOrder.Click += new System.EventHandler(this.btnEditOrder_Click);
+            // 
             // SalesOrderDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 488);
+            this.Controls.Add(this.btnEditOrder);
             this.Controls.Add(this.btnDepositReceipt);
             this.Controls.Add(this.tbTotalAmount);
             this.Controls.Add(this.lblTotalAmount);
@@ -484,5 +499,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvProductsPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvProductsQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvProductsSubtotal;
+        private System.Windows.Forms.Button btnEditOrder;
     }
 }

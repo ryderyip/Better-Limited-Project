@@ -50,5 +50,10 @@ namespace Better_Limited_Project.ServiceUtility.Delivery
         {
             return ArrangedByStaffId != null || ArrangedOn != null;
         }
+
+        public void Remove()
+        {
+            DeliveryRequestRepository.Delete(this);
+        }
     }
 }

@@ -52,7 +52,6 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             tbSupplierName.Text = supplier.Name;
             tbSupplierPhone.Text = supplier.Phone;
             tbSupplierEmail.Text = supplier.Email;
-            // TODO Display supplier address
         }
 
         private void HideSellingPrice()

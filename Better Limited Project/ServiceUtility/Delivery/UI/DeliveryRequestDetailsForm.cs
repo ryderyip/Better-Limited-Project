@@ -56,8 +56,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
                 var outOfStockProductNames = order.SalesOrderProducts.ToList().Select(sop => sop.GetProduct().Name);
                 MessageBox.Show($"{order.RetailStore.Name} does not have enough stock " +
                                 $"for the following product(s):\n" +
-                                $"{string.Join("\n", outOfStockProductNames)}\n" +
-                                $""); // TODO fix logic
+                                $"{string.Join("\n", outOfStockProductNames)}\n");
                 return;
             }
 

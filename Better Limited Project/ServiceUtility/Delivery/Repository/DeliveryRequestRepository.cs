@@ -70,5 +70,13 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.Repository
             return dataTable.Rows[0]["id"] == DBNull.Value
                 ? "1" : dataTable.Rows[0].Field<long>("id").ToString();
         }
+
+        public static void Delete(DeliveryRequest deliveryRequest)
+        {
+            var command = new MySqlCommand(
+                @"delete from delivery_request where id = @id;");
+            command.Parameters.AddWithValue("@id", deliveryRequest.Id);
+            DataTableRepository.ExecuteNonQuery(command);
+        }
     }
 }

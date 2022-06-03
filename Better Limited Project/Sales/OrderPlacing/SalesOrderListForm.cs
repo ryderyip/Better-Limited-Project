@@ -11,7 +11,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
 {
     public partial class SalesOrderListForm : Form
     {
-        private readonly List<SalesOrder> _salesOrders;// TODO performance
+        private readonly List<SalesOrder> _salesOrders;
 
         public SalesOrderListForm()
         {

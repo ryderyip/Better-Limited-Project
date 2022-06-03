@@ -32,7 +32,6 @@ namespace Better_Limited_Project.FormControlling
             ContentForm = contentForm;
             ContentForm.Size = FormPropertyController.GetChildFormSize(_outerForm.Size);
             FormPropertyController.SetInnerFormProperty(_outerForm, ContentForm, DockStyle.Right);
-            // TODO Set theme
             
             ContentForm.Show();
         }
