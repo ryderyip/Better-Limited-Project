@@ -27,6 +27,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
         
         private void FillFields()
         {
+            tbStockStatus.Text = _deliveryRequest.GetSalesOrder().IsStockReady() ? "Yes" : "No";
             tbCreatedOn.Text =
                 $"{_deliveryRequest.CreateOn.ToLongDateString()} | {_deliveryRequest.CreateOn.ToShortTimeString()}";
             tbCreatedIn.Text = _deliveryRequest.GetSalesOrder().RetailStore.Name;
@@ -50,6 +51,12 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
 
         private void btnArrangeDelivery_Click(object sender, EventArgs e)
         {
+            if (!_deliveryRequest.GetSalesOrder().IsStockReady())
+            {
+                MessageBox.Show("Delivery can only be arranged once the stock is replenished.");
+                return;
+            }
+            
             if (_deliveryRequest.GetSalesOrder().SalesOrderProducts.Any(sop => sop.IsOutOfStock))
             {
                 var order = _deliveryRequest.GetSalesOrder();

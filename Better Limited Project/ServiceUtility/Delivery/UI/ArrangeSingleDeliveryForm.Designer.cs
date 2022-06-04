@@ -35,14 +35,14 @@
             this.tbEarliestDeliveryDate = new System.Windows.Forms.TextBox();
             this.lblProductsDelivered = new System.Windows.Forms.Label();
             this.dgvProductsDelivered = new System.Windows.Forms.DataGridView();
+            this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnArrangeDelivery = new System.Windows.Forms.Button();
             this.btnSplitDelivery = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tbCustomerChosenDeliverySession = new System.Windows.Forms.TextBox();
             this.tbSelectedCourier = new System.Windows.Forms.TextBox();
             this.btnChooseCourier = new System.Windows.Forms.Button();
-            this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductsDelivered)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,7 +50,7 @@
             // 
             this.lblSelectCourier.AutoSize = true;
             this.lblSelectCourier.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSelectCourier.Location = new System.Drawing.Point(97, 131);
+            this.lblSelectCourier.Location = new System.Drawing.Point(82, 131);
             this.lblSelectCourier.Name = "lblSelectCourier";
             this.lblSelectCourier.Size = new System.Drawing.Size(119, 20);
             this.lblSelectCourier.TabIndex = 7;
@@ -60,7 +60,7 @@
             // 
             this.lblSelectDate.AutoSize = true;
             this.lblSelectDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSelectDate.Location = new System.Drawing.Point(407, 132);
+            this.lblSelectDate.Location = new System.Drawing.Point(392, 132);
             this.lblSelectDate.Name = "lblSelectDate";
             this.lblSelectDate.Size = new System.Drawing.Size(152, 20);
             this.lblSelectDate.TabIndex = 9;
@@ -68,7 +68,7 @@
             // 
             // dtpSelectDeliveryDate
             // 
-            this.dtpSelectDeliveryDate.Location = new System.Drawing.Point(411, 155);
+            this.dtpSelectDeliveryDate.Location = new System.Drawing.Point(396, 155);
             this.dtpSelectDeliveryDate.Name = "dtpSelectDeliveryDate";
             this.dtpSelectDeliveryDate.Size = new System.Drawing.Size(253, 20);
             this.dtpSelectDeliveryDate.TabIndex = 10;
@@ -77,7 +77,7 @@
             // 
             this.lblEarliest.AutoSize = true;
             this.lblEarliest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEarliest.Location = new System.Drawing.Point(407, 62);
+            this.lblEarliest.Location = new System.Drawing.Point(392, 62);
             this.lblEarliest.Name = "lblEarliest";
             this.lblEarliest.Size = new System.Drawing.Size(379, 20);
             this.lblEarliest.TabIndex = 11;
@@ -85,7 +85,7 @@
             // 
             // tbEarliestDeliveryDate
             // 
-            this.tbEarliestDeliveryDate.Location = new System.Drawing.Point(411, 85);
+            this.tbEarliestDeliveryDate.Location = new System.Drawing.Point(396, 85);
             this.tbEarliestDeliveryDate.Name = "tbEarliestDeliveryDate";
             this.tbEarliestDeliveryDate.ReadOnly = true;
             this.tbEarliestDeliveryDate.Size = new System.Drawing.Size(253, 20);
@@ -115,6 +115,19 @@
             this.dgvProductsDelivered.RowTemplate.Height = 24;
             this.dgvProductsDelivered.Size = new System.Drawing.Size(394, 137);
             this.dgvProductsDelivered.TabIndex = 14;
+            // 
+            // nameColumn
+            // 
+            this.nameColumn.HeaderText = "Name";
+            this.nameColumn.Name = "nameColumn";
+            this.nameColumn.ReadOnly = true;
+            this.nameColumn.Width = 250;
+            // 
+            // quantityColumn
+            // 
+            this.quantityColumn.HeaderText = "Quantity";
+            this.quantityColumn.Name = "quantityColumn";
+            this.quantityColumn.ReadOnly = true;
             // 
             // btnArrangeDelivery
             // 
@@ -146,7 +159,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(97, 62);
+            this.label1.Location = new System.Drawing.Point(82, 62);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(257, 20);
             this.label1.TabIndex = 111;
@@ -154,7 +167,7 @@
             // 
             // tbCustomerChosenDeliverySession
             // 
-            this.tbCustomerChosenDeliverySession.Location = new System.Drawing.Point(101, 85);
+            this.tbCustomerChosenDeliverySession.Location = new System.Drawing.Point(86, 85);
             this.tbCustomerChosenDeliverySession.Name = "tbCustomerChosenDeliverySession";
             this.tbCustomerChosenDeliverySession.ReadOnly = true;
             this.tbCustomerChosenDeliverySession.Size = new System.Drawing.Size(253, 20);
@@ -162,7 +175,7 @@
             // 
             // tbSelectedCourier
             // 
-            this.tbSelectedCourier.Location = new System.Drawing.Point(101, 155);
+            this.tbSelectedCourier.Location = new System.Drawing.Point(86, 155);
             this.tbSelectedCourier.Name = "tbSelectedCourier";
             this.tbSelectedCourier.ReadOnly = true;
             this.tbSelectedCourier.Size = new System.Drawing.Size(253, 20);
@@ -173,26 +186,13 @@
             this.btnChooseCourier.BackColor = System.Drawing.Color.ForestGreen;
             this.btnChooseCourier.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChooseCourier.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnChooseCourier.Location = new System.Drawing.Point(273, 119);
+            this.btnChooseCourier.Location = new System.Drawing.Point(258, 119);
             this.btnChooseCourier.Name = "btnChooseCourier";
             this.btnChooseCourier.Size = new System.Drawing.Size(81, 34);
             this.btnChooseCourier.TabIndex = 114;
             this.btnChooseCourier.Text = "Choose";
             this.btnChooseCourier.UseVisualStyleBackColor = false;
             this.btnChooseCourier.Click += new System.EventHandler(this.btnChooseCourier_Click);
-            // 
-            // nameColumn
-            // 
-            this.nameColumn.HeaderText = "Name";
-            this.nameColumn.Name = "nameColumn";
-            this.nameColumn.ReadOnly = true;
-            this.nameColumn.Width = 250;
-            // 
-            // quantityColumn
-            // 
-            this.quantityColumn.HeaderText = "Quantity";
-            this.quantityColumn.Name = "quantityColumn";
-            this.quantityColumn.ReadOnly = true;
             // 
             // ArrangeSingleDeliveryForm
             // 

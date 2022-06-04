@@ -416,6 +416,8 @@
     </Compile>
     <Compile Include="Sales\OrderPlacing\Repository\SalesOrderProductPaymentRepository.cs" />
     <Compile Include="Sales\OrderPlacing\Repository\SalesOrderProductRepository.cs" />
+    <Compile Include="Sales\OrderPlacing\Repository\ReservedSalesOrderProduct.cs" />
+    <Compile Include="Sales\OrderPlacing\Repository\ReservedSalesOrderProductRepository.cs" />
     <Compile Include="Sales\OrderPlacing\Repository\SalesOrderRepository.cs" />
     <Compile Include="Sales\OrderPlacing\SalesOrderDetailsForm.cs">
       <SubType>Form</SubType>
@@ -573,6 +575,7 @@
     </Compile>
     <Compile Include="ServiceUtility\Installation\UI\InstallationRequestForm.Designer.cs" />
     <Compile Include="ServiceUtility\PlaceOrderService.cs" />
+    <Compile Include="ServiceUtility\ProductReservationService.cs" />
     <Compile Include="ServiceUtility\Reordering\ReorderRequestDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -666,6 +669,7 @@
       <DependentUpon>ProfileForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Tools\CommonInformationVerifier.cs" />
+    <Compile Include="Tools\DeliveryStatusUpdater.cs" />
     <Compile Include="Tools\EnumToStringHelper.cs" />
     <Compile Include="Tools\PopUpForm.cs">
       <SubType>Form</SubType>
@@ -673,7 +677,7 @@
     <Compile Include="Tools\PopUpForm.Designer.cs">
       <DependentUpon>PopUpForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tools\StockLevelMonitor.cs" />
+    <Compile Include="Tools\LowStockLevelNotifier.cs" />
     <Compile Include="Tools\StringHelper.cs" />
     <Compile Include="Tools\Pager.cs" />
     <Compile Include="Tools\SystemInitialization.cs" />

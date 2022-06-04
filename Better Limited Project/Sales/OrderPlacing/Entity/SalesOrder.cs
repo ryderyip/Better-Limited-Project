@@ -5,6 +5,7 @@ using Better_Limited_Project.CustomerRecord;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;
 using Better_Limited_Project.Sales.PaymentUtility.Repository;
+using Better_Limited_Project.ServiceUtility.Delivery;
 using Better_Limited_Project.ServiceUtility.Delivery.Repository;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 
@@ -86,8 +87,18 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
 
         public bool IsAllDeliveryArrived()
         {
-            var deliveries = DeliveryRepository.FindAll(d => d.GetDeliveryRequest().SalesOrderId == Id).ToList();
+            var deliveries = GetDeliveries().ToList();
             return !deliveries.Any() || deliveries.All(d => d.DeliveryStatus is DeliveryStatus.Delivered);
+        }
+
+        public IEnumerable<Delivery> GetDeliveries()
+        {
+            return DeliveryRepository.FindAll(d => d.GetDeliveryRequest().SalesOrderId == Id);
+        }
+
+        public bool IsStockReady()
+        {
+            return SalesOrderProducts.All(sop => sop.GetReservedStock().Quantity >= sop.Quantity);
         }
     }
 }

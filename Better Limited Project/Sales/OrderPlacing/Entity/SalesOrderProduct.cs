@@ -49,5 +49,10 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
         {
             return ProductRepository.FindById(ProductId);
         }
+
+        public ReservedSalesOrderProduct GetReservedStock()
+        {
+            return ReservedSalesOrderProductRepository.FindByIds(SalesOrderId, ProductId);
+        }
     }
 }

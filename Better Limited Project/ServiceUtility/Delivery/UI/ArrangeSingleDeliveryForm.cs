@@ -51,7 +51,9 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             var selectedDate = dtpSelectDeliveryDate.Value.Date;
             var freeCouriers = from courier in CourierRepository.GetAll()
                 let deliveries = DeliveryCourierRepository.FindByCourierId(courier.Id)
-                where !deliveries.Any() || deliveries.All(d => d.ScheduledOn.Date != selectedDate)
+                where !deliveries.Any() 
+                      || deliveries.All(d => d.ScheduledOn == null)
+                      || deliveries.All(d => d.ScheduledOn.Date != selectedDate)
                 select courier;
 
             var courierSelector = new CourierSelectorForm(freeCouriers);
@@ -88,7 +90,11 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             }
             
             scheduledOn += DeliverySessionTimeConverter.GetTimeSpan(_deliveryRequest.DeliverySession);
-            var delivery = new Delivery(_deliveryRequest.Id, scheduledOn);
+            // TODO no schedule if no stock available
+            var delivery = new Delivery(_deliveryRequest.Id)
+            {
+                ScheduledOn = scheduledOn
+            };
             delivery.Save();
 
             _selectedCouriers.Select(c => new DeliveryCourier(delivery.Id, c.Id))

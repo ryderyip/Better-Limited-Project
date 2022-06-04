@@ -11,7 +11,7 @@ namespace Better_Limited_Project.ProductUtility.Repository
 {
     public static class StockRepository
     {
-        public static EventHandler? StockUpdated;
+        public static EventHandler<IWorkplace>? StockUpdated;
         
         /// <summary>
         /// Get the stocks of a specified workplace (retail store/warehouse).
@@ -115,7 +115,7 @@ namespace Better_Limited_Project.ProductUtility.Repository
             else
                 throw new NotImplementedException("Unknown implementation of IStock class.");
             
-            StockUpdated?.Invoke(null, EventArgs.Empty);
+            StockUpdated?.Invoke(null, stock.Workplace);
         }
 
         public static void UpdateRetailStoreStock(RetailStoreStock stock)

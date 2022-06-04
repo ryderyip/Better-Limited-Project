@@ -43,7 +43,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.Repository
             var createdOn = row.Field<DateTime>("created_on");
             var scheduledOn = row.Field<DateTime>("scheduled_on");
             var deliveryStatus = (DeliveryStatus) row.Field<int>("delivery_status_id");
-            var dispatchedOn = deliveryStatus is DeliveryStatus.AwaitingDispatch or DeliveryStatus.AwaitingRestock
+            var dispatchedOn = deliveryStatus is DeliveryStatus.AwaitingDispatch
                 ? null
                 : row.Field<DateTime?>("dispatched_on");
             var deliveredOn = deliveryStatus is DeliveryStatus.Delivered

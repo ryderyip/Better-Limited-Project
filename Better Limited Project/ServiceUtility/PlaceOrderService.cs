@@ -2,12 +2,10 @@
 using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.CustomerRecord;
-using Better_Limited_Project.ProductUtility.Repository;
 using Better_Limited_Project.Sales.OrderPlacing;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.Sales.PaymentUtility;
 using Better_Limited_Project.ServiceUtility.Delivery;
-using Better_Limited_Project.SettingsUtility;
 
 namespace Better_Limited_Project.ServiceUtility
 {
@@ -89,15 +87,9 @@ namespace Better_Limited_Project.ServiceUtility
                     sop.Save();
                 });
 
-            var stocks = StockRepository.GetStocks(UserSettings.GetSettings().Workplace!.Id).ToList();
+            var reservationService = new ProductReservationService();
             foreach (var salesOrderProduct in salesOrder.SalesOrderProducts)
-            {
-                var stock = stocks.First(stock => stock.Product.Id == salesOrderProduct.ProductId);
-                stock.Quantity -= salesOrderProduct.Quantity;
-                if (stock.Quantity < 0)
-                    stock.Quantity = 0;
-                stock.Save();
-            }
+                reservationService.Reserve(salesOrderProduct.SalesOrderId, salesOrderProduct.ProductId, salesOrderProduct.Quantity);
 
             SalesOrderPlaced?.Invoke(this, EventArgs.Empty);
         }
