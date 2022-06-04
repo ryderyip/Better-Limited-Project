@@ -36,12 +36,12 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
         private static ReservedSalesOrderProduct ReservedSalesOrderProduct(DataRow row)
         {
             string orderId = row.Field<int>("sales_order_id").ToString();
-            string productId = row.Field<int>("productId").ToString();
+            string productId = row.Field<int>("product_id").ToString();
             int quantity = row.Field<int>("quantity");
             return new ReservedSalesOrderProduct(orderId, productId, quantity);
         }
 
-        public static ReservedSalesOrderProduct FindByIds(string salesOrderId, string productId)
+        public static ReservedSalesOrderProduct? FindByIds(string salesOrderId, string productId)
         {
             var command = new MySqlCommand(
                 @"select sales_order_id, product_id, quantity from reserved_sales_order_product
@@ -49,9 +49,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
             command.Parameters.AddWithValue("@orderId", salesOrderId);
             command.Parameters.AddWithValue("@productId", productId);
             var dataTable = DataTableRepository.RetrieveDataTable(command);
-            if (dataTable.Rows.Count == 0)
-                throw new ArgumentException("Reserved sales order product not found.");
-            return ReservedSalesOrderProduct(dataTable.Rows[0]);
+            return dataTable.Rows.Count == 0 ? null : ReservedSalesOrderProduct(dataTable.Rows[0]);
         }
     }
 }

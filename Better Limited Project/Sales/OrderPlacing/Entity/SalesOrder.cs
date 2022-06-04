@@ -79,8 +79,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
             return DeliveryRequestRepository.GetAll().Any(dr => dr.SalesOrderId == Id);
         }
 
-        public bool IsNeedInstallation()
-        {
+        public bool IsNeedInstallation() {
             return false;
             // return new InstallationRequestRepository().GetAll().Any(ir => ir.)
         }
@@ -96,9 +95,9 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
             return DeliveryRepository.FindAll(d => d.GetDeliveryRequest().SalesOrderId == Id);
         }
 
-        public bool IsStockReady()
+        public DeliveryRequest? GetDeliveryRequest()
         {
-            return SalesOrderProducts.All(sop => sop.GetReservedStock().Quantity >= sop.Quantity);
+            return DeliveryRequestRepository.FindAll(dr => dr.SalesOrderId == Id).FirstOrDefault();
         }
     }
 }

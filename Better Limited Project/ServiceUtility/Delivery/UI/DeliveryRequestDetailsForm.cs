@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.Sales.OrderPlacing;
 using Better_Limited_Project.ServiceUtility.Delivery.Repository;
@@ -21,15 +20,18 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
         private void Initialize()
         {
             if (_deliveryRequest.IsArranged())
+            {
                 btnArrangeDelivery.Enabled = false;
+                btnViewDeliveryDetails.Enabled = false;
+            }
             FillFields();
         }
         
         private void FillFields()
         {
-            tbStockStatus.Text = _deliveryRequest.GetSalesOrder().IsStockReady() ? "Yes" : "No";
+            tbStockStatus.Text = _deliveryRequest.IsStockReadyForDelivery() ? "Ready for Delivery" : "Waiting for Replenishment";
             tbCreatedOn.Text =
-                $"{_deliveryRequest.CreateOn.ToLongDateString()} | {_deliveryRequest.CreateOn.ToShortTimeString()}";
+                $"{_deliveryRequest.CreatedOn.ToLongDateString()} | {_deliveryRequest.CreatedOn.ToShortTimeString()}";
             tbCreatedIn.Text = _deliveryRequest.GetSalesOrder().RetailStore.Name;
             tbCreatedBy.Text = $"{_deliveryRequest.GetCreatedByStaff().Name}";
             tbArrangedOn.Text = _deliveryRequest.ArrangedOn.HasValue
@@ -51,19 +53,9 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
 
         private void btnArrangeDelivery_Click(object sender, EventArgs e)
         {
-            if (!_deliveryRequest.GetSalesOrder().IsStockReady())
+            if (!_deliveryRequest.IsStockReadyForDelivery())
             {
                 MessageBox.Show("Delivery can only be arranged once the stock is replenished.");
-                return;
-            }
-            
-            if (_deliveryRequest.GetSalesOrder().SalesOrderProducts.Any(sop => sop.IsOutOfStock))
-            {
-                var order = _deliveryRequest.GetSalesOrder();
-                var outOfStockProductNames = order.SalesOrderProducts.ToList().Select(sop => sop.GetProduct().Name);
-                MessageBox.Show($"{order.RetailStore.Name} does not have enough stock " +
-                                $"for the following product(s):\n" +
-                                $"{string.Join("\n", outOfStockProductNames)}\n");
                 return;
             }
 
@@ -80,6 +72,11 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
         {
             _deliveryRequest = DeliveryRequestRepository.FindById(_deliveryRequest.Id);
             Initialize();
+        }
+
+        private void btnViewDeliveryDetails_Click(object sender, EventArgs e)
+        {
+            // TODO implement
         }
     }
 }

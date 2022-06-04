@@ -23,7 +23,7 @@ namespace Better_Limited_Project.Tools
             string header = "Low Stock Warning";
             string text = $"There are {noOfLowStock} low stock items!";
             var popUp = new PopUpForm(header, text);
-            popUp.Show();
+            // popUp.Show();
         }
     }
 }

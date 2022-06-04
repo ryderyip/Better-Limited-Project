@@ -22,6 +22,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
         private void OnFormShown(object sender, EventArgs e)
         {
             FillSalesOrderDgv(_salesOrders);
+            dtpSearchDate.MaxDate = DateTime.Today;
         }
 
         private void FillSalesOrderDgv(List<SalesOrder> salesOrders)

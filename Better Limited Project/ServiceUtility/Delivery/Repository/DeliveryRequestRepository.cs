@@ -55,7 +55,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.Repository
                                         arranged_on = @arrangedOn;");
             command.Parameters.AddWithValue("@id", deliveryRequest.Id);
             command.Parameters.AddWithValue("@salesOrderId", deliveryRequest.SalesOrderId);
-            command.Parameters.AddWithValue("@createOn", deliveryRequest.CreateOn);
+            command.Parameters.AddWithValue("@createOn", deliveryRequest.CreatedOn);
             command.Parameters.AddWithValue("@createByStaffId", deliveryRequest.CreatedByStaffId);
             command.Parameters.AddWithValue("@deliverySessionId", (int) deliveryRequest.DeliverySession);
             command.Parameters.AddWithValue("@arrangedByStaffId", deliveryRequest.ArrangedByStaffId != null ? deliveryRequest.ArrangedByStaffId : DBNull.Value);

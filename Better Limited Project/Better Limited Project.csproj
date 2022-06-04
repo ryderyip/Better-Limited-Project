@@ -514,20 +514,12 @@
     <Compile Include="ServiceUtility\Delivery\UI\CourierSelectorForm.Designer.cs">
       <DependentUpon>CourierSelectorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ServiceUtility\Delivery\UI\CreateDeliveryDutyRecordForm.cs">
+    <Compile Include="ServiceUtility\Delivery\UI\DeliveryListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ServiceUtility\Delivery\UI\CreateDeliveryDutyRecordForm.Designer.cs" />
-    <Compile Include="ServiceUtility\Delivery\UI\DeliveryDutyRecordDetailsForm.cs">
-      <SubType>Form</SubType>
+    <Compile Include="ServiceUtility\Delivery\UI\DeliveryListForm.Designer.cs">
+      <DependentUpon>DeliveryListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ServiceUtility\Delivery\UI\DeliveryDutyRecordDetailsForm.Designer.cs">
-      <DependentUpon>DeliveryDutyRecordDetailsForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ServiceUtility\Delivery\UI\DeliveryDutyRecordForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ServiceUtility\Delivery\UI\DeliveryDutyRecordForm.Designer.cs" />
     <Compile Include="ServiceUtility\Delivery\UI\DeliveryRequestDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -815,8 +807,12 @@
     <EmbeddedResource Include="ServiceUtility\Delivery\UI\CourierSelectorForm.resx">
       <DependentUpon>CourierSelectorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ServiceUtility\Delivery\UI\CreateDeliveryDutyRecordForm.resx" />
-    <EmbeddedResource Include="ServiceUtility\Delivery\UI\DeliveryDutyRecordForm.resx" />
+    <EmbeddedResource Include="ServiceUtility\Delivery\UI\DeliveryListForm.resx">
+      <DependentUpon>DeliveryListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServiceUtility\Delivery\UI\DeliveryRequestDetailsForm.resx">
+      <DependentUpon>DeliveryRequestDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ServiceUtility\Delivery\UI\DeliveryRequestListForm.resx">
       <DependentUpon>DeliveryRequestListForm.cs</DependentUpon>
     </EmbeddedResource>

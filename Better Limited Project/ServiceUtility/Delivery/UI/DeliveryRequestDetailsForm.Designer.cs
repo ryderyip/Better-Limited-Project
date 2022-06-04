@@ -46,6 +46,7 @@
             this.lblCreatedIn = new System.Windows.Forms.Label();
             this.tbStockStatus = new System.Windows.Forms.TextBox();
             this.lblStockStatus = new System.Windows.Forms.Label();
+            this.btnViewDeliveryDetails = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnDeliverytNote
@@ -75,7 +76,7 @@
             // 
             // tbCreatedOn
             // 
-            this.tbCreatedOn.Location = new System.Drawing.Point(172, 142);
+            this.tbCreatedOn.Location = new System.Drawing.Point(166, 113);
             this.tbCreatedOn.Name = "tbCreatedOn";
             this.tbCreatedOn.ReadOnly = true;
             this.tbCreatedOn.Size = new System.Drawing.Size(232, 20);
@@ -85,7 +86,7 @@
             // 
             this.lblCreatedOn.AutoSize = true;
             this.lblCreatedOn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCreatedOn.Location = new System.Drawing.Point(87, 143);
+            this.lblCreatedOn.Location = new System.Drawing.Point(81, 114);
             this.lblCreatedOn.Name = "lblCreatedOn";
             this.lblCreatedOn.Size = new System.Drawing.Size(79, 16);
             this.lblCreatedOn.TabIndex = 138;
@@ -93,7 +94,7 @@
             // 
             // tbArrangedBy
             // 
-            this.tbArrangedBy.Location = new System.Drawing.Point(533, 253);
+            this.tbArrangedBy.Location = new System.Drawing.Point(527, 224);
             this.tbArrangedBy.Name = "tbArrangedBy";
             this.tbArrangedBy.ReadOnly = true;
             this.tbArrangedBy.Size = new System.Drawing.Size(232, 20);
@@ -103,7 +104,7 @@
             // 
             this.lblArrangedBy.AutoSize = true;
             this.lblArrangedBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblArrangedBy.Location = new System.Drawing.Point(441, 254);
+            this.lblArrangedBy.Location = new System.Drawing.Point(435, 225);
             this.lblArrangedBy.Name = "lblArrangedBy";
             this.lblArrangedBy.Size = new System.Drawing.Size(86, 16);
             this.lblArrangedBy.TabIndex = 133;
@@ -111,7 +112,7 @@
             // 
             // tbArrangedOn
             // 
-            this.tbArrangedOn.Location = new System.Drawing.Point(533, 203);
+            this.tbArrangedOn.Location = new System.Drawing.Point(527, 174);
             this.tbArrangedOn.Name = "tbArrangedOn";
             this.tbArrangedOn.ReadOnly = true;
             this.tbArrangedOn.Size = new System.Drawing.Size(232, 20);
@@ -119,7 +120,7 @@
             // 
             // tbCreatedBy
             // 
-            this.tbCreatedBy.Location = new System.Drawing.Point(172, 224);
+            this.tbCreatedBy.Location = new System.Drawing.Point(166, 195);
             this.tbCreatedBy.Name = "tbCreatedBy";
             this.tbCreatedBy.ReadOnly = true;
             this.tbCreatedBy.Size = new System.Drawing.Size(232, 20);
@@ -129,7 +130,7 @@
             // 
             this.lblArrangedOn.AutoSize = true;
             this.lblArrangedOn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblArrangedOn.Location = new System.Drawing.Point(441, 204);
+            this.lblArrangedOn.Location = new System.Drawing.Point(435, 175);
             this.lblArrangedOn.Name = "lblArrangedOn";
             this.lblArrangedOn.Size = new System.Drawing.Size(87, 16);
             this.lblArrangedOn.TabIndex = 129;
@@ -139,7 +140,7 @@
             // 
             this.lblCreatedby.AutoSize = true;
             this.lblCreatedby.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCreatedby.Location = new System.Drawing.Point(89, 225);
+            this.lblCreatedby.Location = new System.Drawing.Point(83, 196);
             this.lblCreatedby.Name = "lblCreatedby";
             this.lblCreatedby.Size = new System.Drawing.Size(78, 16);
             this.lblCreatedby.TabIndex = 128;
@@ -170,7 +171,7 @@
             // 
             // tbDeliverySession
             // 
-            this.tbDeliverySession.Location = new System.Drawing.Point(172, 265);
+            this.tbDeliverySession.Location = new System.Drawing.Point(166, 236);
             this.tbDeliverySession.Name = "tbDeliverySession";
             this.tbDeliverySession.ReadOnly = true;
             this.tbDeliverySession.Size = new System.Drawing.Size(232, 20);
@@ -180,7 +181,7 @@
             // 
             this.lblDeliverySession.AutoSize = true;
             this.lblDeliverySession.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDeliverySession.Location = new System.Drawing.Point(57, 266);
+            this.lblDeliverySession.Location = new System.Drawing.Point(51, 237);
             this.lblDeliverySession.Name = "lblDeliverySession";
             this.lblDeliverySession.Size = new System.Drawing.Size(110, 16);
             this.lblDeliverySession.TabIndex = 143;
@@ -188,7 +189,7 @@
             // 
             // tbCreatedIn
             // 
-            this.tbCreatedIn.Location = new System.Drawing.Point(172, 184);
+            this.tbCreatedIn.Location = new System.Drawing.Point(166, 155);
             this.tbCreatedIn.Name = "tbCreatedIn";
             this.tbCreatedIn.ReadOnly = true;
             this.tbCreatedIn.Size = new System.Drawing.Size(232, 20);
@@ -198,7 +199,7 @@
             // 
             this.lblCreatedIn.AutoSize = true;
             this.lblCreatedIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCreatedIn.Location = new System.Drawing.Point(95, 185);
+            this.lblCreatedIn.Location = new System.Drawing.Point(89, 156);
             this.lblCreatedIn.Name = "lblCreatedIn";
             this.lblCreatedIn.Size = new System.Drawing.Size(72, 16);
             this.lblCreatedIn.TabIndex = 145;
@@ -206,7 +207,7 @@
             // 
             // tbStockStatus
             // 
-            this.tbStockStatus.Location = new System.Drawing.Point(172, 309);
+            this.tbStockStatus.Location = new System.Drawing.Point(166, 280);
             this.tbStockStatus.Name = "tbStockStatus";
             this.tbStockStatus.ReadOnly = true;
             this.tbStockStatus.Size = new System.Drawing.Size(232, 20);
@@ -216,17 +217,31 @@
             // 
             this.lblStockStatus.AutoSize = true;
             this.lblStockStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStockStatus.Location = new System.Drawing.Point(81, 310);
+            this.lblStockStatus.Location = new System.Drawing.Point(75, 281);
             this.lblStockStatus.Name = "lblStockStatus";
             this.lblStockStatus.Size = new System.Drawing.Size(85, 16);
             this.lblStockStatus.TabIndex = 147;
             this.lblStockStatus.Text = "Stock Status:";
+            // 
+            // btnViewDeliveryDetails
+            // 
+            this.btnViewDeliveryDetails.BackColor = System.Drawing.Color.Plum;
+            this.btnViewDeliveryDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewDeliveryDetails.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnViewDeliveryDetails.Location = new System.Drawing.Point(306, 344);
+            this.btnViewDeliveryDetails.Name = "btnViewDeliveryDetails";
+            this.btnViewDeliveryDetails.Size = new System.Drawing.Size(198, 47);
+            this.btnViewDeliveryDetails.TabIndex = 149;
+            this.btnViewDeliveryDetails.Text = "View Delivery Details";
+            this.btnViewDeliveryDetails.UseVisualStyleBackColor = false;
+            this.btnViewDeliveryDetails.Click += new System.EventHandler(this.btnViewDeliveryDetails_Click);
             // 
             // DeliveryRequestDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 488);
+            this.Controls.Add(this.btnViewDeliveryDetails);
             this.Controls.Add(this.tbStockStatus);
             this.Controls.Add(this.lblStockStatus);
             this.Controls.Add(this.tbCreatedIn);
@@ -272,5 +287,6 @@
         private System.Windows.Forms.Label lblCreatedIn;
         private System.Windows.Forms.TextBox tbStockStatus;
         private System.Windows.Forms.Label lblStockStatus;
+        private System.Windows.Forms.Button btnViewDeliveryDetails;
     }
 }

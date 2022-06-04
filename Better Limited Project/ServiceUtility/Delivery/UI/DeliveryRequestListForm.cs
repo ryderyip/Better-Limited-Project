@@ -49,7 +49,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             {
                 string orderNumber = _salesOrders.Find(so => so.Id == request.SalesOrderId).OrderNumber;
                 dgvDeliveryRequests.Rows.Add(orderNumber, 
-                    request.CreateOn.ToShortDateString(),
+                    request.CreatedOn.ToShortDateString(),
                     request.ArrangedOn.HasValue ? 
                         request.ArrangedOn.Value.ToShortDateString() : "-",
                     request.DeliverySession.ToString());
