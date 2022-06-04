@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
+using System.Windows.Forms;
 using Better_Limited_Project.CustomerRecord;
-using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.ProductUtility.Repository;
 using Better_Limited_Project.ServiceUtility;
@@ -15,7 +15,6 @@ namespace Better_Limited_Project.Sales.OrderPlacing
         private PlaceOrderForm _form;
         private Pager<RetailStoreStock> _pager;
         private const int PageSize = 6;
-        private readonly FormController _formController;
         private readonly Cart _cart;
 
         public PlaceOrderController()
@@ -23,16 +22,6 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             _cart = new Cart(UserSettings.GetSettings().Workplace!.Id);
             _pager = new Pager<RetailStoreStock>(PageSize);
             _form = new PlaceOrderForm(_pager, _cart);
-            _formController = new FormController(OuterFormGenerator.Generate());
-            Initialize();
-        }
-        
-        public PlaceOrderController(Cart cart)
-        {
-            _cart = cart;
-            _pager = new Pager<RetailStoreStock>(PageSize);
-            _form = new PlaceOrderForm(_pager, _cart);
-            _formController = new FormController(OuterFormGenerator.Generate());
             Initialize();
         }
 
@@ -77,13 +66,14 @@ namespace Better_Limited_Project.Sales.OrderPlacing
         private void ReinitializePlaceOrderForm()
         {
             Initialize();
-            OpenForm();
             _cart.Clear();
+            OpenForm();
         }
 
         public void OpenForm()
         {
-            _formController.OpenFullForm(_form);
+            _form.StartPosition = FormStartPosition.CenterParent;
+            _form.ShowDialog();
         }
     }
 }
