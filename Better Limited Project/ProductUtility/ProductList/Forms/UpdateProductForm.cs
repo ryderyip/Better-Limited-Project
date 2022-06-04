@@ -87,7 +87,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             _productStock.RestockLevel = newReorderLevel;
             _productStock.Product.IsPhasingOut = phasingOut;
             _productStock.Quantity = newStockLevel;
-            _productStock.Update();
+            _productStock.Save();
 
             ProductUpdated?.Invoke(this, EventArgs.Empty);
             Close();

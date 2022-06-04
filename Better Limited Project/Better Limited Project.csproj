@@ -404,7 +404,7 @@
       <DependentUpon>EditSalesOrderForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Sales\OrderPlacing\Entity\DeliveryStatus.cs" />
-    <Compile Include="Sales\OrderPlacing\Entity\SalesOrderProductStatus.cs" />
+    <Compile Include="Sales\OrderPlacing\Entity\SalesOrderProductPaymentStatus.cs" />
     <Compile Include="Sales\OrderPlacing\Entity\SalesOrder.cs" />
     <Compile Include="Sales\OrderPlacing\Entity\SalesOrderProduct.cs" />
     <Compile Include="Sales\OrderPlacing\Entity\SalesOrderProductPayment.cs" />
@@ -667,8 +667,16 @@
     </Compile>
     <Compile Include="Tools\CommonInformationVerifier.cs" />
     <Compile Include="Tools\EnumToStringHelper.cs" />
+    <Compile Include="Tools\PopUpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools\PopUpForm.Designer.cs">
+      <DependentUpon>PopUpForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\StockLevelMonitor.cs" />
     <Compile Include="Tools\StringHelper.cs" />
     <Compile Include="Tools\Pager.cs" />
+    <Compile Include="Tools\SystemInitialization.cs" />
     <Compile Include="Tools\ToolTipGenerator.cs" />
     <EmbeddedResource Include="CustomerRecord\CreateCustomerRecordForm.resx" />
     <EmbeddedResource Include="CustomerRecord\CustomerDetailsForm.resx">
@@ -842,6 +850,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StaffUtility\StaffProfile\ProfileForm.resx">
       <DependentUpon>ProfileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\PopUpForm.resx">
+      <DependentUpon>PopUpForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

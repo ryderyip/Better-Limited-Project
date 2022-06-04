@@ -7,6 +7,7 @@ using Better_Limited_Project.Login;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;
 using Better_Limited_Project.Sales.PaymentUtility;
+using Better_Limited_Project.ServiceUtility.Delivery.Repository;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 using Better_Limited_Project.Tools;
 
@@ -22,7 +23,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             _salesOrder = salesOrder;
             InitializeComponent();
         }
-        
+
         private void OnFormShown(object sender, EventArgs e)
         {
             Initialize();
@@ -35,7 +36,6 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             {
                 var product = salesOrderProduct.GetProduct();
                 dgvProducts.Rows.Add(product.Name,
-                    EnumToStringHelper.GetDisplayValue(salesOrderProduct.GetStatus()),
                     product.Category.Name,
                     salesOrderProduct.Price.ToString("C", new CultureInfo("zh-HK")),
                     salesOrderProduct.Quantity,
@@ -52,15 +52,17 @@ namespace Better_Limited_Project.Sales.OrderPlacing
                 btnEditOrder.Visible = false;
             }
 
-            if (!_salesOrder.IsNeedDelivery() && _salesOrder.IsNeedInstallation())
-                dgvProductsStatus.Visible = false;
-
             if (_salesOrder.SalesOrderProducts.All(sop => sop.GetPayments().All(sopp => !sopp.IsDeposit)))
                 btnDepositReceipt.Enabled = false;
         }
 
         private void FillFields()
         {
+            var delivery = DeliveryRepository.FindAll(d => d.GetDeliveryRequest().SalesOrderId == _salesOrder.Id)
+                .FirstOrDefault();
+            var deliveryRequest = DeliveryRequestRepository.FindAll(d => d.SalesOrderId == _salesOrder.Id)
+                .FirstOrDefault();
+            
             txtOrderNumber.Text = _salesOrder.OrderNumber;
             tbTotalAmount.Text = _salesOrder.GetTotalAmount().ToString("C", new CultureInfo("zh-HK"));
             decimal amountDue = _salesOrder.GetTotalAmount() - _salesOrder.GetAmountPaid();
@@ -68,6 +70,10 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             txtAmtPaid.Text = _salesOrder.GetAmountPaid().ToString("C", new CultureInfo("zh-HK"));
             txtNeedDelivery.Text = _salesOrder.IsNeedDelivery() ? "Yes" : "No";
             txtNeedInstallation.Text = _salesOrder.IsNeedInstallation() ? "Yes" : "No";
+            tbDeliveryStatus.Text = delivery == default
+                    ? deliveryRequest == default ? "-" : "Delivery Request Not Confirmed"
+                    : EnumToStringHelper.GetDisplayValue(delivery.DeliveryStatus);
+            
             if (_salesOrder.Customer != null)
             {
                 txtCustName.Text = _salesOrder.Customer.Name;
@@ -92,6 +98,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
                                 "(To see deposit receipts, click the button on the right.)");
                 return;
             }
+
             var generator = new PaymentReceiptGenerator(_salesOrder);
             generator.GenerateAndOpen();
         }
@@ -104,7 +111,6 @@ namespace Better_Limited_Project.Sales.OrderPlacing
 
         private void btnSettleIncompletePayment_Click(object sender, EventArgs e)
         {
-            
         }
 
         private void btnEditOrder_Click(object sender, EventArgs e)

@@ -11,7 +11,7 @@ namespace Better_Limited_Project.ProductUtility.Entity
         public decimal SellingPrice { get; set; }
         public int RestockLevel { get; set; }
         
-        public void Update()
+        public void Save()
         {
             Product.Update();
             StockRepository.UpdateStock(this);

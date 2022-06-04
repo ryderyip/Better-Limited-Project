@@ -33,7 +33,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
         {
             return _currentStaff.Department is Department.Sales
                 ? StockRepository.GetStocks(UserSettings.GetSettings().Workplace!.Id).ToList()
-                : StockRepository.GetStocks(_workplaces.First().Id).ToList();
+                : StockRepository.GetStocks(_workplaces.First(w => w is Warehouse).Id).ToList();
         }
 
         private void Initialize()
@@ -92,7 +92,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
         {
             dgvProductList.Columns["selling_price"]!.Visible = false;
             stocks.ForEach(stock => dgvProductList.Rows.Add(stock.Product.Name,
-                stock.Quantity, 0, stock.Product.Category.Name));
+                $"{stock.Quantity} ({stock.RestockLevel})", 0, stock.Product.Category.Name));
         }
 
         private void PopulateProductDgvWithSellingPrice(List<IStock> stocks)

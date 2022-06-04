@@ -96,7 +96,7 @@ namespace Better_Limited_Project.ServiceUtility
                 stock.Quantity -= salesOrderProduct.Quantity;
                 if (stock.Quantity < 0)
                     stock.Quantity = 0;
-                stock.Update();
+                stock.Save();
             }
 
             SalesOrderPlaced?.Invoke(this, EventArgs.Empty);

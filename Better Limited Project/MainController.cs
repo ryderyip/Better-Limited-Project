@@ -7,6 +7,7 @@ using Better_Limited_Project.Navigation.UI;
 using Better_Limited_Project.Procedure;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 using Better_Limited_Project.StaffUtility.StaffProfile;
+using Better_Limited_Project.Tools;
 
 namespace Better_Limited_Project
 {
@@ -31,6 +32,7 @@ namespace Better_Limited_Project
             LoginSession.SaveSession(staff);
             OpenNavigationForm(staff);
             OpenProfileForm(staff);
+            SystemInitialization.Initialize();
         }
 
         private void OpenNavigationForm(Staff staff)

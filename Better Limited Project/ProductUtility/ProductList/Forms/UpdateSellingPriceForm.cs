@@ -28,7 +28,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
         {
             decimal newSellingPrice = nudNewSellingPrice.Value;
             _stock.SellingPrice = newSellingPrice;
-            _stock.Update();
+            _stock.Save();
 
             UpdateSellingPriceClicked?.Invoke(this, EventArgs.Empty);
             Close();

@@ -46,7 +46,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.PermissionManagement
             return loginStaff.Title switch
             {
                 StaffTitle.Admin or StaffTitle.PurchaseManager or StaffTitle.AccountingManager
-                    or StaffTitle.SalesManager => true,
+                    or StaffTitle.SalesManager or StaffTitle.InventoryClerk => true,
                 _ => false
             };
         }

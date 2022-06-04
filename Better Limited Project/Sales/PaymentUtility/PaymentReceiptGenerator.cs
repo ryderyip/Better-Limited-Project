@@ -206,7 +206,7 @@ namespace Better_Limited_Project.Sales.PaymentUtility
             table.SetEdge(0, 0, 4, 1, Edge.Box, BorderStyle.Single, 0.75, Color.Empty);
 
             int rowCount = 0;
-            foreach (var salesOrderProduct in _salesOrder.SalesOrderProducts.Where(sop => sop.GetStatus() is SalesOrderProductStatus.FullyPaid))
+            foreach (var salesOrderProduct in _salesOrder.SalesOrderProducts.Where(sop => sop.GetPaymentStatus() is SalesOrderProductPaymentStatus.FullyPaid))
             {
                 row = table.AddRow();
                 row.Format.Alignment = ParagraphAlignment.Center;

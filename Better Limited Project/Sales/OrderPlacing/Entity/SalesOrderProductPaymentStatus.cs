@@ -2,7 +2,7 @@
 
 namespace Better_Limited_Project.Sales.OrderPlacing.Entity
 {
-    public enum SalesOrderProductStatus
+    public enum SalesOrderProductPaymentStatus
     {
         [Display(Name = "Awaiting Payment")] AwaitingPayment = 1,
         [Display(Name = "Deposit Paid")] DepositPaid = 2,

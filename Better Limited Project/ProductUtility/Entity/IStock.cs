@@ -8,6 +8,6 @@ namespace Better_Limited_Project.ProductUtility.Entity
         IWorkplace Workplace { get; }
         int Quantity { get; set; }
         int RestockLevel { get; set; }
-        void Update();
+        void Save();
     }
 }

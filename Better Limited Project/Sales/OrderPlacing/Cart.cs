@@ -25,7 +25,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             var stock = _stocks.First(s => s.Product.Id == product.Id);
 
             var cartItem = _cartItems.FirstOrDefault(item => item.Product.Id == product.Id);
-            
+
             // Product already in cart
             if (cartItem != null)
             {
@@ -48,7 +48,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
                     _cartItems.Add(new CartItem(product, 1, stock.SellingPrice, false));
                     stock.Quantity--;
                 }
-                else
+                else if (stock.SellingPrice > Product.DepositThreshold)
                     AddToDepositCart(product, stock);
             }
 
@@ -58,7 +58,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
         private void AddToDepositCart(Product product, RetailStoreStock stock)
         {
             var depositCartItem = _depositCardItems.FirstOrDefault(item => item.Product.Id == product.Id
-            && item.IsDeposit);
+                                                                           && item.IsDeposit);
             // If already in deposit cart
             if (depositCartItem != null)
                 depositCartItem.Quantity++;
@@ -84,7 +84,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
         {
             return _cartItems.Count == 0 && _depositCardItems.Count == 0;
         }
-        
+
         private List<RetailStoreStock> GetStocks()
         {
             return StockRepository.GetStocks(_retailStoreId).Cast<RetailStoreStock>().ToList();

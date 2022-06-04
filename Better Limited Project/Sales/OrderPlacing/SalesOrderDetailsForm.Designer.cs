@@ -54,16 +54,17 @@
             this.txtCustEmail = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.dgvProducts = new System.Windows.Forms.DataGridView();
-            this.dgvProductsName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvProductsStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvProductsCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvProductsPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvProductsQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvProductsSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbTotalAmount = new System.Windows.Forms.TextBox();
             this.lblTotalAmount = new System.Windows.Forms.Label();
             this.btnDepositReceipt = new System.Windows.Forms.Button();
             this.btnEditOrder = new System.Windows.Forms.Button();
+            this.tbDeliveryStatus = new System.Windows.Forms.TextBox();
+            this.lblDeliveryStatus = new System.Windows.Forms.Label();
+            this.dgvProductsName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvProductsCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvProductsPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvProductsQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvProductsSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,7 +92,7 @@
             // 
             this.lblAmtDue.AutoSize = true;
             this.lblAmtDue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAmtDue.Location = new System.Drawing.Point(49, 223);
+            this.lblAmtDue.Location = new System.Drawing.Point(47, 253);
             this.lblAmtDue.Name = "lblAmtDue";
             this.lblAmtDue.Size = new System.Drawing.Size(84, 16);
             this.lblAmtDue.TabIndex = 2;
@@ -101,7 +102,7 @@
             // 
             this.lblAmtPaid.AutoSize = true;
             this.lblAmtPaid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAmtPaid.Location = new System.Drawing.Point(44, 183);
+            this.lblAmtPaid.Location = new System.Drawing.Point(44, 201);
             this.lblAmtPaid.Name = "lblAmtPaid";
             this.lblAmtPaid.Size = new System.Drawing.Size(87, 16);
             this.lblAmtPaid.TabIndex = 3;
@@ -111,7 +112,7 @@
             // 
             this.lblNeedDelivery.AutoSize = true;
             this.lblNeedDelivery.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNeedDelivery.Location = new System.Drawing.Point(33, 265);
+            this.lblNeedDelivery.Location = new System.Drawing.Point(33, 305);
             this.lblNeedDelivery.Name = "lblNeedDelivery";
             this.lblNeedDelivery.Size = new System.Drawing.Size(98, 16);
             this.lblNeedDelivery.TabIndex = 4;
@@ -121,7 +122,7 @@
             // 
             this.lblNeedInstallation.AutoSize = true;
             this.lblNeedInstallation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNeedInstallation.Location = new System.Drawing.Point(22, 313);
+            this.lblNeedInstallation.Location = new System.Drawing.Point(22, 357);
             this.lblNeedInstallation.Name = "lblNeedInstallation";
             this.lblNeedInstallation.Size = new System.Drawing.Size(111, 16);
             this.lblNeedInstallation.TabIndex = 5;
@@ -138,7 +139,7 @@
             // 
             // txtAmtDue
             // 
-            this.txtAmtDue.Location = new System.Drawing.Point(137, 222);
+            this.txtAmtDue.Location = new System.Drawing.Point(137, 252);
             this.txtAmtDue.Name = "txtAmtDue";
             this.txtAmtDue.ReadOnly = true;
             this.txtAmtDue.Size = new System.Drawing.Size(100, 20);
@@ -147,7 +148,7 @@
             // 
             // txtAmtPaid
             // 
-            this.txtAmtPaid.Location = new System.Drawing.Point(137, 182);
+            this.txtAmtPaid.Location = new System.Drawing.Point(137, 200);
             this.txtAmtPaid.Name = "txtAmtPaid";
             this.txtAmtPaid.ReadOnly = true;
             this.txtAmtPaid.Size = new System.Drawing.Size(100, 20);
@@ -156,7 +157,7 @@
             // 
             // txtNeedDelivery
             // 
-            this.txtNeedDelivery.Location = new System.Drawing.Point(137, 264);
+            this.txtNeedDelivery.Location = new System.Drawing.Point(137, 304);
             this.txtNeedDelivery.Name = "txtNeedDelivery";
             this.txtNeedDelivery.ReadOnly = true;
             this.txtNeedDelivery.Size = new System.Drawing.Size(55, 20);
@@ -165,7 +166,7 @@
             // 
             // txtNeedInstallation
             // 
-            this.txtNeedInstallation.Location = new System.Drawing.Point(137, 312);
+            this.txtNeedInstallation.Location = new System.Drawing.Point(137, 356);
             this.txtNeedInstallation.Name = "txtNeedInstallation";
             this.txtNeedInstallation.ReadOnly = true;
             this.txtNeedInstallation.Size = new System.Drawing.Size(55, 20);
@@ -232,7 +233,7 @@
             // 
             // txtAddress2
             // 
-            this.txtAddress2.Location = new System.Drawing.Point(519, 207);
+            this.txtAddress2.Location = new System.Drawing.Point(519, 160);
             this.txtAddress2.Name = "txtAddress2";
             this.txtAddress2.ReadOnly = true;
             this.txtAddress2.Size = new System.Drawing.Size(248, 20);
@@ -243,7 +244,7 @@
             // 
             this.lblAddress2.AutoSize = true;
             this.lblAddress2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddress2.Location = new System.Drawing.Point(517, 174);
+            this.lblAddress2.Location = new System.Drawing.Point(517, 142);
             this.lblAddress2.Name = "lblAddress2";
             this.lblAddress2.Size = new System.Drawing.Size(64, 15);
             this.lblAddress2.TabIndex = 82;
@@ -251,7 +252,7 @@
             // 
             // txtAddress1
             // 
-            this.txtAddress1.Location = new System.Drawing.Point(519, 129);
+            this.txtAddress1.Location = new System.Drawing.Point(519, 114);
             this.txtAddress1.Name = "txtAddress1";
             this.txtAddress1.ReadOnly = true;
             this.txtAddress1.Size = new System.Drawing.Size(248, 20);
@@ -273,7 +274,7 @@
             this.BtnPaymentReceipt.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.BtnPaymentReceipt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnPaymentReceipt.ForeColor = System.Drawing.SystemColors.Window;
-            this.BtnPaymentReceipt.Location = new System.Drawing.Point(200, 404);
+            this.BtnPaymentReceipt.Location = new System.Drawing.Point(200, 422);
             this.BtnPaymentReceipt.Name = "BtnPaymentReceipt";
             this.BtnPaymentReceipt.Size = new System.Drawing.Size(129, 54);
             this.BtnPaymentReceipt.TabIndex = 84;
@@ -286,7 +287,7 @@
             this.btnSettleIncompletePayment.BackColor = System.Drawing.Color.DarkOrange;
             this.btnSettleIncompletePayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSettleIncompletePayment.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnSettleIncompletePayment.Location = new System.Drawing.Point(387, 404);
+            this.btnSettleIncompletePayment.Location = new System.Drawing.Point(387, 422);
             this.btnSettleIncompletePayment.Name = "btnSettleIncompletePayment";
             this.btnSettleIncompletePayment.Size = new System.Drawing.Size(185, 54);
             this.btnSettleIncompletePayment.TabIndex = 85;
@@ -320,16 +321,79 @@
             this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvProductsName,
-            this.dgvProductsStatus,
             this.dgvProductsCategory,
             this.dgvProductsPrice,
             this.dgvProductsQuantity,
             this.dgvProductsSubtotal});
-            this.dgvProducts.Location = new System.Drawing.Point(250, 264);
+            this.dgvProducts.Location = new System.Drawing.Point(269, 264);
             this.dgvProducts.Name = "dgvProducts";
             this.dgvProducts.ReadOnly = true;
-            this.dgvProducts.Size = new System.Drawing.Size(510, 93);
+            this.dgvProducts.Size = new System.Drawing.Size(491, 115);
             this.dgvProducts.TabIndex = 109;
+            // 
+            // tbTotalAmount
+            // 
+            this.tbTotalAmount.Location = new System.Drawing.Point(137, 148);
+            this.tbTotalAmount.Name = "tbTotalAmount";
+            this.tbTotalAmount.ReadOnly = true;
+            this.tbTotalAmount.Size = new System.Drawing.Size(100, 20);
+            this.tbTotalAmount.TabIndex = 111;
+            this.tbTotalAmount.Text = "-";
+            // 
+            // lblTotalAmount
+            // 
+            this.lblTotalAmount.AutoSize = true;
+            this.lblTotalAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalAmount.Location = new System.Drawing.Point(41, 149);
+            this.lblTotalAmount.Name = "lblTotalAmount";
+            this.lblTotalAmount.Size = new System.Drawing.Size(90, 16);
+            this.lblTotalAmount.TabIndex = 110;
+            this.lblTotalAmount.Text = "Total Amount:";
+            // 
+            // btnDepositReceipt
+            // 
+            this.btnDepositReceipt.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnDepositReceipt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDepositReceipt.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnDepositReceipt.Location = new System.Drawing.Point(630, 422);
+            this.btnDepositReceipt.Name = "btnDepositReceipt";
+            this.btnDepositReceipt.Size = new System.Drawing.Size(129, 54);
+            this.btnDepositReceipt.TabIndex = 112;
+            this.btnDepositReceipt.Text = "Deposit Receipt";
+            this.btnDepositReceipt.UseVisualStyleBackColor = false;
+            this.btnDepositReceipt.Click += new System.EventHandler(this.btnDepositReceipt_Click);
+            // 
+            // btnEditOrder
+            // 
+            this.btnEditOrder.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnEditOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditOrder.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnEditOrder.Location = new System.Drawing.Point(25, 422);
+            this.btnEditOrder.Name = "btnEditOrder";
+            this.btnEditOrder.Size = new System.Drawing.Size(117, 54);
+            this.btnEditOrder.TabIndex = 113;
+            this.btnEditOrder.Text = "Edit Order";
+            this.btnEditOrder.UseVisualStyleBackColor = false;
+            this.btnEditOrder.Click += new System.EventHandler(this.btnEditOrder_Click);
+            // 
+            // tbDeliveryStatus
+            // 
+            this.tbDeliveryStatus.Location = new System.Drawing.Point(519, 213);
+            this.tbDeliveryStatus.Name = "tbDeliveryStatus";
+            this.tbDeliveryStatus.ReadOnly = true;
+            this.tbDeliveryStatus.Size = new System.Drawing.Size(248, 20);
+            this.tbDeliveryStatus.TabIndex = 117;
+            this.tbDeliveryStatus.Text = "-";
+            // 
+            // lblDeliveryStatus
+            // 
+            this.lblDeliveryStatus.AutoSize = true;
+            this.lblDeliveryStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDeliveryStatus.Location = new System.Drawing.Point(516, 194);
+            this.lblDeliveryStatus.Name = "lblDeliveryStatus";
+            this.lblDeliveryStatus.Size = new System.Drawing.Size(98, 16);
+            this.lblDeliveryStatus.TabIndex = 116;
+            this.lblDeliveryStatus.Text = "Delivery Status";
             // 
             // dgvProductsName
             // 
@@ -337,13 +401,6 @@
             this.dgvProductsName.Name = "dgvProductsName";
             this.dgvProductsName.ReadOnly = true;
             this.dgvProductsName.Width = 130;
-            // 
-            // dgvProductsStatus
-            // 
-            this.dgvProductsStatus.HeaderText = "Status";
-            this.dgvProductsStatus.Name = "dgvProductsStatus";
-            this.dgvProductsStatus.ReadOnly = true;
-            this.dgvProductsStatus.Width = 80;
             // 
             // dgvProductsCategory
             // 
@@ -373,56 +430,13 @@
             this.dgvProductsSubtotal.ReadOnly = true;
             this.dgvProductsSubtotal.Width = 90;
             // 
-            // tbTotalAmount
-            // 
-            this.tbTotalAmount.Location = new System.Drawing.Point(137, 140);
-            this.tbTotalAmount.Name = "tbTotalAmount";
-            this.tbTotalAmount.ReadOnly = true;
-            this.tbTotalAmount.Size = new System.Drawing.Size(100, 20);
-            this.tbTotalAmount.TabIndex = 111;
-            this.tbTotalAmount.Text = "-";
-            // 
-            // lblTotalAmount
-            // 
-            this.lblTotalAmount.AutoSize = true;
-            this.lblTotalAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalAmount.Location = new System.Drawing.Point(41, 141);
-            this.lblTotalAmount.Name = "lblTotalAmount";
-            this.lblTotalAmount.Size = new System.Drawing.Size(90, 16);
-            this.lblTotalAmount.TabIndex = 110;
-            this.lblTotalAmount.Text = "Total Amount:";
-            // 
-            // btnDepositReceipt
-            // 
-            this.btnDepositReceipt.BackColor = System.Drawing.Color.ForestGreen;
-            this.btnDepositReceipt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDepositReceipt.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnDepositReceipt.Location = new System.Drawing.Point(630, 404);
-            this.btnDepositReceipt.Name = "btnDepositReceipt";
-            this.btnDepositReceipt.Size = new System.Drawing.Size(129, 54);
-            this.btnDepositReceipt.TabIndex = 112;
-            this.btnDepositReceipt.Text = "Deposit Receipt";
-            this.btnDepositReceipt.UseVisualStyleBackColor = false;
-            this.btnDepositReceipt.Click += new System.EventHandler(this.btnDepositReceipt_Click);
-            // 
-            // btnEditOrder
-            // 
-            this.btnEditOrder.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnEditOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditOrder.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnEditOrder.Location = new System.Drawing.Point(25, 404);
-            this.btnEditOrder.Name = "btnEditOrder";
-            this.btnEditOrder.Size = new System.Drawing.Size(117, 54);
-            this.btnEditOrder.TabIndex = 113;
-            this.btnEditOrder.Text = "Edit Order";
-            this.btnEditOrder.UseVisualStyleBackColor = false;
-            this.btnEditOrder.Click += new System.EventHandler(this.btnEditOrder_Click);
-            // 
             // SalesOrderDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 488);
+            this.Controls.Add(this.tbDeliveryStatus);
+            this.Controls.Add(this.lblDeliveryStatus);
             this.Controls.Add(this.btnEditOrder);
             this.Controls.Add(this.btnDepositReceipt);
             this.Controls.Add(this.tbTotalAmount);
@@ -493,12 +507,13 @@
         private System.Windows.Forms.TextBox tbTotalAmount;
         private System.Windows.Forms.Label lblTotalAmount;
         private System.Windows.Forms.Button btnDepositReceipt;
+        private System.Windows.Forms.Button btnEditOrder;
+        private System.Windows.Forms.TextBox tbDeliveryStatus;
+        private System.Windows.Forms.Label lblDeliveryStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvProductsName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvProductsStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvProductsCategory;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvProductsPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvProductsQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvProductsSubtotal;
-        private System.Windows.Forms.Button btnEditOrder;
     }
 }

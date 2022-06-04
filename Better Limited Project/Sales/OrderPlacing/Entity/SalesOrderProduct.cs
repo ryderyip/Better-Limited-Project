@@ -31,13 +31,13 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
             repo.InsertOrUpdate(this);
         }
 
-        public SalesOrderProductStatus GetStatus()
+        public SalesOrderProductPaymentStatus GetPaymentStatus()
         {
             var payments = GetPayments().ToList();
             decimal due = Price * Quantity;
             if (payments.Sum(sopp => PaymentRepository.FindById(sopp.PaymentId).Amount) >= due)
-                return SalesOrderProductStatus.FullyPaid;
-            return payments.Count != 0 ? SalesOrderProductStatus.DepositPaid : SalesOrderProductStatus.AwaitingPayment;
+                return SalesOrderProductPaymentStatus.FullyPaid;
+            return payments.Count != 0 ? SalesOrderProductPaymentStatus.DepositPaid : SalesOrderProductPaymentStatus.AwaitingPayment;
         }
 
         public IEnumerable<SalesOrderProductPayment> GetPayments()
