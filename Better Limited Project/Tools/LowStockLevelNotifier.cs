@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Windows.Forms;
 using Better_Limited_Project.Login;
 using Better_Limited_Project.ProductUtility.Repository;
 using Better_Limited_Project.StaffUtility.StaffEntity;
@@ -23,7 +24,8 @@ namespace Better_Limited_Project.Tools
             string header = "Low Stock Warning";
             string text = $"There are {noOfLowStock} low stock items!";
             var popUp = new PopUpForm(header, text);
-            // popUp.Show();
+            if (Application.OpenForms.Cast<Form>().All(f => f is not PopUpForm))
+                popUp.Show();
         }
     }
 }

@@ -24,9 +24,11 @@ namespace Better_Limited_Project.ServiceUtility
                         ?? throw new ArgumentException(
                             $"Product {ProductRepository.FindById(productId)} does not have stock record in database.");
 
+            if (stock.Quantity == 0)
+                return;
+            
             ReservedSalesOrderProduct reservedProducts;
-            if (stock.Quantity < reserveQuantity
-            && stock.Quantity != 0) // if there is not enough stock
+            if (stock.Quantity < reserveQuantity) // if there is not enough stock
             {
                 reservedProducts = new ReservedSalesOrderProduct(orderId,
                     productId, stock.Quantity);

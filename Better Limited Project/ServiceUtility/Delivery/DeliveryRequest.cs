@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using Better_Limited_Project.Sales.OrderPlacing;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;
@@ -11,7 +10,8 @@ namespace Better_Limited_Project.ServiceUtility.Delivery
 {
     public class DeliveryRequest
     {
-        public DeliveryRequest(string id, string salesOrderId, DateTime createdOn, string createdByStaffId, DeliverySession deliverySession)
+        public DeliveryRequest(string id, string salesOrderId, DateTime createdOn, string createdByStaffId,
+            DeliverySession deliverySession)
         {
             Id = id;
             SalesOrderId = salesOrderId;
@@ -37,7 +37,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery
         {
             return new StaffRepository().FindById(CreatedByStaffId);
         }
-        
+
         public Staff? GetArrangedByStaff()
         {
             return ArrangedByStaffId != null ? new StaffRepository().FindById(ArrangedByStaffId) : null;
@@ -73,6 +73,15 @@ namespace Better_Limited_Project.ServiceUtility.Delivery
         public IEnumerable<Delivery> GetDeliveries()
         {
             return DeliveryRepository.FindAll(d => d.DeliveryRequestId == Id);
+        }
+
+        public DeliveryGoodsStatus GetGoodsStatus()
+        {
+            return IsArranged()
+                ? DeliveryGoodsStatus.ArrangedForDelivery
+                : IsStockReadyForDelivery()
+                    ? DeliveryGoodsStatus.ReadyForDelivery
+                    : DeliveryGoodsStatus.WaitingForReplenishment;
         }
     }
 }

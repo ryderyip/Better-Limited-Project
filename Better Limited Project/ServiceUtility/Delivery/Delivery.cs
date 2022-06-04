@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Better_Limited_Project.Sales.OrderPlacing;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
+using Better_Limited_Project.Sales.OrderPlacing.Repository;
 using Better_Limited_Project.ServiceUtility.Delivery.Repository;
 
 namespace Better_Limited_Project.ServiceUtility.Delivery
@@ -38,8 +39,8 @@ namespace Better_Limited_Project.ServiceUtility.Delivery
         public DateTime CreatedOn { get; }
         public DateTime ScheduledOn { get; set; }
         public DeliveryStatus DeliveryStatus { get; set; }
-        public DateTime? DispatchedOn { get; }
-        public DateTime? DeliveredOn { get; }
+        public DateTime? DispatchedOn { get; set; }
+        public DateTime? DeliveredOn { get; set; }
         public ICollection<DeliveryCourier> DeliveryCouriers { get; set; } = new List<DeliveryCourier>();
 
         public DeliveryRequest GetDeliveryRequest()
@@ -70,6 +71,16 @@ namespace Better_Limited_Project.ServiceUtility.Delivery
         public IEnumerable<Courier> GetCouriers()
         {
             return DeliveryCouriers.ToList().Select(dc => CourierRepository.FindById(dc.CourierId));
+        }
+
+        public SalesOrder GetSalesOrder()
+        {
+            return new SalesOrderRepository().FindById(GetDeliveryRequest().SalesOrderId);
+        }
+
+        public DateTime GetLastUpdatedTime()
+        {
+            return DeliveredOn ?? DispatchedOn ?? CreatedOn;
         }
     }
 }

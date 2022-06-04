@@ -10,6 +10,8 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.Repository
 {
     public static class DeliveryRepository
     {
+        public static event EventHandler<Delivery>? DeliveryStatusUpdated;
+        
         public static IEnumerable<Delivery> GetAll()
         {
             var dataTable = DataTableRepository.RetrieveDataTable(new MySqlCommand(
@@ -46,7 +48,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.Repository
             var dispatchedOn = deliveryStatus is DeliveryStatus.AwaitingDispatch
                 ? null
                 : row.Field<DateTime?>("dispatched_on");
-            var deliveredOn = deliveryStatus is DeliveryStatus.Delivered
+            var deliveredOn = deliveryStatus is not DeliveryStatus.Delivered
                 ? null
                 : row.Field<DateTime?>("delivered_on");
             var courierIds = DeliveryCourierRepository.FindByDeliveryId(id).ToList();
@@ -74,6 +76,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.Repository
             command.Parameters.AddWithValue("@deliveredOn",
                 delivery.DeliveredOn != null ? delivery.DeliveredOn.Value : DBNull.Value);
             DataTableRepository.ExecuteNonQuery(command);
+            DeliveryStatusUpdated?.Invoke(null, delivery);
         }
 
         public static string GetNewId()

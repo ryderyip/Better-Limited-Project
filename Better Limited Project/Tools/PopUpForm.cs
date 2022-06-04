@@ -19,7 +19,7 @@ namespace Better_Limited_Project.Tools
             StartPosition = FormStartPosition.CenterScreen;
             ControlBox = false;
             FormBorderStyle = FormBorderStyle.SizableToolWindow;
-            Shown += (_, _) => SetThings();
+            Load += (_, _) => SetThings();
         }
 
         private void SetThings()

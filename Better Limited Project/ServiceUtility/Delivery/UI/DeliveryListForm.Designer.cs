@@ -30,14 +30,14 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
         private void InitializeComponent()
         {
             this.dgvDeliveries = new System.Windows.Forms.DataGridView();
-            this.tbSearchBox = new System.Windows.Forms.TextBox();
-            this.lblSearchBox = new System.Windows.Forms.Label();
             this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deliveryRequestIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.orderNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updatedOnColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deliveredOnColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.arrangedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tbSearchBox = new System.Windows.Forms.TextBox();
+            this.lblSearchBox = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDeliveries)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,29 +52,14 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             this.orderNumberColumn,
             this.statusColumn,
             this.updatedOnColumn,
-            this.deliveredOnColumn});
+            this.arrangedBy});
             this.dgvDeliveries.Location = new System.Drawing.Point(28, 99);
             this.dgvDeliveries.Name = "dgvDeliveries";
             this.dgvDeliveries.ReadOnly = true;
             this.dgvDeliveries.RowTemplate.Height = 24;
             this.dgvDeliveries.Size = new System.Drawing.Size(486, 323);
             this.dgvDeliveries.TabIndex = 15;
-            // 
-            // tbSearchBox
-            // 
-            this.tbSearchBox.Location = new System.Drawing.Point(28, 43);
-            this.tbSearchBox.Name = "tbSearchBox";
-            this.tbSearchBox.Size = new System.Drawing.Size(209, 20);
-            this.tbSearchBox.TabIndex = 14;
-            // 
-            // lblSearchBox
-            // 
-            this.lblSearchBox.AutoSize = true;
-            this.lblSearchBox.Location = new System.Drawing.Point(26, 27);
-            this.lblSearchBox.Name = "lblSearchBox";
-            this.lblSearchBox.Size = new System.Drawing.Size(153, 13);
-            this.lblSearchBox.TabIndex = 13;
-            this.lblSearchBox.Text = "Search by Sales Order Number";
+            this.dgvDeliveries.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDeliveries_CellDoubleClick);
             // 
             // idColumn
             // 
@@ -109,11 +94,28 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             this.updatedOnColumn.Name = "updatedOnColumn";
             this.updatedOnColumn.ReadOnly = true;
             // 
-            // deliveredOnColumn
+            // arrangedBy
             // 
-            this.deliveredOnColumn.HeaderText = "Delivered On";
-            this.deliveredOnColumn.Name = "deliveredOnColumn";
-            this.deliveredOnColumn.ReadOnly = true;
+            this.arrangedBy.HeaderText = "Arranged By";
+            this.arrangedBy.Name = "arrangedBy";
+            this.arrangedBy.ReadOnly = true;
+            // 
+            // tbSearchBox
+            // 
+            this.tbSearchBox.Location = new System.Drawing.Point(28, 43);
+            this.tbSearchBox.Name = "tbSearchBox";
+            this.tbSearchBox.Size = new System.Drawing.Size(209, 20);
+            this.tbSearchBox.TabIndex = 14;
+            this.tbSearchBox.TextChanged += new System.EventHandler(this.tbSearchBox_TextChanged);
+            // 
+            // lblSearchBox
+            // 
+            this.lblSearchBox.AutoSize = true;
+            this.lblSearchBox.Location = new System.Drawing.Point(26, 27);
+            this.lblSearchBox.Name = "lblSearchBox";
+            this.lblSearchBox.Size = new System.Drawing.Size(153, 13);
+            this.lblSearchBox.TabIndex = 13;
+            this.lblSearchBox.Text = "Search by Sales Order Number";
             // 
             // DeliveryListForm
             // 
@@ -141,6 +143,6 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn orderNumberColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn updatedOnColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn deliveredOnColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn arrangedBy;
     }
 }

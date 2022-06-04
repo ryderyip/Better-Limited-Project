@@ -487,6 +487,7 @@
     <Compile Include="ServiceUtility\Delivery\Courier.cs" />
     <Compile Include="ServiceUtility\Delivery\Delivery.cs" />
     <Compile Include="ServiceUtility\Delivery\DeliveryCourier.cs" />
+    <Compile Include="ServiceUtility\Delivery\DeliveryGoodsStatus.cs" />
     <Compile Include="ServiceUtility\Delivery\DeliveryRequest.cs" />
     <Compile Include="ServiceUtility\Delivery\DeliveryService.cs" />
     <Compile Include="ServiceUtility\Delivery\InstallationService.cs" />
@@ -514,6 +515,12 @@
     <Compile Include="ServiceUtility\Delivery\UI\CourierSelectorForm.Designer.cs">
       <DependentUpon>CourierSelectorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ServiceUtility\Delivery\UI\DeliveryDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServiceUtility\Delivery\UI\DeliveryDetailsForm.Designer.cs">
+      <DependentUpon>DeliveryDetailsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ServiceUtility\Delivery\UI\DeliveryListForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -540,6 +547,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ServiceUtility\Delivery\UI\RestockRequestForm.Designer.cs" />
+    <Compile Include="ServiceUtility\Delivery\UI\UpdateDeliveryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServiceUtility\Delivery\UI\UpdateDeliveryForm.Designer.cs">
+      <DependentUpon>UpdateDeliveryForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ServiceUtility\Installation\InstallationRequest.cs" />
     <Compile Include="ServiceUtility\Installation\InstallationRequestRepository.cs" />
     <Compile Include="ServiceUtility\Installation\UI\ArrangeInstallationForm.cs">
@@ -670,6 +683,7 @@
       <DependentUpon>PopUpForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Tools\LowStockLevelNotifier.cs" />
+    <Compile Include="Tools\ReservedSalesOrderProductRemover.cs" />
     <Compile Include="Tools\StringHelper.cs" />
     <Compile Include="Tools\Pager.cs" />
     <Compile Include="Tools\SystemInitialization.cs" />
@@ -807,6 +821,9 @@
     <EmbeddedResource Include="ServiceUtility\Delivery\UI\CourierSelectorForm.resx">
       <DependentUpon>CourierSelectorForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ServiceUtility\Delivery\UI\DeliveryDetailsForm.resx">
+      <DependentUpon>DeliveryDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ServiceUtility\Delivery\UI\DeliveryListForm.resx">
       <DependentUpon>DeliveryListForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -818,6 +835,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ServiceUtility\Delivery\UI\RestockRequestDetails.resx" />
     <EmbeddedResource Include="ServiceUtility\Delivery\UI\RestockRequestForm.resx" />
+    <EmbeddedResource Include="ServiceUtility\Delivery\UI\UpdateDeliveryForm.resx">
+      <DependentUpon>UpdateDeliveryForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ServiceUtility\Installation\UI\ArrangeInstallationForm.resx" />
     <EmbeddedResource Include="ServiceUtility\Installation\UI\CreateInstallationDutyRecordForm.resx" />
     <EmbeddedResource Include="ServiceUtility\Installation\UI\InstallationDutyRecordDetailsForm.resx" />

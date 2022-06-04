@@ -45,7 +45,7 @@
             this.tbCreatedIn = new System.Windows.Forms.TextBox();
             this.lblCreatedIn = new System.Windows.Forms.Label();
             this.tbStockStatus = new System.Windows.Forms.TextBox();
-            this.lblStockStatus = new System.Windows.Forms.Label();
+            this.lblGoodsStatus = new System.Windows.Forms.Label();
             this.btnViewDeliveryDetails = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -213,19 +213,20 @@
             this.tbStockStatus.Size = new System.Drawing.Size(232, 20);
             this.tbStockStatus.TabIndex = 148;
             // 
-            // lblStockStatus
+            // lblGoodsStatus
             // 
-            this.lblStockStatus.AutoSize = true;
-            this.lblStockStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStockStatus.Location = new System.Drawing.Point(75, 281);
-            this.lblStockStatus.Name = "lblStockStatus";
-            this.lblStockStatus.Size = new System.Drawing.Size(85, 16);
-            this.lblStockStatus.TabIndex = 147;
-            this.lblStockStatus.Text = "Stock Status:";
+            this.lblGoodsStatus.AutoSize = true;
+            this.lblGoodsStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGoodsStatus.Location = new System.Drawing.Point(68, 281);
+            this.lblGoodsStatus.Name = "lblGoodsStatus";
+            this.lblGoodsStatus.Size = new System.Drawing.Size(92, 16);
+            this.lblGoodsStatus.TabIndex = 147;
+            this.lblGoodsStatus.Text = "Goods Status:";
             // 
             // btnViewDeliveryDetails
             // 
             this.btnViewDeliveryDetails.BackColor = System.Drawing.Color.Plum;
+            this.btnViewDeliveryDetails.Enabled = false;
             this.btnViewDeliveryDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewDeliveryDetails.ForeColor = System.Drawing.SystemColors.Window;
             this.btnViewDeliveryDetails.Location = new System.Drawing.Point(306, 344);
@@ -243,7 +244,7 @@
             this.ClientSize = new System.Drawing.Size(800, 488);
             this.Controls.Add(this.btnViewDeliveryDetails);
             this.Controls.Add(this.tbStockStatus);
-            this.Controls.Add(this.lblStockStatus);
+            this.Controls.Add(this.lblGoodsStatus);
             this.Controls.Add(this.tbCreatedIn);
             this.Controls.Add(this.lblCreatedIn);
             this.Controls.Add(this.tbDeliverySession);
@@ -286,7 +287,7 @@
         private System.Windows.Forms.TextBox tbCreatedIn;
         private System.Windows.Forms.Label lblCreatedIn;
         private System.Windows.Forms.TextBox tbStockStatus;
-        private System.Windows.Forms.Label lblStockStatus;
+        private System.Windows.Forms.Label lblGoodsStatus;
         private System.Windows.Forms.Button btnViewDeliveryDetails;
     }
 }

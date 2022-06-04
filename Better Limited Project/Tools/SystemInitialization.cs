@@ -1,5 +1,7 @@
-﻿using Better_Limited_Project.Login;
+﻿using System;
+using Better_Limited_Project.Login;
 using Better_Limited_Project.ProductUtility.Repository;
+using Better_Limited_Project.ServiceUtility.Delivery.Repository;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.Tools
@@ -12,6 +14,7 @@ namespace Better_Limited_Project.Tools
             if (staff.Department is Department.Sales or Department.Inventory)
                 StockRepository.StockUpdated += LowStockLevelNotifier.OnStockUpdated;
             StockRepository.StockUpdated += DeliveryStatusUpdater.OnStockUpdated;
+            DeliveryRepository.DeliveryStatusUpdated += ReservedSalesOrderProductRemover.OnDeliveryStatusUpdated;
         }
     }
 }

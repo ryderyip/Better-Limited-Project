@@ -51,5 +51,15 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
             var dataTable = DataTableRepository.RetrieveDataTable(command);
             return dataTable.Rows.Count == 0 ? null : ReservedSalesOrderProduct(dataTable.Rows[0]);
         }
+
+        public static void Delete(string salesOrderId, string productId)
+        {
+            var command = new MySqlCommand(
+                @"delete from reserved_sales_order_product
+                where sales_order_id = @orderId and product_id = @productId;");
+            command.Parameters.AddWithValue("@orderId", salesOrderId);
+            command.Parameters.AddWithValue("@productId", productId);
+            DataTableRepository.ExecuteNonQuery(command);
+        }
     }
 }
