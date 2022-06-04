@@ -49,11 +49,11 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             this.btnManageInstallation.BackColor = System.Drawing.Color.SeaGreen;
             this.btnManageInstallation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManageInstallation.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnManageInstallation.Location = new System.Drawing.Point(44, 157);
+            this.btnManageInstallation.Location = new System.Drawing.Point(36, 157);
             this.btnManageInstallation.Name = "btnManageInstallation";
-            this.btnManageInstallation.Size = new System.Drawing.Size(198, 47);
+            this.btnManageInstallation.Size = new System.Drawing.Size(215, 58);
             this.btnManageInstallation.TabIndex = 145;
-            this.btnManageInstallation.Text = "Manage Installation";
+            this.btnManageInstallation.Text = "Send/Unsend Installation Request";
             this.btnManageInstallation.UseVisualStyleBackColor = false;
             // 
             // btnManageDelivery
@@ -61,11 +61,11 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             this.btnManageDelivery.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnManageDelivery.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManageDelivery.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnManageDelivery.Location = new System.Drawing.Point(44, 88);
+            this.btnManageDelivery.Location = new System.Drawing.Point(36, 77);
             this.btnManageDelivery.Name = "btnManageDelivery";
-            this.btnManageDelivery.Size = new System.Drawing.Size(198, 47);
+            this.btnManageDelivery.Size = new System.Drawing.Size(215, 58);
             this.btnManageDelivery.TabIndex = 144;
-            this.btnManageDelivery.Text = "Manage Delivery";
+            this.btnManageDelivery.Text = "Send/Unsend Delivery Request";
             this.btnManageDelivery.UseVisualStyleBackColor = false;
             this.btnManageDelivery.Click += new System.EventHandler(this.btnManageDelivery_Click);
             // 

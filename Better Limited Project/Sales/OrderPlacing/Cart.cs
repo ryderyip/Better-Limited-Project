@@ -48,7 +48,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
                     _cartItems.Add(new CartItem(product, 1, stock.SellingPrice, false));
                     stock.Quantity--;
                 }
-                else if (stock.SellingPrice > Product.DepositThreshold)
+                else if (stock.SellingPrice >= Product.DepositThreshold)
                     AddToDepositCart(product, stock);
             }
 
