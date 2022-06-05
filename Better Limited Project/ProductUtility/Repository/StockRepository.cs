@@ -115,7 +115,7 @@ namespace Better_Limited_Project.ProductUtility.Repository
             else if (stock is WarehouseStock warehouseStock)
                 InsertOrUpdateWarehouseStock(warehouseStock);
             else
-                throw new NotImplementedException("Unknown implementation of IStock class.");
+                throw new ArgumentException("Unknown implementation of IStock class.");
 
             StockUpdated?.Invoke(null, stock.Workplace);
         }

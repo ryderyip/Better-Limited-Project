@@ -111,7 +111,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             this.tbOriginalPrice.Location = new System.Drawing.Point(143, 282);
             this.tbOriginalPrice.Name = "tbOriginalPrice";
             this.tbOriginalPrice.ReadOnly = true;
-            this.tbOriginalPrice.Size = new System.Drawing.Size(119, 20);
+            this.tbOriginalPrice.Size = new System.Drawing.Size(139, 20);
             this.tbOriginalPrice.TabIndex = 59;
             // 
             // tbSellingPrice
@@ -119,7 +119,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             this.tbSellingPrice.Location = new System.Drawing.Point(143, 317);
             this.tbSellingPrice.Name = "tbSellingPrice";
             this.tbSellingPrice.ReadOnly = true;
-            this.tbSellingPrice.Size = new System.Drawing.Size(119, 20);
+            this.tbSellingPrice.Size = new System.Drawing.Size(139, 20);
             this.tbSellingPrice.TabIndex = 60;
             // 
             // lblHeader
@@ -148,7 +148,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             this.tbPhasingOut.Location = new System.Drawing.Point(143, 162);
             this.tbPhasingOut.Name = "tbPhasingOut";
             this.tbPhasingOut.ReadOnly = true;
-            this.tbPhasingOut.Size = new System.Drawing.Size(119, 20);
+            this.tbPhasingOut.Size = new System.Drawing.Size(139, 20);
             this.tbPhasingOut.TabIndex = 63;
             // 
             // tbReorderLevel
@@ -156,7 +156,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             this.tbReorderLevel.Location = new System.Drawing.Point(143, 239);
             this.tbReorderLevel.Name = "tbReorderLevel";
             this.tbReorderLevel.ReadOnly = true;
-            this.tbReorderLevel.Size = new System.Drawing.Size(119, 20);
+            this.tbReorderLevel.Size = new System.Drawing.Size(139, 20);
             this.tbReorderLevel.TabIndex = 65;
             // 
             // lblReorderLevel
@@ -174,7 +174,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             this.tbQuantity.Location = new System.Drawing.Point(143, 198);
             this.tbQuantity.Name = "tbQuantity";
             this.tbQuantity.ReadOnly = true;
-            this.tbQuantity.Size = new System.Drawing.Size(119, 20);
+            this.tbQuantity.Size = new System.Drawing.Size(139, 20);
             this.tbQuantity.TabIndex = 67;
             // 
             // lblQuantity
@@ -301,7 +301,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             this.tbName.Location = new System.Drawing.Point(143, 123);
             this.tbName.Name = "tbName";
             this.tbName.ReadOnly = true;
-            this.tbName.Size = new System.Drawing.Size(119, 20);
+            this.tbName.Size = new System.Drawing.Size(139, 20);
             this.tbName.TabIndex = 112;
             // 
             // lblName
@@ -316,9 +316,9 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // 
             // pbImage
             // 
-            this.pbImage.Location = new System.Drawing.Point(567, 123);
+            this.pbImage.Location = new System.Drawing.Point(561, 123);
             this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(208, 214);
+            this.pbImage.Size = new System.Drawing.Size(214, 214);
             this.pbImage.TabIndex = 113;
             this.pbImage.TabStop = false;
             // 

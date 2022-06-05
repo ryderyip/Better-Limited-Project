@@ -153,6 +153,7 @@
             this.btnSplitDelivery.TabIndex = 110;
             this.btnSplitDelivery.Text = "Split Delivery";
             this.btnSplitDelivery.UseVisualStyleBackColor = false;
+            this.btnSplitDelivery.Visible = false;
             this.btnSplitDelivery.Click += new System.EventHandler(this.btnSplitDelivery_Click);
             // 
             // label1

@@ -1,7 +1,7 @@
 ﻿
 namespace Better_Limited_Project.ServiceUtility.Delivery.UI
 {
-    partial class DeliveryListForm
+    partial class DailyDeliveryListForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
         /// </summary>
         private void InitializeComponent()
         {
+            this.lblHeader = new System.Windows.Forms.Label();
             this.dgvDeliveries = new System.Windows.Forms.DataGridView();
             this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deliveryRequestIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -36,11 +37,22 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             this.statusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updatedOnColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.arrangedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tbSearchBox = new System.Windows.Forms.TextBox();
-            this.lblSearchBox = new System.Windows.Forms.Label();
-            this.btnDailyDeliveryList = new System.Windows.Forms.Button();
+            this.dtpDeliveryDate = new System.Windows.Forms.DateTimePicker();
+            this.lblDeliveryDate = new System.Windows.Forms.Label();
+            this.btnGenerateDeliveryList = new System.Windows.Forms.Button();
+            this.btnPrintDeliveryList = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDeliveries)).BeginInit();
             this.SuspendLayout();
+            // 
+            // lblHeader
+            // 
+            this.lblHeader.AutoSize = true;
+            this.lblHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeader.Location = new System.Drawing.Point(171, 24);
+            this.lblHeader.Name = "lblHeader";
+            this.lblHeader.Size = new System.Drawing.Size(203, 25);
+            this.lblHeader.TabIndex = 111;
+            this.lblHeader.Text = "Daily Delivery List";
             // 
             // dgvDeliveries
             // 
@@ -54,13 +66,12 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             this.statusColumn,
             this.updatedOnColumn,
             this.arrangedBy});
-            this.dgvDeliveries.Location = new System.Drawing.Point(28, 99);
+            this.dgvDeliveries.Location = new System.Drawing.Point(31, 122);
             this.dgvDeliveries.Name = "dgvDeliveries";
             this.dgvDeliveries.ReadOnly = true;
             this.dgvDeliveries.RowTemplate.Height = 24;
-            this.dgvDeliveries.Size = new System.Drawing.Size(486, 323);
-            this.dgvDeliveries.TabIndex = 15;
-            this.dgvDeliveries.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDeliveries_CellDoubleClick);
+            this.dgvDeliveries.Size = new System.Drawing.Size(474, 228);
+            this.dgvDeliveries.TabIndex = 112;
             // 
             // idColumn
             // 
@@ -101,47 +112,62 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             this.arrangedBy.Name = "arrangedBy";
             this.arrangedBy.ReadOnly = true;
             // 
-            // tbSearchBox
+            // dtpDeliveryDate
             // 
-            this.tbSearchBox.Location = new System.Drawing.Point(28, 43);
-            this.tbSearchBox.Name = "tbSearchBox";
-            this.tbSearchBox.Size = new System.Drawing.Size(209, 20);
-            this.tbSearchBox.TabIndex = 14;
-            this.tbSearchBox.TextChanged += new System.EventHandler(this.tbSearchBox_TextChanged);
+            this.dtpDeliveryDate.Location = new System.Drawing.Point(126, 82);
+            this.dtpDeliveryDate.Name = "dtpDeliveryDate";
+            this.dtpDeliveryDate.Size = new System.Drawing.Size(200, 20);
+            this.dtpDeliveryDate.TabIndex = 113;
+            this.dtpDeliveryDate.ValueChanged += new System.EventHandler(this.dtpDeliveryDate_ValueChanged);
             // 
-            // lblSearchBox
+            // lblDeliveryDate
             // 
-            this.lblSearchBox.AutoSize = true;
-            this.lblSearchBox.Location = new System.Drawing.Point(26, 27);
-            this.lblSearchBox.Name = "lblSearchBox";
-            this.lblSearchBox.Size = new System.Drawing.Size(153, 13);
-            this.lblSearchBox.TabIndex = 13;
-            this.lblSearchBox.Text = "Search by Sales Order Number";
+            this.lblDeliveryDate.AutoSize = true;
+            this.lblDeliveryDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDeliveryDate.Location = new System.Drawing.Point(28, 84);
+            this.lblDeliveryDate.Name = "lblDeliveryDate";
+            this.lblDeliveryDate.Size = new System.Drawing.Size(93, 16);
+            this.lblDeliveryDate.TabIndex = 114;
+            this.lblDeliveryDate.Text = "Delivery Date:";
             // 
-            // btnDailyDeliveryList
+            // btnGenerateDeliveryList
             // 
-            this.btnDailyDeliveryList.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnDailyDeliveryList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDailyDeliveryList.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnDailyDeliveryList.Location = new System.Drawing.Point(350, 27);
-            this.btnDailyDeliveryList.Name = "btnDailyDeliveryList";
-            this.btnDailyDeliveryList.Size = new System.Drawing.Size(164, 48);
-            this.btnDailyDeliveryList.TabIndex = 85;
-            this.btnDailyDeliveryList.Text = "Daily Delivery List";
-            this.btnDailyDeliveryList.UseVisualStyleBackColor = false;
-            this.btnDailyDeliveryList.Click += new System.EventHandler(this.btnDailyDeliveryList_Click);
+            this.btnGenerateDeliveryList.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnGenerateDeliveryList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerateDeliveryList.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnGenerateDeliveryList.Location = new System.Drawing.Point(31, 370);
+            this.btnGenerateDeliveryList.Name = "btnGenerateDeliveryList";
+            this.btnGenerateDeliveryList.Size = new System.Drawing.Size(185, 54);
+            this.btnGenerateDeliveryList.TabIndex = 115;
+            this.btnGenerateDeliveryList.Text = "Generate Delivery List";
+            this.btnGenerateDeliveryList.UseVisualStyleBackColor = false;
             // 
-            // DeliveryListForm
+            // btnPrintDeliveryList
+            // 
+            this.btnPrintDeliveryList.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnPrintDeliveryList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintDeliveryList.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnPrintDeliveryList.Location = new System.Drawing.Point(352, 370);
+            this.btnPrintDeliveryList.Name = "btnPrintDeliveryList";
+            this.btnPrintDeliveryList.Size = new System.Drawing.Size(153, 54);
+            this.btnPrintDeliveryList.TabIndex = 116;
+            this.btnPrintDeliveryList.Text = "Print Delivery List";
+            this.btnPrintDeliveryList.UseVisualStyleBackColor = false;
+            this.btnPrintDeliveryList.Click += new System.EventHandler(this.btnPrintDeliveryList_Click);
+            // 
+            // DailyDeliveryListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(546, 450);
-            this.Controls.Add(this.btnDailyDeliveryList);
+            this.ClientSize = new System.Drawing.Size(545, 450);
+            this.Controls.Add(this.btnPrintDeliveryList);
+            this.Controls.Add(this.btnGenerateDeliveryList);
+            this.Controls.Add(this.lblDeliveryDate);
+            this.Controls.Add(this.dtpDeliveryDate);
             this.Controls.Add(this.dgvDeliveries);
-            this.Controls.Add(this.tbSearchBox);
-            this.Controls.Add(this.lblSearchBox);
-            this.Name = "DeliveryListForm";
-            this.Text = "DeliveryListForm";
+            this.Controls.Add(this.lblHeader);
+            this.Name = "DailyDeliveryListForm";
+            this.Text = "DailyDeliveryListForm";
             ((System.ComponentModel.ISupportInitialize)(this.dgvDeliveries)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -149,16 +175,17 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
         }
 
         #endregion
-
+        private System.Windows.Forms.Label lblHeader;
         public System.Windows.Forms.DataGridView dgvDeliveries;
-        public System.Windows.Forms.TextBox tbSearchBox;
-        private System.Windows.Forms.Label lblSearchBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn idColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn deliveryRequestIdColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn orderNumberColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn updatedOnColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn arrangedBy;
-        private System.Windows.Forms.Button btnDailyDeliveryList;
+        private System.Windows.Forms.DateTimePicker dtpDeliveryDate;
+        private System.Windows.Forms.Label lblDeliveryDate;
+        private System.Windows.Forms.Button btnGenerateDeliveryList;
+        private System.Windows.Forms.Button btnPrintDeliveryList;
     }
 }

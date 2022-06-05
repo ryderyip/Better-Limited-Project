@@ -131,5 +131,9 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
             };
             form.ShowDialog();
         }
+
+        private void btnViewDelivery_Click(object sender, EventArgs e)
+        {
+        }
     }
 }

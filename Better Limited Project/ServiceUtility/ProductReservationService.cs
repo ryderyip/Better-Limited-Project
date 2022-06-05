@@ -6,48 +6,46 @@ using Better_Limited_Project.ProductUtility.Repository;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;
 using Better_Limited_Project.SettingsUtility;
+using Better_Limited_Project.StaffUtility.Repository;
 
 namespace Better_Limited_Project.ServiceUtility
 {
     public class ProductReservationService
     {
-        private readonly List<IStock> _stocks;
+        private readonly SalesOrder _salesOrder;
+        private readonly List<RetailStoreStock> _stocks;
 
-        public ProductReservationService()
+        public ProductReservationService(SalesOrder salesOrder)
         {
-            _stocks = StockRepository.GetStocks(UserSettings.GetSettings().Workplace!.Id).ToList();
+            _salesOrder = salesOrder;
+            _stocks = StockRepository.GetRetailStoreStocks(salesOrder.RetailStore.Id).ToList();
         }
 
-        public void Reserve(string orderId, string productId, int reserveQuantity)
+        public void Reserve(string productId, int reserveQuantity)
         {
-            var stock = _stocks.FirstOrDefault(stock => stock.Product.Id == productId)
+            var productStock = _stocks.FirstOrDefault(stock => stock.Product.Id == productId)
                         ?? throw new ArgumentException(
                             $"Product {ProductRepository.FindById(productId)} does not have stock record in database.");
 
-            if (stock.Quantity == 0)
+            if (productStock.Quantity == 0)
                 return;
             
             ReservedSalesOrderProduct reservedProducts;
-            if (stock.Quantity < reserveQuantity) // if there is not enough stock
+            if (productStock.Quantity < reserveQuantity) // if there is not enough stock
             {
-                reservedProducts = new ReservedSalesOrderProduct(orderId,
-                    productId, stock.Quantity);
-                stock.Quantity = 0;
+                reservedProducts = new ReservedSalesOrderProduct(_salesOrder.Id,
+                    productId, productStock.Quantity);
+                productStock.Quantity = 0;
             }
             else
             {
-                reservedProducts = new ReservedSalesOrderProduct(orderId,
+                reservedProducts = new ReservedSalesOrderProduct(_salesOrder.Id,
                     productId, reserveQuantity);
-                stock.Quantity -= reserveQuantity;
+                productStock.Quantity -= reserveQuantity;
             }
 
             reservedProducts.Save();
-            stock.Save();
-        }
-        
-        private static bool IsEnoughStock(SalesOrderProduct salesOrderProduct, IStock stock)
-        {
-            return stock.Quantity < salesOrderProduct.Quantity;
+            productStock.Save();
         }
     }
 }

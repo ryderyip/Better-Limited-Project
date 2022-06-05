@@ -8,7 +8,9 @@ namespace Better_Limited_Project.Tools
     public static class DeliveryStatusUpdater
     {
         public static void OnStockUpdated(object sender, IWorkplace workplace)
-        { // TODO need performance upgrade
+        { 
+            // TODO need performance upgrade
+            // TODO need test
             var ordersWaitingForStock =
                 (from order in new SalesOrderRepository().GetAll()
                     let deliveryRequest = order.GetDeliveryRequest()
@@ -16,15 +18,15 @@ namespace Better_Limited_Project.Tools
                           && !deliveryRequest.IsStockReadyForDelivery()
                     select order).OrderBy(so => so.GetDeliveryRequest()!.CreatedOn);
 
-            var service = new ProductReservationService();
             foreach (var order in ordersWaitingForStock)
             {
+                var service = new ProductReservationService(order);
                 foreach (var salesOrderProduct in order.GetSalesOrderProducts())
                 {
                     var reservedStock = salesOrderProduct.GetReservedStock();
                     int reservedQuantity = reservedStock?.Quantity ?? 0;
                     if (reservedQuantity < salesOrderProduct.Quantity)
-                        service.Reserve(salesOrderProduct.SalesOrderId, salesOrderProduct.ProductId,
+                        service.Reserve(salesOrderProduct.ProductId,
                             salesOrderProduct.Quantity - reservedQuantity);
                 }
             }

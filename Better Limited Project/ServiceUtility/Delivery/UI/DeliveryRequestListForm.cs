@@ -10,7 +10,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
 {
     public partial class DeliveryRequestListForm : Form
     {
-        private readonly List<DeliveryRequest> _deliveryRequests;
+        private List<DeliveryRequest> _deliveryRequests;
         private readonly List<SalesOrder> _salesOrders;
 
         public DeliveryRequestListForm()
@@ -70,7 +70,8 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
 
         private void RefreshRequests()
         {
-            PopulateDgv(DeliveryRequestRepository.GetAll());
+            _deliveryRequests = DeliveryRequestRepository.GetAll().ToList();
+            ApplyFilterOnDgv();
         }
     }
 }

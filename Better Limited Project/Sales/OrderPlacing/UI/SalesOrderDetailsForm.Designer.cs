@@ -54,17 +54,17 @@
             this.txtCustEmail = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.dgvProducts = new System.Windows.Forms.DataGridView();
+            this.dgvProductsName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvProductsCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvProductsPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvProductsQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvProductsSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbTotalAmount = new System.Windows.Forms.TextBox();
             this.lblTotalAmount = new System.Windows.Forms.Label();
             this.btnDepositReceipt = new System.Windows.Forms.Button();
             this.btnEditOrder = new System.Windows.Forms.Button();
             this.tbDeliveryStatus = new System.Windows.Forms.TextBox();
             this.lblDeliveryStatus = new System.Windows.Forms.Label();
-            this.dgvProductsName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvProductsCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvProductsPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvProductsQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvProductsSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -331,6 +331,41 @@
             this.dgvProducts.Size = new System.Drawing.Size(491, 115);
             this.dgvProducts.TabIndex = 109;
             // 
+            // dgvProductsName
+            // 
+            this.dgvProductsName.HeaderText = "Name";
+            this.dgvProductsName.Name = "dgvProductsName";
+            this.dgvProductsName.ReadOnly = true;
+            this.dgvProductsName.Width = 130;
+            // 
+            // dgvProductsCategory
+            // 
+            this.dgvProductsCategory.HeaderText = "Category";
+            this.dgvProductsCategory.Name = "dgvProductsCategory";
+            this.dgvProductsCategory.ReadOnly = true;
+            this.dgvProductsCategory.Width = 90;
+            // 
+            // dgvProductsPrice
+            // 
+            this.dgvProductsPrice.HeaderText = "Price";
+            this.dgvProductsPrice.Name = "dgvProductsPrice";
+            this.dgvProductsPrice.ReadOnly = true;
+            this.dgvProductsPrice.Width = 90;
+            // 
+            // dgvProductsQuantity
+            // 
+            this.dgvProductsQuantity.HeaderText = "Qty";
+            this.dgvProductsQuantity.Name = "dgvProductsQuantity";
+            this.dgvProductsQuantity.ReadOnly = true;
+            this.dgvProductsQuantity.Width = 50;
+            // 
+            // dgvProductsSubtotal
+            // 
+            this.dgvProductsSubtotal.HeaderText = "Subtotal";
+            this.dgvProductsSubtotal.Name = "dgvProductsSubtotal";
+            this.dgvProductsSubtotal.ReadOnly = true;
+            this.dgvProductsSubtotal.Width = 90;
+            // 
             // tbTotalAmount
             // 
             this.tbTotalAmount.Location = new System.Drawing.Point(137, 148);
@@ -394,41 +429,6 @@
             this.lblDeliveryStatus.Size = new System.Drawing.Size(98, 16);
             this.lblDeliveryStatus.TabIndex = 116;
             this.lblDeliveryStatus.Text = "Delivery Status";
-            // 
-            // dgvProductsName
-            // 
-            this.dgvProductsName.HeaderText = "Name";
-            this.dgvProductsName.Name = "dgvProductsName";
-            this.dgvProductsName.ReadOnly = true;
-            this.dgvProductsName.Width = 130;
-            // 
-            // dgvProductsCategory
-            // 
-            this.dgvProductsCategory.HeaderText = "Category";
-            this.dgvProductsCategory.Name = "dgvProductsCategory";
-            this.dgvProductsCategory.ReadOnly = true;
-            this.dgvProductsCategory.Width = 90;
-            // 
-            // dgvProductsPrice
-            // 
-            this.dgvProductsPrice.HeaderText = "Price";
-            this.dgvProductsPrice.Name = "dgvProductsPrice";
-            this.dgvProductsPrice.ReadOnly = true;
-            this.dgvProductsPrice.Width = 90;
-            // 
-            // dgvProductsQuantity
-            // 
-            this.dgvProductsQuantity.HeaderText = "Qty";
-            this.dgvProductsQuantity.Name = "dgvProductsQuantity";
-            this.dgvProductsQuantity.ReadOnly = true;
-            this.dgvProductsQuantity.Width = 50;
-            // 
-            // dgvProductsSubtotal
-            // 
-            this.dgvProductsSubtotal.HeaderText = "Subtotal";
-            this.dgvProductsSubtotal.Name = "dgvProductsSubtotal";
-            this.dgvProductsSubtotal.ReadOnly = true;
-            this.dgvProductsSubtotal.Width = 90;
             // 
             // SalesOrderDetailsForm
             // 

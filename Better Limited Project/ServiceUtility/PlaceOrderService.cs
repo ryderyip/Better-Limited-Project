@@ -90,9 +90,9 @@ namespace Better_Limited_Project.ServiceUtility
                     sop.Save();
                 });
 
-            var reservationService = new ProductReservationService();
+            var reservationService = new ProductReservationService(_order);
             foreach (var salesOrderProduct in _salesOrderProduct)
-                reservationService.Reserve(salesOrderProduct.SalesOrderId, salesOrderProduct.ProductId, salesOrderProduct.Quantity);
+                reservationService.Reserve(salesOrderProduct.ProductId, salesOrderProduct.Quantity);
 
             SalesOrderPlaced?.Invoke(this, EventArgs.Empty);
         }

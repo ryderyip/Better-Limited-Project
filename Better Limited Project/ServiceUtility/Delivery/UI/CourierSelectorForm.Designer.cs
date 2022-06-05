@@ -35,6 +35,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             this.phoneColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblChooseCouriers = new System.Windows.Forms.Label();
             this.btnConfirm = new System.Windows.Forms.Button();
+            this.lblTips = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCouriers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,7 +48,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             this.idColumn,
             this.nameColumn,
             this.phoneColumn});
-            this.dgvCouriers.Location = new System.Drawing.Point(41, 69);
+            this.dgvCouriers.Location = new System.Drawing.Point(41, 105);
             this.dgvCouriers.Name = "dgvCouriers";
             this.dgvCouriers.ReadOnly = true;
             this.dgvCouriers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -90,7 +91,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             this.btnConfirm.BackColor = System.Drawing.Color.DarkOrange;
             this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirm.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnConfirm.Location = new System.Drawing.Point(131, 285);
+            this.btnConfirm.Location = new System.Drawing.Point(131, 321);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(133, 55);
             this.btnConfirm.TabIndex = 110;
@@ -98,11 +99,22 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             this.btnConfirm.UseVisualStyleBackColor = false;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
+            // lblTips
+            // 
+            this.lblTips.AutoSize = true;
+            this.lblTips.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTips.Location = new System.Drawing.Point(38, 86);
+            this.lblTips.Name = "lblTips";
+            this.lblTips.Size = new System.Drawing.Size(294, 16);
+            this.lblTips.TabIndex = 111;
+            this.lblTips.Text = "(Hold Ctrl + Click to select more than one courier)";
+            // 
             // CourierSelectorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(395, 363);
+            this.ClientSize = new System.Drawing.Size(395, 399);
+            this.Controls.Add(this.lblTips);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.lblChooseCouriers);
             this.Controls.Add(this.dgvCouriers);
@@ -122,5 +134,6 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn idColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn phoneColumn;
+        private System.Windows.Forms.Label lblTips;
     }
 }
