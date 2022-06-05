@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using Better_Limited_Project.ServiceUtility.Delivery.Controller;
 using Better_Limited_Project.ServiceUtility.Delivery.Repository;
 using Better_Limited_Project.Tools;
 
@@ -41,13 +42,26 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
 
         private void dtpDeliveryDate_ValueChanged(object sender, EventArgs e)
         {
-            var deliveriesOfSelectedDate = _deliveries.Where(d => d.ScheduledOn.Date == dtpDeliveryDate.Value.Date);
+            var deliveriesOfSelectedDate = GetDeliveriesOfSelectedDate();
             PopulateDgvDeliveries(deliveriesOfSelectedDate.ToList());
         }
 
+
         private void btnPrintDeliveryList_Click(object sender, EventArgs e)
         {
-            
+            var generator = new DeliveryListGenerator(GetDeliveriesOfSelectedDate());
+            generator.GenerateAndPrint();
+        }
+        
+        private void btnGenerateDeliveryList_Click(object sender, EventArgs e)
+        {
+            var generator = new DeliveryListGenerator(GetDeliveriesOfSelectedDate());
+            generator.GenerateAndOpen();
+        }
+        
+        private IEnumerable<Delivery> GetDeliveriesOfSelectedDate()
+        {
+            return _deliveries.Where(d => d.ScheduledOn.Date == dtpDeliveryDate.Value.Date);
         }
     }
 }

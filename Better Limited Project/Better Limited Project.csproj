@@ -488,12 +488,13 @@
       <DependentUpon>OctopusCardPaymentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ServiceUtility\CustomerRecordService.cs" />
-    <Compile Include="ServiceUtility\Delivery\Courier.cs" />
-    <Compile Include="ServiceUtility\Delivery\Delivery.cs" />
-    <Compile Include="ServiceUtility\Delivery\DeliveryCourier.cs" />
+    <Compile Include="ServiceUtility\Delivery\Controller\DeliveryListGenerator.cs" />
     <Compile Include="ServiceUtility\Delivery\DeliveryGoodsStatus.cs" />
-    <Compile Include="ServiceUtility\Delivery\DeliveryRequest.cs" />
     <Compile Include="ServiceUtility\Delivery\DeliveryService.cs" />
+    <Compile Include="ServiceUtility\Delivery\Entity\Courier.cs" />
+    <Compile Include="ServiceUtility\Delivery\Entity\Delivery.cs" />
+    <Compile Include="ServiceUtility\Delivery\Entity\DeliveryCourier.cs" />
+    <Compile Include="ServiceUtility\Delivery\Entity\DeliveryRequest.cs" />
     <Compile Include="ServiceUtility\Delivery\InstallationService.cs" />
     <Compile Include="ServiceUtility\Delivery\Repository\CourierRepository.cs" />
     <Compile Include="ServiceUtility\Delivery\Repository\DeliveryCourierRepository.cs" />

@@ -141,6 +141,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             this.btnGenerateDeliveryList.TabIndex = 115;
             this.btnGenerateDeliveryList.Text = "Generate Delivery List";
             this.btnGenerateDeliveryList.UseVisualStyleBackColor = false;
+            this.btnGenerateDeliveryList.Click += new System.EventHandler(this.btnGenerateDeliveryList_Click);
             // 
             // btnPrintDeliveryList
             // 
