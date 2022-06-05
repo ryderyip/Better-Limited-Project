@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using Better_Limited_Project.DocumentUtility;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.ProductUtility.Repository;
 using Better_Limited_Project.ProductUtility.SupplierUtility;
@@ -14,6 +16,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
         private const int MaximumDescriptionLength = 1200;
         private readonly List<Category> _categories;
         private readonly List<SupplierEntity> _suppliers;
+        private Image? _productImage;
 
         public NewProductForm()
         {
@@ -39,8 +42,8 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             string name = tbName.Text.Trim();
             decimal price = nudPrice.Value;
             string description = tbDescription.Text.Trim();
-            string selectedCategoryId = _categories[cbCategory.SelectedIndex].Id;
-            string selectedSupplierId = _suppliers[cbSupplier.SelectedIndex].Id;
+            var selectedCategory = _categories[cbCategory.SelectedIndex];
+            var selectedSupplier = _suppliers[cbSupplier.SelectedIndex];
             bool isPhasingOut = false;
 
             if (!IsAllFieldsFilled())
@@ -55,8 +58,11 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
                 return;
             }
 
-            ProductRepository.CreateNewProduct(name, price, description, isPhasingOut,
-                selectedCategoryId, selectedSupplierId);
+            var product = new Product(name, price, description, selectedSupplier, selectedCategory, isPhasingOut);
+            product.Save();
+            
+            if (_productImage != null)
+                product.AddImage(_productImage);
             
             ProductCreated?.Invoke(this, EventArgs.Empty);
             Close();
@@ -71,6 +77,15 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             return !string.IsNullOrWhiteSpace(name)
                    && price != decimal.Zero
                    && !string.IsNullOrWhiteSpace(description);
+        }
+
+        private void btnChooseImage_Click(object sender, EventArgs e)
+        {
+            string browserDescription = "Select a Product Image";
+            var path = ImageFileBrowser.Browse(browserDescription);
+            if (path == null) return;
+            _productImage = Image.FromFile(path);
+            tbImagePath.Text = path;
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Better_Limited_Project.ProductUtility.Entity
         public const decimal DepositPricePercentage = 0.2m;
         public const decimal DepositThreshold = 5000;
 
-        public string Id { get; }
+        public string Id { get; set; }
         public string Name { get; set; }
         public decimal OriginalPrice { get; set; }
         public string Description { get; set; }
@@ -33,6 +33,16 @@ namespace Better_Limited_Project.ProductUtility.Entity
             IsPhasingOut = isPhasingOut;
         }
 
+        public Product(string name, decimal originalPrice, string description, SupplierEntity supplierEntity, Category category, bool isPhasingOut)
+        {
+            Name = name;
+            OriginalPrice = originalPrice;
+            Description = description;
+            SupplierEntity = supplierEntity;
+            Category = category;
+            IsPhasingOut = isPhasingOut;
+        }
+
         public void Update()
         {
             ProductRepository.UpdateProduct(this);
@@ -42,6 +52,16 @@ namespace Better_Limited_Project.ProductUtility.Entity
         {
             return ProductImageRepository.GetByProductId(Id)
                 ?? Resources.no_image;
+        }
+
+        public void Save()
+        {
+            ProductRepository.CreateNewProduct(this);
+        }
+
+        public void AddImage(Image image)
+        {
+            ProductImageRepository.InsertOrUpdate(Id, image);
         }
     }
 }

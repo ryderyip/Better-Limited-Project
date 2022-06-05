@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Better_Limited_Project.DocumentUtility
@@ -20,6 +21,22 @@ namespace Better_Limited_Project.DocumentUtility
             if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(browserDialog.SelectedPath))
                 return browserDialog.SelectedPath;
             return string.Empty;
+        }
+    }
+
+    public static class ImageFileBrowser
+    {
+        /// <returns>Image Path</returns>
+        public static string? Browse(string browserTitle)
+        {
+            var dialog = new OpenFileDialog();
+            dialog.Title = browserTitle;
+            dialog.Multiselect = false;
+            dialog.CheckFileExists = true;
+            dialog.Filter = @"Images|*.jpg;*.jpeg;*.png";
+            return dialog.ShowDialog() == DialogResult.OK 
+                ? dialog.FileName
+                : null;
         }
     }
 }

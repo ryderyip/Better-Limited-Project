@@ -1,7 +1,7 @@
 ﻿using System.Data;
 using System.Drawing;
-using System.IO;
 using Better_Limited_Project.DatabaseUtility;
+using Better_Limited_Project.Tools;
 using MySql.Data.MySqlClient;
 
 namespace Better_Limited_Project.Sales.OrderPlacing.Repository
@@ -17,7 +17,19 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
             if (dataTable.Rows.Count == 0)
                 return null;
             var bytes = dataTable.Rows[0].Field<byte[]>("image");
-            return Image.FromStream(new MemoryStream(bytes));
+            var image = new ImageConverter().ConvertFrom(bytes);
+            return image != null ? (Bitmap) image : null;
+        }
+
+        public static void InsertOrUpdate(string productId, Image image)
+        {
+            var command = new MySqlCommand(
+                @"insert into product_image 
+                    set product_id = @productId, image = @image
+                    on duplicate key update image = @image;");
+            command.Parameters.AddWithValue("@productId", productId);
+            command.Parameters.AddWithValue("@image", ImageToBytesConverter.Convert(image));
+            DataTableRepository.ExecuteNonQuery(command);
         }
     }
 }

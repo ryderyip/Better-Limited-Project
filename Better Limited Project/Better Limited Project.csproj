@@ -675,6 +675,7 @@
     <Compile Include="StaffUtility\StaffProfile\ProfileForm.Designer.cs">
       <DependentUpon>ProfileForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tools\ImageToBytesConverter.cs" />
     <Compile Include="Tools\CommonInformationVerifier.cs" />
     <Compile Include="Tools\DeliveryStatusUpdater.cs" />
     <Compile Include="Tools\EnumToStringHelper.cs" />

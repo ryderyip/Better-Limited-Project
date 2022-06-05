@@ -52,28 +52,28 @@ namespace Better_Limited_Project.ProductUtility.Repository
             return product;
         }
 
-        public static void CreateNewProduct(string name, decimal price, string description,
-            bool isPhasingOut, string categoryId, string supplierId)
+        public static void CreateNewProduct(Product product)
         {
             var command = new MySqlCommand(@"insert into product (name, price, description, is_phasing_out, category_id, supplier_id)
                 values (@name, @price, @description, @isPhasingOut, @categoryId, @supplierId);
                 select last_insert_id() as id");
-            command.Parameters.AddWithValue("@name", name);
-            command.Parameters.AddWithValue("@price", price);
-            command.Parameters.AddWithValue("@description", description);
-            command.Parameters.AddWithValue("@isPhasingOut", isPhasingOut);
-            command.Parameters.AddWithValue("@categoryId", categoryId);
-            command.Parameters.AddWithValue("@supplierId", supplierId);
+            command.Parameters.AddWithValue("@name", product.Name);
+            command.Parameters.AddWithValue("@price", product.OriginalPrice);
+            command.Parameters.AddWithValue("@description", product.Description);
+            command.Parameters.AddWithValue("@isPhasingOut", product.IsPhasingOut);
+            command.Parameters.AddWithValue("@categoryId", product.Category.Id);
+            command.Parameters.AddWithValue("@supplierId", product.SupplierEntity.Id);
             var dataTable = DataTableRepository.RetrieveDataTable(command);
-            string newProductId = dataTable.Rows[0]["id"].ToString();
+            product.Id = dataTable.Rows[0]["id"].ToString();
             
             foreach (var retailStore in new RetailStoreRepository().GetRetailStores())
             {
-                command = new MySqlCommand(@"insert into retail_store_stock (product_id, retail_store_id, quantity)
-                    value (@productId, @retailStoreId, @quantity)");
-                command.Parameters.AddWithValue("@productId", newProductId);
+                command = new MySqlCommand(@"insert into retail_store_stock (product_id, retail_store_id, quantity, selling_price)
+                    value (@productId, @retailStoreId, @quantity, @sellingPrice)");
+                command.Parameters.AddWithValue("@productId", product.Id);
                 command.Parameters.AddWithValue("@retailStoreId", retailStore.Id);
                 command.Parameters.AddWithValue("@quantity", 0);
+                command.Parameters.AddWithValue("@sellingPrice", product.OriginalPrice);
                 DataTableRepository.ExecuteNonQuery(command);
             }
             
@@ -81,7 +81,7 @@ namespace Better_Limited_Project.ProductUtility.Repository
             {
                 command = new MySqlCommand(@"insert into warehouse_stock (product_id, warehouse_id, quantity)
                     value (@productId, @warehouse_id, @quantity)");
-                command.Parameters.AddWithValue("@productId", newProductId);
+                command.Parameters.AddWithValue("@productId", product.Id);
                 command.Parameters.AddWithValue("@warehouse_id", warehouse.Id);
                 command.Parameters.AddWithValue("@quantity", 0);
                 DataTableRepository.ExecuteNonQuery(command);
