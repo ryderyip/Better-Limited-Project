@@ -1,5 +1,8 @@
-﻿using Better_Limited_Project.ProductUtility.Repository;
+﻿using System.Drawing;
+using Better_Limited_Project.ProductUtility.Repository;
 using Better_Limited_Project.ProductUtility.SupplierUtility;
+using Better_Limited_Project.Properties;
+using Better_Limited_Project.Sales.OrderPlacing.Repository;
 
 namespace Better_Limited_Project.ProductUtility.Entity
 {
@@ -33,6 +36,12 @@ namespace Better_Limited_Project.ProductUtility.Entity
         public void Update()
         {
             ProductRepository.UpdateProduct(this);
+        }
+
+        public Image GetPicture()
+        {
+            return ProductImageRepository.GetByProductId(Id)
+                ?? Resources.no_image;
         }
     }
 }

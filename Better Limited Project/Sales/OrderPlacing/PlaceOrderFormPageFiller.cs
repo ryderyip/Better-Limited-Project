@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
+using System.Windows.Forms;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.SalesOrderPager;
 
@@ -24,8 +25,10 @@ namespace Better_Limited_Project.Sales.OrderPlacing
                 controlCollection.Name.Text = stock.Product.Name;
                 controlCollection.Price.Text = stock.SellingPrice.ToString("C", new CultureInfo("zh-HK"));
                 controlCollection.Quantity.Text = stock.Quantity.ToString();
+                controlCollection.Picture.SizeMode = PictureBoxSizeMode.StretchImage;
+                controlCollection.Picture.Image = stock.Product.GetPicture();
             }
-            HideProductControls(6-products.Count);
+            HideProductControls(_controlCollections.Count-products.Count);
         }
 
         private void ShowAllProductControls()
@@ -37,7 +40,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
         private void HideProductControls(int noOfControlsToHide)
         {
             for (int i = 0; i < noOfControlsToHide; i++)
-                _controlCollections[6-i-1].Panel.Visible = false;
+                _controlCollections[_controlCollections.Count-i-1].Panel.Visible = false;
         }
     }
 }

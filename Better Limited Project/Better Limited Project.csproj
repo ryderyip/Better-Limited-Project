@@ -403,7 +403,10 @@
     <Compile Include="Sales\OrderPlacing\EditSalesOrderForm.Designer.cs">
       <DependentUpon>EditSalesOrderForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sales\OrderPlacing\Entity\Cart.cs" />
+    <Compile Include="Sales\OrderPlacing\Entity\CartItem.cs" />
     <Compile Include="Sales\OrderPlacing\Entity\DeliveryStatus.cs" />
+    <Compile Include="Sales\OrderPlacing\Entity\ProductImage.cs" />
     <Compile Include="Sales\OrderPlacing\Entity\SalesOrderProductPaymentStatus.cs" />
     <Compile Include="Sales\OrderPlacing\Entity\SalesOrder.cs" />
     <Compile Include="Sales\OrderPlacing\Entity\SalesOrderProduct.cs" />
@@ -414,6 +417,7 @@
     <Compile Include="Sales\OrderPlacing\PlaceOrderForm.Designer.cs">
       <DependentUpon>PlaceOrderForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sales\OrderPlacing\Repository\ProductImageRepository.cs" />
     <Compile Include="Sales\OrderPlacing\Repository\SalesOrderProductPaymentRepository.cs" />
     <Compile Include="Sales\OrderPlacing\Repository\SalesOrderProductRepository.cs" />
     <Compile Include="Sales\OrderPlacing\Repository\ReservedSalesOrderProduct.cs" />
@@ -441,8 +445,6 @@
     <Compile Include="Sales\PaymentUtility\PaymentMethodSelectionForm.Designer.cs" />
     <Compile Include="Sales\PaymentUtility\PaymentReceiptGenerator.cs" />
     <Compile Include="Sales\PaymentUtility\PaymentStatus.cs" />
-    <Compile Include="Sales\OrderPlacing\Cart.cs" />
-    <Compile Include="Sales\OrderPlacing\CartItem.cs" />
     <Compile Include="Sales\OrderPlacing\FindCustomerRecordForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -896,6 +898,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\BL_Logo_Square.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\no_image.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
