@@ -21,6 +21,13 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
 
         private void btnManageDelivery_Click(object sender, EventArgs e)
         {
+            if (_salesOrder.GetSalesOrderProducts().Any(sop => !sop.IsOutOfStock))
+            {
+                MessageBox.Show("Currently you can only add a delivery to sales orders whose products are all " +
+                                "waiting for stock.");
+                return;
+            }
+            
             if (_salesOrder.Customer == null)
             {
                 var confirmResult = MessageBox.Show("To request for a delivery, customer's information is needed.\n" +

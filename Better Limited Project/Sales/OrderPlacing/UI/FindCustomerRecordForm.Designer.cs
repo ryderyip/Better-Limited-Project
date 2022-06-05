@@ -38,14 +38,13 @@
             this.address1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.address2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnNext = new System.Windows.Forms.Button();
-            this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomer)).BeginInit();
             this.SuspendLayout();
             // 
             // lblSearchKeywords
             // 
             this.lblSearchKeywords.AutoSize = true;
-            this.lblSearchKeywords.Location = new System.Drawing.Point(228, 191);
+            this.lblSearchKeywords.Location = new System.Drawing.Point(27, 81);
             this.lblSearchKeywords.Name = "lblSearchKeywords";
             this.lblSearchKeywords.Size = new System.Drawing.Size(283, 13);
             this.lblSearchKeywords.TabIndex = 6;
@@ -55,17 +54,17 @@
             // 
             this.lblRemind.AutoSize = true;
             this.lblRemind.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRemind.Location = new System.Drawing.Point(397, 41);
+            this.lblRemind.Location = new System.Drawing.Point(237, 21);
             this.lblRemind.Name = "lblRemind";
-            this.lblRemind.Size = new System.Drawing.Size(471, 26);
+            this.lblRemind.Size = new System.Drawing.Size(391, 26);
             this.lblRemind.TabIndex = 7;
-            this.lblRemind.Text = "Please Find and Select a Customer Record";
+            this.lblRemind.Text = "Find and Select a Customer Record";
             // 
             // txtSearchKeywords
             // 
-            this.txtSearchKeywords.Location = new System.Drawing.Point(231, 216);
+            this.txtSearchKeywords.Location = new System.Drawing.Point(30, 106);
             this.txtSearchKeywords.Name = "txtSearchKeywords";
-            this.txtSearchKeywords.Size = new System.Drawing.Size(207, 20);
+            this.txtSearchKeywords.Size = new System.Drawing.Size(280, 20);
             this.txtSearchKeywords.TabIndex = 8;
             // 
             // dgvCustomer
@@ -79,13 +78,13 @@
             this.email,
             this.address1,
             this.address2});
-            this.dgvCustomer.Location = new System.Drawing.Point(231, 268);
+            this.dgvCustomer.Location = new System.Drawing.Point(30, 144);
             this.dgvCustomer.MultiSelect = false;
             this.dgvCustomer.Name = "dgvCustomer";
             this.dgvCustomer.ReadOnly = true;
             this.dgvCustomer.RowTemplate.Height = 24;
             this.dgvCustomer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCustomer.Size = new System.Drawing.Size(803, 180);
+            this.dgvCustomer.Size = new System.Drawing.Size(803, 239);
             this.dgvCustomer.TabIndex = 9;
             // 
             // name
@@ -127,32 +126,19 @@
             this.btnNext.BackColor = System.Drawing.Color.DarkOrange;
             this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNext.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnNext.Location = new System.Drawing.Point(663, 502);
+            this.btnNext.Location = new System.Drawing.Point(379, 404);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(86, 36);
+            this.btnNext.Size = new System.Drawing.Size(107, 48);
             this.btnNext.TabIndex = 109;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = false;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Clicked);
             // 
-            // btnBack
-            // 
-            this.btnBack.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnBack.Location = new System.Drawing.Point(516, 502);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(86, 36);
-            this.btnBack.TabIndex = 110;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = false;
-            // 
             // FindCustomerRecordForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.Controls.Add(this.btnBack);
+            this.ClientSize = new System.Drawing.Size(864, 471);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.dgvCustomer);
             this.Controls.Add(this.txtSearchKeywords);
@@ -172,8 +158,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
         private System.Windows.Forms.DataGridViewTextBoxColumn address1;
         private System.Windows.Forms.DataGridViewTextBoxColumn address2;
-
-        public System.Windows.Forms.Button btnBack;
 
         public System.Windows.Forms.Button btnNext;
 

@@ -142,7 +142,9 @@
     <Compile Include="CustomerRecord\CreateCustomerRecordForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CustomerRecord\CreateCustomerRecordForm.Designer.cs" />
+    <Compile Include="CustomerRecord\CreateCustomerRecordForm.Designer.cs">
+      <DependentUpon>CreateCustomerRecordForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomerRecord\CustomerDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -706,7 +708,9 @@
     <Compile Include="Tools\UploadImageForm.Designer.cs">
       <DependentUpon>UploadImageForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CustomerRecord\CreateCustomerRecordForm.resx" />
+    <EmbeddedResource Include="CustomerRecord\CreateCustomerRecordForm.resx">
+      <DependentUpon>CreateCustomerRecordForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomerRecord\CustomerDetailsForm.resx">
       <DependentUpon>CustomerDetailsForm.cs</DependentUpon>
     </EmbeddedResource>

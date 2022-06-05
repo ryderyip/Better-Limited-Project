@@ -18,7 +18,7 @@ namespace Better_Limited_Project.CustomerRecord
             bool isValidInputs = ValidateInputsAndDisplayMessageIfInvalid();
             if (!isValidInputs)
                 return;
-            
+
             var customer = GetCustomer();
             customer.Save();
 
@@ -33,7 +33,7 @@ namespace Better_Limited_Project.CustomerRecord
                 MessageBox.Show("Please enter all required fields");
                 return false;
             }
-            
+
             if (!CommonInformationVerifier.IsValidPhoneNumber(txtCustPhoneNumber.Text))
             {
                 MessageBox.Show("Invalid phone number. Please enter an 8-digit Hong Kong phone number. E.g. 12345678.");
@@ -64,10 +64,10 @@ namespace Better_Limited_Project.CustomerRecord
             string address1 = txtAddress1.Text.Trim();
             string address2 = txtAddress2.Text.Trim();
             var address = new Address(address1, address2);
-            
+
             string name = txtCustName.Text.Trim();
             string phone = txtCustPhoneNumber.Text.Trim();
-            string? email = string.IsNullOrWhiteSpace(txtEmailAddress.Text) ? 
+            string? email = string.IsNullOrWhiteSpace(txtEmailAddress.Text) ?
                 null : txtEmailAddress.Text.ToLower().Trim();
 
             return new Customer(name, phone, address, email);

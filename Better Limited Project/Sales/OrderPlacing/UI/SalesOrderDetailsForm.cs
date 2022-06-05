@@ -74,7 +74,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
             decimal amountDue = calculator.GetTotalAmount() - calculator.GetAmountPaid();
             txtAmtDue.Text = amountDue.ToString("C", new CultureInfo("zh-HK"));
             txtAmtPaid.Text = calculator.GetAmountPaid().ToString("C", new CultureInfo("zh-HK"));
-            txtNeedDelivery.Text = _salesOrder.IsNeedDelivery() ? "Yes" : "No";
+            txtNeedDelivery.Text = _salesOrder.HasRequestedForDelivery() ? "Yes" : "No";
             txtNeedInstallation.Text = _salesOrder.IsNeedInstallation() ? "Yes" : "No";
             tbDeliveryStatus.Text = delivery == default
                     ? deliveryRequest == default ? "-" : "Delivery Request Not Confirmed"
@@ -130,10 +130,6 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
                 OrderUpdated?.Invoke(this, EventArgs.Empty);
             };
             form.ShowDialog();
-        }
-
-        private void btnViewDelivery_Click(object sender, EventArgs e)
-        {
         }
     }
 }

@@ -41,18 +41,19 @@
             this.lblAddress1 = new System.Windows.Forms.Label();
             this.btnCreate = new System.Windows.Forms.Button();
             this.txtCustPhoneNumber = new System.Windows.Forms.TextBox();
+            this.lblRemind = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtEmailAddress
             // 
-            this.txtEmailAddress.Location = new System.Drawing.Point(420, 408);
+            this.txtEmailAddress.Location = new System.Drawing.Point(44, 304);
             this.txtEmailAddress.Name = "txtEmailAddress";
             this.txtEmailAddress.Size = new System.Drawing.Size(214, 20);
             this.txtEmailAddress.TabIndex = 15;
             // 
             // txtCustName
             // 
-            this.txtCustName.Location = new System.Drawing.Point(420, 230);
+            this.txtCustName.Location = new System.Drawing.Point(44, 165);
             this.txtCustName.Name = "txtCustName";
             this.txtCustName.Size = new System.Drawing.Size(214, 20);
             this.txtCustName.TabIndex = 13;
@@ -60,8 +61,8 @@
             // lblEmailAddress
             // 
             this.lblEmailAddress.AutoSize = true;
-            this.lblEmailAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblEmailAddress.Location = new System.Drawing.Point(417, 373);
+            this.lblEmailAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmailAddress.Location = new System.Drawing.Point(41, 276);
             this.lblEmailAddress.Name = "lblEmailAddress";
             this.lblEmailAddress.Size = new System.Drawing.Size(157, 16);
             this.lblEmailAddress.TabIndex = 12;
@@ -70,8 +71,8 @@
             // lblCustPhoneNumber
             // 
             this.lblCustPhoneNumber.AutoSize = true;
-            this.lblCustPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblCustPhoneNumber.Location = new System.Drawing.Point(417, 285);
+            this.lblCustPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCustPhoneNumber.Location = new System.Drawing.Point(41, 205);
             this.lblCustPhoneNumber.Name = "lblCustPhoneNumber";
             this.lblCustPhoneNumber.Size = new System.Drawing.Size(98, 16);
             this.lblCustPhoneNumber.TabIndex = 11;
@@ -80,8 +81,8 @@
             // lblCustName
             // 
             this.lblCustName.AutoSize = true;
-            this.lblCustName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblCustName.Location = new System.Drawing.Point(417, 196);
+            this.lblCustName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCustName.Location = new System.Drawing.Point(41, 137);
             this.lblCustName.Name = "lblCustName";
             this.lblCustName.Size = new System.Drawing.Size(45, 16);
             this.lblCustName.TabIndex = 10;
@@ -90,8 +91,8 @@
             // lblCustomerInfo
             // 
             this.lblCustomerInfo.AutoSize = true;
-            this.lblCustomerInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblCustomerInfo.Location = new System.Drawing.Point(416, 145);
+            this.lblCustomerInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCustomerInfo.Location = new System.Drawing.Point(87, 96);
             this.lblCustomerInfo.Name = "lblCustomerInfo";
             this.lblCustomerInfo.Size = new System.Drawing.Size(123, 20);
             this.lblCustomerInfo.TabIndex = 9;
@@ -100,8 +101,8 @@
             // lblDeliveryInfo
             // 
             this.lblDeliveryInfo.AutoSize = true;
-            this.lblDeliveryInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblDeliveryInfo.Location = new System.Drawing.Point(736, 145);
+            this.lblDeliveryInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDeliveryInfo.Location = new System.Drawing.Point(367, 96);
             this.lblDeliveryInfo.Name = "lblDeliveryInfo";
             this.lblDeliveryInfo.Size = new System.Drawing.Size(109, 20);
             this.lblDeliveryInfo.TabIndex = 16;
@@ -109,23 +110,25 @@
             // 
             // txtAddress2
             // 
-            this.txtAddress2.Location = new System.Drawing.Point(740, 319);
+            this.txtAddress2.Location = new System.Drawing.Point(318, 274);
+            this.txtAddress2.Multiline = true;
             this.txtAddress2.Name = "txtAddress2";
-            this.txtAddress2.Size = new System.Drawing.Size(214, 20);
+            this.txtAddress2.Size = new System.Drawing.Size(214, 50);
             this.txtAddress2.TabIndex = 21;
             // 
             // txtAddress1
             // 
-            this.txtAddress1.Location = new System.Drawing.Point(740, 230);
+            this.txtAddress1.Location = new System.Drawing.Point(318, 165);
+            this.txtAddress1.Multiline = true;
             this.txtAddress1.Name = "txtAddress1";
-            this.txtAddress1.Size = new System.Drawing.Size(214, 20);
+            this.txtAddress1.Size = new System.Drawing.Size(214, 50);
             this.txtAddress1.TabIndex = 20;
             // 
             // lblAddress2
             // 
             this.lblAddress2.AutoSize = true;
-            this.lblAddress2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblAddress2.Location = new System.Drawing.Point(737, 285);
+            this.lblAddress2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddress2.Location = new System.Drawing.Point(315, 246);
             this.lblAddress2.Name = "lblAddress2";
             this.lblAddress2.Size = new System.Drawing.Size(69, 16);
             this.lblAddress2.TabIndex = 18;
@@ -134,8 +137,8 @@
             // lblAddress1
             // 
             this.lblAddress1.AutoSize = true;
-            this.lblAddress1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblAddress1.Location = new System.Drawing.Point(737, 196);
+            this.lblAddress1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddress1.Location = new System.Drawing.Point(315, 137);
             this.lblAddress1.Name = "lblAddress1";
             this.lblAddress1.Size = new System.Drawing.Size(69, 16);
             this.lblAddress1.TabIndex = 17;
@@ -144,11 +147,11 @@
             // btnCreate
             // 
             this.btnCreate.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreate.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnCreate.Location = new System.Drawing.Point(602, 490);
+            this.btnCreate.Location = new System.Drawing.Point(228, 363);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(168, 86);
+            this.btnCreate.Size = new System.Drawing.Size(118, 52);
             this.btnCreate.TabIndex = 107;
             this.btnCreate.Text = "Create";
             this.btnCreate.UseVisualStyleBackColor = false;
@@ -156,17 +159,28 @@
             // 
             // txtCustPhoneNumber
             // 
-            this.txtCustPhoneNumber.Location = new System.Drawing.Point(420, 319);
+            this.txtCustPhoneNumber.Location = new System.Drawing.Point(44, 233);
             this.txtCustPhoneNumber.Name = "txtCustPhoneNumber";
             this.txtCustPhoneNumber.Size = new System.Drawing.Size(214, 20);
             this.txtCustPhoneNumber.TabIndex = 14;
+            // 
+            // lblRemind
+            // 
+            this.lblRemind.AutoSize = true;
+            this.lblRemind.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRemind.Location = new System.Drawing.Point(149, 30);
+            this.lblRemind.Name = "lblRemind";
+            this.lblRemind.Size = new System.Drawing.Size(276, 26);
+            this.lblRemind.TabIndex = 108;
+            this.lblRemind.Text = "Create Customer Record";
             // 
             // CreateCustomerRecordForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.ClientSize = new System.Drawing.Size(574, 445);
+            this.Controls.Add(this.lblRemind);
             this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.txtAddress2);
             this.Controls.Add(this.txtAddress1);
@@ -184,6 +198,7 @@
             this.Name = "CreateCustomerRecordForm";
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         private System.Windows.Forms.Button btnCreate;
@@ -196,8 +211,8 @@
         private System.Windows.Forms.TextBox txtCustName;
         private System.Windows.Forms.TextBox txtAddress1;
         private System.Windows.Forms.TextBox txtAddress2;
-        
-        
+
+
         private System.Windows.Forms.Label lblEmailAddress;
         private System.Windows.Forms.Label lblCustPhoneNumber;
         private System.Windows.Forms.Label lblCustName;
@@ -206,5 +221,6 @@
         private System.Windows.Forms.Label lblAddress2;
         private System.Windows.Forms.Label lblAddress1;
         public System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Label lblRemind;
     }
 }

@@ -39,7 +39,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
             new SalesOrderRepository().InsertOrUpdate(this);
         }
 
-        public bool IsNeedDelivery()
+        public bool HasRequestedForDelivery()
         {
             return DeliveryRequestRepository.GetAll().Any(dr => dr.SalesOrderId == Id);
         }

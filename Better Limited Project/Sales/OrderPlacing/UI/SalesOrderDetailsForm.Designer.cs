@@ -325,10 +325,10 @@
             this.dgvProductsPrice,
             this.dgvProductsQuantity,
             this.dgvProductsSubtotal});
-            this.dgvProducts.Location = new System.Drawing.Point(269, 264);
+            this.dgvProducts.Location = new System.Drawing.Point(274, 264);
             this.dgvProducts.Name = "dgvProducts";
             this.dgvProducts.ReadOnly = true;
-            this.dgvProducts.Size = new System.Drawing.Size(491, 115);
+            this.dgvProducts.Size = new System.Drawing.Size(493, 115);
             this.dgvProducts.TabIndex = 109;
             // 
             // dgvProductsName
