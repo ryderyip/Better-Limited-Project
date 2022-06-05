@@ -12,7 +12,7 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
                 Department.Admin => new List<StaffTitle> 
                     {StaffTitle.Admin},
                 Department.Sales => new List<StaffTitle> 
-                    {StaffTitle.SalesRepresentative, StaffTitle.AccountingManager},
+                    {StaffTitle.SalesRepresentative, StaffTitle.SalesManager},
                 Department.Accounting => new List<StaffTitle>
                     {StaffTitle.AccountingClerk, StaffTitle.AccountingManager},
                 Department.Purchase => new List<StaffTitle> 

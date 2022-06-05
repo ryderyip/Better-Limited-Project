@@ -12,13 +12,12 @@ namespace Better_Limited_Project.Login
         }
 
         public string StaffId { get; }
-        public string Username { get; }
-        public string Password { get; }
+        public string Username { get; set; }
+        public string Password { get; set; }
 
         public void Save()
         {
-            if (StaffAccountRepository.GetAll().All(ac => ac.StaffId != StaffId))
-                StaffAccountRepository.CreateAccount(this);
+            StaffAccountRepository.InsertOrUpdate(this);
         }
 
         public void Remove()

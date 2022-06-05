@@ -19,12 +19,6 @@ namespace Better_Limited_Project.StaffUtility.StaffList
 
         private void btnApply_Click(object sender, EventArgs e)
         {
-            if (!IsOldPasswordCorrect())
-            {
-                MessageBox.Show("Wrong old password! Please retry!");
-                return;
-            }
-
             if (!IsPasswordValid())
             {
                 MessageBox.Show("New password does not meet requirement! " +
@@ -38,8 +32,8 @@ namespace Better_Limited_Project.StaffUtility.StaffList
                 return;
             }
 
-            string newPassword = tbNewPassword.Text;
-            StaffAccountRepository.UpdatePassword(_account.StaffId, newPassword);
+            _account.Password = tbNewPassword.Text;
+            _account.Save();
             Close();
         }
 
@@ -48,12 +42,6 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             string password = tbNewPassword.Text;
             var verifier = new StaffAccountCreationVerifier();
             return verifier.IsPasswordValid(password);
-        }
-
-        private bool IsOldPasswordCorrect()
-        {
-            string oldPassword = tbOldPassword.Text;
-            return _account.Password == oldPassword;
         }
 
         private bool DoesReEnteredPasswordMatch()

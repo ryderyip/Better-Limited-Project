@@ -12,22 +12,12 @@ namespace Better_Limited_Project.StaffUtility.StaffList
     {
         public event EventHandler? Updated;
         private Staff _staff;
-        private readonly string _staffLoginUsername;
 
         public StaffDetailsForm(string staffId)
         {
             _staff = new StaffRepository().FindById(staffId);
-            _staffLoginUsername = GetLoginUsername();
             Shown += (_, _) => FillAllFields();
             InitializeComponent();
-        }
-
-        private string GetLoginUsername()
-        {
-            return DoesCurrentStaffHaveAccount()
-                ? StaffAccountRepository.GetAll()
-                    .First(account => account.StaffId == _staff.Id).Username
-                : "(Current staff has no account)";
         }
 
         private bool DoesCurrentStaffHaveAccount()
@@ -45,12 +35,12 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             tbHiredOn.Text = _staff.HiredOn.ToShortDateString();
             tbTitle.Text = new StaffTitleMapper().Map(_staff.Title);
             tbDepartment.Text = DepartmentMapper.Map(_staff.Department);
-            tbUsername.Text = _staffLoginUsername;
+            tbUsername.Text = _staff.GetLoginAccount().Username;
             pbImage.Image = _staff.GetImage();
 
             if (_staff.Id == LoginSession.GetSession().CurrentStaff.Id)
                 btnRemove.Visible = false;
-        }
+        }   
 
         private void RefreshAllFields()
         {
@@ -63,6 +53,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             var form = new UpdateStaffDetailsForm(_staff);
             form.StartPosition = FormStartPosition.CenterScreen;
             form.Updated += OnStaffInfoUpdated;
+            form.Updated += (_, _) => RefreshAllFields();
             form.ShowDialog();
         }
 
@@ -97,6 +88,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             }
 
             var form = new ChangePasswordForm(_staff.Id);
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.ShowDialog();
         }
 

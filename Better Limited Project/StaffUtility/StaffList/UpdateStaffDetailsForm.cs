@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Better_Limited_Project.Login;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 using Better_Limited_Project.StaffUtility.StaffEntity.Gender;
 
@@ -8,16 +9,33 @@ namespace Better_Limited_Project.StaffUtility.StaffList
     public partial class UpdateStaffDetailsForm : Form
     {
         private readonly Staff _staff;
+        private readonly StaffAccount _account;
         public event EventHandler? Updated;
         
         public UpdateStaffDetailsForm(Staff staff)
         {
             _staff = staff;
+            _account = _staff.GetLoginAccount();
             InitializeComponent();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            string username = tbAccountUsername.Text.Trim();
+            var verifier = new StaffAccountCreationVerifier();
+            if (!verifier.IsUsernameValid(username))
+            {
+                MessageBox.Show($"Username {username} is not valid." +
+                                $"Usernames must only consist of alphanumeric characters and/or underscores.");
+                return;
+            }
+
+            if (username != _account.Username && !verifier.IsUsernameUnique(username))
+            {
+                MessageBox.Show($"Username {username} has been used. Please choose another one.");
+                return;
+            }
+            
             string name = tbName.Text.Trim();
             IGender gender = rbGenderMale.Checked ? new Male()
                 : rbGenderFemale.Checked ? new Female()
@@ -29,7 +47,10 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             _staff.Gender = gender;
             _staff.DateOfBirth = dob;
             _staff.Title = title;
-            _staff.Save();    
+            _staff.Save();
+
+            _account.Username = username;
+            _account.Save();
             
             Updated?.Invoke(this, EventArgs.Empty);
             Close();
@@ -45,6 +66,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             var titles = DepartmentStaffTitleMatchingHelper.GetTitlesUnderDepartment(_staff.Department);
             titles.ForEach(title => cbTitle.Items.Add(new StaffTitleMapper().Map(title)));
             cbTitle.SelectedIndex = titles.IndexOf(_staff.Title);
+            tbAccountUsername.Text = _account.Username;
         }
 
         private void ToggleGenderRadioButtonWithCurrentGender()
