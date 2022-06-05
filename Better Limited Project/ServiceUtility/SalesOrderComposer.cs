@@ -4,6 +4,7 @@ using Better_Limited_Project.Login;
 using Better_Limited_Project.Sales.OrderPlacing;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.SettingsUtility;
+using Better_Limited_Project.StaffUtility.Repository;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.ServiceUtility

@@ -341,7 +341,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             this.btnUpdateImage.Name = "btnUpdateImage";
             this.btnUpdateImage.Size = new System.Drawing.Size(156, 54);
             this.btnUpdateImage.TabIndex = 169;
-            this.btnUpdateImage.Text = "Update Image";
+            this.btnUpdateImage.Text = "Upload Image";
             this.btnUpdateImage.UseVisualStyleBackColor = false;
             this.btnUpdateImage.Click += new System.EventHandler(this.btnUpdateImage_Click);
             // 

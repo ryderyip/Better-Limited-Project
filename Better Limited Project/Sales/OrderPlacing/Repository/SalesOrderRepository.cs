@@ -6,6 +6,7 @@ using Better_Limited_Project.CustomerRecord;
 using Better_Limited_Project.DatabaseUtility;
 using Better_Limited_Project.Login;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
+using Better_Limited_Project.StaffUtility.Repository;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 using MySql.Data.MySqlClient;
 

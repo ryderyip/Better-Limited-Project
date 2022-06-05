@@ -4,7 +4,7 @@ using System.Linq;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.ProductUtility.Repository;
 
-namespace Better_Limited_Project.Sales.OrderPlacing
+namespace Better_Limited_Project.Sales.OrderPlacing.Entity
 {
     public class Cart // TODO redesign this
     {

@@ -10,6 +10,7 @@ using Better_Limited_Project.ProductUtility.ProductList.PermissionManagement;
 using Better_Limited_Project.ProductUtility.Repository;
 using Better_Limited_Project.ProductUtility.Restocking;
 using Better_Limited_Project.SettingsUtility;
+using Better_Limited_Project.StaffUtility.Repository;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.ProductUtility.ProductList.Forms

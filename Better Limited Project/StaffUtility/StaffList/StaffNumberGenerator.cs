@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Better_Limited_Project.StaffUtility.Repository;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.StaffUtility.StaffList
 {
-    public class StaffIdGenerator
+    public class StaffNumberGenerator
     {
         private readonly List<Staff> _staffs;
 
-        public StaffIdGenerator()
+        public StaffNumberGenerator()
         {
             _staffs = new StaffRepository().GetAll().ToList();
         }

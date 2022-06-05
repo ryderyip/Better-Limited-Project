@@ -58,5 +58,13 @@ namespace Better_Limited_Project.Login
             command.Parameters.AddWithValue("@newPassword", newPassword);
             DataTableRepository.ExecuteNonQuery(command);
         }
+
+        public static void Delete(StaffAccount staffAccount)
+        {
+            var command = new MySqlCommand(
+                "delete from staff_account where staff_id = @staffId");
+            command.Parameters.AddWithValue("@staffId", staffAccount.StaffId);
+            DataTableRepository.ExecuteNonQuery(command);
+        }
     }
 }

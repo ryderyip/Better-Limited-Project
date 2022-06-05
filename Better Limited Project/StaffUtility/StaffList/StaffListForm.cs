@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using Better_Limited_Project.StaffUtility.Repository;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 using Better_Limited_Project.Tools;
 

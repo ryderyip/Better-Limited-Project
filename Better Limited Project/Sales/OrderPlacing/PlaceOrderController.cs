@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using Better_Limited_Project.CustomerRecord;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.ProductUtility.Repository;
+using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.ServiceUtility;
 using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.Tools;

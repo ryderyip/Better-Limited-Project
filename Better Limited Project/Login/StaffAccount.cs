@@ -20,5 +20,10 @@ namespace Better_Limited_Project.Login
             if (StaffAccountRepository.GetAll().All(ac => ac.StaffId != StaffId))
                 StaffAccountRepository.CreateAccount(this);
         }
+
+        public void Remove()
+        {
+            StaffAccountRepository.Delete(this);
+        }
     }
 }

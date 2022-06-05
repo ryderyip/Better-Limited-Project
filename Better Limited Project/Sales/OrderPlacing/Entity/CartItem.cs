@@ -1,6 +1,6 @@
 ﻿using Better_Limited_Project.ProductUtility.Entity;
 
-namespace Better_Limited_Project.Sales.OrderPlacing
+namespace Better_Limited_Project.Sales.OrderPlacing.Entity
 {
     public class CartItem
     {

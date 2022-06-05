@@ -1,7 +1,7 @@
 ﻿
-namespace Better_Limited_Project.ProductUtility.ProductList.Forms
+namespace Better_Limited_Project.Tools
 {
-    partial class UpdateProductImageForm
+    partial class UploadImageForm
     {
         /// <summary>
         /// Required designer variable.
@@ -63,11 +63,11 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // 
             this.lblHeader.AutoSize = true;
             this.lblHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeader.Location = new System.Drawing.Point(106, 26);
+            this.lblHeader.Location = new System.Drawing.Point(151, 26);
             this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(250, 26);
+            this.lblHeader.Size = new System.Drawing.Size(160, 26);
             this.lblHeader.TabIndex = 177;
-            this.lblHeader.Text = "Update Product Image";
+            this.lblHeader.Text = "Upload Image";
             this.lblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblPath
@@ -82,6 +82,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // 
             // pbImage
             // 
+            this.pbImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbImage.Location = new System.Drawing.Point(158, 77);
             this.pbImage.Name = "pbImage";
             this.pbImage.Size = new System.Drawing.Size(141, 141);
@@ -101,7 +102,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             this.btnSubmit.UseVisualStyleBackColor = false;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
-            // UpdateProductImageForm
+            // UploadImageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -112,8 +113,8 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             this.Controls.Add(this.pbImage);
             this.Controls.Add(this.tbFilePath);
             this.Controls.Add(this.btnChooseImage);
-            this.Name = "UpdateProductImageForm";
-            this.Text = "UpdateProductImageForm";
+            this.Name = "UploadImageForm";
+            this.Text = "Upload Image";
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

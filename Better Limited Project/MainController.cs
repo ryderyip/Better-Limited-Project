@@ -5,6 +5,7 @@ using Better_Limited_Project.Login;
 using Better_Limited_Project.Navigation;
 using Better_Limited_Project.Navigation.UI;
 using Better_Limited_Project.Procedure;
+using Better_Limited_Project.StaffUtility.Repository;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 using Better_Limited_Project.StaffUtility.StaffProfile;
 using Better_Limited_Project.Tools;

@@ -6,6 +6,7 @@ using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.ProductUtility.ProductList.PermissionManagement;
 using Better_Limited_Project.ProductUtility.Repository;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;
+using Better_Limited_Project.Tools;
 
 namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 {
@@ -99,10 +100,15 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 
         private void btnUpdateImage_Click(object sender, EventArgs e)
         {
-            var form = new UpdateProductImageForm(_stock.Product);
+            var form = new UploadImageForm(_stock.Product.GetImage());
             form.StartPosition = FormStartPosition.CenterScreen;
-            form.ProductUpdated += (_, _) => RefreshProductInfo();
-            form.ProductUpdated += (_, _) => ProductUpdated?.Invoke(this, e);
+            form.Uploaded += (_, image) =>
+            {
+                if (image == null)
+                    return;
+                _stock.Product.SetImage(image);
+                RefreshProductInfo();
+            };
             form.ShowDialog();
         }
     }

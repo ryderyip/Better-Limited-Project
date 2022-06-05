@@ -274,12 +274,6 @@
     <Compile Include="ProductUtility\ProductList\Forms\UpdateProductAdminForm.Designer.cs">
       <DependentUpon>UpdateProductAdminForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProductUtility\ProductList\Forms\UpdateProductImageForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProductUtility\ProductList\Forms\UpdateProductImageForm.Designer.cs">
-      <DependentUpon>UpdateProductImageForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="ProductUtility\ProductList\PermissionManagement\ProductPermissionManager.cs" />
     <Compile Include="ProductUtility\Reordering\ReorderRequest.cs" />
     <Compile Include="ProductUtility\Reordering\ReorderRequestProduct.cs" />
@@ -616,10 +610,16 @@
     <Compile Include="SettingsUtility\UserSettingsDirectory.cs" />
     <Compile Include="SettingsUtility\UserSettingsLoader.cs" />
     <Compile Include="SettingsUtility\UserSettingsSaver.cs" />
+    <Compile Include="StaffUtility\Repository\DepartmentRepository.cs" />
+    <Compile Include="StaffUtility\Repository\RetailStoreRepository.cs" />
+    <Compile Include="StaffUtility\Repository\StaffImageRepository.cs" />
+    <Compile Include="StaffUtility\Repository\StaffRepository.cs" />
+    <Compile Include="StaffUtility\Repository\StaffTitleRepository.cs" />
+    <Compile Include="StaffUtility\Repository\WarehouseRepository.cs" />
+    <Compile Include="StaffUtility\Repository\WorkplaceRepository.cs" />
     <Compile Include="StaffUtility\StaffEntity\DateTimePickerHelper.cs" />
     <Compile Include="StaffUtility\StaffEntity\DepartmentMapper.cs" />
     <Compile Include="StaffUtility\StaffEntity\Department.cs" />
-    <Compile Include="StaffUtility\StaffEntity\DepartmentRepository.cs" />
     <Compile Include="StaffUtility\StaffEntity\DepartmentStaffTitleMatchingHelper.cs" />
     <Compile Include="StaffUtility\StaffEntity\Gender\Female.cs" />
     <Compile Include="StaffUtility\StaffEntity\Gender\GenderConverter.cs" />
@@ -627,16 +627,11 @@
     <Compile Include="StaffUtility\StaffEntity\Gender\Male.cs" />
     <Compile Include="StaffUtility\StaffEntity\Gender\NonBinary.cs" />
     <Compile Include="StaffUtility\StaffEntity\RetailStore.cs" />
-    <Compile Include="StaffUtility\StaffEntity\RetailStoreRepository.cs" />
     <Compile Include="StaffUtility\StaffEntity\Staff.cs" />
-    <Compile Include="StaffUtility\StaffEntity\StaffRepository.cs" />
     <Compile Include="StaffUtility\StaffEntity\StaffTitle.cs" />
     <Compile Include="StaffUtility\StaffEntity\StaffTitleMapper.cs" />
-    <Compile Include="StaffUtility\StaffEntity\StaffTitleRepository.cs" />
     <Compile Include="StaffUtility\StaffEntity\Warehouse.cs" />
-    <Compile Include="StaffUtility\StaffEntity\WarehouseRepository.cs" />
     <Compile Include="StaffUtility\StaffEntity\Workplace.cs" />
-    <Compile Include="StaffUtility\StaffEntity\WorkplaceRepository.cs" />
     <Compile Include="StaffUtility\StaffList\ChangePasswordForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -661,7 +656,7 @@
     <Compile Include="StaffUtility\StaffList\StaffDetailsForm.Designer.cs">
       <DependentUpon>StaffDetailsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="StaffUtility\StaffList\StaffIdGenerator.cs" />
+    <Compile Include="StaffUtility\StaffList\StaffNumberGenerator.cs" />
     <Compile Include="StaffUtility\StaffList\StaffListForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -681,6 +676,8 @@
     <Compile Include="StaffUtility\StaffProfile\ProfileForm.Designer.cs">
       <DependentUpon>ProfileForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tools\FileSizeChecker.cs" />
+    <Compile Include="Tools\ImageRetriever.cs" />
     <Compile Include="Tools\ImageToBytesConverter.cs" />
     <Compile Include="Tools\CommonInformationVerifier.cs" />
     <Compile Include="Tools\DeliveryStatusUpdater.cs" />
@@ -697,6 +694,12 @@
     <Compile Include="Tools\Pager.cs" />
     <Compile Include="Tools\SystemInitialization.cs" />
     <Compile Include="Tools\ToolTipGenerator.cs" />
+    <Compile Include="Tools\UploadImageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools\UploadImageForm.Designer.cs">
+      <DependentUpon>UploadImageForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CustomerRecord\CreateCustomerRecordForm.resx" />
     <EmbeddedResource Include="CustomerRecord\CustomerDetailsForm.resx">
       <DependentUpon>CustomerDetailsForm.cs</DependentUpon>
@@ -766,9 +769,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ProductUtility\ProductList\Forms\UpdateProductForm.resx">
       <DependentUpon>UpdateProductForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ProductUtility\ProductList\Forms\UpdateProductImageForm.resx">
-      <DependentUpon>UpdateProductImageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductUtility\ProductList\Forms\UpdateSellingPriceForm.resx" />
     <EmbeddedResource Include="ProductUtility\PurchaseOrder\PurchaseOrderDetailsForm.resx" />
@@ -885,6 +885,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Tools\PopUpForm.resx">
       <DependentUpon>PopUpForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\UploadImageForm.resx">
+      <DependentUpon>UploadImageForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

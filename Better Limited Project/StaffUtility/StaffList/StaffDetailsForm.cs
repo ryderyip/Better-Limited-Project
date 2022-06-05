@@ -2,7 +2,9 @@
 using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.Login;
+using Better_Limited_Project.StaffUtility.Repository;
 using Better_Limited_Project.StaffUtility.StaffEntity;
+using Better_Limited_Project.Tools;
 
 namespace Better_Limited_Project.StaffUtility.StaffList
 {
@@ -44,6 +46,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             tbTitle.Text = new StaffTitleMapper().Map(_staff.Title);
             tbDepartment.Text = DepartmentMapper.Map(_staff.Department);
             tbUsername.Text = _staffLoginUsername;
+            pbImage.Image = _staff.GetImage();
 
             if (_staff.Id == LoginSession.GetSession().CurrentStaff.Id)
                 btnRemove.Visible = false;
@@ -79,15 +82,10 @@ namespace Better_Limited_Project.StaffUtility.StaffList
 
         private void RemoveStaff()
         {
-            var form = new ConfirmRemovalForm();
-            form.StartPosition = FormStartPosition.CenterScreen;
-            form.Confirmed += (_, _) =>
-            {
-                new StaffRepository().RemoveStaff(_staff.Id);
-                Updated?.Invoke(this, EventArgs.Empty);
-                Close();
-            };
-            form.ShowDialog();
+            _staff.GetLoginAccount().Remove();
+            _staff.Remove();
+            Updated?.Invoke(this, EventArgs.Empty);
+            Close();
         }
 
         private void btnChangePassword_Click(object sender, EventArgs e)
@@ -99,6 +97,19 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             }
 
             var form = new ChangePasswordForm(_staff.Id);
+            form.ShowDialog();
+        }
+
+        private void btnUpdateImage_Click(object sender, EventArgs e)
+        {
+            var form = new UploadImageForm(_staff.GetImage());
+            form.Uploaded += (_, image) =>
+            {
+                if (image == null) return;
+                _staff.SetImage(image);
+                RefreshAllFields();
+            };
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.ShowDialog();
         }
     }

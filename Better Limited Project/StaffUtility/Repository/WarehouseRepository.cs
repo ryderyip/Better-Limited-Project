@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using Better_Limited_Project.DatabaseUtility;
+using Better_Limited_Project.StaffUtility.StaffEntity;
 using MySql.Data.MySqlClient;
 
-namespace Better_Limited_Project.StaffUtility.StaffEntity
+namespace Better_Limited_Project.StaffUtility.Repository
 {
     public static class WarehouseRepository
     {

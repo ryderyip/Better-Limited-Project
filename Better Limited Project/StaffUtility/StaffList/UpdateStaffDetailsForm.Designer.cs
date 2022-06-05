@@ -42,12 +42,16 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             this.lblDateOfBirth = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.lblBigText = new System.Windows.Forms.Label();
+            this.tbAccountUsername = new System.Windows.Forms.TextBox();
+            this.lblAccountUsername = new System.Windows.Forms.Label();
+            this.lblDepartment = new System.Windows.Forms.Label();
+            this.cbDepartment = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // rbGenderNonbinary
             // 
             this.rbGenderNonbinary.AutoSize = true;
-            this.rbGenderNonbinary.Location = new System.Drawing.Point(334, 192);
+            this.rbGenderNonbinary.Location = new System.Drawing.Point(343, 149);
             this.rbGenderNonbinary.Name = "rbGenderNonbinary";
             this.rbGenderNonbinary.Size = new System.Drawing.Size(77, 17);
             this.rbGenderNonbinary.TabIndex = 831;
@@ -58,7 +62,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             // rbGenderFemale
             // 
             this.rbGenderFemale.AutoSize = true;
-            this.rbGenderFemale.Location = new System.Drawing.Point(269, 192);
+            this.rbGenderFemale.Location = new System.Drawing.Point(278, 149);
             this.rbGenderFemale.Name = "rbGenderFemale";
             this.rbGenderFemale.Size = new System.Drawing.Size(59, 17);
             this.rbGenderFemale.TabIndex = 830;
@@ -69,7 +73,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             // rbGenderMale
             // 
             this.rbGenderMale.AutoSize = true;
-            this.rbGenderMale.Location = new System.Drawing.Point(215, 192);
+            this.rbGenderMale.Location = new System.Drawing.Point(224, 149);
             this.rbGenderMale.Name = "rbGenderMale";
             this.rbGenderMale.Size = new System.Drawing.Size(48, 17);
             this.rbGenderMale.TabIndex = 829;
@@ -79,7 +83,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             // 
             // dtpDateOfBirth
             // 
-            this.dtpDateOfBirth.Location = new System.Drawing.Point(215, 231);
+            this.dtpDateOfBirth.Location = new System.Drawing.Point(224, 188);
             this.dtpDateOfBirth.Name = "dtpDateOfBirth";
             this.dtpDateOfBirth.Size = new System.Drawing.Size(200, 20);
             this.dtpDateOfBirth.TabIndex = 832;
@@ -98,7 +102,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(176, 277);
+            this.lblTitle.Location = new System.Drawing.Point(185, 264);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(33, 15);
             this.lblTitle.TabIndex = 843;
@@ -108,7 +112,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             // 
             this.cbTitle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTitle.FormattingEnabled = true;
-            this.cbTitle.Location = new System.Drawing.Point(215, 276);
+            this.cbTitle.Location = new System.Drawing.Point(224, 263);
             this.cbTitle.Name = "cbTitle";
             this.cbTitle.Size = new System.Drawing.Size(120, 21);
             this.cbTitle.TabIndex = 834;
@@ -117,7 +121,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             // 
             this.lblGender.AutoSize = true;
             this.lblGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGender.Location = new System.Drawing.Point(158, 192);
+            this.lblGender.Location = new System.Drawing.Point(167, 149);
             this.lblGender.Name = "lblGender";
             this.lblGender.Size = new System.Drawing.Size(51, 15);
             this.lblGender.TabIndex = 841;
@@ -125,7 +129,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(215, 149);
+            this.tbName.Location = new System.Drawing.Point(224, 106);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(120, 20);
             this.tbName.TabIndex = 828;
@@ -134,7 +138,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             // 
             this.lblStaffName.AutoSize = true;
             this.lblStaffName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStaffName.Location = new System.Drawing.Point(138, 150);
+            this.lblStaffName.Location = new System.Drawing.Point(147, 107);
             this.lblStaffName.Name = "lblStaffName";
             this.lblStaffName.Size = new System.Drawing.Size(71, 15);
             this.lblStaffName.TabIndex = 840;
@@ -144,7 +148,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             // 
             this.lblDateOfBirth.AutoSize = true;
             this.lblDateOfBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDateOfBirth.Location = new System.Drawing.Point(132, 231);
+            this.lblDateOfBirth.Location = new System.Drawing.Point(141, 188);
             this.lblDateOfBirth.Name = "lblDateOfBirth";
             this.lblDateOfBirth.Size = new System.Drawing.Size(77, 15);
             this.lblDateOfBirth.TabIndex = 839;
@@ -167,17 +171,57 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             // 
             this.lblBigText.AutoSize = true;
             this.lblBigText.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBigText.Location = new System.Drawing.Point(203, 31);
+            this.lblBigText.Location = new System.Drawing.Point(137, 31);
             this.lblBigText.Name = "lblBigText";
-            this.lblBigText.Size = new System.Drawing.Size(116, 26);
+            this.lblBigText.Size = new System.Drawing.Size(272, 26);
             this.lblBigText.TabIndex = 838;
-            this.lblBigText.Text = "New Staff";
+            this.lblBigText.Text = "Update Staff Information";
+            // 
+            // tbAccountUsername
+            // 
+            this.tbAccountUsername.Location = new System.Drawing.Point(224, 302);
+            this.tbAccountUsername.Name = "tbAccountUsername";
+            this.tbAccountUsername.Size = new System.Drawing.Size(120, 20);
+            this.tbAccountUsername.TabIndex = 846;
+            // 
+            // lblAccountUsername
+            // 
+            this.lblAccountUsername.AutoSize = true;
+            this.lblAccountUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAccountUsername.Location = new System.Drawing.Point(70, 303);
+            this.lblAccountUsername.Name = "lblAccountUsername";
+            this.lblAccountUsername.Size = new System.Drawing.Size(148, 15);
+            this.lblAccountUsername.TabIndex = 847;
+            this.lblAccountUsername.Text = "Login Account Username:";
+            // 
+            // lblDepartment
+            // 
+            this.lblDepartment.AutoSize = true;
+            this.lblDepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDepartment.Location = new System.Drawing.Point(147, 227);
+            this.lblDepartment.Name = "lblDepartment";
+            this.lblDepartment.Size = new System.Drawing.Size(75, 15);
+            this.lblDepartment.TabIndex = 849;
+            this.lblDepartment.Text = "Department:";
+            // 
+            // cbDepartment
+            // 
+            this.cbDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDepartment.FormattingEnabled = true;
+            this.cbDepartment.Location = new System.Drawing.Point(224, 226);
+            this.cbDepartment.Name = "cbDepartment";
+            this.cbDepartment.Size = new System.Drawing.Size(120, 21);
+            this.cbDepartment.TabIndex = 848;
             // 
             // UpdateStaffDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(547, 450);
+            this.Controls.Add(this.lblDepartment);
+            this.Controls.Add(this.cbDepartment);
+            this.Controls.Add(this.tbAccountUsername);
+            this.Controls.Add(this.lblAccountUsername);
             this.Controls.Add(this.rbGenderNonbinary);
             this.Controls.Add(this.rbGenderFemale);
             this.Controls.Add(this.rbGenderMale);
@@ -213,5 +257,9 @@ namespace Better_Limited_Project.StaffUtility.StaffList
         private System.Windows.Forms.Label lblDateOfBirth;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Label lblBigText;
+        private System.Windows.Forms.TextBox tbAccountUsername;
+        private System.Windows.Forms.Label lblAccountUsername;
+        private System.Windows.Forms.Label lblDepartment;
+        private System.Windows.Forms.ComboBox cbDepartment;
     }
 }

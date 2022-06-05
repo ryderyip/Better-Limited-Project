@@ -2,6 +2,7 @@
 using System;
 using System.Linq;
 using Better_Limited_Project.Login;
+using Better_Limited_Project.StaffUtility.Repository;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.SettingsUtility

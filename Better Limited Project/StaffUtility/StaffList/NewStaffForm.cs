@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using Better_Limited_Project.DocumentUtility;
 using Better_Limited_Project.Login;
+using Better_Limited_Project.StaffUtility.Repository;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 using Better_Limited_Project.StaffUtility.StaffEntity.Gender;
+using Better_Limited_Project.Tools;
 
 namespace Better_Limited_Project.StaffUtility.StaffList
 {
@@ -94,20 +98,16 @@ namespace Better_Limited_Project.StaffUtility.StaffList
                 : throw new InvalidOperationException("No gender is selected.");
             DateTime dob = dtpDateOfBirth.Value;
 
-            var staff = new Staff
-            {
-                Id = new StaffIdGenerator().Generate(selectedDepartment),
-                Name = name,
-                DateOfBirth = dob,
-                Gender = gender,
-                Department = selectedDepartment,
-                Title = selectedTitle,
-                HiredOn = DateTime.Now
-            };
+            var staff = new Staff(name, dob, DateTime.Now, gender, selectedDepartment, selectedTitle);
             staff.Save();
 
             var staffAccount = new StaffAccount(staff.Id, username, password);
             staffAccount.Save();
+
+            var image = pbImage.Image;
+            if (image != null)
+                StaffImageRepository.InsertOrUpdate(staff, image);
+            
             StaffAdded?.Invoke(this, EventArgs.Empty);
             Close();
         }
@@ -139,6 +139,24 @@ namespace Better_Limited_Project.StaffUtility.StaffList
         private bool HasSelectedGender()
         {
             return rbGenderMale.Checked || rbGenderFemale.Checked || rbGenderNonbinary.Checked;
+        }
+
+        private void btnChooseImage_Click(object sender, EventArgs e)
+        {
+            string browserDescription = "Select a Product Image";
+            var path = ImageFileBrowser.Browse(browserDescription);
+            if (path == null) return;
+            
+            tbStaffImagePath.Text = path;
+            var image = ImageRetriever.Retrieve(path);
+            if (image != null)
+                pbImage.Image = image;
+        }
+
+        private void btnRemoveImage_Click(object sender, EventArgs e)
+        {
+            pbImage.Image = null;
+            tbStaffImagePath.Text = string.Empty;
         }
     }
 }
