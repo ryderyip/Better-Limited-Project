@@ -1,5 +1,5 @@
 ﻿
-namespace Better_Limited_Project.Sales.OrderPlacing
+namespace Better_Limited_Project.Sales.OrderPlacing.UI
 {
     partial class IsFirstTimeCustomerSelectionForm
     {

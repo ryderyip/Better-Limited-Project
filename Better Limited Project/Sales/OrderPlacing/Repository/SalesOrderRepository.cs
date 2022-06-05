@@ -7,7 +7,6 @@ using Better_Limited_Project.DatabaseUtility;
 using Better_Limited_Project.Login;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.StaffUtility.Repository;
-using Better_Limited_Project.StaffUtility.StaffEntity;
 using MySql.Data.MySqlClient;
 
 namespace Better_Limited_Project.Sales.OrderPlacing.Repository
@@ -25,7 +24,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
             var command = new MySqlCommand(
                 @"select id, sales_order_number, customer_id, retail_store_id, created_by_staff_id, created_on from sales_order;");
             var dataTable = DataTableRepository.RetrieveDataTable(command);
-            var salesOrders = from DataRow row
+            return from DataRow row
                     in dataTable.Rows
                 let id = row.Field<int>("id").ToString()
                 let orderNumber = row.Field<string>("sales_order_number")
@@ -39,10 +38,6 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
                         : null,
                     CreatedOn = row.Field<DateTime>("created_on")
                 };
-            salesOrders = salesOrders.ToList();
-            salesOrders.ToList().ForEach(so => new SalesOrderProductRepository()
-                .FindAll(sop => sop.SalesOrderId == so.Id).ToList().ForEach(sop => so.SalesOrderProducts.Add(sop)));
-            return salesOrders;
         }
 
         public IEnumerable<SalesOrder> FindAll(Predicate<SalesOrder> filter)

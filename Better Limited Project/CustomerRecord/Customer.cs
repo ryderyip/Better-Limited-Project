@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Better_Limited_Project.Sales.OrderPlacing.Controller;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;
 
 namespace Better_Limited_Project.CustomerRecord
@@ -27,7 +28,7 @@ namespace Better_Limited_Project.CustomerRecord
         public bool HasDuePayment()
         {
             var orders = new SalesOrderRepository().FindAll(o => o.Customer != null && o.Customer.Id == Id);
-            return orders.Any(o => !o.IsAllPaymentCompleted());
+            return orders.Any(o => !new SalesOrderCalculator(o).IsAllPaymentCompleted());
         }
 
         public bool HasYetToArriveDelivery()

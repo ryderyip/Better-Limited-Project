@@ -1,8 +1,8 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using Better_Limited_Project.ProductUtility.Repository;
 using Better_Limited_Project.Properties;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.SettingsUtility;
@@ -19,10 +19,12 @@ namespace Better_Limited_Project.Sales.PaymentUtility
         private const string FileName = "payment receipt.pdf";
         private readonly string _location;
         private readonly SalesOrder _salesOrder;
+        private readonly List<SalesOrderProduct> _salesOrderProducts;
 
         public PaymentReceiptGenerator(SalesOrder salesOrder)
         {
             _salesOrder = salesOrder;
+            _salesOrderProducts = salesOrder.GetSalesOrderProducts().ToList();
             _location = UserSettings.GetSettings().DefaultDocumentGenerationDirectoryPath;
         }
 
@@ -206,7 +208,7 @@ namespace Better_Limited_Project.Sales.PaymentUtility
             table.SetEdge(0, 0, 4, 1, Edge.Box, BorderStyle.Single, 0.75, Color.Empty);
 
             int rowCount = 0;
-            foreach (var salesOrderProduct in _salesOrder.SalesOrderProducts.Where(sop => sop.GetPaymentStatus() is SalesOrderProductPaymentStatus.FullyPaid))
+            foreach (var salesOrderProduct in _salesOrderProducts.Where(sop => sop.GetPaymentStatus() is SalesOrderProductPaymentStatus.FullyPaid))
             {
                 row = table.AddRow();
                 row.Format.Alignment = ParagraphAlignment.Center;
@@ -224,7 +226,7 @@ namespace Better_Limited_Project.Sales.PaymentUtility
             
             row = table.AddRow();
             row.Cells[0].MergeRight = table.Columns.Count - 1;
-            decimal total = _salesOrder.SalesOrderProducts.Sum(sop => sop.Price * sop.Quantity);
+            decimal total = _salesOrderProducts.Sum(sop => sop.Price * sop.Quantity);
             row.Cells[0].AddParagraph($"Total: {total.ToString("C", new CultureInfo("zh-HK"))}");
             row.Format.Alignment = ParagraphAlignment.Right;
         }

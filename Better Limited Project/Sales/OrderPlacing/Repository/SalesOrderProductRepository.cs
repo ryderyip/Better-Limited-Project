@@ -29,22 +29,40 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
             var command = new MySqlCommand(
                 @"select sales_order_id, product_id, price, quantity, is_out_of_stock from sales_order_product;");
             var dataTable = DataTableRepository.RetrieveDataTable(command);
-            return from DataRow row in dataTable.Rows
-                let salesOrderId = row.Field<int>("sales_order_id").ToString()
-                let productId = row.Field<int>("product_id").ToString()
-                let price = row.Field<decimal>("price")
-                let quantity = row.Field<int>("quantity")
-                let isOutOfStock = row.Field<bool>("is_out_of_stock")
-                select new SalesOrderProduct(salesOrderId, productId, price, quantity, isOutOfStock)
-                {
-                    SalesOrderProductPaymentIds = SalesOrderProductPaymentRepository.GetByIds(salesOrderId, productId)
-                        .Select(sopp => sopp.PaymentId).ToList()
-                };
+            return from DataRow row in dataTable.Rows select ConvertToSalesOrderProduct(row);
+        }
+
+        private SalesOrderProduct ConvertToSalesOrderProduct(DataRow row)
+        {
+            string salesOrderId = row.Field<int>("sales_order_id").ToString();
+            string productId = row.Field<int>("product_id").ToString();
+            decimal price = row.Field<decimal>("price");
+            int quantity = row.Field<int>("quantity");
+            bool isOutOfStock = row.Field<bool>("is_out_of_stock");
+            return new SalesOrderProduct(salesOrderId, productId, price, quantity, isOutOfStock)
+            {
+                SalesOrderProductPaymentIds = SalesOrderProductPaymentRepository.GetByIds(salesOrderId, productId)
+                    .Select(sopp => sopp.PaymentId)
+                    .ToList()
+            };
         }
 
         public IEnumerable<SalesOrderProduct> FindAll(Predicate<SalesOrderProduct> filter)
         {
             return GetAll().Where(filter.Invoke);
+        }
+
+        public IEnumerable<SalesOrderProduct> FindByOrderId(string salesOrderId)
+        {
+            var command = new MySqlCommand(
+                @"select sales_order_id, product_id, price, quantity, is_out_of_stock 
+                    from sales_order_product
+                    where sales_order_id = @salesOrderId;");
+            command.Parameters.AddWithValue("@salesOrderId", salesOrderId);
+            var dataTable = DataTableRepository.RetrieveDataTable(command);
+            if (dataTable.Rows.Count == 0)
+                throw new ArgumentException($"No sales order products are associated with order \"{salesOrderId}\"");
+            return from DataRow row in dataTable.Rows select ConvertToSalesOrderProduct(row);
         }
     }
 }

@@ -4,10 +4,11 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
+using Better_Limited_Project.Sales.OrderPlacing.Controller;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;
 
-namespace Better_Limited_Project.Sales.OrderPlacing
+namespace Better_Limited_Project.Sales.OrderPlacing.UI
 {
     public partial class SalesOrderListForm : Form
     {
@@ -31,7 +32,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             salesOrders.ForEach(order => dgvSalesOrders.Rows.Add(order.OrderNumber, 
                 order.Customer != null ? order.Customer.Name : "-",
                 order.Customer != null ? order.Customer.Phone : "-",
-                order.GetTotalAmount().ToString("C", new CultureInfo("zh-HK")),
+                new SalesOrderCalculator(order).GetTotalAmount().ToString("C", new CultureInfo("zh-HK")),
                 order.CreatedOn.ToShortDateString() + " : " + order.CreatedOn.ToShortTimeString(),
                 order.RetailStore.Name,
                 order.Staff.Name));

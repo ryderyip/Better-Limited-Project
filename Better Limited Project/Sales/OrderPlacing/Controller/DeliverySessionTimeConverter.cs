@@ -1,6 +1,7 @@
 ﻿using System;
+using Better_Limited_Project.Sales.OrderPlacing.Entity;
 
-namespace Better_Limited_Project.Sales.OrderPlacing
+namespace Better_Limited_Project.Sales.OrderPlacing.Controller
 {
     public static class DeliverySessionTimeConverter
     {

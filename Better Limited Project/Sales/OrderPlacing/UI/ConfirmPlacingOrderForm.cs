@@ -1,21 +1,25 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.ProductUtility.Entity;
+using Better_Limited_Project.Sales.OrderPlacing.Controller;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Color = System.Drawing.Color;
 
-namespace Better_Limited_Project.Sales.OrderPlacing
+namespace Better_Limited_Project.Sales.OrderPlacing.UI
 {
     public partial class ConfirmPlacingOrderForm : Form
     {
         public event EventHandler? OrderConfirmed;
         private readonly SalesOrder _order;
+        private readonly List<SalesOrderProduct> _salesOrderProduct;
 
-        public ConfirmPlacingOrderForm(SalesOrder salesOrder)
+        public ConfirmPlacingOrderForm(SalesOrder order, List<SalesOrderProduct> salesOrderProduct)
         {
-            _order = salesOrder;
+            _order = order;
+            _salesOrderProduct = salesOrderProduct;
             Shown += (_, _) => FillFields();
             InitializeComponent();
         }
@@ -32,12 +36,13 @@ namespace Better_Limited_Project.Sales.OrderPlacing
                 txtAddress2.Text = customer.Address.Address2;
             }
 
-            decimal amountDue = _order.GetInStockItemPrice() + _order.GetDepositAmount();
-            decimal priceToPayWhenStockReplenished = _order.GetTotalAmount() - amountDue;
+            var calculator = new SalesOrderCalculator(_order);
+            decimal amountDue = calculator.GetInStockItemPrice() + calculator.GetDepositAmount();
+            decimal priceToPayWhenStockReplenished = calculator.GetTotalAmount() - amountDue;
             tbPriceToPayWhenStockReplenished.Text = priceToPayWhenStockReplenished.ToString("C", new CultureInfo("zh-HK"));
             tbAmountDue.Text = amountDue.ToString("C", new CultureInfo("zh-HK"));
 
-            if (_order.GetDepositAmount() == 0)
+            if (calculator.GetDepositAmount() == 0)
                 panDepositPrice.Visible = false;
 
             PopulateProductDgv();
@@ -45,7 +50,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
 
         private void PopulateProductDgv()
         {
-            foreach (var salesOrderProduct in _order.SalesOrderProducts.Where(sop => !sop.IsOutOfStock))
+            foreach (var salesOrderProduct in _salesOrderProduct.Where(sop => !sop.IsOutOfStock))
             {
                 decimal subtotal = salesOrderProduct.Price * salesOrderProduct.Quantity;
                 dgvProducts.Rows.Add(salesOrderProduct.GetProduct().Name,
@@ -54,7 +59,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
                     subtotal.ToString("C", new CultureInfo("zh-HK")));
             }
 
-            foreach (var salesOrderProduct in _order.SalesOrderProducts.Where(sop => sop.IsOutOfStock))
+            foreach (var salesOrderProduct in _salesOrderProduct.Where(sop => sop.IsOutOfStock))
             {
                 decimal depositAmount = salesOrderProduct.Price * Product.DepositPricePercentage;
                 decimal subtotal = depositAmount * salesOrderProduct.Quantity;

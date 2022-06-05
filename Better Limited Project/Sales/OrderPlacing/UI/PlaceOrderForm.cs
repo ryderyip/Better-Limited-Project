@@ -4,11 +4,11 @@ using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.ProductUtility.Entity;
+using Better_Limited_Project.Sales.OrderPlacing.Controller.SalesOrderPager;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
-using Better_Limited_Project.Sales.OrderPlacing.SalesOrderPager;
 using Better_Limited_Project.Tools;
 
-namespace Better_Limited_Project.Sales.OrderPlacing
+namespace Better_Limited_Project.Sales.OrderPlacing.UI
 {
     public partial class PlaceOrderForm : Form
     {

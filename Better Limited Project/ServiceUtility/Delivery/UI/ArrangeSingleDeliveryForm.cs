@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.Login;
-using Better_Limited_Project.Sales.OrderPlacing;
+using Better_Limited_Project.Sales.OrderPlacing.Controller;
 using Better_Limited_Project.ServiceUtility.Delivery.Repository;
 
 namespace Better_Limited_Project.ServiceUtility.Delivery.UI
@@ -31,7 +31,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             dtpSelectDeliveryDate.Value = dtpSelectDeliveryDate.MinDate;
             int daysInMonth = 30;
             dtpSelectDeliveryDate.MaxDate = dtpSelectDeliveryDate.MinDate + TimeSpan.FromDays(3 * daysInMonth);
-            _deliveryRequest.GetSalesOrder().SalesOrderProducts.ToList()
+            _deliveryRequest.GetSalesOrder().GetSalesOrderProducts().ToList()
                 .ForEach(sop => dgvProductsDelivered.Rows.Add(sop.GetProduct().Name, sop.Quantity));
         }
 

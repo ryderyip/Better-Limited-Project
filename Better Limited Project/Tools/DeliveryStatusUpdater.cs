@@ -8,7 +8,7 @@ namespace Better_Limited_Project.Tools
     public static class DeliveryStatusUpdater
     {
         public static void OnStockUpdated(object sender, IWorkplace workplace)
-        {
+        { // TODO need performance upgrade
             var ordersWaitingForStock =
                 (from order in new SalesOrderRepository().GetAll()
                     let deliveryRequest = order.GetDeliveryRequest()
@@ -19,7 +19,7 @@ namespace Better_Limited_Project.Tools
             var service = new ProductReservationService();
             foreach (var order in ordersWaitingForStock)
             {
-                foreach (var salesOrderProduct in order.SalesOrderProducts)
+                foreach (var salesOrderProduct in order.GetSalesOrderProducts())
                 {
                     var reservedStock = salesOrderProduct.GetReservedStock();
                     int reservedQuantity = reservedStock?.Quantity ?? 0;

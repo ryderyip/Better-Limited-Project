@@ -389,49 +389,70 @@
     <Compile Include="RepositoryUtility\IRepositoryDelete.cs" />
     <Compile Include="RepositoryUtility\IRepositoryInsert.cs" />
     <Compile Include="RepositoryUtility\IRepositoryInsertOrUpdate.cs" />
-    <Compile Include="Sales\OrderPlacing\ConfirmPlacingOrderForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\OrderPlacing\ConfirmPlacingOrderForm.Designer.cs">
-      <DependentUpon>ConfirmPlacingOrderForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sales\OrderPlacing\DeliverySessionTimeConverter.cs" />
-    <Compile Include="Sales\OrderPlacing\EditSalesOrderForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\OrderPlacing\EditSalesOrderForm.Designer.cs">
-      <DependentUpon>EditSalesOrderForm.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Sales\OrderPlacing\Controller\DeliverySessionTimeConverter.cs" />
+    <Compile Include="Sales\OrderPlacing\Controller\PlaceOrderController.cs" />
+    <Compile Include="Sales\OrderPlacing\Controller\SalesOrderCalculator.cs" />
+    <Compile Include="Sales\OrderPlacing\Controller\SalesOrderPager\PlaceOrderFormPageFiller.cs" />
+    <Compile Include="Sales\OrderPlacing\Controller\SalesOrderPager\PlaceOrderItemControlCollection.cs" />
     <Compile Include="Sales\OrderPlacing\Entity\Cart.cs" />
     <Compile Include="Sales\OrderPlacing\Entity\CartItem.cs" />
+    <Compile Include="Sales\OrderPlacing\Entity\DeliverySession.cs" />
     <Compile Include="Sales\OrderPlacing\Entity\DeliveryStatus.cs" />
     <Compile Include="Sales\OrderPlacing\Entity\ProductImage.cs" />
     <Compile Include="Sales\OrderPlacing\Entity\SalesOrderProductPaymentStatus.cs" />
     <Compile Include="Sales\OrderPlacing\Entity\SalesOrder.cs" />
     <Compile Include="Sales\OrderPlacing\Entity\SalesOrderProduct.cs" />
     <Compile Include="Sales\OrderPlacing\Entity\SalesOrderProductPayment.cs" />
-    <Compile Include="Sales\OrderPlacing\PlaceOrderForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\OrderPlacing\PlaceOrderForm.Designer.cs">
-      <DependentUpon>PlaceOrderForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Sales\OrderPlacing\Repository\ProductImageRepository.cs" />
     <Compile Include="Sales\OrderPlacing\Repository\SalesOrderProductPaymentRepository.cs" />
     <Compile Include="Sales\OrderPlacing\Repository\SalesOrderProductRepository.cs" />
     <Compile Include="Sales\OrderPlacing\Repository\ReservedSalesOrderProduct.cs" />
     <Compile Include="Sales\OrderPlacing\Repository\ReservedSalesOrderProductRepository.cs" />
     <Compile Include="Sales\OrderPlacing\Repository\SalesOrderRepository.cs" />
-    <Compile Include="Sales\OrderPlacing\SalesOrderDetailsForm.cs">
+    <Compile Include="Sales\OrderPlacing\UI\ConfirmPlacingOrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sales\OrderPlacing\SalesOrderDetailsForm.Designer.cs">
+    <Compile Include="Sales\OrderPlacing\UI\ConfirmPlacingOrderForm.Designer.cs">
+      <DependentUpon>ConfirmPlacingOrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sales\OrderPlacing\UI\DeliverySessionSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\OrderPlacing\UI\DeliverySessionSelectionForm.Designer.cs" />
+    <Compile Include="Sales\OrderPlacing\UI\EditSalesOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\OrderPlacing\UI\EditSalesOrderForm.Designer.cs">
+      <DependentUpon>EditSalesOrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sales\OrderPlacing\UI\FindCustomerRecordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\OrderPlacing\UI\FindCustomerRecordForm.Designer.cs">
+      <DependentUpon>FindCustomerRecordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sales\OrderPlacing\UI\IsFirstTimeCustomerSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\OrderPlacing\UI\IsFirstTimeCustomerSelectionForm.Designer.cs">
+      <DependentUpon>IsFirstTimeCustomerSelectionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sales\OrderPlacing\UI\PlaceOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\OrderPlacing\UI\PlaceOrderForm.Designer.cs">
+      <DependentUpon>PlaceOrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sales\OrderPlacing\UI\SalesOrderDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\OrderPlacing\UI\SalesOrderDetailsForm.Designer.cs">
       <DependentUpon>SalesOrderDetailsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sales\OrderPlacing\SalesOrderListForm.cs">
+    <Compile Include="Sales\OrderPlacing\UI\SalesOrderListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sales\OrderPlacing\SalesOrderListForm.Designer.cs">
+    <Compile Include="Sales\OrderPlacing\UI\SalesOrderListForm.Designer.cs">
       <DependentUpon>SalesOrderListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Sales\PaymentUtility\DepositReceiptGenerator.cs" />
@@ -444,26 +465,6 @@
     <Compile Include="Sales\PaymentUtility\PaymentMethodSelectionForm.Designer.cs" />
     <Compile Include="Sales\PaymentUtility\PaymentReceiptGenerator.cs" />
     <Compile Include="Sales\PaymentUtility\PaymentStatus.cs" />
-    <Compile Include="Sales\OrderPlacing\FindCustomerRecordForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\OrderPlacing\FindCustomerRecordForm.Designer.cs">
-      <DependentUpon>FindCustomerRecordForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sales\OrderPlacing\IsFirstTimeCustomerSelectionForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\OrderPlacing\IsFirstTimeCustomerSelectionForm.Designer.cs">
-      <DependentUpon>IsFirstTimeCustomerSelectionForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sales\OrderPlacing\DeliverySession.cs" />
-    <Compile Include="Sales\OrderPlacing\DeliverySessionSelectionForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\OrderPlacing\DeliverySessionSelectionForm.Designer.cs" />
-    <Compile Include="Sales\OrderPlacing\PlaceOrderController.cs" />
-    <Compile Include="Sales\OrderPlacing\PlaceOrderFormPageFiller.cs" />
-    <Compile Include="Sales\OrderPlacing\SalesOrderPager\PlaceOrderItemControlCollection.cs" />
     <Compile Include="Sales\PaymentUtility\Repository\PaymentRepository.cs" />
     <Compile Include="Sales\PaymentUtility\UI\CashPaymentForm.cs">
       <SubType>Form</SubType>
@@ -797,29 +798,29 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Sales\OrderPlacing\ConfirmPlacingOrderForm.resx">
+    <EmbeddedResource Include="Sales\OrderPlacing\UI\ConfirmPlacingOrderForm.resx">
       <DependentUpon>ConfirmPlacingOrderForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sales\OrderPlacing\EditSalesOrderForm.resx">
+    <EmbeddedResource Include="Sales\OrderPlacing\UI\DeliverySessionSelectionForm.resx" />
+    <EmbeddedResource Include="Sales\OrderPlacing\UI\EditSalesOrderForm.resx">
       <DependentUpon>EditSalesOrderForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sales\OrderPlacing\PlaceOrderForm.resx">
+    <EmbeddedResource Include="Sales\OrderPlacing\UI\FindCustomerRecordForm.resx">
+      <DependentUpon>FindCustomerRecordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\OrderPlacing\UI\IsFirstTimeCustomerSelectionForm.resx">
+      <DependentUpon>IsFirstTimeCustomerSelectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\OrderPlacing\UI\PlaceOrderForm.resx">
       <DependentUpon>PlaceOrderForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sales\OrderPlacing\SalesOrderDetailsForm.resx">
+    <EmbeddedResource Include="Sales\OrderPlacing\UI\SalesOrderDetailsForm.resx">
       <DependentUpon>SalesOrderDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sales\OrderPlacing\SalesOrderListForm.resx">
+    <EmbeddedResource Include="Sales\OrderPlacing\UI\SalesOrderListForm.resx">
       <DependentUpon>SalesOrderListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\PaymentUtility\PaymentMethodSelectionForm.resx" />
-    <EmbeddedResource Include="Sales\OrderPlacing\DeliverySessionSelectionForm.resx" />
-    <EmbeddedResource Include="Sales\OrderPlacing\FindCustomerRecordForm.resx">
-      <DependentUpon>FindCustomerRecordForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sales\OrderPlacing\IsFirstTimeCustomerSelectionForm.resx">
-      <DependentUpon>IsFirstTimeCustomerSelectionForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Sales\PaymentUtility\UI\CashPaymentForm.resx">
       <DependentUpon>CashPaymentForm.cs</DependentUpon>
     </EmbeddedResource>

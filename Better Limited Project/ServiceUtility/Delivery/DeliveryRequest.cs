@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Better_Limited_Project.Sales.OrderPlacing;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;
 using Better_Limited_Project.ServiceUtility.Delivery.Repository;
@@ -61,7 +60,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery
 
         public bool IsStockReadyForDelivery()
         {
-            foreach (var salesOrderProduct in GetSalesOrder().SalesOrderProducts)
+            foreach (var salesOrderProduct in GetSalesOrder().GetSalesOrderProducts())
             {
                 var reservedStock = salesOrderProduct.GetReservedStock();
                 if (reservedStock == null || reservedStock.Quantity < salesOrderProduct.Quantity)

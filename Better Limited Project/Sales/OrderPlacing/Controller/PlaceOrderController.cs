@@ -5,11 +5,12 @@ using Better_Limited_Project.CustomerRecord;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.ProductUtility.Repository;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
+using Better_Limited_Project.Sales.OrderPlacing.UI;
 using Better_Limited_Project.ServiceUtility;
 using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.Tools;
 
-namespace Better_Limited_Project.Sales.OrderPlacing
+namespace Better_Limited_Project.Sales.OrderPlacing.Controller
 {
     public class PlaceOrderController
     {

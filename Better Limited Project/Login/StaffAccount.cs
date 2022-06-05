@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace Better_Limited_Project.Login
+﻿namespace Better_Limited_Project.Login
 {
     public class StaffAccount
     {

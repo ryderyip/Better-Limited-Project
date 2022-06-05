@@ -2,9 +2,8 @@
 using System.Globalization;
 using System.Windows.Forms;
 using Better_Limited_Project.ProductUtility.Entity;
-using Better_Limited_Project.Sales.OrderPlacing.SalesOrderPager;
 
-namespace Better_Limited_Project.Sales.OrderPlacing
+namespace Better_Limited_Project.Sales.OrderPlacing.Controller.SalesOrderPager
 {
     public class PlaceOrderFormPageFiller
     {

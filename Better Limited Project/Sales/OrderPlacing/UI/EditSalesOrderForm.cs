@@ -6,7 +6,7 @@ using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.ServiceUtility.Delivery;
 using Better_Limited_Project.ServiceUtility.Delivery.Repository;
 
-namespace Better_Limited_Project.Sales.OrderPlacing
+namespace Better_Limited_Project.Sales.OrderPlacing.UI
 {
     public partial class EditSalesOrderForm : Form
     {

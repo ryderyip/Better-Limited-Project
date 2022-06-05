@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Better_Limited_Project.CustomerRecord;
-using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;
-using Better_Limited_Project.Sales.PaymentUtility.Repository;
 using Better_Limited_Project.ServiceUtility.Delivery;
 using Better_Limited_Project.ServiceUtility.Delivery.Repository;
 using Better_Limited_Project.StaffUtility.StaffEntity;
@@ -33,45 +31,12 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
         public string OrderNumber { get; }
         public Staff Staff { get; }
         public RetailStore RetailStore { get; }
-        public ICollection<SalesOrderProduct> SalesOrderProducts { get; } = new List<SalesOrderProduct>();
         public Customer? Customer { get; set; }
         public DateTime CreatedOn { get; set; }
 
         public void Save()
         {
             new SalesOrderRepository().InsertOrUpdate(this);
-        }
-
-        public decimal GetTotalAmount()
-        {
-            return SalesOrderProducts.Sum(sop => sop.Price * sop.Quantity);
-        }
-
-        public decimal GetDepositAmount()
-        {
-            return SalesOrderProducts
-                .Where(sop => sop.IsOutOfStock)
-                .Sum(sop => sop.Price * sop.Quantity * Product.DepositPricePercentage);
-        }
-
-        public decimal GetInStockItemPrice()
-        {
-            return SalesOrderProducts
-                .Where(sop => !sop.IsOutOfStock)
-                .Sum(sop => sop.Price * sop.Quantity);
-        }
-
-        public decimal GetAmountPaid()
-        {
-            return (from sop in SalesOrderProducts select sop.GetPayments()).SelectMany(payments => payments)
-                .GroupBy(p => p.PaymentId)
-                .Sum(paymentIdPayment => PaymentRepository.FindById(paymentIdPayment.Key).Amount);
-        }
-
-        public bool IsAllPaymentCompleted()
-        {
-            return SalesOrderProducts.All(sop => sop.GetPayments().Count() != 0)
-                   && GetTotalAmount() >= GetAmountPaid();
         }
 
         public bool IsNeedDelivery()
@@ -98,6 +63,11 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
         public DeliveryRequest? GetDeliveryRequest()
         {
             return DeliveryRequestRepository.FindAll(dr => dr.SalesOrderId == Id).FirstOrDefault();
+        }
+        
+        public IEnumerable<SalesOrderProduct> GetSalesOrderProducts()
+        {
+            return new SalesOrderProductRepository().FindByOrderId(Id);
         }
     }
 }

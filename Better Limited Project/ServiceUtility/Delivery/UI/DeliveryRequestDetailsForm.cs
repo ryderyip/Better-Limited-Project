@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
-using Better_Limited_Project.Sales.OrderPlacing;
+using Better_Limited_Project.Sales.OrderPlacing.UI;
 using Better_Limited_Project.ServiceUtility.Delivery.Repository;
 using Better_Limited_Project.Tools;
 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.CustomerRecord;
 
-namespace Better_Limited_Project.Sales.OrderPlacing
+namespace Better_Limited_Project.Sales.OrderPlacing.UI
 {
     public partial class FindCustomerRecordForm : Form
     {
