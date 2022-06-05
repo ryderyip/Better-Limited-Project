@@ -26,7 +26,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
                 controlCollection.Price.Text = stock.SellingPrice.ToString("C", new CultureInfo("zh-HK"));
                 controlCollection.Quantity.Text = stock.Quantity.ToString();
                 controlCollection.Picture.SizeMode = PictureBoxSizeMode.Zoom;
-                controlCollection.Picture.Image = stock.Product.GetPicture();
+                controlCollection.Picture.Image = stock.Product.GetImage();
             }
             HideProductControls(_controlCollections.Count-products.Count);
         }

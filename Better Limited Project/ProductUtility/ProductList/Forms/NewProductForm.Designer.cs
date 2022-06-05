@@ -60,7 +60,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // 
             this.lblNewProduct.AutoSize = true;
             this.lblNewProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewProduct.Location = new System.Drawing.Point(330, 18);
+            this.lblNewProduct.Location = new System.Drawing.Point(228, 24);
             this.lblNewProduct.Name = "lblNewProduct";
             this.lblNewProduct.Size = new System.Drawing.Size(148, 26);
             this.lblNewProduct.TabIndex = 54;
@@ -71,7 +71,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             this.btnCreate.BackColor = System.Drawing.Color.DarkOrange;
             this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreate.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnCreate.Location = new System.Drawing.Point(311, 374);
+            this.btnCreate.Location = new System.Drawing.Point(211, 380);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(183, 44);
             this.btnCreate.TabIndex = 63;
@@ -83,7 +83,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // 
             this.lblPrice.AutoSize = true;
             this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice.Location = new System.Drawing.Point(340, 114);
+            this.lblPrice.Location = new System.Drawing.Point(154, 131);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(38, 15);
             this.lblPrice.TabIndex = 67;
@@ -92,7 +92,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // nudPrice
             // 
             this.nudPrice.DecimalPlaces = 2;
-            this.nudPrice.Location = new System.Drawing.Point(390, 114);
+            this.nudPrice.Location = new System.Drawing.Point(204, 131);
             this.nudPrice.Maximum = new decimal(new int[] {
             10000000,
             0,
@@ -107,7 +107,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(289, 78);
+            this.label2.Location = new System.Drawing.Point(103, 95);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 15);
             this.label2.TabIndex = 78;
@@ -115,7 +115,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(390, 77);
+            this.tbName.Location = new System.Drawing.Point(204, 94);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(225, 20);
             this.tbName.TabIndex = 75;
@@ -124,7 +124,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // 
             this.lblDescription.AutoSize = true;
             this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescription.Location = new System.Drawing.Point(261, 150);
+            this.lblDescription.Location = new System.Drawing.Point(75, 167);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(117, 15);
             this.lblDescription.TabIndex = 80;
@@ -132,7 +132,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // 
             // tbDescription
             // 
-            this.tbDescription.Location = new System.Drawing.Point(390, 149);
+            this.tbDescription.Location = new System.Drawing.Point(204, 166);
             this.tbDescription.Multiline = true;
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.Size = new System.Drawing.Size(225, 56);
@@ -142,7 +142,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // 
             this.cbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCategory.FormattingEnabled = true;
-            this.cbCategory.Location = new System.Drawing.Point(390, 220);
+            this.cbCategory.Location = new System.Drawing.Point(204, 237);
             this.cbCategory.Name = "cbCategory";
             this.cbCategory.Size = new System.Drawing.Size(120, 21);
             this.cbCategory.TabIndex = 82;
@@ -151,7 +151,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // 
             this.lblCategory.AutoSize = true;
             this.lblCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategory.Location = new System.Drawing.Point(320, 221);
+            this.lblCategory.Location = new System.Drawing.Point(134, 238);
             this.lblCategory.Name = "lblCategory";
             this.lblCategory.Size = new System.Drawing.Size(58, 15);
             this.lblCategory.TabIndex = 83;
@@ -161,7 +161,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // 
             this.cbSupplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSupplier.FormattingEnabled = true;
-            this.cbSupplier.Location = new System.Drawing.Point(390, 257);
+            this.cbSupplier.Location = new System.Drawing.Point(204, 274);
             this.cbSupplier.Name = "cbSupplier";
             this.cbSupplier.Size = new System.Drawing.Size(120, 21);
             this.cbSupplier.TabIndex = 84;
@@ -170,7 +170,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // 
             this.lblSupplier.AutoSize = true;
             this.lblSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSupplier.Location = new System.Drawing.Point(322, 257);
+            this.lblSupplier.Location = new System.Drawing.Point(136, 274);
             this.lblSupplier.Name = "lblSupplier";
             this.lblSupplier.Size = new System.Drawing.Size(56, 15);
             this.lblSupplier.TabIndex = 85;
@@ -180,7 +180,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // 
             this.lblImage.AutoSize = true;
             this.lblImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblImage.Location = new System.Drawing.Point(294, 294);
+            this.lblImage.Location = new System.Drawing.Point(108, 311);
             this.lblImage.Name = "lblImage";
             this.lblImage.Size = new System.Drawing.Size(90, 15);
             this.lblImage.TabIndex = 87;
@@ -191,7 +191,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(378, 256);
+            this.label1.Location = new System.Drawing.Point(192, 273);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(12, 15);
             this.label1.TabIndex = 88;
@@ -202,7 +202,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(378, 220);
+            this.label3.Location = new System.Drawing.Point(192, 237);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(12, 15);
             this.label3.TabIndex = 89;
@@ -213,7 +213,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(378, 149);
+            this.label4.Location = new System.Drawing.Point(192, 166);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(12, 15);
             this.label4.TabIndex = 90;
@@ -224,7 +224,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(378, 114);
+            this.label5.Location = new System.Drawing.Point(192, 131);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(12, 15);
             this.label5.TabIndex = 91;
@@ -235,7 +235,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(378, 77);
+            this.label6.Location = new System.Drawing.Point(192, 94);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(12, 15);
             this.label6.TabIndex = 92;
@@ -251,7 +251,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             this.btnChooseImage.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.btnChooseImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChooseImage.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnChooseImage.Location = new System.Drawing.Point(621, 286);
+            this.btnChooseImage.Location = new System.Drawing.Point(435, 303);
             this.btnChooseImage.Name = "btnChooseImage";
             this.btnChooseImage.Size = new System.Drawing.Size(110, 31);
             this.btnChooseImage.TabIndex = 171;
@@ -261,7 +261,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // 
             // tbImagePath
             // 
-            this.tbImagePath.Location = new System.Drawing.Point(390, 293);
+            this.tbImagePath.Location = new System.Drawing.Point(204, 310);
             this.tbImagePath.Name = "tbImagePath";
             this.tbImagePath.ReadOnly = true;
             this.tbImagePath.Size = new System.Drawing.Size(225, 20);
@@ -272,7 +272,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(604, 450);
             this.Controls.Add(this.tbImagePath);
             this.Controls.Add(this.btnChooseImage);
             this.Controls.Add(this.label6);

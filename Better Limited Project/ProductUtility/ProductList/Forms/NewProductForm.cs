@@ -62,7 +62,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             product.Save();
             
             if (_productImage != null)
-                product.AddImage(_productImage);
+                product.SetImage(_productImage);
             
             ProductCreated?.Invoke(this, EventArgs.Empty);
             Close();

@@ -21,6 +21,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 
         private void OnShown(object sender, EventArgs e)
         {
+            pbImage.SizeMode = PictureBoxSizeMode.Zoom;
             RefreshProductInfo();
             if (!ProductPermissionManager.CanCurrentStaffEditSellingPrice())
                 btnUpdateProductInfo.Visible = false;
@@ -33,8 +34,9 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
         private void FillAllFields()
         {
             var product = _stock.Product;
-            lblProductName.Text = product.Name;
+            tbName.Text = product.Name;
             tbOriginalPrice.Text = product.OriginalPrice.ToString("C", new CultureInfo("zh-HK"));
+            pbImage.Image = product.GetImage();
 
             if (_stock is RetailStoreStock stock)
                 tbSellingPrice.Text = stock.SellingPrice is decimal.Zero
@@ -90,6 +92,15 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             form.StartPosition = FormStartPosition.CenterScreen;
             form.DescriptionUpdated += (_, _) => RefreshProductInfo();
             form.DescriptionUpdated += (_, _) => ProductUpdated?.Invoke(this, e);
+            form.ShowDialog();
+        }
+
+        private void btnUpdateImage_Click(object sender, EventArgs e)
+        {
+            var form = new UpdateProductImageForm(_stock.Product);
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.ProductUpdated += (_, _) => RefreshProductInfo();
+            form.ProductUpdated += (_, _) => ProductUpdated?.Invoke(this, e);
             form.ShowDialog();
         }
     }

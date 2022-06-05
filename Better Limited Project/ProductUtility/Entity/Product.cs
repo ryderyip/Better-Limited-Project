@@ -48,7 +48,7 @@ namespace Better_Limited_Project.ProductUtility.Entity
             ProductRepository.UpdateProduct(this);
         }
 
-        public Image GetPicture()
+        public Image GetImage()
         {
             return ProductImageRepository.GetByProductId(Id)
                 ?? Resources.no_image;
@@ -59,7 +59,7 @@ namespace Better_Limited_Project.ProductUtility.Entity
             ProductRepository.CreateNewProduct(this);
         }
 
-        public void AddImage(Image image)
+        public void SetImage(Image image)
         {
             ProductImageRepository.InsertOrUpdate(Id, image);
         }
