@@ -17,7 +17,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Controller
         private PlaceOrderForm _form;
         private Pager<RetailStoreStock> _pager;
         private const int PageSize = 6;
-        private readonly Cart _cart;
+        private Cart _cart;
 
         public PlaceOrderController()
         {
@@ -67,15 +67,20 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Controller
 
         private void ReinitializePlaceOrderForm()
         {
+            _form.Close();
+            _cart = new Cart(UserSettings.GetSettings().Workplace!.Id);
+            _pager = new Pager<RetailStoreStock>(PageSize);
+            _form = new PlaceOrderForm(_pager, _cart);
             Initialize();
-            _cart.Clear();
             OpenForm();
         }
 
         public void OpenForm()
         {
-            _form.StartPosition = FormStartPosition.CenterParent;
-            _form.ShowDialog();
+            if (Application.OpenForms.Cast<Form>().Any(f => f is PlaceOrderForm))
+                return;
+            _form.StartPosition = FormStartPosition.CenterScreen;
+            _form.Show();
         }
     }
 }

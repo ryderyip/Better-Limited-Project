@@ -14,6 +14,11 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Controller
         {
             _salesOrderProducts = salesOrder.GetSalesOrderProducts().ToList();
         }
+        
+        public SalesOrderCalculator(SalesOrder salesOrder, List<SalesOrderProduct> salesOrderProducts)
+        {
+            _salesOrderProducts = salesOrderProducts;
+        }
 
         public decimal GetTotalAmount()
         {

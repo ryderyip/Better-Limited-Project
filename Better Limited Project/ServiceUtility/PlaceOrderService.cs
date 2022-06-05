@@ -44,7 +44,7 @@ namespace Better_Limited_Project.ServiceUtility
 
         private void OpenPaymentForm(PaymentMethod method)
         {
-            var calculator = new SalesOrderCalculator(_order);
+            var calculator = new SalesOrderCalculator(_order, _salesOrderProduct);
             decimal amountDue = calculator.GetInStockItemPrice() + calculator.GetDepositAmount();
             var form = PaymentFormFactory.Generate(amountDue, method);
             form.PaymentCompleted += (_, payment) =>
@@ -54,6 +54,7 @@ namespace Better_Limited_Project.ServiceUtility
                     SelectDeliverySessionAndSendDeliveryRequest();
                 if (IsNeedInstallation)
                     SendInstallationServiceRequest();
+                SalesOrderPlaced?.Invoke(this, EventArgs.Empty);
             };
             form.ShowForm();
         }
@@ -93,8 +94,6 @@ namespace Better_Limited_Project.ServiceUtility
             var reservationService = new ProductReservationService(_order);
             foreach (var salesOrderProduct in _salesOrderProduct)
                 reservationService.Reserve(salesOrderProduct.ProductId, salesOrderProduct.Quantity);
-
-            SalesOrderPlaced?.Invoke(this, EventArgs.Empty);
         }
     }
 }
