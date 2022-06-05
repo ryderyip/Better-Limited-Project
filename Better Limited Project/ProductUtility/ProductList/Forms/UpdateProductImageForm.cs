@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using Better_Limited_Project.DocumentUtility;
 using Better_Limited_Project.ProductUtility.Entity;
+using Better_Limited_Project.Tools;
 
 namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 {
@@ -31,7 +32,16 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             if (path == null) return;
 
             tbFilePath.Text = path;
-            pbImage.Image = Image.FromFile(path);
+            
+            try
+            {
+                var image = Image.FromFile(path);
+                pbImage.Image = image;
+            }
+            catch (OutOfMemoryException exception)
+            {
+                MessageBox.Show("Image file is in incorrect format. Please choose another one.");
+            }
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)

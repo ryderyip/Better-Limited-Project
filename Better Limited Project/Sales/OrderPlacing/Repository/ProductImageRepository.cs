@@ -31,5 +31,14 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
             command.Parameters.AddWithValue("@image", ImageToBytesConverter.Convert(image));
             DataTableRepository.ExecuteNonQuery(command);
         }
+
+        public static void Delete(string productId)
+        {
+            var command = new MySqlCommand(
+                @"delete from product_image 
+                    where product_id = @productId;");
+            command.Parameters.AddWithValue("@productId", productId);
+            DataTableRepository.ExecuteNonQuery(command);
+        }
     }
 }

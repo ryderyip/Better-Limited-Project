@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.ProductUtility.ProductList.PermissionManagement;
 using Better_Limited_Project.ProductUtility.Repository;
+using Better_Limited_Project.Sales.OrderPlacing.Repository;
 
 namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 {
@@ -81,6 +82,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 
         private void btnRemoveProduct_Click(object sender, EventArgs e)
         {
+            ProductImageRepository.Delete(_stock.Product.Id);
             ProductRepository.DeleteProduct(_stock.Product);
             ProductUpdated?.Invoke(this, EventArgs.Empty);
             Close();
