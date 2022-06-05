@@ -6,10 +6,10 @@ namespace Better_Limited_Project.ProductUtility.SupplierUtility
 {
     public partial class SupplierDetailsForm : Form
     {
-        private SupplierEntity _supplier;
+        private Supplier _supplier;
         public event EventHandler? Updated;
         
-        public SupplierDetailsForm(SupplierEntity supplier)
+        public SupplierDetailsForm(Supplier supplier)
         {
             _supplier = supplier;
             InitializeComponent();
@@ -18,14 +18,14 @@ namespace Better_Limited_Project.ProductUtility.SupplierUtility
 
         private void FillFields()
         {
-            tbname.Text = _supplier.Supplier.Name;
-            tbPhone.Text = _supplier.Supplier.Phone;
-            tbEmailAddress.Text = _supplier.Supplier.Email;
+            tbname.Text = _supplier.Name;
+            tbPhone.Text = _supplier.Phone;
+            tbEmailAddress.Text = _supplier.Email;
         }
 
         private void btnRemoveCustomer_Click(object sender, EventArgs e)
         {
-            SupplierRepository.RemoveSupplier(_supplier.Id);
+            _supplier.Remove();
             Updated?.Invoke(this, EventArgs.Empty);
             Close();
         }

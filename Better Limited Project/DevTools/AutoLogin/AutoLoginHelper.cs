@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
+using Better_Limited_Project.Login;
+using Better_Limited_Project.StaffUtility.Repository;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.DevTools.AutoLogin
@@ -35,57 +38,33 @@ namespace Better_Limited_Project.DevTools.AutoLogin
 
         private void LoginOnTitleSelected(object sender, StaffTitle title)
         {
-            string username = "";
-            string password = "";
-            switch (title)
+            var account = title switch
             {
-                case StaffTitle.Admin:
-                    username = "admin";
-                    password = "admin";
-                    break;
-                case StaffTitle.SalesRepresentative:
-                    username = "homer";
-                    password = "homer";
-                    break;
-                case StaffTitle.SalesManager:
-                    username = "newton";
-                    password = "newton";
-                    break;
-                case StaffTitle.AccountingClerk:
-                    username = "saul";
-                    password = "saul";
-                    break;
-                case StaffTitle.AccountingManager:
-                    username = "doggo";
-                    password = "doggo";
-                    break;
-                case StaffTitle.PurchaseClerk:
-                    username = "walter";
-                    password = "walter";
-                    break;
-                case StaffTitle.PurchaseManager:
-                    username = "gato";
-                    password = "gato";
-                    break;
-                case StaffTitle.InventoryClerk:
-                    username = "euler";
-                    password = "euler";
-                    break;
-                case StaffTitle.ReceivingClerk:
-                    username = "joris";
-                    password = "joris";
-                    break;
-                case StaffTitle.TechnicalSupportClerk:
-                    username = "kiryu";
-                    password = "kiryu";
-                    break;
-                case StaffTitle.TechnicalSupportManager:
-                    username = "turing";
-                    password = "turing";
-                    break;
-            }
-            _tbUsername.Text = username;
-            _tbPassword.Text = password;
+                StaffTitle.Admin => new StaffRepository().FindAll(s => s.Title == StaffTitle.Admin).First()
+                    .GetLoginAccount(),
+                StaffTitle.SalesRepresentative => new StaffRepository()
+                    .FindAll(s => s.Title == StaffTitle.SalesRepresentative).First().GetLoginAccount(),
+                StaffTitle.SalesManager => new StaffRepository().FindAll(s => s.Title == StaffTitle.SalesManager)
+                    .First().GetLoginAccount(),
+                StaffTitle.PurchaseClerk => new StaffRepository().FindAll(s => s.Title == StaffTitle.PurchaseClerk)
+                    .First().GetLoginAccount(),
+                StaffTitle.PurchaseManager => new StaffRepository().FindAll(s => s.Title == StaffTitle.PurchaseManager)
+                    .First().GetLoginAccount(),
+                StaffTitle.AccountingClerk => new StaffRepository().FindAll(s => s.Title == StaffTitle.AccountingClerk)
+                    .First().GetLoginAccount(),
+                StaffTitle.AccountingManager => new StaffRepository()
+                    .FindAll(s => s.Title == StaffTitle.AccountingManager).First().GetLoginAccount(),
+                StaffTitle.InventoryClerk => new StaffRepository().FindAll(s => s.Title == StaffTitle.InventoryClerk)
+                    .First().GetLoginAccount(),
+                StaffTitle.ReceivingClerk => new StaffRepository().FindAll(s => s.Title == StaffTitle.ReceivingClerk)
+                    .First().GetLoginAccount(),
+                StaffTitle.TechnicalSupportClerk => new StaffRepository()
+                    .FindAll(s => s.Title == StaffTitle.TechnicalSupportClerk).First().GetLoginAccount(),
+                StaffTitle.TechnicalSupportManager => new StaffRepository()
+                    .FindAll(s => s.Title == StaffTitle.TechnicalSupportManager).First().GetLoginAccount()
+            };
+            _tbUsername.Text = account.Username;
+            _tbPassword.Text = account.Password;
             _btnLoginClicked.Invoke(null, EventArgs.Empty);
             _form.Close();
         }

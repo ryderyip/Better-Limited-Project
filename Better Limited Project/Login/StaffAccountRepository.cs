@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using Better_Limited_Project.DatabaseUtility;
 using MySql.Data.MySqlClient;
 
@@ -57,6 +59,11 @@ namespace Better_Limited_Project.Login
                 "delete from staff_account where staff_id = @staffId");
             command.Parameters.AddWithValue("@staffId", staffAccount.StaffId);
             DataTableRepository.ExecuteNonQuery(command);
+        }
+
+        public static IEnumerable<StaffAccount> FindAll(Predicate<StaffAccount> filter)
+        {
+            return GetAll().Where(filter.Invoke);
         }
     }
 }

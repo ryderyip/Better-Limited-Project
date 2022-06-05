@@ -52,7 +52,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             tbReorderLevel.Text = _stock.RestockLevel.ToString();
             tbDescription.Text = product.Description;
 
-            var supplier = product.SupplierEntity.Supplier;
+            var supplier = product.Supplier;
             tbSupplierName.Text = supplier.Name;
             tbSupplierPhone.Text = supplier.Phone;
             tbSupplierEmail.Text = supplier.Email;
@@ -94,7 +94,6 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             var form = new ProductDescriptionEditForm(_stock.Product);
             form.StartPosition = FormStartPosition.CenterScreen;
             form.DescriptionUpdated += (_, _) => RefreshProductInfo();
-            form.DescriptionUpdated += (_, _) => ProductUpdated?.Invoke(this, e);
             form.ShowDialog();
         }
 

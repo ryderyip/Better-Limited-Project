@@ -13,14 +13,13 @@ namespace Better_Limited_Project.ProductUtility.Entity
         
         public void Save()
         {
-            Product.Update();
-            StockRepository.UpdateStock(this);
+            StockRepository.InsertOrUpdate(this);
         }
 
-        public RetailStoreStock(Product product, IWorkplace workplace, int quantity, decimal sellingPrice, int restockLevel)
+        public RetailStoreStock(Product product, RetailStore retailStore, int quantity, decimal sellingPrice, int restockLevel)
         {
             Product = product;
-            Workplace = workplace;
+            Workplace = retailStore;
             Quantity = quantity;
             SellingPrice = sellingPrice;
             RestockLevel = restockLevel;

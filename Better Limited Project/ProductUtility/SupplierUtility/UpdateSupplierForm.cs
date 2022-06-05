@@ -7,10 +7,10 @@ namespace Better_Limited_Project.ProductUtility.SupplierUtility
 {
     public partial class UpdateSupplierForm : Form
     {
-        private readonly SupplierEntity _supplier;
+        private readonly Supplier _supplier;
         public event EventHandler? Updated;
         
-        public UpdateSupplierForm(SupplierEntity supplier)
+        public UpdateSupplierForm(Supplier supplier)
         {
             _supplier = supplier;
             InitializeComponent();
@@ -19,13 +19,12 @@ namespace Better_Limited_Project.ProductUtility.SupplierUtility
 
         private void FillFields()
         {
-            tbname.Text = _supplier.Supplier.Name;
-            tbPhone.Text = _supplier.Supplier.Phone;
-            tbEmailAddress.Text = _supplier.Supplier.Email;
-            
-            tbNewName.Text = _supplier.Supplier.Name;
-            tbNewPhone.Text = _supplier.Supplier.Phone;
-            tbNewEmail.Text = _supplier.Supplier.Email;
+            tbname.Text = _supplier.Name;
+            tbPhone.Text = _supplier.Phone;
+            tbEmailAddress.Text = _supplier.Email;
+            tbNewName.Text = _supplier.Name;
+            tbNewPhone.Text = _supplier.Phone;
+            tbNewEmail.Text = _supplier.Email;
         }
 
         private void btnUpdateInfo_Click(object sender, EventArgs e)
@@ -53,10 +52,10 @@ namespace Better_Limited_Project.ProductUtility.SupplierUtility
                 return;
             }
 
-            _supplier.Supplier.Name = name;
-            _supplier.Supplier.Phone = phone;
-            _supplier.Supplier.Email = email;
-            SupplierRepository.UpdateSupplier(_supplier);
+            _supplier.Name = name;
+            _supplier.Phone = phone;
+            _supplier.Email = email;
+            _supplier.Save();
             Updated?.Invoke(this, EventArgs.Empty);
             Close();
         }

@@ -1,17 +1,25 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.ProductUtility.Entity;
+using Better_Limited_Project.ProductUtility.Repository;
+using Better_Limited_Project.ProductUtility.SupplierUtility;
 
 namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 {
     public partial class UpdateProductAdminForm : Form, IUpdateProductForm
     {
+        private readonly List<Category> _categories;
+        private readonly List<Supplier> _suppliers;
         private readonly IStock _stock;
         public event EventHandler? ProductUpdated;
         
         public UpdateProductAdminForm(IStock stock)
         {
+            _suppliers = SupplierRepository.GetSuppliers().ToList();
+            _categories = CategoryRepository.GetCategories().ToList();
             _stock = stock;
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
@@ -51,7 +59,10 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             _stock.RestockLevel = newReorderLevel;
             _stock.Product.IsPhasingOut = phasingOut;
             _stock.Quantity = newStockLevel;
+            _stock.Product.Category = _categories.Find(c => c.Name == cbCategory.SelectedItem.ToString());
+            _stock.Product.Supplier = _suppliers.Find(s => s.Name == cbSupplier.SelectedItem.ToString());
             _stock.Save();
+            _stock.Product.Save();
 
             ProductUpdated?.Invoke(this, EventArgs.Empty);
             Close();
@@ -74,6 +85,9 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             nudNewStockLevel.Maximum = Product.MaximumReorderLevel;
             nudNewStockLevel.DecimalPlaces = 0;
             nudNewStockLevel.Increment = 1;
+            
+            _suppliers.ForEach(s => cbSupplier.Items.Add(s.Name));
+            _categories.ForEach(c => cbCategory.Items.Add(c.Name));
 
             FillFields();
         }
@@ -103,6 +117,10 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
                 rbPhasingOutOn.Checked = true;
             else
                 rbPhasingOutOff.Checked = true;
+            tbCategory.Text = _stock.Product.Category.Name;
+            tbSupplier.Text = _stock.Product.Supplier.Name;
+            cbSupplier.SelectedIndex = _suppliers.FindIndex(s => s.Id == _stock.Product.Supplier.Id);
+            cbCategory.SelectedIndex = _categories.FindIndex(c => c.Id == _stock.Product.Category.Id);
         }
         
         private void HideSellingPrice()

@@ -10,64 +10,60 @@ namespace Better_Limited_Project.ProductUtility.Repository
 {
     public static class SupplierRepository
     {
-        public static IEnumerable<SupplierEntity> GetSuppliers()
+        public static IEnumerable<Supplier> GetSuppliers()
         {
             var command = new MySqlCommand(
                 "select id, name, phone, email from supplier;");
             var dataTable = DataTableRepository.RetrieveDataTable(command);
-            
-            return from DataRow row in dataTable.Rows 
-                select new SupplierEntity(row.Field<int>("id").ToString(),
-                    new Supplier(row.Field<string>("name"),
-                        row.Field<string>("phone"),
-                        row.Field<string>("email")));
+
+            return from DataRow row in dataTable.Rows
+                select ConvertToSupplier(row);
         }
 
-        public static SupplierEntity GetById(string id)
+        public static Supplier GetById(string id)
         {
             var command = new MySqlCommand(
                 "select id, name, phone, email from supplier where id = @id;");
             command.Parameters.AddWithValue("@id", id);
             var dataTable = DataTableRepository.RetrieveDataTable(command);
-            
-            return (from DataRow row in dataTable.Rows
-                select new SupplierEntity(id,
-                    new Supplier(row.Field<string>("name"),
-                        row.Field<string>("phone"),
-                        row.Field<string>("email")))).FirstOrDefault()
-                ?? throw new ArgumentException($"Supplier Id \"{id}\" does not exist.");
+
+            return (from DataRow row in dataTable.Rows select ConvertToSupplier(row)).FirstOrDefault()
+                   ?? throw new ArgumentException($"Supplier Id \"{id}\" does not exist.");
         }
 
-        public static void CreateSupplier(Supplier supplier)
+        public static Supplier ConvertToSupplier(DataRow row)
+        {
+            return new Supplier(row.Field<int>("id").ToString(),
+                row.Field<string>("name"),
+                row.Field<string>("phone"),
+                row.Field<string>("email"));
+        }
+
+        public static void InsertOrUpdate(Supplier supplier)
         {
             var command = new MySqlCommand(
                 @"insert into supplier (name, phone, email) 
-                        value (@name, @phone, @email);");
+                        value (@name, @phone, @email)
+                on duplicate key update name = @name, email = @email, phone = @phone;");
             command.Parameters.AddWithValue("@name", supplier.Name);
             command.Parameters.AddWithValue("@phone", supplier.Phone);
             command.Parameters.AddWithValue("@email", supplier.Email);
             DataTableRepository.ExecuteNonQuery(command);
         }
 
-        public static void RemoveSupplier(string supplierId)
+        public static void Remove(Supplier supplier)
         {
             var command = new MySqlCommand(
                 @"delete from supplier where id = @id;");
-            command.Parameters.AddWithValue("@id", supplierId);
+            command.Parameters.AddWithValue("@id", supplier.Id);
             DataTableRepository.ExecuteNonQuery(command);
         }
 
-        public static void UpdateSupplier(SupplierEntity supplier)
+        public static string GetNewId()
         {
-            var command = new MySqlCommand(
-                @"update supplier 
-                        set name = @name, email = @email, phone = @phone
-                        where id = @id");
-            command.Parameters.AddWithValue("@id", supplier.Id);
-            command.Parameters.AddWithValue("@name", supplier.Supplier.Name);
-            command.Parameters.AddWithValue("@email", supplier.Supplier.Email);
-            command.Parameters.AddWithValue("@phone", supplier.Supplier.Phone);
-            DataTableRepository.ExecuteNonQuery(command);
+            var datatable = DataTableRepository.RetrieveDataTable(new MySqlCommand(
+                @"select max(id) as id from supplier;"));
+            return ((from DataRow row in datatable.Rows select row.Field<int>("id")).First() + 1).ToString();
         }
     }
 }

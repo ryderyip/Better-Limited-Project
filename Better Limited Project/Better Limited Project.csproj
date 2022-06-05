@@ -371,7 +371,6 @@
     <Compile Include="ProductUtility\SupplierUtility\SupplierDetailsForm.Designer.cs">
       <DependentUpon>SupplierDetailsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProductUtility\SupplierUtility\SupplierEntity.cs" />
     <Compile Include="ProductUtility\SupplierUtility\SupplierListForm.cs">
       <SubType>Form</SubType>
     </Compile>

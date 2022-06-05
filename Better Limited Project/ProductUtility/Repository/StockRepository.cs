@@ -13,7 +13,7 @@ namespace Better_Limited_Project.ProductUtility.Repository
     public static class StockRepository
     {
         public static EventHandler<IWorkplace>? StockUpdated;
-        
+
         /// <summary>
         /// Get the stocks of a specified workplace (retail store/warehouse).
         /// </summary>
@@ -22,7 +22,8 @@ namespace Better_Limited_Project.ProductUtility.Repository
         {
             var stocks = GetWarehouseStocks(workplaceId).Cast<IStock>()
                 .Concat(GetRetailStoreStocks(workplaceId)).ToList();
-            return stocks.Any() ? stocks 
+            return stocks.Any()
+                ? stocks
                 : throw new ArgumentException($"Workplace id \"{workplaceId}\" does not exist.");
         }
 
@@ -107,47 +108,45 @@ namespace Better_Limited_Project.ProductUtility.Repository
                 select new WarehouseStock(product, warehouse, quantity, restockLevel);
         }
 
-        public static void UpdateStock(IStock stock)
+        public static void InsertOrUpdate(IStock stock)
         {
             if (stock is RetailStoreStock retailStoreStock)
-                UpdateRetailStoreStock(retailStoreStock);
+                InsertOrUpdateRetailStoreStock(retailStoreStock);
             else if (stock is WarehouseStock warehouseStock)
-                UpdateWarehouseStock(warehouseStock);
+                InsertOrUpdateWarehouseStock(warehouseStock);
             else
                 throw new NotImplementedException("Unknown implementation of IStock class.");
-            
+
             StockUpdated?.Invoke(null, stock.Workplace);
         }
 
-        public static void UpdateRetailStoreStock(RetailStoreStock stock)
+        public static void InsertOrUpdateRetailStoreStock(RetailStoreStock stock)
         {
             var command = new MySqlCommand(
-                @"update retail_store_stock
-                        set selling_price = @sellingPrice,
-                            restock_level = @restockLevel,
-                            quantity = @quantity
-                        where product_id = @productId
-                        and retail_store_id = @retailStoreId;");
+                @"insert into retail_store_stock (product_id, retail_store_id, quantity, selling_price, restock_level) 
+                    value (@productId, @retailStoreId, @quantity, @sellingPrice, @restockLevel)
+                on duplicate key update selling_price = @sellingPrice,
+                                        restock_level = @restockLevel,
+                                        quantity = @quantity;");
+            command.Parameters.AddWithValue("@productId", stock.Product.Id);
+            command.Parameters.AddWithValue("@retailStoreId", stock.Workplace.Id);
             command.Parameters.AddWithValue("@sellingPrice", stock.SellingPrice);
             command.Parameters.AddWithValue("@restockLevel", stock.RestockLevel);
             command.Parameters.AddWithValue("@quantity", stock.Quantity);
-            command.Parameters.AddWithValue("@productId", stock.Product.Id);
-            command.Parameters.AddWithValue("@retailStoreId", stock.Workplace.Id);
             DataTableRepository.ExecuteNonQuery(command);
         }
-        
-        public static void UpdateWarehouseStock(WarehouseStock stock)
+
+        public static void InsertOrUpdateWarehouseStock(WarehouseStock stock)
         {
             var command = new MySqlCommand(
-                @"update warehouse_stock
-                        set restock_level = @restockLevel,
-                            quantity = @quantity
-                        where product_id = @productId
-                        and warehouse_stock.warehouse_id = @warehouseId;");
+                @"insert into warehouse_stock (warehouse_id, product_id, quantity, restock_level)
+                    value (@warehouseId, @productId, @quantity, @restockLevel)
+                    on duplicate key update restock_level = @restockLevel,
+                                            quantity = @quantity;");
+            command.Parameters.AddWithValue("@warehouseId", stock.Workplace.Id);
+            command.Parameters.AddWithValue("@productId", stock.Product.Id);
             command.Parameters.AddWithValue("@restockLevel", stock.RestockLevel);
             command.Parameters.AddWithValue("@quantity", stock.Quantity);
-            command.Parameters.AddWithValue("@productId", stock.Product.Id);
-            command.Parameters.AddWithValue("@warehouseId", stock.Workplace.Id);
             DataTableRepository.ExecuteNonQuery(command);
         }
     }

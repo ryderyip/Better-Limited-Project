@@ -15,7 +15,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
         public event EventHandler? ProductCreated;
         private const int MaximumDescriptionLength = 1200;
         private readonly List<Category> _categories;
-        private readonly List<SupplierEntity> _suppliers;
+        private readonly List<Supplier> _suppliers;
         private Image? _productImage;
 
         public NewProductForm()
@@ -31,7 +31,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             nudPrice.Maximum = Product.MaximumPrice;
             tbDescription.MaxLength = MaximumDescriptionLength;
             _categories.ForEach(category => cbCategory.Items.Add(category.Name));
-            _suppliers.ForEach(supplier => cbSupplier.Items.Add(supplier.Supplier.Name));
+            _suppliers.ForEach(supplier => cbSupplier.Items.Add(supplier.Name));
             cbCategory.SelectedIndex = 0;
             cbSupplier.SelectedIndex = 0;
         }

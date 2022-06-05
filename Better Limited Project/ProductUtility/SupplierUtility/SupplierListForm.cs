@@ -7,7 +7,7 @@ namespace Better_Limited_Project.ProductUtility.SupplierUtility
 {
     public partial class SupplierListForm : Form
     {
-        private List<SupplierEntity> _suppliers; 
+        private List<Supplier> _suppliers; 
 
         public SupplierListForm()
         {
@@ -16,18 +16,18 @@ namespace Better_Limited_Project.ProductUtility.SupplierUtility
             Shown += (_, _) => PopulateSupplierDgv(_suppliers);
         }
 
-        private void PopulateSupplierDgv(List<SupplierEntity> supplier)
+        private void PopulateSupplierDgv(List<Supplier> supplier)
         {
             dgvSupplier.Rows.Clear();
             supplier.ForEach(supp => 
-                dgvSupplier.Rows.Add(supp.Supplier.Name, supp.Supplier.Phone,
-                    supp.Supplier.Email));
+                dgvSupplier.Rows.Add(supp.Name, supp.Phone,
+                    supp.Email));
         }
 
         private void dgvSupplier_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             string selectedSupplierPhone = dgvSupplier.Rows[e.RowIndex].Cells["phone"].Value.ToString();
-            var selectedSupplier = _suppliers.First(supp => supp.Supplier.Phone == selectedSupplierPhone);
+            var selectedSupplier = _suppliers.First(supp => supp.Phone == selectedSupplierPhone);
             var form = new SupplierDetailsForm(selectedSupplier);
             form.Updated += (_, _) => RefreshSupplierDgv();
             form.StartPosition = FormStartPosition.CenterScreen;
@@ -52,9 +52,9 @@ namespace Better_Limited_Project.ProductUtility.SupplierUtility
         {
             string keyword = tbSearchBox.Text.ToLower();
             var suppliers = _suppliers
-                .Where(supp => supp.Supplier.Name.ToLower().Contains(keyword)
-                               || supp.Supplier.Email.ToLower().Contains(keyword)
-                               || supp.Supplier.Phone.ToLower().Contains(keyword)).ToList();
+                .Where(supp => supp.Name.ToLower().Contains(keyword)
+                               || supp.Email.ToLower().Contains(keyword)
+                               || supp.Phone.ToLower().Contains(keyword)).ToList();
             PopulateSupplierDgv(suppliers);
         }
     }

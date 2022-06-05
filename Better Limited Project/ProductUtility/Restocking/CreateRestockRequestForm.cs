@@ -43,7 +43,7 @@ namespace Better_Limited_Project.ProductUtility.Restocking
         {
             string searchKeyword = tbSearchBox.Text.ToLower().Trim();
             var keywordFilteredStock = _stocks.Where(s => s.Product.Name.ToLower().Contains(searchKeyword)
-                                                          || s.Product.SupplierEntity.Supplier.Name.ToLower()
+                                                          || s.Product.Supplier.Name.ToLower()
                                                               .Contains(searchKeyword));
 
             if (cbCategory.SelectedItem.ToString() != string.Empty)

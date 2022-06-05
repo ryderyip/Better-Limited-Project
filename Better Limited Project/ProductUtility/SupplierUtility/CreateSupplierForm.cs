@@ -39,7 +39,7 @@ namespace Better_Limited_Project.ProductUtility.SupplierUtility
             }
 
             var supplier = new Supplier(name, phone, email);
-            SupplierRepository.CreateSupplier(supplier);
+            SupplierRepository.InsertOrUpdate(supplier);
             SupplierCreated?.Invoke(this, EventArgs.Empty);
             Close();
         }

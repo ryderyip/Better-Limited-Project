@@ -9,16 +9,16 @@ namespace Better_Limited_Project.ProductUtility.Entity
         public IWorkplace Workplace { get; }
         public int Quantity { get; set; }
         public int RestockLevel { get; set; }
+        
         public void Save()
         {
-            Product.Update();
-            StockRepository.UpdateStock(this);
+            StockRepository.InsertOrUpdate(this);
         }
 
-        public WarehouseStock(Product product, IWorkplace workplace, int quantity, int restockLevel)
+        public WarehouseStock(Product product, Warehouse warehouse, int quantity, int restockLevel)
         {
             Product = product;
-            Workplace = workplace;
+            Workplace = warehouse;
             Quantity = quantity;
             RestockLevel = restockLevel;
         }

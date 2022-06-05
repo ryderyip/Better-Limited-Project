@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.Login;
 
@@ -12,8 +11,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
 
         public ConfirmRemovalForm()
         {
-            string currentStaffId = LoginSession.GetSession().CurrentStaff.Id;
-            _currentLoggedInStaffAccount = StaffAccountRepository.GetAll().First(ac => ac.StaffId == currentStaffId);
+            _currentLoggedInStaffAccount = LoginSession.GetSession().CurrentStaff.GetLoginAccount();
             InitializeComponent();
         }
 

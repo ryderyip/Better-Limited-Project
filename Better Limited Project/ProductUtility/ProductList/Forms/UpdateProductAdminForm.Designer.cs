@@ -58,6 +58,14 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             this.lblStockLevel = new System.Windows.Forms.Label();
             this.lblNewStockLevel = new System.Windows.Forms.Label();
             this.nudNewStockLevel = new System.Windows.Forms.NumericUpDown();
+            this.tbCategory = new System.Windows.Forms.TextBox();
+            this.lblCategory = new System.Windows.Forms.Label();
+            this.tbSupplier = new System.Windows.Forms.TextBox();
+            this.lblSupplier = new System.Windows.Forms.Label();
+            this.cbCategory = new System.Windows.Forms.ComboBox();
+            this.cbSupplier = new System.Windows.Forms.ComboBox();
+            this.lblNewCategory = new System.Windows.Forms.Label();
+            this.lblNewSuplier = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudNewReorderLevel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNewSellingPirce)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNewOriginalPrice)).BeginInit();
@@ -93,7 +101,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             this.txtName.Location = new System.Drawing.Point(206, 124);
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = true;
-            this.txtName.Size = new System.Drawing.Size(155, 20);
+            this.txtName.Size = new System.Drawing.Size(180, 20);
             this.txtName.TabIndex = 75;
             // 
             // label1
@@ -132,11 +140,11 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // 
             this.lblOutPhasingOut.AutoSize = true;
             this.lblOutPhasingOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOutPhasingOut.Location = new System.Drawing.Point(462, 165);
+            this.lblOutPhasingOut.Location = new System.Drawing.Point(434, 165);
             this.lblOutPhasingOut.Name = "lblOutPhasingOut";
-            this.lblOutPhasingOut.Size = new System.Drawing.Size(76, 15);
+            this.lblOutPhasingOut.Size = new System.Drawing.Size(104, 15);
             this.lblOutPhasingOut.TabIndex = 71;
-            this.lblOutPhasingOut.Text = "Phasing-out:";
+            this.lblOutPhasingOut.Text = "New Phasing-out:";
             // 
             // lblNewReorderLevel
             // 
@@ -163,7 +171,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             this.btnUpdateInfo.BackColor = System.Drawing.Color.DarkOrange;
             this.btnUpdateInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateInfo.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnUpdateInfo.Location = new System.Drawing.Point(313, 377);
+            this.btnUpdateInfo.Location = new System.Drawing.Point(313, 451);
             this.btnUpdateInfo.Name = "btnUpdateInfo";
             this.btnUpdateInfo.Size = new System.Drawing.Size(183, 44);
             this.btnUpdateInfo.TabIndex = 66;
@@ -274,18 +282,18 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // 
             this.tbNewName.Location = new System.Drawing.Point(540, 125);
             this.tbNewName.Name = "tbNewName";
-            this.tbNewName.Size = new System.Drawing.Size(155, 20);
+            this.tbNewName.Size = new System.Drawing.Size(180, 20);
             this.tbNewName.TabIndex = 82;
             // 
             // lblNewName
             // 
             this.lblNewName.AutoSize = true;
             this.lblNewName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewName.Location = new System.Drawing.Point(490, 126);
+            this.lblNewName.Location = new System.Drawing.Point(466, 126);
             this.lblNewName.Name = "lblNewName";
-            this.lblNewName.Size = new System.Drawing.Size(44, 15);
+            this.lblNewName.Size = new System.Drawing.Size(72, 15);
             this.lblNewName.TabIndex = 81;
-            this.lblNewName.Text = "Name:";
+            this.lblNewName.Text = "New Name:";
             // 
             // lblNewInfo
             // 
@@ -332,11 +340,93 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             this.nudNewStockLevel.Size = new System.Drawing.Size(70, 20);
             this.nudNewStockLevel.TabIndex = 87;
             // 
+            // tbCategory
+            // 
+            this.tbCategory.Location = new System.Drawing.Point(206, 352);
+            this.tbCategory.Name = "tbCategory";
+            this.tbCategory.ReadOnly = true;
+            this.tbCategory.Size = new System.Drawing.Size(180, 20);
+            this.tbCategory.TabIndex = 89;
+            // 
+            // lblCategory
+            // 
+            this.lblCategory.AutoSize = true;
+            this.lblCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategory.Location = new System.Drawing.Point(140, 353);
+            this.lblCategory.Name = "lblCategory";
+            this.lblCategory.Size = new System.Drawing.Size(58, 15);
+            this.lblCategory.TabIndex = 88;
+            this.lblCategory.Text = "Category:";
+            // 
+            // tbSupplier
+            // 
+            this.tbSupplier.Location = new System.Drawing.Point(206, 390);
+            this.tbSupplier.Name = "tbSupplier";
+            this.tbSupplier.ReadOnly = true;
+            this.tbSupplier.Size = new System.Drawing.Size(180, 20);
+            this.tbSupplier.TabIndex = 91;
+            // 
+            // lblSupplier
+            // 
+            this.lblSupplier.AutoSize = true;
+            this.lblSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSupplier.Location = new System.Drawing.Point(140, 392);
+            this.lblSupplier.Name = "lblSupplier";
+            this.lblSupplier.Size = new System.Drawing.Size(56, 15);
+            this.lblSupplier.TabIndex = 90;
+            this.lblSupplier.Text = "Supplier:";
+            // 
+            // cbCategory
+            // 
+            this.cbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCategory.FormattingEnabled = true;
+            this.cbCategory.Location = new System.Drawing.Point(540, 351);
+            this.cbCategory.Name = "cbCategory";
+            this.cbCategory.Size = new System.Drawing.Size(180, 21);
+            this.cbCategory.TabIndex = 92;
+            // 
+            // cbSupplier
+            // 
+            this.cbSupplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSupplier.FormattingEnabled = true;
+            this.cbSupplier.Location = new System.Drawing.Point(541, 391);
+            this.cbSupplier.Name = "cbSupplier";
+            this.cbSupplier.Size = new System.Drawing.Size(180, 21);
+            this.cbSupplier.TabIndex = 93;
+            // 
+            // lblNewCategory
+            // 
+            this.lblNewCategory.AutoSize = true;
+            this.lblNewCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNewCategory.Location = new System.Drawing.Point(448, 353);
+            this.lblNewCategory.Name = "lblNewCategory";
+            this.lblNewCategory.Size = new System.Drawing.Size(86, 15);
+            this.lblNewCategory.TabIndex = 94;
+            this.lblNewCategory.Text = "New Category:";
+            // 
+            // lblNewSuplier
+            // 
+            this.lblNewSuplier.AutoSize = true;
+            this.lblNewSuplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNewSuplier.Location = new System.Drawing.Point(451, 392);
+            this.lblNewSuplier.Name = "lblNewSuplier";
+            this.lblNewSuplier.Size = new System.Drawing.Size(84, 15);
+            this.lblNewSuplier.TabIndex = 95;
+            this.lblNewSuplier.Text = "New Supplier:";
+            // 
             // UpdateProductAdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 527);
+            this.Controls.Add(this.lblNewSuplier);
+            this.Controls.Add(this.lblNewCategory);
+            this.Controls.Add(this.cbSupplier);
+            this.Controls.Add(this.cbCategory);
+            this.Controls.Add(this.tbSupplier);
+            this.Controls.Add(this.lblSupplier);
+            this.Controls.Add(this.tbCategory);
+            this.Controls.Add(this.lblCategory);
             this.Controls.Add(this.nudNewStockLevel);
             this.Controls.Add(this.lblNewStockLevel);
             this.Controls.Add(this.tbStockLevel);
@@ -409,5 +499,13 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
         private System.Windows.Forms.Label lblStockLevel;
         private System.Windows.Forms.Label lblNewStockLevel;
         private System.Windows.Forms.NumericUpDown nudNewStockLevel;
+        private System.Windows.Forms.TextBox tbCategory;
+        private System.Windows.Forms.Label lblCategory;
+        private System.Windows.Forms.TextBox tbSupplier;
+        private System.Windows.Forms.Label lblSupplier;
+        private System.Windows.Forms.ComboBox cbCategory;
+        private System.Windows.Forms.ComboBox cbSupplier;
+        private System.Windows.Forms.Label lblNewCategory;
+        private System.Windows.Forms.Label lblNewSuplier;
     }
 }

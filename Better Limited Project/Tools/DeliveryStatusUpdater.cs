@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;
 using Better_Limited_Project.ServiceUtility;
-using Better_Limited_Project.ServiceUtility.Delivery.Repository;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.Tools
@@ -10,12 +9,12 @@ namespace Better_Limited_Project.Tools
     {
         public static void OnStockUpdated(object sender, IWorkplace workplace)
         {
-            var deliveryRequests = DeliveryRequestRepository.GetAll().ToList();
-            var salesOrders = new SalesOrderRepository().GetAll();
-            var ordersWaitingForStock = salesOrders
-                .Where(so => so.GetDeliveryRequest() != null
-                             && !deliveryRequests.Find(dr => dr.SalesOrderId == so.Id).IsStockReadyForDelivery())
-                .OrderBy(so => so.GetDeliveryRequest()!.CreatedOn);
+            var ordersWaitingForStock =
+                (from order in new SalesOrderRepository().GetAll()
+                    let deliveryRequest = order.GetDeliveryRequest()
+                    where deliveryRequest != null
+                          && !deliveryRequest.IsStockReadyForDelivery()
+                    select order).OrderBy(so => so.GetDeliveryRequest()!.CreatedOn);
 
             var service = new ProductReservationService();
             foreach (var order in ordersWaitingForStock)
