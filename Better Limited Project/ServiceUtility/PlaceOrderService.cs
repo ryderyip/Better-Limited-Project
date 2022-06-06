@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.CustomerRecord;
+using Better_Limited_Project.ProductUtility.Repository;
 using Better_Limited_Project.Sales.OrderPlacing.Controller;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.UI;
 using Better_Limited_Project.Sales.PaymentUtility;
 using Better_Limited_Project.ServiceUtility.Delivery;
+using Better_Limited_Project.SettingsUtility;
+using Better_Limited_Project.Tools;
 
 namespace Better_Limited_Project.ServiceUtility
 {
@@ -18,12 +21,16 @@ namespace Better_Limited_Project.ServiceUtility
         public event EventHandler? SalesOrderPlaced;
         public bool IsNeedDelivery { get; set; }
         public bool IsNeedInstallation { get; set; }
+        private readonly decimal _amountDue;
 
         public PlaceOrderService(Cart cart, Customer? customer = null)
         {
             var composer = new SalesOrderComposer(cart, customer);
             _order = composer.GetSalesOrder();
             _salesOrderProduct = composer.GetSalesOrderProducts().ToList();
+            
+            var calculator = new SalesOrderCalculator(_order, _salesOrderProduct);
+            _amountDue = calculator.GetInStockItemPrice() + calculator.GetDepositAmount();
         }
 
         public void PlaceOrder()
@@ -44,12 +51,10 @@ namespace Better_Limited_Project.ServiceUtility
 
         private void OpenPaymentForm(PaymentMethod method)
         {
-            var calculator = new SalesOrderCalculator(_order, _salesOrderProduct);
-            decimal amountDue = calculator.GetInStockItemPrice() + calculator.GetDepositAmount();
-            var form = PaymentFormFactory.Generate(amountDue, method);
-            form.PaymentCompleted += (_, payment) =>
+            var form = PaymentFormFactory.Generate(_amountDue, method);
+            form.PaymentCompleted += (_, paymentMethod) =>
             {
-                SaveSalesOrderToDatabase(payment);
+                SaveSalesOrderToDatabase(paymentMethod);
                 if (IsNeedDelivery)
                     SelectDeliverySessionAndSendDeliveryRequest();
                 if (IsNeedInstallation)
@@ -63,7 +68,11 @@ namespace Better_Limited_Project.ServiceUtility
         {
             var form = new DeliverySessionSelectionForm();
             form.StartPosition = FormStartPosition.CenterScreen;
-            form.SessionSelected += (_, session) => new DeliveryService().SendRequest(_order, session);
+            form.SessionSelected += (_, session) =>
+            {
+                new DeliveryService().SendRequest(_order, session);
+                MessageBox.Show("Delivery Request Sent");
+            };
             form.ShowDialog();
         }
 
@@ -73,8 +82,12 @@ namespace Better_Limited_Project.ServiceUtility
             service.SendRequest(_order);
         }
 
-        private void SaveSalesOrderToDatabase(Payment payment)
+        private void SaveSalesOrderToDatabase(PaymentMethod paymentMethod)
         {
+            var payment = new Payment(_amountDue, paymentMethod);
+            payment.PaidOn = DateTime.Now;
+            payment.Save();
+            
             _order.Save();
 
             _salesOrderProduct.ToList()
@@ -91,9 +104,19 @@ namespace Better_Limited_Project.ServiceUtility
                     sop.Save();
                 });
 
+            var stocks = StockRepository.GetStocks(UserSettings.GetSettings().Workplace!.Id).ToList();
+            foreach (var salesOrderProduct in _salesOrderProduct.Where(sop => !sop.IsOutOfStock))
+            {
+                var stock = stocks.First(s => s.Product.Id == salesOrderProduct.ProductId);
+                stock.Quantity -= salesOrderProduct.Quantity;
+                stock.Save();
+            }
+                
             var reservationService = new ProductReservationService(_order);
-            foreach (var salesOrderProduct in _salesOrderProduct)
+            foreach (var salesOrderProduct in _salesOrderProduct.Where(sop => sop.IsOutOfStock))
                 reservationService.Reserve(salesOrderProduct.ProductId, salesOrderProduct.Quantity);
+            
+            LowStockLevelNotifier.OnOrderPlaced(this, _order.RetailStore);
         }
     }
 }

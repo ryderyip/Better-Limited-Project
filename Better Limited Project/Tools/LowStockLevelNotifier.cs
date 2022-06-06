@@ -8,7 +8,7 @@ namespace Better_Limited_Project.Tools
 {
     public static class LowStockLevelNotifier
     {
-        public static void OnStockUpdated(object sender, IWorkplace workplace)
+        public static void OnOrderPlaced(object sender, IWorkplace workplace)
         {
             var currentStaffDepartment = LoginSession.GetSession().CurrentStaff.Department;
             if (currentStaffDepartment is not Department.Sales and not Department.Inventory)
@@ -23,9 +23,10 @@ namespace Better_Limited_Project.Tools
             
             string header = "Low Stock Warning";
             string text = $"There are {noOfLowStock} low stock items!";
-            var popUp = new PopUpForm(header, text);
+            MessageBox.Show(text);
+            /*var popUp = new PopUpForm(header, text);
             if (Application.OpenForms.Cast<Form>().All(f => f is not PopUpForm))
-                popUp.Show();
+                popUp.Show();*/
         }
     }
 }

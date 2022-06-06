@@ -50,12 +50,6 @@ namespace Better_Limited_Project.ProductUtility.Repository
             command.Parameters.AddWithValue("@categoryId", product.Category.Id);
             command.Parameters.AddWithValue("@supplierId", product.Supplier.Id);
             DataTableRepository.ExecuteNonQuery(command);
-
-            foreach (var retailStore in new RetailStoreRepository().GetRetailStores())
-                new RetailStoreStock(product, retailStore, 0, product.OriginalPrice, 0).Save();
-            
-            foreach (var warehouse in WarehouseRepository.GetWarehouses())
-                new WarehouseStock(product, warehouse, 0, 0).Save();
         }
 
         public static void DeleteProduct(Product product)

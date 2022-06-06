@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Windows.Forms;
 using Better_Limited_Project.Properties;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.SettingsUtility;
@@ -10,6 +12,7 @@ using MigraDoc.DocumentObjectModel;
 using MigraDoc.DocumentObjectModel.Shapes;
 using MigraDoc.DocumentObjectModel.Tables;
 using MigraDoc.Rendering;
+using BorderStyle = MigraDoc.DocumentObjectModel.BorderStyle;
 using TabAlignment = MigraDoc.DocumentObjectModel.TabAlignment;
 
 namespace Better_Limited_Project.Sales.PaymentUtility
@@ -37,12 +40,19 @@ namespace Better_Limited_Project.Sales.PaymentUtility
             PdfDocumentRenderer pdfRenderer = new(unicode);
             pdfRenderer.Document = doc;
             pdfRenderer.RenderDocument(); // Layout and render document to PDF
-            pdfRenderer.PdfDocument.Save(path);
 
+            try
+            {
+                pdfRenderer.PdfDocument.Save(path);
+            }
+            catch (IOException e)
+            {
+                MessageBox.Show("The file is currently being used by another process.");
+            }
             Process.Start(path);
         }
 
-        public void GenerateAndPrint(SalesOrder salesOrder)
+        public void GenerateAndPrint()
         {
             Generate();
             var path = Path.Combine(_location, FileName);

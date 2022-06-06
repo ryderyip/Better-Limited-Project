@@ -7,7 +7,7 @@ namespace Better_Limited_Project.Sales.PaymentUtility.UI
 {
     public partial class CashPaymentForm : Form, IPaymentForm
     {
-        public event EventHandler<Payment>? PaymentCompleted;
+        public event EventHandler<PaymentMethod>? PaymentCompleted;
         private readonly Payment _payment;
 
         public CashPaymentForm(decimal amount)
@@ -22,9 +22,6 @@ namespace Better_Limited_Project.Sales.PaymentUtility.UI
             ShowDialog();
         }
 
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-        }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
@@ -35,10 +32,8 @@ namespace Better_Limited_Project.Sales.PaymentUtility.UI
                 MessageBox.Show("Please pay enough cash.");
                 return;
             }
-
-            _payment.PaidOn = DateTime.Now;
-            _payment.Save();
-            PaymentCompleted?.Invoke(this, _payment);
+            
+            PaymentCompleted?.Invoke(this, PaymentMethod.Cash);
             Close();
         }
 

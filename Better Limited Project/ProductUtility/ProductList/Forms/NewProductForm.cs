@@ -7,6 +7,7 @@ using Better_Limited_Project.DocumentUtility;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.ProductUtility.Repository;
 using Better_Limited_Project.ProductUtility.SupplierUtility;
+using Better_Limited_Project.StaffUtility.Repository;
 
 namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 {
@@ -63,6 +64,12 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             
             if (_productImage != null)
                 product.SetImage(_productImage);
+            
+            foreach (var retailStore in new RetailStoreRepository().GetRetailStores())
+                new RetailStoreStock(product, retailStore, 0, product.OriginalPrice, 0).Save();
+            
+            foreach (var warehouse in WarehouseRepository.GetWarehouses())
+                new WarehouseStock(product, warehouse, 0, 0).Save();
             
             ProductCreated?.Invoke(this, EventArgs.Empty);
             Close();

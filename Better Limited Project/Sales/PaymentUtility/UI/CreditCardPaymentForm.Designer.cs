@@ -30,47 +30,57 @@
         {
             this.lblRemind = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnBack = new System.Windows.Forms.Button();
+            this.tbCashOwned = new System.Windows.Forms.TextBox();
+            this.lblCashOwned = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblRemind
             // 
             this.lblRemind.AutoSize = true;
-            this.lblRemind.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRemind.Location = new System.Drawing.Point(212, 60);
+            this.lblRemind.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRemind.Location = new System.Drawing.Point(43, 98);
             this.lblRemind.Name = "lblRemind";
-            this.lblRemind.Size = new System.Drawing.Size(304, 15);
+            this.lblRemind.Size = new System.Drawing.Size(364, 20);
             this.lblRemind.TabIndex = 1;
-            this.lblRemind.Text = "Please Scan The Card Using The Credit Card Terminal";
+            this.lblRemind.Text = "Please scan the card using the credit card terminal";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(135, 166);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(106, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(512, 39);
+            this.label1.Size = new System.Drawing.Size(238, 31);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Scanning creditCard - animation";
+            this.label1.Text = "Scan Credit Card";
             // 
-            // btnBack
+            // tbCashOwned
             // 
-            this.btnBack.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnBack.Location = new System.Drawing.Point(327, 282);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(104, 37);
-            this.btnBack.TabIndex = 50;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = false;
+            this.tbCashOwned.Location = new System.Drawing.Point(152, 170);
+            this.tbCashOwned.Name = "tbCashOwned";
+            this.tbCashOwned.ReadOnly = true;
+            this.tbCashOwned.Size = new System.Drawing.Size(144, 20);
+            this.tbCashOwned.TabIndex = 53;
+            // 
+            // lblCashOwned
+            // 
+            this.lblCashOwned.AutoSize = true;
+            this.lblCashOwned.BackColor = System.Drawing.SystemColors.Control;
+            this.lblCashOwned.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCashOwned.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblCashOwned.Location = new System.Drawing.Point(156, 142);
+            this.lblCashOwned.Name = "lblCashOwned";
+            this.lblCashOwned.Size = new System.Drawing.Size(135, 25);
+            this.lblCashOwned.TabIndex = 52;
+            this.lblCashOwned.Text = "Cash Owned";
             // 
             // CreditCardPaymentForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnBack);
+            this.ClientSize = new System.Drawing.Size(451, 282);
+            this.Controls.Add(this.tbCashOwned);
+            this.Controls.Add(this.lblCashOwned);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblRemind);
             this.Name = "CreditCardPaymentForm";
@@ -84,6 +94,7 @@
 
         private System.Windows.Forms.Label lblRemind;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.TextBox tbCashOwned;
+        private System.Windows.Forms.Label lblCashOwned;
     }
 }

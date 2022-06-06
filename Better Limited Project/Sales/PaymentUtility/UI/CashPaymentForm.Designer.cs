@@ -30,7 +30,6 @@
         {
             this.lblHeader = new System.Windows.Forms.Label();
             this.lblCashOwned = new System.Windows.Forms.Label();
-            this.btnBack = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.tbCashOwned = new System.Windows.Forms.TextBox();
             this.nudAmountTendered = new System.Windows.Forms.NumericUpDown();
@@ -43,10 +42,10 @@
             // lblHeader
             // 
             this.lblHeader.AutoSize = true;
-            this.lblHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeader.Location = new System.Drawing.Point(159, 37);
+            this.lblHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeader.Location = new System.Drawing.Point(130, 37);
             this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(482, 25);
+            this.lblHeader.Size = new System.Drawing.Size(541, 29);
             this.lblHeader.TabIndex = 0;
             this.lblHeader.Text = "Please Enter The Amount Tendered by Customer";
             // 
@@ -54,35 +53,22 @@
             // 
             this.lblCashOwned.AutoSize = true;
             this.lblCashOwned.BackColor = System.Drawing.SystemColors.Control;
-            this.lblCashOwned.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCashOwned.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCashOwned.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblCashOwned.Location = new System.Drawing.Point(297, 102);
+            this.lblCashOwned.Location = new System.Drawing.Point(331, 114);
             this.lblCashOwned.Name = "lblCashOwned";
-            this.lblCashOwned.Size = new System.Drawing.Size(202, 37);
+            this.lblCashOwned.Size = new System.Drawing.Size(135, 25);
             this.lblCashOwned.TabIndex = 45;
             this.lblCashOwned.Text = "Cash Owned";
-            // 
-            // btnBack
-            // 
-            this.btnBack.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnBack.Location = new System.Drawing.Point(286, 404);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(104, 40);
-            this.btnBack.TabIndex = 49;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = false;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnNext
             // 
             this.btnNext.BackColor = System.Drawing.Color.DarkOrange;
             this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNext.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnNext.Location = new System.Drawing.Point(417, 404);
+            this.btnNext.Location = new System.Drawing.Point(351, 398);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(98, 40);
+            this.btnNext.Size = new System.Drawing.Size(98, 46);
             this.btnNext.TabIndex = 50;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = false;
@@ -146,7 +132,6 @@
             this.Controls.Add(this.lblAmountTendered);
             this.Controls.Add(this.nudAmountTendered);
             this.Controls.Add(this.btnNext);
-            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.tbCashOwned);
             this.Controls.Add(this.lblCashOwned);
             this.Controls.Add(this.lblHeader);
@@ -163,7 +148,6 @@
 
         private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.Label lblCashOwned;
-        private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.TextBox tbCashOwned;
         private System.Windows.Forms.NumericUpDown nudAmountTendered;

@@ -62,8 +62,11 @@ namespace Better_Limited_Project.ServiceUtility.Delivery
         {
             foreach (var salesOrderProduct in GetSalesOrder().GetSalesOrderProducts())
             {
-                var reservedStock = salesOrderProduct.GetReservedStock();
-                if (reservedStock == null || reservedStock.Quantity < salesOrderProduct.Quantity)
+                if (!salesOrderProduct.IsOutOfStock)
+                    continue;
+                
+                int reservedQuantity = salesOrderProduct.GetReservedStock()?.Quantity ?? 0;
+                if (reservedQuantity < salesOrderProduct.Quantity)
                     return false;
             }
 

@@ -7,7 +7,7 @@ namespace Better_Limited_Project.Tools
         private readonly string _header;
         private readonly string _text;
         private readonly Timer _timer;
-        private const double Duration = 1.5;
+        private const double Duration = 2;
 
         public PopUpForm(string header, string text)
         {

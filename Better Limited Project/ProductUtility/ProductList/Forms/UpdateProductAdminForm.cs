@@ -61,6 +61,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             _stock.Quantity = newStockLevel;
             _stock.Product.Category = _categories.Find(c => c.Name == cbCategory.SelectedItem.ToString());
             _stock.Product.Supplier = _suppliers.Find(s => s.Name == cbSupplier.SelectedItem.ToString());
+            
             _stock.Save();
             _stock.Product.Save();
 

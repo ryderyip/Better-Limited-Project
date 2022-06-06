@@ -9,6 +9,8 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
 {
     public static class ReservedSalesOrderProductRepository
     {
+        public static event EventHandler<ReservedSalesOrderProduct>? Updated;
+
         public static void InsertOrUpdate(ReservedSalesOrderProduct reservedSalesOrderProduct)
         {
             var command = new MySqlCommand(
@@ -19,13 +21,14 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
             command.Parameters.AddWithValue("@productId", reservedSalesOrderProduct.ProductId);
             command.Parameters.AddWithValue("@quantity", reservedSalesOrderProduct.Quantity);
             DataTableRepository.ExecuteNonQuery(command);
+            Updated?.Invoke(null, reservedSalesOrderProduct);
         }
 
         public static IEnumerable<ReservedSalesOrderProduct> FindAll(Predicate<ReservedSalesOrderProduct> filter)
         {
             return GetAll().Where(filter.Invoke);
         }
-        
+
         public static IEnumerable<ReservedSalesOrderProduct> GetAll()
         {
             var dataTable = DataTableRepository.RetrieveDataTable(new MySqlCommand(

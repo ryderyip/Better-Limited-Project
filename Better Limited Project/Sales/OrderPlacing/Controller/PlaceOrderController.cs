@@ -43,7 +43,9 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Controller
             if (_cart.IsEmpty())
                 return; // TODO prompt a non intruding message
 
-            if (_form.checkBoxNeedDelivery.Checked || _form.checkBoxNeedInstallation.Checked)
+            if (_form.checkBoxNeedDelivery.Checked 
+                || _form.checkBoxNeedInstallation.Checked
+                || _cart.GetCartItems().Any(ci => ci.IsOutOfStock))
             {
                 var service = new CustomerRecordService();
                 service.CustomerRecordRetrieved += (_, customer) => PlaceOrder(customer);

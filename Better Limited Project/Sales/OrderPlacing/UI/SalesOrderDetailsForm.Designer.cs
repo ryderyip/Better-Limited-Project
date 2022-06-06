@@ -54,17 +54,18 @@
             this.txtCustEmail = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.dgvProducts = new System.Windows.Forms.DataGridView();
-            this.dgvProductsName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvProductsCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvProductsPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvProductsQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvProductsSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbTotalAmount = new System.Windows.Forms.TextBox();
             this.lblTotalAmount = new System.Windows.Forms.Label();
             this.btnDepositReceipt = new System.Windows.Forms.Button();
             this.btnEditOrder = new System.Windows.Forms.Button();
             this.tbDeliveryStatus = new System.Windows.Forms.TextBox();
             this.lblDeliveryStatus = new System.Windows.Forms.Label();
+            this.dgvProductsName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvProductsCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stockStatusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvProductsPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvProductsQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvProductsSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -160,7 +161,7 @@
             this.txtNeedDelivery.Location = new System.Drawing.Point(137, 304);
             this.txtNeedDelivery.Name = "txtNeedDelivery";
             this.txtNeedDelivery.ReadOnly = true;
-            this.txtNeedDelivery.Size = new System.Drawing.Size(55, 20);
+            this.txtNeedDelivery.Size = new System.Drawing.Size(100, 20);
             this.txtNeedDelivery.TabIndex = 9;
             this.txtNeedDelivery.Text = "-";
             // 
@@ -169,7 +170,7 @@
             this.txtNeedInstallation.Location = new System.Drawing.Point(137, 356);
             this.txtNeedInstallation.Name = "txtNeedInstallation";
             this.txtNeedInstallation.ReadOnly = true;
-            this.txtNeedInstallation.Size = new System.Drawing.Size(55, 20);
+            this.txtNeedInstallation.Size = new System.Drawing.Size(100, 20);
             this.txtNeedInstallation.TabIndex = 11;
             this.txtNeedInstallation.Text = "-";
             // 
@@ -274,7 +275,7 @@
             this.BtnPaymentReceipt.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.BtnPaymentReceipt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnPaymentReceipt.ForeColor = System.Drawing.SystemColors.Window;
-            this.BtnPaymentReceipt.Location = new System.Drawing.Point(200, 422);
+            this.BtnPaymentReceipt.Location = new System.Drawing.Point(201, 451);
             this.BtnPaymentReceipt.Name = "BtnPaymentReceipt";
             this.BtnPaymentReceipt.Size = new System.Drawing.Size(129, 54);
             this.BtnPaymentReceipt.TabIndex = 84;
@@ -287,7 +288,7 @@
             this.btnSettleIncompletePayment.BackColor = System.Drawing.Color.DarkOrange;
             this.btnSettleIncompletePayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSettleIncompletePayment.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnSettleIncompletePayment.Location = new System.Drawing.Point(387, 422);
+            this.btnSettleIncompletePayment.Location = new System.Drawing.Point(389, 451);
             this.btnSettleIncompletePayment.Name = "btnSettleIncompletePayment";
             this.btnSettleIncompletePayment.Size = new System.Drawing.Size(185, 54);
             this.btnSettleIncompletePayment.TabIndex = 85;
@@ -322,49 +323,15 @@
             this.dgvProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvProductsName,
             this.dgvProductsCategory,
+            this.stockStatusColumn,
             this.dgvProductsPrice,
             this.dgvProductsQuantity,
             this.dgvProductsSubtotal});
             this.dgvProducts.Location = new System.Drawing.Point(274, 264);
             this.dgvProducts.Name = "dgvProducts";
             this.dgvProducts.ReadOnly = true;
-            this.dgvProducts.Size = new System.Drawing.Size(493, 115);
+            this.dgvProducts.Size = new System.Drawing.Size(493, 162);
             this.dgvProducts.TabIndex = 109;
-            // 
-            // dgvProductsName
-            // 
-            this.dgvProductsName.HeaderText = "Name";
-            this.dgvProductsName.Name = "dgvProductsName";
-            this.dgvProductsName.ReadOnly = true;
-            this.dgvProductsName.Width = 130;
-            // 
-            // dgvProductsCategory
-            // 
-            this.dgvProductsCategory.HeaderText = "Category";
-            this.dgvProductsCategory.Name = "dgvProductsCategory";
-            this.dgvProductsCategory.ReadOnly = true;
-            this.dgvProductsCategory.Width = 90;
-            // 
-            // dgvProductsPrice
-            // 
-            this.dgvProductsPrice.HeaderText = "Price";
-            this.dgvProductsPrice.Name = "dgvProductsPrice";
-            this.dgvProductsPrice.ReadOnly = true;
-            this.dgvProductsPrice.Width = 90;
-            // 
-            // dgvProductsQuantity
-            // 
-            this.dgvProductsQuantity.HeaderText = "Qty";
-            this.dgvProductsQuantity.Name = "dgvProductsQuantity";
-            this.dgvProductsQuantity.ReadOnly = true;
-            this.dgvProductsQuantity.Width = 50;
-            // 
-            // dgvProductsSubtotal
-            // 
-            this.dgvProductsSubtotal.HeaderText = "Subtotal";
-            this.dgvProductsSubtotal.Name = "dgvProductsSubtotal";
-            this.dgvProductsSubtotal.ReadOnly = true;
-            this.dgvProductsSubtotal.Width = 90;
             // 
             // tbTotalAmount
             // 
@@ -390,7 +357,7 @@
             this.btnDepositReceipt.BackColor = System.Drawing.Color.ForestGreen;
             this.btnDepositReceipt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDepositReceipt.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnDepositReceipt.Location = new System.Drawing.Point(630, 422);
+            this.btnDepositReceipt.Location = new System.Drawing.Point(638, 451);
             this.btnDepositReceipt.Name = "btnDepositReceipt";
             this.btnDepositReceipt.Size = new System.Drawing.Size(129, 54);
             this.btnDepositReceipt.TabIndex = 112;
@@ -403,7 +370,7 @@
             this.btnEditOrder.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnEditOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditOrder.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnEditOrder.Location = new System.Drawing.Point(25, 422);
+            this.btnEditOrder.Location = new System.Drawing.Point(25, 451);
             this.btnEditOrder.Name = "btnEditOrder";
             this.btnEditOrder.Size = new System.Drawing.Size(117, 54);
             this.btnEditOrder.TabIndex = 113;
@@ -430,11 +397,53 @@
             this.lblDeliveryStatus.TabIndex = 116;
             this.lblDeliveryStatus.Text = "Delivery Status";
             // 
+            // dgvProductsName
+            // 
+            this.dgvProductsName.HeaderText = "Name";
+            this.dgvProductsName.Name = "dgvProductsName";
+            this.dgvProductsName.ReadOnly = true;
+            this.dgvProductsName.Width = 130;
+            // 
+            // dgvProductsCategory
+            // 
+            this.dgvProductsCategory.HeaderText = "Category";
+            this.dgvProductsCategory.Name = "dgvProductsCategory";
+            this.dgvProductsCategory.ReadOnly = true;
+            this.dgvProductsCategory.Width = 90;
+            // 
+            // stockStatusColumn
+            // 
+            this.stockStatusColumn.HeaderText = "Stock Status";
+            this.stockStatusColumn.Name = "stockStatusColumn";
+            this.stockStatusColumn.ReadOnly = true;
+            this.stockStatusColumn.Visible = false;
+            // 
+            // dgvProductsPrice
+            // 
+            this.dgvProductsPrice.HeaderText = "Price";
+            this.dgvProductsPrice.Name = "dgvProductsPrice";
+            this.dgvProductsPrice.ReadOnly = true;
+            this.dgvProductsPrice.Width = 90;
+            // 
+            // dgvProductsQuantity
+            // 
+            this.dgvProductsQuantity.HeaderText = "Qty";
+            this.dgvProductsQuantity.Name = "dgvProductsQuantity";
+            this.dgvProductsQuantity.ReadOnly = true;
+            this.dgvProductsQuantity.Width = 50;
+            // 
+            // dgvProductsSubtotal
+            // 
+            this.dgvProductsSubtotal.HeaderText = "Subtotal";
+            this.dgvProductsSubtotal.Name = "dgvProductsSubtotal";
+            this.dgvProductsSubtotal.ReadOnly = true;
+            this.dgvProductsSubtotal.Width = 90;
+            // 
             // SalesOrderDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 488);
+            this.ClientSize = new System.Drawing.Size(800, 521);
             this.Controls.Add(this.tbDeliveryStatus);
             this.Controls.Add(this.lblDeliveryStatus);
             this.Controls.Add(this.btnEditOrder);
@@ -512,6 +521,7 @@
         private System.Windows.Forms.Label lblDeliveryStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvProductsName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvProductsCategory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stockStatusColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvProductsPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvProductsQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvProductsSubtotal;

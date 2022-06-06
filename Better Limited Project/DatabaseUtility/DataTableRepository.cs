@@ -22,9 +22,6 @@ namespace Better_Limited_Project.DatabaseUtility
 
         public static void ExecuteNonQuery(params MySqlCommand[] mySqlCommand)
         {
-            if (mySqlCommand.Length == 0)
-                return;
-            
             using var conn = Database.GetConnection();
             conn.Open();
             foreach (var command in mySqlCommand)

@@ -37,7 +37,9 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
             decimal due = Price * Quantity;
             if (payments.Sum(sopp => PaymentRepository.FindById(sopp.PaymentId).Amount) >= due)
                 return SalesOrderProductPaymentStatus.FullyPaid;
-            return payments.Count != 0 ? SalesOrderProductPaymentStatus.DepositPaid : SalesOrderProductPaymentStatus.AwaitingPayment;
+            return payments.Count != 0
+                ? SalesOrderProductPaymentStatus.DepositPaid
+                : SalesOrderProductPaymentStatus.AwaitingPayment;
         }
 
         public IEnumerable<SalesOrderProductPayment> GetPayments()
@@ -53,6 +55,14 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
         public ReservedSalesOrderProduct? GetReservedStock()
         {
             return ReservedSalesOrderProductRepository.FindByIds(SalesOrderId, ProductId);
+        }
+
+        public bool IsStockReady()
+        {
+            var reservedSalesOrderProduct = GetReservedStock();
+            return !IsOutOfStock
+                   || reservedSalesOrderProduct != null
+                   && reservedSalesOrderProduct.Quantity == Quantity;
         }
     }
 }

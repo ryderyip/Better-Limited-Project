@@ -36,7 +36,7 @@ namespace Better_Limited_Project.ServiceUtility
         {
             return _cart.GetCartItems().Select(cartItem =>
                 new SalesOrderProduct(GetSalesOrder().Id, cartItem.Product.Id, cartItem.Price, cartItem.Quantity,
-                    cartItem.IsDeposit));
+                    cartItem.IsOutOfStock));
         }
     }
 }

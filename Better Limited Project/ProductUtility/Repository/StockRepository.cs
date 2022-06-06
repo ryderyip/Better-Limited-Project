@@ -5,14 +5,13 @@ using System.Linq;
 using Better_Limited_Project.DatabaseUtility;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.StaffUtility.Repository;
-using Better_Limited_Project.StaffUtility.StaffEntity;
 using MySql.Data.MySqlClient;
 
 namespace Better_Limited_Project.ProductUtility.Repository
 {
     public static class StockRepository
     {
-        public static EventHandler<IWorkplace>? StockUpdated;
+        public static EventHandler<IStock>? StockUpdated;
 
         /// <summary>
         /// Get the stocks of a specified workplace (retail store/warehouse).
@@ -117,7 +116,7 @@ namespace Better_Limited_Project.ProductUtility.Repository
             else
                 throw new ArgumentException("Unknown implementation of IStock class.");
 
-            StockUpdated?.Invoke(null, stock.Workplace);
+            StockUpdated?.Invoke(null, stock);
         }
 
         public static void InsertOrUpdateRetailStoreStock(RetailStoreStock stock)

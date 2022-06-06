@@ -1,5 +1,6 @@
 ﻿using Better_Limited_Project.Login;
 using Better_Limited_Project.ProductUtility.Repository;
+using Better_Limited_Project.Sales.OrderPlacing.Repository;
 using Better_Limited_Project.ServiceUtility.Delivery.Repository;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 
@@ -9,10 +10,8 @@ namespace Better_Limited_Project.Tools
     {
         public static void Initialize()
         {
-            var staff = LoginSession.GetSession().CurrentStaff;
-            if (staff.Department is Department.Sales or Department.Inventory)
-                StockRepository.StockUpdated += LowStockLevelNotifier.OnStockUpdated;
-            StockRepository.StockUpdated += DeliveryStatusUpdater.OnStockUpdated;
+            StockRepository.StockUpdated += AutoProductReserveHelper.OnStockUpdated;
+            ReservedSalesOrderProductRepository.Updated += ReservedSalesOrderProductRemover.OnNonDeliveryReservedStockUpdated;
             DeliveryRepository.DeliveryStatusUpdated += ReservedSalesOrderProductRemover.OnDeliveryStatusUpdated;
         }
     }

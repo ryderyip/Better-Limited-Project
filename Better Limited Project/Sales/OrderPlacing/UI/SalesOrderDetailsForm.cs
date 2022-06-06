@@ -41,6 +41,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
                 var product = salesOrderProduct.GetProduct();
                 dgvProducts.Rows.Add(product.Name,
                     product.Category.Name,
+                    salesOrderProduct.IsStockReady() ? "Replenished" : "Awaiting Restock",
                     salesOrderProduct.Price.ToString("C", new CultureInfo("zh-HK")),
                     salesOrderProduct.Quantity,
                     (salesOrderProduct.Price * salesOrderProduct.Quantity).ToString("C", new CultureInfo("zh-HK")));
@@ -58,6 +59,8 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
 
             if (_salesOrderProducts.All(sop => sop.GetPayments().All(sopp => !sopp.IsDeposit)))
                 btnDepositReceipt.Enabled = false;
+
+            stockStatusColumn.Visible = true;
         }
 
         private void FillFields()

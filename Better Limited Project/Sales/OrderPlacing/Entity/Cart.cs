@@ -58,7 +58,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
         private void AddToDepositCart(Product product, RetailStoreStock stock)
         {
             var depositCartItem = _depositCardItems.FirstOrDefault(item => item.Product.Id == product.Id
-                                                                           && item.IsDeposit);
+                                                                           && item.IsOutOfStock);
             // If already in deposit cart
             if (depositCartItem != null)
                 depositCartItem.Quantity++;

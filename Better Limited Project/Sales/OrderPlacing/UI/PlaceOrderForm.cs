@@ -49,18 +49,18 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
                 decimal sellingPrice = cartItem.Price;
                 decimal depositPrice = cartItem.Price * Product.DepositPricePercentage;
                 dgvCart.Rows.Add(cartItem.Product.Name,
-                    cartItem.IsDeposit
+                    cartItem.IsOutOfStock
                         ? depositPrice.ToString("C", new CultureInfo("zh-HK"))
                         : sellingPrice.ToString("C", new CultureInfo("zh-HK")),
                     cartItem.Quantity,
-                    cartItem.IsDeposit
+                    cartItem.IsOutOfStock
                         ? (depositPrice * cartItem.Quantity).ToString("C", new CultureInfo("zh-HK"))
                         : (sellingPrice * cartItem.Quantity).ToString("C", new CultureInfo("zh-HK")),
-                    cartItem.IsDeposit);
+                    cartItem.IsOutOfStock);
 
-                total += cartItem.IsDeposit ? depositPrice * cartItem.Quantity : sellingPrice * cartItem.Quantity;
+                total += cartItem.IsOutOfStock ? depositPrice * cartItem.Quantity : sellingPrice * cartItem.Quantity;
 
-                if (cartItem.IsDeposit)
+                if (cartItem.IsOutOfStock)
                     dgvCart.Rows.Cast<DataGridViewRow>()
                         .First(row => row.Cells[cartNameColumn.Name].Value.ToString() == cartItem.Product.Name
                                       && (bool) row.Cells[cartIsOutOfStock.Name].Value)

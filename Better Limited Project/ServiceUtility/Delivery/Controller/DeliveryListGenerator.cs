@@ -1,21 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Globalization;
 using System.IO;
 using System.Linq;
-using Better_Limited_Project.Sales.OrderPlacing.Entity;
+using System.Windows.Forms;
 using Better_Limited_Project.SettingsUtility;
 using MigraDoc.DocumentObjectModel;
 using MigraDoc.DocumentObjectModel.Shapes;
 using MigraDoc.DocumentObjectModel.Tables;
 using MigraDoc.Rendering;
+using BorderStyle = MigraDoc.DocumentObjectModel.BorderStyle;
+using TabAlignment = MigraDoc.DocumentObjectModel.TabAlignment;
 
 namespace Better_Limited_Project.ServiceUtility.Delivery.Controller
 {
     public class DeliveryListGenerator
     {
-        private readonly string FileName;
+        private readonly string _fileName;
         private readonly string _location;
         private readonly List<Delivery> _deliveries;
 
@@ -26,29 +27,44 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.Controller
                 throw new ArgumentException("Cannot create a delivery list with 0 deliveries");
 
             var date = _deliveries.First().ScheduledOn.ToString("yy-MMM-dd ddd");
-            FileName = $"daily delivery list ({date}).pdf";
+            _fileName = $"daily delivery list ({date}).pdf";
             _location = UserSettings.GetSettings().DefaultDocumentGenerationDirectoryPath;
         }
 
         public void GenerateAndOpen()
         {
             var doc = Generate();
-            var path = Path.Combine(_location, FileName);
+            var path = Path.Combine(_location, _fileName);
 
-            const bool unicode = false;
-            PdfDocumentRenderer pdfRenderer = new(unicode);
-            pdfRenderer.Document = doc;
-            pdfRenderer.RenderDocument(); // Layout and render document to PDF
-            pdfRenderer.PdfDocument.Save(path);
+            RenderFile(doc, path);
 
             Process.Start(path);
         }
 
+        private static void RenderFile(Document? doc, string? path)
+        {
+            const bool unicode = false;
+            PdfDocumentRenderer pdfRenderer = new(unicode);
+            pdfRenderer.Document = doc;
+            pdfRenderer.RenderDocument(); // Layout and render document to PDF
+            
+            try
+            {
+                pdfRenderer.PdfDocument.Save(path);
+            }
+            catch (IOException)
+            {
+                MessageBox.Show("The file is currently being used by another process.");
+            }
+        }
+
         public void GenerateAndPrint()
         {
-            Generate();
-            var path = Path.Combine(_location, FileName);
+            var doc = Generate();
+            var path = Path.Combine(_location, _fileName);
 
+            RenderFile(doc, path);
+            
             var process = new Process();
             process.StartInfo = new ProcessStartInfo
             {
@@ -89,7 +105,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.Controller
             var paragraph = dateTextFrame.AddParagraph();
             paragraph.Format.SpaceAfter = "1cm";
             paragraph.Format.Font = new Font("Arial", 9);
-            string date = _deliveries.First().CreatedOn.ToString("D");
+            string date = _deliveries.First().ScheduledOn.ToString("D");
             string couriers = string.Join(", ", _deliveries.First().GetCouriers().Select(c => c.Name));
             paragraph.AddText($"Date: {date}\n"
                               + $"Courier(s): {couriers}");

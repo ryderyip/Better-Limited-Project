@@ -7,14 +7,14 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
         public Product Product { get; }
         public int Quantity { get; set; }
         public decimal Price { get; }
-        public bool IsDeposit { get; set; }
+        public bool IsOutOfStock { get; set; }
 
-        public CartItem(Product product, int quantity, decimal price, bool isDeposit)
+        public CartItem(Product product, int quantity, decimal price, bool isOutOfStock)
         {
             Product = product;
             Quantity = quantity;
             Price = price;
-            IsDeposit = isDeposit;
+            IsOutOfStock = isOutOfStock;
         }
     }
 }

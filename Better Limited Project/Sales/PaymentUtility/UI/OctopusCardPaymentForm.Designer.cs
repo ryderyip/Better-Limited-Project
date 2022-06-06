@@ -28,49 +28,59 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnBack = new System.Windows.Forms.Button();
+            this.tbCashOwned = new System.Windows.Forms.TextBox();
+            this.lblCashOwned = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblRemind = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // btnBack
+            // tbCashOwned
             // 
-            this.btnBack.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnBack.Location = new System.Drawing.Point(336, 318);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(104, 37);
-            this.btnBack.TabIndex = 53;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = false;
+            this.tbCashOwned.Location = new System.Drawing.Point(143, 195);
+            this.tbCashOwned.Name = "tbCashOwned";
+            this.tbCashOwned.ReadOnly = true;
+            this.tbCashOwned.Size = new System.Drawing.Size(144, 20);
+            this.tbCashOwned.TabIndex = 58;
+            // 
+            // lblCashOwned
+            // 
+            this.lblCashOwned.AutoSize = true;
+            this.lblCashOwned.BackColor = System.Drawing.SystemColors.Control;
+            this.lblCashOwned.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCashOwned.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblCashOwned.Location = new System.Drawing.Point(147, 167);
+            this.lblCashOwned.Name = "lblCashOwned";
+            this.lblCashOwned.Size = new System.Drawing.Size(135, 25);
+            this.lblCashOwned.TabIndex = 57;
+            this.lblCashOwned.Text = "Cash Owned";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(144, 202);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(80, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(548, 39);
-            this.label1.TabIndex = 52;
-            this.label1.Text = "Scanning octopusCard - animation";
+            this.label1.Size = new System.Drawing.Size(268, 31);
+            this.label1.TabIndex = 55;
+            this.label1.Text = "Scan Octopus Card";
             // 
             // lblRemind
             // 
             this.lblRemind.AutoSize = true;
-            this.lblRemind.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRemind.Location = new System.Drawing.Point(221, 96);
+            this.lblRemind.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRemind.Location = new System.Drawing.Point(23, 102);
             this.lblRemind.Name = "lblRemind";
-            this.lblRemind.Size = new System.Drawing.Size(317, 15);
-            this.lblRemind.TabIndex = 51;
-            this.lblRemind.Text = "Please Scan The Card Using The Octopus Card Terminal";
+            this.lblRemind.Size = new System.Drawing.Size(382, 20);
+            this.lblRemind.TabIndex = 54;
+            this.lblRemind.Text = "Please scan the card using the octopus card terminal";
             // 
             // OctopusCardPaymentForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnBack);
+            this.ClientSize = new System.Drawing.Size(428, 267);
+            this.Controls.Add(this.tbCashOwned);
+            this.Controls.Add(this.lblCashOwned);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblRemind);
             this.Name = "OctopusCardPaymentForm";
@@ -82,7 +92,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.TextBox tbCashOwned;
+        private System.Windows.Forms.Label lblCashOwned;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblRemind;
     }
