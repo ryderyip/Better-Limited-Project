@@ -39,7 +39,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             pbImage.Image = _staff.GetImage();
 
             if (_staff.Id == LoginSession.GetSession().CurrentStaff.Id)
-                btnRemove.Visible = false;
+                btnRemove.Enabled = false;
         }   
 
         private void RefreshAllFields()

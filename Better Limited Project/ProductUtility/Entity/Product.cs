@@ -1,4 +1,6 @@
 ﻿using System.Drawing;
+using System.Linq;
+using System.Windows.Forms;
 using Better_Limited_Project.ProductUtility.Repository;
 using Better_Limited_Project.ProductUtility.SupplierUtility;
 using Better_Limited_Project.Properties;
@@ -58,6 +60,17 @@ namespace Better_Limited_Project.ProductUtility.Entity
         public void SetImage(Image image)
         {
             ProductImageRepository.InsertOrUpdate(Id, image);
+        }
+
+        public void Remove()
+        {
+            if (new SalesOrderProductRepository().GetAll().Any(sop => sop.ProductId == Id))
+            {
+                MessageBox.Show("This product is used by some sales order. Product removal failed.");
+                return;
+            }
+            ProductImageRepository.Delete(Id);
+            ProductRepository.Remove(this);
         }
     }
 }

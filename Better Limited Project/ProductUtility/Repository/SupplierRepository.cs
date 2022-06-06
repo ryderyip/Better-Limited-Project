@@ -42,9 +42,10 @@ namespace Better_Limited_Project.ProductUtility.Repository
         public static void InsertOrUpdate(Supplier supplier)
         {
             var command = new MySqlCommand(
-                @"insert into supplier (name, phone, email) 
-                        value (@name, @phone, @email)
+                @"insert into supplier (id, name, phone, email) 
+                        value (@id, @name, @phone, @email)
                 on duplicate key update name = @name, email = @email, phone = @phone;");
+            command.Parameters.AddWithValue("@id", supplier.Id);
             command.Parameters.AddWithValue("@name", supplier.Name);
             command.Parameters.AddWithValue("@phone", supplier.Phone);
             command.Parameters.AddWithValue("@email", supplier.Email);

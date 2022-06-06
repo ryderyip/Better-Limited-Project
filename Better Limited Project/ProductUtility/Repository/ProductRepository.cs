@@ -52,7 +52,7 @@ namespace Better_Limited_Project.ProductUtility.Repository
             DataTableRepository.ExecuteNonQuery(command);
         }
 
-        public static void DeleteProduct(Product product)
+        public static void Remove(Product product)
         {
             var command = new MySqlCommand(@"delete from product where id = @id;");
             command.Parameters.AddWithValue("@id", product.Id);

@@ -55,7 +55,7 @@ namespace Better_Limited_Project.ProductUtility.SupplierUtility
             // 
             // tbPhone
             // 
-            this.tbPhone.Location = new System.Drawing.Point(343, 192);
+            this.tbPhone.Location = new System.Drawing.Point(319, 192);
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.ReadOnly = true;
             this.tbPhone.Size = new System.Drawing.Size(214, 20);
@@ -65,7 +65,7 @@ namespace Better_Limited_Project.ProductUtility.SupplierUtility
             // 
             this.lblPhone.AutoSize = true;
             this.lblPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhone.Location = new System.Drawing.Point(293, 193);
+            this.lblPhone.Location = new System.Drawing.Point(269, 193);
             this.lblPhone.Name = "lblPhone";
             this.lblPhone.Size = new System.Drawing.Size(46, 15);
             this.lblPhone.TabIndex = 118;
@@ -73,7 +73,7 @@ namespace Better_Limited_Project.ProductUtility.SupplierUtility
             // 
             // tbEmailAddress
             // 
-            this.tbEmailAddress.Location = new System.Drawing.Point(343, 246);
+            this.tbEmailAddress.Location = new System.Drawing.Point(319, 246);
             this.tbEmailAddress.Name = "tbEmailAddress";
             this.tbEmailAddress.ReadOnly = true;
             this.tbEmailAddress.Size = new System.Drawing.Size(214, 20);
@@ -83,7 +83,7 @@ namespace Better_Limited_Project.ProductUtility.SupplierUtility
             // 
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(248, 247);
+            this.lblEmail.Location = new System.Drawing.Point(224, 247);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(89, 15);
             this.lblEmail.TabIndex = 116;
@@ -91,7 +91,7 @@ namespace Better_Limited_Project.ProductUtility.SupplierUtility
             // 
             // tbname
             // 
-            this.tbname.Location = new System.Drawing.Point(343, 138);
+            this.tbname.Location = new System.Drawing.Point(319, 138);
             this.tbname.Name = "tbname";
             this.tbname.ReadOnly = true;
             this.tbname.Size = new System.Drawing.Size(214, 20);
@@ -101,7 +101,7 @@ namespace Better_Limited_Project.ProductUtility.SupplierUtility
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(293, 139);
+            this.lblName.Location = new System.Drawing.Point(269, 139);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(44, 15);
             this.lblName.TabIndex = 114;
@@ -111,7 +111,7 @@ namespace Better_Limited_Project.ProductUtility.SupplierUtility
             // 
             this.lblHeader.AutoSize = true;
             this.lblHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeader.Location = new System.Drawing.Point(313, 27);
+            this.lblHeader.Location = new System.Drawing.Point(287, 27);
             this.lblHeader.Name = "lblHeader";
             this.lblHeader.Size = new System.Drawing.Size(227, 26);
             this.lblHeader.TabIndex = 113;
@@ -123,7 +123,7 @@ namespace Better_Limited_Project.ProductUtility.SupplierUtility
             this.btnUpdateInfo.BackColor = System.Drawing.Color.Salmon;
             this.btnUpdateInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateInfo.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnUpdateInfo.Location = new System.Drawing.Point(343, 370);
+            this.btnUpdateInfo.Location = new System.Drawing.Point(300, 370);
             this.btnUpdateInfo.Name = "btnUpdateInfo";
             this.btnUpdateInfo.Size = new System.Drawing.Size(200, 54);
             this.btnUpdateInfo.TabIndex = 112;

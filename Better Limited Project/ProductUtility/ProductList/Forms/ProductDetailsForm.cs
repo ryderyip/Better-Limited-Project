@@ -56,6 +56,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             tbSupplierName.Text = supplier.Name;
             tbSupplierPhone.Text = supplier.Phone;
             tbSupplierEmail.Text = supplier.Email;
+            tbCategory.Text = product.Category.Name;
         }
 
         private void HideSellingPrice()
@@ -83,8 +84,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 
         private void btnRemoveProduct_Click(object sender, EventArgs e)
         {
-            ProductImageRepository.Delete(_stock.Product.Id);
-            ProductRepository.DeleteProduct(_stock.Product);
+            _stock.Product.Remove();
             ProductUpdated?.Invoke(this, EventArgs.Empty);
             Close();
         }

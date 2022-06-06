@@ -60,6 +60,8 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             this.pbImage = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnUpdateImage = new System.Windows.Forms.Button();
+            this.tbCategory = new System.Windows.Forms.TextBox();
+            this.lblCategory = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,7 +70,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             this.btnUpdateProductInfo.BackColor = System.Drawing.Color.Salmon;
             this.btnUpdateProductInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateProductInfo.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnUpdateProductInfo.Location = new System.Drawing.Point(392, 367);
+            this.btnUpdateProductInfo.Location = new System.Drawing.Point(392, 403);
             this.btnUpdateProductInfo.Name = "btnUpdateProductInfo";
             this.btnUpdateProductInfo.Size = new System.Drawing.Size(200, 54);
             this.btnUpdateProductInfo.TabIndex = 58;
@@ -80,7 +82,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // 
             this.lblSellingPrice.AutoSize = true;
             this.lblSellingPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSellingPrice.Location = new System.Drawing.Point(58, 316);
+            this.lblSellingPrice.Location = new System.Drawing.Point(58, 352);
             this.lblSellingPrice.Name = "lblSellingPrice";
             this.lblSellingPrice.Size = new System.Drawing.Size(79, 15);
             this.lblSellingPrice.TabIndex = 49;
@@ -90,7 +92,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // 
             this.lblOriginalPrice.AutoSize = true;
             this.lblOriginalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOriginalPrice.Location = new System.Drawing.Point(53, 282);
+            this.lblOriginalPrice.Location = new System.Drawing.Point(53, 318);
             this.lblOriginalPrice.Name = "lblOriginalPrice";
             this.lblOriginalPrice.Size = new System.Drawing.Size(84, 15);
             this.lblOriginalPrice.TabIndex = 48;
@@ -108,7 +110,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // 
             // tbOriginalPrice
             // 
-            this.tbOriginalPrice.Location = new System.Drawing.Point(143, 282);
+            this.tbOriginalPrice.Location = new System.Drawing.Point(143, 318);
             this.tbOriginalPrice.Name = "tbOriginalPrice";
             this.tbOriginalPrice.ReadOnly = true;
             this.tbOriginalPrice.Size = new System.Drawing.Size(139, 20);
@@ -116,7 +118,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // 
             // tbSellingPrice
             // 
-            this.tbSellingPrice.Location = new System.Drawing.Point(143, 317);
+            this.tbSellingPrice.Location = new System.Drawing.Point(143, 353);
             this.tbSellingPrice.Name = "tbSellingPrice";
             this.tbSellingPrice.ReadOnly = true;
             this.tbSellingPrice.Size = new System.Drawing.Size(139, 20);
@@ -137,7 +139,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // 
             this.lblPhasingOut.AutoSize = true;
             this.lblPhasingOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhasingOut.Location = new System.Drawing.Point(58, 162);
+            this.lblPhasingOut.Location = new System.Drawing.Point(58, 198);
             this.lblPhasingOut.Name = "lblPhasingOut";
             this.lblPhasingOut.Size = new System.Drawing.Size(76, 15);
             this.lblPhasingOut.TabIndex = 62;
@@ -145,7 +147,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // 
             // tbPhasingOut
             // 
-            this.tbPhasingOut.Location = new System.Drawing.Point(143, 162);
+            this.tbPhasingOut.Location = new System.Drawing.Point(143, 198);
             this.tbPhasingOut.Name = "tbPhasingOut";
             this.tbPhasingOut.ReadOnly = true;
             this.tbPhasingOut.Size = new System.Drawing.Size(139, 20);
@@ -153,7 +155,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // 
             // tbReorderLevel
             // 
-            this.tbReorderLevel.Location = new System.Drawing.Point(143, 239);
+            this.tbReorderLevel.Location = new System.Drawing.Point(143, 275);
             this.tbReorderLevel.Name = "tbReorderLevel";
             this.tbReorderLevel.ReadOnly = true;
             this.tbReorderLevel.Size = new System.Drawing.Size(139, 20);
@@ -163,7 +165,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // 
             this.lblReorderLevel.AutoSize = true;
             this.lblReorderLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReorderLevel.Location = new System.Drawing.Point(50, 238);
+            this.lblReorderLevel.Location = new System.Drawing.Point(50, 274);
             this.lblReorderLevel.Name = "lblReorderLevel";
             this.lblReorderLevel.Size = new System.Drawing.Size(87, 15);
             this.lblReorderLevel.TabIndex = 64;
@@ -171,7 +173,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // 
             // tbQuantity
             // 
-            this.tbQuantity.Location = new System.Drawing.Point(143, 198);
+            this.tbQuantity.Location = new System.Drawing.Point(143, 234);
             this.tbQuantity.Name = "tbQuantity";
             this.tbQuantity.ReadOnly = true;
             this.tbQuantity.Size = new System.Drawing.Size(139, 20);
@@ -181,7 +183,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // 
             this.lblQuantity.AutoSize = true;
             this.lblQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuantity.Location = new System.Drawing.Point(24, 198);
+            this.lblQuantity.Location = new System.Drawing.Point(24, 234);
             this.lblQuantity.Name = "lblQuantity";
             this.lblQuantity.Size = new System.Drawing.Size(113, 15);
             this.lblQuantity.TabIndex = 66;
@@ -193,7 +195,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             this.tbDescription.Multiline = true;
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.ReadOnly = true;
-            this.tbDescription.Size = new System.Drawing.Size(208, 65);
+            this.tbDescription.Size = new System.Drawing.Size(208, 101);
             this.tbDescription.TabIndex = 69;
             // 
             // lblDescription
@@ -275,7 +277,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             this.btnRemoveProduct.BackColor = System.Drawing.Color.OrangeRed;
             this.btnRemoveProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnRemoveProduct.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnRemoveProduct.Location = new System.Drawing.Point(42, 367);
+            this.btnRemoveProduct.Location = new System.Drawing.Point(42, 403);
             this.btnRemoveProduct.Name = "btnRemoveProduct";
             this.btnRemoveProduct.Size = new System.Drawing.Size(167, 54);
             this.btnRemoveProduct.TabIndex = 83;
@@ -288,7 +290,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             this.btnEditDescription.BackColor = System.Drawing.Color.LimeGreen;
             this.btnEditDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditDescription.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnEditDescription.Location = new System.Drawing.Point(234, 367);
+            this.btnEditDescription.Location = new System.Drawing.Point(234, 403);
             this.btnEditDescription.Name = "btnEditDescription";
             this.btnEditDescription.Size = new System.Drawing.Size(133, 54);
             this.btnEditDescription.TabIndex = 110;
@@ -318,7 +320,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             // 
             this.pbImage.Location = new System.Drawing.Point(561, 123);
             this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(214, 214);
+            this.pbImage.Size = new System.Drawing.Size(214, 250);
             this.pbImage.TabIndex = 113;
             this.pbImage.TabStop = false;
             // 
@@ -337,7 +339,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             this.btnUpdateImage.BackColor = System.Drawing.Color.Plum;
             this.btnUpdateImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateImage.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnUpdateImage.Location = new System.Drawing.Point(617, 367);
+            this.btnUpdateImage.Location = new System.Drawing.Point(617, 403);
             this.btnUpdateImage.Name = "btnUpdateImage";
             this.btnUpdateImage.Size = new System.Drawing.Size(156, 54);
             this.btnUpdateImage.TabIndex = 169;
@@ -345,11 +347,31 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             this.btnUpdateImage.UseVisualStyleBackColor = false;
             this.btnUpdateImage.Click += new System.EventHandler(this.btnUpdateImage_Click);
             // 
+            // tbCategory
+            // 
+            this.tbCategory.Location = new System.Drawing.Point(143, 161);
+            this.tbCategory.Name = "tbCategory";
+            this.tbCategory.ReadOnly = true;
+            this.tbCategory.Size = new System.Drawing.Size(139, 20);
+            this.tbCategory.TabIndex = 171;
+            // 
+            // lblCategory
+            // 
+            this.lblCategory.AutoSize = true;
+            this.lblCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategory.Location = new System.Drawing.Point(76, 162);
+            this.lblCategory.Name = "lblCategory";
+            this.lblCategory.Size = new System.Drawing.Size(58, 15);
+            this.lblCategory.TabIndex = 170;
+            this.lblCategory.Text = "Category:";
+            // 
             // ProductDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 481);
+            this.Controls.Add(this.tbCategory);
+            this.Controls.Add(this.lblCategory);
             this.Controls.Add(this.btnUpdateImage);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pbImage);
@@ -429,5 +451,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
         private System.Windows.Forms.PictureBox pbImage;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnUpdateImage;
+        private System.Windows.Forms.TextBox tbCategory;
+        private System.Windows.Forms.Label lblCategory;
     }
 }

@@ -13,6 +13,7 @@ namespace Better_Limited_Project.ProductUtility.SupplierUtility
         {
             _supplier = supplier;
             InitializeComponent();
+            Shown += (_, _) => btnRemoveCustomer.Visible = false;
             Shown += (_, _) => FillFields();
         }
 
