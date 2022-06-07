@@ -23,7 +23,7 @@ namespace Better_Limited_Project.ProductUtility.Entity
 
         public void Remove()
         {
-            StockRepository.Remove(Workplace.Id, Product.Id);
+            RetailStoreStockRepository.Remove(Workplace.Id, Product.Id);
         }
 
         public RetailStoreStock(Product product, RetailStore retailStore, int quantity, decimal sellingPrice, int restockLevel)

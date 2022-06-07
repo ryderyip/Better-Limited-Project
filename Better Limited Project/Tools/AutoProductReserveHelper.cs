@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;

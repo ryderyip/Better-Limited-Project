@@ -101,8 +101,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
         {
             if (_salesOrderProducts.All(sop => sop.GetPayments().Any(sopp => sopp.IsDeposit)))
             {
-                MessageBox.Show("There are currently no completed product payments. " +
-                                "(To see deposit receipts, click the button on the right.)");
+                MessageBox.Show(PaymentStringResources.cantViewPaymentReceipt);
                 return;
             }
 

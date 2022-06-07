@@ -6,9 +6,9 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
     public partial class UpdateDeliveryForm : Form
     {
         public event EventHandler? Updated;
-        private readonly Delivery _delivery;
+        private readonly Entity.Delivery _delivery;
 
-        public UpdateDeliveryForm(Delivery delivery)
+        public UpdateDeliveryForm(Entity.Delivery delivery)
         {
             _delivery = delivery;
             InitializeComponent();
@@ -18,7 +18,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
         private void Initialize()
         {
             FillFields();
-            dtpNewDispatchedOnDateOrTime_ValueChanged(this, EventArgs.Empty);
+            dtpNewDispatchedOnDateOrTime_ValueChanged();
             dtpNewDispatchedOnDate_ValueChanged(this, EventArgs.Empty);
         }
 
@@ -31,7 +31,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             dtpNewScheduledOnDate.Value = _delivery.ScheduledOn.Date;
             dtpNewScheduledOnTime.Value = _delivery.ScheduledOn;
 
-            dtpNewScheduledOnDate.MinDate = Delivery.GetEarliestDeliveryDate(_delivery.GetDeliveryRequest().DeliverySession);
+            dtpNewScheduledOnDate.MinDate = Entity.Delivery.GetEarliestDeliveryDate(_delivery.GetDeliveryRequest().DeliverySession);
             dtpNewDispatchedOnDate.MinDate = DateTime.Today.Date - TimeSpan.FromDays(7);
             dtpNewDeliveredOnDate.MinDate = DateTime.Today.Date - TimeSpan.FromDays(7);
             
@@ -96,7 +96,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             Updated?.Invoke(this, EventArgs.Empty);
         }
 
-        private void dtpNewDispatchedOnDateOrTime_ValueChanged(object sender, EventArgs e)
+        private void dtpNewDispatchedOnDateOrTime_ValueChanged()
         {
             dtpNewDeliveredOnDate.MinDate = dtpNewDispatchedOnDate.Value.Date;
         }

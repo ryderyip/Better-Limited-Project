@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+            
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="FileBeingUsedByAnotherProcess" xml:space="preserve">
+        <value>The file is currently being used by another process.</value>
+    </data>
+    <data name="notEnoughCashPaid" xml:space="preserve">
+        <value>Please pay enough cash.</value>
+    </data>
+    <data name="pleaseSelectDeliverySession" xml:space="preserve">
+        <value>Please select a delivery session!</value>
+    </data>
+    <data name="create customer information to request delivery" xml:space="preserve">
+        <value>To request for a delivery, customer's information is needed.
+Start creating a customer record?</value>
+    </data>
+    <data name="askRemoveDeliveryRequest" xml:space="preserve">
+        <value>Current sales order has requested for a delivery.
+Confirm removing delivery request?</value>
+    </data>
+    <data name="removeDeliveryRequest" xml:space="preserve">
+        <value>Remove Delivery Request</value>
+    </data>
+    <data name="removeDeliveryRequestFail" xml:space="preserve">
+        <value>This delivery has already been confirmed by inventory department.
+Delivery request removal failed.</value>
+    </data>
+    <data name="askSendDeliveryRequest" xml:space="preserve">
+        <value>Current sales order has not requested for a delivery.
+Confirm sending a delivery request for this order?</value>
+    </data>
+    <data name="sendDeliveryRequest" xml:space="preserve">
+        <value>Send Delivery Request</value>
+    </data>
+    <data name="deliveryRequestSent" xml:space="preserve">
+        <value>Delivery request sent.</value>
+    </data>
+    <data name="cantViewPaymentReceipt" xml:space="preserve">
+        <value>There are currently no completed product payments. (To see deposit receipts, click the button on the right.)</value>
+    </data>
+</root>

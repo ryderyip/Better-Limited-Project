@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Better_Limited_Project.CustomerRecord;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;
-using Better_Limited_Project.ServiceUtility.Delivery;
+using Better_Limited_Project.ServiceUtility.Delivery.Entity;
 using Better_Limited_Project.ServiceUtility.Delivery.Repository;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 
@@ -44,7 +44,8 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
             return DeliveryRequestRepository.GetAll().Any(dr => dr.SalesOrderId == Id);
         }
 
-        public bool IsNeedInstallation() {
+        public bool IsNeedInstallation()
+        {
             return false;
             // return new InstallationRequestRepository().GetAll().Any(ir => ir.)
         }
@@ -64,10 +65,16 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
         {
             return DeliveryRequestRepository.FindAll(dr => dr.SalesOrderId == Id).FirstOrDefault();
         }
-        
+
         public IEnumerable<SalesOrderProduct> GetSalesOrderProducts()
         {
             return new SalesOrderProductRepository().FindByOrderId(Id);
+        }
+
+        public bool IsCompleted()
+        {
+            return IsAllDeliveryArrived() && GetSalesOrderProducts().All(sop =>
+                sop.GetPaymentStatus() is SalesOrderProductPaymentStatus.FullyPaid);
         }
     }
 }

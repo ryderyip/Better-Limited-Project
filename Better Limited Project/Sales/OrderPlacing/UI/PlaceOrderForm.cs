@@ -154,7 +154,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
                 "btnAddProduct5" => products[4].Product,
                 "btnAddProduct6" => products[5].Product,
                 _ => throw new ArgumentOutOfRangeException(nameof(button.Name),
-                    $"Unexpected button name: {button.Name}")
+                    @$"Unexpected button name: {button.Name}")
             };
             _cart.Add(product);
         }

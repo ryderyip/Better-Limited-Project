@@ -1,9 +1,11 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.ProductUtility.Repository;
 using Better_Limited_Project.ProductUtility.SupplierUtility;
 using Better_Limited_Project.Properties;
+using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;
 using Better_Limited_Project.StaffUtility.Repository;
 
@@ -55,15 +57,9 @@ namespace Better_Limited_Project.ProductUtility.Entity
         }
 
         public void Save()
-        {// TODO test this
-            foreach (var retailStore in new RetailStoreRepository().GetAll()
-                .Where(rs => rs.GetProductStocks().All(s => s.Product.Id != Id)))
-                new RetailStoreStock(this, retailStore, 0, OriginalPrice, 0).Save();
-
-            foreach (var warehouse in WarehouseRepository.GetAll())
-                new WarehouseStock(this, warehouse, 0, 0).Save();
-
+        {
             ProductRepository.InsertOrUpdate(this);
+            NewProductStockCreator.CreateEmptyStockForNewProduct(this);
         }
 
         public void SetImage(Image image)
@@ -73,18 +69,30 @@ namespace Better_Limited_Project.ProductUtility.Entity
 
         public void Remove()
         {
-            if (new SalesOrderProductRepository().GetAll().Any(sop => sop.ProductId == Id))
-            {
-                MessageBox.Show("This product is used by some sales order. Product removal failed.");
-                return;
-            }
-
             foreach (var workplace in WorkplaceRepository.GetWorkplaces())
-            {
                 workplace.GetProductStock(Id).Remove();
-            }
 
+            if (IsInAnySalesOrder())
+                return;
+            
             ProductImageRepository.Delete(Id);
+            ProductRepository.Remove(this);
+        }
+
+        public bool IsInAnySalesOrder()
+        {
+            return new SalesOrderProductRepository().GetAll().Any(sop => sop.ProductId == Id);
+        }
+
+        /// <summary>
+        /// Check if product is used in one or more sales orders that has/have incomplete payments
+        /// or deliveries which have not arrived.
+        /// </summary>
+        public bool IsBelongsToAnyIncompleteSalesOrder()
+        {
+            return new SalesOrderRepository()
+                .FindAll(so => so.GetSalesOrderProducts().Any(sop => sop.ProductId == Id))
+                .Any(so => !so.IsCompleted());
         }
     }
 }

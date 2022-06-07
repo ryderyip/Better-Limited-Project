@@ -302,9 +302,6 @@
   <data name="btnCreate.Text" xml:space="preserve">
     <value>創造</value>
   </data>
-  <data name="txtCustPhoneNumber.Location" type="System.Drawing.Point, System.Drawing">
-    <value>44, 233</value>
-  </data>
   <data name="txtCustPhoneNumber.Size" type="System.Drawing.Size, System.Drawing">
     <value>214, 20</value>
   </data>
@@ -340,5 +337,14 @@
   </data>
   <data name="$this.Location" type="System.Drawing.Point, System.Drawing">
     <value>15, 15</value>
+  </data>
+  <data name="hasUnfilledRequiredFieldsMessage" xml:space="preserve">
+    <value>請輸入所有必填資料</value>
+  </data>
+  <data name="invalidEmailMessage" xml:space="preserve">
+    <value>無效的郵件地址。 請輸入有效的電子郵件地址或將其留空。</value>
+  </data>
+  <data name="invalidPhoneNumberMessage" xml:space="preserve">
+    <value>無效的電話號碼。 請輸入 8 位數的香港電話號碼。 例如12345678。</value>
   </data>
 </root>

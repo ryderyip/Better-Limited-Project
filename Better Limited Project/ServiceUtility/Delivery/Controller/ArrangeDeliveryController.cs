@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.FormControlling;
+using Better_Limited_Project.ServiceUtility.Delivery.Entity;
+using Better_Limited_Project.ServiceUtility.Delivery.UI;
 
-namespace Better_Limited_Project.ServiceUtility.Delivery.UI
+namespace Better_Limited_Project.ServiceUtility.Delivery.Controller
 {
     public class ArrangeDeliveryController
     {
@@ -31,8 +33,8 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
         {
             if (_form is ArrangeSingleDeliveryForm)
             {
-                _form = new ArrangeSplitDeliveryForm(_deliveryRequest, _selectedDeliveryCouriers);
-                _formController.OpenFullForm((ArrangeSplitDeliveryForm) _form);
+                /*_form = new ArrangeSplitDeliveryForm(_deliveryRequest, _selectedDeliveryCouriers);
+                _formController.OpenFullForm((ArrangeSplitDeliveryForm) _form);*/
             }
             else
             {

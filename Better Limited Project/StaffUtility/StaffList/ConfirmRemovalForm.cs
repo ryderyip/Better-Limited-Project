@@ -19,7 +19,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
         {
             if (_currentLoggedInStaffAccount.Password != tbPassword.Text)
             {
-                MessageBox.Show("Wrong password!");
+                MessageBox.Show(StaffUtilityStringResources.wrong_password);
                 return;
             }
             Confirmed?.Invoke(this, EventArgs.Empty);

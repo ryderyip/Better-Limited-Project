@@ -64,6 +64,8 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Controller
                 IsNeedInstallation = _form.checkBoxNeedInstallation.Checked
             };
             service.SalesOrderPlaced += (_, _) => ReinitializePlaceOrderForm();
+            service.SalesOrderPlaced += LowStockLevelNotifier.OnOrderPlaced;
+
             service.PlaceOrder();
         }
 

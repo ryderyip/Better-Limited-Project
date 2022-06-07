@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.Login;
 using Better_Limited_Project.Sales.OrderPlacing.Controller;
+using Better_Limited_Project.ServiceUtility.Delivery.Entity;
 using Better_Limited_Project.ServiceUtility.Delivery.Repository;
 
 namespace Better_Limited_Project.ServiceUtility.Delivery.UI
@@ -25,7 +26,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
         private void OnFormShown(object sender, EventArgs e)
         {
             tbCustomerChosenDeliverySession.Text = _deliveryRequest.DeliverySession.ToString();
-            var earliestDeliveryDate = Delivery.GetEarliestDeliveryDate(_deliveryRequest.DeliverySession);
+            var earliestDeliveryDate = Entity.Delivery.GetEarliestDeliveryDate(_deliveryRequest.DeliverySession);
             tbEarliestDeliveryDate.Text = earliestDeliveryDate.ToLongDateString();
             dtpSelectDeliveryDate.MinDate = earliestDeliveryDate;
             dtpSelectDeliveryDate.Value = dtpSelectDeliveryDate.MinDate;
@@ -76,7 +77,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
         {
             if (_selectedCouriers.Count == 0)
             {
-                MessageBox.Show("Please choose at least one courier for this delivery.");
+                MessageBox.Show(DeliveryStringResources.cant_choose_0_courier);
                 return;
             }
 
@@ -84,14 +85,13 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
 
             if (scheduledOn.DayOfWeek is DayOfWeek.Sunday)
             {
-                MessageBox.Show("Sunday is company holiday and will not have deliveries. " +
-                                "Please choose another day.");
+                MessageBox.Show(DeliveryStringResources.cant_delivery_on_sunday);
                 return;
             }
             
             scheduledOn += DeliverySessionTimeConverter.GetTimeSpan(_deliveryRequest.DeliverySession);
             // TODO no schedule if no stock available
-            var delivery = new Delivery(_deliveryRequest.Id)
+            var delivery = new Entity.Delivery(_deliveryRequest.Id)
             {
                 ScheduledOn = scheduledOn
             };

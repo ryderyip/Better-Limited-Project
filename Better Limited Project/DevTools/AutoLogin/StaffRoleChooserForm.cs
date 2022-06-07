@@ -7,7 +7,7 @@ namespace Better_Limited_Project.DevTools.AutoLogin
     public partial class StaffRoleChooserForm : Form
     {
         public delegate void RoleSelectedEventHandler(object sender, StaffTitle title);
-        public event RoleSelectedEventHandler TitleSelected;
+        public event RoleSelectedEventHandler? TitleSelected;
 
         public StaffRoleChooserForm()
         {
@@ -34,7 +34,7 @@ namespace Better_Limited_Project.DevTools.AutoLogin
                 _ => StaffTitle.Unknown
             };
 
-            TitleSelected.Invoke(this, selectedTitle);
+            TitleSelected?.Invoke(this, selectedTitle);
         }
     }
 }

@@ -2,9 +2,9 @@
 
 namespace Better_Limited_Project.ProductUtility.GoodsReturning
 {
-    public partial class txtEnterDescription : Form
+    public partial class CreateGoodsReturnedRecordForm : Form
     {
-        public txtEnterDescription()
+        public CreateGoodsReturnedRecordForm()
         {
             InitializeComponent();
         }

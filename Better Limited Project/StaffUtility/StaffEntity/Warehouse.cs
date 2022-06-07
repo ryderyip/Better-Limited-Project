@@ -11,7 +11,7 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
     {
         public string Id { get; }
         public string Name { get; }
-        public string? Address { get; }
+        public string Address { get; }
         
         public IStock GetProductStock(string productId)
         {
@@ -23,7 +23,7 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
             return StockRepository.GetWarehouseStocks(Id);
         }
 
-        public Warehouse(string id, string name, string? address)
+        public Warehouse(string id, string name, string address)
         {
             Id = id;
             Name = name;

@@ -145,6 +145,16 @@
     <Compile Include="CustomerRecord\CreateCustomerRecordForm.Designer.cs">
       <DependentUpon>CreateCustomerRecordForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomerRecord\CreateCustomerRecordForm.zh-HK.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CreateCustomerRecordForm.zh-HK.resx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerRecord\CreateCustomerRecordForm1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CreateCustomerRecordForm.resx</DependentUpon>
+    </Compile>
     <Compile Include="CustomerRecord\CustomerDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +162,16 @@
       <DependentUpon>CustomerDetailsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomerRecord\Customer.cs" />
+    <Compile Include="CustomerRecord\CustomerDetailsForm.zh-HK.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CustomerDetailsForm.zh-HK.resx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerRecord\CustomerDetailsForm1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CustomerDetailsForm.resx</DependentUpon>
+    </Compile>
     <Compile Include="CustomerRecord\CustomerListForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +184,16 @@
     </Compile>
     <Compile Include="CustomerRecord\CustomerUpdateForm.Designer.cs">
       <DependentUpon>CustomerUpdateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerRecord\CustomerUpdateForm.zh-HK.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CustomerUpdateForm.zh-HK.resx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerRecord\CustomerUpdateForm1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CustomerUpdateForm.resx</DependentUpon>
     </Compile>
     <Compile Include="DatabaseUtility\Database.cs" />
     <Compile Include="DatabaseUtility\DataTableRepository.cs" />
@@ -187,6 +217,16 @@
     </Compile>
     <Compile Include="Login\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\LoginForm.zh-HK.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LoginForm.zh-HK.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Login\LoginForm1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LoginForm.resx</DependentUpon>
     </Compile>
     <Compile Include="Login\LoginSession.cs" />
     <Compile Include="Login\LoginStatus.cs" />
@@ -219,6 +259,16 @@
     <Compile Include="Navigation\UI\AdminNavigationForm.Designer.cs">
       <DependentUpon>AdminNavigationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Navigation\UI\AdminNavigationForm.zh-HK.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdminNavigationForm.zh-HK.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\UI\AdminNavigationForm1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdminNavigationForm.resx</DependentUpon>
+    </Compile>
     <Compile Include="Navigation\UI\InventoryClerkNavigationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,6 +276,11 @@
       <DependentUpon>InventoryClerkNavigationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Navigation\UI\INavigationForm.cs" />
+    <Compile Include="Navigation\UI\NavigationForms.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NavigationForms.resx</DependentUpon>
+    </Compile>
     <Compile Include="Navigation\UI\PurchaseClerkNavigationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -263,12 +318,18 @@
     <Compile Include="ProductUtility\Entity\IStock.cs" />
     <Compile Include="ProductUtility\Entity\Product.cs" />
     <Compile Include="ProductUtility\Entity\RetailStoreStock.cs" />
+    <Compile Include="ProductUtility\NewProductStockCreator.cs" />
     <Compile Include="ProductUtility\ProductList\Forms\IUpdateProductForm.cs" />
     <Compile Include="ProductUtility\ProductList\Forms\ProductDescriptionEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ProductUtility\ProductList\Forms\ProductDescriptionEditForm.Designer.cs">
       <DependentUpon>ProductDescriptionEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductUtility\ProductList\Forms\ProductList.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductList.resx</DependentUpon>
     </Compile>
     <Compile Include="ProductUtility\ProductList\Forms\UpdateProductAdminForm.cs">
       <SubType>Form</SubType>
@@ -283,11 +344,18 @@
       <DependentUpon>UpdateSellingPriceForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ProductUtility\ProductList\PermissionManagement\ProductPermissionManager.cs" />
+    <Compile Include="ProductUtility\ProductUtilityStringResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ProductUtilityStringResources.resx</DependentUpon>
+    </Compile>
     <Compile Include="ProductUtility\Reordering\ReorderRequest.cs" />
     <Compile Include="ProductUtility\Reordering\ReorderRequestProduct.cs" />
     <Compile Include="ProductUtility\Reordering\ReorderRequestProductRepository.cs" />
     <Compile Include="ProductUtility\Reordering\ReorderRequestRepository.cs" />
     <Compile Include="ProductUtility\Reordering\ReorderRequestService.cs" />
+    <Compile Include="ProductUtility\Repository\RetailStoreStockRepository.cs" />
+    <Compile Include="ProductUtility\Repository\WarehouseStockRepository.cs" />
     <Compile Include="ProductUtility\SupplierUtility\CreateSupplierForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -370,6 +438,11 @@
     <Compile Include="ProductUtility\SupplierUtility\SupplierListForm.Designer.cs">
       <DependentUpon>SupplierListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProductUtility\SupplierUtility\SupplierResource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SupplierResource.resx</DependentUpon>
+    </Compile>
     <Compile Include="ProductUtility\SupplierUtility\UpdateSupplierForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -391,11 +464,15 @@
     <Compile Include="Sales\OrderPlacing\Entity\CartItem.cs" />
     <Compile Include="Sales\OrderPlacing\Entity\DeliverySession.cs" />
     <Compile Include="Sales\OrderPlacing\Entity\DeliveryStatus.cs" />
-    <Compile Include="Sales\OrderPlacing\Entity\ProductImage.cs" />
     <Compile Include="Sales\OrderPlacing\Entity\SalesOrderProductPaymentStatus.cs" />
     <Compile Include="Sales\OrderPlacing\Entity\SalesOrder.cs" />
     <Compile Include="Sales\OrderPlacing\Entity\SalesOrderProduct.cs" />
     <Compile Include="Sales\OrderPlacing\Entity\SalesOrderProductPayment.cs" />
+    <Compile Include="Sales\OrderPlacing\OrderPlacingStringResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>OrderPlacingStringResources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Sales\OrderPlacing\Repository\ProductImageRepository.cs" />
     <Compile Include="Sales\OrderPlacing\Repository\SalesOrderProductPaymentRepository.cs" />
     <Compile Include="Sales\OrderPlacing\Repository\SalesOrderProductRepository.cs" />
@@ -456,6 +533,11 @@
     <Compile Include="Sales\PaymentUtility\PaymentMethod.cs" />
     <Compile Include="Sales\PaymentUtility\PaymentReceiptGenerator.cs" />
     <Compile Include="Sales\PaymentUtility\PaymentStatus.cs" />
+    <Compile Include="Sales\PaymentUtility\PaymentStringResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PaymentStringResources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Sales\PaymentUtility\Repository\PaymentRepository.cs" />
     <Compile Include="Sales\PaymentUtility\UI\CashPaymentForm.cs">
       <SubType>Form</SubType>
@@ -486,6 +568,11 @@
     <Compile Include="ServiceUtility\Delivery\Controller\DeliveryListGenerator.cs" />
     <Compile Include="ServiceUtility\Delivery\DeliveryGoodsStatus.cs" />
     <Compile Include="ServiceUtility\Delivery\DeliveryService.cs" />
+    <Compile Include="ServiceUtility\Delivery\DeliveryStringResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DeliveryStringResources.resx</DependentUpon>
+    </Compile>
     <Compile Include="ServiceUtility\Delivery\Entity\Courier.cs" />
     <Compile Include="ServiceUtility\Delivery\Entity\Delivery.cs" />
     <Compile Include="ServiceUtility\Delivery\Entity\DeliveryCourier.cs" />
@@ -592,6 +679,11 @@
     </Compile>
     <Compile Include="ServiceUtility\Reordering\ReorderRequestSendingForm.Designer.cs" />
     <Compile Include="ServiceUtility\SalesOrderComposer.cs" />
+    <Compile Include="ServiceUtility\ServiceUtilityStringResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ServiceUtilityStringResources.resx</DependentUpon>
+    </Compile>
     <Compile Include="SettingsUtility\Language.cs" />
     <Compile Include="SettingsUtility\LanguageController.cs" />
     <Compile Include="SettingsUtility\SettingsForm.cs">
@@ -672,12 +764,27 @@
     <Compile Include="StaffUtility\StaffProfile\ProfileForm.Designer.cs">
       <DependentUpon>ProfileForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="StaffUtility\StaffUtilityStringResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>StaffUtilityStringResources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Tools\FileSizeChecker.cs" />
     <Compile Include="Tools\ImageRetriever.cs" />
+    <Compile Include="Tools\ToolsStringResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ToolsStringResources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Tools\ImageToBytesConverter.cs" />
     <Compile Include="Tools\CommonInformationVerifier.cs" />
     <Compile Include="Tools\AutoProductReserveHelper.cs" />
     <Compile Include="Tools\EnumToStringHelper.cs" />
+    <Compile Include="Tools\LowStockLevelNotifier.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>LowStockLevelNotifier.resx</DependentUpon>
+    </Compile>
     <Compile Include="Tools\PopUpForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -698,15 +805,23 @@
     </Compile>
     <EmbeddedResource Include="CustomerRecord\CreateCustomerRecordForm.resx">
       <DependentUpon>CreateCustomerRecordForm.cs</DependentUpon>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CreateCustomerRecordForm1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerRecord\CreateCustomerRecordForm.zh-HK.resx">
       <DependentUpon>CreateCustomerRecordForm.cs</DependentUpon>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CreateCustomerRecordForm.zh-HK.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerRecord\CustomerDetailsForm.resx">
       <DependentUpon>CustomerDetailsForm.cs</DependentUpon>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CustomerDetailsForm1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerRecord\CustomerDetailsForm.zh-HK.resx">
       <DependentUpon>CustomerDetailsForm.cs</DependentUpon>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CustomerDetailsForm.zh-HK.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerRecord\CustomerListForm.resx">
       <DependentUpon>CustomerListForm.cs</DependentUpon>
@@ -716,9 +831,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerRecord\CustomerUpdateForm.resx">
       <DependentUpon>CustomerUpdateForm.cs</DependentUpon>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CustomerUpdateForm1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerRecord\CustomerUpdateForm.zh-HK.resx">
       <DependentUpon>CustomerUpdateForm.cs</DependentUpon>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CustomerUpdateForm.zh-HK.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="DevTools\AutoLogin\StaffRoleChooserForm.resx">
       <DependentUpon>StaffRoleChooserForm.cs</DependentUpon>
@@ -728,9 +847,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LoginForm1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\LoginForm.zh-HK.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LoginForm.zh-HK.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -749,15 +872,26 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\UI\AdminNavigationForm.resx">
       <DependentUpon>AdminNavigationForm.cs</DependentUpon>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AdminNavigationForm1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\UI\AdminNavigationForm.zh-HK.resx">
       <DependentUpon>AdminNavigationForm.cs</DependentUpon>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AdminNavigationForm.zh-HK.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\UI\InventoryClerkNavigationForm.resx">
       <DependentUpon>InventoryClerkNavigationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\UI\InventoryClerkNavigationForm.zh-HK.resx">
       <DependentUpon>InventoryClerkNavigationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\UI\NavigationForms.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>NavigationForms.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\UI\NavigationForms.zh-hk.resx">
+      <DependentUpon>NavigationForms.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\UI\PurchaseClerkNavigationForm.resx">
       <DependentUpon>PurchaseClerkNavigationForm.cs</DependentUpon>
@@ -813,6 +947,11 @@
     <EmbeddedResource Include="ProductUtility\ProductList\Forms\ProductDetailsForm.zh-HK.resx">
       <DependentUpon>ProductDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProductUtility\ProductList\Forms\ProductList.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ProductList.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductUtility\ProductList\Forms\ProductList.zh-HK.resx" />
     <EmbeddedResource Include="ProductUtility\ProductList\Forms\ProductListForm.resx">
       <DependentUpon>ProductListForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -835,6 +974,10 @@
     <EmbeddedResource Include="ProductUtility\ProductList\Forms\UpdateSellingPriceForm.zh-HK.resx">
       <DependentUpon>UpdateSellingPriceForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProductUtility\ProductUtilityStringResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ProductUtilityStringResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductUtility\PurchaseOrder\PurchaseOrderDetailsForm.resx" />
     <EmbeddedResource Include="ProductUtility\PurchaseOrder\PurchaseOrdersForm.resx" />
     <EmbeddedResource Include="ProductUtility\SupplierUtility\CreateSupplierForm.resx">
@@ -855,6 +998,13 @@
     <EmbeddedResource Include="ProductUtility\SupplierUtility\SupplierListForm.zh-HK.resx">
       <DependentUpon>SupplierListForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProductUtility\SupplierUtility\SupplierResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SupplierResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductUtility\SupplierUtility\SupplierResource.zh-hk.resx">
+      <DependentUpon>SupplierResource.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductUtility\SupplierUtility\UpdateSupplierForm.resx">
       <DependentUpon>UpdateSupplierForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -871,6 +1021,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Sales\OrderPlacing\OrderPlacingStringResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>OrderPlacingStringResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sales\OrderPlacing\UI\ConfirmPlacingOrderForm.resx">
       <DependentUpon>ConfirmPlacingOrderForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -919,6 +1073,13 @@
     <EmbeddedResource Include="Sales\OrderPlacing\UI\SalesOrderListForm.zh-HK.resx">
       <DependentUpon>SalesOrderListForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sales\PaymentUtility\PaymentStringResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PaymentStringResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\PaymentUtility\PaymentStringResources.zh-hk.resx">
+      <DependentUpon>PaymentStringResources.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sales\PaymentUtility\UI\CashPaymentForm.resx">
       <DependentUpon>CashPaymentForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -942,6 +1103,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\PaymentUtility\UI\PaymentMethodSelectionForm.zh-HK.resx">
       <DependentUpon>PaymentMethodSelectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServiceUtility\Delivery\DeliveryStringResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DeliveryStringResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ServiceUtility\Delivery\UI\ArrangeSingleDeliveryForm.resx">
       <DependentUpon>ArrangeSingleDeliveryForm.cs</DependentUpon>
@@ -1006,6 +1171,10 @@
     <EmbeddedResource Include="ServiceUtility\Reordering\ReorderRequestDetailsForm.resx" />
     <EmbeddedResource Include="ServiceUtility\Reordering\ReorderRequestForm.resx" />
     <EmbeddedResource Include="ServiceUtility\Reordering\ReorderRequestSendingForm.resx" />
+    <EmbeddedResource Include="ServiceUtility\ServiceUtilityStringResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ServiceUtilityStringResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="SettingsUtility\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -1054,10 +1223,28 @@
     <EmbeddedResource Include="StaffUtility\StaffProfile\ProfileForm.zh-HK.resx">
       <DependentUpon>ProfileForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="StaffUtility\StaffUtilityStringResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>StaffUtilityStringResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\ToolsStringResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ToolsStringResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\LowStockLevelNotifier.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LowStockLevelNotifier.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\LowStockLevelNotifier.zh-hk.resx">
+      <DependentUpon>LowStockLevelNotifier.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tools\PopUpForm.resx">
       <DependentUpon>PopUpForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tools\UploadImageForm.resx">
+      <DependentUpon>UploadImageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\UploadImageForm.zh-HK.resx">
       <DependentUpon>UploadImageForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -1075,7 +1262,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DataAnalytics" />
+    <Folder Include="DataAnalytics\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\BL_Logo_Rectangle.png" />

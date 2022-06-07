@@ -8,7 +8,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
 {
     public partial class DeliveryListForm : Form
     {
-        private List<Delivery> _deliveries;
+        private List<Entity.Delivery> _deliveries;
 
         public DeliveryListForm()
         {
@@ -22,7 +22,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             PopulateDgvDeliveries(_deliveries);
         }
 
-        private void PopulateDgvDeliveries(List<Delivery> deliveryList)
+        private void PopulateDgvDeliveries(List<Entity.Delivery> deliveryList)
         {
             dgvDeliveries.Rows.Clear();
             deliveryList.ForEach(delivery => dgvDeliveries.Rows.Add(delivery.Id, delivery.DeliveryRequestId,

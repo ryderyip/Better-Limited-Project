@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Windows.Forms;
 using Better_Limited_Project.FormControlling;
+using Better_Limited_Project.Login;
 using Better_Limited_Project.ProductUtility.ProductList.Forms;
 using Better_Limited_Project.ServiceUtility.Delivery.UI;
 using Better_Limited_Project.SettingsUtility;
-using Better_Limited_Project.StaffUtility.StaffEntity;
 using Better_Limited_Project.StaffUtility.StaffProfile;
 
 namespace Better_Limited_Project.Navigation.UI
@@ -12,14 +12,12 @@ namespace Better_Limited_Project.Navigation.UI
     public partial class InventoryClerkNavigationForm : Form, INavigationForm
     {
         private readonly FormController _formController;
-        private readonly Staff _staff;
         public event INavigationForm.LogOutClickedEventHandler? LogOutClicked;
         
-        public InventoryClerkNavigationForm(FormController formController, Staff staff)
+        public InventoryClerkNavigationForm(FormController formController)
         {
             _formController = formController;
-            _staff = staff;
-            Shown += (_, _) => btnProfile.Text = staff.Name;
+            Shown += (_, _) => btnProfile.Text = LoginSession.GetSession().CurrentStaff.Name;
             InitializeComponent();
         }
 
@@ -27,7 +25,7 @@ namespace Better_Limited_Project.Navigation.UI
         {
             var profileController = new ProfileController(_formController);
             profileController.LogOutClicked += (_, _) => LogOutClicked?.Invoke(this, EventArgs.Empty);
-            profileController.OpenForm(_staff);
+            profileController.OpenForm();
         }
 
         private void btnSettings_Click(object sender, EventArgs e)
@@ -40,7 +38,7 @@ namespace Better_Limited_Project.Navigation.UI
         {
             if (!UserSettings.HasSelectedWorkplace())
             {
-                MessageBox.Show("Please select your current warehouse before access this feature!");
+                MessageBox.Show(NavigationForms.noSelectedWarehouseMessage);
                 return;
             }
 
@@ -52,7 +50,7 @@ namespace Better_Limited_Project.Navigation.UI
         {
             if (!UserSettings.HasSelectedWorkplace())
             {
-                MessageBox.Show("Please select your current warehouse before access this feature!");
+                MessageBox.Show(NavigationForms.noSelectedWarehouseMessage);
                 return;
             }
             throw new NotImplementedException();
@@ -62,7 +60,7 @@ namespace Better_Limited_Project.Navigation.UI
         {
             if (!UserSettings.HasSelectedWorkplace())
             {
-                MessageBox.Show("Please select your current warehouse before access this feature!");
+                MessageBox.Show(NavigationForms.noSelectedWarehouseMessage);
                 return;
             }
             throw new NotImplementedException();
@@ -72,7 +70,7 @@ namespace Better_Limited_Project.Navigation.UI
         {
             if (!UserSettings.HasSelectedWorkplace())
             {
-                MessageBox.Show("Please select your current warehouse before access this feature!");
+                MessageBox.Show(NavigationForms.noSelectedWarehouseMessage);
                 return;
             }
             throw new NotImplementedException();
@@ -87,7 +85,7 @@ namespace Better_Limited_Project.Navigation.UI
         {
             if (!UserSettings.HasSelectedWorkplace())
             {
-                MessageBox.Show("Please select your current warehouse before access this feature!");
+                MessageBox.Show(NavigationForms.noSelectedWarehouseMessage);
                 return;
             }
             var form = new ProductListForm();
@@ -98,7 +96,7 @@ namespace Better_Limited_Project.Navigation.UI
         {
             if (!UserSettings.HasSelectedWorkplace())
             {
-                MessageBox.Show("Please select your current warehouse before access this feature!");
+                MessageBox.Show(NavigationForms.noSelectedWarehouseMessage);
                 return;
             }
 

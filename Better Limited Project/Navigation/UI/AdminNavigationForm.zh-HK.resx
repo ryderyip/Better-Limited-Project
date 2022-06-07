@@ -228,4 +228,8 @@
   <data name="lblLoggedIn.Text" xml:space="preserve">
     <value>登入為</value>
   </data>
+  <data name="admin" xml:space="preserve">
+    <value>管理員
+</value>
+  </data>
 </root>

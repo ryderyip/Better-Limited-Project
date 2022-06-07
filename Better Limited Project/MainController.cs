@@ -7,7 +7,6 @@ using Better_Limited_Project.Navigation.UI;
 using Better_Limited_Project.Procedure;
 using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.StaffUtility.Repository;
-using Better_Limited_Project.StaffUtility.StaffEntity;
 using Better_Limited_Project.StaffUtility.StaffProfile;
 using Better_Limited_Project.Tools;
 
@@ -34,23 +33,23 @@ namespace Better_Limited_Project
         {
             var staff = new StaffRepository().FindById(staffId);
             LoginSession.SaveSession(staff);
-            OpenNavigationForm(staff);
-            OpenProfileForm(staff);
+            OpenNavigationForm();
+            OpenProfileForm();
             SystemInitialization.Initialize();
         }
 
-        private void OpenNavigationForm(Staff staff)
+        private void OpenNavigationForm()
         {
-            _navigationForm = NavigationFormFactory.GenerateForm(_formController, staff);
+            _navigationForm = NavigationFormFactory.GenerateForm(_formController);
             _navigationForm.LogOutClicked += OnLogOut;
             _formController.OpenNavigationForm((Form) _navigationForm);
         }
         
-        private void OpenProfileForm(Staff staff)
+        private void OpenProfileForm()
         {
             var profileController = new ProfileController(_formController);
             profileController.LogOutClicked += OnLogOut;
-            profileController.OpenForm(staff);
+            profileController.OpenForm();
         }
         
         private void OnLogOut(object sender, EventArgs e)

@@ -21,14 +21,13 @@ namespace Better_Limited_Project.StaffUtility.StaffList
         {
             if (!IsPasswordValid())
             {
-                MessageBox.Show("New password does not meet requirement! " +
-                                "Passwords must consist of at least 8 characters of a combination of English character and/or numbers.");
+                MessageBox.Show(StaffUtilityStringResources.ChangePasswordForm_btnApply_Click_New_password_does_not_meet_requirement__Passwords_must_consist_of_at_least_8_characters_of_a_combination_of_English_character_and_or_numbers_);
                 return;
             }
             
             if (!DoesReEnteredPasswordMatch())
             {
-                MessageBox.Show("Re-entered password does not match! Please retry!");
+                MessageBox.Show(StaffUtilityStringResources.reentered_password_dont_match);
                 return;
             }
 

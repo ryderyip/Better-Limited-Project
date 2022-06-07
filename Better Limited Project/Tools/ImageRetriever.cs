@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace Better_Limited_Project.Tools
 {
-    public class ImageRetriever
+    public static class ImageRetriever
     {
         public static Image? Retrieve(string path)
         {
@@ -14,7 +14,7 @@ namespace Better_Limited_Project.Tools
             }
             catch (OutOfMemoryException)
             {
-                MessageBox.Show("Image file is in incorrect format. Please choose another one.");
+                MessageBox.Show(ToolsStringResources.image_is_incorrect_format);
                 return null;
             }
         }

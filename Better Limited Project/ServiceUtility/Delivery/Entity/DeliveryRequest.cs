@@ -6,7 +6,7 @@ using Better_Limited_Project.ServiceUtility.Delivery.Repository;
 using Better_Limited_Project.StaffUtility.Repository;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 
-namespace Better_Limited_Project.ServiceUtility.Delivery
+namespace Better_Limited_Project.ServiceUtility.Delivery.Entity
 {
     public class DeliveryRequest
     {

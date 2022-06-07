@@ -44,8 +44,7 @@ namespace Better_Limited_Project.CustomerRecord
         {
             if (_customer.HasDuePayment() || _customer.HasYetToArriveDelivery())
             {
-                MessageBox.Show("This customer has due payment or has delivery yet to arrive.\n" +
-                                "Customer removal failed.");
+                MessageBox.Show(removeCustomerFailed);
                 return;
             }
             

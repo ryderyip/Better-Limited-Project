@@ -3,7 +3,9 @@ using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.CustomerRecord;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
+using Better_Limited_Project.Sales.PaymentUtility;
 using Better_Limited_Project.ServiceUtility.Delivery;
+using Better_Limited_Project.ServiceUtility.Delivery.Entity;
 
 namespace Better_Limited_Project.Sales.OrderPlacing.UI
 {
@@ -22,16 +24,14 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
         {
             if (_salesOrder.GetSalesOrderProducts().Any(sop => !sop.IsOutOfStock))
             {
-                MessageBox.Show("Currently you can only add a delivery to sales orders whose products are all " +
-                                "waiting for stock.");
+                MessageBox.Show("Currently you can only add a delivery to sales orders whose products are all waiting for stock.");
                 return;
             }
             
             if (_salesOrder.Customer == null)
             {
-                var confirmResult = MessageBox.Show("To request for a delivery, customer's information is needed.\n" +
-                                                    "Start creating a customer record?",
-                    "Create Customer Record", MessageBoxButtons.YesNo);
+                var confirmResult = MessageBox.Show(PaymentStringResources.create_customer_information_to_request_delivery,
+                    CreateCustomerRecordForm.lblHeader_Text, MessageBoxButtons.YesNo);
                 if (confirmResult is DialogResult.Yes)
                     CreateCustomerRecord();
                 return;
@@ -84,17 +84,15 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
             createCustomerRecordForm.ShowDialog();
         }
 
-        private void AskForAndRemoveDeliveryRequest(DeliveryRequest? deliveryRequest)
+        private void AskForAndRemoveDeliveryRequest(DeliveryRequest deliveryRequest)
         {
-            var confirmResult = MessageBox.Show("Current sales order has requested for a delivery.\n" +
-                                                "Confirm removing delivery request?",
-                "Remove Delivery Request", MessageBoxButtons.YesNo);
+            var confirmResult = MessageBox.Show(PaymentStringResources.askRemoveDeliveryRequest,
+                PaymentStringResources.removeDeliveryRequest, MessageBoxButtons.YesNo);
             if (confirmResult is DialogResult.Yes)
             {
                 if (deliveryRequest.IsArranged())
                 {
-                    MessageBox.Show("This delivery has already been confirmed by inventory department.\n" +
-                                    "Delivery request removal failed.");
+                    MessageBox.Show(PaymentStringResources.removeDeliveryRequestFail);
                     return;
                 }
 
@@ -106,9 +104,8 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
 
         private void AskForDeliverySessionAndSendDeliveryRequest()
         {
-            var confirmResult = MessageBox.Show("Current sales order has not requested for a delivery.\n" +
-                                                "Confirm sending a delivery request for this order?",
-                "Send Delivery Request", MessageBoxButtons.YesNo);
+            var confirmResult = MessageBox.Show(PaymentStringResources.askSendDeliveryRequest,
+                PaymentStringResources.sendDeliveryRequest, MessageBoxButtons.YesNo);
             if (confirmResult is not DialogResult.Yes)
                 return;
             
@@ -116,7 +113,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
             form.SessionSelected += (_, session) =>
             {
                 new DeliveryService().SendRequest(_salesOrder, session);
-                MessageBox.Show("Delivery request sent.");
+                MessageBox.Show(PaymentStringResources.deliveryRequestSent);
                 Close();
                 SalesOrderUpdated?.Invoke(this, EventArgs.Empty);
             };

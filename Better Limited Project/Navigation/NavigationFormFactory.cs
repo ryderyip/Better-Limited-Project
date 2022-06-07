@@ -1,5 +1,6 @@
 ﻿using System;
 using Better_Limited_Project.FormControlling;
+using Better_Limited_Project.Login;
 using Better_Limited_Project.Navigation.UI;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 
@@ -7,22 +8,21 @@ namespace Better_Limited_Project.Navigation
 {
     public static class NavigationFormFactory
     {
-        public static INavigationForm GenerateForm(FormController controller, Staff staff)
+        public static INavigationForm GenerateForm(FormController controller)
         {
-            var title = staff.Title;
-            return title switch
+            return LoginSession.GetSession().CurrentStaff.Title switch
             {
                 StaffTitle.SalesRepresentative or StaffTitle.SalesManager 
-                    => new SalesNavigationForm(controller, staff),
-                StaffTitle.AccountingClerk => new AccountingClerkNavigationForm(controller, staff),
-                StaffTitle.AccountingManager => new AccountingManagerNavigationForm(controller, staff),
-                StaffTitle.PurchaseClerk => new PurchaseClerkNavigationForm(controller, staff),
-                StaffTitle.PurchaseManager => new PurchaseManagerNavigationForm(controller, staff),
-                StaffTitle.InventoryClerk => new InventoryClerkNavigationForm(controller, staff),
-                StaffTitle.ReceivingClerk => new ReceivingClerkNavigationForm(controller, staff),
+                    => new SalesNavigationForm(controller),
+                StaffTitle.AccountingClerk => new AccountingClerkNavigationForm(controller),
+                StaffTitle.AccountingManager => new AccountingManagerNavigationForm(controller),
+                StaffTitle.PurchaseClerk => new PurchaseClerkNavigationForm(controller),
+                StaffTitle.PurchaseManager => new PurchaseManagerNavigationForm(controller),
+                StaffTitle.InventoryClerk => new InventoryClerkNavigationForm(controller),
+                StaffTitle.ReceivingClerk => new ReceivingClerkNavigationForm(controller),
                 StaffTitle.TechnicalSupportClerk or StaffTitle.TechnicalSupportManager
-                    => new TechnicalSupportNavigationForm(controller, staff),
-                StaffTitle.Admin => new AdminNavigationForm(controller, staff),
+                    => new TechnicalSupportNavigationForm(controller),
+                StaffTitle.Admin => new AdminNavigationForm(controller),
                 _ => throw new ArgumentException("Unexpected staff title.")
             };
         }

@@ -29,6 +29,7 @@ namespace Better_Limited_Project.Tools
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UploadImageForm));
             this.tbFilePath = new System.Windows.Forms.TextBox();
             this.btnChooseImage = new System.Windows.Forms.Button();
             this.lblHeader = new System.Windows.Forms.Label();
@@ -40,73 +41,49 @@ namespace Better_Limited_Project.Tools
             // 
             // tbFilePath
             // 
-            this.tbFilePath.Location = new System.Drawing.Point(149, 269);
+            resources.ApplyResources(this.tbFilePath, "tbFilePath");
             this.tbFilePath.Name = "tbFilePath";
             this.tbFilePath.ReadOnly = true;
-            this.tbFilePath.Size = new System.Drawing.Size(225, 20);
-            this.tbFilePath.TabIndex = 175;
             // 
             // btnChooseImage
             // 
             this.btnChooseImage.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.btnChooseImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.btnChooseImage, "btnChooseImage");
             this.btnChooseImage.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnChooseImage.Location = new System.Drawing.Point(264, 232);
             this.btnChooseImage.Name = "btnChooseImage";
-            this.btnChooseImage.Size = new System.Drawing.Size(110, 31);
-            this.btnChooseImage.TabIndex = 174;
-            this.btnChooseImage.Text = "Choose Image";
             this.btnChooseImage.UseVisualStyleBackColor = false;
             this.btnChooseImage.Click += new System.EventHandler(this.btnChooseImage_Click);
             // 
             // lblHeader
             // 
-            this.lblHeader.AutoSize = true;
-            this.lblHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeader.Location = new System.Drawing.Point(151, 26);
+            resources.ApplyResources(this.lblHeader, "lblHeader");
             this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(160, 26);
-            this.lblHeader.TabIndex = 177;
-            this.lblHeader.Text = "Upload Image";
-            this.lblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblPath
             // 
-            this.lblPath.AutoSize = true;
-            this.lblPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPath.Location = new System.Drawing.Point(85, 270);
+            resources.ApplyResources(this.lblPath, "lblPath");
             this.lblPath.Name = "lblPath";
-            this.lblPath.Size = new System.Drawing.Size(58, 15);
-            this.lblPath.TabIndex = 178;
-            this.lblPath.Text = "File Path:";
             // 
             // pbImage
             // 
             this.pbImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbImage.Location = new System.Drawing.Point(158, 77);
+            resources.ApplyResources(this.pbImage, "pbImage");
             this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(141, 141);
-            this.pbImage.TabIndex = 176;
             this.pbImage.TabStop = false;
             // 
             // btnSubmit
             // 
             this.btnSubmit.BackColor = System.Drawing.Color.Salmon;
-            this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.btnSubmit, "btnSubmit");
             this.btnSubmit.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnSubmit.Location = new System.Drawing.Point(158, 311);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(146, 54);
-            this.btnSubmit.TabIndex = 179;
-            this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = false;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // UploadImageForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(462, 388);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.lblPath);
             this.Controls.Add(this.lblHeader);
@@ -114,7 +91,6 @@ namespace Better_Limited_Project.Tools
             this.Controls.Add(this.tbFilePath);
             this.Controls.Add(this.btnChooseImage);
             this.Name = "UploadImageForm";
-            this.Text = "Upload Image";
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

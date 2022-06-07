@@ -5,7 +5,7 @@ using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;
 using Better_Limited_Project.ServiceUtility.Delivery.Repository;
 
-namespace Better_Limited_Project.ServiceUtility.Delivery
+namespace Better_Limited_Project.ServiceUtility.Delivery.Entity
 {
     public class Delivery : IEntity
     {
@@ -52,8 +52,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery
             var tomorrow = DateTime.Today + TimeSpan.FromDays(1);
             var earliestDate = DeliveryRepository.GetAll()
                 .Where(d => d.ScheduledOn > tomorrow
-                            && d.GetDeliveryRequest().DeliverySession == deliverySession
-                            && d.ScheduledOn != null)
+                            && d.GetDeliveryRequest().DeliverySession == deliverySession)
                 .GroupBy(d => d.ScheduledOn)
                 .Where(group => group.Count() < MaximumDeliveriesPerSession)
                 .Select(group => group.Key)

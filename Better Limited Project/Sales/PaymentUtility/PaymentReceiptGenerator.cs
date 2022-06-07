@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
@@ -45,9 +44,9 @@ namespace Better_Limited_Project.Sales.PaymentUtility
             {
                 pdfRenderer.PdfDocument.Save(path);
             }
-            catch (IOException e)
+            catch (IOException)
             {
-                MessageBox.Show("The file is currently being used by another process.");
+                MessageBox.Show(PaymentStringResources.FileBeingUsedByAnotherProcess);
             }
             Process.Start(path);
         }

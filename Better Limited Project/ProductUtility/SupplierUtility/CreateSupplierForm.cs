@@ -21,20 +21,19 @@ namespace Better_Limited_Project.ProductUtility.SupplierUtility
             string email = tbEmail.Text;
             if (!HasFilledAllFields())
             {
-                MessageBox.Show("Please fill all information.");
+                MessageBox.Show(SupplierResource.notAllFieldsFilled);
                 return;
             }
 
             if (!CommonInformationVerifier.IsValidPhoneNumber(phone))
             {
-                MessageBox.Show($"Phone number \"{phone}\" is not valid. " +
-                                "Please enter an 8-digit Hong Kong phone number. E.g. 12345687.");
+                MessageBox.Show(string.Format(SupplierResource.phone_number_invalid, phone));
                 return;
             }
 
             if (!CommonInformationVerifier.IsValidEmailAddress(email))
             {
-                MessageBox.Show($"\"{email}\" is not a valid email address. Please re-enter.");
+                MessageBox.Show(string.Format(SupplierResource.email_invalid, email));
                 return;
             }
 

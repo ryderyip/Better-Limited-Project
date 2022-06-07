@@ -36,13 +36,13 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             string name = tbNewName.Text.Trim();
             if (string.IsNullOrWhiteSpace(name))
             {
-                MessageBox.Show("Please fill in the product name!");
+                MessageBox.Show(ProductList.updateProductNameNotFilled);
                 return;
             }
 
             if (!verifier.IsNameUnique(name) && name != _stock.Product.Name)
             {
-                MessageBox.Show($"Name \"{name}\" already exists. Please choose another one.");
+                MessageBox.Show(string.Format(ProductList.updateProductNameNotUnique, name));
                 return;
             }
             

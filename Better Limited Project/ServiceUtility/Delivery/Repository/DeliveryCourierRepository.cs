@@ -2,6 +2,7 @@
 using System.Data;
 using System.Linq;
 using Better_Limited_Project.DatabaseUtility;
+using Better_Limited_Project.ServiceUtility.Delivery.Entity;
 using MySql.Data.MySqlClient;
 
 namespace Better_Limited_Project.ServiceUtility.Delivery.Repository
@@ -28,7 +29,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.Repository
             DataTableRepository.ExecuteNonQuery(command);
         }
 
-        public static IEnumerable<Delivery> FindByCourierId(string courierId)
+        public static IEnumerable<Entity.Delivery> FindByCourierId(string courierId)
         {
             var command = new MySqlCommand(
                 @"select delivery_id from delivery_courier where courier_id = @courierId;");

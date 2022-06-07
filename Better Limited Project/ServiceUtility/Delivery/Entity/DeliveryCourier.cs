@@ -1,6 +1,6 @@
 ﻿using Better_Limited_Project.ServiceUtility.Delivery.Repository;
 
-namespace Better_Limited_Project.ServiceUtility.Delivery
+namespace Better_Limited_Project.ServiceUtility.Delivery.Entity
 {
     public class DeliveryCourier
     {

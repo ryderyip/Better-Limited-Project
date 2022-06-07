@@ -25,14 +25,13 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             var verifier = new StaffAccountCreationVerifier();
             if (!verifier.IsUsernameValid(username))
             {
-                MessageBox.Show($"Username {username} is not valid." +
-                                $"Usernames must only consist of alphanumeric characters and/or underscores.");
+                MessageBox.Show(string.Format(StaffUtilityStringResources.username_not_valid, username));
                 return;
             }
 
             if (username != _account.Username && !verifier.IsUsernameUnique(username))
             {
-                MessageBox.Show($"Username {username} has been used. Please choose another one.");
+                MessageBox.Show(string.Format(StaffUtilityStringResources.username_not_unique, username));
                 return;
             }
             

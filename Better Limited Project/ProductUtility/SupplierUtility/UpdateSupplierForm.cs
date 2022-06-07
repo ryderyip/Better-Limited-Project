@@ -34,20 +34,19 @@ namespace Better_Limited_Project.ProductUtility.SupplierUtility
             
             if (!IsAllFieldsFilled())
             {
-                MessageBox.Show("Please fill all fields!");
+                MessageBox.Show(SupplierResource.notAllFieldsFilled);
                 return;
             }
             
             if (!CommonInformationVerifier.IsValidPhoneNumber(phone))
             {
-                MessageBox.Show($"Phone number \"{phone}\" is not valid. Please enter a valid one." +
-                                $"\nE.g. 12344567");
+                MessageBox.Show(string.Format(SupplierResource.phone_number_invalid, phone));
                 return;
             }
             
             if (!CommonInformationVerifier.IsValidEmailAddress(email))
             {
-                MessageBox.Show($"Email address \"{email}\" is not valid. Please enter a valid one.");
+                MessageBox.Show(string.Format(SupplierResource.email_invalid, email));
                 return;
             }
 

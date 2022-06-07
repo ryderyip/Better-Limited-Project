@@ -3,7 +3,6 @@ using System.Data;
 using System.Linq;
 using Better_Limited_Project.DatabaseUtility;
 using Better_Limited_Project.ProductUtility.Entity;
-using Better_Limited_Project.StaffUtility.Repository;
 using MySql.Data.MySqlClient;
 
 namespace Better_Limited_Project.ProductUtility.Repository
@@ -62,6 +61,14 @@ namespace Better_Limited_Project.ProductUtility.Repository
             var datatable = DataTableRepository.RetrieveDataTable(new MySqlCommand(
                 @"select max(id) as id from product;"));
             return ((from DataRow row in datatable.Rows select row.Field<int>("id")).First() + 1).ToString();
+        }
+
+        public static void Remove(Product product)
+        {
+            var command = new MySqlCommand(
+                @"delete from product where id = @productId;");
+            command.Parameters.AddWithValue("@productId", product.Id);
+            DataTableRepository.ExecuteNonQuery(command);
         }
     }
 }

@@ -90,7 +90,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             _productStock.Save();
             _productStock.Product.Save();
 
-            MessageBox.Show("Product and stock information and updated.");
+            MessageBox.Show(ProductList.productAndStockUpdated);
             
             ProductUpdated?.Invoke(this, EventArgs.Empty);
             Close();

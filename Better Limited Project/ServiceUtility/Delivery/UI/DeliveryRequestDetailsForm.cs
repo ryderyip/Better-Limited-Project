@@ -2,6 +2,8 @@
 using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.Sales.OrderPlacing.UI;
+using Better_Limited_Project.ServiceUtility.Delivery.Controller;
+using Better_Limited_Project.ServiceUtility.Delivery.Entity;
 using Better_Limited_Project.ServiceUtility.Delivery.Repository;
 using Better_Limited_Project.Tools;
 
@@ -34,9 +36,9 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
         {
             tbStockStatus.Text = EnumToStringHelper.GetDisplayValue(_deliveryRequest.GetGoodsStatus());
             tbCreatedOn.Text =
-                $"{_deliveryRequest.CreatedOn.ToLongDateString()} | {_deliveryRequest.CreatedOn.ToShortTimeString()}";
+                @$"{_deliveryRequest.CreatedOn.ToLongDateString()} | {_deliveryRequest.CreatedOn.ToShortTimeString()}";
             tbCreatedIn.Text = _deliveryRequest.GetSalesOrder().RetailStore.Name;
-            tbCreatedBy.Text = $"{_deliveryRequest.GetCreatedByStaff().Name}";
+            tbCreatedBy.Text = _deliveryRequest.GetCreatedByStaff().Name;
             tbArrangedOn.Text = _deliveryRequest.ArrangedOn.HasValue
                 ? $"{_deliveryRequest.ArrangedOn.Value.ToLongDateString()} | {_deliveryRequest.ArrangedOn.Value.ToShortTimeString()}"
                 : "-";
@@ -56,15 +58,9 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
 
         private void btnArrangeDelivery_Click(object sender, EventArgs e)
         {
-            if (_deliveryRequest.IsArranged())
-            {
-                MessageBox.Show("Delivery for this request is already arranged!");
-                return;
-            }
-
             if (!_deliveryRequest.IsStockReadyForDelivery())
             {
-                MessageBox.Show("Delivery can only be arranged once the stock is replenished.");
+                MessageBox.Show(DeliveryStringResources.cant_arrange_delivery_when_no_stock);
                 return;
             }
 

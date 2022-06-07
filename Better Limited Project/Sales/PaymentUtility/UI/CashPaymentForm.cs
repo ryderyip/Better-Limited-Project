@@ -29,7 +29,7 @@ namespace Better_Limited_Project.Sales.PaymentUtility.UI
             decimal tendered = nudAmountTendered.Value;
             if (tendered < owned)
             {
-                MessageBox.Show("Please pay enough cash.");
+                MessageBox.Show(PaymentStringResources.notEnoughCashPaid);
                 return;
             }
             

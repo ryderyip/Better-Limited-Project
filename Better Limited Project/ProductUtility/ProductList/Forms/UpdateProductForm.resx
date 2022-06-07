@@ -137,18 +137,6 @@
   <data name="lblOriginalInfo.Text" xml:space="preserve">
     <value>Original Info</value>
   </data>
-  <data name="&gt;&gt;lblOriginalInfo.Name" xml:space="preserve">
-    <value>lblOriginalInfo</value>
-  </data>
-  <data name="&gt;&gt;lblOriginalInfo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblOriginalInfo.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblOriginalInfo.ZOrder" xml:space="preserve">
-    <value>24</value>
-  </data>
   <data name="lblOriginalPrice.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -166,18 +154,6 @@
   </data>
   <data name="lblOriginalPrice.Text" xml:space="preserve">
     <value>Original Price:</value>
-  </data>
-  <data name="&gt;&gt;lblOriginalPrice.Name" xml:space="preserve">
-    <value>lblOriginalPrice</value>
-  </data>
-  <data name="&gt;&gt;lblOriginalPrice.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblOriginalPrice.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblOriginalPrice.ZOrder" xml:space="preserve">
-    <value>23</value>
   </data>
   <data name="lblSellingPrice.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -197,18 +173,6 @@
   <data name="lblSellingPrice.Text" xml:space="preserve">
     <value>Selling Price:</value>
   </data>
-  <data name="&gt;&gt;lblSellingPrice.Name" xml:space="preserve">
-    <value>lblSellingPrice</value>
-  </data>
-  <data name="&gt;&gt;lblSellingPrice.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblSellingPrice.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblSellingPrice.ZOrder" xml:space="preserve">
-    <value>22</value>
-  </data>
   <data name="lblPhasingOut.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -226,18 +190,6 @@
   </data>
   <data name="lblPhasingOut.Text" xml:space="preserve">
     <value>Phasing-out:</value>
-  </data>
-  <data name="&gt;&gt;lblPhasingOut.Name" xml:space="preserve">
-    <value>lblPhasingOut</value>
-  </data>
-  <data name="&gt;&gt;lblPhasingOut.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblPhasingOut.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblPhasingOut.ZOrder" xml:space="preserve">
-    <value>21</value>
   </data>
   <data name="lblReorderLevel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -257,18 +209,6 @@
   <data name="lblReorderLevel.Text" xml:space="preserve">
     <value>Reorder Level:</value>
   </data>
-  <data name="&gt;&gt;lblReorderLevel.Name" xml:space="preserve">
-    <value>lblReorderLevel</value>
-  </data>
-  <data name="&gt;&gt;lblReorderLevel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblReorderLevel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblReorderLevel.ZOrder" xml:space="preserve">
-    <value>20</value>
-  </data>
   <data name="txtOriginalPrice.Location" type="System.Drawing.Point, System.Drawing">
     <value>241, 294</value>
   </data>
@@ -277,18 +217,6 @@
   </data>
   <data name="txtOriginalPrice.TabIndex" type="System.Int32, mscorlib">
     <value>29</value>
-  </data>
-  <data name="&gt;&gt;txtOriginalPrice.Name" xml:space="preserve">
-    <value>txtOriginalPrice</value>
-  </data>
-  <data name="&gt;&gt;txtOriginalPrice.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtOriginalPrice.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;txtOriginalPrice.ZOrder" xml:space="preserve">
-    <value>19</value>
   </data>
   <data name="txtSellingPrice.Location" type="System.Drawing.Point, System.Drawing">
     <value>241, 331</value>
@@ -299,18 +227,6 @@
   <data name="txtSellingPrice.TabIndex" type="System.Int32, mscorlib">
     <value>30</value>
   </data>
-  <data name="&gt;&gt;txtSellingPrice.Name" xml:space="preserve">
-    <value>txtSellingPrice</value>
-  </data>
-  <data name="&gt;&gt;txtSellingPrice.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtSellingPrice.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;txtSellingPrice.ZOrder" xml:space="preserve">
-    <value>18</value>
-  </data>
   <data name="txtPhasingOut.Location" type="System.Drawing.Point, System.Drawing">
     <value>241, 183</value>
   </data>
@@ -320,18 +236,6 @@
   <data name="txtPhasingOut.TabIndex" type="System.Int32, mscorlib">
     <value>31</value>
   </data>
-  <data name="&gt;&gt;txtPhasingOut.Name" xml:space="preserve">
-    <value>txtPhasingOut</value>
-  </data>
-  <data name="&gt;&gt;txtPhasingOut.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtPhasingOut.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;txtPhasingOut.ZOrder" xml:space="preserve">
-    <value>17</value>
-  </data>
   <data name="txtReorderLevel.Location" type="System.Drawing.Point, System.Drawing">
     <value>241, 220</value>
   </data>
@@ -340,18 +244,6 @@
   </data>
   <data name="txtReorderLevel.TabIndex" type="System.Int32, mscorlib">
     <value>33</value>
-  </data>
-  <data name="&gt;&gt;txtReorderLevel.Name" xml:space="preserve">
-    <value>txtReorderLevel</value>
-  </data>
-  <data name="&gt;&gt;txtReorderLevel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtReorderLevel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;txtReorderLevel.ZOrder" xml:space="preserve">
-    <value>16</value>
   </data>
   <data name="btnUpdateInfo.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt, style=Bold</value>
@@ -367,18 +259,6 @@
   </data>
   <data name="btnUpdateInfo.Text" xml:space="preserve">
     <value>Update Info</value>
-  </data>
-  <data name="&gt;&gt;btnUpdateInfo.Name" xml:space="preserve">
-    <value>btnUpdateInfo</value>
-  </data>
-  <data name="&gt;&gt;btnUpdateInfo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnUpdateInfo.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnUpdateInfo.ZOrder" xml:space="preserve">
-    <value>15</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -398,18 +278,6 @@
   <data name="label1.Text" xml:space="preserve">
     <value>Name:</value>
   </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
   <data name="txtName.Location" type="System.Drawing.Point, System.Drawing">
     <value>241, 146</value>
   </data>
@@ -418,18 +286,6 @@
   </data>
   <data name="txtName.TabIndex" type="System.Int32, mscorlib">
     <value>53</value>
-  </data>
-  <data name="&gt;&gt;txtName.Name" xml:space="preserve">
-    <value>txtName</value>
-  </data>
-  <data name="&gt;&gt;txtName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtName.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;txtName.ZOrder" xml:space="preserve">
-    <value>13</value>
   </data>
   <data name="lblHeader.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -449,18 +305,6 @@
   <data name="lblHeader.Text" xml:space="preserve">
     <value>Product Update</value>
   </data>
-  <data name="&gt;&gt;lblHeader.Name" xml:space="preserve">
-    <value>lblHeader</value>
-  </data>
-  <data name="&gt;&gt;lblHeader.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblHeader.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblHeader.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
   <data name="nudNewStockLevel.Location" type="System.Drawing.Point, System.Drawing">
     <value>554, 179</value>
   </data>
@@ -469,18 +313,6 @@
   </data>
   <data name="nudNewStockLevel.TabIndex" type="System.Int32, mscorlib">
     <value>98</value>
-  </data>
-  <data name="&gt;&gt;nudNewStockLevel.Name" xml:space="preserve">
-    <value>nudNewStockLevel</value>
-  </data>
-  <data name="&gt;&gt;nudNewStockLevel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nudNewStockLevel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;nudNewStockLevel.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="lblNewStockLevel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -500,18 +332,6 @@
   <data name="lblNewStockLevel.Text" xml:space="preserve">
     <value>New Stock Level:</value>
   </data>
-  <data name="&gt;&gt;lblNewStockLevel.Name" xml:space="preserve">
-    <value>lblNewStockLevel</value>
-  </data>
-  <data name="&gt;&gt;lblNewStockLevel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblNewStockLevel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblNewStockLevel.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
   <data name="nudNewReorderLevel.Location" type="System.Drawing.Point, System.Drawing">
     <value>554, 268</value>
   </data>
@@ -521,18 +341,6 @@
   <data name="nudNewReorderLevel.TabIndex" type="System.Int32, mscorlib">
     <value>94</value>
   </data>
-  <data name="&gt;&gt;nudNewReorderLevel.Name" xml:space="preserve">
-    <value>nudNewReorderLevel</value>
-  </data>
-  <data name="&gt;&gt;nudNewReorderLevel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nudNewReorderLevel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;nudNewReorderLevel.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
   <data name="nudNewSellingPirce.Location" type="System.Drawing.Point, System.Drawing">
     <value>554, 315</value>
   </data>
@@ -541,18 +349,6 @@
   </data>
   <data name="nudNewSellingPirce.TabIndex" type="System.Int32, mscorlib">
     <value>93</value>
-  </data>
-  <data name="&gt;&gt;nudNewSellingPirce.Name" xml:space="preserve">
-    <value>nudNewSellingPirce</value>
-  </data>
-  <data name="&gt;&gt;nudNewSellingPirce.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nudNewSellingPirce.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;nudNewSellingPirce.ZOrder" xml:space="preserve">
-    <value>6</value>
   </data>
   <data name="rbPhasingOutOn.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -569,18 +365,6 @@
   <data name="rbPhasingOutOn.Text" xml:space="preserve">
     <value>On</value>
   </data>
-  <data name="&gt;&gt;rbPhasingOutOn.Name" xml:space="preserve">
-    <value>rbPhasingOutOn</value>
-  </data>
-  <data name="&gt;&gt;rbPhasingOutOn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rbPhasingOutOn.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;rbPhasingOutOn.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
   <data name="rbPhasingOutOff.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -595,18 +379,6 @@
   </data>
   <data name="rbPhasingOutOff.Text" xml:space="preserve">
     <value>Off</value>
-  </data>
-  <data name="&gt;&gt;rbPhasingOutOff.Name" xml:space="preserve">
-    <value>rbPhasingOutOff</value>
-  </data>
-  <data name="&gt;&gt;rbPhasingOutOff.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rbPhasingOutOff.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;rbPhasingOutOff.ZOrder" xml:space="preserve">
-    <value>8</value>
   </data>
   <data name="lblNewPhasingOut.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -626,18 +398,6 @@
   <data name="lblNewPhasingOut.Text" xml:space="preserve">
     <value>Phasing-out:</value>
   </data>
-  <data name="&gt;&gt;lblNewPhasingOut.Name" xml:space="preserve">
-    <value>lblNewPhasingOut</value>
-  </data>
-  <data name="&gt;&gt;lblNewPhasingOut.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblNewPhasingOut.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblNewPhasingOut.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
   <data name="lblNewReorderLevel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -655,18 +415,6 @@
   </data>
   <data name="lblNewReorderLevel.Text" xml:space="preserve">
     <value>New Reorder Level:</value>
-  </data>
-  <data name="&gt;&gt;lblNewReorderLevel.Name" xml:space="preserve">
-    <value>lblNewReorderLevel</value>
-  </data>
-  <data name="&gt;&gt;lblNewReorderLevel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblNewReorderLevel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblNewReorderLevel.ZOrder" xml:space="preserve">
-    <value>10</value>
   </data>
   <data name="lblNewSellingPrice.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -686,18 +434,6 @@
   <data name="lblNewSellingPrice.Text" xml:space="preserve">
     <value>New Selling Price:</value>
   </data>
-  <data name="&gt;&gt;lblNewSellingPrice.Name" xml:space="preserve">
-    <value>lblNewSellingPrice</value>
-  </data>
-  <data name="&gt;&gt;lblNewSellingPrice.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblNewSellingPrice.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblNewSellingPrice.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
   <data name="tbStockLevel.Location" type="System.Drawing.Point, System.Drawing">
     <value>241, 257</value>
   </data>
@@ -706,18 +442,6 @@
   </data>
   <data name="tbStockLevel.TabIndex" type="System.Int32, mscorlib">
     <value>100</value>
-  </data>
-  <data name="&gt;&gt;tbStockLevel.Name" xml:space="preserve">
-    <value>tbStockLevel</value>
-  </data>
-  <data name="&gt;&gt;tbStockLevel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbStockLevel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;tbStockLevel.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="lblStockLevel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -737,18 +461,6 @@
   <data name="lblStockLevel.Text" xml:space="preserve">
     <value>Stock Level:</value>
   </data>
-  <data name="&gt;&gt;lblStockLevel.Name" xml:space="preserve">
-    <value>lblStockLevel</value>
-  </data>
-  <data name="&gt;&gt;lblStockLevel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblStockLevel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblStockLevel.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="lblNewInfo.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -767,24 +479,12 @@
   <data name="lblNewInfo.Text" xml:space="preserve">
     <value>New Info</value>
   </data>
-  <data name="&gt;&gt;lblNewInfo.Name" xml:space="preserve">
-    <value>lblNewInfo</value>
-  </data>
-  <data name="&gt;&gt;lblNewInfo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblNewInfo.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblNewInfo.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="$this.Language" type="System.Globalization.CultureInfo, mscorlib">
     <value>zh-Hans-HK</value>
-  </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  </data>
+  <data name="$this.Localizable" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
+  </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
@@ -793,11 +493,5 @@
   </data>
   <data name="$this.Location" type="System.Drawing.Point, System.Drawing">
     <value>15, 15</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>UpdateProductForm</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

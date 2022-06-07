@@ -17,12 +17,7 @@ namespace Better_Limited_Project.ProductUtility.Entity
 
         public void Remove()
         {
-            throw new System.NotImplementedException();
-        }
-
-        public Product GetProduct()
-        {
-            return ProductRepository.FindById(Product.Id);
+            WarehouseStockRepository.Remove(Workplace.Id, Product.Id);
         }
 
         public WarehouseStock(Product product, Warehouse warehouse, int quantity, int restockLevel)

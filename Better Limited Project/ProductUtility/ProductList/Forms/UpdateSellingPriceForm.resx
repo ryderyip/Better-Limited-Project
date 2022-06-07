@@ -128,18 +128,6 @@
   <data name="tbOriginalSellingPrice.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
   </data>
-  <data name="&gt;&gt;tbOriginalSellingPrice.Name" xml:space="preserve">
-    <value>tbOriginalSellingPrice</value>
-  </data>
-  <data name="&gt;&gt;tbOriginalSellingPrice.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbOriginalSellingPrice.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;tbOriginalSellingPrice.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
   <data name="lblOriginalSellingPrice.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -157,18 +145,6 @@
   </data>
   <data name="lblOriginalSellingPrice.Text" xml:space="preserve">
     <value>Original Selling Price:</value>
-  </data>
-  <data name="&gt;&gt;lblOriginalSellingPrice.Name" xml:space="preserve">
-    <value>lblOriginalSellingPrice</value>
-  </data>
-  <data name="&gt;&gt;lblOriginalSellingPrice.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblOriginalSellingPrice.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblOriginalSellingPrice.ZOrder" xml:space="preserve">
-    <value>5</value>
   </data>
   <data name="lblOriginalInfo.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -191,18 +167,6 @@
   <data name="lblOriginalInfo.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
   </data>
-  <data name="&gt;&gt;lblOriginalInfo.Name" xml:space="preserve">
-    <value>lblOriginalInfo</value>
-  </data>
-  <data name="&gt;&gt;lblOriginalInfo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblOriginalInfo.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblOriginalInfo.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
   <data name="lblNewSellingPrice.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -221,18 +185,6 @@
   <data name="lblNewSellingPrice.Text" xml:space="preserve">
     <value>New Selling Price (HKD$)</value>
   </data>
-  <data name="&gt;&gt;lblNewSellingPrice.Name" xml:space="preserve">
-    <value>lblNewSellingPrice</value>
-  </data>
-  <data name="&gt;&gt;lblNewSellingPrice.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblNewSellingPrice.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblNewSellingPrice.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
   <data name="btnUpdateSellingPrice.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt, style=Bold</value>
   </data>
@@ -247,18 +199,6 @@
   </data>
   <data name="btnUpdateSellingPrice.Text" xml:space="preserve">
     <value>Update Selling Price</value>
-  </data>
-  <data name="&gt;&gt;btnUpdateSellingPrice.Name" xml:space="preserve">
-    <value>btnUpdateSellingPrice</value>
-  </data>
-  <data name="&gt;&gt;btnUpdateSellingPrice.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnUpdateSellingPrice.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnUpdateSellingPrice.ZOrder" xml:space="preserve">
-    <value>2</value>
   </data>
   <data name="btnCancel.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt, style=Bold</value>
@@ -275,18 +215,6 @@
   <data name="btnCancel.Text" xml:space="preserve">
     <value>Cancel</value>
   </data>
-  <data name="&gt;&gt;btnCancel.Name" xml:space="preserve">
-    <value>btnCancel</value>
-  </data>
-  <data name="&gt;&gt;btnCancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnCancel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="nudNewSellingPrice.Location" type="System.Drawing.Point, System.Drawing">
     <value>282, 258</value>
   </data>
@@ -299,37 +227,16 @@
   <data name="nudNewSellingPrice.ThousandsSeparator" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;nudNewSellingPrice.Name" xml:space="preserve">
-    <value>nudNewSellingPrice</value>
-  </data>
-  <data name="&gt;&gt;nudNewSellingPrice.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nudNewSellingPrice.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;nudNewSellingPrice.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="$this.Language" type="System.Globalization.CultureInfo, mscorlib">
     <value>zh-Hans-HK</value>
-  </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  </data>
+  <data name="$this.Localizable" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
+  </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>800, 488</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>UpdateSellingPriceForm</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>UpdateSellingPriceForm</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

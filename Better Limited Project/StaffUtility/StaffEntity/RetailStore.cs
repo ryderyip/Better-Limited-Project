@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.ProductUtility.Repository;
-using Better_Limited_Project.SettingsUtility;
 
 #nullable enable
 namespace Better_Limited_Project.StaffUtility.StaffEntity

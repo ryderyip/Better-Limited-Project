@@ -117,9 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;tbUsername.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lblLoginFailedMessage.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -138,47 +135,17 @@
   <data name="btnLogin.Font" type="System.Drawing.Font, System.Drawing">
     <value>Noto Sans, 15.75pt, style=Bold</value>
   </data>
-  <data name="&gt;&gt;lblPassword.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="lblLoginFailedMessage.Text" xml:space="preserve">
     <value>(Message)</value>
   </data>
   <data name="lblUsername.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;btnLogin.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>800, 450</value>
   </data>
-  <data name="&gt;&gt;lblPassword.Name" xml:space="preserve">
-    <value>lblPassword</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Login</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblUsername.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;tbPassword.Name" xml:space="preserve">
-    <value>tbPassword</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>LoginForm</value>
-  </data>
-  <data name="&gt;&gt;lblLoginFailedMessage.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="tbUsername.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="&gt;&gt;lblUsername.Name" xml:space="preserve">
-    <value>lblUsername</value>
   </data>
   <data name="tbPassword.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -189,20 +156,8 @@
   <data name="lblPassword.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;lblLoginFailedMessage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="lblLoginFailedMessage.Size" type="System.Drawing.Size, System.Drawing">
     <value>137, 16</value>
-  </data>
-  <data name="&gt;&gt;lblLoginFailedMessage.Name" xml:space="preserve">
-    <value>lblLoginFailedMessage</value>
-  </data>
-  <data name="&gt;&gt;tbUsername.Name" xml:space="preserve">
-    <value>tbUsername</value>
-  </data>
-  <data name="&gt;&gt;lblUsername.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="lblPassword.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -210,17 +165,11 @@
   <data name="lblUsername.Text" xml:space="preserve">
     <value>Username</value>
   </data>
-  <data name="&gt;&gt;tbPassword.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
   <data name="lblUsername.Size" type="System.Drawing.Size, System.Drawing">
     <value>55, 13</value>
   </data>
   <data name="lblUsername.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="&gt;&gt;lblLoginFailedMessage.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="lblPassword.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -234,14 +183,8 @@
   <data name="btnLogin.Location" type="System.Drawing.Point, System.Drawing">
     <value>334, 311</value>
   </data>
-  <data name="&gt;&gt;lblPassword.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="tbUsername.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 20</value>
-  </data>
-  <data name="&gt;&gt;tbPassword.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="btnLogin.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -255,14 +198,8 @@
   <data name="lblPassword.Location" type="System.Drawing.Point, System.Drawing">
     <value>328, 247</value>
   </data>
-  <data name="&gt;&gt;tbPassword.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="lblPassword.Text" xml:space="preserve">
     <value>Password</value>
-  </data>
-  <data name="&gt;&gt;btnLogin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="tbPassword.Location" type="System.Drawing.Point, System.Drawing">
     <value>387, 244</value>
@@ -270,17 +207,8 @@
   <data name="lblUsername.Location" type="System.Drawing.Point, System.Drawing">
     <value>326, 201</value>
   </data>
-  <data name="&gt;&gt;lblPassword.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="tbUsername.Location" type="System.Drawing.Point, System.Drawing">
     <value>387, 198</value>
-  </data>
-  <data name="&gt;&gt;tbUsername.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnLogin.Name" xml:space="preserve">
-    <value>btnLogin</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2063,19 +1991,19 @@
   <data name="btnLogin.Size" type="System.Drawing.Size, System.Drawing">
     <value>149, 44</value>
   </data>
-  <data name="&gt;&gt;lblUsername.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbUsername.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnLogin.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="$this.Localizable" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  </data>
+  <data name="$this.Language" type="System.Globalization.CultureInfo, mscorlib">
     <value>zh-HK</value>
-  </metadata>
+  </data>
+  <data name="loginFailedMsg" xml:space="preserve">
+    <value>Please Fill In All Information</value>
+  </data>
+  <data name="wrongPasswordMsg" xml:space="preserve">
+    <value>Incorrect Password</value>
+  </data>
+  <data name="wrongUsernameMsg" xml:space="preserve">
+    <value>Username Not Found</value>
+  </data>
 </root>

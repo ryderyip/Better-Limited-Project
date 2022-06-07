@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using Better_Limited_Project.ServiceUtility.Delivery.Entity;
 
 namespace Better_Limited_Project.ServiceUtility.Delivery.UI
 {

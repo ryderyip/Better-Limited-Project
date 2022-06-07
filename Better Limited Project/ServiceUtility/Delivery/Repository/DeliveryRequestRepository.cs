@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using Better_Limited_Project.DatabaseUtility;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
+using Better_Limited_Project.ServiceUtility.Delivery.Entity;
 using MySql.Data.MySqlClient;
 
 namespace Better_Limited_Project.ServiceUtility.Delivery.Repository

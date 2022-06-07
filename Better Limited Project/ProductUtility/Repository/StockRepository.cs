@@ -111,7 +111,7 @@ namespace Better_Limited_Project.ProductUtility.Repository
                     value (@warehouseId, @productId, @quantity, @restockLevel)
                     on duplicate key update restock_level = @restockLevel, quantity = @quantity;");
             command.Parameters.AddWithValue("@warehouseId", stock.Workplace.Id);
-            command.Parameters.AddWithValue("@productId", stock.Product);
+            command.Parameters.AddWithValue("@productId", stock.Product.Id);
             command.Parameters.AddWithValue("@restockLevel", stock.RestockLevel);
             command.Parameters.AddWithValue("@quantity", stock.Quantity);
             DataTableRepository.ExecuteNonQuery(command);
@@ -140,17 +140,6 @@ namespace Better_Limited_Project.ProductUtility.Repository
                 return ConvertToWarehouseStock(dataTable.Rows[0]);
             throw new ArgumentException(
                 $"No stock found for workplace id \"{workplaceId}\" and product id \"{productId}\".");
-        }
-
-        public static void Remove(string workplaceId, string productId)
-        {
-            var command = new MySqlCommand(
-                @"delete from retail_store_stock
-                        where retail_store_id = @retailStoreId
-                        and product_id = @productId;");
-            command.Parameters.AddWithValue("@retailStoreId", workplaceId);
-            command.Parameters.AddWithValue("@productId", productId);
-            DataTableRepository.ExecuteNonQuery(command);
         }
     }
 }

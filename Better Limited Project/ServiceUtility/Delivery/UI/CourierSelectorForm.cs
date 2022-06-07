@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using Better_Limited_Project.ServiceUtility.Delivery.Entity;
 
 namespace Better_Limited_Project.ServiceUtility.Delivery.UI
 {
@@ -26,7 +27,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
         {
             if (dgvCouriers.SelectedRows.Count == 0)
             {
-                MessageBox.Show("No couriers selected.");
+                MessageBox.Show(DeliveryStringResources.cant_choose_0_courier);
                 return;
             }
 

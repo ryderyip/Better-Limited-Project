@@ -1924,4 +1924,13 @@
         AAAAAA==
 </value>
   </data>
+  <data name="loginFailedMsg" xml:space="preserve">
+    <value>請填寫所有資料</value>
+  </data>
+  <data name="wrongPasswordMsg" xml:space="preserve">
+    <value>密碼錯誤</value>
+  </data>
+  <data name="wrongUsernameMsg" xml:space="preserve">
+    <value>未找到用戶名</value>
+  </data>
 </root>

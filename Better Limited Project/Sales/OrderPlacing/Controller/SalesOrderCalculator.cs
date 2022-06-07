@@ -2,6 +2,7 @@
 using System.Linq;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
+using Better_Limited_Project.Sales.OrderPlacing.Repository;
 using Better_Limited_Project.Sales.PaymentUtility.Repository;
 
 namespace Better_Limited_Project.Sales.OrderPlacing.Controller
@@ -12,10 +13,11 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Controller
 
         public SalesOrderCalculator(SalesOrder salesOrder)
         {
+            // TODO check is sales order created in db
             _salesOrderProducts = salesOrder.GetSalesOrderProducts().ToList();
         }
         
-        public SalesOrderCalculator(SalesOrder salesOrder, List<SalesOrderProduct> salesOrderProducts)
+        public SalesOrderCalculator(List<SalesOrderProduct> salesOrderProducts)
         {
             _salesOrderProducts = salesOrderProducts;
         }

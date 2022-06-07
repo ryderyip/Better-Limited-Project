@@ -8,9 +8,9 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
     public partial class DeliveryDetailsForm : Form
     {
         public event EventHandler? DeliveryUpdated;
-        private readonly Delivery _delivery;
+        private readonly Entity.Delivery _delivery;
 
-        public DeliveryDetailsForm(Delivery delivery)
+        public DeliveryDetailsForm(Entity.Delivery delivery)
         {
             _delivery = delivery;
             InitializeComponent();
@@ -54,7 +54,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
 
         private void btnSetAsDispatched_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("Confirm setting dispatch time?", "Set Dispatch Time",
+            var result = MessageBox.Show(DeliveryStringResources.ask_setting_dispatch_time, DeliveryStringResources.set_dispatch_time,
                 MessageBoxButtons.YesNo);
             if (result is DialogResult.No)
                 return;
@@ -69,7 +69,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
         {
             if (_delivery.DeliveredOn != null)
                 return;
-            var result = MessageBox.Show("Confirm setting delivery time along with dispatch time?", "Set Time Delivered",
+            var result = MessageBox.Show(DeliveryStringResources.ask_confirm_setting_delivery_time, DeliveryStringResources.set_time_delivered,
                 MessageBoxButtons.YesNo);
             if (result is DialogResult.No)
                 return;

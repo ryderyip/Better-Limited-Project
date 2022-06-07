@@ -23,20 +23,16 @@ namespace Better_Limited_Project.CustomerRecord
                 ? row.Field<string>("email")
                 : null;
 
-            return new Customer(name, phone, address, email)
-            {
-                Id = id
-            };
+            return new Customer(id, name, phone, address, email);
         }
 
         public void Insert(Customer customer)
         {
-            customer.Address.Save();
-
             var command = new MySqlCommand(
-                @"insert into customer (name, delivery_address_id, phone, email) 
-                                value (@name, @addressId, @phone, @email)
+                @"insert into customer (id, name, delivery_address_id, phone, email) 
+                                value (@id, @name, @addressId, @phone, @email)
                 on duplicate key update name = @name, email = @email, phone = @phone, delivery_address_id = @addressId;");
+            command.Parameters.AddWithValue("@id", customer.Id);
             command.Parameters.AddWithValue("@name", customer.Name);
             command.Parameters.AddWithValue("@addressId", customer.Address.Id);
             command.Parameters.AddWithValue("@phone", customer.Phone);

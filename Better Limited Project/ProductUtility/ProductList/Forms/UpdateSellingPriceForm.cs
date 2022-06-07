@@ -10,9 +10,6 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
     {
         private readonly RetailStoreStock _stock;
 
-        public delegate void UpdateSellingPriceClickedEventHandler(object sender, EventArgs e);
-        public event UpdateSellingPriceClickedEventHandler? UpdateSellingPriceClicked;
-
         public UpdateSellingPriceForm(string productId)
         {
             _stock = (RetailStoreStock) UserSettings.GetSettings().Workplace!.GetProductStock(productId);
@@ -26,8 +23,6 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             decimal newSellingPrice = nudNewSellingPrice.Value;
             _stock.SellingPrice = newSellingPrice;
             _stock.Save();
-
-            UpdateSellingPriceClicked?.Invoke(this, EventArgs.Empty);
             Close();
         }
     }

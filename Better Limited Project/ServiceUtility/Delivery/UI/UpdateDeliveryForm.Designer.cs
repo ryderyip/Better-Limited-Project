@@ -121,6 +121,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             resources.ApplyResources(this.dtpNewDispatchedOnDate, "dtpNewDispatchedOnDate");
             this.dtpNewDispatchedOnDate.Name = "dtpNewDispatchedOnDate";
             this.dtpNewDispatchedOnDate.ValueChanged += new System.EventHandler(this.dtpNewDispatchedOnDate_ValueChanged);
+            this.dtpNewDispatchedOnDate.ValueChanged += new System.EventHandler((sender, e) => this.dtpNewDispatchedOnDateOrTime_ValueChanged());
             // 
             // dtpNewDeliveredOnDate
             // 
@@ -140,6 +141,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             resources.ApplyResources(this.dtpNewDispatchedOnTime, "dtpNewDispatchedOnTime");
             this.dtpNewDispatchedOnTime.Name = "dtpNewDispatchedOnTime";
             this.dtpNewDispatchedOnTime.ValueChanged += new System.EventHandler(this.dtpNewDispatchedOnTime_ValueChanged);
+            this.dtpNewDispatchedOnTime.ValueChanged += new System.EventHandler((sender, e) => this.dtpNewDispatchedOnDateOrTime_ValueChanged());
             // 
             // dtpNewDeliveredOnTime
             // 

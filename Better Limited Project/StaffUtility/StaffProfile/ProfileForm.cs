@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
+using Better_Limited_Project.Login;
+using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.StaffUtility.StaffProfile
@@ -9,14 +11,16 @@ namespace Better_Limited_Project.StaffUtility.StaffProfile
         public delegate void LogOutClickedEventHandler(object sender, EventArgs e);
         public event LogOutClickedEventHandler? LogOutClicked;
         
-        public ProfileForm(Staff staff, string workplaceName)
+        public ProfileForm()
         {
             InitializeComponent();
-            SetProfileFields(staff, workplaceName);
+            SetProfileFields();
         }
 
-        private void SetProfileFields(Staff staff, string workplaceName)
+        private void SetProfileFields()
         {
+            var staff = LoginSession.GetSession().CurrentStaff;
+            string workplaceName = UserSettings.GetSettings().Workplace?.Name ?? StaffUtilityStringResources.workplace_not_chosen;
             string space = " ";
             string titleName = new StaffTitleMapper().Map(staff.Title);
             lblLoggedInAs.Text += space + staff.Name;

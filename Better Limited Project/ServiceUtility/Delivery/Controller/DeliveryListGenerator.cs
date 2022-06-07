@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using Better_Limited_Project.Sales.PaymentUtility;
 using Better_Limited_Project.SettingsUtility;
 using MigraDoc.DocumentObjectModel;
 using MigraDoc.DocumentObjectModel.Shapes;
@@ -18,9 +19,9 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.Controller
     {
         private readonly string _fileName;
         private readonly string _location;
-        private readonly List<Delivery> _deliveries;
+        private readonly List<Entity.Delivery> _deliveries;
 
-        public DeliveryListGenerator(IEnumerable<Delivery> deliveries)
+        public DeliveryListGenerator(IEnumerable<Entity.Delivery> deliveries)
         {
             _deliveries = deliveries.ToList();
             if (_deliveries.Count == 0)
@@ -54,7 +55,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.Controller
             }
             catch (IOException)
             {
-                MessageBox.Show("The file is currently being used by another process.");
+                MessageBox.Show(PaymentStringResources.FileBeingUsedByAnotherProcess);
             }
         }
 

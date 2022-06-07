@@ -10,7 +10,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
 {
     public partial class DailyDeliveryListForm : Form
     {
-        private readonly List<Delivery> _deliveries;
+        private readonly List<Entity.Delivery> _deliveries;
 
         public DailyDeliveryListForm()
         {
@@ -30,7 +30,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             PopulateDgvDeliveries(todayDeliveries.ToList());
         }
 
-        private void PopulateDgvDeliveries(List<Delivery> deliveryList)
+        private void PopulateDgvDeliveries(List<Entity.Delivery> deliveryList)
         {
             dgvDeliveries.Rows.Clear();
             deliveryList.ForEach(delivery => dgvDeliveries.Rows.Add(delivery.Id, delivery.DeliveryRequestId,
@@ -59,7 +59,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             generator.GenerateAndOpen();
         }
         
-        private IEnumerable<Delivery> GetDeliveriesOfSelectedDate()
+        private IEnumerable<Entity.Delivery> GetDeliveriesOfSelectedDate()
         {
             return _deliveries.Where(d => d.ScheduledOn.Date == dtpDeliveryDate.Value.Date);
         }

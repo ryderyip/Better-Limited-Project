@@ -31,7 +31,7 @@ namespace Better_Limited_Project.Tools
 
             if (FileSizeChecker.IsFileLargerThan(5_000_000, path))
             {
-                MessageBox.Show("File size cannot be larger than 5MB.");
+                MessageBox.Show(ToolsStringResources.UploadImageForm_btnChooseImage_Click_File_size_cannot_be_larger_than_5MB_);
                 return;
             }
             var image = ImageRetriever.Retrieve(path);

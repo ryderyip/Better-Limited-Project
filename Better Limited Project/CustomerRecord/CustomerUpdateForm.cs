@@ -51,21 +51,20 @@ namespace Better_Limited_Project.CustomerRecord
         {
             if (!IsAllFieldsFilledExceptEmail())
             {
-                MessageBox.Show("Please enter all required fields");
+                MessageBox.Show(hasUnfilledRequiredFields);
                 return false;
             }
             
             if (!CommonInformationVerifier.IsValidPhoneNumber(tbNewPhone.Text))
             {
-                MessageBox.Show("Invalid phone number. Please enter an 8-digit Hong Kong phone number. E.g. 12345678.");
+                MessageBox.Show(invalidPhoneNumberMessage);
                 return false;
             }
 
             if (!string.IsNullOrWhiteSpace(tbNewEmail.Text)
                 && !CommonInformationVerifier.IsValidEmailAddress(tbNewEmail.Text))
             {
-                MessageBox.Show("Invalid email address. Please enter a valid email address or " +
-                                "leave it blank.");
+                MessageBox.Show(invalidEmailAddressMessage);
                 return false;
             }
 
@@ -78,14 +77,6 @@ namespace Better_Limited_Project.CustomerRecord
                    && !string.IsNullOrWhiteSpace(tbNewPhone.Text)
                    && !string.IsNullOrWhiteSpace(tbNewAddress1.Text)
                    && !string.IsNullOrWhiteSpace(tbNewAddress2.Text);
-        }
-
-        private void CustomerUpdateForm_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char) Keys.Escape)
-                Close();
-            else if (e.KeyChar == (char) Keys.Enter)
-                btnUpdateInfo.PerformClick();
         }
     }
 }

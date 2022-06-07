@@ -83,7 +83,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
         {
             if (!DoesCurrentStaffHaveAccount())
             {
-                MessageBox.Show("Current staff does not have an account.");
+                MessageBox.Show(StaffUtilityStringResources.no_staff_account_when_try_to_change_password);
                 return;
             }
 

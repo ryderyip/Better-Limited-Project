@@ -240,7 +240,7 @@
     <value>134, 121</value>
   </data>
   <data name="tbName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 20</value>
+    <value>153, 20</value>
   </data>
   <data name="tbName.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -291,7 +291,7 @@
     <value>134, 250</value>
   </data>
   <data name="cbDepartment.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 21</value>
+    <value>153, 21</value>
   </data>
   <data name="cbDepartment.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -342,7 +342,7 @@
     <value>134, 295</value>
   </data>
   <data name="cbTitle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 21</value>
+    <value>153, 21</value>
   </data>
   <data name="cbTitle.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -606,7 +606,7 @@
     <value>61, 343</value>
   </data>
   <data name="lblAccountRegistration.Size" type="System.Drawing.Size, System.Drawing">
-    <value>215, 24</value>
+    <value>203, 24</value>
   </data>
   <data name="lblAccountRegistration.TabIndex" type="System.Int32, mscorlib">
     <value>825</value>
@@ -1053,9 +1053,9 @@
   <data name="&gt;&gt;pbImage.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="$this.Localizable" type="System.Boolean, mscorlib">
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
+  </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>

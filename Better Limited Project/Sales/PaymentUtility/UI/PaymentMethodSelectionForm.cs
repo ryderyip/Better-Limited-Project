@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Better_Limited_Project.Sales.PaymentUtility
+namespace Better_Limited_Project.Sales.PaymentUtility.UI
 {
     public partial class PaymentMethodSelectionForm : Form
     {

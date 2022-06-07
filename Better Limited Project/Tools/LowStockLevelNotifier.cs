@@ -1,15 +1,18 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.Login;
 using Better_Limited_Project.ProductUtility.Repository;
+using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.Tools
 {
-    public static class LowStockLevelNotifier
+    public static partial class LowStockLevelNotifier
     {
-        public static void OnOrderPlaced(object sender, IWorkplace workplace)
+        public static void OnOrderPlaced(object sender, EventArgs e)
         {
+            var workplace = UserSettings.GetSettings().Workplace!;
             var currentStaffDepartment = LoginSession.GetSession().CurrentStaff.Department;
             if (currentStaffDepartment is not Department.Sales and not Department.Inventory)
                 return;
@@ -21,12 +24,8 @@ namespace Better_Limited_Project.Tools
             if (noOfLowStock == 0)
                 return;
             
-            string header = "Low Stock Warning";
-            string text = $"There are {noOfLowStock} low stock items!";
+            string text = string.Format(lowStockMessage, noOfLowStock);
             MessageBox.Show(text);
-            /*var popUp = new PopUpForm(header, text);
-            if (Application.OpenForms.Cast<Form>().All(f => f is not PopUpForm))
-                popUp.Show();*/
         }
     }
 }

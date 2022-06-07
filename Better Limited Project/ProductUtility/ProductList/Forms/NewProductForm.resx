@@ -137,18 +137,6 @@
   <data name="lblNewProduct.Text" xml:space="preserve">
     <value>New Product</value>
   </data>
-  <data name="&gt;&gt;lblNewProduct.Name" xml:space="preserve">
-    <value>lblNewProduct</value>
-  </data>
-  <data name="&gt;&gt;lblNewProduct.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblNewProduct.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblNewProduct.ZOrder" xml:space="preserve">
-    <value>19</value>
-  </data>
   <data name="btnCreate.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt, style=Bold</value>
   </data>
@@ -163,18 +151,6 @@
   </data>
   <data name="btnCreate.Text" xml:space="preserve">
     <value>Create</value>
-  </data>
-  <data name="&gt;&gt;btnCreate.Name" xml:space="preserve">
-    <value>btnCreate</value>
-  </data>
-  <data name="&gt;&gt;btnCreate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnCreate.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnCreate.ZOrder" xml:space="preserve">
-    <value>18</value>
   </data>
   <data name="lblPrice.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -194,18 +170,6 @@
   <data name="lblPrice.Text" xml:space="preserve">
     <value>Price:</value>
   </data>
-  <data name="&gt;&gt;lblPrice.Name" xml:space="preserve">
-    <value>lblPrice</value>
-  </data>
-  <data name="&gt;&gt;lblPrice.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblPrice.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblPrice.ZOrder" xml:space="preserve">
-    <value>17</value>
-  </data>
   <data name="nudPrice.Location" type="System.Drawing.Point, System.Drawing">
     <value>204, 131</value>
   </data>
@@ -217,18 +181,6 @@
   </data>
   <data name="nudPrice.ThousandsSeparator" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="&gt;&gt;nudPrice.Name" xml:space="preserve">
-    <value>nudPrice</value>
-  </data>
-  <data name="&gt;&gt;nudPrice.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nudPrice.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;nudPrice.ZOrder" xml:space="preserve">
-    <value>16</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -248,18 +200,6 @@
   <data name="label2.Text" xml:space="preserve">
     <value>Product Name:</value>
   </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
-  </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>15</value>
-  </data>
   <data name="tbName.Location" type="System.Drawing.Point, System.Drawing">
     <value>204, 94</value>
   </data>
@@ -268,18 +208,6 @@
   </data>
   <data name="tbName.TabIndex" type="System.Int32, mscorlib">
     <value>75</value>
-  </data>
-  <data name="&gt;&gt;tbName.Name" xml:space="preserve">
-    <value>tbName</value>
-  </data>
-  <data name="&gt;&gt;tbName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbName.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;tbName.ZOrder" xml:space="preserve">
-    <value>14</value>
   </data>
   <data name="lblDescription.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -299,18 +227,6 @@
   <data name="lblDescription.Text" xml:space="preserve">
     <value>Product Description:</value>
   </data>
-  <data name="&gt;&gt;lblDescription.Name" xml:space="preserve">
-    <value>lblDescription</value>
-  </data>
-  <data name="&gt;&gt;lblDescription.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblDescription.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblDescription.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
   <data name="tbDescription.Location" type="System.Drawing.Point, System.Drawing">
     <value>204, 166</value>
   </data>
@@ -323,18 +239,6 @@
   <data name="tbDescription.TabIndex" type="System.Int32, mscorlib">
     <value>81</value>
   </data>
-  <data name="&gt;&gt;tbDescription.Name" xml:space="preserve">
-    <value>tbDescription</value>
-  </data>
-  <data name="&gt;&gt;tbDescription.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbDescription.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;tbDescription.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
   <data name="cbCategory.Location" type="System.Drawing.Point, System.Drawing">
     <value>204, 237</value>
   </data>
@@ -343,18 +247,6 @@
   </data>
   <data name="cbCategory.TabIndex" type="System.Int32, mscorlib">
     <value>82</value>
-  </data>
-  <data name="&gt;&gt;cbCategory.Name" xml:space="preserve">
-    <value>cbCategory</value>
-  </data>
-  <data name="&gt;&gt;cbCategory.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbCategory.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;cbCategory.ZOrder" xml:space="preserve">
-    <value>11</value>
   </data>
   <data name="lblCategory.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -374,18 +266,6 @@
   <data name="lblCategory.Text" xml:space="preserve">
     <value>Category:</value>
   </data>
-  <data name="&gt;&gt;lblCategory.Name" xml:space="preserve">
-    <value>lblCategory</value>
-  </data>
-  <data name="&gt;&gt;lblCategory.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblCategory.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblCategory.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
   <data name="cbSupplier.Location" type="System.Drawing.Point, System.Drawing">
     <value>204, 274</value>
   </data>
@@ -394,18 +274,6 @@
   </data>
   <data name="cbSupplier.TabIndex" type="System.Int32, mscorlib">
     <value>84</value>
-  </data>
-  <data name="&gt;&gt;cbSupplier.Name" xml:space="preserve">
-    <value>cbSupplier</value>
-  </data>
-  <data name="&gt;&gt;cbSupplier.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbSupplier.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;cbSupplier.ZOrder" xml:space="preserve">
-    <value>9</value>
   </data>
   <data name="lblSupplier.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -425,18 +293,6 @@
   <data name="lblSupplier.Text" xml:space="preserve">
     <value>Supplier:</value>
   </data>
-  <data name="&gt;&gt;lblSupplier.Name" xml:space="preserve">
-    <value>lblSupplier</value>
-  </data>
-  <data name="&gt;&gt;lblSupplier.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblSupplier.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblSupplier.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
   <data name="lblImage.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -454,18 +310,6 @@
   </data>
   <data name="lblImage.Text" xml:space="preserve">
     <value>Product Image:</value>
-  </data>
-  <data name="&gt;&gt;lblImage.Name" xml:space="preserve">
-    <value>lblImage</value>
-  </data>
-  <data name="&gt;&gt;lblImage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblImage.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblImage.ZOrder" xml:space="preserve">
-    <value>7</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -485,18 +329,6 @@
   <data name="label1.Text" xml:space="preserve">
     <value>*</value>
   </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -514,18 +346,6 @@
   </data>
   <data name="label3.Text" xml:space="preserve">
     <value>*</value>
-  </data>
-  <data name="&gt;&gt;label3.Name" xml:space="preserve">
-    <value>label3</value>
-  </data>
-  <data name="&gt;&gt;label3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>5</value>
   </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -545,18 +365,6 @@
   <data name="label4.Text" xml:space="preserve">
     <value>*</value>
   </data>
-  <data name="&gt;&gt;label4.Name" xml:space="preserve">
-    <value>label4</value>
-  </data>
-  <data name="&gt;&gt;label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
   <data name="label5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -574,18 +382,6 @@
   </data>
   <data name="label5.Text" xml:space="preserve">
     <value>*</value>
-  </data>
-  <data name="&gt;&gt;label5.Name" xml:space="preserve">
-    <value>label5</value>
-  </data>
-  <data name="&gt;&gt;label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -605,27 +401,15 @@
   <data name="label6.Text" xml:space="preserve">
     <value>*</value>
   </data>
-  <data name="&gt;&gt;label6.Name" xml:space="preserve">
-    <value>label6</value>
-  </data>
-  <data name="&gt;&gt;label6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <metadata name="fileSystemWatcher1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <data name="fileSystemWatcher1.TrayLocation" type="System.Drawing.Point, System.Drawing">
     <value>17, 17</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  </data>
+  <data name="$this.Language" type="System.Globalization.CultureInfo, mscorlib">
     <value>zh-Hans-HK</value>
-  </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  </data>
+  <data name="$this.Localizable" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
+  </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
@@ -640,18 +424,6 @@
   </data>
   <data name="tbImagePath.TabIndex" type="System.Int32, mscorlib">
     <value>172</value>
-  </data>
-  <data name="&gt;&gt;tbImagePath.Name" xml:space="preserve">
-    <value>tbImagePath</value>
-  </data>
-  <data name="&gt;&gt;tbImagePath.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbImagePath.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;tbImagePath.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <data name="btnChooseImage.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9pt, style=Bold</value>
@@ -668,31 +440,7 @@
   <data name="btnChooseImage.Text" xml:space="preserve">
     <value>Choose Image</value>
   </data>
-  <data name="&gt;&gt;btnChooseImage.Name" xml:space="preserve">
-    <value>btnChooseImage</value>
-  </data>
-  <data name="&gt;&gt;btnChooseImage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnChooseImage.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnChooseImage.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="$this.Location" type="System.Drawing.Point, System.Drawing">
     <value>15, 15</value>
-  </data>
-  <data name="&gt;&gt;fileSystemWatcher1.Name" xml:space="preserve">
-    <value>fileSystemWatcher1</value>
-  </data>
-  <data name="&gt;&gt;fileSystemWatcher1.Type" xml:space="preserve">
-    <value>System.IO.FileSystemWatcher, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>NewProductForm</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

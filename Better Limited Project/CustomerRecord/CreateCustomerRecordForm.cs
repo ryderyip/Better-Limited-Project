@@ -4,7 +4,7 @@ using Better_Limited_Project.Tools;
 
 namespace Better_Limited_Project.CustomerRecord
 {
-    public partial class CreateCustomerRecordForm : Form
+    partial class CreateCustomerRecordForm : Form
     {
         public event EventHandler<Customer>? CustomerCreated;
 
@@ -30,21 +30,20 @@ namespace Better_Limited_Project.CustomerRecord
         {
             if (HasAnyUnfilledRequiredFields())
             {
-                MessageBox.Show("Please enter all required fields");
+                MessageBox.Show(hasUnfilledRequiredFieldsMessage);
                 return false;
             }
 
             if (!CommonInformationVerifier.IsValidPhoneNumber(txtCustPhoneNumber.Text))
             {
-                MessageBox.Show("Invalid phone number. Please enter an 8-digit Hong Kong phone number. E.g. 12345678.");
+                MessageBox.Show(invalidPhoneNumberMessage);
                 return false;
             }
 
             if (!string.IsNullOrWhiteSpace(txtEmailAddress.Text)
                 && !CommonInformationVerifier.IsValidEmailAddress(txtEmailAddress.Text))
             {
-                MessageBox.Show("Invalid email address. Please enter a valid email address or " +
-                                "leave it blank.");
+                MessageBox.Show(invalidEmailMessage);
                 return false;
             }
 

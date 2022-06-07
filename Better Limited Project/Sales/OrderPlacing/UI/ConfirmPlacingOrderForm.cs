@@ -36,7 +36,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
                 txtAddress2.Text = customer.Address.Address2;
             }
 
-            var calculator = new SalesOrderCalculator(_order, _salesOrderProduct);
+            var calculator = new SalesOrderCalculator(_salesOrderProduct);
             decimal amountDue = calculator.GetInStockItemPrice() + calculator.GetDepositAmount();
             decimal priceToPayWhenStockReplenished = calculator.GetTotalAmount() - amountDue;
             tbPriceToPayWhenStockReplenished.Text = priceToPayWhenStockReplenished.ToString("C", new CultureInfo("zh-HK"));

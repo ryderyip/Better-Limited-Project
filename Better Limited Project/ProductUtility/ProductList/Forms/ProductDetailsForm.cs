@@ -80,8 +80,21 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 
         private void btnRemoveProduct_Click(object sender, EventArgs e)
         {
-            // TODO will only remove stocks, product will be kept as record
-            _stock.Remove();
+            if (_stock.Product.IsBelongsToAnyIncompleteSalesOrder())
+            {
+                MessageBox.Show(ProductUtilityStringResources.cant_remove_product_message);
+                return;
+            }
+
+            var result = _stock.Product.IsInAnySalesOrder()
+                ? MessageBox.Show(ProductUtilityStringResources.cant_completely_remove_product_warning,
+                    ProductUtilityStringResources.remove_product_confirm_dialog, MessageBoxButtons.OKCancel)
+                : MessageBox.Show(ProductUtilityStringResources.ask_confirm_remove_product,
+                    ProductUtilityStringResources.remove_product_confirm_dialog, MessageBoxButtons.OKCancel);
+            if (result is not DialogResult.OK)
+                return;
+
+            _stock.Product.Remove();
             ProductUpdated?.Invoke(this, EventArgs.Empty);
             Close();
         }

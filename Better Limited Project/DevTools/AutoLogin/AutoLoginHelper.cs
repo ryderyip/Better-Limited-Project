@@ -60,11 +60,12 @@ namespace Better_Limited_Project.DevTools.AutoLogin
                 StaffTitle.TechnicalSupportClerk => new StaffRepository()
                     .FindAll(s => s.Title == StaffTitle.TechnicalSupportClerk).First().GetLoginAccount(),
                 StaffTitle.TechnicalSupportManager => new StaffRepository()
-                    .FindAll(s => s.Title == StaffTitle.TechnicalSupportManager).First().GetLoginAccount()
+                    .FindAll(s => s.Title == StaffTitle.TechnicalSupportManager).First().GetLoginAccount(),
+                _ => throw new ArgumentOutOfRangeException(nameof(title), title, null)
             };
             _tbUsername.Text = account.Username;
             _tbPassword.Text = account.Password;
-            _btnLoginClicked.Invoke(null, EventArgs.Empty);
+            _btnLoginClicked.Invoke(null!, EventArgs.Empty);
             _form.Close();
         }
     }

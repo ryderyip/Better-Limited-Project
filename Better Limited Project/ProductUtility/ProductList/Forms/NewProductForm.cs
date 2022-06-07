@@ -7,7 +7,6 @@ using Better_Limited_Project.DocumentUtility;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.ProductUtility.Repository;
 using Better_Limited_Project.ProductUtility.SupplierUtility;
-using Better_Limited_Project.StaffUtility.Repository;
 
 namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 {
@@ -49,13 +48,13 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 
             if (!IsAllFieldsFilled())
             {
-                MessageBox.Show("Please fill all fields!");
+                MessageBox.Show(ProductList.newProductNotAllFieldsFilled);
                 return;
             }
 
             if (!verifier.IsNameUnique(name))
             {
-                MessageBox.Show($"Name \"{name}\" already exists. Please choose another one.");
+                MessageBox.Show(string.Format(ProductList.updateProductNameNotUnique, name));
                 return;
             }
 

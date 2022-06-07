@@ -10,9 +10,9 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.Repository
 {
     public static class DeliveryRepository
     {
-        public static event EventHandler<Delivery>? DeliveryStatusUpdated;
+        public static event EventHandler<Entity.Delivery>? DeliveryStatusUpdated;
         
-        public static IEnumerable<Delivery> GetAll()
+        public static IEnumerable<Entity.Delivery> GetAll()
         {
             var dataTable = DataTableRepository.RetrieveDataTable(new MySqlCommand(
                 @"select id, delivery_request_id, created_on, scheduled_on, 
@@ -20,7 +20,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.Repository
             return from DataRow row in dataTable.Rows select ConvertToDelivery(row);
         }
 
-        public static Delivery GetById(string id)
+        public static Entity.Delivery GetById(string id)
         {
             var command = new MySqlCommand(
                 @"select id, delivery_request_id, created_on, scheduled_on, 
@@ -33,12 +33,12 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.Repository
             return ConvertToDelivery(dataTable.Rows[0]);
         }
 
-        public static IEnumerable<Delivery> FindAll(Predicate<Delivery> filter)
+        public static IEnumerable<Entity.Delivery> FindAll(Predicate<Entity.Delivery> filter)
         {
             return GetAll().Where(filter.Invoke);
         }
 
-        private static Delivery ConvertToDelivery(DataRow row)
+        private static Entity.Delivery ConvertToDelivery(DataRow row)
         {
             string id = row.Field<int>("id").ToString();
             string deliveryRequestId = row.Field<int>("delivery_request_id").ToString();
@@ -52,11 +52,11 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.Repository
                 ? null
                 : row.Field<DateTime?>("delivered_on");
             var courierIds = DeliveryCourierRepository.FindByDeliveryId(id).ToList();
-            return new Delivery(id, deliveryRequestId, createdOn, scheduledOn, deliveryStatus, 
+            return new Entity.Delivery(id, deliveryRequestId, createdOn, scheduledOn, deliveryStatus, 
                 dispatchedOn, deliveredOn, courierIds);
         }
 
-        public static void InsertOrUpdate(Delivery delivery)
+        public static void InsertOrUpdate(Entity.Delivery delivery)
         {
             var command = new MySqlCommand(
                 @"insert into delivery (id, delivery_request_id, created_on, scheduled_on, delivery_status_id, 

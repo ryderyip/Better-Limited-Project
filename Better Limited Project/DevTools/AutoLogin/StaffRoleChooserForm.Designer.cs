@@ -184,7 +184,6 @@ namespace Better_Limited_Project.DevTools.AutoLogin
         private System.Windows.Forms.Button btnPurchaseClerk;
         private System.Windows.Forms.Button btnPurchaseManager;
         private System.Windows.Forms.Button btnInventoryClerk;
-        private System.Windows.Forms.Button btnInventoryManager;
         private System.Windows.Forms.Button btnTechClerk;
         private System.Windows.Forms.Button btnTechManager;
         private System.Windows.Forms.Button btnAdmin;

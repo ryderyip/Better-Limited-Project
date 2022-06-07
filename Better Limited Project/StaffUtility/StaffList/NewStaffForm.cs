@@ -53,7 +53,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
         {
             if (!HasFilledAllFields())
             {
-                MessageBox.Show("Please fill in all fields!");
+                MessageBox.Show(StaffUtilityStringResources.not_all_fields_filled);
                 return;
             }
 
@@ -64,29 +64,26 @@ namespace Better_Limited_Project.StaffUtility.StaffList
 
             if (!IsSelectedTitleMatchSelectedDepartment())
             {
-                MessageBox.Show($"Title \"{selectedTitle}\" does not match department \"{selectedDepartment}\"." +
-                                " Please reselect the title/department.");
+                MessageBox.Show(string.Format(StaffUtilityStringResources.selected_department_title_dont_match, selectedTitle, selectedDepartment));
                 return;
             }
 
             var accountVerifier = new StaffAccountCreationVerifier();
             if (!accountVerifier.IsUsernameValid(username))
             {
-                MessageBox.Show($"Username \"{username}\" is not valid. " +
-                                "Usernames must consist of at least 4 characters of a combination of English character and/or numbers.");
+                MessageBox.Show(string.Format(StaffUtilityStringResources.username_not_valid, username));
                 return;
             }
 
             if (!accountVerifier.IsUsernameUnique(username))
             {
-                MessageBox.Show($"Username \"{username}\" has been taken. Please choose another one.");
+                MessageBox.Show(string.Format(StaffUtilityStringResources.username_not_unique, username));
                 return;
             }
 
             if (!accountVerifier.IsPasswordValid(password))
             {
-                MessageBox.Show($"Passowrd does not meet requirement. " +
-                                "Passwords must consist of at least 8 characters of a combination of English character and/or numbers.");
+                MessageBox.Show(StaffUtilityStringResources.password_not_valid);
                 return;
             }
 

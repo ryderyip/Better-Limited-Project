@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
+using Better_Limited_Project.Sales.PaymentUtility;
 
 namespace Better_Limited_Project.Sales.OrderPlacing.UI
 {
@@ -17,7 +18,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
         {
             if (!HasSelectedSession())
             {
-                MessageBox.Show("Please select a delivery session!");
+                MessageBox.Show(PaymentStringResources.pleaseSelectDeliverySession);
                 return;
             }
 

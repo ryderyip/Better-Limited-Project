@@ -23,7 +23,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 
         private void btnApply_Click(object sender, EventArgs e)
         {
-            _product.Description = tbDescription.Text.Trim();;
+            _product.Description = tbDescription.Text.Trim();
             _product.Save();
             DescriptionUpdated?.Invoke(this, EventArgs.Empty);
             Close();

@@ -1,6 +1,6 @@
 ﻿namespace Better_Limited_Project.ProductUtility.GoodsReturning
 {
-    partial class txtEnterDescription
+    partial class CreateGoodsReturnedRecordForm
     {
         /// <summary>
         /// Required designer variable.
@@ -203,7 +203,7 @@
             this.Controls.Add(this.lblEnterQuantity);
             this.Controls.Add(this.dgvSearchList);
             this.Controls.Add(this.lblSearchKeywords);
-            this.Name = "txtEnterDescription";
+            this.Name = "CreateGoodsReturnedRecordForm";
             this.Text = "CreateGoodsReturnedRecordForm";
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItemsAdded)).EndInit();

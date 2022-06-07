@@ -49,19 +49,19 @@ namespace Better_Limited_Project.Login
         private void ShowFillAllFieldMessage()
         {
             lblLoginFailedMessage.Visible = true;
-            lblLoginFailedMessage.Text = "Please Fill In All Information";
+            lblLoginFailedMessage.Text = loginFailedMsg;
         }
         
         private void ShowWrongUsernameMessage()
         {
             lblLoginFailedMessage.Visible = true;
-            lblLoginFailedMessage.Text = "Username Not Found";
+            lblLoginFailedMessage.Text = wrongUsernameMsg;
         }
 
         private void ShowWrongPasswordMessage()
         {
             lblLoginFailedMessage.Visible = true;
-            lblLoginFailedMessage.Text = "Incorrect Password";
+            lblLoginFailedMessage.Text = wrongPasswordMsg;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
