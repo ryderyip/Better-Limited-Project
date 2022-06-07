@@ -117,49 +117,49 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="lblLanguage.Text" xml:space="preserve">
+    <value>語言設定</value>
+  </data>
+  <data name="lblDocument.Text" xml:space="preserve">
+    <value>文件設定</value>
+  </data>
+  <data name="lblAppearance.Text" xml:space="preserve">
+    <value>外觀設定</value>
+  </data>
+  <data name="lblWorkplace.Text" xml:space="preserve">
+    <value>工作場所設定</value>
+  </data>
+  <data name="btnUpdate.Text" xml:space="preserve">
+    <value>更新</value>
+  </data>
+  <data name="rbEnglish.Text" xml:space="preserve">
+    <value>英文</value>
+  </data>
+  <data name="rbTraditionalChinese.Text" xml:space="preserve">
+    <value>繁體中文</value>
+  </data>
+  <data name="rbSimplifiedChinese.Text" xml:space="preserve">
+    <value>簡體中文</value>
+  </data>
+  <data name="lblDocPath.Text" xml:space="preserve">
+    <value>默認文件生成路徑</value>
+  </data>
   <data name="btnBrowseDocPath.Text" xml:space="preserve">
     <value>瀏覽</value>
   </data>
   <data name="btnSelectDocPath.Text" xml:space="preserve">
     <value>選擇</value>
   </data>
-  <data name="btnUpdate.Text" xml:space="preserve">
-    <value>更新</value>
-  </data>
-  <data name="lblAppearance.Text" xml:space="preserve">
-    <value>外觀設定</value>
-  </data>
-  <data name="lblDocPath.Text" xml:space="preserve">
-    <value>默認文件生成路徑</value>
-  </data>
-  <data name="lblDocument.Text" xml:space="preserve">
-    <value>文件設定</value>
-  </data>
-  <data name="lblLanguage.Text" xml:space="preserve">
-    <value>語言設定</value>
-  </data>
-  <data name="lblWorkplace.Text" xml:space="preserve">
-    <value>工作場所設定</value>
-  </data>
-  <data name="lblWorkplaceSelectRetailStore.Text" xml:space="preserve">
-    <value>選擇當前零售店</value>
-  </data>
-  <data name="lblWorkplaceSelectWarehouse.Text" xml:space="preserve">
-    <value>選擇當前倉庫</value>
+  <data name="rbLightTheme.Text" xml:space="preserve">
+    <value>淺色主題</value>
   </data>
   <data name="rbDarkTheme.Text" xml:space="preserve">
     <value>深色主題</value>
   </data>
-  <data name="rbEnglish.Text" xml:space="preserve">
-    <value>英文</value>
+  <data name="lblWorkplaceSelectWarehouse.Text" xml:space="preserve">
+    <value>選擇當前倉庫</value>
   </data>
-  <data name="rbLightTheme.Text" xml:space="preserve">
-    <value>淺色主題</value>
-  </data>
-  <data name="rbSimplifiedChinese.Text" xml:space="preserve">
-    <value>簡體中文</value>
-  </data>
-  <data name="rbTraditionalChinese.Text" xml:space="preserve">
-    <value>繁體中文</value>
+  <data name="lblWorkplaceSelectRetailStore.Text" xml:space="preserve">
+    <value>選擇當前零售店</value>
   </data>
 </root>

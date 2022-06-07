@@ -181,7 +181,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblDocument.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="lblAppearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15.75pt, style=Bold</value>
@@ -211,7 +211,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblAppearance.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="lblWorkplace.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15.75pt, style=Bold</value>
@@ -271,7 +271,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnUpdate.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="rbEnglish.Location" type="System.Drawing.Point, System.Drawing">
     <value>29, 69</value>
@@ -370,13 +370,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblDocPath.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="tbDocPath.Location" type="System.Drawing.Point, System.Drawing">
     <value>47, 454</value>
   </data>
   <data name="tbDocPath.Size" type="System.Drawing.Size, System.Drawing">
-    <value>380, 20</value>
+    <value>422, 20</value>
   </data>
   <data name="tbDocPath.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -391,7 +391,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbDocPath.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="btnBrowseDocPath.Font" type="System.Drawing.Font, System.Drawing">
     <value>Noto Sans, 9.75pt, style=Bold</value>
@@ -421,7 +421,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnBrowseDocPath.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="btnSelectDocPath.Font" type="System.Drawing.Font, System.Drawing">
     <value>Noto Sans, 9.75pt, style=Bold</value>
@@ -451,7 +451,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnSelectDocPath.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="rbLightTheme.Location" type="System.Drawing.Point, System.Drawing">
     <value>47, 554</value>
@@ -475,7 +475,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;rbLightTheme.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="rbDarkTheme.Location" type="System.Drawing.Point, System.Drawing">
     <value>47, 584</value>
@@ -499,7 +499,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;rbDarkTheme.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="cbWorkplace.Location" type="System.Drawing.Point, System.Drawing">
     <value>30, 85</value>
@@ -521,6 +521,54 @@
   </data>
   <data name="&gt;&gt;cbWorkplace.ZOrder" xml:space="preserve">
     <value>3</value>
+  </data>
+  <data name="&gt;&gt;lblWorkplaceSelectWarehouse.Name" xml:space="preserve">
+    <value>lblWorkplaceSelectWarehouse</value>
+  </data>
+  <data name="&gt;&gt;lblWorkplaceSelectWarehouse.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblWorkplaceSelectWarehouse.Parent" xml:space="preserve">
+    <value>panWorkplace</value>
+  </data>
+  <data name="&gt;&gt;lblWorkplaceSelectWarehouse.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lblWorkplaceSelectRetailStore.Name" xml:space="preserve">
+    <value>lblWorkplaceSelectRetailStore</value>
+  </data>
+  <data name="&gt;&gt;lblWorkplaceSelectRetailStore.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblWorkplaceSelectRetailStore.Parent" xml:space="preserve">
+    <value>panWorkplace</value>
+  </data>
+  <data name="&gt;&gt;lblWorkplaceSelectRetailStore.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="panWorkplace.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="panWorkplace.Location" type="System.Drawing.Point, System.Drawing">
+    <value>38, 205</value>
+  </data>
+  <data name="panWorkplace.Size" type="System.Drawing.Size, System.Drawing">
+    <value>338, 141</value>
+  </data>
+  <data name="panWorkplace.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="&gt;&gt;panWorkplace.Name" xml:space="preserve">
+    <value>panWorkplace</value>
+  </data>
+  <data name="&gt;&gt;panWorkplace.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panWorkplace.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panWorkplace.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="lblWorkplaceSelectWarehouse.Location" type="System.Drawing.Point, System.Drawing">
     <value>30, 52</value>
@@ -582,30 +630,6 @@
   <data name="&gt;&gt;lblWorkplaceSelectRetailStore.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="panWorkplace.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="panWorkplace.Location" type="System.Drawing.Point, System.Drawing">
-    <value>38, 205</value>
-  </data>
-  <data name="panWorkplace.Size" type="System.Drawing.Size, System.Drawing">
-    <value>338, 141</value>
-  </data>
-  <data name="panWorkplace.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
-  </data>
-  <data name="&gt;&gt;panWorkplace.Name" xml:space="preserve">
-    <value>panWorkplace</value>
-  </data>
-  <data name="&gt;&gt;panWorkplace.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panWorkplace.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;panWorkplace.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
     <value>38, 12</value>
   </data>
@@ -625,11 +649,38 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnDefaultDocumentPath.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Noto Sans, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnDefaultDocumentPath.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnDefaultDocumentPath.Location" type="System.Drawing.Point, System.Drawing">
+    <value>397, 405</value>
+  </data>
+  <data name="btnDefaultDocumentPath.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 34</value>
+  </data>
+  <data name="btnDefaultDocumentPath.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="btnDefaultDocumentPath.Text" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="&gt;&gt;btnDefaultDocumentPath.Name" xml:space="preserve">
+    <value>btnDefaultDocumentPath</value>
+  </data>
+  <data name="&gt;&gt;btnDefaultDocumentPath.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnDefaultDocumentPath.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnDefaultDocumentPath.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>zh-HK</value>
-  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

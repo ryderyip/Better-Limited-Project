@@ -32,13 +32,13 @@ namespace Better_Limited_Project.SettingsUtility
 
         public void ShowCurrentSettings(UserSettings settings)
         {
-            ShowCurrentLanguage(settings.Language);
-            ShowCurrentDocumentPath(settings.DocumentGenerationDirectoryPath);
+            CheckCurrentLanguageRadioButton(settings.Language);
+            tbDocPath.Text = settings.DocumentGenerationDirectoryPath;
             if (_staffDepartment is not (Department.Sales or Department.Inventory)) 
                 return;
             
             _isSalesOrInventory = true;
-            EnableWorkplacePanel();
+            panWorkplace.Enabled = true;
             ShowLabelAccordingToWorkplace();
             FillWorkplaceComboBox();
 
@@ -55,7 +55,7 @@ namespace Better_Limited_Project.SettingsUtility
                 lblWorkplaceSelectWarehouse.Visible = true;
         }
 
-        private void ShowCurrentLanguage(Language language)
+        private void CheckCurrentLanguageRadioButton(Language language)
         {
             if (language == Language.English)
                 rbEnglish.Checked = true;
@@ -63,16 +63,6 @@ namespace Better_Limited_Project.SettingsUtility
                 rbTraditionalChinese.Checked = true;
             else if (language == Language.SimplifiedChinese)
                 rbSimplifiedChinese.Checked = true;
-        }
-
-        private void ShowCurrentDocumentPath(string documentGenerationPath)
-        {
-            tbDocPath.Text = documentGenerationPath;
-        }
-
-        private void EnableWorkplacePanel()
-        {
-            panWorkplace.Enabled = true;
         }
 
         private void FillWorkplaceComboBox()
@@ -127,7 +117,12 @@ namespace Better_Limited_Project.SettingsUtility
             if (newPath == string.Empty)
                 return;
 
-            ShowCurrentDocumentPath(newPath);
+            tbDocPath.Text = newPath;
+        }
+
+        private void btnDefaultDocumentPath_Click(object sender, EventArgs e)
+        {
+            tbDocPath.Text = UserSettings.CreateDefaultSettings().DocumentGenerationDirectoryPath;
         }
     }
 }

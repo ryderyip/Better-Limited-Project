@@ -51,6 +51,7 @@ namespace Better_Limited_Project.SettingsUtility
             this.lblWorkplaceSelectWarehouse = new System.Windows.Forms.Label();
             this.lblWorkplaceSelectRetailStore = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnDefaultDocumentPath = new System.Windows.Forms.Button();
             this.panWorkplace.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -179,10 +180,20 @@ namespace Better_Limited_Project.SettingsUtility
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
+            // btnDefaultDocumentPath
+            // 
+            this.btnDefaultDocumentPath.BackColor = System.Drawing.Color.RosyBrown;
+            resources.ApplyResources(this.btnDefaultDocumentPath, "btnDefaultDocumentPath");
+            this.btnDefaultDocumentPath.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnDefaultDocumentPath.Name = "btnDefaultDocumentPath";
+            this.btnDefaultDocumentPath.UseVisualStyleBackColor = false;
+            this.btnDefaultDocumentPath.Click += new System.EventHandler(this.btnDefaultDocumentPath_Click);
+            // 
             // SettingsForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnDefaultDocumentPath);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panWorkplace);
             this.Controls.Add(this.rbDarkTheme);
@@ -233,5 +244,7 @@ namespace Better_Limited_Project.SettingsUtility
         private System.Windows.Forms.Label lblLanguage;
 
         #endregion
+
+        private System.Windows.Forms.Button btnDefaultDocumentPath;
     }
 }
