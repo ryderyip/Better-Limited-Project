@@ -31,6 +31,7 @@ namespace Better_Limited_Project.Navigation.UI
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InventoryClerkNavigationForm));
             this.lblLoggedInAs = new System.Windows.Forms.Label();
             this.btnProfile = new System.Windows.Forms.Button();
             this.btnDeliveryRequests = new System.Windows.Forms.Button();
@@ -45,109 +46,76 @@ namespace Better_Limited_Project.Navigation.UI
             // 
             // lblLoggedInAs
             // 
-            this.lblLoggedInAs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblLoggedInAs.Location = new System.Drawing.Point(27, 16);
+            resources.ApplyResources(this.lblLoggedInAs, "lblLoggedInAs");
             this.lblLoggedInAs.Name = "lblLoggedInAs";
-            this.lblLoggedInAs.Size = new System.Drawing.Size(135, 22);
-            this.lblLoggedInAs.TabIndex = 17;
-            this.lblLoggedInAs.Text = "Logged in as";
-            this.lblLoggedInAs.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnProfile
             // 
-            this.btnProfile.Location = new System.Drawing.Point(12, 50);
+            resources.ApplyResources(this.btnProfile, "btnProfile");
             this.btnProfile.Name = "btnProfile";
-            this.btnProfile.Size = new System.Drawing.Size(164, 48);
-            this.btnProfile.TabIndex = 16;
-            this.btnProfile.Text = "(Name)";
             this.btnProfile.UseVisualStyleBackColor = true;
             this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
             // 
             // btnDeliveryRequests
             // 
-            this.btnDeliveryRequests.Location = new System.Drawing.Point(41, 120);
+            resources.ApplyResources(this.btnDeliveryRequests, "btnDeliveryRequests");
             this.btnDeliveryRequests.Name = "btnDeliveryRequests";
-            this.btnDeliveryRequests.Size = new System.Drawing.Size(111, 34);
-            this.btnDeliveryRequests.TabIndex = 15;
-            this.btnDeliveryRequests.Text = "Delivery Requests";
             this.btnDeliveryRequests.UseVisualStyleBackColor = true;
             this.btnDeliveryRequests.Click += new System.EventHandler(this.btnDeliveryRequests_Click);
             // 
             // btnSettings
             // 
-            this.btnSettings.Location = new System.Drawing.Point(41, 400);
+            resources.ApplyResources(this.btnSettings, "btnSettings");
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(111, 34);
-            this.btnSettings.TabIndex = 14;
-            this.btnSettings.Text = "Settings";
             this.btnSettings.UseVisualStyleBackColor = true;
             this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // btnGoodsReceived
             // 
-            this.btnGoodsReceived.Location = new System.Drawing.Point(41, 160);
+            resources.ApplyResources(this.btnGoodsReceived, "btnGoodsReceived");
             this.btnGoodsReceived.Name = "btnGoodsReceived";
-            this.btnGoodsReceived.Size = new System.Drawing.Size(111, 34);
-            this.btnGoodsReceived.TabIndex = 13;
-            this.btnGoodsReceived.Text = "Goods Received";
             this.btnGoodsReceived.UseVisualStyleBackColor = true;
             this.btnGoodsReceived.Click += new System.EventHandler(this.btnGoodsReceived_Click);
             // 
             // btnGoodsReturned
             // 
-            this.btnGoodsReturned.Location = new System.Drawing.Point(41, 200);
+            resources.ApplyResources(this.btnGoodsReturned, "btnGoodsReturned");
             this.btnGoodsReturned.Name = "btnGoodsReturned";
-            this.btnGoodsReturned.Size = new System.Drawing.Size(111, 34);
-            this.btnGoodsReturned.TabIndex = 18;
-            this.btnGoodsReturned.Text = "Goods Returned";
             this.btnGoodsReturned.UseVisualStyleBackColor = true;
             this.btnGoodsReturned.Click += new System.EventHandler(this.btnGoodsReturned_Click);
             // 
             // btnReorderRequests
             // 
-            this.btnReorderRequests.Location = new System.Drawing.Point(41, 240);
+            resources.ApplyResources(this.btnReorderRequests, "btnReorderRequests");
             this.btnReorderRequests.Name = "btnReorderRequests";
-            this.btnReorderRequests.Size = new System.Drawing.Size(111, 34);
-            this.btnReorderRequests.TabIndex = 19;
-            this.btnReorderRequests.Text = "Reorder Requests";
             this.btnReorderRequests.UseVisualStyleBackColor = true;
             this.btnReorderRequests.Click += new System.EventHandler(this.btnReorderRequests_Click);
             // 
             // btnRestockRequests
             // 
-            this.btnRestockRequests.Location = new System.Drawing.Point(41, 280);
+            resources.ApplyResources(this.btnRestockRequests, "btnRestockRequests");
             this.btnRestockRequests.Name = "btnRestockRequests";
-            this.btnRestockRequests.Size = new System.Drawing.Size(111, 34);
-            this.btnRestockRequests.TabIndex = 20;
-            this.btnRestockRequests.Text = "Restock Requests";
             this.btnRestockRequests.UseVisualStyleBackColor = true;
             this.btnRestockRequests.Click += new System.EventHandler(this.btnRestockRequests_Click);
             // 
             // btnInventory
             // 
-            this.btnInventory.Location = new System.Drawing.Point(41, 320);
+            resources.ApplyResources(this.btnInventory, "btnInventory");
             this.btnInventory.Name = "btnInventory";
-            this.btnInventory.Size = new System.Drawing.Size(111, 34);
-            this.btnInventory.TabIndex = 21;
-            this.btnInventory.Text = "Inventory";
             this.btnInventory.UseVisualStyleBackColor = true;
             this.btnInventory.Click += new System.EventHandler(this.btnInventory_Click);
             // 
             // btnDeliveryDuty
             // 
-            this.btnDeliveryDuty.Location = new System.Drawing.Point(41, 360);
+            resources.ApplyResources(this.btnDeliveryDuty, "btnDeliveryDuty");
             this.btnDeliveryDuty.Name = "btnDeliveryDuty";
-            this.btnDeliveryDuty.Size = new System.Drawing.Size(111, 34);
-            this.btnDeliveryDuty.TabIndex = 22;
-            this.btnDeliveryDuty.Text = "Delivery Duty";
             this.btnDeliveryDuty.UseVisualStyleBackColor = true;
             this.btnDeliveryDuty.Click += new System.EventHandler(this.btnDeliveryDuty_Click);
             // 
             // InventoryClerkNavigationForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(197, 450);
             this.Controls.Add(this.btnDeliveryDuty);
             this.Controls.Add(this.btnInventory);
             this.Controls.Add(this.btnRestockRequests);
@@ -159,8 +127,8 @@ namespace Better_Limited_Project.Navigation.UI
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.btnGoodsReceived);
             this.Name = "InventoryClerkNavigationForm";
-            this.Text = "InventoryClerkNavigationForm";
             this.ResumeLayout(false);
+
         }
 
         private System.Windows.Forms.Label lblLoggedInAs;

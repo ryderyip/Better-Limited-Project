@@ -7,7 +7,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
     public partial class DeliverySessionSelectionForm : Form
     {
         public event EventHandler<DeliverySession>? SessionSelected;
-        
+
         public DeliverySessionSelectionForm()
         {
             InitializeComponent();
@@ -32,7 +32,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
                    || radioButtonAfternoon.Checked
                    || radioButtonEvening.Checked;
         }
-        
+
         private DeliverySession GetSelectedSession()
         {
             if (radioButtonMorning.Checked)

@@ -29,6 +29,7 @@ namespace Better_Limited_Project.CustomerRecord
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerDetailsForm));
             this.btnRemoveCustomer = new System.Windows.Forms.Button();
             this.tbPhone = new System.Windows.Forms.TextBox();
             this.lblPhone = new System.Windows.Forms.Label();
@@ -49,155 +50,95 @@ namespace Better_Limited_Project.CustomerRecord
             // btnRemoveCustomer
             // 
             this.btnRemoveCustomer.BackColor = System.Drawing.Color.OrangeRed;
-            this.btnRemoveCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            resources.ApplyResources(this.btnRemoveCustomer, "btnRemoveCustomer");
             this.btnRemoveCustomer.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnRemoveCustomer.Location = new System.Drawing.Point(30, 370);
             this.btnRemoveCustomer.Name = "btnRemoveCustomer";
-            this.btnRemoveCustomer.Size = new System.Drawing.Size(177, 54);
-            this.btnRemoveCustomer.TabIndex = 108;
-            this.btnRemoveCustomer.Text = "Remove Customer";
             this.btnRemoveCustomer.UseVisualStyleBackColor = false;
             this.btnRemoveCustomer.Click += new System.EventHandler(this.btnRemoveCustomer_Click);
             // 
             // tbPhone
             // 
-            this.tbPhone.Location = new System.Drawing.Point(181, 222);
+            resources.ApplyResources(this.tbPhone, "tbPhone");
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.ReadOnly = true;
-            this.tbPhone.Size = new System.Drawing.Size(119, 20);
-            this.tbPhone.TabIndex = 96;
             // 
             // lblPhone
             // 
-            this.lblPhone.AutoSize = true;
-            this.lblPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhone.Location = new System.Drawing.Point(129, 223);
+            resources.ApplyResources(this.lblPhone, "lblPhone");
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(46, 15);
-            this.lblPhone.TabIndex = 95;
-            this.lblPhone.Text = "Phone:";
             // 
             // tbEmailAddress
             // 
-            this.tbEmailAddress.Location = new System.Drawing.Point(181, 263);
+            resources.ApplyResources(this.tbEmailAddress, "tbEmailAddress");
             this.tbEmailAddress.Name = "tbEmailAddress";
             this.tbEmailAddress.ReadOnly = true;
-            this.tbEmailAddress.Size = new System.Drawing.Size(119, 20);
-            this.tbEmailAddress.TabIndex = 94;
             // 
             // lblEmail
             // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(86, 264);
+            resources.ApplyResources(this.lblEmail, "lblEmail");
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(89, 15);
-            this.lblEmail.TabIndex = 93;
-            this.lblEmail.Text = "Email Address:";
             // 
             // tbname
             // 
-            this.tbname.Location = new System.Drawing.Point(181, 186);
+            resources.ApplyResources(this.tbname, "tbname");
             this.tbname.Name = "tbname";
             this.tbname.ReadOnly = true;
-            this.tbname.Size = new System.Drawing.Size(119, 20);
-            this.tbname.TabIndex = 92;
             // 
             // lblName
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(131, 187);
+            resources.ApplyResources(this.lblName, "lblName");
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(44, 15);
-            this.lblName.TabIndex = 91;
-            this.lblName.Text = "Name:";
             // 
             // lblHeader
             // 
-            this.lblHeader.AutoSize = true;
-            this.lblHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeader.Location = new System.Drawing.Point(284, 27);
+            resources.ApplyResources(this.lblHeader, "lblHeader");
             this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(242, 26);
-            this.lblHeader.TabIndex = 90;
-            this.lblHeader.Text = "Customer Information";
-            this.lblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnUpdateInfo
             // 
             this.btnUpdateInfo.BackColor = System.Drawing.Color.Salmon;
-            this.btnUpdateInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.btnUpdateInfo, "btnUpdateInfo");
             this.btnUpdateInfo.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnUpdateInfo.Location = new System.Drawing.Point(314, 370);
             this.btnUpdateInfo.Name = "btnUpdateInfo";
-            this.btnUpdateInfo.Size = new System.Drawing.Size(200, 54);
-            this.btnUpdateInfo.TabIndex = 87;
-            this.btnUpdateInfo.Text = "Update Customer Info";
             this.btnUpdateInfo.UseVisualStyleBackColor = false;
             this.btnUpdateInfo.Click += new System.EventHandler(this.btnUpdateInfo_Click);
             // 
             // lblPersonalInfo
             // 
-            this.lblPersonalInfo.AutoSize = true;
-            this.lblPersonalInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPersonalInfo.Location = new System.Drawing.Point(113, 137);
+            resources.ApplyResources(this.lblPersonalInfo, "lblPersonalInfo");
             this.lblPersonalInfo.Name = "lblPersonalInfo";
-            this.lblPersonalInfo.Size = new System.Drawing.Size(176, 20);
-            this.lblPersonalInfo.TabIndex = 84;
-            this.lblPersonalInfo.Text = "Personal Information";
             // 
             // lblDeliveryAddress
             // 
-            this.lblDeliveryAddress.AutoSize = true;
-            this.lblDeliveryAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDeliveryAddress.Location = new System.Drawing.Point(465, 137);
+            resources.ApplyResources(this.lblDeliveryAddress, "lblDeliveryAddress");
             this.lblDeliveryAddress.Name = "lblDeliveryAddress";
-            this.lblDeliveryAddress.Size = new System.Drawing.Size(143, 20);
-            this.lblDeliveryAddress.TabIndex = 99;
-            this.lblDeliveryAddress.Text = "Delivery Address";
             // 
             // lblAddress1
             // 
-            this.lblAddress1.AutoSize = true;
-            this.lblAddress1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddress1.Location = new System.Drawing.Point(372, 186);
+            resources.ApplyResources(this.lblAddress1, "lblAddress1");
             this.lblAddress1.Name = "lblAddress1";
-            this.lblAddress1.Size = new System.Drawing.Size(64, 15);
-            this.lblAddress1.TabIndex = 101;
-            this.lblAddress1.Text = "Address 1:";
             // 
             // tbAddress1
             // 
-            this.tbAddress1.Location = new System.Drawing.Point(442, 185);
+            resources.ApplyResources(this.tbAddress1, "tbAddress1");
             this.tbAddress1.Name = "tbAddress1";
             this.tbAddress1.ReadOnly = true;
-            this.tbAddress1.Size = new System.Drawing.Size(271, 20);
-            this.tbAddress1.TabIndex = 103;
             // 
             // tbAddress2
             // 
-            this.tbAddress2.Location = new System.Drawing.Point(442, 222);
+            resources.ApplyResources(this.tbAddress2, "tbAddress2");
             this.tbAddress2.Name = "tbAddress2";
             this.tbAddress2.ReadOnly = true;
-            this.tbAddress2.Size = new System.Drawing.Size(271, 20);
-            this.tbAddress2.TabIndex = 110;
             // 
             // lblAddress2
             // 
-            this.lblAddress2.AutoSize = true;
-            this.lblAddress2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddress2.Location = new System.Drawing.Point(372, 223);
+            resources.ApplyResources(this.lblAddress2, "lblAddress2");
             this.lblAddress2.Name = "lblAddress2";
-            this.lblAddress2.Size = new System.Drawing.Size(64, 15);
-            this.lblAddress2.TabIndex = 109;
-            this.lblAddress2.Text = "Address 2:";
             // 
             // CustomerDetailsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tbAddress2);
             this.Controls.Add(this.lblAddress2);
             this.Controls.Add(this.btnRemoveCustomer);
@@ -214,7 +155,6 @@ namespace Better_Limited_Project.CustomerRecord
             this.Controls.Add(this.btnUpdateInfo);
             this.Controls.Add(this.lblPersonalInfo);
             this.Name = "CustomerDetailsForm";
-            this.Text = "CustomerDetailsForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -31,114 +31,99 @@ namespace Better_Limited_Project.Navigation.UI
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminNavigationForm));
             this.btnStaff = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnSupplier = new System.Windows.Forms.Button();
             this.btnProfile = new System.Windows.Forms.Button();
-            this.lblLoggedInAs = new System.Windows.Forms.Label();
+            this.lblAdminMode = new System.Windows.Forms.Label();
             this.btnProductList = new System.Windows.Forms.Button();
             this.btnCustomer = new System.Windows.Forms.Button();
+            this.lblLoggedIn = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnStaff
             // 
-            this.btnStaff.Location = new System.Drawing.Point(40, 160);
+            resources.ApplyResources(this.btnStaff, "btnStaff");
             this.btnStaff.Name = "btnStaff";
-            this.btnStaff.Size = new System.Drawing.Size(111, 34);
-            this.btnStaff.TabIndex = 24;
-            this.btnStaff.Text = "Staff";
             this.btnStaff.UseVisualStyleBackColor = true;
             this.btnStaff.Click += new System.EventHandler(this.btnStaff_Click);
             // 
             // btnSettings
             // 
-            this.btnSettings.Location = new System.Drawing.Point(40, 280);
+            resources.ApplyResources(this.btnSettings, "btnSettings");
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(111, 34);
-            this.btnSettings.TabIndex = 26;
-            this.btnSettings.Text = "Settings";
             this.btnSettings.UseVisualStyleBackColor = true;
             this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // btnSupplier
             // 
-            this.btnSupplier.Location = new System.Drawing.Point(40, 240);
+            resources.ApplyResources(this.btnSupplier, "btnSupplier");
             this.btnSupplier.Name = "btnSupplier";
-            this.btnSupplier.Size = new System.Drawing.Size(111, 34);
-            this.btnSupplier.TabIndex = 27;
-            this.btnSupplier.Text = "Supplier";
             this.btnSupplier.UseVisualStyleBackColor = true;
             this.btnSupplier.Click += new System.EventHandler(this.btnSupplier_Click);
             // 
             // btnProfile
             // 
-            this.btnProfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            resources.ApplyResources(this.btnProfile, "btnProfile");
             this.btnProfile.ForeColor = System.Drawing.Color.Red;
-            this.btnProfile.Location = new System.Drawing.Point(12, 55);
             this.btnProfile.Name = "btnProfile";
-            this.btnProfile.Size = new System.Drawing.Size(164, 48);
-            this.btnProfile.TabIndex = 28;
-            this.btnProfile.Text = "(Name)";
             this.btnProfile.UseVisualStyleBackColor = true;
             this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
             // 
-            // lblLoggedInAs
+            // lblAdminMode
             // 
-            this.lblLoggedInAs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblLoggedInAs.ForeColor = System.Drawing.Color.Red;
-            this.lblLoggedInAs.Location = new System.Drawing.Point(27, 9);
-            this.lblLoggedInAs.Name = "lblLoggedInAs";
-            this.lblLoggedInAs.Size = new System.Drawing.Size(135, 43);
-            this.lblLoggedInAs.TabIndex = 29;
-            this.lblLoggedInAs.Text = "ADMIN MODE\r\nLogged in as";
-            this.lblLoggedInAs.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            resources.ApplyResources(this.lblAdminMode, "lblAdminMode");
+            this.lblAdminMode.ForeColor = System.Drawing.Color.Red;
+            this.lblAdminMode.Name = "lblAdminMode";
             // 
             // btnProductList
             // 
-            this.btnProductList.Location = new System.Drawing.Point(40, 200);
+            resources.ApplyResources(this.btnProductList, "btnProductList");
             this.btnProductList.Name = "btnProductList";
-            this.btnProductList.Size = new System.Drawing.Size(111, 34);
-            this.btnProductList.TabIndex = 32;
-            this.btnProductList.Text = "Product List";
             this.btnProductList.UseVisualStyleBackColor = true;
             this.btnProductList.Click += new System.EventHandler(this.btnProductList_Click);
             // 
             // btnCustomer
             // 
-            this.btnCustomer.Location = new System.Drawing.Point(40, 120);
+            resources.ApplyResources(this.btnCustomer, "btnCustomer");
             this.btnCustomer.Name = "btnCustomer";
-            this.btnCustomer.Size = new System.Drawing.Size(111, 34);
-            this.btnCustomer.TabIndex = 33;
-            this.btnCustomer.Text = "Customer";
             this.btnCustomer.UseVisualStyleBackColor = true;
             this.btnCustomer.Click += new System.EventHandler(this.btnCustomer_Click);
             // 
+            // lblLoggedIn
+            // 
+            resources.ApplyResources(this.lblLoggedIn, "lblLoggedIn");
+            this.lblLoggedIn.Name = "lblLoggedIn";
+            // 
             // AdminNavigationForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(195, 450);
+            this.Controls.Add(this.lblLoggedIn);
             this.Controls.Add(this.btnCustomer);
             this.Controls.Add(this.btnProductList);
-            this.Controls.Add(this.lblLoggedInAs);
+            this.Controls.Add(this.lblAdminMode);
             this.Controls.Add(this.btnProfile);
             this.Controls.Add(this.btnSupplier);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.btnStaff);
-            this.Location = new System.Drawing.Point(15, 15);
             this.Name = "AdminNavigationForm";
             this.ResumeLayout(false);
+
         }
 
         private System.Windows.Forms.Button btnStaff;
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.Button btnSupplier;
         private System.Windows.Forms.Button btnProfile;
-        private System.Windows.Forms.Label lblLoggedInAs;
+        private System.Windows.Forms.Label lblAdminMode;
         private System.Windows.Forms.Button btnProductList;
         private System.Windows.Forms.Button btnCustomer;
 
         #endregion
+
+        private System.Windows.Forms.Label lblLoggedIn;
     }
 }

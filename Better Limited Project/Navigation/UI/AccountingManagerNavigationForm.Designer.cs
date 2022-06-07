@@ -31,6 +31,7 @@ namespace Better_Limited_Project.Navigation.UI
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AccountingManagerNavigationForm));
             this.btnGoodsReturned = new System.Windows.Forms.Button();
             this.btnGoodsReceived = new System.Windows.Forms.Button();
             this.lblLoggedInAs = new System.Windows.Forms.Label();
@@ -44,98 +45,68 @@ namespace Better_Limited_Project.Navigation.UI
             // 
             // btnGoodsReturned
             // 
-            this.btnGoodsReturned.Location = new System.Drawing.Point(48, 296);
+            resources.ApplyResources(this.btnGoodsReturned, "btnGoodsReturned");
             this.btnGoodsReturned.Name = "btnGoodsReturned";
-            this.btnGoodsReturned.Size = new System.Drawing.Size(111, 34);
-            this.btnGoodsReturned.TabIndex = 22;
-            this.btnGoodsReturned.Text = "Goods Returned";
             this.btnGoodsReturned.UseVisualStyleBackColor = true;
             this.btnGoodsReturned.Click += new System.EventHandler(this.btnGoodsReturned_Click);
             // 
             // btnGoodsReceived
             // 
-            this.btnGoodsReceived.Location = new System.Drawing.Point(48, 256);
+            resources.ApplyResources(this.btnGoodsReceived, "btnGoodsReceived");
             this.btnGoodsReceived.Name = "btnGoodsReceived";
-            this.btnGoodsReceived.Size = new System.Drawing.Size(111, 34);
-            this.btnGoodsReceived.TabIndex = 21;
-            this.btnGoodsReceived.Text = "Goods Received";
             this.btnGoodsReceived.UseVisualStyleBackColor = true;
             this.btnGoodsReceived.Click += new System.EventHandler(this.btnGoodsReceived_Click);
             // 
             // lblLoggedInAs
             // 
-            this.lblLoggedInAs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblLoggedInAs.Location = new System.Drawing.Point(36, 17);
+            resources.ApplyResources(this.lblLoggedInAs, "lblLoggedInAs");
             this.lblLoggedInAs.Name = "lblLoggedInAs";
-            this.lblLoggedInAs.Size = new System.Drawing.Size(135, 22);
-            this.lblLoggedInAs.TabIndex = 20;
-            this.lblLoggedInAs.Text = "Logged in as";
-            this.lblLoggedInAs.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnProfile
             // 
-            this.btnProfile.Location = new System.Drawing.Point(21, 51);
+            resources.ApplyResources(this.btnProfile, "btnProfile");
             this.btnProfile.Name = "btnProfile";
-            this.btnProfile.Size = new System.Drawing.Size(164, 48);
-            this.btnProfile.TabIndex = 19;
-            this.btnProfile.Text = "(Name)";
             this.btnProfile.UseVisualStyleBackColor = true;
             this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
             // 
             // btnPurchaseOrders
             // 
-            this.btnPurchaseOrders.Location = new System.Drawing.Point(48, 136);
+            resources.ApplyResources(this.btnPurchaseOrders, "btnPurchaseOrders");
             this.btnPurchaseOrders.Name = "btnPurchaseOrders";
-            this.btnPurchaseOrders.Size = new System.Drawing.Size(111, 34);
-            this.btnPurchaseOrders.TabIndex = 18;
-            this.btnPurchaseOrders.Text = "Purchase Orders";
             this.btnPurchaseOrders.UseVisualStyleBackColor = true;
             // 
             // btnSettings
             // 
-            this.btnSettings.Location = new System.Drawing.Point(48, 376);
+            resources.ApplyResources(this.btnSettings, "btnSettings");
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(111, 34);
-            this.btnSettings.TabIndex = 17;
-            this.btnSettings.Text = "Settings";
             this.btnSettings.UseVisualStyleBackColor = true;
             this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // btnSalesReport
             // 
-            this.btnSalesReport.Location = new System.Drawing.Point(48, 216);
+            resources.ApplyResources(this.btnSalesReport, "btnSalesReport");
             this.btnSalesReport.Name = "btnSalesReport";
-            this.btnSalesReport.Size = new System.Drawing.Size(111, 34);
-            this.btnSalesReport.TabIndex = 16;
-            this.btnSalesReport.Text = "Sales Report";
             this.btnSalesReport.UseVisualStyleBackColor = true;
             this.btnSalesReport.Click += new System.EventHandler(this.btnSalesReport_Click);
             // 
             // btnSalesOrder
             // 
-            this.btnSalesOrder.Location = new System.Drawing.Point(48, 176);
+            resources.ApplyResources(this.btnSalesOrder, "btnSalesOrder");
             this.btnSalesOrder.Name = "btnSalesOrder";
-            this.btnSalesOrder.Size = new System.Drawing.Size(111, 34);
-            this.btnSalesOrder.TabIndex = 15;
-            this.btnSalesOrder.Text = "Sales Order";
             this.btnSalesOrder.UseVisualStyleBackColor = true;
             this.btnSalesOrder.Click += new System.EventHandler(this.btnSalesOrder_Click);
             // 
             // btnProductList
             // 
-            this.btnProductList.Location = new System.Drawing.Point(48, 336);
+            resources.ApplyResources(this.btnProductList, "btnProductList");
             this.btnProductList.Name = "btnProductList";
-            this.btnProductList.Size = new System.Drawing.Size(111, 34);
-            this.btnProductList.TabIndex = 23;
-            this.btnProductList.Text = "Product List";
             this.btnProductList.UseVisualStyleBackColor = true;
             this.btnProductList.Click += new System.EventHandler(this.btnProductList_Click);
             // 
             // AccountingManagerNavigationForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(206, 450);
             this.Controls.Add(this.btnProductList);
             this.Controls.Add(this.btnGoodsReturned);
             this.Controls.Add(this.btnGoodsReceived);
@@ -146,8 +117,8 @@ namespace Better_Limited_Project.Navigation.UI
             this.Controls.Add(this.btnSalesReport);
             this.Controls.Add(this.btnSalesOrder);
             this.Name = "AccountingManagerNavigationForm";
-            this.Text = "AccountingManagerNavigationForm";
             this.ResumeLayout(false);
+
         }
 
         private System.Windows.Forms.Button btnProductList;

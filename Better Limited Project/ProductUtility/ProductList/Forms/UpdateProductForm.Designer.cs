@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateProductForm));
             this.lblOriginalInfo = new System.Windows.Forms.Label();
             this.lblOriginalPrice = new System.Windows.Forms.Label();
             this.lblSellingPrice = new System.Windows.Forms.Label();
@@ -60,244 +61,148 @@
             // 
             // lblOriginalInfo
             // 
-            this.lblOriginalInfo.AutoSize = true;
-            this.lblOriginalInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOriginalInfo.Location = new System.Drawing.Point(212, 103);
+            resources.ApplyResources(this.lblOriginalInfo, "lblOriginalInfo");
             this.lblOriginalInfo.Name = "lblOriginalInfo";
-            this.lblOriginalInfo.Size = new System.Drawing.Size(107, 20);
-            this.lblOriginalInfo.TabIndex = 14;
-            this.lblOriginalInfo.Text = "Original Info";
             // 
             // lblOriginalPrice
             // 
-            this.lblOriginalPrice.AutoSize = true;
-            this.lblOriginalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOriginalPrice.Location = new System.Drawing.Point(152, 295);
+            resources.ApplyResources(this.lblOriginalPrice, "lblOriginalPrice");
             this.lblOriginalPrice.Name = "lblOriginalPrice";
-            this.lblOriginalPrice.Size = new System.Drawing.Size(84, 15);
-            this.lblOriginalPrice.TabIndex = 24;
-            this.lblOriginalPrice.Text = "Original Price:";
             // 
             // lblSellingPrice
             // 
-            this.lblSellingPrice.AutoSize = true;
-            this.lblSellingPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSellingPrice.Location = new System.Drawing.Point(156, 332);
+            resources.ApplyResources(this.lblSellingPrice, "lblSellingPrice");
             this.lblSellingPrice.Name = "lblSellingPrice";
-            this.lblSellingPrice.Size = new System.Drawing.Size(79, 15);
-            this.lblSellingPrice.TabIndex = 25;
-            this.lblSellingPrice.Text = "Selling Price:";
             // 
             // lblPhasingOut
             // 
-            this.lblPhasingOut.AutoSize = true;
-            this.lblPhasingOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhasingOut.Location = new System.Drawing.Point(159, 184);
+            resources.ApplyResources(this.lblPhasingOut, "lblPhasingOut");
             this.lblPhasingOut.Name = "lblPhasingOut";
-            this.lblPhasingOut.Size = new System.Drawing.Size(76, 15);
-            this.lblPhasingOut.TabIndex = 26;
-            this.lblPhasingOut.Text = "Phasing-out:";
             // 
             // lblReorderLevel
             // 
-            this.lblReorderLevel.AutoSize = true;
-            this.lblReorderLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReorderLevel.Location = new System.Drawing.Point(149, 224);
+            resources.ApplyResources(this.lblReorderLevel, "lblReorderLevel");
             this.lblReorderLevel.Name = "lblReorderLevel";
-            this.lblReorderLevel.Size = new System.Drawing.Size(87, 15);
-            this.lblReorderLevel.TabIndex = 28;
-            this.lblReorderLevel.Text = "Reorder Level:";
             // 
             // txtOriginalPrice
             // 
-            this.txtOriginalPrice.Location = new System.Drawing.Point(241, 294);
+            resources.ApplyResources(this.txtOriginalPrice, "txtOriginalPrice");
             this.txtOriginalPrice.Name = "txtOriginalPrice";
             this.txtOriginalPrice.ReadOnly = true;
-            this.txtOriginalPrice.Size = new System.Drawing.Size(100, 20);
-            this.txtOriginalPrice.TabIndex = 29;
             // 
             // txtSellingPrice
             // 
-            this.txtSellingPrice.Location = new System.Drawing.Point(241, 331);
+            resources.ApplyResources(this.txtSellingPrice, "txtSellingPrice");
             this.txtSellingPrice.Name = "txtSellingPrice";
             this.txtSellingPrice.ReadOnly = true;
-            this.txtSellingPrice.Size = new System.Drawing.Size(100, 20);
-            this.txtSellingPrice.TabIndex = 30;
             // 
             // txtPhasingOut
             // 
-            this.txtPhasingOut.Location = new System.Drawing.Point(241, 183);
+            resources.ApplyResources(this.txtPhasingOut, "txtPhasingOut");
             this.txtPhasingOut.Name = "txtPhasingOut";
             this.txtPhasingOut.ReadOnly = true;
-            this.txtPhasingOut.Size = new System.Drawing.Size(46, 20);
-            this.txtPhasingOut.TabIndex = 31;
             // 
             // txtReorderLevel
             // 
-            this.txtReorderLevel.Location = new System.Drawing.Point(241, 220);
+            resources.ApplyResources(this.txtReorderLevel, "txtReorderLevel");
             this.txtReorderLevel.Name = "txtReorderLevel";
             this.txtReorderLevel.ReadOnly = true;
-            this.txtReorderLevel.Size = new System.Drawing.Size(46, 20);
-            this.txtReorderLevel.TabIndex = 33;
             // 
             // btnUpdateInfo
             // 
             this.btnUpdateInfo.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnUpdateInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.btnUpdateInfo, "btnUpdateInfo");
             this.btnUpdateInfo.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnUpdateInfo.Location = new System.Drawing.Point(309, 393);
             this.btnUpdateInfo.Name = "btnUpdateInfo";
-            this.btnUpdateInfo.Size = new System.Drawing.Size(183, 44);
-            this.btnUpdateInfo.TabIndex = 41;
-            this.btnUpdateInfo.Text = "Update Info";
             this.btnUpdateInfo.UseVisualStyleBackColor = false;
             this.btnUpdateInfo.Click += new System.EventHandler(this.btnUpdateInfo_Click);
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(189, 147);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 15);
-            this.label1.TabIndex = 52;
-            this.label1.Text = "Name:";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(241, 146);
+            resources.ApplyResources(this.txtName, "txtName");
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = true;
-            this.txtName.Size = new System.Drawing.Size(155, 20);
-            this.txtName.TabIndex = 53;
             // 
             // lblHeader
             // 
-            this.lblHeader.AutoSize = true;
-            this.lblHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeader.Location = new System.Drawing.Point(317, 35);
+            resources.ApplyResources(this.lblHeader, "lblHeader");
             this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(175, 25);
-            this.lblHeader.TabIndex = 56;
-            this.lblHeader.Text = "Product Update";
             // 
             // nudNewStockLevel
             // 
-            this.nudNewStockLevel.Location = new System.Drawing.Point(554, 179);
+            resources.ApplyResources(this.nudNewStockLevel, "nudNewStockLevel");
             this.nudNewStockLevel.Name = "nudNewStockLevel";
-            this.nudNewStockLevel.Size = new System.Drawing.Size(70, 20);
-            this.nudNewStockLevel.TabIndex = 98;
             // 
             // lblNewStockLevel
             // 
-            this.lblNewStockLevel.AutoSize = true;
-            this.lblNewStockLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewStockLevel.Location = new System.Drawing.Point(452, 179);
+            resources.ApplyResources(this.lblNewStockLevel, "lblNewStockLevel");
             this.lblNewStockLevel.Name = "lblNewStockLevel";
-            this.lblNewStockLevel.Size = new System.Drawing.Size(100, 15);
-            this.lblNewStockLevel.TabIndex = 97;
-            this.lblNewStockLevel.Text = "New Stock Level:";
             // 
             // nudNewReorderLevel
             // 
-            this.nudNewReorderLevel.Location = new System.Drawing.Point(554, 268);
+            resources.ApplyResources(this.nudNewReorderLevel, "nudNewReorderLevel");
             this.nudNewReorderLevel.Name = "nudNewReorderLevel";
-            this.nudNewReorderLevel.Size = new System.Drawing.Size(70, 20);
-            this.nudNewReorderLevel.TabIndex = 94;
             // 
             // nudNewSellingPirce
             // 
-            this.nudNewSellingPirce.Location = new System.Drawing.Point(554, 315);
+            resources.ApplyResources(this.nudNewSellingPirce, "nudNewSellingPirce");
             this.nudNewSellingPirce.Name = "nudNewSellingPirce";
-            this.nudNewSellingPirce.Size = new System.Drawing.Size(114, 20);
-            this.nudNewSellingPirce.TabIndex = 93;
             // 
             // rbPhasingOutOn
             // 
-            this.rbPhasingOutOn.AutoSize = true;
-            this.rbPhasingOutOn.Location = new System.Drawing.Point(554, 224);
+            resources.ApplyResources(this.rbPhasingOutOn, "rbPhasingOutOn");
             this.rbPhasingOutOn.Name = "rbPhasingOutOn";
-            this.rbPhasingOutOn.Size = new System.Drawing.Size(39, 17);
-            this.rbPhasingOutOn.TabIndex = 92;
             this.rbPhasingOutOn.TabStop = true;
-            this.rbPhasingOutOn.Text = "On";
             this.rbPhasingOutOn.UseVisualStyleBackColor = true;
             // 
             // rbPhasingOutOff
             // 
-            this.rbPhasingOutOff.AutoSize = true;
-            this.rbPhasingOutOff.Location = new System.Drawing.Point(599, 224);
+            resources.ApplyResources(this.rbPhasingOutOff, "rbPhasingOutOff");
             this.rbPhasingOutOff.Name = "rbPhasingOutOff";
-            this.rbPhasingOutOff.Size = new System.Drawing.Size(39, 17);
-            this.rbPhasingOutOff.TabIndex = 91;
             this.rbPhasingOutOff.TabStop = true;
-            this.rbPhasingOutOff.Text = "Off";
             this.rbPhasingOutOff.UseVisualStyleBackColor = true;
             // 
             // lblNewPhasingOut
             // 
-            this.lblNewPhasingOut.AutoSize = true;
-            this.lblNewPhasingOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewPhasingOut.Location = new System.Drawing.Point(476, 224);
+            resources.ApplyResources(this.lblNewPhasingOut, "lblNewPhasingOut");
             this.lblNewPhasingOut.Name = "lblNewPhasingOut";
-            this.lblNewPhasingOut.Size = new System.Drawing.Size(76, 15);
-            this.lblNewPhasingOut.TabIndex = 90;
-            this.lblNewPhasingOut.Text = "Phasing-out:";
             // 
             // lblNewReorderLevel
             // 
-            this.lblNewReorderLevel.AutoSize = true;
-            this.lblNewReorderLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewReorderLevel.Location = new System.Drawing.Point(437, 268);
+            resources.ApplyResources(this.lblNewReorderLevel, "lblNewReorderLevel");
             this.lblNewReorderLevel.Name = "lblNewReorderLevel";
-            this.lblNewReorderLevel.Size = new System.Drawing.Size(115, 15);
-            this.lblNewReorderLevel.TabIndex = 89;
-            this.lblNewReorderLevel.Text = "New Reorder Level:";
             // 
             // lblNewSellingPrice
             // 
-            this.lblNewSellingPrice.AutoSize = true;
-            this.lblNewSellingPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewSellingPrice.Location = new System.Drawing.Point(445, 315);
+            resources.ApplyResources(this.lblNewSellingPrice, "lblNewSellingPrice");
             this.lblNewSellingPrice.Name = "lblNewSellingPrice";
-            this.lblNewSellingPrice.Size = new System.Drawing.Size(107, 15);
-            this.lblNewSellingPrice.TabIndex = 88;
-            this.lblNewSellingPrice.Text = "New Selling Price:";
             // 
             // tbStockLevel
             // 
-            this.tbStockLevel.Location = new System.Drawing.Point(241, 257);
+            resources.ApplyResources(this.tbStockLevel, "tbStockLevel");
             this.tbStockLevel.Name = "tbStockLevel";
             this.tbStockLevel.ReadOnly = true;
-            this.tbStockLevel.Size = new System.Drawing.Size(46, 20);
-            this.tbStockLevel.TabIndex = 100;
             // 
             // lblStockLevel
             // 
-            this.lblStockLevel.AutoSize = true;
-            this.lblStockLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStockLevel.Location = new System.Drawing.Point(164, 258);
+            resources.ApplyResources(this.lblStockLevel, "lblStockLevel");
             this.lblStockLevel.Name = "lblStockLevel";
-            this.lblStockLevel.Size = new System.Drawing.Size(72, 15);
-            this.lblStockLevel.TabIndex = 99;
-            this.lblStockLevel.Text = "Stock Level:";
             // 
             // lblNewInfo
             // 
-            this.lblNewInfo.AutoSize = true;
-            this.lblNewInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewInfo.Location = new System.Drawing.Point(513, 103);
+            resources.ApplyResources(this.lblNewInfo, "lblNewInfo");
             this.lblNewInfo.Name = "lblNewInfo";
-            this.lblNewInfo.Size = new System.Drawing.Size(80, 20);
-            this.lblNewInfo.TabIndex = 101;
-            this.lblNewInfo.Text = "New Info";
             // 
             // UpdateProductForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(800, 488);
             this.Controls.Add(this.lblNewInfo);
             this.Controls.Add(this.tbStockLevel);
             this.Controls.Add(this.lblStockLevel);
@@ -323,7 +228,6 @@
             this.Controls.Add(this.lblSellingPrice);
             this.Controls.Add(this.lblOriginalPrice);
             this.Controls.Add(this.lblOriginalInfo);
-            this.Location = new System.Drawing.Point(15, 15);
             this.Name = "UpdateProductForm";
             this.Shown += new System.EventHandler(this.OnFormShown);
             ((System.ComponentModel.ISupportInitialize)(this.nudNewStockLevel)).EndInit();

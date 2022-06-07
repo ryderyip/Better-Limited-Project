@@ -1,0 +1,477 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblCustomerInfo.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lblCustomerInfo.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+  </data>
+  <data name="lblCustomerInfo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>42, 87</value>
+  </data>
+  <data name="lblCustomerInfo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>123, 20</value>
+  </data>
+  <data name="lblCustomerInfo.TabIndex" type="System.Int32, mscorlib">
+    <value>58</value>
+  </data>
+  <data name="lblCustName.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblCustName.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="lblCustName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>70, 127</value>
+  </data>
+  <data name="lblCustName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 15</value>
+  </data>
+  <data name="lblCustName.TabIndex" type="System.Int32, mscorlib">
+    <value>60</value>
+  </data>
+  <data name="lblCustEmailAddress.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblCustEmailAddress.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="lblCustEmailAddress.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 212</value>
+  </data>
+  <data name="lblCustEmailAddress.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 15</value>
+  </data>
+  <data name="lblCustEmailAddress.TabIndex" type="System.Int32, mscorlib">
+    <value>61</value>
+  </data>
+  <data name="txtCustName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>127, 127</value>
+  </data>
+  <data name="txtCustName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="txtCustName.TabIndex" type="System.Int32, mscorlib">
+    <value>63</value>
+  </data>
+  <data name="txtCustEmailAddress.Location" type="System.Drawing.Point, System.Drawing">
+    <value>127, 211</value>
+  </data>
+  <data name="txtCustEmailAddress.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 20</value>
+  </data>
+  <data name="txtCustEmailAddress.TabIndex" type="System.Int32, mscorlib">
+    <value>64</value>
+  </data>
+  <data name="lblDeliveryInfo.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblDeliveryInfo.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+  </data>
+  <data name="lblDeliveryInfo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>42, 301</value>
+  </data>
+  <data name="lblDeliveryInfo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>109, 20</value>
+  </data>
+  <data name="lblDeliveryInfo.TabIndex" type="System.Int32, mscorlib">
+    <value>65</value>
+  </data>
+  <data name="lblCustPhoneNumber.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblCustPhoneNumber.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="lblCustPhoneNumber.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 171</value>
+  </data>
+  <data name="lblCustPhoneNumber.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 15</value>
+  </data>
+  <data name="lblCustPhoneNumber.TabIndex" type="System.Int32, mscorlib">
+    <value>70</value>
+  </data>
+  <data name="txtCustPhoneNumber.Location" type="System.Drawing.Point, System.Drawing">
+    <value>127, 171</value>
+  </data>
+  <data name="txtCustPhoneNumber.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="txtCustPhoneNumber.TabIndex" type="System.Int32, mscorlib">
+    <value>71</value>
+  </data>
+  <data name="lblAddress1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblAddress1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="lblAddress1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>57, 341</value>
+  </data>
+  <data name="lblAddress1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 15</value>
+  </data>
+  <data name="lblAddress1.TabIndex" type="System.Int32, mscorlib">
+    <value>72</value>
+  </data>
+  <data name="txtAddress1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>127, 341</value>
+  </data>
+  <data name="txtAddress1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>241, 20</value>
+  </data>
+  <data name="txtAddress1.TabIndex" type="System.Int32, mscorlib">
+    <value>73</value>
+  </data>
+  <data name="lblAddress2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblAddress2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="lblAddress2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>56, 380</value>
+  </data>
+  <data name="lblAddress2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 15</value>
+  </data>
+  <data name="lblAddress2.TabIndex" type="System.Int32, mscorlib">
+    <value>74</value>
+  </data>
+  <data name="txtAddress2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>127, 380</value>
+  </data>
+  <data name="txtAddress2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>241, 20</value>
+  </data>
+  <data name="txtAddress2.TabIndex" type="System.Int32, mscorlib">
+    <value>75</value>
+  </data>
+  <data name="lblAmountDue.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblAmountDue.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt</value>
+  </data>
+  <data name="lblAmountDue.Location" type="System.Drawing.Point, System.Drawing">
+    <value>550, 375</value>
+  </data>
+  <data name="lblAmountDue.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 16</value>
+  </data>
+  <data name="lblAmountDue.TabIndex" type="System.Int32, mscorlib">
+    <value>93</value>
+  </data>
+  <data name="tbAmountDue.Location" type="System.Drawing.Point, System.Drawing">
+    <value>640, 374</value>
+  </data>
+  <data name="tbAmountDue.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 20</value>
+  </data>
+  <data name="tbAmountDue.TabIndex" type="System.Int32, mscorlib">
+    <value>94</value>
+  </data>
+  <data name="btnPay.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+  </data>
+  <data name="btnPay.Location" type="System.Drawing.Point, System.Drawing">
+    <value>623, 416</value>
+  </data>
+  <data name="btnPay.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 51</value>
+  </data>
+  <data name="btnPay.TabIndex" type="System.Int32, mscorlib">
+    <value>106</value>
+  </data>
+  <data name="priceColumn.Width" type="System.Int32, mscorlib">
+    <value>120</value>
+  </data>
+  <data name="quantityColumn.Width" type="System.Int32, mscorlib">
+    <value>50</value>
+  </data>
+  <data name="dgvProducts.Location" type="System.Drawing.Point, System.Drawing">
+    <value>381, 88</value>
+  </data>
+  <data name="dgvProducts.Size" type="System.Drawing.Size, System.Drawing">
+    <value>383, 198</value>
+  </data>
+  <data name="dgvProducts.TabIndex" type="System.Int32, mscorlib">
+    <value>107</value>
+  </data>
+  <data name="lblHeader.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblHeader.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 20.25pt, style=Bold</value>
+  </data>
+  <data name="lblHeader.Location" type="System.Drawing.Point, System.Drawing">
+    <value>263, 27</value>
+  </data>
+  <data name="lblHeader.Size" type="System.Drawing.Size, System.Drawing">
+    <value>302, 31</value>
+  </data>
+  <data name="lblHeader.TabIndex" type="System.Int32, mscorlib">
+    <value>108</value>
+  </data>
+  <data name="tbPriceToPayWhenStockReplenished.Location" type="System.Drawing.Point, System.Drawing">
+    <value>259, 25</value>
+  </data>
+  <data name="tbPriceToPayWhenStockReplenished.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 20</value>
+  </data>
+  <data name="tbPriceToPayWhenStockReplenished.TabIndex" type="System.Int32, mscorlib">
+    <value>112</value>
+  </data>
+  <data name="lblPriceToPayWhenStockReplenished.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblPriceToPayWhenStockReplenished.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt</value>
+  </data>
+  <data name="lblPriceToPayWhenStockReplenished.Location" type="System.Drawing.Point, System.Drawing">
+    <value>148, 6</value>
+  </data>
+  <data name="lblPriceToPayWhenStockReplenished.Size" type="System.Drawing.Size, System.Drawing">
+    <value>241, 16</value>
+  </data>
+  <data name="lblPriceToPayWhenStockReplenished.TabIndex" type="System.Int32, mscorlib">
+    <value>111</value>
+  </data>
+  <data name="lblOutOfStock.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblOutOfStock.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="lblOutOfStock.Location" type="System.Drawing.Point, System.Drawing">
+    <value>36, 25</value>
+  </data>
+  <data name="lblOutOfStock.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 13</value>
+  </data>
+  <data name="lblOutOfStock.TabIndex" type="System.Int32, mscorlib">
+    <value>115</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="outOfStockRectangle.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="outOfStockRectangle.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+  </data>
+  <data name="outOfStockRectangle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 22</value>
+  </data>
+  <data name="outOfStockRectangle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>20, 20</value>
+  </data>
+  <data name="outOfStockRectangle.TabIndex" type="System.Int32, mscorlib">
+    <value>114</value>
+  </data>
+  <data name="panDepositPrice.Location" type="System.Drawing.Point, System.Drawing">
+    <value>381, 301</value>
+  </data>
+  <data name="panDepositPrice.Size" type="System.Drawing.Size, System.Drawing">
+    <value>395, 58</value>
+  </data>
+  <data name="panDepositPrice.TabIndex" type="System.Int32, mscorlib">
+    <value>113</value>
+  </data>
+  <data name="$this.Localizable" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>800, 488</value>
+  </data>
+  <data name="$this.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 15</value>
+  </data>
+  <data name="btnPay.Text" xml:space="preserve">
+    <value>支付</value>
+  </data>
+  <data name="lblAddress1.Text" xml:space="preserve">
+    <value>地址1:</value>
+  </data>
+  <data name="lblAddress2.Text" xml:space="preserve">
+    <value>地址2:</value>
+  </data>
+  <data name="lblAmountDue.Text" xml:space="preserve">
+    <value>應付金額:</value>
+  </data>
+  <data name="lblCustEmailAddress.Text" xml:space="preserve">
+    <value>電郵地址:</value>
+  </data>
+  <data name="lblCustName.Text" xml:space="preserve">
+    <value>姓名:</value>
+  </data>
+  <data name="lblCustomerInfo.Text" xml:space="preserve">
+    <value>顧客資料</value>
+  </data>
+  <data name="lblCustPhoneNumber.Text" xml:space="preserve">
+    <value>電話號碼:</value>
+  </data>
+  <data name="lblDeliveryInfo.Text" xml:space="preserve">
+    <value>送貨資料</value>
+  </data>
+  <data name="lblHeader.Text" xml:space="preserve">
+    <value>確認下單</value>
+  </data>
+  <data name="lblOutOfStock.Text" xml:space="preserve">
+    <value>= 押金支付</value>
+  </data>
+  <data name="lblPriceToPayWhenStockReplenished.Text" xml:space="preserve">
+    <value>剩餘應付(補貨後付)</value>
+  </data>
+  <data name="nameColumn.HeaderText" xml:space="preserve">
+    <value>名稱</value>
+  </data>
+  <data name="priceColumn.HeaderText" xml:space="preserve">
+    <value>價格</value>
+  </data>
+  <data name="quantityColumn.HeaderText" xml:space="preserve">
+    <value>數量</value>
+  </data>
+  <data name="subtotalColumn.HeaderText" xml:space="preserve">
+    <value>小計</value>
+  </data>
+  <data name="txtAddress1.Text" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="txtAddress2.Text" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="txtCustEmailAddress.Text" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="txtCustName.Text" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="txtCustPhoneNumber.Text" xml:space="preserve">
+    <value>-</value>
+  </data>
+</root>

@@ -22,7 +22,7 @@ namespace Better_Limited_Project.SettingsUtility
         {
             return language switch
             {
-                Language.TraditionalChinese => "zh-CHT",
+                Language.TraditionalChinese => "zh-HK",
                 Language.SimplifiedChinese => "zh-CHS",
                 _ => "en-US"
             };

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlaceOrderForm));
             this.txtSearchKeywords = new System.Windows.Forms.TextBox();
             this.lblSearchKeywords = new System.Windows.Forms.Label();
             this.pbProduct1 = new System.Windows.Forms.PictureBox();
@@ -104,118 +105,74 @@
             // 
             // txtSearchKeywords
             // 
-            this.txtSearchKeywords.Location = new System.Drawing.Point(22, 41);
+            resources.ApplyResources(this.txtSearchKeywords, "txtSearchKeywords");
             this.txtSearchKeywords.Name = "txtSearchKeywords";
-            this.txtSearchKeywords.Size = new System.Drawing.Size(253, 20);
-            this.txtSearchKeywords.TabIndex = 5;
             this.txtSearchKeywords.TextChanged += new System.EventHandler(this.txtSearchKeywords_TextChanged);
             // 
             // lblSearchKeywords
             // 
-            this.lblSearchKeywords.AutoSize = true;
-            this.lblSearchKeywords.Font = new System.Drawing.Font("PMingLiU", 12F);
-            this.lblSearchKeywords.Location = new System.Drawing.Point(22, 22);
+            resources.ApplyResources(this.lblSearchKeywords, "lblSearchKeywords");
             this.lblSearchKeywords.Name = "lblSearchKeywords";
-            this.lblSearchKeywords.Size = new System.Drawing.Size(163, 16);
-            this.lblSearchKeywords.TabIndex = 4;
-            this.lblSearchKeywords.Text = "Search by Product Name";
             // 
             // pbProduct1
             // 
             this.pbProduct1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbProduct1.Location = new System.Drawing.Point(17, 15);
+            resources.ApplyResources(this.pbProduct1, "pbProduct1");
             this.pbProduct1.Name = "pbProduct1";
-            this.pbProduct1.Size = new System.Drawing.Size(118, 113);
-            this.pbProduct1.TabIndex = 6;
             this.pbProduct1.TabStop = false;
             // 
             // btnAddProduct1
             // 
             this.btnAddProduct1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnAddProduct1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.btnAddProduct1, "btnAddProduct1");
             this.btnAddProduct1.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnAddProduct1.Location = new System.Drawing.Point(294, 98);
             this.btnAddProduct1.Name = "btnAddProduct1";
-            this.btnAddProduct1.Size = new System.Drawing.Size(58, 30);
-            this.btnAddProduct1.TabIndex = 46;
-            this.btnAddProduct1.Text = "Add";
             this.btnAddProduct1.UseVisualStyleBackColor = false;
             this.btnAddProduct1.Click += new System.EventHandler(this.AddProductButtonClicked);
             // 
             // lblCart
             // 
-            this.lblCart.AutoSize = true;
-            this.lblCart.Font = new System.Drawing.Font("Comic Sans MS", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCart.Location = new System.Drawing.Point(180, 41);
+            resources.ApplyResources(this.lblCart, "lblCart");
             this.lblCart.Name = "lblCart";
-            this.lblCart.Size = new System.Drawing.Size(75, 38);
-            this.lblCart.TabIndex = 48;
-            this.lblCart.Text = "Cart";
             // 
             // lblTotalPrice
             // 
-            this.lblTotalPrice.AutoSize = true;
-            this.lblTotalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalPrice.Location = new System.Drawing.Point(216, 443);
+            resources.ApplyResources(this.lblTotalPrice, "lblTotalPrice");
             this.lblTotalPrice.Name = "lblTotalPrice";
-            this.lblTotalPrice.Size = new System.Drawing.Size(76, 16);
-            this.lblTotalPrice.TabIndex = 57;
-            this.lblTotalPrice.Text = "Total Price:";
             // 
             // txtTotalPrice
             // 
-            this.txtTotalPrice.Location = new System.Drawing.Point(298, 442);
+            resources.ApplyResources(this.txtTotalPrice, "txtTotalPrice");
             this.txtTotalPrice.Name = "txtTotalPrice";
             this.txtTotalPrice.ReadOnly = true;
-            this.txtTotalPrice.Size = new System.Drawing.Size(100, 20);
-            this.txtTotalPrice.TabIndex = 58;
             // 
             // checkBoxNeedDelivery
             // 
-            this.checkBoxNeedDelivery.AutoSize = true;
-            this.checkBoxNeedDelivery.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxNeedDelivery.Location = new System.Drawing.Point(26, 531);
+            resources.ApplyResources(this.checkBoxNeedDelivery, "checkBoxNeedDelivery");
             this.checkBoxNeedDelivery.Name = "checkBoxNeedDelivery";
-            this.checkBoxNeedDelivery.Size = new System.Drawing.Size(125, 24);
-            this.checkBoxNeedDelivery.TabIndex = 63;
-            this.checkBoxNeedDelivery.Text = "Need Delivery";
             this.checkBoxNeedDelivery.UseVisualStyleBackColor = true;
             // 
             // checkBoxNeedInstallation
             // 
-            this.checkBoxNeedInstallation.AutoSize = true;
-            this.checkBoxNeedInstallation.Enabled = false;
-            this.checkBoxNeedInstallation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxNeedInstallation.Location = new System.Drawing.Point(26, 569);
+            resources.ApplyResources(this.checkBoxNeedInstallation, "checkBoxNeedInstallation");
             this.checkBoxNeedInstallation.Name = "checkBoxNeedInstallation";
-            this.checkBoxNeedInstallation.Size = new System.Drawing.Size(147, 24);
-            this.checkBoxNeedInstallation.TabIndex = 66;
-            this.checkBoxNeedInstallation.Text = "Need Installation";
             this.checkBoxNeedInstallation.UseVisualStyleBackColor = true;
             // 
             // btnClearCart
             // 
             this.btnClearCart.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnClearCart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.btnClearCart, "btnClearCart");
             this.btnClearCart.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnClearCart.Location = new System.Drawing.Point(153, 614);
             this.btnClearCart.Name = "btnClearCart";
-            this.btnClearCart.Size = new System.Drawing.Size(128, 36);
-            this.btnClearCart.TabIndex = 67;
-            this.btnClearCart.Text = "Clear Cart";
             this.btnClearCart.UseVisualStyleBackColor = false;
             this.btnClearCart.Click += new System.EventHandler(this.btnClearCart_Click);
             // 
             // btnNext
             // 
             this.btnNext.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.btnNext, "btnNext");
             this.btnNext.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnNext.Location = new System.Drawing.Point(317, 614);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(81, 36);
-            this.btnNext.TabIndex = 68;
-            this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = false;
             // 
             // panProductList
@@ -230,10 +187,8 @@
             this.panProductList.Controls.Add(this.btnNextPage);
             this.panProductList.Controls.Add(this.btnPreviousPage);
             this.panProductList.Controls.Add(this.panProduct1);
-            this.panProductList.Location = new System.Drawing.Point(22, 75);
+            resources.ApplyResources(this.panProductList, "panProductList");
             this.panProductList.Name = "panProductList";
-            this.panProductList.Size = new System.Drawing.Size(797, 575);
-            this.panProductList.TabIndex = 69;
             // 
             // panProduct6
             // 
@@ -243,63 +198,37 @@
             this.panProduct6.Controls.Add(this.lblProduct6Name);
             this.panProduct6.Controls.Add(this.pbProduct6);
             this.panProduct6.Controls.Add(this.btnAddProduct6);
-            this.panProduct6.Location = new System.Drawing.Point(412, 348);
+            resources.ApplyResources(this.panProduct6, "panProduct6");
             this.panProduct6.Name = "panProduct6";
-            this.panProduct6.Size = new System.Drawing.Size(365, 149);
-            this.panProduct6.TabIndex = 76;
             // 
             // lblProduct6Quantity
             // 
-            this.lblProduct6Quantity.AutoSize = true;
-            this.lblProduct6Quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProduct6Quantity.Location = new System.Drawing.Point(158, 84);
+            resources.ApplyResources(this.lblProduct6Quantity, "lblProduct6Quantity");
             this.lblProduct6Quantity.Name = "lblProduct6Quantity";
-            this.lblProduct6Quantity.Size = new System.Drawing.Size(88, 16);
-            this.lblProduct6Quantity.TabIndex = 72;
-            this.lblProduct6Quantity.Text = "(Quantity) Left";
-            this.lblProduct6Quantity.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblProduct6Price
             // 
-            this.lblProduct6Price.AutoSize = true;
-            this.lblProduct6Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProduct6Price.Location = new System.Drawing.Point(158, 59);
+            resources.ApplyResources(this.lblProduct6Price, "lblProduct6Price");
             this.lblProduct6Price.Name = "lblProduct6Price";
-            this.lblProduct6Price.Size = new System.Drawing.Size(36, 16);
-            this.lblProduct6Price.TabIndex = 71;
-            this.lblProduct6Price.Text = "$___";
-            this.lblProduct6Price.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblProduct6Name
             // 
-            this.lblProduct6Name.AutoSize = true;
-            this.lblProduct6Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProduct6Name.Location = new System.Drawing.Point(158, 15);
+            resources.ApplyResources(this.lblProduct6Name, "lblProduct6Name");
             this.lblProduct6Name.Name = "lblProduct6Name";
-            this.lblProduct6Name.Size = new System.Drawing.Size(134, 20);
-            this.lblProduct6Name.TabIndex = 70;
-            this.lblProduct6Name.Text = "(Product Name)";
-            this.lblProduct6Name.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pbProduct6
             // 
             this.pbProduct6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbProduct6.Location = new System.Drawing.Point(17, 15);
+            resources.ApplyResources(this.pbProduct6, "pbProduct6");
             this.pbProduct6.Name = "pbProduct6";
-            this.pbProduct6.Size = new System.Drawing.Size(118, 113);
-            this.pbProduct6.TabIndex = 6;
             this.pbProduct6.TabStop = false;
             // 
             // btnAddProduct6
             // 
             this.btnAddProduct6.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnAddProduct6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.btnAddProduct6, "btnAddProduct6");
             this.btnAddProduct6.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnAddProduct6.Location = new System.Drawing.Point(294, 98);
             this.btnAddProduct6.Name = "btnAddProduct6";
-            this.btnAddProduct6.Size = new System.Drawing.Size(58, 30);
-            this.btnAddProduct6.TabIndex = 46;
-            this.btnAddProduct6.Text = "Add";
             this.btnAddProduct6.UseVisualStyleBackColor = false;
             this.btnAddProduct6.Click += new System.EventHandler(this.AddProductButtonClicked);
             // 
@@ -311,63 +240,37 @@
             this.panProduct5.Controls.Add(this.lblProduct5Name);
             this.panProduct5.Controls.Add(this.pbProduct5);
             this.panProduct5.Controls.Add(this.btnAddProduct5);
-            this.panProduct5.Location = new System.Drawing.Point(18, 348);
+            resources.ApplyResources(this.panProduct5, "panProduct5");
             this.panProduct5.Name = "panProduct5";
-            this.panProduct5.Size = new System.Drawing.Size(365, 149);
-            this.panProduct5.TabIndex = 75;
             // 
             // lblProduct5Quantity
             // 
-            this.lblProduct5Quantity.AutoSize = true;
-            this.lblProduct5Quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProduct5Quantity.Location = new System.Drawing.Point(158, 84);
+            resources.ApplyResources(this.lblProduct5Quantity, "lblProduct5Quantity");
             this.lblProduct5Quantity.Name = "lblProduct5Quantity";
-            this.lblProduct5Quantity.Size = new System.Drawing.Size(88, 16);
-            this.lblProduct5Quantity.TabIndex = 72;
-            this.lblProduct5Quantity.Text = "(Quantity) Left";
-            this.lblProduct5Quantity.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblProduct5Price
             // 
-            this.lblProduct5Price.AutoSize = true;
-            this.lblProduct5Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProduct5Price.Location = new System.Drawing.Point(158, 59);
+            resources.ApplyResources(this.lblProduct5Price, "lblProduct5Price");
             this.lblProduct5Price.Name = "lblProduct5Price";
-            this.lblProduct5Price.Size = new System.Drawing.Size(36, 16);
-            this.lblProduct5Price.TabIndex = 71;
-            this.lblProduct5Price.Text = "$___";
-            this.lblProduct5Price.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblProduct5Name
             // 
-            this.lblProduct5Name.AutoSize = true;
-            this.lblProduct5Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProduct5Name.Location = new System.Drawing.Point(158, 15);
+            resources.ApplyResources(this.lblProduct5Name, "lblProduct5Name");
             this.lblProduct5Name.Name = "lblProduct5Name";
-            this.lblProduct5Name.Size = new System.Drawing.Size(134, 20);
-            this.lblProduct5Name.TabIndex = 70;
-            this.lblProduct5Name.Text = "(Product Name)";
-            this.lblProduct5Name.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pbProduct5
             // 
             this.pbProduct5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbProduct5.Location = new System.Drawing.Point(17, 15);
+            resources.ApplyResources(this.pbProduct5, "pbProduct5");
             this.pbProduct5.Name = "pbProduct5";
-            this.pbProduct5.Size = new System.Drawing.Size(118, 113);
-            this.pbProduct5.TabIndex = 6;
             this.pbProduct5.TabStop = false;
             // 
             // btnAddProduct5
             // 
             this.btnAddProduct5.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnAddProduct5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.btnAddProduct5, "btnAddProduct5");
             this.btnAddProduct5.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnAddProduct5.Location = new System.Drawing.Point(294, 98);
             this.btnAddProduct5.Name = "btnAddProduct5";
-            this.btnAddProduct5.Size = new System.Drawing.Size(58, 30);
-            this.btnAddProduct5.TabIndex = 46;
-            this.btnAddProduct5.Text = "Add";
             this.btnAddProduct5.UseVisualStyleBackColor = false;
             this.btnAddProduct5.Click += new System.EventHandler(this.AddProductButtonClicked);
             // 
@@ -379,63 +282,37 @@
             this.panProduct4.Controls.Add(this.lblProduct4Name);
             this.panProduct4.Controls.Add(this.pbProduct4);
             this.panProduct4.Controls.Add(this.btnAddProduct4);
-            this.panProduct4.Location = new System.Drawing.Point(412, 181);
+            resources.ApplyResources(this.panProduct4, "panProduct4");
             this.panProduct4.Name = "panProduct4";
-            this.panProduct4.Size = new System.Drawing.Size(365, 149);
-            this.panProduct4.TabIndex = 73;
             // 
             // lblProduct4Quantity
             // 
-            this.lblProduct4Quantity.AutoSize = true;
-            this.lblProduct4Quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProduct4Quantity.Location = new System.Drawing.Point(158, 84);
+            resources.ApplyResources(this.lblProduct4Quantity, "lblProduct4Quantity");
             this.lblProduct4Quantity.Name = "lblProduct4Quantity";
-            this.lblProduct4Quantity.Size = new System.Drawing.Size(88, 16);
-            this.lblProduct4Quantity.TabIndex = 72;
-            this.lblProduct4Quantity.Text = "(Quantity) Left";
-            this.lblProduct4Quantity.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblProduct4Price
             // 
-            this.lblProduct4Price.AutoSize = true;
-            this.lblProduct4Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProduct4Price.Location = new System.Drawing.Point(158, 59);
+            resources.ApplyResources(this.lblProduct4Price, "lblProduct4Price");
             this.lblProduct4Price.Name = "lblProduct4Price";
-            this.lblProduct4Price.Size = new System.Drawing.Size(36, 16);
-            this.lblProduct4Price.TabIndex = 71;
-            this.lblProduct4Price.Text = "$___";
-            this.lblProduct4Price.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblProduct4Name
             // 
-            this.lblProduct4Name.AutoSize = true;
-            this.lblProduct4Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProduct4Name.Location = new System.Drawing.Point(158, 15);
+            resources.ApplyResources(this.lblProduct4Name, "lblProduct4Name");
             this.lblProduct4Name.Name = "lblProduct4Name";
-            this.lblProduct4Name.Size = new System.Drawing.Size(134, 20);
-            this.lblProduct4Name.TabIndex = 70;
-            this.lblProduct4Name.Text = "(Product Name)";
-            this.lblProduct4Name.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pbProduct4
             // 
             this.pbProduct4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbProduct4.Location = new System.Drawing.Point(17, 15);
+            resources.ApplyResources(this.pbProduct4, "pbProduct4");
             this.pbProduct4.Name = "pbProduct4";
-            this.pbProduct4.Size = new System.Drawing.Size(118, 113);
-            this.pbProduct4.TabIndex = 6;
             this.pbProduct4.TabStop = false;
             // 
             // btnAddProduct4
             // 
             this.btnAddProduct4.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnAddProduct4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.btnAddProduct4, "btnAddProduct4");
             this.btnAddProduct4.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnAddProduct4.Location = new System.Drawing.Point(294, 98);
             this.btnAddProduct4.Name = "btnAddProduct4";
-            this.btnAddProduct4.Size = new System.Drawing.Size(58, 30);
-            this.btnAddProduct4.TabIndex = 46;
-            this.btnAddProduct4.Text = "Add";
             this.btnAddProduct4.UseVisualStyleBackColor = false;
             this.btnAddProduct4.Click += new System.EventHandler(this.AddProductButtonClicked);
             // 
@@ -447,63 +324,37 @@
             this.panProduct3.Controls.Add(this.lblProduct3Name);
             this.panProduct3.Controls.Add(this.pbProduct3);
             this.panProduct3.Controls.Add(this.btnAddProduct3);
-            this.panProduct3.Location = new System.Drawing.Point(18, 181);
+            resources.ApplyResources(this.panProduct3, "panProduct3");
             this.panProduct3.Name = "panProduct3";
-            this.panProduct3.Size = new System.Drawing.Size(365, 149);
-            this.panProduct3.TabIndex = 73;
             // 
             // lblProduct3Quantity
             // 
-            this.lblProduct3Quantity.AutoSize = true;
-            this.lblProduct3Quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProduct3Quantity.Location = new System.Drawing.Point(158, 84);
+            resources.ApplyResources(this.lblProduct3Quantity, "lblProduct3Quantity");
             this.lblProduct3Quantity.Name = "lblProduct3Quantity";
-            this.lblProduct3Quantity.Size = new System.Drawing.Size(88, 16);
-            this.lblProduct3Quantity.TabIndex = 72;
-            this.lblProduct3Quantity.Text = "(Quantity) Left";
-            this.lblProduct3Quantity.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblProduct3Price
             // 
-            this.lblProduct3Price.AutoSize = true;
-            this.lblProduct3Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProduct3Price.Location = new System.Drawing.Point(158, 59);
+            resources.ApplyResources(this.lblProduct3Price, "lblProduct3Price");
             this.lblProduct3Price.Name = "lblProduct3Price";
-            this.lblProduct3Price.Size = new System.Drawing.Size(36, 16);
-            this.lblProduct3Price.TabIndex = 71;
-            this.lblProduct3Price.Text = "$___";
-            this.lblProduct3Price.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblProduct3Name
             // 
-            this.lblProduct3Name.AutoSize = true;
-            this.lblProduct3Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProduct3Name.Location = new System.Drawing.Point(158, 15);
+            resources.ApplyResources(this.lblProduct3Name, "lblProduct3Name");
             this.lblProduct3Name.Name = "lblProduct3Name";
-            this.lblProduct3Name.Size = new System.Drawing.Size(134, 20);
-            this.lblProduct3Name.TabIndex = 70;
-            this.lblProduct3Name.Text = "(Product Name)";
-            this.lblProduct3Name.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pbProduct3
             // 
             this.pbProduct3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbProduct3.Location = new System.Drawing.Point(17, 15);
+            resources.ApplyResources(this.pbProduct3, "pbProduct3");
             this.pbProduct3.Name = "pbProduct3";
-            this.pbProduct3.Size = new System.Drawing.Size(118, 113);
-            this.pbProduct3.TabIndex = 6;
             this.pbProduct3.TabStop = false;
             // 
             // btnAddProduct3
             // 
             this.btnAddProduct3.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnAddProduct3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.btnAddProduct3, "btnAddProduct3");
             this.btnAddProduct3.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnAddProduct3.Location = new System.Drawing.Point(294, 98);
             this.btnAddProduct3.Name = "btnAddProduct3";
-            this.btnAddProduct3.Size = new System.Drawing.Size(58, 30);
-            this.btnAddProduct3.TabIndex = 46;
-            this.btnAddProduct3.Text = "Add";
             this.btnAddProduct3.UseVisualStyleBackColor = false;
             this.btnAddProduct3.Click += new System.EventHandler(this.AddProductButtonClicked);
             // 
@@ -515,89 +366,55 @@
             this.panProduct2.Controls.Add(this.lblProduct2Name);
             this.panProduct2.Controls.Add(this.pbProduct2);
             this.panProduct2.Controls.Add(this.btnAddProduct2);
-            this.panProduct2.Location = new System.Drawing.Point(412, 15);
+            resources.ApplyResources(this.panProduct2, "panProduct2");
             this.panProduct2.Name = "panProduct2";
-            this.panProduct2.Size = new System.Drawing.Size(365, 149);
-            this.panProduct2.TabIndex = 73;
             // 
             // lblProduct2Quantity
             // 
-            this.lblProduct2Quantity.AutoSize = true;
-            this.lblProduct2Quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProduct2Quantity.Location = new System.Drawing.Point(158, 84);
+            resources.ApplyResources(this.lblProduct2Quantity, "lblProduct2Quantity");
             this.lblProduct2Quantity.Name = "lblProduct2Quantity";
-            this.lblProduct2Quantity.Size = new System.Drawing.Size(88, 16);
-            this.lblProduct2Quantity.TabIndex = 72;
-            this.lblProduct2Quantity.Text = "(Quantity) Left";
-            this.lblProduct2Quantity.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblProduct2Price
             // 
-            this.lblProduct2Price.AutoSize = true;
-            this.lblProduct2Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProduct2Price.Location = new System.Drawing.Point(158, 59);
+            resources.ApplyResources(this.lblProduct2Price, "lblProduct2Price");
             this.lblProduct2Price.Name = "lblProduct2Price";
-            this.lblProduct2Price.Size = new System.Drawing.Size(36, 16);
-            this.lblProduct2Price.TabIndex = 71;
-            this.lblProduct2Price.Text = "$___";
-            this.lblProduct2Price.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblProduct2Name
             // 
-            this.lblProduct2Name.AutoSize = true;
-            this.lblProduct2Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProduct2Name.Location = new System.Drawing.Point(158, 15);
+            resources.ApplyResources(this.lblProduct2Name, "lblProduct2Name");
             this.lblProduct2Name.Name = "lblProduct2Name";
-            this.lblProduct2Name.Size = new System.Drawing.Size(134, 20);
-            this.lblProduct2Name.TabIndex = 70;
-            this.lblProduct2Name.Text = "(Product Name)";
-            this.lblProduct2Name.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pbProduct2
             // 
             this.pbProduct2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbProduct2.Location = new System.Drawing.Point(17, 15);
+            resources.ApplyResources(this.pbProduct2, "pbProduct2");
             this.pbProduct2.Name = "pbProduct2";
-            this.pbProduct2.Size = new System.Drawing.Size(118, 113);
-            this.pbProduct2.TabIndex = 6;
             this.pbProduct2.TabStop = false;
             // 
             // btnAddProduct2
             // 
             this.btnAddProduct2.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnAddProduct2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.btnAddProduct2, "btnAddProduct2");
             this.btnAddProduct2.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnAddProduct2.Location = new System.Drawing.Point(294, 98);
             this.btnAddProduct2.Name = "btnAddProduct2";
-            this.btnAddProduct2.Size = new System.Drawing.Size(58, 30);
-            this.btnAddProduct2.TabIndex = 46;
-            this.btnAddProduct2.Text = "Add";
             this.btnAddProduct2.UseVisualStyleBackColor = false;
             this.btnAddProduct2.Click += new System.EventHandler(this.AddProductButtonClicked);
             // 
             // btnNextPage
             // 
             this.btnNextPage.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnNextPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.btnNextPage, "btnNextPage");
             this.btnNextPage.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnNextPage.Location = new System.Drawing.Point(412, 511);
             this.btnNextPage.Name = "btnNextPage";
-            this.btnNextPage.Size = new System.Drawing.Size(89, 45);
-            this.btnNextPage.TabIndex = 74;
-            this.btnNextPage.Text = "Next";
             this.btnNextPage.UseVisualStyleBackColor = false;
             this.btnNextPage.Click += new System.EventHandler(this.btnNextPage_Click);
             // 
             // btnPreviousPage
             // 
             this.btnPreviousPage.BackColor = System.Drawing.Color.Chocolate;
-            this.btnPreviousPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.btnPreviousPage, "btnPreviousPage");
             this.btnPreviousPage.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnPreviousPage.Location = new System.Drawing.Point(294, 511);
             this.btnPreviousPage.Name = "btnPreviousPage";
-            this.btnPreviousPage.Size = new System.Drawing.Size(89, 45);
-            this.btnPreviousPage.TabIndex = 73;
-            this.btnPreviousPage.Text = "Previous";
             this.btnPreviousPage.UseVisualStyleBackColor = false;
             this.btnPreviousPage.Click += new System.EventHandler(this.btnPreviousPage_Click);
             // 
@@ -609,47 +426,27 @@
             this.panProduct1.Controls.Add(this.lblProduct1Name);
             this.panProduct1.Controls.Add(this.pbProduct1);
             this.panProduct1.Controls.Add(this.btnAddProduct1);
-            this.panProduct1.Location = new System.Drawing.Point(18, 15);
+            resources.ApplyResources(this.panProduct1, "panProduct1");
             this.panProduct1.Name = "panProduct1";
-            this.panProduct1.Size = new System.Drawing.Size(365, 149);
-            this.panProduct1.TabIndex = 70;
             // 
             // lblProduct1Quantity
             // 
-            this.lblProduct1Quantity.AutoSize = true;
-            this.lblProduct1Quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProduct1Quantity.Location = new System.Drawing.Point(158, 84);
+            resources.ApplyResources(this.lblProduct1Quantity, "lblProduct1Quantity");
             this.lblProduct1Quantity.Name = "lblProduct1Quantity";
-            this.lblProduct1Quantity.Size = new System.Drawing.Size(88, 16);
-            this.lblProduct1Quantity.TabIndex = 72;
-            this.lblProduct1Quantity.Text = "(Quantity) Left";
-            this.lblProduct1Quantity.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblProduct1Price
             // 
-            this.lblProduct1Price.AutoSize = true;
-            this.lblProduct1Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProduct1Price.Location = new System.Drawing.Point(158, 59);
+            resources.ApplyResources(this.lblProduct1Price, "lblProduct1Price");
             this.lblProduct1Price.Name = "lblProduct1Price";
-            this.lblProduct1Price.Size = new System.Drawing.Size(36, 16);
-            this.lblProduct1Price.TabIndex = 71;
-            this.lblProduct1Price.Text = "$___";
-            this.lblProduct1Price.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblProduct1Name
             // 
-            this.lblProduct1Name.AutoSize = true;
-            this.lblProduct1Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProduct1Name.Location = new System.Drawing.Point(158, 15);
+            resources.ApplyResources(this.lblProduct1Name, "lblProduct1Name");
             this.lblProduct1Name.Name = "lblProduct1Name";
-            this.lblProduct1Name.Size = new System.Drawing.Size(134, 20);
-            this.lblProduct1Name.TabIndex = 70;
-            this.lblProduct1Name.Text = "(Product Name)";
-            this.lblProduct1Name.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel2
             // 
-            this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            resources.ApplyResources(this.panel2, "panel2");
             this.panel2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel2.Controls.Add(this.lblOutOfStock);
             this.panel2.Controls.Add(this.outOfStockRectangle);
@@ -661,21 +458,12 @@
             this.panel2.Controls.Add(this.checkBoxNeedDelivery);
             this.panel2.Controls.Add(this.lblTotalPrice);
             this.panel2.Controls.Add(this.txtTotalPrice);
-            this.panel2.Location = new System.Drawing.Point(843, 0);
-            this.panel2.MinimumSize = new System.Drawing.Size(123, 500);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(421, 681);
-            this.panel2.TabIndex = 70;
             // 
             // lblOutOfStock
             // 
-            this.lblOutOfStock.AutoSize = true;
-            this.lblOutOfStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOutOfStock.Location = new System.Drawing.Point(52, 446);
+            resources.ApplyResources(this.lblOutOfStock, "lblOutOfStock");
             this.lblOutOfStock.Name = "lblOutOfStock";
-            this.lblOutOfStock.Size = new System.Drawing.Size(89, 16);
-            this.lblOutOfStock.TabIndex = 78;
-            this.lblOutOfStock.Text = "= Out of Stock";
             // 
             // outOfStockRectangle
             // 
@@ -683,13 +471,9 @@
             this.outOfStockRectangle.FlatAppearance.BorderSize = 0;
             this.outOfStockRectangle.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SandyBrown;
             this.outOfStockRectangle.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SandyBrown;
-            this.outOfStockRectangle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.outOfStockRectangle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.outOfStockRectangle, "outOfStockRectangle");
             this.outOfStockRectangle.ForeColor = System.Drawing.Color.Black;
-            this.outOfStockRectangle.Location = new System.Drawing.Point(26, 443);
             this.outOfStockRectangle.Name = "outOfStockRectangle";
-            this.outOfStockRectangle.Size = new System.Drawing.Size(20, 20);
-            this.outOfStockRectangle.TabIndex = 77;
             this.outOfStockRectangle.UseVisualStyleBackColor = false;
             // 
             // dgvCart
@@ -703,62 +487,52 @@
             this.cartQuantityColumn,
             this.cartSubtotalColumn,
             this.cartIsOutOfStock});
-            this.dgvCart.Location = new System.Drawing.Point(3, 91);
+            resources.ApplyResources(this.dgvCart, "dgvCart");
             this.dgvCart.Name = "dgvCart";
             this.dgvCart.ReadOnly = true;
             this.dgvCart.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCart.Size = new System.Drawing.Size(415, 332);
-            this.dgvCart.TabIndex = 69;
             // 
             // cartNameColumn
             // 
-            this.cartNameColumn.HeaderText = "Name";
+            resources.ApplyResources(this.cartNameColumn, "cartNameColumn");
             this.cartNameColumn.Name = "cartNameColumn";
             this.cartNameColumn.ReadOnly = true;
-            this.cartNameColumn.Width = 170;
             // 
             // cartPriceColumn
             // 
-            this.cartPriceColumn.HeaderText = "Price";
+            resources.ApplyResources(this.cartPriceColumn, "cartPriceColumn");
             this.cartPriceColumn.Name = "cartPriceColumn";
             this.cartPriceColumn.ReadOnly = true;
-            this.cartPriceColumn.Width = 80;
             // 
             // cartQuantityColumn
             // 
-            this.cartQuantityColumn.HeaderText = "Qty";
+            resources.ApplyResources(this.cartQuantityColumn, "cartQuantityColumn");
             this.cartQuantityColumn.Name = "cartQuantityColumn";
             this.cartQuantityColumn.ReadOnly = true;
-            this.cartQuantityColumn.Width = 40;
             // 
             // cartSubtotalColumn
             // 
-            this.cartSubtotalColumn.HeaderText = "Subtotal";
+            resources.ApplyResources(this.cartSubtotalColumn, "cartSubtotalColumn");
             this.cartSubtotalColumn.Name = "cartSubtotalColumn";
             this.cartSubtotalColumn.ReadOnly = true;
-            this.cartSubtotalColumn.Width = 80;
             // 
             // cartIsOutOfStock
             // 
-            this.cartIsOutOfStock.HeaderText = "Is Out of Stock";
+            resources.ApplyResources(this.cartIsOutOfStock, "cartIsOutOfStock");
             this.cartIsOutOfStock.Name = "cartIsOutOfStock";
             this.cartIsOutOfStock.ReadOnly = true;
-            this.cartIsOutOfStock.Visible = false;
             // 
             // PlaceOrderForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panProductList);
             this.Controls.Add(this.txtSearchKeywords);
             this.Controls.Add(this.lblSearchKeywords);
             this.KeyPreview = true;
             this.Name = "PlaceOrderForm";
-            this.Padding = new System.Windows.Forms.Padding(0, 0, 0, 100);
-            this.Text = "PlaceOrderForm";
             this.Shown += new System.EventHandler(this.OnFormShown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PlaceOrderForm_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.pbProduct1)).EndInit();

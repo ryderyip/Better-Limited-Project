@@ -165,6 +165,12 @@
     <Compile Include="CustomerRecord\CustomerUpdateForm.Designer.cs">
       <DependentUpon>CustomerUpdateForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataAnalytics\SalesReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataAnalytics\SalesReportForm.Designer.cs">
+      <DependentUpon>SalesReportForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseUtility\Database.cs" />
     <Compile Include="DatabaseUtility\DataTableRepository.cs" />
     <Compile Include="DevTools\AutoLogin\AutoLoginHelper.cs" />
@@ -276,6 +282,12 @@
     <Compile Include="ProductUtility\ProductList\Forms\UpdateProductAdminForm.Designer.cs">
       <DependentUpon>UpdateProductAdminForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProductUtility\ProductList\Forms\UpdateSellingPriceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductUtility\ProductList\Forms\UpdateSellingPriceForm.Designer.cs">
+      <DependentUpon>UpdateSellingPriceForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductUtility\ProductList\PermissionManagement\ProductPermissionManager.cs" />
     <Compile Include="ProductUtility\Reordering\ReorderRequest.cs" />
     <Compile Include="ProductUtility\Reordering\ReorderRequestProduct.cs" />
@@ -349,10 +361,6 @@
     <Compile Include="ProductUtility\ProductList\Forms\UpdateProductForm.Designer.cs">
       <DependentUpon>UpdateProductForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProductUtility\ProductList\Forms\UpdateSellingPriceForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProductUtility\ProductList\Forms\UpdateSellingPriceForm.Designer.cs" />
     <Compile Include="ProductUtility\ProductList\PermissionManagement\ProductInfoEditPermission.cs" />
     <Compile Include="ProductUtility\ProductList\ProductCreationDataVerifier.cs" />
     <Compile Include="ProductUtility\PurchaseOrder\PurchaseOrderDetailsForm.cs">
@@ -420,7 +428,9 @@
     <Compile Include="Sales\OrderPlacing\UI\DeliverySessionSelectionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sales\OrderPlacing\UI\DeliverySessionSelectionForm.Designer.cs" />
+    <Compile Include="Sales\OrderPlacing\UI\DeliverySessionSelectionForm.Designer.cs">
+      <DependentUpon>DeliverySessionSelectionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sales\OrderPlacing\UI\EditSalesOrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -461,10 +471,6 @@
     <Compile Include="Sales\PaymentUtility\Payment.cs" />
     <Compile Include="Sales\PaymentUtility\PaymentFormFactory.cs" />
     <Compile Include="Sales\PaymentUtility\PaymentMethod.cs" />
-    <Compile Include="Sales\PaymentUtility\PaymentMethodSelectionForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\PaymentUtility\PaymentMethodSelectionForm.Designer.cs" />
     <Compile Include="Sales\PaymentUtility\PaymentReceiptGenerator.cs" />
     <Compile Include="Sales\PaymentUtility\PaymentStatus.cs" />
     <Compile Include="Sales\PaymentUtility\Repository\PaymentRepository.cs" />
@@ -486,6 +492,12 @@
     </Compile>
     <Compile Include="Sales\PaymentUtility\UI\OctopusCardPaymentForm.Designer.cs">
       <DependentUpon>OctopusCardPaymentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sales\PaymentUtility\UI\PaymentMethodSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\PaymentUtility\UI\PaymentMethodSelectionForm.Designer.cs">
+      <DependentUpon>PaymentMethodSelectionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ServiceUtility\CustomerRecordService.cs" />
     <Compile Include="ServiceUtility\Delivery\Controller\DeliveryListGenerator.cs" />
@@ -712,49 +724,97 @@
     <EmbeddedResource Include="CustomerRecord\CreateCustomerRecordForm.resx">
       <DependentUpon>CreateCustomerRecordForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomerRecord\CreateCustomerRecordForm.zh-HK.resx">
+      <DependentUpon>CreateCustomerRecordForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomerRecord\CustomerDetailsForm.resx">
+      <DependentUpon>CustomerDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerRecord\CustomerDetailsForm.zh-HK.resx">
       <DependentUpon>CustomerDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerRecord\CustomerListForm.resx">
       <DependentUpon>CustomerListForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomerRecord\CustomerListForm.zh-HK.resx">
+      <DependentUpon>CustomerListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomerRecord\CustomerUpdateForm.resx">
       <DependentUpon>CustomerUpdateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerRecord\CustomerUpdateForm.zh-HK.resx">
+      <DependentUpon>CustomerUpdateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataAnalytics\SalesReportForm.resx">
+      <DependentUpon>SalesReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DevTools\AutoLogin\StaffRoleChooserForm.resx">
       <DependentUpon>StaffRoleChooserForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Login\LoginForm.en-US.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login\LoginForm.zh-Hant.resx">
+    <EmbeddedResource Include="Login\LoginForm.zh-HK.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\UI\AccountingClerkNavigationForm.resx">
+      <DependentUpon>AccountingClerkNavigationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\UI\AccountingClerkNavigationForm.zh-HK.resx">
+      <DependentUpon>AccountingClerkNavigationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Navigation\UI\AccountingManagerNavigationForm.resx">
+      <DependentUpon>AccountingManagerNavigationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\UI\AccountingManagerNavigationForm.zh-HK.resx">
       <DependentUpon>AccountingManagerNavigationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\UI\AdminNavigationForm.resx">
       <DependentUpon>AdminNavigationForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\UI\AdminNavigationForm.zh-HK.resx">
+      <DependentUpon>AdminNavigationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Navigation\UI\InventoryClerkNavigationForm.resx">
+      <DependentUpon>InventoryClerkNavigationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\UI\InventoryClerkNavigationForm.zh-HK.resx">
       <DependentUpon>InventoryClerkNavigationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\UI\PurchaseClerkNavigationForm.resx">
       <DependentUpon>PurchaseClerkNavigationForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\UI\PurchaseClerkNavigationForm.zh-HK.resx">
+      <DependentUpon>PurchaseClerkNavigationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Navigation\UI\PurchaseManagerNavigationForm.resx">
+      <DependentUpon>PurchaseManagerNavigationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\UI\PurchaseManagerNavigationForm.zh-HK.resx">
       <DependentUpon>PurchaseManagerNavigationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\UI\ReceivingClerkNavigationForm.resx">
       <DependentUpon>ReceivingClerkNavigationForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\UI\ReceivingClerkNavigationForm.zh-HK.resx">
+      <DependentUpon>ReceivingClerkNavigationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Navigation\UI\SalesNavigationForm.resx">
       <DependentUpon>SalesNavigationForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\UI\SalesNavigationForm.zh-HK.resx">
+      <DependentUpon>SalesNavigationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Navigation\UI\TechnicalSupportNavigationForm.resx">
+      <DependentUpon>TechnicalSupportNavigationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\UI\TechnicalSupportNavigationForm.zh-HK.resx">
       <DependentUpon>TechnicalSupportNavigationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductUtility\GoodsReceiving\CreateGoodsReceivedRecordForm.resx" />
@@ -766,22 +826,43 @@
     <EmbeddedResource Include="ProductUtility\ProductList\Forms\NewProductForm.resx">
       <DependentUpon>NewProductForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProductUtility\ProductList\Forms\NewProductForm.zh-HK.resx">
+      <DependentUpon>NewProductForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductUtility\ProductList\Forms\ProductDescriptionEditForm.resx">
+      <DependentUpon>ProductDescriptionEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductUtility\ProductList\Forms\ProductDescriptionEditForm.zh-HK.resx">
       <DependentUpon>ProductDescriptionEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductUtility\ProductList\Forms\ProductDetailsForm.resx">
       <DependentUpon>ProductDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProductUtility\ProductList\Forms\ProductDetailsForm.zh-HK.resx">
+      <DependentUpon>ProductDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductUtility\ProductList\Forms\ProductListForm.resx">
+      <DependentUpon>ProductListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductUtility\ProductList\Forms\ProductListForm.zh-HK.resx">
       <DependentUpon>ProductListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductUtility\ProductList\Forms\UpdateProductAdminForm.resx">
       <DependentUpon>UpdateProductAdminForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProductUtility\ProductList\Forms\UpdateProductAdminForm.zh-HK.resx">
+      <DependentUpon>UpdateProductAdminForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductUtility\ProductList\Forms\UpdateProductForm.resx">
       <DependentUpon>UpdateProductForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProductUtility\ProductList\Forms\UpdateProductForm.zh-HK.resx">
+      <DependentUpon>UpdateProductForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductUtility\ProductList\Forms\UpdateSellingPriceForm.resx" />
+    <EmbeddedResource Include="ProductUtility\ProductList\Forms\UpdateSellingPriceForm.zh-HK.resx">
+      <DependentUpon>UpdateSellingPriceForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductUtility\PurchaseOrder\PurchaseOrderDetailsForm.resx" />
     <EmbeddedResource Include="ProductUtility\PurchaseOrder\PurchaseOrdersForm.resx" />
     <EmbeddedResource Include="ProductUtility\Restocking\CreateRestockRequestForm.resx">
@@ -790,13 +871,25 @@
     <EmbeddedResource Include="ProductUtility\SupplierUtility\CreateSupplierForm.resx">
       <DependentUpon>CreateSupplierForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProductUtility\SupplierUtility\CreateSupplierForm.zh-HK.resx">
+      <DependentUpon>CreateSupplierForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductUtility\SupplierUtility\SupplierDetailsForm.resx">
+      <DependentUpon>SupplierDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductUtility\SupplierUtility\SupplierDetailsForm.zh-HK.resx">
       <DependentUpon>SupplierDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductUtility\SupplierUtility\SupplierListForm.resx">
       <DependentUpon>SupplierListForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProductUtility\SupplierUtility\SupplierListForm.zh-HK.resx">
+      <DependentUpon>SupplierListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductUtility\SupplierUtility\UpdateSupplierForm.resx">
+      <DependentUpon>UpdateSupplierForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductUtility\SupplierUtility\UpdateSupplierForm.zh-HK.resx">
       <DependentUpon>UpdateSupplierForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -812,34 +905,74 @@
     <EmbeddedResource Include="Sales\OrderPlacing\UI\ConfirmPlacingOrderForm.resx">
       <DependentUpon>ConfirmPlacingOrderForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sales\OrderPlacing\UI\DeliverySessionSelectionForm.resx" />
+    <EmbeddedResource Include="Sales\OrderPlacing\UI\ConfirmPlacingOrderForm.zh-HK.resx">
+      <DependentUpon>ConfirmPlacingOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\OrderPlacing\UI\DeliverySessionSelectionForm.resx">
+      <DependentUpon>DeliverySessionSelectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\OrderPlacing\UI\DeliverySessionSelectionForm.zh-HK.resx">
+      <DependentUpon>DeliverySessionSelectionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sales\OrderPlacing\UI\EditSalesOrderForm.resx">
+      <DependentUpon>EditSalesOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\OrderPlacing\UI\EditSalesOrderForm.zh-HK.resx">
       <DependentUpon>EditSalesOrderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\OrderPlacing\UI\FindCustomerRecordForm.resx">
       <DependentUpon>FindCustomerRecordForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sales\OrderPlacing\UI\FindCustomerRecordForm.zh-HK.resx">
+      <DependentUpon>FindCustomerRecordForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sales\OrderPlacing\UI\IsFirstTimeCustomerSelectionForm.resx">
+      <DependentUpon>IsFirstTimeCustomerSelectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\OrderPlacing\UI\IsFirstTimeCustomerSelectionForm.zh-HK.resx">
       <DependentUpon>IsFirstTimeCustomerSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\OrderPlacing\UI\PlaceOrderForm.resx">
       <DependentUpon>PlaceOrderForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sales\OrderPlacing\UI\PlaceOrderForm.zh-HK.resx">
+      <DependentUpon>PlaceOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sales\OrderPlacing\UI\SalesOrderDetailsForm.resx">
+      <DependentUpon>SalesOrderDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\OrderPlacing\UI\SalesOrderDetailsForm.zh-HK.resx">
       <DependentUpon>SalesOrderDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\OrderPlacing\UI\SalesOrderListForm.resx">
       <DependentUpon>SalesOrderListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sales\PaymentUtility\PaymentMethodSelectionForm.resx" />
+    <EmbeddedResource Include="Sales\OrderPlacing\UI\SalesOrderListForm.zh-HK.resx">
+      <DependentUpon>SalesOrderListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sales\PaymentUtility\UI\CashPaymentForm.resx">
+      <DependentUpon>CashPaymentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\PaymentUtility\UI\CashPaymentForm.zh-HK.resx">
       <DependentUpon>CashPaymentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\PaymentUtility\UI\CreditCardPaymentForm.resx">
       <DependentUpon>CreditCardPaymentForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sales\PaymentUtility\UI\CreditCardPaymentForm.zh-HK.resx">
+      <DependentUpon>CreditCardPaymentForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sales\PaymentUtility\UI\OctopusCardPaymentForm.resx">
       <DependentUpon>OctopusCardPaymentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\PaymentUtility\UI\OctopusCardPaymentForm.zh-HK.resx">
+      <DependentUpon>OctopusCardPaymentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\PaymentUtility\UI\PaymentMethodSelectionForm.resx">
+      <DependentUpon>PaymentMethodSelectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\PaymentUtility\UI\PaymentMethodSelectionForm.zh-HK.resx">
+      <DependentUpon>PaymentMethodSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ServiceUtility\Delivery\UI\ArrangeSingleDeliveryForm.resx">
       <DependentUpon>ArrangeSingleDeliveryForm.cs</DependentUpon>
@@ -923,9 +1056,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DataAnalytics\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Resources\BL_Logo_Rectangle.png" />
   </ItemGroup>

@@ -120,22 +120,234 @@
   <metadata name="salesOrderNumberColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="salesOrderNumberColumn.HeaderText" xml:space="preserve">
+    <value>Order Number</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="salesOrderNumberColumn.Width" type="System.Int32, mscorlib">
+    <value>130</value>
+  </data>
   <metadata name="customerNameColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="customerNameColumn.HeaderText" xml:space="preserve">
+    <value>Customer Name</value>
+  </data>
   <metadata name="customerPhoneColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="customerPhoneColumn.HeaderText" xml:space="preserve">
+    <value>Customer Phone No.</value>
+  </data>
   <metadata name="amountColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="amountColumn.HeaderText" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="amountColumn.Width" type="System.Int32, mscorlib">
+    <value>80</value>
+  </data>
   <metadata name="createdOnColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="createdOnColumn.HeaderText" xml:space="preserve">
+    <value>Created On</value>
+  </data>
   <metadata name="retailStoreNameColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="retailStoreNameColumn.HeaderText" xml:space="preserve">
+    <value>Retail Store Name</value>
+  </data>
+  <data name="retailStoreNameColumn.Width" type="System.Int32, mscorlib">
+    <value>120</value>
+  </data>
   <metadata name="createdByStaffNameColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="createdByStaffNameColumn.HeaderText" xml:space="preserve">
+    <value>Created By Staff</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="dgvSalesOrders.Location" type="System.Drawing.Point, System.Drawing">
+    <value>27, 100</value>
+  </data>
+  <data name="dgvSalesOrders.Size" type="System.Drawing.Size, System.Drawing">
+    <value>536, 327</value>
+  </data>
+  <data name="dgvSalesOrders.TabIndex" type="System.Int32, mscorlib">
+    <value>51</value>
+  </data>
+  <data name="&gt;&gt;dgvSalesOrders.Name" xml:space="preserve">
+    <value>dgvSalesOrders</value>
+  </data>
+  <data name="&gt;&gt;dgvSalesOrders.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dgvSalesOrders.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;dgvSalesOrders.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="dtpSearchDate.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="dtpSearchDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>331, 49</value>
+  </data>
+  <data name="dtpSearchDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 20</value>
+  </data>
+  <data name="dtpSearchDate.TabIndex" type="System.Int32, mscorlib">
+    <value>50</value>
+  </data>
+  <data name="&gt;&gt;dtpSearchDate.Name" xml:space="preserve">
+    <value>dtpSearchDate</value>
+  </data>
+  <data name="&gt;&gt;dtpSearchDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dtpSearchDate.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;dtpSearchDate.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tbSearchBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>27, 49</value>
+  </data>
+  <data name="tbSearchBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 20</value>
+  </data>
+  <data name="tbSearchBox.TabIndex" type="System.Int32, mscorlib">
+    <value>48</value>
+  </data>
+  <data name="&gt;&gt;tbSearchBox.Name" xml:space="preserve">
+    <value>tbSearchBox</value>
+  </data>
+  <data name="&gt;&gt;tbSearchBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbSearchBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tbSearchBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="lblSearchBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblSearchBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 22</value>
+  </data>
+  <data name="lblSearchBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>240, 13</value>
+  </data>
+  <data name="lblSearchBox.TabIndex" type="System.Int32, mscorlib">
+    <value>47</value>
+  </data>
+  <data name="lblSearchBox.Text" xml:space="preserve">
+    <value>Search by Order No./Customer Name/Phone No.</value>
+  </data>
+  <data name="&gt;&gt;lblSearchBox.Name" xml:space="preserve">
+    <value>lblSearchBox</value>
+  </data>
+  <data name="&gt;&gt;lblSearchBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblSearchBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblSearchBox.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="cbEnableSearchByDate.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbEnableSearchByDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>331, 21</value>
+  </data>
+  <data name="cbEnableSearchByDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 17</value>
+  </data>
+  <data name="cbEnableSearchByDate.TabIndex" type="System.Int32, mscorlib">
+    <value>52</value>
+  </data>
+  <data name="cbEnableSearchByDate.Text" xml:space="preserve">
+    <value>Enable Search by Date Created</value>
+  </data>
+  <data name="&gt;&gt;cbEnableSearchByDate.Name" xml:space="preserve">
+    <value>cbEnableSearchByDate</value>
+  </data>
+  <data name="&gt;&gt;cbEnableSearchByDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbEnableSearchByDate.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cbEnableSearchByDate.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>623, 449</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>SalesOrderForm</value>
+  </data>
+  <data name="&gt;&gt;salesOrderNumberColumn.Name" xml:space="preserve">
+    <value>salesOrderNumberColumn</value>
+  </data>
+  <data name="&gt;&gt;salesOrderNumberColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;customerNameColumn.Name" xml:space="preserve">
+    <value>customerNameColumn</value>
+  </data>
+  <data name="&gt;&gt;customerNameColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;customerPhoneColumn.Name" xml:space="preserve">
+    <value>customerPhoneColumn</value>
+  </data>
+  <data name="&gt;&gt;customerPhoneColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;amountColumn.Name" xml:space="preserve">
+    <value>amountColumn</value>
+  </data>
+  <data name="&gt;&gt;amountColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;createdOnColumn.Name" xml:space="preserve">
+    <value>createdOnColumn</value>
+  </data>
+  <data name="&gt;&gt;createdOnColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;retailStoreNameColumn.Name" xml:space="preserve">
+    <value>retailStoreNameColumn</value>
+  </data>
+  <data name="&gt;&gt;retailStoreNameColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;createdByStaffNameColumn.Name" xml:space="preserve">
+    <value>createdByStaffNameColumn</value>
+  </data>
+  <data name="&gt;&gt;createdByStaffNameColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>SalesOrderListForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

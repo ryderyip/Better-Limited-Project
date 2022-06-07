@@ -31,6 +31,7 @@ namespace Better_Limited_Project.Navigation.UI
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TechnicalSupportNavigationForm));
             this.lblLoggedInAs = new System.Windows.Forms.Label();
             this.btnProfile = new System.Windows.Forms.Button();
             this.btnInstallationDuty = new System.Windows.Forms.Button();
@@ -40,67 +41,49 @@ namespace Better_Limited_Project.Navigation.UI
             // 
             // lblLoggedInAs
             // 
-            this.lblLoggedInAs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblLoggedInAs.Location = new System.Drawing.Point(27, 14);
+            resources.ApplyResources(this.lblLoggedInAs, "lblLoggedInAs");
             this.lblLoggedInAs.Name = "lblLoggedInAs";
-            this.lblLoggedInAs.Size = new System.Drawing.Size(135, 22);
-            this.lblLoggedInAs.TabIndex = 12;
-            this.lblLoggedInAs.Text = "Logged in as";
-            this.lblLoggedInAs.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnProfile
             // 
-            this.btnProfile.Location = new System.Drawing.Point(12, 48);
+            resources.ApplyResources(this.btnProfile, "btnProfile");
             this.btnProfile.Name = "btnProfile";
-            this.btnProfile.Size = new System.Drawing.Size(164, 48);
-            this.btnProfile.TabIndex = 11;
-            this.btnProfile.Text = "(Name)";
             this.btnProfile.UseVisualStyleBackColor = true;
             this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
             // 
             // btnInstallationDuty
             // 
-            this.btnInstallationDuty.Location = new System.Drawing.Point(39, 133);
+            resources.ApplyResources(this.btnInstallationDuty, "btnInstallationDuty");
             this.btnInstallationDuty.Name = "btnInstallationDuty";
-            this.btnInstallationDuty.Size = new System.Drawing.Size(111, 34);
-            this.btnInstallationDuty.TabIndex = 10;
-            this.btnInstallationDuty.Text = "Installation Duty";
             this.btnInstallationDuty.UseVisualStyleBackColor = true;
             this.btnInstallationDuty.Click += new System.EventHandler(this.btnInstallationDuty_Click);
             // 
             // btnSettings
             // 
-            this.btnSettings.Location = new System.Drawing.Point(39, 213);
+            resources.ApplyResources(this.btnSettings, "btnSettings");
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(111, 34);
-            this.btnSettings.TabIndex = 9;
-            this.btnSettings.Text = "Settings";
             this.btnSettings.UseVisualStyleBackColor = true;
             this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // btnInstallationRequests
             // 
-            this.btnInstallationRequests.Location = new System.Drawing.Point(34, 173);
+            resources.ApplyResources(this.btnInstallationRequests, "btnInstallationRequests");
             this.btnInstallationRequests.Name = "btnInstallationRequests";
-            this.btnInstallationRequests.Size = new System.Drawing.Size(123, 34);
-            this.btnInstallationRequests.TabIndex = 7;
-            this.btnInstallationRequests.Text = "Installation Requests";
             this.btnInstallationRequests.UseVisualStyleBackColor = true;
             this.btnInstallationRequests.Click += new System.EventHandler(this.btnInstallationRequests_Click);
             // 
             // TechnicalSupportNavigationForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(194, 450);
             this.Controls.Add(this.lblLoggedInAs);
             this.Controls.Add(this.btnProfile);
             this.Controls.Add(this.btnInstallationDuty);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.btnInstallationRequests);
             this.Name = "TechnicalSupportNavigationForm";
-            this.Text = "TechnicalSupportNavigationForm";
             this.ResumeLayout(false);
+
         }
 
         private System.Windows.Forms.Button btnInstallationDuty;

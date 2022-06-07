@@ -31,6 +31,7 @@ namespace Better_Limited_Project.Navigation.UI
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PurchaseClerkNavigationForm));
             this.lblLoggedInAs = new System.Windows.Forms.Label();
             this.btnProfile = new System.Windows.Forms.Button();
             this.btnReorderRequests = new System.Windows.Forms.Button();
@@ -40,67 +41,49 @@ namespace Better_Limited_Project.Navigation.UI
             // 
             // lblLoggedInAs
             // 
-            this.lblLoggedInAs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblLoggedInAs.Location = new System.Drawing.Point(27, 16);
+            resources.ApplyResources(this.lblLoggedInAs, "lblLoggedInAs");
             this.lblLoggedInAs.Name = "lblLoggedInAs";
-            this.lblLoggedInAs.Size = new System.Drawing.Size(135, 22);
-            this.lblLoggedInAs.TabIndex = 12;
-            this.lblLoggedInAs.Text = "Logged in as";
-            this.lblLoggedInAs.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnProfile
             // 
-            this.btnProfile.Location = new System.Drawing.Point(12, 50);
+            resources.ApplyResources(this.btnProfile, "btnProfile");
             this.btnProfile.Name = "btnProfile";
-            this.btnProfile.Size = new System.Drawing.Size(164, 48);
-            this.btnProfile.TabIndex = 11;
-            this.btnProfile.Text = "(Name)";
             this.btnProfile.UseVisualStyleBackColor = true;
             this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
             // 
             // btnReorderRequests
             // 
-            this.btnReorderRequests.Location = new System.Drawing.Point(39, 135);
+            resources.ApplyResources(this.btnReorderRequests, "btnReorderRequests");
             this.btnReorderRequests.Name = "btnReorderRequests";
-            this.btnReorderRequests.Size = new System.Drawing.Size(111, 34);
-            this.btnReorderRequests.TabIndex = 10;
-            this.btnReorderRequests.Text = "Reorder Requests";
             this.btnReorderRequests.UseVisualStyleBackColor = true;
             this.btnReorderRequests.Click += new System.EventHandler(this.btnReorderRequests_Click);
             // 
             // btnSettings
             // 
-            this.btnSettings.Location = new System.Drawing.Point(39, 215);
+            resources.ApplyResources(this.btnSettings, "btnSettings");
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(111, 34);
-            this.btnSettings.TabIndex = 9;
-            this.btnSettings.Text = "Settings";
             this.btnSettings.UseVisualStyleBackColor = true;
             this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // btnPurchaseOrders
             // 
-            this.btnPurchaseOrders.Location = new System.Drawing.Point(39, 175);
+            resources.ApplyResources(this.btnPurchaseOrders, "btnPurchaseOrders");
             this.btnPurchaseOrders.Name = "btnPurchaseOrders";
-            this.btnPurchaseOrders.Size = new System.Drawing.Size(111, 34);
-            this.btnPurchaseOrders.TabIndex = 7;
-            this.btnPurchaseOrders.Text = "Purchase Orders";
             this.btnPurchaseOrders.UseVisualStyleBackColor = true;
             this.btnPurchaseOrders.Click += new System.EventHandler(this.btnPurchaseOrders_Click);
             // 
             // PurchaseClerkNavigationForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(195, 450);
             this.Controls.Add(this.lblLoggedInAs);
             this.Controls.Add(this.btnProfile);
             this.Controls.Add(this.btnReorderRequests);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.btnPurchaseOrders);
             this.Name = "PurchaseClerkNavigationForm";
-            this.Text = "PurchaseClerkNavigationForm";
             this.ResumeLayout(false);
+
         }
 
         private System.Windows.Forms.Label lblLoggedInAs;

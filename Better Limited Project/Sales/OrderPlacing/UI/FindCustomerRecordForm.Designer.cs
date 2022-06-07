@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FindCustomerRecordForm));
             this.lblSearchKeywords = new System.Windows.Forms.Label();
             this.lblRemind = new System.Windows.Forms.Label();
             this.txtSearchKeywords = new System.Windows.Forms.TextBox();
@@ -43,29 +44,18 @@
             // 
             // lblSearchKeywords
             // 
-            this.lblSearchKeywords.AutoSize = true;
-            this.lblSearchKeywords.Location = new System.Drawing.Point(27, 81);
+            resources.ApplyResources(this.lblSearchKeywords, "lblSearchKeywords");
             this.lblSearchKeywords.Name = "lblSearchKeywords";
-            this.lblSearchKeywords.Size = new System.Drawing.Size(283, 13);
-            this.lblSearchKeywords.TabIndex = 6;
-            this.lblSearchKeywords.Text = "Search by Customer Name/Phone Number/ Email Address";
             // 
             // lblRemind
             // 
-            this.lblRemind.AutoSize = true;
-            this.lblRemind.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRemind.Location = new System.Drawing.Point(237, 21);
+            resources.ApplyResources(this.lblRemind, "lblRemind");
             this.lblRemind.Name = "lblRemind";
-            this.lblRemind.Size = new System.Drawing.Size(391, 26);
-            this.lblRemind.TabIndex = 7;
-            this.lblRemind.Text = "Find and Select a Customer Record";
             // 
             // txtSearchKeywords
             // 
-            this.txtSearchKeywords.Location = new System.Drawing.Point(30, 106);
+            resources.ApplyResources(this.txtSearchKeywords, "txtSearchKeywords");
             this.txtSearchKeywords.Name = "txtSearchKeywords";
-            this.txtSearchKeywords.Size = new System.Drawing.Size(280, 20);
-            this.txtSearchKeywords.TabIndex = 8;
             // 
             // dgvCustomer
             // 
@@ -78,74 +68,62 @@
             this.email,
             this.address1,
             this.address2});
-            this.dgvCustomer.Location = new System.Drawing.Point(30, 144);
+            resources.ApplyResources(this.dgvCustomer, "dgvCustomer");
             this.dgvCustomer.MultiSelect = false;
             this.dgvCustomer.Name = "dgvCustomer";
             this.dgvCustomer.ReadOnly = true;
             this.dgvCustomer.RowTemplate.Height = 24;
             this.dgvCustomer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCustomer.Size = new System.Drawing.Size(803, 239);
-            this.dgvCustomer.TabIndex = 9;
             // 
             // name
             // 
-            this.name.HeaderText = "Name";
+            resources.ApplyResources(this.name, "name");
             this.name.Name = "name";
             this.name.ReadOnly = true;
             // 
             // phone
             // 
-            this.phone.HeaderText = "Phone No.";
+            resources.ApplyResources(this.phone, "phone");
             this.phone.Name = "phone";
             this.phone.ReadOnly = true;
-            this.phone.Width = 90;
             // 
             // email
             // 
-            this.email.HeaderText = "Email";
+            resources.ApplyResources(this.email, "email");
             this.email.Name = "email";
             this.email.ReadOnly = true;
-            this.email.Width = 170;
             // 
             // address1
             // 
-            this.address1.HeaderText = "Address 1";
+            resources.ApplyResources(this.address1, "address1");
             this.address1.Name = "address1";
             this.address1.ReadOnly = true;
-            this.address1.Width = 200;
             // 
             // address2
             // 
-            this.address2.HeaderText = "Address 2";
+            resources.ApplyResources(this.address2, "address2");
             this.address2.Name = "address2";
             this.address2.ReadOnly = true;
-            this.address2.Width = 200;
             // 
             // btnNext
             // 
             this.btnNext.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.btnNext, "btnNext");
             this.btnNext.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnNext.Location = new System.Drawing.Point(379, 404);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(107, 48);
-            this.btnNext.TabIndex = 109;
-            this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = false;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Clicked);
             // 
             // FindCustomerRecordForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(864, 471);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.dgvCustomer);
             this.Controls.Add(this.txtSearchKeywords);
             this.Controls.Add(this.lblRemind);
             this.Controls.Add(this.lblSearchKeywords);
             this.Name = "FindCustomerRecordForm";
-            this.Text = "FindCustomerRecordForm";
             this.Shown += new System.EventHandler(this.OnFormShown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomer)).EndInit();
             this.ResumeLayout(false);

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AccountingClerkNavigationForm));
             this.lblLoggedInAs = new System.Windows.Forms.Label();
             this.btnProfile = new System.Windows.Forms.Button();
             this.btnPurchaseOrders = new System.Windows.Forms.Button();
@@ -40,89 +41,62 @@
             // 
             // lblLoggedInAs
             // 
-            this.lblLoggedInAs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLoggedInAs.Location = new System.Drawing.Point(27, 15);
+            resources.ApplyResources(this.lblLoggedInAs, "lblLoggedInAs");
             this.lblLoggedInAs.Name = "lblLoggedInAs";
-            this.lblLoggedInAs.Size = new System.Drawing.Size(135, 22);
-            this.lblLoggedInAs.TabIndex = 12;
-            this.lblLoggedInAs.Text = "Logged in as";
-            this.lblLoggedInAs.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnProfile
             // 
-            this.btnProfile.Location = new System.Drawing.Point(12, 49);
+            resources.ApplyResources(this.btnProfile, "btnProfile");
             this.btnProfile.Name = "btnProfile";
-            this.btnProfile.Size = new System.Drawing.Size(164, 48);
-            this.btnProfile.TabIndex = 11;
-            this.btnProfile.Text = "(Name)";
             this.btnProfile.UseVisualStyleBackColor = true;
             this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
             // 
             // btnPurchaseOrders
             // 
-            this.btnPurchaseOrders.Location = new System.Drawing.Point(39, 134);
+            resources.ApplyResources(this.btnPurchaseOrders, "btnPurchaseOrders");
             this.btnPurchaseOrders.Name = "btnPurchaseOrders";
-            this.btnPurchaseOrders.Size = new System.Drawing.Size(111, 34);
-            this.btnPurchaseOrders.TabIndex = 10;
-            this.btnPurchaseOrders.Text = "Purchase Orders";
             this.btnPurchaseOrders.UseVisualStyleBackColor = true;
             this.btnPurchaseOrders.Click += new System.EventHandler(this.btnPurchaseOrders_Click);
             // 
             // btnSettings
             // 
-            this.btnSettings.Location = new System.Drawing.Point(39, 334);
+            resources.ApplyResources(this.btnSettings, "btnSettings");
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(111, 34);
-            this.btnSettings.TabIndex = 9;
-            this.btnSettings.Text = "Settings";
             this.btnSettings.UseVisualStyleBackColor = true;
             this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // btnSalesReport
             // 
-            this.btnSalesReport.Location = new System.Drawing.Point(39, 214);
+            resources.ApplyResources(this.btnSalesReport, "btnSalesReport");
             this.btnSalesReport.Name = "btnSalesReport";
-            this.btnSalesReport.Size = new System.Drawing.Size(111, 34);
-            this.btnSalesReport.TabIndex = 8;
-            this.btnSalesReport.Text = "Sales Report";
             this.btnSalesReport.UseVisualStyleBackColor = true;
             this.btnSalesReport.Click += new System.EventHandler(this.btnSalesReport_Click);
             // 
             // btnSalesOrder
             // 
-            this.btnSalesOrder.Location = new System.Drawing.Point(39, 174);
+            resources.ApplyResources(this.btnSalesOrder, "btnSalesOrder");
             this.btnSalesOrder.Name = "btnSalesOrder";
-            this.btnSalesOrder.Size = new System.Drawing.Size(111, 34);
-            this.btnSalesOrder.TabIndex = 7;
-            this.btnSalesOrder.Text = "Sales Order";
             this.btnSalesOrder.UseVisualStyleBackColor = true;
             this.btnSalesOrder.Click += new System.EventHandler(this.btnSalesOrder_Click);
             // 
             // btnGoodsReceived
             // 
-            this.btnGoodsReceived.Location = new System.Drawing.Point(39, 254);
+            resources.ApplyResources(this.btnGoodsReceived, "btnGoodsReceived");
             this.btnGoodsReceived.Name = "btnGoodsReceived";
-            this.btnGoodsReceived.Size = new System.Drawing.Size(111, 34);
-            this.btnGoodsReceived.TabIndex = 13;
-            this.btnGoodsReceived.Text = "Goods Received";
             this.btnGoodsReceived.UseVisualStyleBackColor = true;
             this.btnGoodsReceived.Click += new System.EventHandler(this.btnGoodsReceived_Click);
             // 
             // btnGoodsReturned
             // 
-            this.btnGoodsReturned.Location = new System.Drawing.Point(39, 294);
+            resources.ApplyResources(this.btnGoodsReturned, "btnGoodsReturned");
             this.btnGoodsReturned.Name = "btnGoodsReturned";
-            this.btnGoodsReturned.Size = new System.Drawing.Size(111, 34);
-            this.btnGoodsReturned.TabIndex = 14;
-            this.btnGoodsReturned.Text = "Goods Returned";
             this.btnGoodsReturned.UseVisualStyleBackColor = true;
             this.btnGoodsReturned.Click += new System.EventHandler(this.btnGoodsReturned_Click);
             // 
             // AccountingClerkNavigationForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(190, 450);
             this.Controls.Add(this.btnGoodsReturned);
             this.Controls.Add(this.btnGoodsReceived);
             this.Controls.Add(this.lblLoggedInAs);
@@ -132,8 +106,8 @@
             this.Controls.Add(this.btnSalesReport);
             this.Controls.Add(this.btnSalesOrder);
             this.Name = "AccountingClerkNavigationForm";
-            this.Text = "AccountingClerkNavigationForm";
             this.ResumeLayout(false);
+
         }
 
         private System.Windows.Forms.Button btnPurchaseOrders;

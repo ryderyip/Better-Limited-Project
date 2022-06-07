@@ -117,16 +117,330 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblSearchBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lblSearchBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 28</value>
+  </data>
+  <data name="lblSearchBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 13</value>
+  </data>
+  <data name="lblSearchBox.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblSearchBox.Text" xml:space="preserve">
+    <value>Search by Product Name/Supplier</value>
+  </data>
+  <data name="&gt;&gt;lblSearchBox.Name" xml:space="preserve">
+    <value>lblSearchBox</value>
+  </data>
+  <data name="&gt;&gt;lblSearchBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblSearchBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblSearchBox.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="tbSearchBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>27, 44</value>
+  </data>
+  <data name="tbSearchBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>239, 20</value>
+  </data>
+  <data name="tbSearchBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;tbSearchBox.Name" xml:space="preserve">
+    <value>tbSearchBox</value>
+  </data>
+  <data name="&gt;&gt;tbSearchBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbSearchBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tbSearchBox.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="btnRestock.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+  </data>
+  <data name="btnRestock.Location" type="System.Drawing.Point, System.Drawing">
+    <value>463, 99</value>
+  </data>
+  <data name="btnRestock.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 40</value>
+  </data>
+  <data name="btnRestock.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="btnRestock.Text" xml:space="preserve">
+    <value>Restock</value>
+  </data>
+  <data name="&gt;&gt;btnRestock.Name" xml:space="preserve">
+    <value>btnRestock</value>
+  </data>
+  <data name="&gt;&gt;btnRestock.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnRestock.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnRestock.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="cbWorkplaceSelect.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 32</value>
+  </data>
+  <data name="cbWorkplaceSelect.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 21</value>
+  </data>
+  <data name="cbWorkplaceSelect.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;cbWorkplaceSelect.Name" xml:space="preserve">
+    <value>cbWorkplaceSelect</value>
+  </data>
+  <data name="&gt;&gt;cbWorkplaceSelect.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbWorkplaceSelect.Parent" xml:space="preserve">
+    <value>gpWorkplaceSelect</value>
+  </data>
+  <data name="&gt;&gt;cbWorkplaceSelect.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblWorkplaceSelect.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblWorkplaceSelect.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 16</value>
+  </data>
+  <data name="lblWorkplaceSelect.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 13</value>
+  </data>
+  <data name="lblWorkplaceSelect.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="lblWorkplaceSelect.Text" xml:space="preserve">
+    <value>Select Retail Store/Warehouse</value>
+  </data>
+  <data name="&gt;&gt;lblWorkplaceSelect.Name" xml:space="preserve">
+    <value>lblWorkplaceSelect</value>
+  </data>
+  <data name="&gt;&gt;lblWorkplaceSelect.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblWorkplaceSelect.Parent" xml:space="preserve">
+    <value>gpWorkplaceSelect</value>
+  </data>
+  <data name="&gt;&gt;lblWorkplaceSelect.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="gpWorkplaceSelect.Location" type="System.Drawing.Point, System.Drawing">
+    <value>334, 28</value>
+  </data>
+  <data name="gpWorkplaceSelect.Size" type="System.Drawing.Size, System.Drawing">
+    <value>236, 62</value>
+  </data>
+  <data name="gpWorkplaceSelect.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="gpWorkplaceSelect.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;gpWorkplaceSelect.Name" xml:space="preserve">
+    <value>gpWorkplaceSelect</value>
+  </data>
+  <data name="&gt;&gt;gpWorkplaceSelect.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gpWorkplaceSelect.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gpWorkplaceSelect.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <metadata name="name.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="name.HeaderText" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="name.Width" type="System.Int32, mscorlib">
+    <value>230</value>
+  </data>
   <metadata name="quantity.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="quantity.HeaderText" xml:space="preserve">
+    <value>Qty</value>
+  </data>
+  <data name="quantity.Width" type="System.Int32, mscorlib">
+    <value>50</value>
+  </data>
   <metadata name="selling_price.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="selling_price.HeaderText" xml:space="preserve">
+    <value>Selling Price</value>
+  </data>
   <metadata name="category.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="category.HeaderText" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="category.Width" type="System.Int32, mscorlib">
+    <value>120</value>
+  </data>
+  <data name="dgvProductList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>27, 158</value>
+  </data>
+  <data name="dgvProductList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>543, 265</value>
+  </data>
+  <data name="dgvProductList.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;dgvProductList.Name" xml:space="preserve">
+    <value>dgvProductList</value>
+  </data>
+  <data name="&gt;&gt;dgvProductList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dgvProductList.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;dgvProductList.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="btnNewProductClicked.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+  </data>
+  <data name="btnNewProductClicked.Location" type="System.Drawing.Point, System.Drawing">
+    <value>325, 99</value>
+  </data>
+  <data name="btnNewProductClicked.Size" type="System.Drawing.Size, System.Drawing">
+    <value>132, 39</value>
+  </data>
+  <data name="btnNewProductClicked.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="btnNewProductClicked.Text" xml:space="preserve">
+    <value>New Product</value>
+  </data>
+  <data name="btnNewProductClicked.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;btnNewProductClicked.Name" xml:space="preserve">
+    <value>btnNewProductClicked</value>
+  </data>
+  <data name="&gt;&gt;btnNewProductClicked.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnNewProductClicked.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnNewProductClicked.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="cbCategoryFilter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>27, 118</value>
+  </data>
+  <data name="cbCategoryFilter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>195, 21</value>
+  </data>
+  <data name="cbCategoryFilter.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;cbCategoryFilter.Name" xml:space="preserve">
+    <value>cbCategoryFilter</value>
+  </data>
+  <data name="&gt;&gt;cbCategoryFilter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbCategoryFilter.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cbCategoryFilter.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblCategoryFilter.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblCategoryFilter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 102</value>
+  </data>
+  <data name="lblCategoryFilter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 13</value>
+  </data>
+  <data name="lblCategoryFilter.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="lblCategoryFilter.Text" xml:space="preserve">
+    <value>Filter By Category</value>
+  </data>
+  <data name="&gt;&gt;lblCategoryFilter.Name" xml:space="preserve">
+    <value>lblCategoryFilter</value>
+  </data>
+  <data name="&gt;&gt;lblCategoryFilter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblCategoryFilter.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblCategoryFilter.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>zh-Hans-HK</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>655, 449</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>ProductListForm</value>
+  </data>
+  <data name="&gt;&gt;name.Name" xml:space="preserve">
+    <value>name</value>
+  </data>
+  <data name="&gt;&gt;name.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;quantity.Name" xml:space="preserve">
+    <value>quantity</value>
+  </data>
+  <data name="&gt;&gt;quantity.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;selling_price.Name" xml:space="preserve">
+    <value>selling_price</value>
+  </data>
+  <data name="&gt;&gt;selling_price.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;category.Name" xml:space="preserve">
+    <value>category</value>
+  </data>
+  <data name="&gt;&gt;category.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>ProductListForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

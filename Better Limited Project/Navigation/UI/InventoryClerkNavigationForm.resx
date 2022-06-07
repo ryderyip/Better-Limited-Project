@@ -117,4 +117,270 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lblLoggedInAs.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+  </data>
+  <data name="lblLoggedInAs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>27, 16</value>
+  </data>
+  <data name="lblLoggedInAs.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblLoggedInAs.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="lblLoggedInAs.Text" xml:space="preserve">
+    <value>Logged in as</value>
+  </data>
+  <data name="lblLoggedInAs.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;lblLoggedInAs.Name" xml:space="preserve">
+    <value>lblLoggedInAs</value>
+  </data>
+  <data name="&gt;&gt;lblLoggedInAs.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblLoggedInAs.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblLoggedInAs.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="btnProfile.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 50</value>
+  </data>
+  <data name="btnProfile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>164, 48</value>
+  </data>
+  <data name="btnProfile.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="btnProfile.Text" xml:space="preserve">
+    <value>(Name)</value>
+  </data>
+  <data name="&gt;&gt;btnProfile.Name" xml:space="preserve">
+    <value>btnProfile</value>
+  </data>
+  <data name="&gt;&gt;btnProfile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnProfile.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnProfile.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="btnDeliveryRequests.Location" type="System.Drawing.Point, System.Drawing">
+    <value>41, 120</value>
+  </data>
+  <data name="btnDeliveryRequests.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 34</value>
+  </data>
+  <data name="btnDeliveryRequests.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="btnDeliveryRequests.Text" xml:space="preserve">
+    <value>Delivery Requests</value>
+  </data>
+  <data name="&gt;&gt;btnDeliveryRequests.Name" xml:space="preserve">
+    <value>btnDeliveryRequests</value>
+  </data>
+  <data name="&gt;&gt;btnDeliveryRequests.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnDeliveryRequests.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnDeliveryRequests.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="btnSettings.Location" type="System.Drawing.Point, System.Drawing">
+    <value>41, 400</value>
+  </data>
+  <data name="btnSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 34</value>
+  </data>
+  <data name="btnSettings.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="btnSettings.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="&gt;&gt;btnSettings.Name" xml:space="preserve">
+    <value>btnSettings</value>
+  </data>
+  <data name="&gt;&gt;btnSettings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSettings.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnSettings.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="btnGoodsReceived.Location" type="System.Drawing.Point, System.Drawing">
+    <value>41, 160</value>
+  </data>
+  <data name="btnGoodsReceived.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 34</value>
+  </data>
+  <data name="btnGoodsReceived.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="btnGoodsReceived.Text" xml:space="preserve">
+    <value>Goods Received</value>
+  </data>
+  <data name="&gt;&gt;btnGoodsReceived.Name" xml:space="preserve">
+    <value>btnGoodsReceived</value>
+  </data>
+  <data name="&gt;&gt;btnGoodsReceived.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnGoodsReceived.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnGoodsReceived.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="btnGoodsReturned.Location" type="System.Drawing.Point, System.Drawing">
+    <value>41, 200</value>
+  </data>
+  <data name="btnGoodsReturned.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 34</value>
+  </data>
+  <data name="btnGoodsReturned.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="btnGoodsReturned.Text" xml:space="preserve">
+    <value>Goods Returned</value>
+  </data>
+  <data name="&gt;&gt;btnGoodsReturned.Name" xml:space="preserve">
+    <value>btnGoodsReturned</value>
+  </data>
+  <data name="&gt;&gt;btnGoodsReturned.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnGoodsReturned.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnGoodsReturned.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btnReorderRequests.Location" type="System.Drawing.Point, System.Drawing">
+    <value>41, 240</value>
+  </data>
+  <data name="btnReorderRequests.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 34</value>
+  </data>
+  <data name="btnReorderRequests.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="btnReorderRequests.Text" xml:space="preserve">
+    <value>Reorder Requests</value>
+  </data>
+  <data name="&gt;&gt;btnReorderRequests.Name" xml:space="preserve">
+    <value>btnReorderRequests</value>
+  </data>
+  <data name="&gt;&gt;btnReorderRequests.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnReorderRequests.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnReorderRequests.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btnRestockRequests.Location" type="System.Drawing.Point, System.Drawing">
+    <value>41, 280</value>
+  </data>
+  <data name="btnRestockRequests.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 34</value>
+  </data>
+  <data name="btnRestockRequests.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="btnRestockRequests.Text" xml:space="preserve">
+    <value>Restock Requests</value>
+  </data>
+  <data name="&gt;&gt;btnRestockRequests.Name" xml:space="preserve">
+    <value>btnRestockRequests</value>
+  </data>
+  <data name="&gt;&gt;btnRestockRequests.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnRestockRequests.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnRestockRequests.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnInventory.Location" type="System.Drawing.Point, System.Drawing">
+    <value>41, 320</value>
+  </data>
+  <data name="btnInventory.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 34</value>
+  </data>
+  <data name="btnInventory.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="btnInventory.Text" xml:space="preserve">
+    <value>Inventory</value>
+  </data>
+  <data name="&gt;&gt;btnInventory.Name" xml:space="preserve">
+    <value>btnInventory</value>
+  </data>
+  <data name="&gt;&gt;btnInventory.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnInventory.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnInventory.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnDeliveryDuty.Location" type="System.Drawing.Point, System.Drawing">
+    <value>41, 360</value>
+  </data>
+  <data name="btnDeliveryDuty.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 34</value>
+  </data>
+  <data name="btnDeliveryDuty.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="btnDeliveryDuty.Text" xml:space="preserve">
+    <value>Delivery Duty</value>
+  </data>
+  <data name="&gt;&gt;btnDeliveryDuty.Name" xml:space="preserve">
+    <value>btnDeliveryDuty</value>
+  </data>
+  <data name="&gt;&gt;btnDeliveryDuty.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnDeliveryDuty.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnDeliveryDuty.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>197, 450</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>InventoryClerkNavigationForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>InventoryClerkNavigationForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>
