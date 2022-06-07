@@ -6,7 +6,7 @@ using Better_Limited_Project.ProductUtility.Repository;
 
 namespace Better_Limited_Project.Sales.OrderPlacing.Entity
 {
-    public class Cart
+    public class Cart // TODO Unit Test
     {
         private readonly string _retailStoreId;
         public event EventHandler? Updated;
@@ -23,33 +23,24 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
         public void Add(Product product)
         {
             var stock = _stocks.First(s => s.Product.Id == product.Id);
-
             var cartItem = _cartItems.FirstOrDefault(item => item.Product.Id == product.Id);
 
-            // Product already in cart
-            if (cartItem != null)
+            if (stock.Quantity != 0)
             {
-                // Still have stock left
-                if (stock.Quantity != 0)
-                {
-                    cartItem.Quantity++;
-                    stock.Quantity--;
-                }
-                else
-                    AddToDepositCart(product, stock);
-            }
-            // Product not in cart
-            else
-            {
-                if (stock.Quantity != 0)
+                if (cartItem == null)
                 {
                     _cartItems.Add(new CartItem(product, 1, stock.SellingPrice, false));
                     stock.Quantity--;
                 }
-                else if (stock.SellingPrice >= Product.DepositThreshold)
-                    AddToDepositCart(product, stock);
+                else
+                {
+                    cartItem.Quantity++;
+                    stock.Quantity--;
+                }
             }
-
+            else if (stock.SellingPrice >= Product.DepositThreshold)
+                AddToDepositCart(product, stock);
+            
             Updated?.Invoke(this, EventArgs.Empty);
         }
 
