@@ -29,7 +29,7 @@ namespace Better_Limited_Project.Sales.PaymentUtility
             _salesOrderProducts = salesOrder.GetSalesOrderProducts().ToList();
             if (salesOrder.Customer == null)
                 throw new ArgumentException("Deposit receipt need customer's information.");
-            _location = UserSettings.GetSettings().DefaultDocumentGenerationDirectoryPath;
+            _location = UserSettings.GetSettings().DocumentGenerationDirectoryPath;
         }
 
         public void GenerateAndOpen()

@@ -28,7 +28,7 @@ namespace Better_Limited_Project.Sales.PaymentUtility
         {
             _salesOrder = salesOrder;
             _salesOrderProducts = salesOrder.GetSalesOrderProducts().ToList();
-            _location = UserSettings.GetSettings().DefaultDocumentGenerationDirectoryPath;
+            _location = UserSettings.GetSettings().DocumentGenerationDirectoryPath;
         }
 
         public void GenerateAndOpen()

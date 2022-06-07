@@ -33,7 +33,7 @@ namespace Better_Limited_Project.SettingsUtility
             oldSettings.Language = newSettings.Language;
             oldSettings.Theme = newSettings.Theme;
             oldSettings.Workplace = newSettings.Workplace;
-            oldSettings.DefaultDocumentGenerationDirectoryPath = newSettings.DefaultDocumentGenerationDirectoryPath;
+            oldSettings.DocumentGenerationDirectoryPath = newSettings.DocumentGenerationDirectoryPath;
             oldSettings.Save();
             ReOpenForm();
         }

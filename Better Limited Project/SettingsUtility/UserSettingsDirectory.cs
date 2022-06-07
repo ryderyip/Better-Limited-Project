@@ -7,7 +7,6 @@ namespace Better_Limited_Project.SettingsUtility
     {
         private const string BaseFolderName = "Better Limited";
         public const string SettingsFileName = "User Settings.ini";
-        public const string GeneratedDocumentName = "Document";
 
         public static string GetSettingsDirectory()
         {

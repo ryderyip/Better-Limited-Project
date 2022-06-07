@@ -33,7 +33,7 @@ namespace Better_Limited_Project.SettingsUtility
         public void ShowCurrentSettings(UserSettings settings)
         {
             ShowCurrentLanguage(settings.Language);
-            ShowCurrentDocumentPath(settings.DefaultDocumentGenerationDirectoryPath);
+            ShowCurrentDocumentPath(settings.DocumentGenerationDirectoryPath);
             if (_staffDepartment is not (Department.Sales or Department.Inventory)) 
                 return;
             
@@ -97,6 +97,7 @@ namespace Better_Limited_Project.SettingsUtility
             settings.Language = CollectSelectedLanguage();
             if (_isSalesOrInventory)
                 settings.Workplace = CollectSelectedWorkplace();
+            settings.DocumentGenerationDirectoryPath = tbDocPath.Text;
             return settings;
         }
 

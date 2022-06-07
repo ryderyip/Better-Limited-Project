@@ -36,9 +36,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
                     stock.Quantity--;
                 }
                 else
-                {
                     AddToDepositCart(product, stock);
-                }
             }
             // Product not in cart
             else

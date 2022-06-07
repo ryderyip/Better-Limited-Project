@@ -28,7 +28,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.Controller
 
             var date = _deliveries.First().ScheduledOn.ToString("yy-MMM-dd ddd");
             _fileName = $"daily delivery list ({date}).pdf";
-            _location = UserSettings.GetSettings().DefaultDocumentGenerationDirectoryPath;
+            _location = UserSettings.GetSettings().DocumentGenerationDirectoryPath;
         }
 
         public void GenerateAndOpen()

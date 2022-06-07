@@ -14,11 +14,11 @@ namespace Better_Limited_Project.SettingsUtility
         public Theme Theme { get; set; }
         public IWorkplace? Workplace { get; set; }
         public string? LastLoginUsername { get; set; }
-        public string DefaultDocumentGenerationDirectoryPath { get; set; }
+        public string DocumentGenerationDirectoryPath { get; set; }
 
         public UserSettings()
         {
-            DefaultDocumentGenerationDirectoryPath =
+            DocumentGenerationDirectoryPath =
                 UserSettingsDirectory.GetDefaultDocumentGenerationDirectoryPath();
         }
 
