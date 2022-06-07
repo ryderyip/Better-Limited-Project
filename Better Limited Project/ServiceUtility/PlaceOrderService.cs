@@ -95,7 +95,7 @@ namespace Better_Limited_Project.ServiceUtility
             _salesOrderProduct.ToList()
                 .ForEach(sop =>
                 {
-                    var payments = sop.GetPayments().ToList();
+                    var payments = sop.GetProductPayments().ToList();
                     payments.Add(new SalesOrderProductPayment(sop.SalesOrderId, sop.ProductId,
                         payment.Id, sop.Quantity, sop.IsOutOfStock));
                     payments.ToList().ForEach(p =>
@@ -122,7 +122,10 @@ namespace Better_Limited_Project.ServiceUtility
         private void CompleteOrderPlacing()
         {
             MessageBox.Show(StringResources.order_placed);
-            new PaymentReceiptGenerator(_order).GenerateAndOpen();
+            if (_salesOrderProduct.Any(sop => sop.IsOutOfStock))
+                new DepositReceiptGenerator(_order).GenerateAndOpen();
+            if (_salesOrderProduct.Any(sop => !sop.IsOutOfStock))
+                new PaymentReceiptGenerator(_order).GenerateAndOpen();
             SalesOrderPlaced?.Invoke(this, EventArgs.Empty);
         }
     }

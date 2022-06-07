@@ -26,7 +26,8 @@ namespace Better_Limited_Project.Sales.PaymentUtility
         public PaymentReceiptGenerator(SalesOrder salesOrder)
         {
             _salesOrder = salesOrder;
-            _salesOrderProducts = salesOrder.GetSalesOrderProducts().ToList();
+            _salesOrderProducts = salesOrder.GetSalesOrderProducts()
+                .Where(sop => sop.GetPaymentStatus() is SalesOrderProductPaymentStatus.FullyPaid).ToList();
             _location = UserSettings.GetSettings().DocumentGenerationDirectoryPath;
         }
 
@@ -48,6 +49,7 @@ namespace Better_Limited_Project.Sales.PaymentUtility
             {
                 MessageBox.Show(PaymentStringResources.FileBeingUsedByAnotherProcess);
             }
+
             Process.Start(path);
         }
 
@@ -217,7 +219,7 @@ namespace Better_Limited_Project.Sales.PaymentUtility
             table.SetEdge(0, 0, 4, 1, Edge.Box, BorderStyle.Single, 0.75, Color.Empty);
 
             int rowCount = 0;
-            foreach (var salesOrderProduct in _salesOrderProducts.Where(sop => sop.GetPaymentStatus() is SalesOrderProductPaymentStatus.FullyPaid))
+            foreach (var salesOrderProduct in _salesOrderProducts)
             {
                 row = table.AddRow();
                 row.Format.Alignment = ParagraphAlignment.Center;
@@ -229,10 +231,12 @@ namespace Better_Limited_Project.Sales.PaymentUtility
                 row.Cells[2].Format.Alignment = ParagraphAlignment.Left;
                 row.Cells[3].AddParagraph(salesOrderProduct.Quantity.ToString());
                 row.Cells[3].Format.Alignment = ParagraphAlignment.Left;
-                row.Cells[4].AddParagraph((salesOrderProduct.Price * salesOrderProduct.Quantity).ToString("C", new CultureInfo("zh-HK")));
+                row.Cells[4]
+                    .AddParagraph(
+                        (salesOrderProduct.Price * salesOrderProduct.Quantity).ToString("C", new CultureInfo("zh-HK")));
                 row.Cells[4].Format.Alignment = ParagraphAlignment.Left;
             }
-            
+
             row = table.AddRow();
             row.Cells[0].MergeRight = table.Columns.Count - 1;
             decimal total = _salesOrderProducts.Sum(sop => sop.Price * sop.Quantity);

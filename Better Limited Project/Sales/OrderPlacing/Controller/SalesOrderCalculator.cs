@@ -43,14 +43,14 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Controller
 
         public decimal GetAmountPaid()
         {
-            return (from sop in _salesOrderProducts select sop.GetPayments()).SelectMany(payments => payments)
+            return (from sop in _salesOrderProducts select sop.GetProductPayments()).SelectMany(payments => payments)
                 .GroupBy(p => p.PaymentId)
                 .Sum(paymentIdPayment => PaymentRepository.FindById(paymentIdPayment.Key).Amount);
         }
 
         public bool IsAllPaymentCompleted()
         {
-            return _salesOrderProducts.All(sop => sop.GetPayments().Count() != 0)
+            return _salesOrderProducts.All(sop => sop.GetProductPayments().Count() != 0)
                    && GetTotalAmount() >= GetAmountPaid();
         }
 

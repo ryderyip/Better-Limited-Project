@@ -7,7 +7,6 @@ using System.Linq;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.Controller;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
-using Better_Limited_Project.Sales.PaymentUtility.Repository;
 using Better_Limited_Project.SettingsUtility;
 using MigraDoc.DocumentObjectModel;
 using MigraDoc.DocumentObjectModel.Shapes;
@@ -26,7 +25,8 @@ namespace Better_Limited_Project.Sales.PaymentUtility
         public DepositReceiptGenerator(SalesOrder salesOrder)
         {
             _salesOrder = salesOrder;
-            _salesOrderProducts = salesOrder.GetSalesOrderProducts().ToList();
+            _salesOrderProducts = salesOrder.GetSalesOrderProducts()
+                .Where(sop => sop.GetProductPayments().Any(sopp => sopp.IsDeposit)).ToList();
             if (salesOrder.Customer == null)
                 throw new ArgumentException("Deposit receipt need customer's information.");
             _location = UserSettings.GetSettings().DocumentGenerationDirectoryPath;
@@ -83,8 +83,7 @@ namespace Better_Limited_Project.Sales.PaymentUtility
 
             var order = new SalesOrderCalculator(_salesOrder);
             var statement = section.AddParagraph();
-            var method = PaymentRepository
-                .FindById(_salesOrderProducts.First().GetPayments().First().PaymentId).PaymentMethod;
+            var method = _salesOrderProducts.First().GetProductPayments().First().GetPayment().PaymentMethod;
             string methodText = method is PaymentMethod.CreditCard ? "Credit Card" : method.ToString();
             decimal remainingFund = order.GetTotalAmount() - order.GetAmountPaid();
             string statementText = $"The receipt is for a product deposit for out of stock items in the amount of " +
@@ -157,7 +156,7 @@ namespace Better_Limited_Project.Sales.PaymentUtility
             table.SetEdge(0, 0, 4, 1, Edge.Box, BorderStyle.Single, 0.75, Color.Empty);
 
             int rowCount = 0;
-            foreach (var salesOrderProduct in _salesOrderProducts.Where(sop => sop.GetPayments().Any(sopp => sopp.IsDeposit)))
+            foreach (var salesOrderProduct in _salesOrderProducts)
             {
                 row = table.AddRow();
                 row.Format.Alignment = ParagraphAlignment.Center;

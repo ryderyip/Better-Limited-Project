@@ -1,4 +1,6 @@
 ﻿using Better_Limited_Project.Sales.OrderPlacing.Repository;
+using Better_Limited_Project.Sales.PaymentUtility;
+using Better_Limited_Project.Sales.PaymentUtility.Repository;
 
 namespace Better_Limited_Project.Sales.OrderPlacing.Entity
 {
@@ -22,6 +24,11 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
         public void Save()
         {
             SalesOrderProductPaymentRepository.InsertOrUpdate(this);
+        }
+
+        public Payment GetPayment()
+        {
+            return PaymentRepository.FindById(PaymentId);
         }
     }
 }

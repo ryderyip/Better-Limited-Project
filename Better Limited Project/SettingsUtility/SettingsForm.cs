@@ -45,6 +45,8 @@ namespace Better_Limited_Project.SettingsUtility
             cbWorkplace.SelectedIndex = settings.Workplace != null
                 ? cbWorkplace.FindStringExact(settings.Workplace.Name)
                 : 0;
+            if (cbWorkplace.SelectedIndex == -1)
+                cbWorkplace.SelectedIndex = 0;
         }
 
         private void ShowLabelAccordingToWorkplace()

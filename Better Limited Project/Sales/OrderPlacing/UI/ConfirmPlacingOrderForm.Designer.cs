@@ -45,16 +45,16 @@
             this.tbAmountDue = new System.Windows.Forms.TextBox();
             this.btnPay = new System.Windows.Forms.Button();
             this.dgvProducts = new System.Windows.Forms.DataGridView();
-            this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subtotalColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblHeader = new System.Windows.Forms.Label();
             this.tbPriceToPayWhenStockReplenished = new System.Windows.Forms.TextBox();
             this.lblPriceToPayWhenStockReplenished = new System.Windows.Forms.Label();
             this.panDepositPrice = new System.Windows.Forms.Panel();
             this.lblOutOfStock = new System.Windows.Forms.Label();
             this.outOfStockRectangle = new System.Windows.Forms.Button();
+            this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subtotalColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.panDepositPrice.SuspendLayout();
             this.SuspendLayout();
@@ -158,30 +158,6 @@
             this.dgvProducts.Name = "dgvProducts";
             this.dgvProducts.ReadOnly = true;
             // 
-            // nameColumn
-            // 
-            resources.ApplyResources(this.nameColumn, "nameColumn");
-            this.nameColumn.Name = "nameColumn";
-            this.nameColumn.ReadOnly = true;
-            // 
-            // priceColumn
-            // 
-            resources.ApplyResources(this.priceColumn, "priceColumn");
-            this.priceColumn.Name = "priceColumn";
-            this.priceColumn.ReadOnly = true;
-            // 
-            // quantityColumn
-            // 
-            resources.ApplyResources(this.quantityColumn, "quantityColumn");
-            this.quantityColumn.Name = "quantityColumn";
-            this.quantityColumn.ReadOnly = true;
-            // 
-            // subtotalColumn
-            // 
-            resources.ApplyResources(this.subtotalColumn, "subtotalColumn");
-            this.subtotalColumn.Name = "subtotalColumn";
-            this.subtotalColumn.ReadOnly = true;
-            // 
             // lblHeader
             // 
             resources.ApplyResources(this.lblHeader, "lblHeader");
@@ -222,6 +198,30 @@
             this.outOfStockRectangle.ForeColor = System.Drawing.Color.Black;
             this.outOfStockRectangle.Name = "outOfStockRectangle";
             this.outOfStockRectangle.UseVisualStyleBackColor = false;
+            // 
+            // nameColumn
+            // 
+            resources.ApplyResources(this.nameColumn, "nameColumn");
+            this.nameColumn.Name = "nameColumn";
+            this.nameColumn.ReadOnly = true;
+            // 
+            // priceColumn
+            // 
+            resources.ApplyResources(this.priceColumn, "priceColumn");
+            this.priceColumn.Name = "priceColumn";
+            this.priceColumn.ReadOnly = true;
+            // 
+            // quantityColumn
+            // 
+            resources.ApplyResources(this.quantityColumn, "quantityColumn");
+            this.quantityColumn.Name = "quantityColumn";
+            this.quantityColumn.ReadOnly = true;
+            // 
+            // subtotalColumn
+            // 
+            resources.ApplyResources(this.subtotalColumn, "subtotalColumn");
+            this.subtotalColumn.Name = "subtotalColumn";
+            this.subtotalColumn.ReadOnly = true;
             // 
             // ConfirmPlacingOrderForm
             // 

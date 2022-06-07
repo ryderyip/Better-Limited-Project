@@ -453,7 +453,7 @@
     <value>346, 159</value>
   </data>
   <data name="txtCustPhoneNumber.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 20</value>
+    <value>182, 20</value>
   </data>
   <data name="txtCustPhoneNumber.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
@@ -477,7 +477,7 @@
     <value>346, 106</value>
   </data>
   <data name="txtCustName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 20</value>
+    <value>182, 20</value>
   </data>
   <data name="txtCustName.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
@@ -564,7 +564,7 @@
     <value>Microsoft Sans Serif, 12pt, style=Bold</value>
   </data>
   <data name="lblDeliveryInfo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>516, 46</value>
+    <value>570, 46</value>
   </data>
   <data name="lblDeliveryInfo.Size" type="System.Drawing.Size, System.Drawing">
     <value>109, 20</value>
@@ -588,10 +588,10 @@
     <value>15</value>
   </data>
   <data name="txtAddress2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>519, 160</value>
+    <value>574, 159</value>
   </data>
   <data name="txtAddress2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>248, 20</value>
+    <value>295, 20</value>
   </data>
   <data name="txtAddress2.TabIndex" type="System.Int32, mscorlib">
     <value>83</value>
@@ -618,7 +618,7 @@
     <value>Microsoft Sans Serif, 9pt</value>
   </data>
   <data name="lblAddress2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>517, 142</value>
+    <value>572, 141</value>
   </data>
   <data name="lblAddress2.Size" type="System.Drawing.Size, System.Drawing">
     <value>64, 15</value>
@@ -642,10 +642,10 @@
     <value>12</value>
   </data>
   <data name="txtAddress1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>519, 114</value>
+    <value>573, 107</value>
   </data>
   <data name="txtAddress1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>248, 20</value>
+    <value>295, 20</value>
   </data>
   <data name="txtAddress1.TabIndex" type="System.Int32, mscorlib">
     <value>81</value>
@@ -672,7 +672,7 @@
     <value>Microsoft Sans Serif, 9pt</value>
   </data>
   <data name="lblAddress1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>517, 96</value>
+    <value>571, 89</value>
   </data>
   <data name="lblAddress1.Size" type="System.Drawing.Size, System.Drawing">
     <value>64, 15</value>
@@ -699,7 +699,7 @@
     <value>Microsoft Sans Serif, 12pt, style=Bold</value>
   </data>
   <data name="BtnPaymentReceipt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>201, 451</value>
+    <value>245, 451</value>
   </data>
   <data name="BtnPaymentReceipt.Size" type="System.Drawing.Size, System.Drawing">
     <value>129, 54</value>
@@ -726,7 +726,7 @@
     <value>Microsoft Sans Serif, 12pt, style=Bold</value>
   </data>
   <data name="btnSettleIncompletePayment.Location" type="System.Drawing.Point, System.Drawing">
-    <value>389, 451</value>
+    <value>469, 451</value>
   </data>
   <data name="btnSettleIncompletePayment.Size" type="System.Drawing.Size, System.Drawing">
     <value>185, 54</value>
@@ -753,7 +753,7 @@
     <value>346, 212</value>
   </data>
   <data name="txtCustEmail.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 20</value>
+    <value>182, 20</value>
   </data>
   <data name="txtCustEmail.TabIndex" type="System.Int32, mscorlib">
     <value>108</value>
@@ -836,9 +836,6 @@
   <data name="stockStatusColumn.HeaderText" xml:space="preserve">
     <value>Stock Status</value>
   </data>
-  <data name="stockStatusColumn.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <metadata name="dgvProductsPrice.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -870,7 +867,7 @@
     <value>274, 264</value>
   </data>
   <data name="dgvProducts.Size" type="System.Drawing.Size, System.Drawing">
-    <value>493, 162</value>
+    <value>594, 162</value>
   </data>
   <data name="dgvProducts.TabIndex" type="System.Int32, mscorlib">
     <value>109</value>
@@ -945,7 +942,7 @@
     <value>Microsoft Sans Serif, 12pt, style=Bold</value>
   </data>
   <data name="btnDepositReceipt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>638, 451</value>
+    <value>739, 451</value>
   </data>
   <data name="btnDepositReceipt.Size" type="System.Drawing.Size, System.Drawing">
     <value>129, 54</value>
@@ -996,10 +993,10 @@
     <value>2</value>
   </data>
   <data name="tbDeliveryStatus.Location" type="System.Drawing.Point, System.Drawing">
-    <value>519, 213</value>
+    <value>573, 213</value>
   </data>
   <data name="tbDeliveryStatus.Size" type="System.Drawing.Size, System.Drawing">
-    <value>248, 20</value>
+    <value>180, 20</value>
   </data>
   <data name="tbDeliveryStatus.TabIndex" type="System.Int32, mscorlib">
     <value>117</value>
@@ -1026,7 +1023,7 @@
     <value>Microsoft Sans Serif, 9.75pt</value>
   </data>
   <data name="lblDeliveryStatus.Location" type="System.Drawing.Point, System.Drawing">
-    <value>516, 194</value>
+    <value>570, 194</value>
   </data>
   <data name="lblDeliveryStatus.Size" type="System.Drawing.Size, System.Drawing">
     <value>98, 16</value>
@@ -1056,7 +1053,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>800, 521</value>
+    <value>892, 521</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>-</value>

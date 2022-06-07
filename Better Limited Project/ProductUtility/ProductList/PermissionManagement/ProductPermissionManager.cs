@@ -51,14 +51,14 @@ namespace Better_Limited_Project.ProductUtility.ProductList.PermissionManagement
             };
         }
 
-        public static bool CanCurrentStaffEditProductOriginalInformation()
+        public static bool CanEditAllInformation()
         {
             return CanCurrentStaffCreateProduct();
         }
         
         public static bool CanCurrentStaffUpdateProduct()
         {
-            return CanCurrentStaffEditPhasingOut() || CanCurrentStaffEditProductOriginalInformation();
+            return CanCurrentStaffEditPhasingOut() || CanEditAllInformation();
         }
     }
 }

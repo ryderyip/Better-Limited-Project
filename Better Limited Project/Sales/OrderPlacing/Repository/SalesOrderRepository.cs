@@ -31,12 +31,12 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
                 let customerId = row.Field<int?>("customer_id")
                 let staff = new StaffRepository().FindById(row.Field<int>("created_by_staff_id").ToString())
                 let retailStore = new RetailStoreRepository().GetById(row.Field<string>("retail_store_id"))
-                select new SalesOrder(id, orderNumber, staff, retailStore)
+                let createOn = row.Field<DateTime>("created_on")
+                select new SalesOrder(id, orderNumber, staff, retailStore, createOn)
                 {
                     Customer = customerId.HasValue
                         ? new CustomerRepository().FindById(customerId.Value.ToString())
-                        : null,
-                    CreatedOn = row.Field<DateTime>("created_on")
+                        : null
                 };
         }
 

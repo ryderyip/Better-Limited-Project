@@ -33,7 +33,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
 
         public SalesOrderProductPaymentStatus GetPaymentStatus()
         {
-            var payments = GetPayments().ToList();
+            var payments = GetProductPayments().ToList();
             decimal due = Price * Quantity;
             if (payments.Sum(sopp => PaymentRepository.FindById(sopp.PaymentId).Amount) >= due)
                 return SalesOrderProductPaymentStatus.FullyPaid;
@@ -42,7 +42,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
                 : SalesOrderProductPaymentStatus.AwaitingPayment;
         }
 
-        public IEnumerable<SalesOrderProductPayment> GetPayments()
+        public IEnumerable<SalesOrderProductPayment> GetProductPayments()
         {
             return SalesOrderProductPaymentRepository.GetByIds(SalesOrderId, ProductId);
         }

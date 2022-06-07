@@ -17,14 +17,16 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
             OrderNumber = new SalesOrderRepository().GetNewOrderNumber();
             Staff = staff;
             RetailStore = retailStore;
+            CreatedOn = DateTime.Now;
         }
 
-        public SalesOrder(string id, string orderNumber, Staff staff, RetailStore retailStore)
+        public SalesOrder(string id, string orderNumber, Staff staff, RetailStore retailStore, DateTime createdOn)
         {
             Id = id;
             OrderNumber = orderNumber;
             Staff = staff;
             RetailStore = retailStore;
+            CreatedOn = createdOn;
         }
 
         public string Id { get; }

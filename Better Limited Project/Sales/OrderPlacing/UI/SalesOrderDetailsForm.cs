@@ -59,10 +59,8 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
                 btnEditOrder.Visible = false;
             }
 
-            if (_salesOrderProducts.All(sop => sop.GetPayments().All(sopp => !sopp.IsDeposit)))
+            if (_salesOrderProducts.All(sop => sop.GetProductPayments().All(sopp => !sopp.IsDeposit)))
                 btnDepositReceipt.Enabled = false;
-
-            stockStatusColumn.Visible = true;
         }
 
         private void FillFields()
@@ -99,7 +97,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
 
         private void BtnPaymentReceipt_Click(object sender, EventArgs e)
         {
-            if (_salesOrderProducts.All(sop => sop.GetPayments().Any(sopp => sopp.IsDeposit)))
+            if (_salesOrderProducts.All(sop => sop.GetProductPayments().Any(sopp => sopp.IsDeposit)))
             {
                 MessageBox.Show(PaymentStringResources.cantViewPaymentReceipt);
                 return;

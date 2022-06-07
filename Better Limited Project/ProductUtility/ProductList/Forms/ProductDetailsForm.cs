@@ -24,7 +24,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             RefreshProductInfo();
             if (!ProductPermissionManager.CanCurrentStaffEditSellingPrice())
                 btnUpdateProductInfo.Visible = false;
-            if (!ProductPermissionManager.CanCurrentStaffEditProductOriginalInformation())
+            if (!ProductPermissionManager.CanEditAllInformation())
                 btnEditDescription.Visible = false;
             if (!ProductPermissionManager.CanCurrentStaffRemoveProduct())
                 btnRemoveProduct.Visible = false;
@@ -70,7 +70,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 
         private void btnUpdateProductInfo_Click(object sender, EventArgs e)
         {
-            IUpdateProductForm form = ProductPermissionManager.CanCurrentStaffEditProductOriginalInformation()
+            IUpdateProductForm form = ProductPermissionManager.CanEditAllInformation()
                 ? new UpdateProductAdminForm(_stock)
                 : new UpdateProductForm(_stock);
             form.ProductUpdated += (_, _) => RefreshProductInfo();
