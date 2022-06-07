@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Globalization;
-using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.ProductUtility.ProductList.PermissionManagement;
-using Better_Limited_Project.ProductUtility.Repository;
-using Better_Limited_Project.Sales.OrderPlacing.Repository;
 using Better_Limited_Project.Tools;
 
 namespace Better_Limited_Project.ProductUtility.ProductList.Forms
@@ -67,8 +64,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 
         private void RefreshProductInfo()
         {
-            _stock = StockRepository.GetStocks(_stock.Workplace.Id)
-                .First(s => s.Product.Id == _stock.Product.Id);
+            _stock = _stock.Workplace.GetProductStock(_stock.Product.Id);
             FillAllFields();
         }
 
@@ -84,7 +80,8 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 
         private void btnRemoveProduct_Click(object sender, EventArgs e)
         {
-            _stock.Product.Remove();
+            // TODO will only remove stocks, product will be kept as record
+            _stock.Remove();
             ProductUpdated?.Invoke(this, EventArgs.Empty);
             Close();
         }

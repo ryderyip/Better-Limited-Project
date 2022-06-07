@@ -10,7 +10,7 @@ namespace Better_Limited_Project.StaffUtility.Repository
 {
     public static class WarehouseRepository
     {
-        public static IEnumerable<Warehouse> GetWarehouses()
+        public static IEnumerable<Warehouse> GetAll()
         {
             var command = new MySqlCommand(
                 "SELECT id, name, address FROM warehouse;");

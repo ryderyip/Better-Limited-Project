@@ -14,20 +14,21 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Controller.SalesOrderPager
             _controlCollections.Add(controls);
         }
 
-        public void FillPageWithProducts(IReadOnlyList<RetailStoreStock> products)
+        public void FillPageWithProducts(IReadOnlyList<RetailStoreStock> stocks)
         {
             ShowAllProductControls();
-            for (int i = 0; i < products.Count; i++)
+            for (int i = 0; i < stocks.Count; i++)
             {
                 var controlCollection = _controlCollections[i];
-                var stock = products[i];
-                controlCollection.Name.Text = stock.Product.Name;
+                var stock = stocks[i];
+                var product = stock.GetProduct();
+                controlCollection.Name.Text = product.Name;
                 controlCollection.Price.Text = stock.SellingPrice.ToString("C", new CultureInfo("zh-HK"));
                 controlCollection.Quantity.Text = stock.Quantity.ToString();
                 controlCollection.Picture.SizeMode = PictureBoxSizeMode.Zoom;
-                controlCollection.Picture.Image = stock.Product.GetImage();
+                controlCollection.Picture.Image = product.GetImage();
             }
-            HideProductControls(_controlCollections.Count-products.Count);
+            HideProductControls(_controlCollections.Count-stocks.Count);
         }
 
         private void ShowAllProductControls()

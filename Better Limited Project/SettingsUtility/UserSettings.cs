@@ -25,6 +25,7 @@ namespace Better_Limited_Project.SettingsUtility
         public void Save()
         {
             UserSettingsSaver.Save(this);
+            LanguageController.SetSystemLanguage(Language);
         }
 
         public static UserSettings GetSettings()
@@ -46,9 +47,9 @@ namespace Better_Limited_Project.SettingsUtility
             var department = LoginSession.GetSession().CurrentStaff.Department;
             var workplace = GetSettings().Workplace;
             return workplace != null
-                   && (department is Department.Sales && new RetailStoreRepository().GetRetailStores()
+                   && (department is Department.Sales && new RetailStoreRepository().GetAll()
                            .Any(store => store.Name == workplace.Name)
-                       || department is Department.Inventory && WarehouseRepository.GetWarehouses()
+                       || department is Department.Inventory && WarehouseRepository.GetAll()
                            .Any(warehouse => warehouse.Name == workplace.Name));
         }
     }

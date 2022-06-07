@@ -31,8 +31,8 @@ namespace Better_Limited_Project.Navigation.UI
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            var controller = new SettingsController(_staff);
-            controller.OpenForm(_formController);
+            var controller = new SettingsController(_formController);
+            controller.OpenForm();
         }
 
         private void btnGoodsReceived_Click(object sender, EventArgs e)

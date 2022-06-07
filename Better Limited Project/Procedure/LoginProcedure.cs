@@ -17,7 +17,7 @@ namespace Better_Limited_Project.Procedure
 
         public void Start()
         {
-            SetSystemLanguage();
+            LanguageController.SetSystemLanguage(UserSettings.GetSettings().Language);
             OpenLoginForm();
         }
         
@@ -28,11 +28,6 @@ namespace Better_Limited_Project.Procedure
                 new LoginController() : new LoginController(lastLoginUsername);
             loginController.LoggedIn += (_, staffId) => Finished?.Invoke(this, staffId);
             loginController.OpenForm(_formController);
-        }
-        
-        private void SetSystemLanguage()
-        {
-            LanguageController.SetLanguage(UserSettings.GetSettings().Language);
         }
     }
 }

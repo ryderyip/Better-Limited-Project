@@ -8,7 +8,6 @@ using Better_Limited_Project.Login;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.ProductUtility.ProductList.PermissionManagement;
 using Better_Limited_Project.ProductUtility.Repository;
-using Better_Limited_Project.ProductUtility.Restocking;
 using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.StaffUtility.Repository;
 using Better_Limited_Project.StaffUtility.StaffEntity;
@@ -183,9 +182,10 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 
         private void btnRestock_Click(object sender, EventArgs e)
         {
-            var form = new CreateRestockRequestForm();
+            // TODO do
+            /*var form = new CreateRestockRequestForm();
             form.StartPosition = FormStartPosition.CenterScreen;
-            form.ShowDialog();
+            form.ShowDialog();*/
         }
     }
 }

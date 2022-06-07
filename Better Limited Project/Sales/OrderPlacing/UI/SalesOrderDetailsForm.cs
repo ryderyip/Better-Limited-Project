@@ -5,11 +5,12 @@ using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.Login;
+using Better_Limited_Project.ProductUtility.ProductList.Forms;
 using Better_Limited_Project.Sales.OrderPlacing.Controller;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;
 using Better_Limited_Project.Sales.PaymentUtility;
-using Better_Limited_Project.ServiceUtility.Delivery.Repository;
+using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 using Better_Limited_Project.Tools;
 
@@ -19,7 +20,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
     {
         public EventHandler? OrderUpdated;
         private SalesOrder _salesOrder;
-        private List<SalesOrderProduct> _salesOrderProducts;
+        private readonly List<SalesOrderProduct> _salesOrderProducts;
 
         public SalesOrderDetailsForm(SalesOrder salesOrder)
         {
@@ -39,7 +40,8 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
             foreach (var salesOrderProduct in _salesOrderProducts)
             {
                 var product = salesOrderProduct.GetProduct();
-                dgvProducts.Rows.Add(product.Name,
+                dgvProducts.Rows.Add(product.Id,
+                    product.Name,
                     product.Category.Name,
                     salesOrderProduct.IsStockReady() ? "Replenished" : "Awaiting Restock",
                     salesOrderProduct.Price.ToString("C", new CultureInfo("zh-HK")),
@@ -65,17 +67,13 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
 
         private void FillFields()
         {
-            var delivery = DeliveryRepository.FindAll(d => d.GetDeliveryRequest().SalesOrderId == _salesOrder.Id)
-                .FirstOrDefault();
-            var deliveryRequest = DeliveryRequestRepository.FindAll(d => d.SalesOrderId == _salesOrder.Id)
-                .FirstOrDefault();
-
+            var delivery = _salesOrder.GetDeliveries().FirstOrDefault();
+            var deliveryRequest = _salesOrder.GetDeliveryRequest();
             var calculator = new SalesOrderCalculator(_salesOrder);
             
             txtOrderNumber.Text = _salesOrder.OrderNumber;
             tbTotalAmount.Text = calculator.GetTotalAmount().ToString("C", new CultureInfo("zh-HK"));
-            decimal amountDue = calculator.GetTotalAmount() - calculator.GetAmountPaid();
-            txtAmtDue.Text = amountDue.ToString("C", new CultureInfo("zh-HK"));
+            txtAmtDue.Text = calculator.GetAmountDue().ToString("C", new CultureInfo("zh-HK"));
             txtAmtPaid.Text = calculator.GetAmountPaid().ToString("C", new CultureInfo("zh-HK"));
             txtNeedDelivery.Text = _salesOrder.HasRequestedForDelivery() ? "Yes" : "No";
             txtNeedInstallation.Text = _salesOrder.IsNeedInstallation() ? "Yes" : "No";
@@ -132,6 +130,16 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
                 Initialize();
                 OrderUpdated?.Invoke(this, EventArgs.Empty);
             };
+            form.ShowDialog();
+        }
+
+        private void dgvProducts_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string selectedProductId = dgvProducts.Rows[e.RowIndex].Cells[idColumn.Name].Value.ToString();
+            var selectedProduct = _salesOrderProducts.Find(sop => sop.ProductId == selectedProductId);
+            var productStock = UserSettings.GetSettings().Workplace!.GetProductStock(selectedProduct.ProductId);
+            var form = new ProductDetailsForm(productStock);
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.ShowDialog();
         }
     }

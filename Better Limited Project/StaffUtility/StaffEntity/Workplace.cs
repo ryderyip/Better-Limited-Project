@@ -1,11 +1,15 @@
-﻿#nullable enable
+﻿using System.Collections.Generic;
+using Better_Limited_Project.ProductUtility.Entity;
+
+#nullable enable
 namespace Better_Limited_Project.StaffUtility.StaffEntity
 {
     public interface IWorkplace
     {
-        public string Id { get; }
-        public string Name { get; }
-        public string Address { get; }
-
+        string Id { get; }
+        string Name { get; }
+        string Address { get; }
+        IStock GetProductStock(string productId);
+        IEnumerable<IStock> GetProductStocks();
     }
 }

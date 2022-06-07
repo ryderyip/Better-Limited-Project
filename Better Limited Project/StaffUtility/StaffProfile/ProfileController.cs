@@ -8,7 +8,7 @@ namespace Better_Limited_Project.StaffUtility.StaffProfile
     public class ProfileController
     {
         private readonly FormController _formController;
-        private ProfileForm _profileForm;
+        private ProfileForm? _profileForm;
         public event EventHandler? LogOutClicked;
 
         public ProfileController(FormController formController)

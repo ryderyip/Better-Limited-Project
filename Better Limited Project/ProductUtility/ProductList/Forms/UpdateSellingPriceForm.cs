@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Globalization;
-using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.ProductUtility.Entity;
-using Better_Limited_Project.ProductUtility.Repository;
 using Better_Limited_Project.SettingsUtility;
 
 namespace Better_Limited_Project.ProductUtility.ProductList.Forms
@@ -17,8 +15,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 
         public UpdateSellingPriceForm(string productId)
         {
-            _stock = StockRepository.GetRetailStoreStocks(UserSettings.GetSettings().Workplace!.Id)
-                .First(stock => stock.Product.Id == productId);
+            _stock = (RetailStoreStock) UserSettings.GetSettings().Workplace!.GetProductStock(productId);
             Shown += (_, _) => tbOriginalSellingPrice.Text =
                 _stock.SellingPrice.ToString("C", new CultureInfo("zh-HK"));
             InitializeComponent();

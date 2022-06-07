@@ -4,7 +4,6 @@ using System.Windows.Forms;
 using Better_Limited_Project.CustomerRecord;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.ServiceUtility.Delivery;
-using Better_Limited_Project.ServiceUtility.Delivery.Repository;
 
 namespace Better_Limited_Project.Sales.OrderPlacing.UI
 {
@@ -34,74 +33,85 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
                                                     "Start creating a customer record?",
                     "Create Customer Record", MessageBoxButtons.YesNo);
                 if (confirmResult is DialogResult.Yes)
-                {
-                    var form = new IsFirstTimeCustomerSelectionForm();
-                    form.StartPosition = FormStartPosition.CenterScreen;
-                    form.IsFirstTimeCustomerSelected += (_, isFirstTime) =>
-                    {
-                        if (isFirstTime)
-                        {
-                            var createCustomerRecordForm = new CreateCustomerRecordForm();
-                            createCustomerRecordForm.StartPosition = FormStartPosition.CenterScreen;
-                            createCustomerRecordForm.CustomerCreated += (_, customer) =>
-                            {
-                                _salesOrder.Customer = customer;
-                                _salesOrder.Save();
-                                SalesOrderUpdated?.Invoke(this, EventArgs.Empty);
-                            };
-                            createCustomerRecordForm.ShowDialog();
-                        }
-                        else
-                        {
-                            var findCustomerForm = new FindCustomerRecordForm();
-                            findCustomerForm.StartPosition = FormStartPosition.CenterScreen;
-                            findCustomerForm.CustomerRecordFound += (_, customer) =>
-                            {
-                                _salesOrder.Customer = customer;
-                                _salesOrder.Save();
-                                SalesOrderUpdated?.Invoke(this, EventArgs.Empty);
-                            };
-                            findCustomerForm.ShowDialog();
-                        }
-                    };
-                    form.ShowDialog();
-                }
+                    CreateCustomerRecord();
                 return;
             }
 
-            var deliveryRequest = DeliveryRequestRepository.FindAll(dr => dr.SalesOrderId == _salesOrder.Id)
-                .FirstOrDefault();
+            var deliveryRequest = _salesOrder.GetDeliveryRequest();
             if (deliveryRequest != default)
-            {
-                var confirmResult = MessageBox.Show("Current sales order has requested for a delivery.\n" +
-                                                    "Confirm removing delivery request?",
-                    "Remove Delivery Request", MessageBoxButtons.YesNo);
-                if (confirmResult is DialogResult.Yes)
-                {
-                    if (deliveryRequest.IsArranged())
-                    {
-                        MessageBox.Show("This delivery has already been confirmed by inventory department.\n" +
-                                        "Delivery request removal failed.");
-                        return;
-                    }
-
-                    deliveryRequest.Remove();
-                    Close();
-                    SalesOrderUpdated?.Invoke(this, EventArgs.Empty);
-                }
-            }
+                AskForAndRemoveDeliveryRequest(deliveryRequest);
             else
+                AskForDeliverySessionAndSendDeliveryRequest();
+        }
+
+        private void CreateCustomerRecord()
+        {
+            var form = new IsFirstTimeCustomerSelectionForm();
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.IsFirstTimeCustomerSelected += (_, isFirstTime) =>
             {
-                var confirmResult = MessageBox.Show("Current sales order has not requested for a delivery.\n" +
-                                                    "Confirm sending a delivery request for this order?",
-                    "Send Delivery Request", MessageBoxButtons.YesNo);
-                if (confirmResult is DialogResult.Yes)
-                    AskForDeliverySessionAndSendDeliveryRequest();
+                if (isFirstTime)
+                    StartCreateCustomerForm();
+                else
+                    StartFindCustomerRecordForm();
+            };
+            form.ShowDialog();
+        }
+
+        private void StartFindCustomerRecordForm()
+        {
+            var findCustomerForm = new FindCustomerRecordForm();
+            findCustomerForm.StartPosition = FormStartPosition.CenterScreen;
+            findCustomerForm.CustomerRecordFound += (_, customer) =>
+            {
+                _salesOrder.Customer = customer;
+                _salesOrder.Save();
+                SalesOrderUpdated?.Invoke(this, EventArgs.Empty);
+            };
+            findCustomerForm.ShowDialog();
+        }
+
+        private void StartCreateCustomerForm()
+        {
+            var createCustomerRecordForm = new CreateCustomerRecordForm();
+            createCustomerRecordForm.StartPosition = FormStartPosition.CenterScreen;
+            createCustomerRecordForm.CustomerCreated += (_, customer) =>
+            {
+                _salesOrder.Customer = customer;
+                _salesOrder.Save();
+                SalesOrderUpdated?.Invoke(this, EventArgs.Empty);
+            };
+            createCustomerRecordForm.ShowDialog();
+        }
+
+        private void AskForAndRemoveDeliveryRequest(DeliveryRequest? deliveryRequest)
+        {
+            var confirmResult = MessageBox.Show("Current sales order has requested for a delivery.\n" +
+                                                "Confirm removing delivery request?",
+                "Remove Delivery Request", MessageBoxButtons.YesNo);
+            if (confirmResult is DialogResult.Yes)
+            {
+                if (deliveryRequest.IsArranged())
+                {
+                    MessageBox.Show("This delivery has already been confirmed by inventory department.\n" +
+                                    "Delivery request removal failed.");
+                    return;
+                }
+
+                deliveryRequest.Remove();
+                Close();
+                SalesOrderUpdated?.Invoke(this, EventArgs.Empty);
             }
         }
 
         private void AskForDeliverySessionAndSendDeliveryRequest()
         {
+            var confirmResult = MessageBox.Show("Current sales order has not requested for a delivery.\n" +
+                                                "Confirm sending a delivery request for this order?",
+                "Send Delivery Request", MessageBoxButtons.YesNo);
+            if (confirmResult is not DialogResult.Yes)
+                return;
+            
             var form = new DeliverySessionSelectionForm();
             form.SessionSelected += (_, session) =>
             {

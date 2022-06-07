@@ -51,5 +51,10 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Controller
             return _salesOrderProducts.All(sop => sop.GetPayments().Count() != 0)
                    && GetTotalAmount() >= GetAmountPaid();
         }
+
+        public decimal GetAmountDue()
+        {
+            return GetTotalAmount() - GetAmountPaid();
+        }
     }
 }

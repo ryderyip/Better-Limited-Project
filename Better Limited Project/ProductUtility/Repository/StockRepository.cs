@@ -5,6 +5,7 @@ using System.Linq;
 using Better_Limited_Project.DatabaseUtility;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.StaffUtility.Repository;
+using Better_Limited_Project.StaffUtility.StaffEntity;
 using MySql.Data.MySqlClient;
 
 namespace Better_Limited_Project.ProductUtility.Repository
@@ -32,79 +33,47 @@ namespace Better_Limited_Project.ProductUtility.Repository
         public static IEnumerable<RetailStoreStock> GetRetailStoreStocks(string retailStoreId)
         {
             var command = new MySqlCommand(
-                @"select p.id as product_id,
-                       p.name as name, 
-                       price as original_price, 
-                       description, 
-                       is_phasing_out, 
-                        rss.retail_store_id,
-                       rss.quantity, 
-                       rss.selling_price,
-                       rss.restock_level,
-                       pc.id as category_id, 
-                       s.id as supplier_id, 
-                       rs.name as retail_store_name
-                        from retail_store_stock rss
-                        INNER JOIN product p on rss.product_id = p.id
-                        INNER JOIN product_category pc on p.category_id = pc.id
-                        INNER JOIN supplier s on p.supplier_id = s.id
-                        INNER JOIN retail_store rs on rss.retail_store_id = rs.id
-                        WHERE rs.id = @retailStoreId;");
+                @"select product_id, retail_store_id, quantity, selling_price, restock_level
+                        from retail_store_stock
+                        WHERE retail_store_id = @retailStoreId;");
             command.Parameters.AddWithValue("@retailStoreId", retailStoreId);
             var dataTable = DataTableRepository.RetrieveDataTable(command);
 
-            return from DataRow row in dataTable.Rows
-                let productId = row.Field<int>("product_id").ToString()
-                let productName = row.Field<string>("name")
-                let originalPrice = row.Field<decimal>("original_price")
-                let desc = row.Field<string>("description")
-                let category = CategoryRepository.GetById(row.Field<int>("category_id").ToString())
-                let supplier = SupplierRepository.GetById(row.Field<int>("supplier_id").ToString())
-                let isPhasingOut = row.Field<bool>("is_phasing_out")
-                let product = new Product(productId, productName, originalPrice, desc, supplier, category, isPhasingOut)
-                let sellingPrice = row.Field<decimal>("selling_price")
-                let quantity = row.Field<int>("quantity")
-                let restockLevel = row.Field<int>("restock_level")
-                let retailStore = new RetailStoreRepository().GetById(row.Field<string>("retail_store_id"))
-                select new RetailStoreStock(product, retailStore, quantity, sellingPrice, restockLevel);
+            return from DataRow row in dataTable.Rows select ConvertToRetailStoreStock(row);
+        }
+
+        private static RetailStoreStock ConvertToRetailStoreStock(DataRow row)
+        {
+            string productId = row.Field<int>("product_id").ToString();
+            var product = ProductRepository.FindById(productId);
+            decimal sellingPrice = row.Field<decimal>("selling_price");
+            int quantity = row.Field<int>("quantity");
+            int restockLevel = row.Field<int>("restock_level");
+            string retailStoreId = row.Field<string>("retail_store_id");
+            RetailStore retailStore = new RetailStoreRepository().GetById(retailStoreId);
+            return new RetailStoreStock(product, retailStore, quantity, sellingPrice, restockLevel);
         }
 
         public static IEnumerable<WarehouseStock> GetWarehouseStocks(string warehouseId)
         {
             var command = new MySqlCommand(
-                @"select p.id as product_id,
-                       p.name as name, 
-                       price as original_price, 
-                       description, 
-                       is_phasing_out, 
-                        ws.warehouse_id,
-                       ws.quantity,
-                        ws.restock_level,
-                       pc.id as category_id, 
-                       s.id as supplier_id, 
-                       w.name as retail_store_name
-                        from warehouse_stock ws
-                        INNER JOIN product p on ws.product_id = p.id
-                        INNER JOIN product_category pc on p.category_id = pc.id
-                        INNER JOIN supplier s on p.supplier_id = s.id
-                        INNER JOIN warehouse w on ws.warehouse_id = w.id
-                        WHERE w.id = @warehouse_id;");
+                @"select warehouse_id, product_id, quantity, restock_level 
+                    from warehouse_stock
+                    where warehouse_id = @warehouse_id;");
             command.Parameters.AddWithValue("@warehouse_id", warehouseId);
             var dataTable = DataTableRepository.RetrieveDataTable(command);
 
-            return from DataRow row in dataTable.Rows
-                let productId = row.Field<int>("product_id").ToString()
-                let productName = row.Field<string>("name")
-                let originalPrice = row.Field<decimal>("original_price")
-                let desc = row.Field<string>("description")
-                let category = CategoryRepository.GetById(row.Field<int>("category_id").ToString())
-                let supplier = SupplierRepository.GetById(row.Field<int>("supplier_id").ToString())
-                let isPhasingOut = row.Field<bool>("is_phasing_out")
-                let product = new Product(productId, productName, originalPrice, desc, supplier, category, isPhasingOut)
-                let quantity = row.Field<int>("quantity")
-                let restockLevel = row.Field<int>("restock_level")
-                let warehouse = WarehouseRepository.GetWarehouseById(row.Field<int>("warehouse_id").ToString())
-                select new WarehouseStock(product, warehouse, quantity, restockLevel);
+            return from DataRow row in dataTable.Rows select ConvertToWarehouseStock(row);
+        }
+
+        private static WarehouseStock ConvertToWarehouseStock(DataRow row)
+        {
+            string productId = row.Field<int>("product_id").ToString();
+            var product = ProductRepository.FindById(productId);
+            int quantity = row.Field<int>("quantity");
+            int restockLevel = row.Field<int>("restock_level");
+            Warehouse warehouse = WarehouseRepository.GetWarehouseById(row.Field<int>("warehouse_id").ToString());
+            return new WarehouseStock(product, warehouse, quantity, restockLevel);
         }
 
         public static void InsertOrUpdate(IStock stock)
@@ -140,12 +109,47 @@ namespace Better_Limited_Project.ProductUtility.Repository
             var command = new MySqlCommand(
                 @"insert into warehouse_stock (warehouse_id, product_id, quantity, restock_level)
                     value (@warehouseId, @productId, @quantity, @restockLevel)
-                    on duplicate key update restock_level = @restockLevel,
-                                            quantity = @quantity;");
+                    on duplicate key update restock_level = @restockLevel, quantity = @quantity;");
             command.Parameters.AddWithValue("@warehouseId", stock.Workplace.Id);
-            command.Parameters.AddWithValue("@productId", stock.Product.Id);
+            command.Parameters.AddWithValue("@productId", stock.Product);
             command.Parameters.AddWithValue("@restockLevel", stock.RestockLevel);
             command.Parameters.AddWithValue("@quantity", stock.Quantity);
+            DataTableRepository.ExecuteNonQuery(command);
+        }
+
+        public static IStock FindByIds(string workplaceId, string productId)
+        {
+            var command = new MySqlCommand(
+                @"select product_id, retail_store_id, quantity, selling_price, restock_level
+                        from retail_store_stock
+                        where retail_store_id = @retailStoreId
+                        and product_id = @productId;");
+            command.Parameters.AddWithValue("@retailStoreId", workplaceId);
+            command.Parameters.AddWithValue("@productId", productId);
+            var dataTable = DataTableRepository.RetrieveDataTable(command);
+            if (dataTable.Rows.Count != 0)
+                return ConvertToRetailStoreStock(dataTable.Rows[0]);
+
+            command = new MySqlCommand(
+                @"select warehouse_id, product_id, quantity, restock_level from warehouse_stock
+                where warehouse_id = @warehouseId and product_id = @productId");
+            command.Parameters.AddWithValue("@warehouseId", workplaceId);
+            command.Parameters.AddWithValue("@productId", productId);
+            dataTable = DataTableRepository.RetrieveDataTable(command);
+            if (dataTable.Rows.Count != 0)
+                return ConvertToWarehouseStock(dataTable.Rows[0]);
+            throw new ArgumentException(
+                $"No stock found for workplace id \"{workplaceId}\" and product id \"{productId}\".");
+        }
+
+        public static void Remove(string workplaceId, string productId)
+        {
+            var command = new MySqlCommand(
+                @"delete from retail_store_stock
+                        where retail_store_id = @retailStoreId
+                        and product_id = @productId;");
+            command.Parameters.AddWithValue("@retailStoreId", workplaceId);
+            command.Parameters.AddWithValue("@productId", productId);
             DataTableRepository.ExecuteNonQuery(command);
         }
     }

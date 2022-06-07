@@ -9,5 +9,6 @@ namespace Better_Limited_Project.ProductUtility.Entity
         int Quantity { get; set; }
         int RestockLevel { get; set; }
         void Save();
+        void Remove();
     }
 }

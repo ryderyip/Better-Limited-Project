@@ -11,7 +11,7 @@ namespace Better_Limited_Project.SettingsUtility
         /// <summary>
         /// Set the language of all forms to the specified language
         /// </summary>
-        public static void SetLanguage(Language language)
+        public static void SetSystemLanguage(Language language)
         {
             string cultureName = GetCultureName(language);
             Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo(cultureName);

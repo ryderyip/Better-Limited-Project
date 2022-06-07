@@ -64,7 +64,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
         public string GetNewOrderNumber()
         {
             string staffId = LoginSession.GetSession().CurrentStaff.Id;
-            string retailStoreId = new RetailStoreRepository().GetRetailStores().First().Id;
+            string retailStoreId = new RetailStoreRepository().GetAll().First().Id;
             var command = new MySqlCommand(
                 @"insert into sales_order (id, sales_order_number, customer_id, retail_store_id, created_by_staff_id)
                 value (0, 0, null, @retailStoreId, @staffId);

@@ -5,6 +5,7 @@ using Better_Limited_Project.ProductUtility.Repository;
 using Better_Limited_Project.ProductUtility.SupplierUtility;
 using Better_Limited_Project.Properties;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;
+using Better_Limited_Project.StaffUtility.Repository;
 
 namespace Better_Limited_Project.ProductUtility.Entity
 {
@@ -35,7 +36,8 @@ namespace Better_Limited_Project.ProductUtility.Entity
             IsPhasingOut = isPhasingOut;
         }
 
-        public Product(string name, decimal originalPrice, string description, Supplier supplier, Category category, bool isPhasingOut)
+        public Product(string name, decimal originalPrice, string description, Supplier supplier, Category category,
+            bool isPhasingOut)
         {
             Id = ProductRepository.GetNewId();
             Name = name;
@@ -45,15 +47,22 @@ namespace Better_Limited_Project.ProductUtility.Entity
             Category = category;
             IsPhasingOut = isPhasingOut;
         }
-        
+
         public Image GetImage()
         {
             return ProductImageRepository.GetByProductId(Id)
-                ?? Resources.no_image;
+                   ?? Resources.no_image;
         }
 
         public void Save()
-        {
+        {// TODO test this
+            foreach (var retailStore in new RetailStoreRepository().GetAll()
+                .Where(rs => rs.GetProductStocks().All(s => s.Product.Id != Id)))
+                new RetailStoreStock(this, retailStore, 0, OriginalPrice, 0).Save();
+
+            foreach (var warehouse in WarehouseRepository.GetAll())
+                new WarehouseStock(this, warehouse, 0, 0).Save();
+
             ProductRepository.InsertOrUpdate(this);
         }
 
@@ -69,8 +78,13 @@ namespace Better_Limited_Project.ProductUtility.Entity
                 MessageBox.Show("This product is used by some sales order. Product removal failed.");
                 return;
             }
+
+            foreach (var workplace in WorkplaceRepository.GetWorkplaces())
+            {
+                workplace.GetProductStock(Id).Remove();
+            }
+
             ProductImageRepository.Delete(Id);
-            ProductRepository.Remove(this);
         }
     }
 }

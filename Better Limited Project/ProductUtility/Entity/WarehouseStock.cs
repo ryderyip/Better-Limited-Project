@@ -15,6 +15,16 @@ namespace Better_Limited_Project.ProductUtility.Entity
             StockRepository.InsertOrUpdate(this);
         }
 
+        public void Remove()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Product GetProduct()
+        {
+            return ProductRepository.FindById(Product.Id);
+        }
+
         public WarehouseStock(Product product, Warehouse warehouse, int quantity, int restockLevel)
         {
             Product = product;

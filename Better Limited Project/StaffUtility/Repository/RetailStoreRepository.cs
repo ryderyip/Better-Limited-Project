@@ -10,11 +10,6 @@ namespace Better_Limited_Project.StaffUtility.Repository
 {
     public class RetailStoreRepository
     {
-        public IEnumerable<RetailStore> GetRetailStores()
-        {
-            return FindAll(_ => true);
-        }
-
         public RetailStore GetById(string id)
         {
             var command = new MySqlCommand(

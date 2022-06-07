@@ -8,8 +8,8 @@ namespace Better_Limited_Project.StaffUtility.Repository
     {
         public static IEnumerable<IWorkplace> GetWorkplaces()
         {
-            return new RetailStoreRepository().GetRetailStores().Cast<IWorkplace>()
-                .Concat(WarehouseRepository.GetWarehouses());
+            return new RetailStoreRepository().GetAll().Cast<IWorkplace>()
+                .Concat(WarehouseRepository.GetAll());
         }
     }
 }

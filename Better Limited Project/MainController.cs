@@ -5,6 +5,7 @@ using Better_Limited_Project.Login;
 using Better_Limited_Project.Navigation;
 using Better_Limited_Project.Navigation.UI;
 using Better_Limited_Project.Procedure;
+using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.StaffUtility.Repository;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 using Better_Limited_Project.StaffUtility.StaffProfile;
@@ -19,6 +20,8 @@ namespace Better_Limited_Project
         
         public MainController(MainForm mainForm)
         {
+            LanguageController.SetSystemLanguage(UserSettings.GetSettings().Language);
+
             _formController = new FormController(mainForm);
             
             var loginProcess = new LoginProcedure(_formController);

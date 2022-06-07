@@ -151,11 +151,5 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             if (image != null)
                 pbImage.Image = image;
         }
-
-        private void btnRemoveImage_Click(object sender, EventArgs e)
-        {
-            pbImage.Image = null;
-            tbStaffImagePath.Text = string.Empty;
-        }
     }
 }

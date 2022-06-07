@@ -10,14 +10,16 @@ namespace Better_Limited_Project.SettingsUtility
 {
     public partial class SettingsForm : Form
     {
+        private readonly List<IWorkplace> _workplaces;
         private bool _isSalesOrInventory;
         private readonly Department _staffDepartment;
-        public delegate void ButtonClickedEventHandler<T>(object sender, T eventArgs);
-        public event ButtonClickedEventHandler<UserSettings>? UpdateClicked;
-        public event ButtonClickedEventHandler<string>? BrowseDocPathClicked;
+        public event EventHandler<UserSettings>? UpdateClicked;
+        public event EventHandler<string>? BrowseDocPathClicked;
 
         public SettingsForm(Department staffDepartment)
         {
+            _workplaces = new RetailStoreRepository().GetAll().Cast<IWorkplace>()
+                .Concat(WarehouseRepository.GetAll()).ToList();
             _staffDepartment = staffDepartment;
             InitializeComponent();
             ScrollPageToTop();
@@ -32,16 +34,17 @@ namespace Better_Limited_Project.SettingsUtility
         {
             ShowCurrentLanguage(settings.Language);
             ShowCurrentDocumentPath(settings.DefaultDocumentGenerationDirectoryPath);
-            if (_staffDepartment is Department.Sales or Department.Inventory)
-            {
-                _isSalesOrInventory = true;
-                EnableWorkplacePanel();
-                ShowLabelAccordingToWorkplace();
-                FillWorkplaceComboBox();
+            if (_staffDepartment is not (Department.Sales or Department.Inventory)) 
+                return;
+            
+            _isSalesOrInventory = true;
+            EnableWorkplacePanel();
+            ShowLabelAccordingToWorkplace();
+            FillWorkplaceComboBox();
 
-                if (settings.Workplace != null) 
-                    SelectCurrentWorkplaceInComboBox(settings.Workplace.Name);
-            }
+            cbWorkplace.SelectedIndex = settings.Workplace != null
+                ? cbWorkplace.FindStringExact(settings.Workplace.Name)
+                : 0;
         }
 
         private void ShowLabelAccordingToWorkplace()
@@ -58,7 +61,7 @@ namespace Better_Limited_Project.SettingsUtility
                 rbEnglish.Checked = true;
             else if (language == Language.TraditionalChinese)
                 rbTraditionalChinese.Checked = true;
-            else if (language == Language.SimplifiedChinese) 
+            else if (language == Language.SimplifiedChinese)
                 rbSimplifiedChinese.Checked = true;
         }
 
@@ -66,7 +69,7 @@ namespace Better_Limited_Project.SettingsUtility
         {
             tbDocPath.Text = documentGenerationPath;
         }
-        
+
         private void EnableWorkplacePanel()
         {
             panWorkplace.Enabled = true;
@@ -76,20 +79,12 @@ namespace Better_Limited_Project.SettingsUtility
         {
             cbWorkplace.Items.Clear();
             List<IWorkplace> workplaces = _staffDepartment == Department.Sales
-                ? new RetailStoreRepository().GetAll().Cast<IWorkplace>().ToList()
-                : WarehouseRepository.GetWarehouses().Cast<IWorkplace>().ToList();
-            foreach (var warehouse in workplaces)
-                cbWorkplace.Items.Add(warehouse.Name);
+                ? _workplaces.Where(w => w is RetailStore).ToList()
+                : _workplaces.Where(w => w is Warehouse).ToList();
+            foreach (var workplace in workplaces)
+                cbWorkplace.Items.Add(workplace.Name);
         }
 
-        private void SelectCurrentWorkplaceInComboBox(string currentWorkplaceName)
-        {
-            if (cbWorkplace.Items.Count == 0)
-                return;
-
-            cbWorkplace.SelectedIndex = cbWorkplace.FindStringExact(currentWorkplaceName);
-        }
-        
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             var newSettings = CollectSettings();
@@ -116,9 +111,7 @@ namespace Better_Limited_Project.SettingsUtility
         private IWorkplace CollectSelectedWorkplace()
         {
             string selectedWorkplaceName = cbWorkplace.SelectedItem.ToString();
-            return _staffDepartment == Department.Sales
-                ? new RetailStoreRepository().FindAll(rs => ((RetailStore) rs).Name == selectedWorkplaceName).First() 
-                : WarehouseRepository.GetWarehouses().First(w => w.Name == selectedWorkplaceName);
+            return _workplaces.Find(w => w.Name == selectedWorkplaceName);
         }
 
         private void btnBrowseDocPath_Click(object sender, EventArgs e)

@@ -1,18 +1,20 @@
 ﻿using System;
 using Better_Limited_Project.DocumentUtility;
 using Better_Limited_Project.FormControlling;
-using Better_Limited_Project.StaffUtility.StaffEntity;
+using Better_Limited_Project.Login;
 
 namespace Better_Limited_Project.SettingsUtility
 {
     public class SettingsController
     {
+        private readonly FormController _formController;
         private readonly SettingsForm _settingsForm;
         private readonly UserSettings _settings;
 
-        public SettingsController(Staff staff)
+        public SettingsController(FormController formController)
         {
-            _settingsForm = new SettingsForm(staff.Department);
+            _formController = formController;
+            _settingsForm = new SettingsForm(LoginSession.GetSession().CurrentStaff.Department);
             _settings = UserSettings.GetSettings();
             
             _settingsForm.Shown += OnSettingsFormShown;
@@ -33,6 +35,13 @@ namespace Better_Limited_Project.SettingsUtility
             oldSettings.Workplace = newSettings.Workplace;
             oldSettings.DefaultDocumentGenerationDirectoryPath = newSettings.DefaultDocumentGenerationDirectoryPath;
             oldSettings.Save();
+            ReOpenForm();
+        }
+
+        private void ReOpenForm()
+        {
+            var controller = new SettingsController(_formController);
+            controller.OpenForm();
         }
 
         private void OnBrowseDocPathClicked(object sender, string path)
@@ -40,9 +49,9 @@ namespace Better_Limited_Project.SettingsUtility
             WindowsExplorer.OpenDirectory(path);
         }
         
-        public void OpenForm(FormController formController)
+        public void OpenForm()
         {
-            formController.OpenContentForm(_settingsForm);
+            _formController.OpenContentForm(_settingsForm);
         }
     }
 }

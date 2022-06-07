@@ -27,35 +27,9 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             tbScheduledOn.Text = _delivery.ScheduledOn.ToString("f");
             tbDispatchedOn.Text = _delivery.DispatchedOn?.ToString("f") ?? "Not yet dispatched";
             tbDeliveredOn.Text = _delivery.DeliveredOn?.ToString("f") ?? "Not yet delivered";
-
-            if (_delivery.DispatchedOn != null || _delivery.DeliveredOn != null)
-            {
-                dtpNewScheduledOnDate.Enabled = false;
-                dtpNewScheduledOnTime.Enabled = false;
-            }
             
             dtpNewScheduledOnDate.Value = _delivery.ScheduledOn.Date;
             dtpNewScheduledOnTime.Value = _delivery.ScheduledOn;
-            if (_delivery.DispatchedOn != null)
-            {
-                dtpNewDispatchedOnDate.Value = _delivery.DispatchedOn.Value.Date;
-                dtpNewDispatchedOnTime.Value = _delivery.DispatchedOn.Value;
-            }
-            else
-            {
-                dtpNewDispatchedOnDate.Enabled = false;
-                dtpNewDispatchedOnTime.Enabled = false;
-            }
-            if (_delivery.DeliveredOn != null)
-            {
-                dtpNewDeliveredOnDate.Value = _delivery.DeliveredOn.Value.Date;
-                dtpNewDeliveredOnTime.Value = _delivery.DeliveredOn.Value;
-            }
-            else
-            {
-                dtpNewDeliveredOnDate.Enabled = false;
-                dtpNewDeliveredOnTime.Enabled = false;
-            }
 
             dtpNewScheduledOnDate.MinDate = Delivery.GetEarliestDeliveryDate(_delivery.GetDeliveryRequest().DeliverySession);
             dtpNewDispatchedOnDate.MinDate = DateTime.Today.Date - TimeSpan.FromDays(7);
@@ -72,6 +46,39 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             dtpNewScheduledOnTime.MaxDate = dtpNewScheduledOnDate.MaxDate + TimeSpan.FromDays(1);
             dtpNewDispatchedOnTime.MaxDate = dtpNewDispatchedOnDate.MaxDate + TimeSpan.FromDays(1);
             dtpNewDeliveredOnTime.MaxDate = dtpNewDeliveredOnDate.MaxDate + TimeSpan.FromDays(1);
+            
+            DisableUnneededButtons();
+        }
+
+        private void DisableUnneededButtons()
+        {
+            if (_delivery.DispatchedOn != null || _delivery.DeliveredOn != null)
+            {
+                dtpNewScheduledOnDate.Enabled = false;
+                dtpNewScheduledOnTime.Enabled = false;
+            }
+
+            if (_delivery.DispatchedOn != null)
+            {
+                dtpNewDispatchedOnDate.Value = _delivery.DispatchedOn.Value.Date;
+                dtpNewDispatchedOnTime.Value = _delivery.DispatchedOn.Value;
+            }
+            else
+            {
+                dtpNewDispatchedOnDate.Enabled = false;
+                dtpNewDispatchedOnTime.Enabled = false;
+            }
+
+            if (_delivery.DeliveredOn != null)
+            {
+                dtpNewDeliveredOnDate.Value = _delivery.DeliveredOn.Value.Date;
+                dtpNewDeliveredOnTime.Value = _delivery.DeliveredOn.Value;
+            }
+            else
+            {
+                dtpNewDeliveredOnDate.Enabled = false;
+                dtpNewDeliveredOnTime.Enabled = false;
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)

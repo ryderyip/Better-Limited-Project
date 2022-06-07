@@ -34,22 +34,26 @@ namespace Better_Limited_Project.ProductUtility.Restocking
         private void PopulateProductStockList(List<IStock> stocks)
         {
             dgvProductStock.Rows.Clear();
-            stocks.ToList().ForEach(
-                stock => dgvProductStock.Rows.Add(stock.Product.Name,
-                    stock.Quantity, stock.Product.Category.Name));
+            foreach (var stock in stocks)
+            {
+                var product = stock.GetProduct();
+                dgvProductStock.Rows.Add(product.Name, stock.Quantity, product.Category.Name);
+            }
         }
 
         private void FilterProductStockList(object sender, EventArgs e)
         {
             string searchKeyword = tbSearchBox.Text.ToLower().Trim();
-            var keywordFilteredStock = _stocks.Where(s => s.Product.Name.ToLower().Contains(searchKeyword)
-                                                          || s.Product.Supplier.Name.ToLower()
-                                                              .Contains(searchKeyword));
+            var keywordFilteredStock = from stock in _stocks
+                let product = stock.GetProduct()
+                where product.Name.ToLower().Contains(searchKeyword)
+                      || product.Supplier.Name.ToLower().Contains(searchKeyword)
+                select stock;
 
             if (cbCategory.SelectedItem.ToString() != string.Empty)
             {
                 var selectedCategory = _categories.Find(c => c.Name == cbCategory.SelectedItem.ToString());
-                keywordFilteredStock = keywordFilteredStock.Where(s => s.Product.Category.Id == selectedCategory.Id);
+                keywordFilteredStock = keywordFilteredStock.Where(s => s.GetProduct().Category.Id == selectedCategory.Id);
             }
 
             PopulateProductStockList(keywordFilteredStock.ToList());
@@ -62,7 +66,7 @@ namespace Better_Limited_Project.ProductUtility.Restocking
 
             var selectedProducts = dgvProductStock.SelectedRows.Cast<DataGridViewRow>().ToList()
                 .Select(row => _stocks.Find(s =>
-                    s.Product.Name == row.Cells[productStockNameColumn.DataPropertyName].Value.ToString()));
+                    s.GetProduct().Name == row.Cells[productStockNameColumn.DataPropertyName].Value.ToString()));
 
             foreach (var selectedProduct in selectedProducts)
                 AddToRestockRequest(selectedProduct);
@@ -71,12 +75,12 @@ namespace Better_Limited_Project.ProductUtility.Restocking
         private void AddToRestockRequest(IStock selectedProduct)
         {
             var selectedProductRow = dgvRestockItems.Rows.Cast<DataGridViewRow>().FirstOrDefault(row =>
-                row.Cells[restockItemsNameColumn.Name].Value.ToString() == selectedProduct.Product.Name);
+                row.Cells[restockItemsNameColumn.Name].Value.ToString() == selectedProduct.GetProduct().Name);
             if (selectedProductRow == null)
             {
                 int rowIndex = dgvRestockItems.Rows.Add();
                 selectedProductRow = dgvRestockItems.Rows[rowIndex];
-                selectedProductRow.Cells[restockItemsNameColumn.Name].Value = selectedProduct.Product.Name;
+                selectedProductRow.Cells[restockItemsNameColumn.Name].Value = selectedProduct.GetProduct().Name;
                 selectedProductRow.Cells[restockItemsQuantityColumn.Name].Value = 1;
             }
 
@@ -115,8 +119,8 @@ namespace Better_Limited_Project.ProductUtility.Restocking
                     {
                         RestockRequestId = newGuid,
                         Product = _stocks
-                            .Find(s => s.Product.Name == row.Cells[restockItemsNameColumn.Name].Value.ToString())
-                            .Product,
+                            .Find(s => s.ProductId.Name == row.Cells[restockItemsNameColumn.Name].Value.ToString())
+                            .ProductId,
                         Quantity = int.Parse(row.Cells[restockItemsQuantityColumn.Name].Value.ToString())
                     }).ToList();
                 var request = new RestockRequest
@@ -137,8 +141,8 @@ namespace Better_Limited_Project.ProductUtility.Restocking
                     {
                         ReorderRequestId = newGuid,
                         Product = _stocks
-                            .Find(s => s.Product.Name == row.Cells[restockItemsNameColumn.Name].Value.ToString())
-                            .Product,
+                            .Find(s => s.ProductId.Name == row.Cells[restockItemsNameColumn.Name].Value.ToString())
+                            .ProductId,
                         Quantity = int.Parse(row.Cells[restockItemsQuantityColumn.Name].Value.ToString())
                     }).ToList();
                 var request = new ReorderRequest
@@ -173,7 +177,8 @@ namespace Better_Limited_Project.ProductUtility.Restocking
         private void dgvProductStock_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             var selectedProduct = _stocks.Find(s =>
-                s.Product.Name == dgvProductStock.Rows[e.RowIndex].Cells[productStockNameColumn.Name].Value.ToString());
+                s.ProductId.Name == dgvProductStock.Rows[e.RowIndex].Cells[productStockNameColumn.Name].Value
+                    .ToString());
             AddToRestockRequest(selectedProduct);
         }
     }
