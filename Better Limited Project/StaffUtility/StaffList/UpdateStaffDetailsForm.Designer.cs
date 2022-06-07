@@ -29,6 +29,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateStaffDetailsForm));
             this.rbGenderNonbinary = new System.Windows.Forms.RadioButton();
             this.rbGenderFemale = new System.Windows.Forms.RadioButton();
             this.rbGenderMale = new System.Windows.Forms.RadioButton();
@@ -48,155 +49,95 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             // 
             // rbGenderNonbinary
             // 
-            this.rbGenderNonbinary.AutoSize = true;
-            this.rbGenderNonbinary.Location = new System.Drawing.Point(344, 152);
+            resources.ApplyResources(this.rbGenderNonbinary, "rbGenderNonbinary");
             this.rbGenderNonbinary.Name = "rbGenderNonbinary";
-            this.rbGenderNonbinary.Size = new System.Drawing.Size(77, 17);
-            this.rbGenderNonbinary.TabIndex = 831;
             this.rbGenderNonbinary.TabStop = true;
-            this.rbGenderNonbinary.Text = "Non-Binary";
             this.rbGenderNonbinary.UseVisualStyleBackColor = true;
             // 
             // rbGenderFemale
             // 
-            this.rbGenderFemale.AutoSize = true;
-            this.rbGenderFemale.Location = new System.Drawing.Point(279, 152);
+            resources.ApplyResources(this.rbGenderFemale, "rbGenderFemale");
             this.rbGenderFemale.Name = "rbGenderFemale";
-            this.rbGenderFemale.Size = new System.Drawing.Size(59, 17);
-            this.rbGenderFemale.TabIndex = 830;
             this.rbGenderFemale.TabStop = true;
-            this.rbGenderFemale.Text = "Female";
             this.rbGenderFemale.UseVisualStyleBackColor = true;
             // 
             // rbGenderMale
             // 
-            this.rbGenderMale.AutoSize = true;
-            this.rbGenderMale.Location = new System.Drawing.Point(225, 152);
+            resources.ApplyResources(this.rbGenderMale, "rbGenderMale");
             this.rbGenderMale.Name = "rbGenderMale";
-            this.rbGenderMale.Size = new System.Drawing.Size(48, 17);
-            this.rbGenderMale.TabIndex = 829;
             this.rbGenderMale.TabStop = true;
-            this.rbGenderMale.Text = "Male";
             this.rbGenderMale.UseVisualStyleBackColor = true;
             // 
             // dtpDateOfBirth
             // 
-            this.dtpDateOfBirth.Location = new System.Drawing.Point(225, 191);
+            resources.ApplyResources(this.dtpDateOfBirth, "dtpDateOfBirth");
             this.dtpDateOfBirth.Name = "dtpDateOfBirth";
-            this.dtpDateOfBirth.Size = new System.Drawing.Size(200, 20);
-            this.dtpDateOfBirth.TabIndex = 832;
             // 
             // lblAlertText
             // 
-            this.lblAlertText.AutoSize = true;
-            this.lblAlertText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAlertText.Location = new System.Drawing.Point(193, 57);
+            resources.ApplyResources(this.lblAlertText, "lblAlertText");
             this.lblAlertText.Name = "lblAlertText";
-            this.lblAlertText.Size = new System.Drawing.Size(136, 15);
-            this.lblAlertText.TabIndex = 844;
-            this.lblAlertText.Text = "(All fields must be filled)";
             // 
             // lblTitle
             // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(186, 233);
+            resources.ApplyResources(this.lblTitle, "lblTitle");
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(33, 15);
-            this.lblTitle.TabIndex = 843;
-            this.lblTitle.Text = "Title:";
             // 
             // cbTitle
             // 
             this.cbTitle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTitle.FormattingEnabled = true;
-            this.cbTitle.Location = new System.Drawing.Point(225, 232);
+            resources.ApplyResources(this.cbTitle, "cbTitle");
             this.cbTitle.Name = "cbTitle";
-            this.cbTitle.Size = new System.Drawing.Size(120, 21);
-            this.cbTitle.TabIndex = 834;
             // 
             // lblGender
             // 
-            this.lblGender.AutoSize = true;
-            this.lblGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGender.Location = new System.Drawing.Point(168, 152);
+            resources.ApplyResources(this.lblGender, "lblGender");
             this.lblGender.Name = "lblGender";
-            this.lblGender.Size = new System.Drawing.Size(51, 15);
-            this.lblGender.TabIndex = 841;
-            this.lblGender.Text = "Gender:";
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(225, 109);
+            resources.ApplyResources(this.tbName, "tbName");
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(120, 20);
-            this.tbName.TabIndex = 828;
             // 
             // lblStaffName
             // 
-            this.lblStaffName.AutoSize = true;
-            this.lblStaffName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStaffName.Location = new System.Drawing.Point(148, 110);
+            resources.ApplyResources(this.lblStaffName, "lblStaffName");
             this.lblStaffName.Name = "lblStaffName";
-            this.lblStaffName.Size = new System.Drawing.Size(71, 15);
-            this.lblStaffName.TabIndex = 840;
-            this.lblStaffName.Text = "Staff Name:";
             // 
             // lblDateOfBirth
             // 
-            this.lblDateOfBirth.AutoSize = true;
-            this.lblDateOfBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDateOfBirth.Location = new System.Drawing.Point(142, 191);
+            resources.ApplyResources(this.lblDateOfBirth, "lblDateOfBirth");
             this.lblDateOfBirth.Name = "lblDateOfBirth";
-            this.lblDateOfBirth.Size = new System.Drawing.Size(77, 15);
-            this.lblDateOfBirth.TabIndex = 839;
-            this.lblDateOfBirth.Text = "Date of Birth:";
             // 
             // btnUpdate
             // 
             this.btnUpdate.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.btnUpdate, "btnUpdate");
             this.btnUpdate.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnUpdate.Location = new System.Drawing.Point(172, 328);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(183, 44);
-            this.btnUpdate.TabIndex = 845;
-            this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // lblBigText
             // 
-            this.lblBigText.AutoSize = true;
-            this.lblBigText.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBigText.Location = new System.Drawing.Point(137, 31);
+            resources.ApplyResources(this.lblBigText, "lblBigText");
             this.lblBigText.Name = "lblBigText";
-            this.lblBigText.Size = new System.Drawing.Size(272, 26);
-            this.lblBigText.TabIndex = 838;
-            this.lblBigText.Text = "Update Staff Information";
             // 
             // tbAccountUsername
             // 
-            this.tbAccountUsername.Location = new System.Drawing.Point(225, 271);
+            resources.ApplyResources(this.tbAccountUsername, "tbAccountUsername");
             this.tbAccountUsername.Name = "tbAccountUsername";
-            this.tbAccountUsername.Size = new System.Drawing.Size(120, 20);
-            this.tbAccountUsername.TabIndex = 846;
             // 
             // lblAccountUsername
             // 
-            this.lblAccountUsername.AutoSize = true;
-            this.lblAccountUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAccountUsername.Location = new System.Drawing.Point(71, 272);
+            resources.ApplyResources(this.lblAccountUsername, "lblAccountUsername");
             this.lblAccountUsername.Name = "lblAccountUsername";
-            this.lblAccountUsername.Size = new System.Drawing.Size(148, 15);
-            this.lblAccountUsername.TabIndex = 847;
-            this.lblAccountUsername.Text = "Login Account Username:";
             // 
             // UpdateStaffDetailsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(547, 408);
             this.Controls.Add(this.tbAccountUsername);
             this.Controls.Add(this.lblAccountUsername);
             this.Controls.Add(this.rbGenderNonbinary);
@@ -213,7 +154,6 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.lblBigText);
             this.Name = "UpdateStaffDetailsForm";
-            this.Text = "UpdateStaffDetailsForm";
             this.Shown += new System.EventHandler(this.OnFormShown);
             this.ResumeLayout(false);
             this.PerformLayout();

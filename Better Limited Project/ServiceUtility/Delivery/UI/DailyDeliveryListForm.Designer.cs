@@ -29,6 +29,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DailyDeliveryListForm));
             this.lblHeader = new System.Windows.Forms.Label();
             this.dgvDeliveries = new System.Windows.Forms.DataGridView();
             this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,13 +47,8 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             // 
             // lblHeader
             // 
-            this.lblHeader.AutoSize = true;
-            this.lblHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeader.Location = new System.Drawing.Point(171, 24);
+            resources.ApplyResources(this.lblHeader, "lblHeader");
             this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(203, 25);
-            this.lblHeader.TabIndex = 111;
-            this.lblHeader.Text = "Daily Delivery List";
             // 
             // dgvDeliveries
             // 
@@ -66,101 +62,80 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             this.statusColumn,
             this.updatedOnColumn,
             this.arrangedBy});
-            this.dgvDeliveries.Location = new System.Drawing.Point(31, 122);
+            resources.ApplyResources(this.dgvDeliveries, "dgvDeliveries");
             this.dgvDeliveries.Name = "dgvDeliveries";
             this.dgvDeliveries.ReadOnly = true;
             this.dgvDeliveries.RowTemplate.Height = 24;
-            this.dgvDeliveries.Size = new System.Drawing.Size(474, 228);
-            this.dgvDeliveries.TabIndex = 112;
             // 
             // idColumn
             // 
-            this.idColumn.HeaderText = "ID";
+            resources.ApplyResources(this.idColumn, "idColumn");
             this.idColumn.Name = "idColumn";
             this.idColumn.ReadOnly = true;
-            this.idColumn.Visible = false;
             // 
             // deliveryRequestIdColumn
             // 
-            this.deliveryRequestIdColumn.HeaderText = "Delivery Request ID";
+            resources.ApplyResources(this.deliveryRequestIdColumn, "deliveryRequestIdColumn");
             this.deliveryRequestIdColumn.Name = "deliveryRequestIdColumn";
             this.deliveryRequestIdColumn.ReadOnly = true;
-            this.deliveryRequestIdColumn.Visible = false;
             // 
             // orderNumberColumn
             // 
-            this.orderNumberColumn.HeaderText = "Order Number";
+            resources.ApplyResources(this.orderNumberColumn, "orderNumberColumn");
             this.orderNumberColumn.Name = "orderNumberColumn";
             this.orderNumberColumn.ReadOnly = true;
-            this.orderNumberColumn.Width = 130;
             // 
             // statusColumn
             // 
-            this.statusColumn.HeaderText = "Status";
+            resources.ApplyResources(this.statusColumn, "statusColumn");
             this.statusColumn.Name = "statusColumn";
             this.statusColumn.ReadOnly = true;
             // 
             // updatedOnColumn
             // 
-            this.updatedOnColumn.HeaderText = "Last Updated";
+            resources.ApplyResources(this.updatedOnColumn, "updatedOnColumn");
             this.updatedOnColumn.Name = "updatedOnColumn";
             this.updatedOnColumn.ReadOnly = true;
             // 
             // arrangedBy
             // 
-            this.arrangedBy.HeaderText = "Arranged By";
+            resources.ApplyResources(this.arrangedBy, "arrangedBy");
             this.arrangedBy.Name = "arrangedBy";
             this.arrangedBy.ReadOnly = true;
             // 
             // dtpDeliveryDate
             // 
-            this.dtpDeliveryDate.Location = new System.Drawing.Point(126, 82);
+            resources.ApplyResources(this.dtpDeliveryDate, "dtpDeliveryDate");
             this.dtpDeliveryDate.Name = "dtpDeliveryDate";
-            this.dtpDeliveryDate.Size = new System.Drawing.Size(200, 20);
-            this.dtpDeliveryDate.TabIndex = 113;
             this.dtpDeliveryDate.ValueChanged += new System.EventHandler(this.dtpDeliveryDate_ValueChanged);
             // 
             // lblDeliveryDate
             // 
-            this.lblDeliveryDate.AutoSize = true;
-            this.lblDeliveryDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDeliveryDate.Location = new System.Drawing.Point(28, 84);
+            resources.ApplyResources(this.lblDeliveryDate, "lblDeliveryDate");
             this.lblDeliveryDate.Name = "lblDeliveryDate";
-            this.lblDeliveryDate.Size = new System.Drawing.Size(93, 16);
-            this.lblDeliveryDate.TabIndex = 114;
-            this.lblDeliveryDate.Text = "Delivery Date:";
             // 
             // btnGenerateDeliveryList
             // 
             this.btnGenerateDeliveryList.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnGenerateDeliveryList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.btnGenerateDeliveryList, "btnGenerateDeliveryList");
             this.btnGenerateDeliveryList.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnGenerateDeliveryList.Location = new System.Drawing.Point(31, 370);
             this.btnGenerateDeliveryList.Name = "btnGenerateDeliveryList";
-            this.btnGenerateDeliveryList.Size = new System.Drawing.Size(185, 54);
-            this.btnGenerateDeliveryList.TabIndex = 115;
-            this.btnGenerateDeliveryList.Text = "Generate Delivery List";
             this.btnGenerateDeliveryList.UseVisualStyleBackColor = false;
             this.btnGenerateDeliveryList.Click += new System.EventHandler(this.btnGenerateDeliveryList_Click);
             // 
             // btnPrintDeliveryList
             // 
             this.btnPrintDeliveryList.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnPrintDeliveryList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.btnPrintDeliveryList, "btnPrintDeliveryList");
             this.btnPrintDeliveryList.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnPrintDeliveryList.Location = new System.Drawing.Point(352, 370);
             this.btnPrintDeliveryList.Name = "btnPrintDeliveryList";
-            this.btnPrintDeliveryList.Size = new System.Drawing.Size(153, 54);
-            this.btnPrintDeliveryList.TabIndex = 116;
-            this.btnPrintDeliveryList.Text = "Print Delivery List";
             this.btnPrintDeliveryList.UseVisualStyleBackColor = false;
             this.btnPrintDeliveryList.Click += new System.EventHandler(this.btnPrintDeliveryList_Click);
             // 
             // DailyDeliveryListForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(545, 450);
             this.Controls.Add(this.btnPrintDeliveryList);
             this.Controls.Add(this.btnGenerateDeliveryList);
             this.Controls.Add(this.lblDeliveryDate);
@@ -168,7 +143,6 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             this.Controls.Add(this.dgvDeliveries);
             this.Controls.Add(this.lblHeader);
             this.Name = "DailyDeliveryListForm";
-            this.Text = "DailyDeliveryListForm";
             ((System.ComponentModel.ISupportInitialize)(this.dgvDeliveries)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

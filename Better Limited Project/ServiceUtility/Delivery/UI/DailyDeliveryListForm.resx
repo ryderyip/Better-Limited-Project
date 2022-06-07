@@ -117,22 +117,261 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblHeader.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lblHeader.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 15.75pt, style=Bold</value>
+  </data>
+  <data name="lblHeader.Location" type="System.Drawing.Point, System.Drawing">
+    <value>171, 24</value>
+  </data>
+  <data name="lblHeader.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 25</value>
+  </data>
+  <data name="lblHeader.TabIndex" type="System.Int32, mscorlib">
+    <value>111</value>
+  </data>
+  <data name="lblHeader.Text" xml:space="preserve">
+    <value>Daily Delivery List</value>
+  </data>
+  <data name="&gt;&gt;lblHeader.Name" xml:space="preserve">
+    <value>lblHeader</value>
+  </data>
+  <data name="&gt;&gt;lblHeader.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblHeader.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblHeader.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
   <metadata name="idColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="idColumn.HeaderText" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="idColumn.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <metadata name="deliveryRequestIdColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="deliveryRequestIdColumn.HeaderText" xml:space="preserve">
+    <value>Delivery Request ID</value>
+  </data>
+  <data name="deliveryRequestIdColumn.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <metadata name="orderNumberColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="orderNumberColumn.HeaderText" xml:space="preserve">
+    <value>Order Number</value>
+  </data>
+  <data name="orderNumberColumn.Width" type="System.Int32, mscorlib">
+    <value>130</value>
+  </data>
   <metadata name="statusColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="statusColumn.HeaderText" xml:space="preserve">
+    <value>Status</value>
+  </data>
   <metadata name="updatedOnColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="updatedOnColumn.HeaderText" xml:space="preserve">
+    <value>Last Updated</value>
+  </data>
   <metadata name="arrangedBy.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="arrangedBy.HeaderText" xml:space="preserve">
+    <value>Arranged By</value>
+  </data>
+  <data name="dgvDeliveries.Location" type="System.Drawing.Point, System.Drawing">
+    <value>31, 122</value>
+  </data>
+  <data name="dgvDeliveries.Size" type="System.Drawing.Size, System.Drawing">
+    <value>474, 228</value>
+  </data>
+  <data name="dgvDeliveries.TabIndex" type="System.Int32, mscorlib">
+    <value>112</value>
+  </data>
+  <data name="&gt;&gt;dgvDeliveries.Name" xml:space="preserve">
+    <value>dgvDeliveries</value>
+  </data>
+  <data name="&gt;&gt;dgvDeliveries.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dgvDeliveries.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;dgvDeliveries.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="dtpDeliveryDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>126, 82</value>
+  </data>
+  <data name="dtpDeliveryDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 20</value>
+  </data>
+  <data name="dtpDeliveryDate.TabIndex" type="System.Int32, mscorlib">
+    <value>113</value>
+  </data>
+  <data name="&gt;&gt;dtpDeliveryDate.Name" xml:space="preserve">
+    <value>dtpDeliveryDate</value>
+  </data>
+  <data name="&gt;&gt;dtpDeliveryDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dtpDeliveryDate.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;dtpDeliveryDate.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="lblDeliveryDate.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblDeliveryDate.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt</value>
+  </data>
+  <data name="lblDeliveryDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>28, 84</value>
+  </data>
+  <data name="lblDeliveryDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 16</value>
+  </data>
+  <data name="lblDeliveryDate.TabIndex" type="System.Int32, mscorlib">
+    <value>114</value>
+  </data>
+  <data name="lblDeliveryDate.Text" xml:space="preserve">
+    <value>Delivery Date:</value>
+  </data>
+  <data name="&gt;&gt;lblDeliveryDate.Name" xml:space="preserve">
+    <value>lblDeliveryDate</value>
+  </data>
+  <data name="&gt;&gt;lblDeliveryDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblDeliveryDate.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblDeliveryDate.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnGenerateDeliveryList.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+  </data>
+  <data name="btnGenerateDeliveryList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>31, 370</value>
+  </data>
+  <data name="btnGenerateDeliveryList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>185, 54</value>
+  </data>
+  <data name="btnGenerateDeliveryList.TabIndex" type="System.Int32, mscorlib">
+    <value>115</value>
+  </data>
+  <data name="btnGenerateDeliveryList.Text" xml:space="preserve">
+    <value>Generate Delivery List</value>
+  </data>
+  <data name="&gt;&gt;btnGenerateDeliveryList.Name" xml:space="preserve">
+    <value>btnGenerateDeliveryList</value>
+  </data>
+  <data name="&gt;&gt;btnGenerateDeliveryList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnGenerateDeliveryList.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnGenerateDeliveryList.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnPrintDeliveryList.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+  </data>
+  <data name="btnPrintDeliveryList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>352, 370</value>
+  </data>
+  <data name="btnPrintDeliveryList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>153, 54</value>
+  </data>
+  <data name="btnPrintDeliveryList.TabIndex" type="System.Int32, mscorlib">
+    <value>116</value>
+  </data>
+  <data name="btnPrintDeliveryList.Text" xml:space="preserve">
+    <value>Print Delivery List</value>
+  </data>
+  <data name="&gt;&gt;btnPrintDeliveryList.Name" xml:space="preserve">
+    <value>btnPrintDeliveryList</value>
+  </data>
+  <data name="&gt;&gt;btnPrintDeliveryList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnPrintDeliveryList.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnPrintDeliveryList.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>545, 450</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>DailyDeliveryListForm</value>
+  </data>
+  <data name="&gt;&gt;idColumn.Name" xml:space="preserve">
+    <value>idColumn</value>
+  </data>
+  <data name="&gt;&gt;idColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;deliveryRequestIdColumn.Name" xml:space="preserve">
+    <value>deliveryRequestIdColumn</value>
+  </data>
+  <data name="&gt;&gt;deliveryRequestIdColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;orderNumberColumn.Name" xml:space="preserve">
+    <value>orderNumberColumn</value>
+  </data>
+  <data name="&gt;&gt;orderNumberColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;statusColumn.Name" xml:space="preserve">
+    <value>statusColumn</value>
+  </data>
+  <data name="&gt;&gt;statusColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;updatedOnColumn.Name" xml:space="preserve">
+    <value>updatedOnColumn</value>
+  </data>
+  <data name="&gt;&gt;updatedOnColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;arrangedBy.Name" xml:space="preserve">
+    <value>arrangedBy</value>
+  </data>
+  <data name="&gt;&gt;arrangedBy.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>DailyDeliveryListForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

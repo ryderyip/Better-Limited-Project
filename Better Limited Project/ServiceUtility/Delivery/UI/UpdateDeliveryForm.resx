@@ -117,4 +117,450 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="tbDeliveredOn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>299, 306</value>
+  </data>
+  <data name="tbDeliveredOn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>189, 20</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="tbDeliveredOn.TabIndex" type="System.Int32, mscorlib">
+    <value>179</value>
+  </data>
+  <data name="&gt;&gt;tbDeliveredOn.Name" xml:space="preserve">
+    <value>tbDeliveredOn</value>
+  </data>
+  <data name="&gt;&gt;tbDeliveredOn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbDeliveredOn.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tbDeliveredOn.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="lbltbDeliveredOn.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbltbDeliveredOn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt</value>
+  </data>
+  <data name="lbltbDeliveredOn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>208, 307</value>
+  </data>
+  <data name="lbltbDeliveredOn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 16</value>
+  </data>
+  <data name="lbltbDeliveredOn.TabIndex" type="System.Int32, mscorlib">
+    <value>178</value>
+  </data>
+  <data name="lbltbDeliveredOn.Text" xml:space="preserve">
+    <value>Delivered On:</value>
+  </data>
+  <data name="&gt;&gt;lbltbDeliveredOn.Name" xml:space="preserve">
+    <value>lbltbDeliveredOn</value>
+  </data>
+  <data name="&gt;&gt;lbltbDeliveredOn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbltbDeliveredOn.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbltbDeliveredOn.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="btnUpdate.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+  </data>
+  <data name="btnUpdate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>247, 398</value>
+  </data>
+  <data name="btnUpdate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 47</value>
+  </data>
+  <data name="btnUpdate.TabIndex" type="System.Int32, mscorlib">
+    <value>175</value>
+  </data>
+  <data name="btnUpdate.Text" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="&gt;&gt;btnUpdate.Name" xml:space="preserve">
+    <value>btnUpdate</value>
+  </data>
+  <data name="&gt;&gt;btnUpdate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnUpdate.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnUpdate.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="lblHeader.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblHeader.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 15.75pt, style=Bold</value>
+  </data>
+  <data name="lblHeader.Location" type="System.Drawing.Point, System.Drawing">
+    <value>247, 18</value>
+  </data>
+  <data name="lblHeader.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 25</value>
+  </data>
+  <data name="lblHeader.TabIndex" type="System.Int32, mscorlib">
+    <value>168</value>
+  </data>
+  <data name="lblHeader.Text" xml:space="preserve">
+    <value>Update Delivery</value>
+  </data>
+  <data name="&gt;&gt;lblHeader.Name" xml:space="preserve">
+    <value>lblHeader</value>
+  </data>
+  <data name="&gt;&gt;lblHeader.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblHeader.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblHeader.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="lblScheduledOn.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblScheduledOn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt</value>
+  </data>
+  <data name="lblScheduledOn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>198, 88</value>
+  </data>
+  <data name="lblScheduledOn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 16</value>
+  </data>
+  <data name="lblScheduledOn.TabIndex" type="System.Int32, mscorlib">
+    <value>169</value>
+  </data>
+  <data name="lblScheduledOn.Text" xml:space="preserve">
+    <value>Scheduled On:</value>
+  </data>
+  <data name="&gt;&gt;lblScheduledOn.Name" xml:space="preserve">
+    <value>lblScheduledOn</value>
+  </data>
+  <data name="&gt;&gt;lblScheduledOn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblScheduledOn.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblScheduledOn.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="tbScheduledOn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>299, 87</value>
+  </data>
+  <data name="tbScheduledOn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>189, 20</value>
+  </data>
+  <data name="tbScheduledOn.TabIndex" type="System.Int32, mscorlib">
+    <value>171</value>
+  </data>
+  <data name="&gt;&gt;tbScheduledOn.Name" xml:space="preserve">
+    <value>tbScheduledOn</value>
+  </data>
+  <data name="&gt;&gt;tbScheduledOn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbScheduledOn.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tbScheduledOn.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="lblDispatchedOn.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblDispatchedOn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt</value>
+  </data>
+  <data name="lblDispatchedOn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>194, 197</value>
+  </data>
+  <data name="lblDispatchedOn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 16</value>
+  </data>
+  <data name="lblDispatchedOn.TabIndex" type="System.Int32, mscorlib">
+    <value>176</value>
+  </data>
+  <data name="lblDispatchedOn.Text" xml:space="preserve">
+    <value>Dispatched On:</value>
+  </data>
+  <data name="&gt;&gt;lblDispatchedOn.Name" xml:space="preserve">
+    <value>lblDispatchedOn</value>
+  </data>
+  <data name="&gt;&gt;lblDispatchedOn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblDispatchedOn.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblDispatchedOn.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="tbDispatchedOn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>299, 196</value>
+  </data>
+  <data name="tbDispatchedOn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>189, 20</value>
+  </data>
+  <data name="tbDispatchedOn.TabIndex" type="System.Int32, mscorlib">
+    <value>177</value>
+  </data>
+  <data name="&gt;&gt;tbDispatchedOn.Name" xml:space="preserve">
+    <value>tbDispatchedOn</value>
+  </data>
+  <data name="&gt;&gt;tbDispatchedOn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbDispatchedOn.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tbDispatchedOn.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="dtpNewScheduledOnDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>229, 122</value>
+  </data>
+  <data name="dtpNewScheduledOnDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 20</value>
+  </data>
+  <data name="dtpNewScheduledOnDate.TabIndex" type="System.Int32, mscorlib">
+    <value>180</value>
+  </data>
+  <data name="&gt;&gt;dtpNewScheduledOnDate.Name" xml:space="preserve">
+    <value>dtpNewScheduledOnDate</value>
+  </data>
+  <data name="&gt;&gt;dtpNewScheduledOnDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dtpNewScheduledOnDate.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;dtpNewScheduledOnDate.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="lblNewDeliveredOn.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblNewDeliveredOn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt</value>
+  </data>
+  <data name="lblNewDeliveredOn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>133, 341</value>
+  </data>
+  <data name="lblNewDeliveredOn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 16</value>
+  </data>
+  <data name="lblNewDeliveredOn.TabIndex" type="System.Int32, mscorlib">
+    <value>183</value>
+  </data>
+  <data name="lblNewDeliveredOn.Text" xml:space="preserve">
+    <value>Delivered On:</value>
+  </data>
+  <data name="&gt;&gt;lblNewDeliveredOn.Name" xml:space="preserve">
+    <value>lblNewDeliveredOn</value>
+  </data>
+  <data name="&gt;&gt;lblNewDeliveredOn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblNewDeliveredOn.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblNewDeliveredOn.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="lblNewDispatchedOn.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblNewDispatchedOn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt</value>
+  </data>
+  <data name="lblNewDispatchedOn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>123, 231</value>
+  </data>
+  <data name="lblNewDispatchedOn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 16</value>
+  </data>
+  <data name="lblNewDispatchedOn.TabIndex" type="System.Int32, mscorlib">
+    <value>182</value>
+  </data>
+  <data name="lblNewDispatchedOn.Text" xml:space="preserve">
+    <value>Dispatched On:</value>
+  </data>
+  <data name="&gt;&gt;lblNewDispatchedOn.Name" xml:space="preserve">
+    <value>lblNewDispatchedOn</value>
+  </data>
+  <data name="&gt;&gt;lblNewDispatchedOn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblNewDispatchedOn.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblNewDispatchedOn.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="lblNewScheduledOn.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblNewScheduledOn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt</value>
+  </data>
+  <data name="lblNewScheduledOn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>127, 122</value>
+  </data>
+  <data name="lblNewScheduledOn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 16</value>
+  </data>
+  <data name="lblNewScheduledOn.TabIndex" type="System.Int32, mscorlib">
+    <value>181</value>
+  </data>
+  <data name="lblNewScheduledOn.Text" xml:space="preserve">
+    <value>Scheduled On:</value>
+  </data>
+  <data name="&gt;&gt;lblNewScheduledOn.Name" xml:space="preserve">
+    <value>lblNewScheduledOn</value>
+  </data>
+  <data name="&gt;&gt;lblNewScheduledOn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblNewScheduledOn.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblNewScheduledOn.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="dtpNewDispatchedOnDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>229, 231</value>
+  </data>
+  <data name="dtpNewDispatchedOnDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 20</value>
+  </data>
+  <data name="dtpNewDispatchedOnDate.TabIndex" type="System.Int32, mscorlib">
+    <value>184</value>
+  </data>
+  <data name="&gt;&gt;dtpNewDispatchedOnDate.Name" xml:space="preserve">
+    <value>dtpNewDispatchedOnDate</value>
+  </data>
+  <data name="&gt;&gt;dtpNewDispatchedOnDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dtpNewDispatchedOnDate.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;dtpNewDispatchedOnDate.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="dtpNewDeliveredOnDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>229, 341</value>
+  </data>
+  <data name="dtpNewDeliveredOnDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 20</value>
+  </data>
+  <data name="dtpNewDeliveredOnDate.TabIndex" type="System.Int32, mscorlib">
+    <value>185</value>
+  </data>
+  <data name="&gt;&gt;dtpNewDeliveredOnDate.Name" xml:space="preserve">
+    <value>dtpNewDeliveredOnDate</value>
+  </data>
+  <data name="&gt;&gt;dtpNewDeliveredOnDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dtpNewDeliveredOnDate.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;dtpNewDeliveredOnDate.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="dtpNewScheduledOnTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>447, 122</value>
+  </data>
+  <data name="dtpNewScheduledOnTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>104, 20</value>
+  </data>
+  <data name="dtpNewScheduledOnTime.TabIndex" type="System.Int32, mscorlib">
+    <value>186</value>
+  </data>
+  <data name="&gt;&gt;dtpNewScheduledOnTime.Name" xml:space="preserve">
+    <value>dtpNewScheduledOnTime</value>
+  </data>
+  <data name="&gt;&gt;dtpNewScheduledOnTime.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dtpNewScheduledOnTime.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;dtpNewScheduledOnTime.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="dtpNewDispatchedOnTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>447, 231</value>
+  </data>
+  <data name="dtpNewDispatchedOnTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>104, 20</value>
+  </data>
+  <data name="dtpNewDispatchedOnTime.TabIndex" type="System.Int32, mscorlib">
+    <value>187</value>
+  </data>
+  <data name="&gt;&gt;dtpNewDispatchedOnTime.Name" xml:space="preserve">
+    <value>dtpNewDispatchedOnTime</value>
+  </data>
+  <data name="&gt;&gt;dtpNewDispatchedOnTime.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dtpNewDispatchedOnTime.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;dtpNewDispatchedOnTime.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="dtpNewDeliveredOnTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>447, 341</value>
+  </data>
+  <data name="dtpNewDeliveredOnTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>104, 20</value>
+  </data>
+  <data name="dtpNewDeliveredOnTime.TabIndex" type="System.Int32, mscorlib">
+    <value>188</value>
+  </data>
+  <data name="&gt;&gt;dtpNewDeliveredOnTime.Name" xml:space="preserve">
+    <value>dtpNewDeliveredOnTime</value>
+  </data>
+  <data name="&gt;&gt;dtpNewDeliveredOnTime.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dtpNewDeliveredOnTime.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;dtpNewDeliveredOnTime.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>675, 467</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>UpdateDeliveryForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>UpdateDeliveryForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

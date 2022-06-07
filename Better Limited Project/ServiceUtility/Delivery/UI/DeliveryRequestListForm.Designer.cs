@@ -29,6 +29,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeliveryRequestListForm));
             this.dgvDeliveryRequests = new System.Windows.Forms.DataGridView();
             this.orderNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createdOnColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,79 +51,62 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             this.createdOnColumn,
             this.arrangedOnColumn,
             this.deliverySessionColumn});
-            this.dgvDeliveryRequests.Location = new System.Drawing.Point(26, 99);
+            resources.ApplyResources(this.dgvDeliveryRequests, "dgvDeliveryRequests");
             this.dgvDeliveryRequests.Name = "dgvDeliveryRequests";
             this.dgvDeliveryRequests.ReadOnly = true;
             this.dgvDeliveryRequests.RowTemplate.Height = 24;
-            this.dgvDeliveryRequests.Size = new System.Drawing.Size(473, 323);
-            this.dgvDeliveryRequests.TabIndex = 20;
             this.dgvDeliveryRequests.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDeliveryRequests_CellDoubleClick);
             // 
             // orderNumberColumn
             // 
-            this.orderNumberColumn.HeaderText = "Order Number";
+            resources.ApplyResources(this.orderNumberColumn, "orderNumberColumn");
             this.orderNumberColumn.Name = "orderNumberColumn";
             this.orderNumberColumn.ReadOnly = true;
-            this.orderNumberColumn.Width = 150;
             // 
             // createdOnColumn
             // 
-            this.createdOnColumn.HeaderText = "Created On";
+            resources.ApplyResources(this.createdOnColumn, "createdOnColumn");
             this.createdOnColumn.Name = "createdOnColumn";
             this.createdOnColumn.ReadOnly = true;
             // 
             // arrangedOnColumn
             // 
-            this.arrangedOnColumn.HeaderText = "Arranged On";
+            resources.ApplyResources(this.arrangedOnColumn, "arrangedOnColumn");
             this.arrangedOnColumn.Name = "arrangedOnColumn";
             this.arrangedOnColumn.ReadOnly = true;
             // 
             // deliverySessionColumn
             // 
-            this.deliverySessionColumn.HeaderText = "Session";
+            resources.ApplyResources(this.deliverySessionColumn, "deliverySessionColumn");
             this.deliverySessionColumn.Name = "deliverySessionColumn";
             this.deliverySessionColumn.ReadOnly = true;
-            this.deliverySessionColumn.Width = 80;
             // 
             // tbSearchBox
             // 
-            this.tbSearchBox.Location = new System.Drawing.Point(26, 44);
+            resources.ApplyResources(this.tbSearchBox, "tbSearchBox");
             this.tbSearchBox.Name = "tbSearchBox";
-            this.tbSearchBox.Size = new System.Drawing.Size(209, 20);
-            this.tbSearchBox.TabIndex = 19;
             this.tbSearchBox.TextChanged += new System.EventHandler(this.tbSearchBox_TextChanged);
             // 
             // lblSearchBox
             // 
-            this.lblSearchBox.AutoSize = true;
-            this.lblSearchBox.Location = new System.Drawing.Point(24, 28);
+            resources.ApplyResources(this.lblSearchBox, "lblSearchBox");
             this.lblSearchBox.Name = "lblSearchBox";
-            this.lblSearchBox.Size = new System.Drawing.Size(124, 13);
-            this.lblSearchBox.TabIndex = 18;
-            this.lblSearchBox.Text = "Search by Order Number";
             // 
             // cbShowArrangedRequests
             // 
-            this.cbShowArrangedRequests.AutoSize = true;
-            this.cbShowArrangedRequests.Location = new System.Drawing.Point(279, 46);
+            resources.ApplyResources(this.cbShowArrangedRequests, "cbShowArrangedRequests");
             this.cbShowArrangedRequests.Name = "cbShowArrangedRequests";
-            this.cbShowArrangedRequests.Size = new System.Drawing.Size(147, 17);
-            this.cbShowArrangedRequests.TabIndex = 21;
-            this.cbShowArrangedRequests.Text = "Show Arranged Requests";
             this.cbShowArrangedRequests.UseVisualStyleBackColor = true;
-            this.cbShowArrangedRequests.CheckedChanged += cbShowArrangedRequests_CheckedChanged;
             // 
             // DeliveryRequestListForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(530, 450);
             this.Controls.Add(this.cbShowArrangedRequests);
             this.Controls.Add(this.dgvDeliveryRequests);
             this.Controls.Add(this.tbSearchBox);
             this.Controls.Add(this.lblSearchBox);
             this.Name = "DeliveryRequestListForm";
-            this.Text = "DeliveryRequestListForm";
             ((System.ComponentModel.ISupportInitialize)(this.dgvDeliveryRequests)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

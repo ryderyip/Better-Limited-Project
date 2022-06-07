@@ -118,137 +118,52 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblText.AutoSize" type="System.Boolean, mscorlib">
+  <data name="idColumn.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lblText.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 16pt, style=Bold</value>
-  </data>
-  <data name="lblText.Location" type="System.Drawing.Point, System.Drawing">
-    <value>101, 26</value>
-  </data>
-  <data name="lblText.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 26</value>
-  </data>
-  <data name="lblText.TabIndex" type="System.Int32, mscorlib">
-    <value>62</value>
-  </data>
-  <data name="lblText.Text" xml:space="preserve">
-    <value>Confirm Removal?</value>
-  </data>
-  <data name="lblText.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="&gt;&gt;lblText.Name" xml:space="preserve">
-    <value>lblText</value>
-  </data>
-  <data name="&gt;&gt;lblText.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblText.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblText.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="tbPassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>106, 107</value>
-  </data>
-  <data name="tbPassword.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
-    <value>*</value>
-  </data>
-  <data name="tbPassword.Size" type="System.Drawing.Size, System.Drawing">
-    <value>205, 20</value>
-  </data>
-  <data name="tbPassword.TabIndex" type="System.Int32, mscorlib">
-    <value>80</value>
-  </data>
-  <data name="&gt;&gt;tbPassword.Name" xml:space="preserve">
-    <value>tbPassword</value>
-  </data>
-  <data name="&gt;&gt;tbPassword.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbPassword.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;tbPassword.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="lblMessage.AutoSize" type="System.Boolean, mscorlib">
+  <data name="deliveryRequestIdColumn.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lblMessage.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt</value>
-  </data>
-  <data name="lblMessage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>103, 80</value>
-  </data>
-  <data name="lblMessage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 15</value>
-  </data>
-  <data name="lblMessage.TabIndex" type="System.Int32, mscorlib">
-    <value>81</value>
-  </data>
-  <data name="lblMessage.Text" xml:space="preserve">
-    <value>Enter Password to Confirm</value>
-  </data>
-  <data name="&gt;&gt;lblMessage.Name" xml:space="preserve">
-    <value>lblMessage</value>
-  </data>
-  <data name="&gt;&gt;lblMessage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblMessage.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblMessage.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="btnRemove.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
-  </data>
-  <data name="btnRemove.Location" type="System.Drawing.Point, System.Drawing">
-    <value>147, 154</value>
-  </data>
-  <data name="btnRemove.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 54</value>
-  </data>
-  <data name="btnRemove.TabIndex" type="System.Int32, mscorlib">
-    <value>109</value>
-  </data>
-  <data name="btnRemove.Text" xml:space="preserve">
-    <value>Confirm</value>
-  </data>
-  <data name="&gt;&gt;btnRemove.Name" xml:space="preserve">
-    <value>btnRemove</value>
-  </data>
-  <data name="&gt;&gt;btnRemove.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnRemove.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnRemove.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="orderNumberColumn.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>412, 229</value>
+  <data name="statusColumn.UserAddedColumn" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>ConfirmRemoveStaffForm</value>
+  <data name="updatedOnColumn.UserAddedColumn" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>ConfirmRemovalForm</value>
+  <data name="arrangedBy.UserAddedColumn" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="arrangedBy.HeaderText" xml:space="preserve">
+    <value>安排人</value>
+  </data>
+  <data name="btnGenerateDeliveryList.Text" xml:space="preserve">
+    <value>生成送貨清單</value>
+  </data>
+  <data name="btnPrintDeliveryList.Text" xml:space="preserve">
+    <value>打印送貨清單</value>
+  </data>
+  <data name="deliveryRequestIdColumn.HeaderText" xml:space="preserve">
+    <value>Delivery Request ID</value>
+  </data>
+  <data name="idColumn.HeaderText" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="lblDeliveryDate.Text" xml:space="preserve">
+    <value>送貨日期:</value>
+  </data>
+  <data name="lblHeader.Text" xml:space="preserve">
+    <value>每日送貨清單</value>
+  </data>
+  <data name="orderNumberColumn.HeaderText" xml:space="preserve">
+    <value>訂單號碼</value>
+  </data>
+  <data name="statusColumn.HeaderText" xml:space="preserve">
+    <value>狀態</value>
+  </data>
+  <data name="updatedOnColumn.HeaderText" xml:space="preserve">
+    <value>最後更新時間</value>
   </data>
 </root>

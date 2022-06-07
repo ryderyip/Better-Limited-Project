@@ -29,6 +29,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeliveryListForm));
             this.dgvDeliveries = new System.Windows.Forms.DataGridView();
             this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deliveryRequestIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,94 +55,77 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             this.statusColumn,
             this.updatedOnColumn,
             this.arrangedBy});
-            this.dgvDeliveries.Location = new System.Drawing.Point(28, 99);
+            resources.ApplyResources(this.dgvDeliveries, "dgvDeliveries");
             this.dgvDeliveries.Name = "dgvDeliveries";
             this.dgvDeliveries.ReadOnly = true;
             this.dgvDeliveries.RowTemplate.Height = 24;
-            this.dgvDeliveries.Size = new System.Drawing.Size(486, 323);
-            this.dgvDeliveries.TabIndex = 15;
             this.dgvDeliveries.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDeliveries_CellDoubleClick);
             // 
             // idColumn
             // 
-            this.idColumn.HeaderText = "ID";
+            resources.ApplyResources(this.idColumn, "idColumn");
             this.idColumn.Name = "idColumn";
             this.idColumn.ReadOnly = true;
-            this.idColumn.Visible = false;
             // 
             // deliveryRequestIdColumn
             // 
-            this.deliveryRequestIdColumn.HeaderText = "Delivery Request ID";
+            resources.ApplyResources(this.deliveryRequestIdColumn, "deliveryRequestIdColumn");
             this.deliveryRequestIdColumn.Name = "deliveryRequestIdColumn";
             this.deliveryRequestIdColumn.ReadOnly = true;
-            this.deliveryRequestIdColumn.Visible = false;
             // 
             // orderNumberColumn
             // 
-            this.orderNumberColumn.HeaderText = "Order Number";
+            resources.ApplyResources(this.orderNumberColumn, "orderNumberColumn");
             this.orderNumberColumn.Name = "orderNumberColumn";
             this.orderNumberColumn.ReadOnly = true;
-            this.orderNumberColumn.Width = 130;
             // 
             // statusColumn
             // 
-            this.statusColumn.HeaderText = "Status";
+            resources.ApplyResources(this.statusColumn, "statusColumn");
             this.statusColumn.Name = "statusColumn";
             this.statusColumn.ReadOnly = true;
             // 
             // updatedOnColumn
             // 
-            this.updatedOnColumn.HeaderText = "Last Updated";
+            resources.ApplyResources(this.updatedOnColumn, "updatedOnColumn");
             this.updatedOnColumn.Name = "updatedOnColumn";
             this.updatedOnColumn.ReadOnly = true;
             // 
             // arrangedBy
             // 
-            this.arrangedBy.HeaderText = "Arranged By";
+            resources.ApplyResources(this.arrangedBy, "arrangedBy");
             this.arrangedBy.Name = "arrangedBy";
             this.arrangedBy.ReadOnly = true;
             // 
             // tbSearchBox
             // 
-            this.tbSearchBox.Location = new System.Drawing.Point(28, 43);
+            resources.ApplyResources(this.tbSearchBox, "tbSearchBox");
             this.tbSearchBox.Name = "tbSearchBox";
-            this.tbSearchBox.Size = new System.Drawing.Size(209, 20);
-            this.tbSearchBox.TabIndex = 14;
             this.tbSearchBox.TextChanged += new System.EventHandler(this.tbSearchBox_TextChanged);
             // 
             // lblSearchBox
             // 
-            this.lblSearchBox.AutoSize = true;
-            this.lblSearchBox.Location = new System.Drawing.Point(26, 27);
+            resources.ApplyResources(this.lblSearchBox, "lblSearchBox");
             this.lblSearchBox.Name = "lblSearchBox";
-            this.lblSearchBox.Size = new System.Drawing.Size(153, 13);
-            this.lblSearchBox.TabIndex = 13;
-            this.lblSearchBox.Text = "Search by Sales Order Number";
             // 
             // btnDailyDeliveryList
             // 
             this.btnDailyDeliveryList.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnDailyDeliveryList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.btnDailyDeliveryList, "btnDailyDeliveryList");
             this.btnDailyDeliveryList.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnDailyDeliveryList.Location = new System.Drawing.Point(350, 27);
             this.btnDailyDeliveryList.Name = "btnDailyDeliveryList";
-            this.btnDailyDeliveryList.Size = new System.Drawing.Size(164, 48);
-            this.btnDailyDeliveryList.TabIndex = 85;
-            this.btnDailyDeliveryList.Text = "Daily Delivery List";
             this.btnDailyDeliveryList.UseVisualStyleBackColor = false;
             this.btnDailyDeliveryList.Click += new System.EventHandler(this.btnDailyDeliveryList_Click);
             // 
             // DeliveryListForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(546, 450);
             this.Controls.Add(this.btnDailyDeliveryList);
             this.Controls.Add(this.dgvDeliveries);
             this.Controls.Add(this.tbSearchBox);
             this.Controls.Add(this.lblSearchBox);
             this.Name = "DeliveryListForm";
-            this.Text = "DeliveryListForm";
             ((System.ComponentModel.ISupportInitialize)(this.dgvDeliveries)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

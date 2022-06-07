@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeliveryRequestDetailsForm));
             this.btnDeliverytNote = new System.Windows.Forms.Button();
             this.btnArrangeDelivery = new System.Windows.Forms.Button();
             this.tbCreatedOn = new System.Windows.Forms.TextBox();
@@ -52,196 +53,124 @@
             // btnDeliverytNote
             // 
             this.btnDeliverytNote.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnDeliverytNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.btnDeliverytNote, "btnDeliverytNote");
             this.btnDeliverytNote.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnDeliverytNote.Location = new System.Drawing.Point(306, 408);
             this.btnDeliverytNote.Name = "btnDeliverytNote";
-            this.btnDeliverytNote.Size = new System.Drawing.Size(198, 47);
-            this.btnDeliverytNote.TabIndex = 141;
-            this.btnDeliverytNote.Text = "Delivery Note";
             this.btnDeliverytNote.UseVisualStyleBackColor = false;
             // 
             // btnArrangeDelivery
             // 
             this.btnArrangeDelivery.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnArrangeDelivery.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.btnArrangeDelivery, "btnArrangeDelivery");
             this.btnArrangeDelivery.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnArrangeDelivery.Location = new System.Drawing.Point(52, 408);
             this.btnArrangeDelivery.Name = "btnArrangeDelivery";
-            this.btnArrangeDelivery.Size = new System.Drawing.Size(198, 47);
-            this.btnArrangeDelivery.TabIndex = 140;
-            this.btnArrangeDelivery.Text = "Arrange Delivery";
             this.btnArrangeDelivery.UseVisualStyleBackColor = false;
             this.btnArrangeDelivery.Click += new System.EventHandler(this.btnArrangeDelivery_Click);
             // 
             // tbCreatedOn
             // 
-            this.tbCreatedOn.Location = new System.Drawing.Point(166, 113);
+            resources.ApplyResources(this.tbCreatedOn, "tbCreatedOn");
             this.tbCreatedOn.Name = "tbCreatedOn";
             this.tbCreatedOn.ReadOnly = true;
-            this.tbCreatedOn.Size = new System.Drawing.Size(232, 20);
-            this.tbCreatedOn.TabIndex = 139;
             // 
             // lblCreatedOn
             // 
-            this.lblCreatedOn.AutoSize = true;
-            this.lblCreatedOn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCreatedOn.Location = new System.Drawing.Point(81, 114);
+            resources.ApplyResources(this.lblCreatedOn, "lblCreatedOn");
             this.lblCreatedOn.Name = "lblCreatedOn";
-            this.lblCreatedOn.Size = new System.Drawing.Size(79, 16);
-            this.lblCreatedOn.TabIndex = 138;
-            this.lblCreatedOn.Text = "Created On:";
             // 
             // tbArrangedBy
             // 
-            this.tbArrangedBy.Location = new System.Drawing.Point(527, 224);
+            resources.ApplyResources(this.tbArrangedBy, "tbArrangedBy");
             this.tbArrangedBy.Name = "tbArrangedBy";
             this.tbArrangedBy.ReadOnly = true;
-            this.tbArrangedBy.Size = new System.Drawing.Size(232, 20);
-            this.tbArrangedBy.TabIndex = 134;
             // 
             // lblArrangedBy
             // 
-            this.lblArrangedBy.AutoSize = true;
-            this.lblArrangedBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblArrangedBy.Location = new System.Drawing.Point(435, 225);
+            resources.ApplyResources(this.lblArrangedBy, "lblArrangedBy");
             this.lblArrangedBy.Name = "lblArrangedBy";
-            this.lblArrangedBy.Size = new System.Drawing.Size(86, 16);
-            this.lblArrangedBy.TabIndex = 133;
-            this.lblArrangedBy.Text = "Arranged By:";
             // 
             // tbArrangedOn
             // 
-            this.tbArrangedOn.Location = new System.Drawing.Point(527, 174);
+            resources.ApplyResources(this.tbArrangedOn, "tbArrangedOn");
             this.tbArrangedOn.Name = "tbArrangedOn";
             this.tbArrangedOn.ReadOnly = true;
-            this.tbArrangedOn.Size = new System.Drawing.Size(232, 20);
-            this.tbArrangedOn.TabIndex = 132;
             // 
             // tbCreatedBy
             // 
-            this.tbCreatedBy.Location = new System.Drawing.Point(166, 195);
+            resources.ApplyResources(this.tbCreatedBy, "tbCreatedBy");
             this.tbCreatedBy.Name = "tbCreatedBy";
             this.tbCreatedBy.ReadOnly = true;
-            this.tbCreatedBy.Size = new System.Drawing.Size(232, 20);
-            this.tbCreatedBy.TabIndex = 131;
             // 
             // lblArrangedOn
             // 
-            this.lblArrangedOn.AutoSize = true;
-            this.lblArrangedOn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblArrangedOn.Location = new System.Drawing.Point(435, 175);
+            resources.ApplyResources(this.lblArrangedOn, "lblArrangedOn");
             this.lblArrangedOn.Name = "lblArrangedOn";
-            this.lblArrangedOn.Size = new System.Drawing.Size(87, 16);
-            this.lblArrangedOn.TabIndex = 129;
-            this.lblArrangedOn.Text = "Arranged On:";
             // 
             // lblCreatedby
             // 
-            this.lblCreatedby.AutoSize = true;
-            this.lblCreatedby.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCreatedby.Location = new System.Drawing.Point(83, 196);
+            resources.ApplyResources(this.lblCreatedby, "lblCreatedby");
             this.lblCreatedby.Name = "lblCreatedby";
-            this.lblCreatedby.Size = new System.Drawing.Size(78, 16);
-            this.lblCreatedby.TabIndex = 128;
-            this.lblCreatedby.Text = "Created By:";
             // 
             // btnViewOrderDetails
             // 
             this.btnViewOrderDetails.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnViewOrderDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.btnViewOrderDetails, "btnViewOrderDetails");
             this.btnViewOrderDetails.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnViewOrderDetails.Location = new System.Drawing.Point(550, 408);
             this.btnViewOrderDetails.Name = "btnViewOrderDetails";
-            this.btnViewOrderDetails.Size = new System.Drawing.Size(198, 47);
-            this.btnViewOrderDetails.TabIndex = 142;
-            this.btnViewOrderDetails.Text = "View Order Details";
             this.btnViewOrderDetails.UseVisualStyleBackColor = false;
             this.btnViewOrderDetails.Click += new System.EventHandler(this.btnViewOrderDetails_Click);
             // 
             // lblDeliveryInfo
             // 
-            this.lblDeliveryInfo.AutoSize = true;
-            this.lblDeliveryInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDeliveryInfo.Location = new System.Drawing.Point(242, 37);
+            resources.ApplyResources(this.lblDeliveryInfo, "lblDeliveryInfo");
             this.lblDeliveryInfo.Name = "lblDeliveryInfo";
-            this.lblDeliveryInfo.Size = new System.Drawing.Size(316, 25);
-            this.lblDeliveryInfo.TabIndex = 126;
-            this.lblDeliveryInfo.Text = "Delivery Request Information";
             // 
             // tbDeliverySession
             // 
-            this.tbDeliverySession.Location = new System.Drawing.Point(166, 236);
+            resources.ApplyResources(this.tbDeliverySession, "tbDeliverySession");
             this.tbDeliverySession.Name = "tbDeliverySession";
             this.tbDeliverySession.ReadOnly = true;
-            this.tbDeliverySession.Size = new System.Drawing.Size(232, 20);
-            this.tbDeliverySession.TabIndex = 144;
             // 
             // lblDeliverySession
             // 
-            this.lblDeliverySession.AutoSize = true;
-            this.lblDeliverySession.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDeliverySession.Location = new System.Drawing.Point(51, 237);
+            resources.ApplyResources(this.lblDeliverySession, "lblDeliverySession");
             this.lblDeliverySession.Name = "lblDeliverySession";
-            this.lblDeliverySession.Size = new System.Drawing.Size(110, 16);
-            this.lblDeliverySession.TabIndex = 143;
-            this.lblDeliverySession.Text = "Delivery Session";
             // 
             // tbCreatedIn
             // 
-            this.tbCreatedIn.Location = new System.Drawing.Point(166, 155);
+            resources.ApplyResources(this.tbCreatedIn, "tbCreatedIn");
             this.tbCreatedIn.Name = "tbCreatedIn";
             this.tbCreatedIn.ReadOnly = true;
-            this.tbCreatedIn.Size = new System.Drawing.Size(232, 20);
-            this.tbCreatedIn.TabIndex = 146;
             // 
             // lblCreatedIn
             // 
-            this.lblCreatedIn.AutoSize = true;
-            this.lblCreatedIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCreatedIn.Location = new System.Drawing.Point(89, 156);
+            resources.ApplyResources(this.lblCreatedIn, "lblCreatedIn");
             this.lblCreatedIn.Name = "lblCreatedIn";
-            this.lblCreatedIn.Size = new System.Drawing.Size(72, 16);
-            this.lblCreatedIn.TabIndex = 145;
-            this.lblCreatedIn.Text = "Created In:";
             // 
             // tbStockStatus
             // 
-            this.tbStockStatus.Location = new System.Drawing.Point(166, 280);
+            resources.ApplyResources(this.tbStockStatus, "tbStockStatus");
             this.tbStockStatus.Name = "tbStockStatus";
             this.tbStockStatus.ReadOnly = true;
-            this.tbStockStatus.Size = new System.Drawing.Size(232, 20);
-            this.tbStockStatus.TabIndex = 148;
             // 
             // lblGoodsStatus
             // 
-            this.lblGoodsStatus.AutoSize = true;
-            this.lblGoodsStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGoodsStatus.Location = new System.Drawing.Point(68, 281);
+            resources.ApplyResources(this.lblGoodsStatus, "lblGoodsStatus");
             this.lblGoodsStatus.Name = "lblGoodsStatus";
-            this.lblGoodsStatus.Size = new System.Drawing.Size(92, 16);
-            this.lblGoodsStatus.TabIndex = 147;
-            this.lblGoodsStatus.Text = "Goods Status:";
             // 
             // btnViewDeliveryDetails
             // 
             this.btnViewDeliveryDetails.BackColor = System.Drawing.Color.Plum;
-            this.btnViewDeliveryDetails.Enabled = false;
-            this.btnViewDeliveryDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.btnViewDeliveryDetails, "btnViewDeliveryDetails");
             this.btnViewDeliveryDetails.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnViewDeliveryDetails.Location = new System.Drawing.Point(306, 344);
             this.btnViewDeliveryDetails.Name = "btnViewDeliveryDetails";
-            this.btnViewDeliveryDetails.Size = new System.Drawing.Size(198, 47);
-            this.btnViewDeliveryDetails.TabIndex = 149;
-            this.btnViewDeliveryDetails.Text = "View Delivery Details";
             this.btnViewDeliveryDetails.UseVisualStyleBackColor = false;
             this.btnViewDeliveryDetails.Click += new System.EventHandler(this.btnViewDeliveryDetails_Click);
             // 
             // DeliveryRequestDetailsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 488);
             this.Controls.Add(this.btnViewDeliveryDetails);
             this.Controls.Add(this.tbStockStatus);
             this.Controls.Add(this.lblGoodsStatus);
@@ -262,7 +191,6 @@
             this.Controls.Add(this.lblCreatedby);
             this.Controls.Add(this.lblDeliveryInfo);
             this.Name = "DeliveryRequestDetailsForm";
-            this.Text = "DeliveryRequestDetailsForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 

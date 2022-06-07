@@ -132,7 +132,7 @@
     <value>831</value>
   </data>
   <data name="rbGenderNonbinary.Text" xml:space="preserve">
-    <value>Non-Binary</value>
+    <value>非二元</value>
   </data>
   <data name="&gt;&gt;rbGenderNonbinary.Name" xml:space="preserve">
     <value>rbGenderNonbinary</value>
@@ -159,7 +159,7 @@
     <value>830</value>
   </data>
   <data name="rbGenderFemale.Text" xml:space="preserve">
-    <value>Female</value>
+    <value>女</value>
   </data>
   <data name="&gt;&gt;rbGenderFemale.Name" xml:space="preserve">
     <value>rbGenderFemale</value>
@@ -186,7 +186,7 @@
     <value>829</value>
   </data>
   <data name="rbGenderMale.Text" xml:space="preserve">
-    <value>Male</value>
+    <value>男</value>
   </data>
   <data name="&gt;&gt;rbGenderMale.Name" xml:space="preserve">
     <value>rbGenderMale</value>
@@ -237,7 +237,7 @@
     <value>844</value>
   </data>
   <data name="lblAlertText.Text" xml:space="preserve">
-    <value>(All fields must be filled)</value>
+    <value>(必須填寫所有資料)</value>
   </data>
   <data name="&gt;&gt;lblAlertText.Name" xml:space="preserve">
     <value>lblAlertText</value>
@@ -267,7 +267,7 @@
     <value>843</value>
   </data>
   <data name="lblTitle.Text" xml:space="preserve">
-    <value>Title:</value>
+    <value>職位:</value>
   </data>
   <data name="&gt;&gt;lblTitle.Name" xml:space="preserve">
     <value>lblTitle</value>
@@ -318,7 +318,7 @@
     <value>841</value>
   </data>
   <data name="lblGender.Text" xml:space="preserve">
-    <value>Gender:</value>
+    <value>性別:</value>
   </data>
   <data name="&gt;&gt;lblGender.Name" xml:space="preserve">
     <value>lblGender</value>
@@ -369,7 +369,7 @@
     <value>840</value>
   </data>
   <data name="lblStaffName.Text" xml:space="preserve">
-    <value>Staff Name:</value>
+    <value>員工姓名:</value>
   </data>
   <data name="&gt;&gt;lblStaffName.Name" xml:space="preserve">
     <value>lblStaffName</value>
@@ -399,7 +399,7 @@
     <value>839</value>
   </data>
   <data name="lblDateOfBirth.Text" xml:space="preserve">
-    <value>Date of Birth:</value>
+    <value>出生日期:</value>
   </data>
   <data name="&gt;&gt;lblDateOfBirth.Name" xml:space="preserve">
     <value>lblDateOfBirth</value>
@@ -426,7 +426,7 @@
     <value>845</value>
   </data>
   <data name="btnUpdate.Text" xml:space="preserve">
-    <value>Update</value>
+    <value>更新</value>
   </data>
   <data name="&gt;&gt;btnUpdate.Name" xml:space="preserve">
     <value>btnUpdate</value>
@@ -456,7 +456,7 @@
     <value>838</value>
   </data>
   <data name="lblBigText.Text" xml:space="preserve">
-    <value>Update Staff Information</value>
+    <value>更新員工資料</value>
   </data>
   <data name="&gt;&gt;lblBigText.Name" xml:space="preserve">
     <value>lblBigText</value>
@@ -507,7 +507,7 @@
     <value>847</value>
   </data>
   <data name="lblAccountUsername.Text" xml:space="preserve">
-    <value>Login Account Username:</value>
+    <value>賬戶用戶名(登入用)</value>
   </data>
   <data name="&gt;&gt;lblAccountUsername.Name" xml:space="preserve">
     <value>lblAccountUsername</value>
@@ -521,9 +521,9 @@
   <data name="&gt;&gt;lblAccountUsername.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="$this.Localizable" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
+  </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>

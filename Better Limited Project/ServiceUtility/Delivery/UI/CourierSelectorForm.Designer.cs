@@ -29,6 +29,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CourierSelectorForm));
             this.dgvCouriers = new System.Windows.Forms.DataGridView();
             this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,78 +49,57 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             this.idColumn,
             this.nameColumn,
             this.phoneColumn});
-            this.dgvCouriers.Location = new System.Drawing.Point(41, 105);
+            resources.ApplyResources(this.dgvCouriers, "dgvCouriers");
             this.dgvCouriers.Name = "dgvCouriers";
             this.dgvCouriers.ReadOnly = true;
             this.dgvCouriers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCouriers.Size = new System.Drawing.Size(313, 195);
-            this.dgvCouriers.TabIndex = 0;
             // 
             // idColumn
             // 
-            this.idColumn.HeaderText = "ID";
+            resources.ApplyResources(this.idColumn, "idColumn");
             this.idColumn.Name = "idColumn";
             this.idColumn.ReadOnly = true;
-            this.idColumn.Visible = false;
             // 
             // nameColumn
             // 
-            this.nameColumn.HeaderText = "Name";
+            resources.ApplyResources(this.nameColumn, "nameColumn");
             this.nameColumn.Name = "nameColumn";
             this.nameColumn.ReadOnly = true;
-            this.nameColumn.Width = 150;
             // 
             // phoneColumn
             // 
-            this.phoneColumn.HeaderText = "Phone Number";
+            resources.ApplyResources(this.phoneColumn, "phoneColumn");
             this.phoneColumn.Name = "phoneColumn";
             this.phoneColumn.ReadOnly = true;
-            this.phoneColumn.Width = 120;
             // 
             // lblChooseCouriers
             // 
-            this.lblChooseCouriers.AutoSize = true;
-            this.lblChooseCouriers.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChooseCouriers.Location = new System.Drawing.Point(104, 23);
+            resources.ApplyResources(this.lblChooseCouriers, "lblChooseCouriers");
             this.lblChooseCouriers.Name = "lblChooseCouriers";
-            this.lblChooseCouriers.Size = new System.Drawing.Size(187, 25);
-            this.lblChooseCouriers.TabIndex = 1;
-            this.lblChooseCouriers.Text = "Choose Courier(s)";
             // 
             // btnConfirm
             // 
             this.btnConfirm.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.btnConfirm, "btnConfirm");
             this.btnConfirm.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnConfirm.Location = new System.Drawing.Point(131, 321);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(133, 55);
-            this.btnConfirm.TabIndex = 110;
-            this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = false;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // lblTips
             // 
-            this.lblTips.AutoSize = true;
-            this.lblTips.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTips.Location = new System.Drawing.Point(38, 86);
+            resources.ApplyResources(this.lblTips, "lblTips");
             this.lblTips.Name = "lblTips";
-            this.lblTips.Size = new System.Drawing.Size(294, 16);
-            this.lblTips.TabIndex = 111;
-            this.lblTips.Text = "(Hold Ctrl + Click to select more than one courier)";
             // 
             // CourierSelectorForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(395, 399);
             this.Controls.Add(this.lblTips);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.lblChooseCouriers);
             this.Controls.Add(this.dgvCouriers);
             this.Name = "CourierSelectorForm";
-            this.Text = "CourierSelector";
             ((System.ComponentModel.ISupportInitialize)(this.dgvCouriers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

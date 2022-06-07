@@ -117,10 +117,390 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblSelectCourier.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lblSelectCourier.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="lblSelectCourier.Location" type="System.Drawing.Point, System.Drawing">
+    <value>82, 131</value>
+  </data>
+  <data name="lblSelectCourier.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 20</value>
+  </data>
+  <data name="lblSelectCourier.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="lblSelectCourier.Text" xml:space="preserve">
+    <value>Choose Courier</value>
+  </data>
+  <data name="&gt;&gt;lblSelectCourier.Name" xml:space="preserve">
+    <value>lblSelectCourier</value>
+  </data>
+  <data name="&gt;&gt;lblSelectCourier.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblSelectCourier.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblSelectCourier.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="lblSelectDate.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblSelectDate.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="lblSelectDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>392, 132</value>
+  </data>
+  <data name="lblSelectDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 20</value>
+  </data>
+  <data name="lblSelectDate.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="lblSelectDate.Text" xml:space="preserve">
+    <value>Select Delivery Date</value>
+  </data>
+  <data name="&gt;&gt;lblSelectDate.Name" xml:space="preserve">
+    <value>lblSelectDate</value>
+  </data>
+  <data name="&gt;&gt;lblSelectDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblSelectDate.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblSelectDate.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="dtpSelectDeliveryDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>396, 155</value>
+  </data>
+  <data name="dtpSelectDeliveryDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>253, 20</value>
+  </data>
+  <data name="dtpSelectDeliveryDate.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;dtpSelectDeliveryDate.Name" xml:space="preserve">
+    <value>dtpSelectDeliveryDate</value>
+  </data>
+  <data name="&gt;&gt;dtpSelectDeliveryDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dtpSelectDeliveryDate.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;dtpSelectDeliveryDate.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="lblEarliest.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblEarliest.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="lblEarliest.Location" type="System.Drawing.Point, System.Drawing">
+    <value>392, 62</value>
+  </data>
+  <data name="lblEarliest.Size" type="System.Drawing.Size, System.Drawing">
+    <value>379, 20</value>
+  </data>
+  <data name="lblEarliest.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="lblEarliest.Text" xml:space="preserve">
+    <value>Earliest Delivery Date Possible For Selected Session</value>
+  </data>
+  <data name="&gt;&gt;lblEarliest.Name" xml:space="preserve">
+    <value>lblEarliest</value>
+  </data>
+  <data name="&gt;&gt;lblEarliest.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblEarliest.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblEarliest.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="tbEarliestDeliveryDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>396, 85</value>
+  </data>
+  <data name="tbEarliestDeliveryDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>253, 20</value>
+  </data>
+  <data name="tbEarliestDeliveryDate.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;tbEarliestDeliveryDate.Name" xml:space="preserve">
+    <value>tbEarliestDeliveryDate</value>
+  </data>
+  <data name="&gt;&gt;tbEarliestDeliveryDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbEarliestDeliveryDate.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tbEarliestDeliveryDate.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="lblProductsDelivered.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblProductsDelivered.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 14.25pt, style=Bold</value>
+  </data>
+  <data name="lblProductsDelivered.Location" type="System.Drawing.Point, System.Drawing">
+    <value>201, 205</value>
+  </data>
+  <data name="lblProductsDelivered.Size" type="System.Drawing.Size, System.Drawing">
+    <value>249, 24</value>
+  </data>
+  <data name="lblProductsDelivered.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="lblProductsDelivered.Text" xml:space="preserve">
+    <value>Products To Be Delivered</value>
+  </data>
+  <data name="&gt;&gt;lblProductsDelivered.Name" xml:space="preserve">
+    <value>lblProductsDelivered</value>
+  </data>
+  <data name="&gt;&gt;lblProductsDelivered.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblProductsDelivered.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblProductsDelivered.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
   <metadata name="nameColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="nameColumn.HeaderText" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="nameColumn.Width" type="System.Int32, mscorlib">
+    <value>250</value>
+  </data>
   <metadata name="quantityColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="quantityColumn.HeaderText" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="dgvProductsDelivered.Location" type="System.Drawing.Point, System.Drawing">
+    <value>205, 241</value>
+  </data>
+  <data name="dgvProductsDelivered.Size" type="System.Drawing.Size, System.Drawing">
+    <value>394, 137</value>
+  </data>
+  <data name="dgvProductsDelivered.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;dgvProductsDelivered.Name" xml:space="preserve">
+    <value>dgvProductsDelivered</value>
+  </data>
+  <data name="&gt;&gt;dgvProductsDelivered.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dgvProductsDelivered.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;dgvProductsDelivered.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="btnArrangeDelivery.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 14.25pt, style=Bold</value>
+  </data>
+  <data name="btnArrangeDelivery.Location" type="System.Drawing.Point, System.Drawing">
+    <value>302, 409</value>
+  </data>
+  <data name="btnArrangeDelivery.Size" type="System.Drawing.Size, System.Drawing">
+    <value>197, 55</value>
+  </data>
+  <data name="btnArrangeDelivery.TabIndex" type="System.Int32, mscorlib">
+    <value>109</value>
+  </data>
+  <data name="btnArrangeDelivery.Text" xml:space="preserve">
+    <value>Arrange Delivery</value>
+  </data>
+  <data name="&gt;&gt;btnArrangeDelivery.Name" xml:space="preserve">
+    <value>btnArrangeDelivery</value>
+  </data>
+  <data name="&gt;&gt;btnArrangeDelivery.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnArrangeDelivery.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnArrangeDelivery.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="btnSplitDelivery.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+  </data>
+  <data name="btnSplitDelivery.Location" type="System.Drawing.Point, System.Drawing">
+    <value>642, 422</value>
+  </data>
+  <data name="btnSplitDelivery.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 42</value>
+  </data>
+  <data name="btnSplitDelivery.TabIndex" type="System.Int32, mscorlib">
+    <value>110</value>
+  </data>
+  <data name="btnSplitDelivery.Text" xml:space="preserve">
+    <value>Split Delivery</value>
+  </data>
+  <data name="btnSplitDelivery.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;btnSplitDelivery.Name" xml:space="preserve">
+    <value>btnSplitDelivery</value>
+  </data>
+  <data name="&gt;&gt;btnSplitDelivery.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSplitDelivery.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnSplitDelivery.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>82, 62</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>257, 20</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>111</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Customer Chosen Delivery Session</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tbCustomerChosenDeliverySession.Location" type="System.Drawing.Point, System.Drawing">
+    <value>86, 85</value>
+  </data>
+  <data name="tbCustomerChosenDeliverySession.Size" type="System.Drawing.Size, System.Drawing">
+    <value>253, 20</value>
+  </data>
+  <data name="tbCustomerChosenDeliverySession.TabIndex" type="System.Int32, mscorlib">
+    <value>112</value>
+  </data>
+  <data name="&gt;&gt;tbCustomerChosenDeliverySession.Name" xml:space="preserve">
+    <value>tbCustomerChosenDeliverySession</value>
+  </data>
+  <data name="&gt;&gt;tbCustomerChosenDeliverySession.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbCustomerChosenDeliverySession.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tbCustomerChosenDeliverySession.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tbSelectedCourier.Location" type="System.Drawing.Point, System.Drawing">
+    <value>86, 155</value>
+  </data>
+  <data name="tbSelectedCourier.Size" type="System.Drawing.Size, System.Drawing">
+    <value>253, 20</value>
+  </data>
+  <data name="tbSelectedCourier.TabIndex" type="System.Int32, mscorlib">
+    <value>113</value>
+  </data>
+  <data name="&gt;&gt;tbSelectedCourier.Name" xml:space="preserve">
+    <value>tbSelectedCourier</value>
+  </data>
+  <data name="&gt;&gt;tbSelectedCourier.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbSelectedCourier.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tbSelectedCourier.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnChooseCourier.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnChooseCourier.Location" type="System.Drawing.Point, System.Drawing">
+    <value>258, 119</value>
+  </data>
+  <data name="btnChooseCourier.Size" type="System.Drawing.Size, System.Drawing">
+    <value>81, 34</value>
+  </data>
+  <data name="btnChooseCourier.TabIndex" type="System.Int32, mscorlib">
+    <value>114</value>
+  </data>
+  <data name="btnChooseCourier.Text" xml:space="preserve">
+    <value>Choose</value>
+  </data>
+  <data name="&gt;&gt;btnChooseCourier.Name" xml:space="preserve">
+    <value>btnChooseCourier</value>
+  </data>
+  <data name="&gt;&gt;btnChooseCourier.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnChooseCourier.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnChooseCourier.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>800, 488</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>ArrangeSingleDeliveryForm</value>
+  </data>
+  <data name="&gt;&gt;nameColumn.Name" xml:space="preserve">
+    <value>nameColumn</value>
+  </data>
+  <data name="&gt;&gt;nameColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;quantityColumn.Name" xml:space="preserve">
+    <value>quantityColumn</value>
+  </data>
+  <data name="&gt;&gt;quantityColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>ArrangeSingleDeliveryForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

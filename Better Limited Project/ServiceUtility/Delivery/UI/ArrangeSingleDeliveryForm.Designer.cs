@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ArrangeSingleDeliveryForm));
             this.lblSelectCourier = new System.Windows.Forms.Label();
             this.lblSelectDate = new System.Windows.Forms.Label();
             this.dtpSelectDeliveryDate = new System.Windows.Forms.DateTimePicker();
@@ -48,58 +49,34 @@
             // 
             // lblSelectCourier
             // 
-            this.lblSelectCourier.AutoSize = true;
-            this.lblSelectCourier.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSelectCourier.Location = new System.Drawing.Point(82, 131);
+            resources.ApplyResources(this.lblSelectCourier, "lblSelectCourier");
             this.lblSelectCourier.Name = "lblSelectCourier";
-            this.lblSelectCourier.Size = new System.Drawing.Size(119, 20);
-            this.lblSelectCourier.TabIndex = 7;
-            this.lblSelectCourier.Text = "Choose Courier";
             // 
             // lblSelectDate
             // 
-            this.lblSelectDate.AutoSize = true;
-            this.lblSelectDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSelectDate.Location = new System.Drawing.Point(392, 132);
+            resources.ApplyResources(this.lblSelectDate, "lblSelectDate");
             this.lblSelectDate.Name = "lblSelectDate";
-            this.lblSelectDate.Size = new System.Drawing.Size(152, 20);
-            this.lblSelectDate.TabIndex = 9;
-            this.lblSelectDate.Text = "Select Delivery Date";
             // 
             // dtpSelectDeliveryDate
             // 
-            this.dtpSelectDeliveryDate.Location = new System.Drawing.Point(396, 155);
+            resources.ApplyResources(this.dtpSelectDeliveryDate, "dtpSelectDeliveryDate");
             this.dtpSelectDeliveryDate.Name = "dtpSelectDeliveryDate";
-            this.dtpSelectDeliveryDate.Size = new System.Drawing.Size(253, 20);
-            this.dtpSelectDeliveryDate.TabIndex = 10;
             // 
             // lblEarliest
             // 
-            this.lblEarliest.AutoSize = true;
-            this.lblEarliest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEarliest.Location = new System.Drawing.Point(392, 62);
+            resources.ApplyResources(this.lblEarliest, "lblEarliest");
             this.lblEarliest.Name = "lblEarliest";
-            this.lblEarliest.Size = new System.Drawing.Size(379, 20);
-            this.lblEarliest.TabIndex = 11;
-            this.lblEarliest.Text = "Earliest Delivery Date Possible For Selected Session";
             // 
             // tbEarliestDeliveryDate
             // 
-            this.tbEarliestDeliveryDate.Location = new System.Drawing.Point(396, 85);
+            resources.ApplyResources(this.tbEarliestDeliveryDate, "tbEarliestDeliveryDate");
             this.tbEarliestDeliveryDate.Name = "tbEarliestDeliveryDate";
             this.tbEarliestDeliveryDate.ReadOnly = true;
-            this.tbEarliestDeliveryDate.Size = new System.Drawing.Size(253, 20);
-            this.tbEarliestDeliveryDate.TabIndex = 12;
             // 
             // lblProductsDelivered
             // 
-            this.lblProductsDelivered.AutoSize = true;
-            this.lblProductsDelivered.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProductsDelivered.Location = new System.Drawing.Point(201, 205);
+            resources.ApplyResources(this.lblProductsDelivered, "lblProductsDelivered");
             this.lblProductsDelivered.Name = "lblProductsDelivered";
-            this.lblProductsDelivered.Size = new System.Drawing.Size(249, 24);
-            this.lblProductsDelivered.TabIndex = 13;
-            this.lblProductsDelivered.Text = "Products To Be Delivered";
             // 
             // dgvProductsDelivered
             // 
@@ -109,97 +86,71 @@
             this.dgvProductsDelivered.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameColumn,
             this.quantityColumn});
-            this.dgvProductsDelivered.Location = new System.Drawing.Point(205, 241);
+            resources.ApplyResources(this.dgvProductsDelivered, "dgvProductsDelivered");
             this.dgvProductsDelivered.Name = "dgvProductsDelivered";
             this.dgvProductsDelivered.ReadOnly = true;
             this.dgvProductsDelivered.RowTemplate.Height = 24;
-            this.dgvProductsDelivered.Size = new System.Drawing.Size(394, 137);
-            this.dgvProductsDelivered.TabIndex = 14;
             // 
             // nameColumn
             // 
-            this.nameColumn.HeaderText = "Name";
+            resources.ApplyResources(this.nameColumn, "nameColumn");
             this.nameColumn.Name = "nameColumn";
             this.nameColumn.ReadOnly = true;
-            this.nameColumn.Width = 250;
             // 
             // quantityColumn
             // 
-            this.quantityColumn.HeaderText = "Quantity";
+            resources.ApplyResources(this.quantityColumn, "quantityColumn");
             this.quantityColumn.Name = "quantityColumn";
             this.quantityColumn.ReadOnly = true;
             // 
             // btnArrangeDelivery
             // 
             this.btnArrangeDelivery.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnArrangeDelivery.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.btnArrangeDelivery, "btnArrangeDelivery");
             this.btnArrangeDelivery.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnArrangeDelivery.Location = new System.Drawing.Point(302, 409);
             this.btnArrangeDelivery.Name = "btnArrangeDelivery";
-            this.btnArrangeDelivery.Size = new System.Drawing.Size(197, 55);
-            this.btnArrangeDelivery.TabIndex = 109;
-            this.btnArrangeDelivery.Text = "Arrange Delivery";
             this.btnArrangeDelivery.UseVisualStyleBackColor = false;
             this.btnArrangeDelivery.Click += new System.EventHandler(this.btnArrangeDelivery_Click);
             // 
             // btnSplitDelivery
             // 
             this.btnSplitDelivery.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnSplitDelivery.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.btnSplitDelivery, "btnSplitDelivery");
             this.btnSplitDelivery.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnSplitDelivery.Location = new System.Drawing.Point(642, 422);
             this.btnSplitDelivery.Name = "btnSplitDelivery";
-            this.btnSplitDelivery.Size = new System.Drawing.Size(133, 42);
-            this.btnSplitDelivery.TabIndex = 110;
-            this.btnSplitDelivery.Text = "Split Delivery";
             this.btnSplitDelivery.UseVisualStyleBackColor = false;
-            this.btnSplitDelivery.Visible = false;
             this.btnSplitDelivery.Click += new System.EventHandler(this.btnSplitDelivery_Click);
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(82, 62);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(257, 20);
-            this.label1.TabIndex = 111;
-            this.label1.Text = "Customer Chosen Delivery Session";
             // 
             // tbCustomerChosenDeliverySession
             // 
-            this.tbCustomerChosenDeliverySession.Location = new System.Drawing.Point(86, 85);
+            resources.ApplyResources(this.tbCustomerChosenDeliverySession, "tbCustomerChosenDeliverySession");
             this.tbCustomerChosenDeliverySession.Name = "tbCustomerChosenDeliverySession";
             this.tbCustomerChosenDeliverySession.ReadOnly = true;
-            this.tbCustomerChosenDeliverySession.Size = new System.Drawing.Size(253, 20);
-            this.tbCustomerChosenDeliverySession.TabIndex = 112;
             // 
             // tbSelectedCourier
             // 
-            this.tbSelectedCourier.Location = new System.Drawing.Point(86, 155);
+            resources.ApplyResources(this.tbSelectedCourier, "tbSelectedCourier");
             this.tbSelectedCourier.Name = "tbSelectedCourier";
             this.tbSelectedCourier.ReadOnly = true;
-            this.tbSelectedCourier.Size = new System.Drawing.Size(253, 20);
-            this.tbSelectedCourier.TabIndex = 113;
             // 
             // btnChooseCourier
             // 
             this.btnChooseCourier.BackColor = System.Drawing.Color.ForestGreen;
-            this.btnChooseCourier.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.btnChooseCourier, "btnChooseCourier");
             this.btnChooseCourier.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnChooseCourier.Location = new System.Drawing.Point(258, 119);
             this.btnChooseCourier.Name = "btnChooseCourier";
-            this.btnChooseCourier.Size = new System.Drawing.Size(81, 34);
-            this.btnChooseCourier.TabIndex = 114;
-            this.btnChooseCourier.Text = "Choose";
             this.btnChooseCourier.UseVisualStyleBackColor = false;
             this.btnChooseCourier.Click += new System.EventHandler(this.btnChooseCourier_Click);
             // 
             // ArrangeSingleDeliveryForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 488);
             this.Controls.Add(this.btnChooseCourier);
             this.Controls.Add(this.tbSelectedCourier);
             this.Controls.Add(this.tbCustomerChosenDeliverySession);
@@ -214,7 +165,6 @@
             this.Controls.Add(this.lblSelectDate);
             this.Controls.Add(this.lblSelectCourier);
             this.Name = "ArrangeSingleDeliveryForm";
-            this.Text = "ArrangeSingleDeliveryForm";
             this.Shown += new System.EventHandler(this.OnFormShown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductsDelivered)).EndInit();
             this.ResumeLayout(false);

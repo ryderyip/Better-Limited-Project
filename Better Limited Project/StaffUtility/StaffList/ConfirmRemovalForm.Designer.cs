@@ -29,6 +29,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfirmRemovalForm));
             this.lblText = new System.Windows.Forms.Label();
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.lblMessage = new System.Windows.Forms.Label();
@@ -37,58 +38,38 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             // 
             // lblText
             // 
-            this.lblText.AutoSize = true;
-            this.lblText.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblText.Location = new System.Drawing.Point(101, 26);
+            resources.ApplyResources(this.lblText, "lblText");
             this.lblText.Name = "lblText";
-            this.lblText.Size = new System.Drawing.Size(210, 26);
-            this.lblText.TabIndex = 62;
-            this.lblText.Text = "Confirm Removal?";
-            this.lblText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(106, 107);
+            resources.ApplyResources(this.tbPassword, "tbPassword");
             this.tbPassword.Name = "tbPassword";
-            this.tbPassword.PasswordChar = '*';
-            this.tbPassword.Size = new System.Drawing.Size(205, 20);
-            this.tbPassword.TabIndex = 80;
             // 
             // lblMessage
             // 
-            this.lblMessage.AutoSize = true;
-            this.lblMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMessage.Location = new System.Drawing.Point(103, 80);
+            resources.ApplyResources(this.lblMessage, "lblMessage");
             this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(152, 15);
-            this.lblMessage.TabIndex = 81;
-            this.lblMessage.Text = "Enter Password to Confirm";
             // 
             // btnRemove
             // 
             this.btnRemove.BackColor = System.Drawing.Color.OrangeRed;
-            this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            resources.ApplyResources(this.btnRemove, "btnRemove");
             this.btnRemove.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnRemove.Location = new System.Drawing.Point(147, 154);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(120, 54);
-            this.btnRemove.TabIndex = 109;
-            this.btnRemove.Text = "Confirm";
             this.btnRemove.UseVisualStyleBackColor = false;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // ConfirmRemovalForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(412, 229);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.lblMessage);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.lblText);
             this.KeyPreview = true;
             this.Name = "ConfirmRemovalForm";
-            this.Text = "ConfirmRemoveStaffForm";
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ConfirmRemoveStaffForm_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -165,12 +165,6 @@
     <Compile Include="CustomerRecord\CustomerUpdateForm.Designer.cs">
       <DependentUpon>CustomerUpdateForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataAnalytics\SalesReportForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DataAnalytics\SalesReportForm.Designer.cs">
-      <DependentUpon>SalesReportForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="DatabaseUtility\Database.cs" />
     <Compile Include="DatabaseUtility\DataTableRepository.cs" />
     <Compile Include="DevTools\AutoLogin\AutoLoginHelper.cs" />
@@ -512,7 +506,7 @@
     <Compile Include="ServiceUtility\Delivery\Repository\DeliveryCourierRepository.cs" />
     <Compile Include="ServiceUtility\Delivery\Repository\DeliveryRepository.cs" />
     <Compile Include="ServiceUtility\Delivery\Repository\DeliveryRequestRepository.cs" />
-    <Compile Include="ServiceUtility\Delivery\UI\ArrangeDeliveryController.cs" />
+    <Compile Include="ServiceUtility\Delivery\Controller\ArrangeDeliveryController.cs" />
     <Compile Include="ServiceUtility\Delivery\UI\ArrangeDeliveryForm.cs" />
     <Compile Include="ServiceUtility\Delivery\UI\ArrangeSingleDeliveryForm.cs">
       <SubType>Form</SubType>
@@ -562,14 +556,6 @@
     <Compile Include="ServiceUtility\Delivery\UI\DeliveryRequestListForm.Designer.cs">
       <DependentUpon>DeliveryRequestListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ServiceUtility\Delivery\UI\RestockRequestDetails.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ServiceUtility\Delivery\UI\RestockRequestDetails.Designer.cs" />
-    <Compile Include="ServiceUtility\Delivery\UI\RestockRequestForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ServiceUtility\Delivery\UI\RestockRequestForm.Designer.cs" />
     <Compile Include="ServiceUtility\Delivery\UI\UpdateDeliveryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -744,9 +730,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerRecord\CustomerUpdateForm.zh-HK.resx">
       <DependentUpon>CustomerUpdateForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DataAnalytics\SalesReportForm.resx">
-      <DependentUpon>SalesReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DevTools\AutoLogin\StaffRoleChooserForm.resx">
       <DependentUpon>StaffRoleChooserForm.cs</DependentUpon>
@@ -977,30 +960,55 @@
     <EmbeddedResource Include="ServiceUtility\Delivery\UI\ArrangeSingleDeliveryForm.resx">
       <DependentUpon>ArrangeSingleDeliveryForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ServiceUtility\Delivery\UI\ArrangeSingleDeliveryForm.zh-HK.resx">
+      <DependentUpon>ArrangeSingleDeliveryForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ServiceUtility\Delivery\UI\ArrangeSplitDeliveryForm.resx">
+      <DependentUpon>ArrangeSplitDeliveryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServiceUtility\Delivery\UI\ArrangeSplitDeliveryForm.zh-HK.resx">
       <DependentUpon>ArrangeSplitDeliveryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ServiceUtility\Delivery\UI\CourierSelectorForm.resx">
       <DependentUpon>CourierSelectorForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ServiceUtility\Delivery\UI\CourierSelectorForm.zh-HK.resx">
+      <DependentUpon>CourierSelectorForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ServiceUtility\Delivery\UI\DailyDeliveryListForm.resx">
+      <DependentUpon>DailyDeliveryListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServiceUtility\Delivery\UI\DailyDeliveryListForm.zh-HK.resx">
       <DependentUpon>DailyDeliveryListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ServiceUtility\Delivery\UI\DeliveryDetailsForm.resx">
       <DependentUpon>DeliveryDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ServiceUtility\Delivery\UI\DeliveryDetailsForm.zh-HK.resx">
+      <DependentUpon>DeliveryDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ServiceUtility\Delivery\UI\DeliveryListForm.resx">
+      <DependentUpon>DeliveryListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServiceUtility\Delivery\UI\DeliveryListForm.zh-HK.resx">
       <DependentUpon>DeliveryListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ServiceUtility\Delivery\UI\DeliveryRequestDetailsForm.resx">
       <DependentUpon>DeliveryRequestDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ServiceUtility\Delivery\UI\DeliveryRequestDetailsForm.zh-HK.resx">
+      <DependentUpon>DeliveryRequestDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ServiceUtility\Delivery\UI\DeliveryRequestListForm.resx">
       <DependentUpon>DeliveryRequestListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ServiceUtility\Delivery\UI\RestockRequestDetails.resx" />
-    <EmbeddedResource Include="ServiceUtility\Delivery\UI\RestockRequestForm.resx" />
+    <EmbeddedResource Include="ServiceUtility\Delivery\UI\DeliveryRequestListForm.zh-HK.resx">
+      <DependentUpon>DeliveryRequestListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ServiceUtility\Delivery\UI\UpdateDeliveryForm.resx">
+      <DependentUpon>UpdateDeliveryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServiceUtility\Delivery\UI\UpdateDeliveryForm.zh-HK.resx">
       <DependentUpon>UpdateDeliveryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ServiceUtility\Installation\UI\ArrangeInstallationForm.resx" />
@@ -1015,25 +1023,49 @@
     <EmbeddedResource Include="SettingsUtility\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SettingsUtility\SettingsForm.zh-HK.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StaffUtility\StaffList\ChangePasswordForm.resx">
+      <DependentUpon>ChangePasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaffUtility\StaffList\ChangePasswordForm.zh-Hk.resx">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StaffUtility\StaffList\ConfirmRemovalForm.resx">
       <DependentUpon>ConfirmRemovalForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="StaffUtility\StaffList\ConfirmRemovalForm.zh-HK.resx">
+      <DependentUpon>ConfirmRemovalForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StaffUtility\StaffList\NewStaffForm.resx">
+      <DependentUpon>NewStaffForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaffUtility\StaffList\NewStaffForm.zh-HK.resx">
       <DependentUpon>NewStaffForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StaffUtility\StaffList\StaffDetailsForm.resx">
       <DependentUpon>StaffDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="StaffUtility\StaffList\StaffDetailsForm.zh-HK.resx">
+      <DependentUpon>StaffDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StaffUtility\StaffList\StaffListForm.resx">
+      <DependentUpon>StaffListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaffUtility\StaffList\StaffListForm.zh-HK.resx">
       <DependentUpon>StaffListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StaffUtility\StaffList\UpdateStaffDetailsForm.resx">
       <DependentUpon>UpdateStaffDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="StaffUtility\StaffList\UpdateStaffDetailsForm.zh-HK.resx">
+      <DependentUpon>UpdateStaffDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StaffUtility\StaffProfile\ProfileForm.resx">
+      <DependentUpon>ProfileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaffUtility\StaffProfile\ProfileForm.zh-HK.resx">
       <DependentUpon>ProfileForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tools\PopUpForm.resx">
@@ -1056,7 +1088,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="DataAnalytics" />
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\BL_Logo_Rectangle.png" />
   </ItemGroup>

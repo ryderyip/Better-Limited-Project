@@ -20,18 +20,9 @@ namespace Better_Limited_Project.StaffUtility.StaffList
 
         private void OnFormShown(object sender, EventArgs e)
         {
-            InitializeDgvStaff();
             PopulateDgvStaff(_staffs);
         }
 
-        private void InitializeDgvStaff()
-        {
-            dgvStaff.Columns.Add("id", "ID");
-            dgvStaff.Columns.Add("name", "Name");
-            dgvStaff.Columns.Add("gender", "Gender");
-            dgvStaff.Columns.Add("department", "Department");
-            dgvStaff.Columns.Add("title", "Title");
-        }
 
         private void PopulateDgvStaff(List<Staff> staffs)
         {
