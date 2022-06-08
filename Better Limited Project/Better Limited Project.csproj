@@ -195,6 +195,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CustomerUpdateForm.resx</DependentUpon>
     </Compile>
+    <Compile Include="CustomerRecord\CustomerRecord.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CustomerRecord.resx</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseUtility\Database.cs" />
     <Compile Include="DatabaseUtility\DataTableRepository.cs" />
     <Compile Include="DevTools\AutoLogin\AutoLoginHelper.cs" />
@@ -596,6 +601,12 @@
     <Compile Include="ServiceUtility\Delivery\UI\ArrangeSplitDeliveryForm.Designer.cs">
       <DependentUpon>ArrangeSplitDeliveryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ServiceUtility\Delivery\UI\CourierListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServiceUtility\Delivery\UI\CourierListForm.Designer.cs">
+      <DependentUpon>CourierListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ServiceUtility\Delivery\UI\CourierSelectorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -838,6 +849,10 @@
       <DependentUpon>CustomerUpdateForm.cs</DependentUpon>
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>CustomerUpdateForm.zh-HK.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerRecord\CustomerRecord.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CustomerRecord.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="DevTools\AutoLogin\StaffRoleChooserForm.resx">
       <DependentUpon>StaffRoleChooserForm.cs</DependentUpon>
@@ -1119,6 +1134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ServiceUtility\Delivery\UI\ArrangeSplitDeliveryForm.zh-HK.resx">
       <DependentUpon>ArrangeSplitDeliveryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServiceUtility\Delivery\UI\CourierListForm.resx">
+      <DependentUpon>CourierListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ServiceUtility\Delivery\UI\CourierSelectorForm.resx">
       <DependentUpon>CourierSelectorForm.cs</DependentUpon>

@@ -60,5 +60,12 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             form.StartPosition = FormStartPosition.CenterScreen;
             form.ShowDialog();
         }
+
+        private void btnDeliveryRequests_Click(object sender, System.EventArgs e)
+        {
+            var form = new DeliveryRequestListForm();
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.ShowDialog();
+        }
     }
 }

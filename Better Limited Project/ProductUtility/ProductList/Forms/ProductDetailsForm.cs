@@ -25,7 +25,10 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             if (!ProductPermissionManager.CanCurrentStaffEditSellingPrice())
                 btnUpdateProductInfo.Visible = false;
             if (!ProductPermissionManager.CanEditAllInformation())
+            {
                 btnEditDescription.Visible = false;
+                btnUpdateImage.Visible = false;
+            }
             if (!ProductPermissionManager.CanCurrentStaffRemoveProduct())
                 btnRemoveProduct.Visible = false;
         }

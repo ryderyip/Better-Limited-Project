@@ -40,6 +40,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             this.tbSearchBox = new System.Windows.Forms.TextBox();
             this.lblSearchBox = new System.Windows.Forms.Label();
             this.btnDailyDeliveryList = new System.Windows.Forms.Button();
+            this.btnDeliveryRequests = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDeliveries)).BeginInit();
             this.SuspendLayout();
             // 
@@ -117,10 +118,20 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             this.btnDailyDeliveryList.UseVisualStyleBackColor = false;
             this.btnDailyDeliveryList.Click += new System.EventHandler(this.btnDailyDeliveryList_Click);
             // 
+            // btnDeliveryRequests
+            // 
+            this.btnDeliveryRequests.BackColor = System.Drawing.Color.DarkOrange;
+            resources.ApplyResources(this.btnDeliveryRequests, "btnDeliveryRequests");
+            this.btnDeliveryRequests.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnDeliveryRequests.Name = "btnDeliveryRequests";
+            this.btnDeliveryRequests.UseVisualStyleBackColor = false;
+            this.btnDeliveryRequests.Click += new System.EventHandler(this.btnDeliveryRequests_Click);
+            // 
             // DeliveryListForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnDeliveryRequests);
             this.Controls.Add(this.btnDailyDeliveryList);
             this.Controls.Add(this.dgvDeliveries);
             this.Controls.Add(this.tbSearchBox);
@@ -144,5 +155,6 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn updatedOnColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn arrangedBy;
         private System.Windows.Forms.Button btnDailyDeliveryList;
+        private System.Windows.Forms.Button btnDeliveryRequests;
     }
 }

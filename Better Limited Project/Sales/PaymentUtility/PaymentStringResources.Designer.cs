@@ -81,6 +81,15 @@ namespace Better_Limited_Project.Sales.PaymentUtility {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The delivery request has already been confirmed by the inventory department. Removal failed..
+        /// </summary>
+        internal static string cant_remove_delivery_request {
+            get {
+                return ResourceManager.GetString("cant remove delivery request", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to There are currently no completed product payments. (To see deposit receipts, click the button on the right.).
         /// </summary>
         internal static string cantViewPaymentReceipt {

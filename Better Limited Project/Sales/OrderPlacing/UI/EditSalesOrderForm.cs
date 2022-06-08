@@ -22,6 +22,18 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
 
         private void btnManageDelivery_Click(object sender, EventArgs e)
         {
+            var deliveryRequest = _salesOrder.GetDeliveryRequest();
+            if (deliveryRequest != default)
+            {
+                if (deliveryRequest.IsArranged())
+                {
+                    MessageBox.Show(PaymentStringResources.cant_remove_delivery_request);
+                    return;
+                }
+                AskForAndRemoveDeliveryRequest(deliveryRequest);
+                return;
+            }
+
             if (_salesOrder.GetSalesOrderProducts().Any(sop => !sop.IsOutOfStock))
             {
                 MessageBox.Show("Currently you can only add a delivery to sales orders whose products are all waiting for stock.");
@@ -36,12 +48,8 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
                     CreateCustomerRecord();
                 return;
             }
-
-            var deliveryRequest = _salesOrder.GetDeliveryRequest();
-            if (deliveryRequest != default)
-                AskForAndRemoveDeliveryRequest(deliveryRequest);
-            else
-                AskForDeliverySessionAndSendDeliveryRequest();
+            
+            AskForDeliverySessionAndSendDeliveryRequest();
         }
 
         private void CreateCustomerRecord()

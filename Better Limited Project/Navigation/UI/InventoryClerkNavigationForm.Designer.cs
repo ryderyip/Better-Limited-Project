@@ -34,7 +34,7 @@ namespace Better_Limited_Project.Navigation.UI
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InventoryClerkNavigationForm));
             this.lblLoggedInAs = new System.Windows.Forms.Label();
             this.btnProfile = new System.Windows.Forms.Button();
-            this.btnDeliveryRequests = new System.Windows.Forms.Button();
+            this.btnCouriers = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnGoodsReceived = new System.Windows.Forms.Button();
             this.btnGoodsReturned = new System.Windows.Forms.Button();
@@ -56,12 +56,12 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnProfile.UseVisualStyleBackColor = true;
             this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
             // 
-            // btnDeliveryRequests
+            // btnCouriers
             // 
-            resources.ApplyResources(this.btnDeliveryRequests, "btnDeliveryRequests");
-            this.btnDeliveryRequests.Name = "btnDeliveryRequests";
-            this.btnDeliveryRequests.UseVisualStyleBackColor = true;
-            this.btnDeliveryRequests.Click += new System.EventHandler(this.btnDeliveryRequests_Click);
+            resources.ApplyResources(this.btnCouriers, "btnCouriers");
+            this.btnCouriers.Name = "btnCouriers";
+            this.btnCouriers.UseVisualStyleBackColor = true;
+            this.btnCouriers.Click += new System.EventHandler(this.btnCouriers_Click);
             // 
             // btnSettings
             // 
@@ -123,7 +123,7 @@ namespace Better_Limited_Project.Navigation.UI
             this.Controls.Add(this.btnGoodsReturned);
             this.Controls.Add(this.lblLoggedInAs);
             this.Controls.Add(this.btnProfile);
-            this.Controls.Add(this.btnDeliveryRequests);
+            this.Controls.Add(this.btnCouriers);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.btnGoodsReceived);
             this.Name = "InventoryClerkNavigationForm";
@@ -133,7 +133,7 @@ namespace Better_Limited_Project.Navigation.UI
 
         private System.Windows.Forms.Label lblLoggedInAs;
         private System.Windows.Forms.Button btnProfile;
-        private System.Windows.Forms.Button btnDeliveryRequests;
+        private System.Windows.Forms.Button btnCouriers;
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.Button btnGoodsReceived;
         private System.Windows.Forms.Button btnGoodsReturned;

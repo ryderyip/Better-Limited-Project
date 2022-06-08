@@ -29,7 +29,7 @@ namespace Better_Limited_Project.CustomerRecord {
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
@@ -695,16 +695,6 @@ namespace Better_Limited_Project.CustomerRecord {
         internal static string lblPhone_Text {
             get {
                 return ResourceManager.GetString("lblPhone.Text", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to This customer has due payment or has delivery yet to arrive.
-        ///Customer removal failed..
-        /// </summary>
-        internal static string removeCustomerFailed {
-            get {
-                return ResourceManager.GetString("removeCustomerFailed", resourceCulture);
             }
         }
         

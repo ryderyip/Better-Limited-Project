@@ -61,6 +61,9 @@
             this.btnEditOrder = new System.Windows.Forms.Button();
             this.tbDeliveryStatus = new System.Windows.Forms.TextBox();
             this.lblDeliveryStatus = new System.Windows.Forms.Label();
+            this.tbCreatedOn = new System.Windows.Forms.TextBox();
+            this.lblCreatedOn = new System.Windows.Forms.Label();
+            this.lblHeader = new System.Windows.Forms.Label();
             this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvProductsName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvProductsCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -272,6 +275,22 @@
             resources.ApplyResources(this.lblDeliveryStatus, "lblDeliveryStatus");
             this.lblDeliveryStatus.Name = "lblDeliveryStatus";
             // 
+            // tbCreatedOn
+            // 
+            resources.ApplyResources(this.tbCreatedOn, "tbCreatedOn");
+            this.tbCreatedOn.Name = "tbCreatedOn";
+            this.tbCreatedOn.ReadOnly = true;
+            // 
+            // lblCreatedOn
+            // 
+            resources.ApplyResources(this.lblCreatedOn, "lblCreatedOn");
+            this.lblCreatedOn.Name = "lblCreatedOn";
+            // 
+            // lblHeader
+            // 
+            resources.ApplyResources(this.lblHeader, "lblHeader");
+            this.lblHeader.Name = "lblHeader";
+            // 
             // idColumn
             // 
             resources.ApplyResources(this.idColumn, "idColumn");
@@ -318,6 +337,9 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblHeader);
+            this.Controls.Add(this.tbCreatedOn);
+            this.Controls.Add(this.lblCreatedOn);
             this.Controls.Add(this.tbDeliveryStatus);
             this.Controls.Add(this.lblDeliveryStatus);
             this.Controls.Add(this.btnEditOrder);
@@ -392,6 +414,9 @@
         private System.Windows.Forms.Button btnEditOrder;
         private System.Windows.Forms.TextBox tbDeliveryStatus;
         private System.Windows.Forms.Label lblDeliveryStatus;
+        private System.Windows.Forms.TextBox tbCreatedOn;
+        private System.Windows.Forms.Label lblCreatedOn;
+        private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.DataGridViewTextBoxColumn idColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvProductsName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvProductsCategory;

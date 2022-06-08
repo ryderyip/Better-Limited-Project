@@ -33,9 +33,9 @@ namespace Better_Limited_Project.ProductUtility.ProductList.PermissionManagement
         public static bool CanCurrentStaffEditPhasingOut()
         {
             var loginStaff = LoginSession.GetSession().CurrentStaff;
-            return loginStaff.Department switch
+            return loginStaff.Title switch
             {
-                Department.Admin or Department.Purchase or Department.Accounting => true,
+                StaffTitle.Admin or StaffTitle.PurchaseManager or StaffTitle.AccountingManager => true,
                 _ => false
             };
         }
@@ -46,7 +46,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.PermissionManagement
             return loginStaff.Title switch
             {
                 StaffTitle.Admin or StaffTitle.PurchaseManager or StaffTitle.AccountingManager
-                    or StaffTitle.SalesManager or StaffTitle.InventoryClerk => true,
+                    or StaffTitle.SalesManager => true,
                 _ => false
             };
         }
@@ -54,11 +54,6 @@ namespace Better_Limited_Project.ProductUtility.ProductList.PermissionManagement
         public static bool CanEditAllInformation()
         {
             return CanCurrentStaffCreateProduct();
-        }
-        
-        public static bool CanCurrentStaffUpdateProduct()
-        {
-            return CanCurrentStaffEditPhasingOut() || CanEditAllInformation();
         }
     }
 }

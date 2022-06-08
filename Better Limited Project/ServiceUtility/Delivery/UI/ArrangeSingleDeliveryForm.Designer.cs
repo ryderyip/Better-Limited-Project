@@ -61,6 +61,7 @@
             // 
             resources.ApplyResources(this.dtpSelectDeliveryDate, "dtpSelectDeliveryDate");
             this.dtpSelectDeliveryDate.Name = "dtpSelectDeliveryDate";
+            this.dtpSelectDeliveryDate.ValueChanged += new System.EventHandler(this.dtpSelectDeliveryDate_ValueChanged);
             // 
             // lblEarliest
             // 

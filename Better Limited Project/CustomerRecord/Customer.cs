@@ -36,16 +36,10 @@ namespace Better_Limited_Project.CustomerRecord
             new CustomerRepository().Insert(this);
         }
 
-        public bool HasDuePayment()
+        public bool HasUnfinishedSalesOrder()
         {
             var orders = new SalesOrderRepository().FindAll(o => o.Customer != null && o.Customer.Id == Id);
-            return orders.Any(o => !new SalesOrderCalculator(o).IsAllPaymentCompleted());
-        }
-
-        public bool HasYetToArriveDelivery()
-        {
-            var orders = new SalesOrderRepository().FindAll(o => o.Customer != null && o.Customer.Id == Id);
-            return orders.Any(o => !o.IsAllDeliveryArrived());
+            return orders.Any(o => !o.IsCompleted());
         }
     }
 }

@@ -26,7 +26,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
                                       ?? DateTime.Today;
             dtpDeliveryDate.MaxDate = orderedDeliveries.LastOrDefault()?.ScheduledOn.Date 
                                       ?? DateTime.Today;
-            var todayDeliveries = _deliveries.Where(d => d.ScheduledOn.Date == DateTime.Today);
+            var todayDeliveries = _deliveries.Where(d => d.ScheduledOn.Date == dtpDeliveryDate.MinDate.Date);
             PopulateDgvDeliveries(todayDeliveries.ToList());
         }
 
@@ -45,7 +45,6 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             var deliveriesOfSelectedDate = GetDeliveriesOfSelectedDate();
             PopulateDgvDeliveries(deliveriesOfSelectedDate.ToList());
         }
-
 
         private void btnPrintDeliveryList_Click(object sender, EventArgs e)
         {

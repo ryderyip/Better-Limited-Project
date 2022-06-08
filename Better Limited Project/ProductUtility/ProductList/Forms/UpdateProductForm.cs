@@ -22,11 +22,6 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             StartPosition = FormStartPosition.CenterScreen;
             
             InitializeComponent();
-            Load += (_, _) =>
-            {
-                if (!ProductPermissionManager.CanCurrentStaffEditPhasingOut())
-                    DisablePhasingOutEdit();
-            };
         }
 
         private void OnFormShown(object sender, EventArgs e)
@@ -43,8 +38,8 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             nudNewStockLevel.DecimalPlaces = 0;
             nudNewStockLevel.Increment = 1;
 
-            /*if (!ProductPermissionManager.CanCurrentStaffEditPhasingOut())
-                DisablePhasingOutEdit();*/
+            if (!ProductPermissionManager.CanCurrentStaffEditPhasingOut())
+                DisablePhasingOutEdit();
 
             FillFields();
         }

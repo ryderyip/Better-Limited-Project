@@ -139,7 +139,6 @@
             this.Controls.Add(this.tbSearchBox);
             this.Controls.Add(this.lblSearchBox);
             this.Name = "SalesOrderListForm";
-            this.Shown += new System.EventHandler(this.OnFormShown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSalesOrders)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

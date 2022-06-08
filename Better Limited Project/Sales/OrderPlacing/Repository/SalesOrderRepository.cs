@@ -49,7 +49,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
         {
             var command = new MySqlCommand(
                 @"insert into sales_order (id, sales_order_number, customer_id, retail_store_id, created_by_staff_id, created_on) 
-                        value (@id, @orderNumber, @customerId, @retailStoreId, @createdByStaffId, now())
+                        value (@id, @orderNumber, @customerId, @retailStoreId, @createdByStaffId, @createdOn)
                     on duplicate key update customer_id = @customerId, retail_store_id = @retailStoreId, created_by_staff_id = @createdByStaffId;");
 
             command.Parameters.AddWithValue("@id", order.Id);
@@ -58,6 +58,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
                 order.Customer == null ? DBNull.Value : order.Customer.Id);
             command.Parameters.AddWithValue("@retailStoreId", order.RetailStore.Id);
             command.Parameters.AddWithValue("@createdByStaffId", order.Staff.Id);
+            command.Parameters.AddWithValue("@createdOn", order.CreatedOn);
             DataTableRepository.ExecuteNonQuery(command);
         }
 

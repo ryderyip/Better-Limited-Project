@@ -106,5 +106,11 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
 
             DeliveryArranged?.Invoke(this, EventArgs.Empty);
         }
+
+        private void dtpSelectDeliveryDate_ValueChanged(object sender, EventArgs e)
+        {
+            _selectedCouriers.Clear();
+            tbSelectedCourier.Text = string.Empty;
+        }
     }
 }

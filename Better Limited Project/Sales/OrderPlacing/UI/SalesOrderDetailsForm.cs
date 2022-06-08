@@ -78,6 +78,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
             tbDeliveryStatus.Text = delivery == default
                     ? deliveryRequest == default ? "-" : "Delivery Request Not Confirmed"
                     : EnumToStringHelper.GetDisplayValue(delivery.DeliveryStatus);
+            tbCreatedOn.Text = _salesOrder.CreatedOn.ToString("g");
             
             if (_salesOrder.Customer != null)
             {

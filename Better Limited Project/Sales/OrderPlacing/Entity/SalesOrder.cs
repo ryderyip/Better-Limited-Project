@@ -34,7 +34,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
         public Staff Staff { get; }
         public RetailStore RetailStore { get; }
         public Customer? Customer { get; set; }
-        public DateTime CreatedOn { get; set; }
+        public DateTime CreatedOn { get; }
 
         public void Save()
         {
@@ -55,7 +55,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
         public bool IsAllDeliveryArrived()
         {
             var deliveries = GetDeliveries().ToList();
-            return !deliveries.Any() || deliveries.All(d => d.DeliveryStatus is DeliveryStatus.Delivered);
+            return deliveries.Any() && deliveries.All(d => d.DeliveryStatus is DeliveryStatus.Delivered);
         }
 
         public IEnumerable<Delivery> GetDeliveries()
@@ -75,7 +75,21 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
 
         public bool IsCompleted()
         {
-            return IsAllDeliveryArrived() && GetSalesOrderProducts().All(sop =>
+            
+            return !HasUnconfirmedDeliveryRequest() 
+                   || (!HasRequestedForDelivery() || IsAllDeliveryArrived()) 
+                   && IsAllDuePaymentsPaid();
+        }
+
+        private bool HasUnconfirmedDeliveryRequest()
+        {
+            var deliveryRequest = GetDeliveryRequest();
+            return deliveryRequest != null && deliveryRequest.ArrangedOn == null;
+        }
+
+        private bool IsAllDuePaymentsPaid()
+        {
+            return GetSalesOrderProducts().All(sop =>
                 sop.GetPaymentStatus() is SalesOrderProductPaymentStatus.FullyPaid);
         }
     }

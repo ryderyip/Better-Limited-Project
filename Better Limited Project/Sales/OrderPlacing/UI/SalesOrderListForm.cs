@@ -4,9 +4,11 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
+using Better_Limited_Project.Login;
 using Better_Limited_Project.Sales.OrderPlacing.Controller;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;
+using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.Sales.OrderPlacing.UI
 {
@@ -18,12 +20,15 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
         {
             _salesOrders = new SalesOrderRepository().GetAll().ToList();
             InitializeComponent();
+            Shown += (_, _) => Initialize();
         }
 
-        private void OnFormShown(object sender, EventArgs e)
+        private void Initialize()
         {
             FillSalesOrderDgv(_salesOrders);
             dtpSearchDate.MaxDate = DateTime.Today;
+            if (LoginSession.GetSession().CurrentStaff.Department is Department.Sales)
+                retailStoreNameColumn.Visible = false;
         }
 
         private void FillSalesOrderDgv(List<SalesOrder> salesOrders)

@@ -34,15 +34,9 @@ namespace Better_Limited_Project.Navigation.UI
             controller.OpenForm();
         }
 
-        private void btnDeliveryRequests_Click(object sender, EventArgs e)
+        private void btnCouriers_Click(object sender, EventArgs e)
         {
-            if (!UserSettings.HasSelectedWorkplace())
-            {
-                MessageBox.Show(NavigationForms.noSelectedWarehouseMessage);
-                return;
-            }
-
-            var form = new DeliveryRequestListForm();
+            var form = new CourierListForm();
             _formController.OpenContentForm(form);
         }
 

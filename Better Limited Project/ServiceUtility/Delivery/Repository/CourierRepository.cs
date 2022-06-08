@@ -13,7 +13,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.Repository
         public static Courier FindById(string id)
         {
             var command = new MySqlCommand(
-                @"select id, name, phone from courier where id = @id");
+                @"select id, name, phone, hired_on from courier where id = @id");
             command.Parameters.AddWithValue("@id", id);
             var dataTable = DataTableRepository.RetrieveDataTable(command);
             if (dataTable.Rows.Count == 0)
@@ -24,7 +24,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.Repository
         public static IEnumerable<Courier> GetAll()
         {
             var dataTable = DataTableRepository.RetrieveDataTable(new MySqlCommand(
-                @"select id, name, phone from courier"));
+                @"select id, name, phone, hired_on from courier"));
             return from DataRow row in dataTable.Rows select ConvertToCourier(row);
         }
 
@@ -33,7 +33,8 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.Repository
             string id = row.Field<int>("id").ToString();
             string name = row.Field<string>("name");
             string phone = row.Field<string>("phone");
-            return new Courier(id, name, phone);
+            var hiredOn = row.Field<DateTime>("hiredOn");
+            return new Courier(id, name, phone, hiredOn);
         }
 
         public static IEnumerable<Courier> FindAll(Predicate<Courier> filter)

@@ -42,11 +42,15 @@ namespace Better_Limited_Project.CustomerRecord
 
         private void btnRemoveCustomer_Click(object sender, EventArgs e)
         {
-            if (_customer.HasDuePayment() || _customer.HasYetToArriveDelivery())
+            if (_customer.HasUnfinishedSalesOrder())
             {
-                MessageBox.Show(removeCustomerFailed);
+                MessageBox.Show(CustomerRecord.removeCustomerFailed);
                 return;
             }
+
+            var result = MessageBox.Show("This will erase the customer's personal information. Any sales orders the customer has placed will be kept. Confirm removal?", "Confirm Removal", MessageBoxButtons.YesNo);
+            if (result is not DialogResult.Yes)
+                return;
             
             var form = new ConfirmRemovalForm();
             form.StartPosition = FormStartPosition.CenterScreen;
