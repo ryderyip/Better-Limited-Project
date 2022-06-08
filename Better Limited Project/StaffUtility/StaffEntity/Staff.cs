@@ -11,7 +11,7 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
     [Serializable]
     public class Staff : IEntity
     {
-        public Staff(string name, DateTime dateOfBirth, DateTime hiredOn, IGender gender, Department department, StaffTitle title)
+        public Staff(string name, DateTime dateOfBirth, DateTime hiredOn, Gender.Gender gender, Department department, StaffTitle title)
         {
             Id = new StaffRepository().GetNewId();
             Name = name;
@@ -22,7 +22,7 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
             Title = title;
         }
 
-        public Staff(string id, string name, DateTime dateOfBirth, DateTime hiredOn, IGender gender, Department department, StaffTitle title)
+        public Staff(string id, string name, DateTime dateOfBirth, DateTime hiredOn, Gender.Gender gender, Department department, StaffTitle title)
         {
             Id = id;
             Name = name;
@@ -37,7 +37,7 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
         public string Name { get; set; }
         public DateTime DateOfBirth { get; set; }
         public DateTime HiredOn { get; set; }
-        public IGender Gender { get; set; }
+        public Gender.Gender Gender { get; set; }
         public Department Department { get; set; }
         public StaffTitle Title { get; set; }
 

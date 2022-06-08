@@ -31,12 +31,27 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
 
         private void btnNewCourier_Click(object sender, EventArgs e)
         {
-            
+            var form = new NewCourierForm();
+            form.StartPosition = FormStartPosition.CenterScreen;
+            var result = form.ShowDialog();
+            if (result is DialogResult.OK)
+                RefreshCourierList();
+        }
+
+        private void RefreshCourierList()
+        {
+            _couriers = CourierRepository.GetAll().ToList();
+            PopulateDgv(_couriers);
         }
 
         private void dgvCouriers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            var selectedCourierId = dgvCouriers.Rows[e.RowIndex].Cells[idColumn.Name].Value.ToString();
+            var selectedCourier = _couriers.Find(c => c.Id == selectedCourierId);
+            var form = new CourierDetailsForm(selectedCourier);
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.CourierUpdated += (_, _) => RefreshCourierList();
+            form.ShowDialog();
         }
 
         private void tbSearchBox_TextChanged(object sender, EventArgs e)

@@ -46,7 +46,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             this.btnNewCourier.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnNewCourier.ForeColor = System.Drawing.SystemColors.Window;
             this.btnNewCourier.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnNewCourier.Location = new System.Drawing.Point(245, 25);
+            this.btnNewCourier.Location = new System.Drawing.Point(394, 25);
             this.btnNewCourier.Name = "btnNewCourier";
             this.btnNewCourier.Size = new System.Drawing.Size(126, 48);
             this.btnNewCourier.TabIndex = 121;
@@ -68,7 +68,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             this.dgvCouriers.Name = "dgvCouriers";
             this.dgvCouriers.ReadOnly = true;
             this.dgvCouriers.RowTemplate.Height = 24;
-            this.dgvCouriers.Size = new System.Drawing.Size(344, 331);
+            this.dgvCouriers.Size = new System.Drawing.Size(493, 331);
             this.dgvCouriers.TabIndex = 119;
             this.dgvCouriers.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCouriers_CellDoubleClick);
             // 
@@ -115,12 +115,13 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             this.dateHiredColumn.HeaderText = "Date Hired";
             this.dateHiredColumn.Name = "dateHiredColumn";
             this.dateHiredColumn.ReadOnly = true;
+            this.dateHiredColumn.Width = 150;
             // 
             // CourierListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(406, 450);
+            this.ClientSize = new System.Drawing.Size(546, 450);
             this.Controls.Add(this.btnNewCourier);
             this.Controls.Add(this.dgvCouriers);
             this.Controls.Add(this.tbSearchBox);

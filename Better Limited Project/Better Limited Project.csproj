@@ -601,6 +601,12 @@
     <Compile Include="ServiceUtility\Delivery\UI\ArrangeSplitDeliveryForm.Designer.cs">
       <DependentUpon>ArrangeSplitDeliveryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ServiceUtility\Delivery\UI\CourierDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServiceUtility\Delivery\UI\CourierDetailsForm.Designer.cs">
+      <DependentUpon>CourierDetailsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ServiceUtility\Delivery\UI\CourierListForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -612,6 +618,12 @@
     </Compile>
     <Compile Include="ServiceUtility\Delivery\UI\CourierSelectorForm.Designer.cs">
       <DependentUpon>CourierSelectorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceUtility\Delivery\UI\CourierUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServiceUtility\Delivery\UI\CourierUpdateForm.Designer.cs">
+      <DependentUpon>CourierUpdateForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ServiceUtility\Delivery\UI\DailyDeliveryListForm.cs">
       <SubType>Form</SubType>
@@ -642,6 +654,12 @@
     </Compile>
     <Compile Include="ServiceUtility\Delivery\UI\DeliveryRequestListForm.Designer.cs">
       <DependentUpon>DeliveryRequestListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceUtility\Delivery\UI\NewCourierForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServiceUtility\Delivery\UI\NewCourierForm.Designer.cs">
+      <DependentUpon>NewCourierForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ServiceUtility\Delivery\UI\UpdateDeliveryForm.cs">
       <SubType>Form</SubType>
@@ -720,11 +738,8 @@
     <Compile Include="StaffUtility\StaffEntity\DepartmentMapper.cs" />
     <Compile Include="StaffUtility\StaffEntity\Department.cs" />
     <Compile Include="StaffUtility\StaffEntity\DepartmentStaffTitleMatchingHelper.cs" />
-    <Compile Include="StaffUtility\StaffEntity\Gender\Female.cs" />
     <Compile Include="StaffUtility\StaffEntity\Gender\GenderConverter.cs" />
-    <Compile Include="StaffUtility\StaffEntity\Gender\IGender.cs" />
-    <Compile Include="StaffUtility\StaffEntity\Gender\Male.cs" />
-    <Compile Include="StaffUtility\StaffEntity\Gender\NonBinary.cs" />
+    <Compile Include="StaffUtility\StaffEntity\Gender\Gender.cs" />
     <Compile Include="StaffUtility\StaffEntity\RetailStore.cs" />
     <Compile Include="StaffUtility\StaffEntity\Staff.cs" />
     <Compile Include="StaffUtility\StaffEntity\StaffTitle.cs" />
@@ -1135,6 +1150,9 @@
     <EmbeddedResource Include="ServiceUtility\Delivery\UI\ArrangeSplitDeliveryForm.zh-HK.resx">
       <DependentUpon>ArrangeSplitDeliveryForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ServiceUtility\Delivery\UI\CourierDetailsForm.resx">
+      <DependentUpon>CourierDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ServiceUtility\Delivery\UI\CourierListForm.resx">
       <DependentUpon>CourierListForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -1143,6 +1161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ServiceUtility\Delivery\UI\CourierSelectorForm.zh-HK.resx">
       <DependentUpon>CourierSelectorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServiceUtility\Delivery\UI\CourierUpdateForm.resx">
+      <DependentUpon>CourierUpdateForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ServiceUtility\Delivery\UI\DailyDeliveryListForm.resx">
       <DependentUpon>DailyDeliveryListForm.cs</DependentUpon>
@@ -1173,6 +1194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ServiceUtility\Delivery\UI\DeliveryRequestListForm.zh-HK.resx">
       <DependentUpon>DeliveryRequestListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServiceUtility\Delivery\UI\NewCourierForm.resx">
+      <DependentUpon>NewCourierForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ServiceUtility\Delivery\UI\UpdateDeliveryForm.resx">
       <DependentUpon>UpdateDeliveryForm.cs</DependentUpon>

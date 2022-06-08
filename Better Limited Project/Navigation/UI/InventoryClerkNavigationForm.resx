@@ -174,7 +174,7 @@
     <value>6</value>
   </data>
   <data name="btnCouriers.Location" type="System.Drawing.Point, System.Drawing">
-    <value>41, 120</value>
+    <value>41, 200</value>
   </data>
   <data name="btnCouriers.Size" type="System.Drawing.Size, System.Drawing">
     <value>111, 34</value>
@@ -222,7 +222,7 @@
     <value>8</value>
   </data>
   <data name="btnGoodsReceived.Location" type="System.Drawing.Point, System.Drawing">
-    <value>41, 160</value>
+    <value>41, 240</value>
   </data>
   <data name="btnGoodsReceived.Size" type="System.Drawing.Size, System.Drawing">
     <value>111, 34</value>
@@ -246,7 +246,7 @@
     <value>9</value>
   </data>
   <data name="btnGoodsReturned.Location" type="System.Drawing.Point, System.Drawing">
-    <value>41, 200</value>
+    <value>41, 280</value>
   </data>
   <data name="btnGoodsReturned.Size" type="System.Drawing.Size, System.Drawing">
     <value>111, 34</value>
@@ -270,7 +270,7 @@
     <value>4</value>
   </data>
   <data name="btnReorderRequests.Location" type="System.Drawing.Point, System.Drawing">
-    <value>41, 240</value>
+    <value>41, 320</value>
   </data>
   <data name="btnReorderRequests.Size" type="System.Drawing.Size, System.Drawing">
     <value>111, 34</value>
@@ -294,7 +294,7 @@
     <value>3</value>
   </data>
   <data name="btnRestockRequests.Location" type="System.Drawing.Point, System.Drawing">
-    <value>41, 280</value>
+    <value>41, 360</value>
   </data>
   <data name="btnRestockRequests.Size" type="System.Drawing.Size, System.Drawing">
     <value>111, 34</value>
@@ -318,7 +318,7 @@
     <value>2</value>
   </data>
   <data name="btnInventory.Location" type="System.Drawing.Point, System.Drawing">
-    <value>41, 320</value>
+    <value>41, 120</value>
   </data>
   <data name="btnInventory.Size" type="System.Drawing.Size, System.Drawing">
     <value>111, 34</value>
@@ -342,7 +342,7 @@
     <value>1</value>
   </data>
   <data name="btnDeliveryDuty.Location" type="System.Drawing.Point, System.Drawing">
-    <value>41, 360</value>
+    <value>41, 160</value>
   </data>
   <data name="btnDeliveryDuty.Size" type="System.Drawing.Size, System.Drawing">
     <value>111, 34</value>

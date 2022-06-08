@@ -4,25 +4,25 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity.Gender
 {
     public static class GenderConverter
     {
-        public static IGender Convert(char gender)
+        public static Gender Convert(char gender)
         {
             return gender.ToString().ToLower() switch
             {
-                "m" => new Male(),
-                "f" => new Female(),
-                "n" => new NonBinary(),
+                "m" => Gender.Male,
+                "f" => Gender.Female,
+                "n" => Gender.NonBinary,
                 _ => throw new ArgumentException($"Gender \"{gender}\" is unidentifiable.")
             };
         }
 
-        public static char Convert(IGender gender)
+        public static char Convert(Gender gender)
         {
             return gender switch
             {
-                Male => 'M',
-                Female => 'F',
-                NonBinary => 'N',
-                _ => throw new ArgumentException($"Unknown/Not implemented gender.")
+                Gender.Male => 'M',
+                Gender.Female => 'F',
+                Gender.NonBinary => 'N',
+                _ => throw new ArgumentException("Unknown/Not implemented gender.")
             };
         }
     }

@@ -36,9 +36,9 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             }
             
             string name = tbName.Text.Trim();
-            IGender gender = rbGenderMale.Checked ? new Male()
-                : rbGenderFemale.Checked ? new Female()
-                : new NonBinary();
+            Gender gender = rbGenderMale.Checked ? Gender.Male
+                : rbGenderFemale.Checked ? Gender.Female
+                : Gender.NonBinary;
             DateTime dob = dtpDateOfBirth.Value;
             StaffTitle title = new StaffTitleMapper().Map(cbTitle.SelectedItem.ToString());
             
@@ -72,10 +72,10 @@ namespace Better_Limited_Project.StaffUtility.StaffList
         {
             switch (_staff.Gender)
             {
-                case Male:
+                case Gender.Male:
                     rbGenderMale.Checked = true;
                     break;
-                case Female:
+                case Gender.Female:
                     rbGenderFemale.Checked = true;
                     break;
                 default:

@@ -88,9 +88,9 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             }
 
             string name = tbName.Text.Trim();
-            IGender gender = rbGenderMale.Checked ? new Male()
-                : rbGenderFemale.Checked ? new Female()
-                : rbGenderNonbinary.Checked ? new NonBinary()
+            Gender gender = rbGenderMale.Checked ? Gender.Male
+                : rbGenderFemale.Checked ? Gender.Female
+                : rbGenderNonbinary.Checked ? Gender.NonBinary
                 : throw new InvalidOperationException("No gender is selected.");
             DateTime dob = dtpDateOfBirth.Value;
 

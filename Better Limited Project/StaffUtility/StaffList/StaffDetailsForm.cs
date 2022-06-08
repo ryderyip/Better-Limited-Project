@@ -28,9 +28,9 @@ namespace Better_Limited_Project.StaffUtility.StaffList
 
         private void FillAllFields()
         {
-            tbId.Text = _staff.Id;
+            tbId.Text = "-";
             tbName.Text = _staff.Name;
-            tbGender.Text = _staff.Gender.Name;
+            tbGender.Text = EnumToStringHelper.GetDisplayValue(_staff.Gender);
             tbDateOfBirth.Text = _staff.DateOfBirth.ToShortDateString();
             tbHiredOn.Text = _staff.HiredOn.ToShortDateString();
             tbTitle.Text = new StaffTitleMapper().Map(_staff.Title);
@@ -65,6 +65,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
+            return;  // TODO take care of problem
             var form = new ConfirmRemovalForm();
             form.StartPosition = FormStartPosition.CenterScreen;
             form.Confirmed += (_, _) => RemoveStaff();
