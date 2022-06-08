@@ -52,7 +52,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
                 dgvDeliveryRequests.Rows.Add(orderNumber, 
                     request.CreatedOn.ToString("g"),
                     request.ArrangedOn.HasValue ? 
-                        request.ArrangedOn.Value.ToShortDateString() : "-",
+                        request.ArrangedOn.Value.ToString("g") : "-",
                     request.DeliverySession.ToString());
             }
             dgvDeliveryRequests.Sort(createdOnColumn, ListSortDirection.Descending);

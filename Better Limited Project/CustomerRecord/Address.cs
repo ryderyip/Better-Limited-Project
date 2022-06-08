@@ -16,5 +16,10 @@
         {
             new AddressRepository().Insert(this);
         }
+
+        public void  Remove()
+        {
+            new AddressRepository().Remove(this);
+        }
     }
 }

@@ -31,13 +31,13 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeliveryRequestListForm));
             this.dgvDeliveryRequests = new System.Windows.Forms.DataGridView();
+            this.tbSearchBox = new System.Windows.Forms.TextBox();
+            this.lblSearchBox = new System.Windows.Forms.Label();
+            this.cbShowArrangedRequests = new System.Windows.Forms.CheckBox();
             this.orderNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createdOnColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.arrangedOnColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deliverySessionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tbSearchBox = new System.Windows.Forms.TextBox();
-            this.lblSearchBox = new System.Windows.Forms.Label();
-            this.cbShowArrangedRequests = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDeliveryRequests)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,6 +56,23 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             this.dgvDeliveryRequests.ReadOnly = true;
             this.dgvDeliveryRequests.RowTemplate.Height = 24;
             this.dgvDeliveryRequests.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDeliveryRequests_CellDoubleClick);
+            // 
+            // tbSearchBox
+            // 
+            resources.ApplyResources(this.tbSearchBox, "tbSearchBox");
+            this.tbSearchBox.Name = "tbSearchBox";
+            this.tbSearchBox.TextChanged += new System.EventHandler(this.tbSearchBox_TextChanged);
+            // 
+            // lblSearchBox
+            // 
+            resources.ApplyResources(this.lblSearchBox, "lblSearchBox");
+            this.lblSearchBox.Name = "lblSearchBox";
+            // 
+            // cbShowArrangedRequests
+            // 
+            resources.ApplyResources(this.cbShowArrangedRequests, "cbShowArrangedRequests");
+            this.cbShowArrangedRequests.Name = "cbShowArrangedRequests";
+            this.cbShowArrangedRequests.UseVisualStyleBackColor = true;
             // 
             // orderNumberColumn
             // 
@@ -81,24 +98,6 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             this.deliverySessionColumn.Name = "deliverySessionColumn";
             this.deliverySessionColumn.ReadOnly = true;
             // 
-            // tbSearchBox
-            // 
-            resources.ApplyResources(this.tbSearchBox, "tbSearchBox");
-            this.tbSearchBox.Name = "tbSearchBox";
-            this.tbSearchBox.TextChanged += new System.EventHandler(this.tbSearchBox_TextChanged);
-            // 
-            // lblSearchBox
-            // 
-            resources.ApplyResources(this.lblSearchBox, "lblSearchBox");
-            this.lblSearchBox.Name = "lblSearchBox";
-            // 
-            // cbShowArrangedRequests
-            // 
-            resources.ApplyResources(this.cbShowArrangedRequests, "cbShowArrangedRequests");
-            this.cbShowArrangedRequests.Name = "cbShowArrangedRequests";
-            this.cbShowArrangedRequests.UseVisualStyleBackColor = true;
-            this.cbShowArrangedRequests.CheckedChanged += cbShowArrangedRequests_CheckedChanged;
-            // 
             // DeliveryRequestListForm
             // 
             resources.ApplyResources(this, "$this");
@@ -119,10 +118,10 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
         public System.Windows.Forms.DataGridView dgvDeliveryRequests;
         public System.Windows.Forms.TextBox tbSearchBox;
         private System.Windows.Forms.Label lblSearchBox;
+        private System.Windows.Forms.CheckBox cbShowArrangedRequests;
         private System.Windows.Forms.DataGridViewTextBoxColumn orderNumberColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn createdOnColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn arrangedOnColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn deliverySessionColumn;
-        private System.Windows.Forms.CheckBox cbShowArrangedRequests;
     }
 }

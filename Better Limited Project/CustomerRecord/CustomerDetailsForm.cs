@@ -56,7 +56,7 @@ namespace Better_Limited_Project.CustomerRecord
             form.StartPosition = FormStartPosition.CenterScreen;
             form.Confirmed += (_, _) =>
             {
-                new CustomerRepository().Delete(_customer);
+                _customer.Remove();
                 Updated?.Invoke(this, EventArgs.Empty);
                 Close();
             };

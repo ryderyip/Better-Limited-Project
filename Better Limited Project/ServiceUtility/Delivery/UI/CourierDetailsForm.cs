@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using Better_Limited_Project.ServiceUtility.Delivery.Entity;
 using Better_Limited_Project.ServiceUtility.Delivery.Repository;
+using Better_Limited_Project.StaffUtility.StaffList;
 using Better_Limited_Project.Tools;
 
 namespace Better_Limited_Project.ServiceUtility.Delivery.UI
@@ -41,7 +42,21 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            // TODO
+            if (_courier.HasUnfinishedDelivery())
+            {
+                MessageBox.Show("This courier has one or more unfinished deliveries. Courier removal failed.");
+                return;
+            }
+
+            var form = new ConfirmRemovalForm();
+            form.Confirmed += (_, _) =>
+            {
+                _courier.Remove();
+                CourierUpdated?.Invoke(this, EventArgs.Empty);
+                Close();
+            };
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.ShowDialog();
         }
     }
 }

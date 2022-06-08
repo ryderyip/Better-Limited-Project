@@ -64,5 +64,12 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.Repository
                 @"select max(id) + 1 as id from courier;"));
             return dataTable.Rows[0].Field<long>("id").ToString();
         }
+
+        public static void Remove(Courier courier)
+        {
+            var command = new MySqlCommand(@"delete from courier where id = @id;");
+            command.Parameters.AddWithValue("@id", courier.Id);
+            DataTableRepository.ExecuteNonQuery(command);
+        }
     }
 }

@@ -115,7 +115,7 @@ namespace Better_Limited_Project.SettingsUtility
         private void btnSelectDocPath_Click(object sender, EventArgs e)
         {
             string browserDescription = "Select a directory for generating documents.";
-            string newPath = FolderBrowser.BrowseDirectory(Environment.SpecialFolder.MyDocuments, browserDescription);
+            string newPath = FolderBrowser.BrowseDirectory(Environment.SpecialFolder.MyComputer, browserDescription);
             if (newPath == string.Empty)
                 return;
 

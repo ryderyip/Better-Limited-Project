@@ -50,5 +50,12 @@ namespace Better_Limited_Project.CustomerRecord
                 @"select max(id) as id from delivery_address;"));
             return ((from DataRow row in datatable.Rows select row.Field<int>("id")).First() + 1).ToString();
         }
+
+        public void Remove(Address address)
+        {
+            var command = new MySqlCommand(@"delete from delivery_address where id = @id;");
+            command.Parameters.AddWithValue("@id", address.Id);
+            DataTableRepository.ExecuteNonQuery(command);
+        }
     }
 }

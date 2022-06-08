@@ -41,5 +41,11 @@ namespace Better_Limited_Project.CustomerRecord
             var orders = new SalesOrderRepository().FindAll(o => o.Customer != null && o.Customer.Id == Id);
             return orders.Any(o => !o.IsCompleted());
         }
+
+        public void Remove()
+        {
+            Address.Remove();
+            new CustomerRepository().Delete(this);
+        }
     }
 }
