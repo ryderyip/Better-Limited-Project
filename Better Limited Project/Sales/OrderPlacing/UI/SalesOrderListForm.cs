@@ -33,7 +33,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
             salesOrders.ForEach(order => dgvSalesOrders.Rows.Add(order.OrderNumber, 
                 order.Customer != null ? order.Customer.Name : "-",
                 order.Customer != null ? order.Customer.Phone : "-",
-                new SalesOrderCalculator(order).GetTotalAmount().ToString("C", new CultureInfo("zh-HK")),
+                new SalesOrderCalculator(order.GetSalesOrderProducts()).GetTotalAmount().ToString("C", new CultureInfo("zh-HK")),
                 order.CreatedOn.ToShortDateString() + " : " + order.CreatedOn.ToShortTimeString(),
                 order.IsActive ? "Yes" : "No"));
             dgvSalesOrders.Sort(createdOnColumn, ListSortDirection.Descending);
@@ -41,7 +41,8 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
 
         private void dtpSearchDate_ValueChanged(object sender, EventArgs e)
         {
-            FilterSalesOrderDgv();
+            if (dtpSearchDate.Enabled)
+                FilterSalesOrderDgv();
         }
         
         private void tbSearchBox_TextChanged(object sender, EventArgs e)

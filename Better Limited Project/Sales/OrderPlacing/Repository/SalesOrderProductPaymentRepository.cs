@@ -38,5 +38,15 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
             command.Parameters.AddWithValue("isDeposit", salesOrderProductPayment.IsDeposit);
             DataTableRepository.ExecuteNonQuery(command);
         }
+
+        public static void Remove(SalesOrderProductPayment salesOrderProductPayment)
+        {
+            var command = new MySqlCommand(
+                @"delete from sales_order_product_payment where sales_order_id = @salesOrderId and product_id = @productId and payment_id = @paymentId;");
+            command.Parameters.AddWithValue("@salesOrderId", salesOrderProductPayment.SalesOrderId);
+            command.Parameters.AddWithValue("@productId", salesOrderProductPayment.ProductId);
+            command.Parameters.AddWithValue("@paymentId", salesOrderProductPayment.PaymentId);
+            DataTableRepository.ExecuteNonQuery(command);
+        }
     }
 }

@@ -58,4 +58,10 @@ Confirm sending a delivery request for this order?</value>
     <data name="cant remove delivery request" xml:space="preserve">
         <value>The delivery request has already been confirmed by the inventory department. Removal failed.</value>
     </data>
+    <data name="active order" xml:space="preserve">
+        <value>Active Order</value>
+    </data>
+    <data name="inactive order" xml:space="preserve">
+        <value>Inactive Order</value>
+    </data>
 </root>

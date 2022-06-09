@@ -48,7 +48,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
 
         public bool HasRequestedForDelivery()
         {
-            return DeliveryRequestRepository.GetAll().Any(dr => dr.SalesOrderId == Id);
+            return GetDeliveryRequest() != null;
         }
 
         public bool IsNeedInstallation()
@@ -79,11 +79,11 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
         }
 
         public bool IsCompleted()
-        {
+        { // TODO installion check
             return HasSalesOrderProducts()
                 &&!HasUnconfirmedDeliveryRequest() 
                    && (!HasRequestedForDelivery() || IsAllDeliveryArrived()) 
-                   && IsAllDuePaymentsPaid();
+                   && HasNoDuePayment();
         }
 
         private bool HasSalesOrderProducts()
@@ -97,7 +97,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
             return deliveryRequest != null && deliveryRequest.ArrangedOn == null;
         }
 
-        private bool IsAllDuePaymentsPaid()
+        private bool HasNoDuePayment()
         {
             return GetSalesOrderProducts().All(sop =>
                 sop.GetPaymentStatus() is SalesOrderProductPaymentStatus.FullyPaid);
@@ -108,7 +108,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
             return GetSalesOrderProductPayments().Any(sopp => sopp.IsDeposit);
         }
 
-        private IEnumerable<SalesOrderProductPayment> GetSalesOrderProductPayments()
+        public IEnumerable<SalesOrderProductPayment> GetSalesOrderProductPayments()
         {
             return GetSalesOrderProducts().SelectMany(sop => sop.GetProductPayments());
         }
@@ -117,6 +117,30 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
         {
             return GetSalesOrderProducts().Any(sop =>
                 sop.GetPaymentStatus() is SalesOrderProductPaymentStatus.FullyPaid);
+        }
+
+        /// <summary>
+        /// <para>Check if the order satisfies the following conditions:</para>
+        /// Doesn't have delivery or installation arranged
+        /// </summary>
+        public bool IsRemovable()
+        { // TODO installion check
+            var deliveryRequest = GetDeliveryRequest();
+            if (deliveryRequest == null)    
+                return true;
+            return !deliveryRequest.IsArranged();
+        }
+
+        public void Remove()
+        {
+            Customer?.Remove();
+            GetDeliveryRequest()?.Remove();
+            // TODO delete installation req if have
+            foreach (var salesOrderProductPayment in GetSalesOrderProductPayments())
+                salesOrderProductPayment.Remove();
+            foreach (var salesOrderProduct in GetSalesOrderProducts())
+                salesOrderProduct.Remove();
+            new SalesOrderRepository().Remove(this);
         }
     }
 }

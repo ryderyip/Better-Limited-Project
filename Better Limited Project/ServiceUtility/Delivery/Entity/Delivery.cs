@@ -64,6 +64,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.Entity
         public void Save()
         {
             DeliveryRepository.InsertOrUpdate(this);
+            GetSalesOrder().Save();
         }
 
         public IEnumerable<Courier> GetCouriers()

@@ -806,48 +806,6 @@
   <metadata name="idColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="dgvProductsName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dgvProductsCategory.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="stockStatusColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dgvProductsPrice.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dgvProductsQuantity.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dgvProductsSubtotal.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="dgvProducts.Location" type="System.Drawing.Point, System.Drawing">
-    <value>274, 308</value>
-  </data>
-  <data name="dgvProducts.Size" type="System.Drawing.Size, System.Drawing">
-    <value>613, 162</value>
-  </data>
-  <data name="dgvProducts.TabIndex" type="System.Int32, mscorlib">
-    <value>109</value>
-  </data>
-  <data name="&gt;&gt;dgvProducts.Name" xml:space="preserve">
-    <value>dgvProducts</value>
-  </data>
-  <data name="&gt;&gt;dgvProducts.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dgvProducts.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;dgvProducts.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <metadata name="idColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="idColumn.HeaderText" xml:space="preserve">
     <value>ID</value>
   </data>
@@ -907,6 +865,27 @@
   </data>
   <data name="dgvProductsSubtotal.Width" type="System.Int32, mscorlib">
     <value>90</value>
+  </data>
+  <data name="dgvProducts.Location" type="System.Drawing.Point, System.Drawing">
+    <value>274, 308</value>
+  </data>
+  <data name="dgvProducts.Size" type="System.Drawing.Size, System.Drawing">
+    <value>613, 162</value>
+  </data>
+  <data name="dgvProducts.TabIndex" type="System.Int32, mscorlib">
+    <value>109</value>
+  </data>
+  <data name="&gt;&gt;dgvProducts.Name" xml:space="preserve">
+    <value>dgvProducts</value>
+  </data>
+  <data name="&gt;&gt;dgvProducts.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dgvProducts.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;dgvProducts.ZOrder" xml:space="preserve">
+    <value>10</value>
   </data>
   <data name="tbTotalAmount.Location" type="System.Drawing.Point, System.Drawing">
     <value>137, 242</value>
@@ -989,31 +968,31 @@
   <data name="&gt;&gt;btnDepositReceipt.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="btnEditOrder.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btnManageOrder.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt, style=Bold</value>
   </data>
-  <data name="btnEditOrder.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btnManageOrder.Location" type="System.Drawing.Point, System.Drawing">
     <value>25, 495</value>
   </data>
-  <data name="btnEditOrder.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnManageOrder.Size" type="System.Drawing.Size, System.Drawing">
     <value>117, 54</value>
   </data>
-  <data name="btnEditOrder.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnManageOrder.TabIndex" type="System.Int32, mscorlib">
     <value>113</value>
   </data>
-  <data name="btnEditOrder.Text" xml:space="preserve">
-    <value>Edit Order</value>
+  <data name="btnManageOrder.Text" xml:space="preserve">
+    <value>Manage Order</value>
   </data>
-  <data name="&gt;&gt;btnEditOrder.Name" xml:space="preserve">
-    <value>btnEditOrder</value>
+  <data name="&gt;&gt;btnManageOrder.Name" xml:space="preserve">
+    <value>btnManageOrder</value>
   </data>
-  <data name="&gt;&gt;btnEditOrder.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnManageOrder.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnEditOrder.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnManageOrder.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;btnEditOrder.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnManageOrder.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
   <data name="tbDeliveryStatus.Location" type="System.Drawing.Point, System.Drawing">
@@ -1165,7 +1144,7 @@
     <value>True</value>
   </data>
   <data name="lblIsActive.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+    <value>Microsoft Sans Serif, 14.25pt, style=Bold</value>
   </data>
   <data name="lblIsActive.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1174,7 +1153,7 @@
     <value>25, 33</value>
   </data>
   <data name="lblIsActive.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 20</value>
+    <value>127, 24</value>
   </data>
   <data name="lblIsActive.TabIndex" type="System.Int32, mscorlib">
     <value>121</value>

@@ -65,7 +65,7 @@
             this.tbTotalAmount = new System.Windows.Forms.TextBox();
             this.lblTotalAmount = new System.Windows.Forms.Label();
             this.btnDepositReceipt = new System.Windows.Forms.Button();
-            this.btnEditOrder = new System.Windows.Forms.Button();
+            this.btnManageOrder = new System.Windows.Forms.Button();
             this.tbDeliveryStatus = new System.Windows.Forms.TextBox();
             this.lblDeliveryStatus = new System.Windows.Forms.Label();
             this.tbCreatedOn = new System.Windows.Forms.TextBox();
@@ -196,7 +196,7 @@
             this.BtnPaymentReceipt.ForeColor = System.Drawing.SystemColors.Window;
             this.BtnPaymentReceipt.Name = "BtnPaymentReceipt";
             this.BtnPaymentReceipt.UseVisualStyleBackColor = false;
-            this.BtnPaymentReceipt.Click += new System.EventHandler(this.BtnPaymentReceipt_Click);
+            this.BtnPaymentReceipt.Click += new System.EventHandler(this.btnPaymentReceipt_Click);
             // 
             // btnSettleIncompletePayment
             // 
@@ -298,14 +298,14 @@
             this.btnDepositReceipt.UseVisualStyleBackColor = false;
             this.btnDepositReceipt.Click += new System.EventHandler(this.btnDepositReceipt_Click);
             // 
-            // btnEditOrder
+            // btnManageOrder
             // 
-            this.btnEditOrder.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            resources.ApplyResources(this.btnEditOrder, "btnEditOrder");
-            this.btnEditOrder.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnEditOrder.Name = "btnEditOrder";
-            this.btnEditOrder.UseVisualStyleBackColor = false;
-            this.btnEditOrder.Click += new System.EventHandler(this.btnEditOrder_Click);
+            this.btnManageOrder.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            resources.ApplyResources(this.btnManageOrder, "btnManageOrder");
+            this.btnManageOrder.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnManageOrder.Name = "btnManageOrder";
+            this.btnManageOrder.UseVisualStyleBackColor = false;
+            this.btnManageOrder.Click += new System.EventHandler(this.btnEditOrder_Click);
             // 
             // tbDeliveryStatus
             // 
@@ -350,7 +350,7 @@
             this.Controls.Add(this.lblCreatedOn);
             this.Controls.Add(this.tbDeliveryStatus);
             this.Controls.Add(this.lblDeliveryStatus);
-            this.Controls.Add(this.btnEditOrder);
+            this.Controls.Add(this.btnManageOrder);
             this.Controls.Add(this.btnDepositReceipt);
             this.Controls.Add(this.tbTotalAmount);
             this.Controls.Add(this.lblTotalAmount);
@@ -419,7 +419,7 @@
         private System.Windows.Forms.TextBox tbTotalAmount;
         private System.Windows.Forms.Label lblTotalAmount;
         private System.Windows.Forms.Button btnDepositReceipt;
-        private System.Windows.Forms.Button btnEditOrder;
+        private System.Windows.Forms.Button btnManageOrder;
         private System.Windows.Forms.TextBox tbDeliveryStatus;
         private System.Windows.Forms.Label lblDeliveryStatus;
         private System.Windows.Forms.TextBox tbCreatedOn;

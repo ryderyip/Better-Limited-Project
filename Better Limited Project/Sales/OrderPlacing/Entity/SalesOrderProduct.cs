@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Better_Limited_Project.DatabaseUtility;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.ProductUtility.Repository;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;
 using Better_Limited_Project.Sales.PaymentUtility.Repository;
+using MySql.Data.MySqlClient;
 
 namespace Better_Limited_Project.Sales.OrderPlacing.Entity
 {
@@ -63,6 +65,11 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
             return !IsOutOfStock
                    || reservedSalesOrderProduct != null
                    && reservedSalesOrderProduct.Quantity == Quantity;
+        }
+
+        public void Remove()
+        {
+            new SalesOrderProductRepository().Remove(this);
         }
     }
 }

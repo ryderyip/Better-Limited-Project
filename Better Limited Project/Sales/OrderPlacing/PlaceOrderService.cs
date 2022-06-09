@@ -122,10 +122,11 @@ namespace Better_Limited_Project.ServiceUtility
         private void CompleteOrderPlacing()
         {
             MessageBox.Show(OrderPlacingStringResources.order_placed);
-            if (_salesOrderProduct.Any(sop => sop.IsOutOfStock))
+            // TODO turned off for easy debug
+            /*if (_salesOrderProduct.Any(sop => sop.IsOutOfStock))
                 new DepositReceiptGenerator(_order).GenerateAndOpen();
             if (_salesOrderProduct.Any(sop => !sop.IsOutOfStock))
-                new PaymentReceiptGenerator(_order).GenerateAndOpen();
+                new PaymentReceiptGenerator(_order).GenerateAndOpen();*/
             SalesOrderPlaced?.Invoke(this, EventArgs.Empty);
         }
     }

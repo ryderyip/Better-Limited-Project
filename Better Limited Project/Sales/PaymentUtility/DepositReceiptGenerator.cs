@@ -81,7 +81,7 @@ namespace Better_Limited_Project.Sales.PaymentUtility
 
             // Deposit statement
 
-            var order = new SalesOrderCalculator(_salesOrder);
+            var order = new SalesOrderCalculator(_salesOrder.GetSalesOrderProducts());
             var statement = section.AddParagraph();
             var method = _salesOrderProducts.First().GetProductPayments().First().GetPayment().PaymentMethod;
             string methodText = method is PaymentMethod.CreditCard ? "Credit Card" : method.ToString();

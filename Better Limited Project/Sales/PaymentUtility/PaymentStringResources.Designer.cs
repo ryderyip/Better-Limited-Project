@@ -61,6 +61,15 @@ namespace Better_Limited_Project.Sales.PaymentUtility {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Active Order.
+        /// </summary>
+        internal static string active_order {
+            get {
+                return ResourceManager.GetString("active order", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Current sales order has requested for a delivery.
         ///Confirm removing delivery request?.
         /// </summary>
@@ -123,6 +132,15 @@ namespace Better_Limited_Project.Sales.PaymentUtility {
         internal static string FileBeingUsedByAnotherProcess {
             get {
                 return ResourceManager.GetString("FileBeingUsedByAnotherProcess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inactive Order.
+        /// </summary>
+        internal static string inactive_order {
+            get {
+                return ResourceManager.GetString("inactive order", resourceCulture);
             }
         }
         

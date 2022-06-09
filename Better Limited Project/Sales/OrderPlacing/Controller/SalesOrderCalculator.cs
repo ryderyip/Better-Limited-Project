@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
-using Better_Limited_Project.Sales.OrderPlacing.Repository;
 using Better_Limited_Project.Sales.PaymentUtility.Repository;
 
 namespace Better_Limited_Project.Sales.OrderPlacing.Controller
@@ -12,17 +10,9 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Controller
     {
         private readonly List<SalesOrderProduct> _salesOrderProducts;
 
-        public SalesOrderCalculator(SalesOrder salesOrder)
+        public SalesOrderCalculator(IEnumerable<SalesOrderProduct> salesOrderProducts)
         {
-            // TODO check is sales order created in db
-            if (new SalesOrderRepository().GetAll().All(so => so.Id != salesOrder.Id))
-                throw new ArgumentException($"Sales order with ID \"{salesOrder.Id}\" has not been created.");
-            _salesOrderProducts = salesOrder.GetSalesOrderProducts().ToList();
-        }
-        
-        public SalesOrderCalculator(List<SalesOrderProduct> salesOrderProducts)
-        {
-            _salesOrderProducts = salesOrderProducts;
+            _salesOrderProducts = salesOrderProducts.ToList();
         }
 
         public decimal GetTotalAmount()

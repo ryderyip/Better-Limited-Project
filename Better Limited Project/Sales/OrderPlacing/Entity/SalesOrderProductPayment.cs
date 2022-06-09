@@ -30,5 +30,10 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
         {
             return PaymentRepository.FindById(PaymentId);
         }
+
+        public void Remove()
+        {
+            SalesOrderProductPaymentRepository.Remove(this);
+        }
     }
 }

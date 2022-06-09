@@ -51,7 +51,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
             var command = new MySqlCommand(
                 @"insert into sales_order (id, sales_order_number, customer_id, retail_store_id, created_by_staff_id, created_on, is_active) 
                         value (@id, @orderNumber, @customerId, @retailStoreId, @createdByStaffId, @createdOn, @isActive)
-                    on duplicate key update customer_id = @customerId, retail_store_id = @retailStoreId, created_by_staff_id = @createdByStaffId;");
+                    on duplicate key update customer_id = @customerId, retail_store_id = @retailStoreId, created_by_staff_id = @createdByStaffId, is_active = @isActive;");
 
             command.Parameters.AddWithValue("@id", order.Id);
             command.Parameters.AddWithValue("@orderNumber", order.OrderNumber);
@@ -89,7 +89,16 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
             var dataTable = DataTableRepository.RetrieveDataTable(new MySqlCommand(
                 @"select max(id) + 1 as id from sales_order;"));
             return dataTable.Rows[0]["id"] == DBNull.Value
-                ? "1" : dataTable.Rows[0].Field<long>("id").ToString();
+                ? "1"
+                : dataTable.Rows[0].Field<long>("id").ToString();
+        }
+
+        public void Remove(SalesOrder salesOrder)
+        {
+            var command = new MySqlCommand(
+                @"delete from sales_order where id = @id;");
+            command.Parameters.AddWithValue("@id", salesOrder.Id);
+            DataTableRepository.ExecuteNonQuery(command);
         }
     }
 }

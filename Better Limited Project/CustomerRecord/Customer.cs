@@ -44,8 +44,8 @@ namespace Better_Limited_Project.CustomerRecord
 
         public void Remove()
         {
-            Address.Remove();
             new CustomerRepository().Delete(this);
+            Address.Remove();
         }
     }
 }

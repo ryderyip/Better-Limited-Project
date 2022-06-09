@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.ServiceUtility.Delivery.Repository;
@@ -30,6 +31,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
                 EnumToStringHelper.GetDisplayValue(delivery.DeliveryStatus),
                 $"{delivery.GetLastUpdatedTime().ToShortDateString()} | {delivery.GetLastUpdatedTime().ToShortTimeString()}",
                 delivery.GetDeliveryRequest().GetArrangedByStaff()?.Name ?? "-"));
+            dgvDeliveries.Sort(updatedOnColumn, ListSortDirection.Descending);
         }
 
         private void tbSearchBox_TextChanged(object sender, System.EventArgs e)

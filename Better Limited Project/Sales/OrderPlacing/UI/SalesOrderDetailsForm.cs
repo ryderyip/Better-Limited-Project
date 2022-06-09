@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
@@ -37,9 +38,24 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
         {
             ToolTipGenerator.Generate(initialDelay:0)
                 .SetToolTip(lblIsActive, OrderPlacingStringResources.active_inactive_order_meaning_tooltip);
+            SetOrderActivityText();
             PopulateProductDgv();
             FillFields();
             DisappearUselessButtons();
+        }
+
+        private void SetOrderActivityText()
+        {
+            if (_salesOrder.IsActive)
+            {
+                lblIsActive.Text = PaymentStringResources.active_order;
+                lblIsActive.ForeColor = Color.ForestGreen;
+            }
+            else
+            {
+                lblIsActive.Text = PaymentStringResources.inactive_order;
+                lblIsActive.ForeColor = Color.OrangeRed;
+            }
         }
 
         private void PopulateProductDgv()
@@ -65,10 +81,10 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
                 BtnPaymentReceipt.Visible = false;
                 btnSettleIncompletePayment.Visible = false;
                 btnDepositReceipt.Visible = false;
-                btnEditOrder.Visible = false;
+                btnManageOrder.Visible = false;
             }
             
-            var calculator = new SalesOrderCalculator(_salesOrder);
+            var calculator = new SalesOrderCalculator(_salesOrder.GetSalesOrderProducts());
             if (!_salesOrder.HasCompletedPayment())
                 BtnPaymentReceipt.Visible = false;
             if (!_salesOrder.HasDepositPayment())
@@ -76,14 +92,14 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
             if (calculator.IsAllPaymentCompleted())
                 btnSettleIncompletePayment.Visible = false;
             if (!_salesOrder.IsActive)
-                btnEditOrder.Visible = false;
+                btnManageOrder.Visible = false;
         }
 
         private void FillFields()
         {
             var delivery = _salesOrder.GetDeliveries().FirstOrDefault();
             var deliveryRequest = _salesOrder.GetDeliveryRequest();
-            var calculator = new SalesOrderCalculator(_salesOrder);
+            var calculator = new SalesOrderCalculator(_salesOrder.GetSalesOrderProducts());
             
             txtOrderNumber.Text = _salesOrder.OrderNumber;
             tbTotalAmount.Text = calculator.GetTotalAmount().ToString("C", new CultureInfo("zh-HK"));
@@ -106,7 +122,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
             }
         }
 
-        private void BtnPaymentReceipt_Click(object sender, EventArgs e)
+        private void btnPaymentReceipt_Click(object sender, EventArgs e)
         {
             if (_salesOrderProducts.All(sop => sop.GetProductPayments().Any(sopp => sopp.IsDeposit)))
             {
@@ -136,6 +152,11 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
             {
                 _salesOrder = new SalesOrderRepository().FindById(_salesOrder.Id);
                 Initialize();
+                OrderUpdated?.Invoke(this, EventArgs.Empty);
+            };
+            form.SalesOrderRemoved += (_, _) =>
+            {
+                Close();
                 OrderUpdated?.Invoke(this, EventArgs.Empty);
             };
             form.ShowDialog();
