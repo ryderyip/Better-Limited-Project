@@ -18,15 +18,17 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
             Staff = staff;
             RetailStore = retailStore;
             CreatedOn = DateTime.Now;
+            IsActive = true;
         }
 
-        public SalesOrder(string id, string orderNumber, Staff staff, RetailStore retailStore, DateTime createdOn)
+        public SalesOrder(string id, string orderNumber, Staff staff, RetailStore retailStore, DateTime createdOn, bool isActive)
         {
             Id = id;
             OrderNumber = orderNumber;
             Staff = staff;
             RetailStore = retailStore;
             CreatedOn = createdOn;
+            IsActive = isActive;
         }
 
         public string Id { get; }
@@ -35,9 +37,12 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
         public RetailStore RetailStore { get; }
         public Customer? Customer { get; set; }
         public DateTime CreatedOn { get; }
+        public bool IsActive { get; private set; }
 
         public void Save()
         {
+            if (IsCompleted())
+                IsActive = false;
             new SalesOrderRepository().InsertOrUpdate(this);
         }
 
@@ -75,10 +80,15 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
 
         public bool IsCompleted()
         {
-            
-            return !HasUnconfirmedDeliveryRequest() 
-                   || (!HasRequestedForDelivery() || IsAllDeliveryArrived()) 
+            return HasSalesOrderProducts()
+                &&!HasUnconfirmedDeliveryRequest() 
+                   && (!HasRequestedForDelivery() || IsAllDeliveryArrived()) 
                    && IsAllDuePaymentsPaid();
+        }
+
+        private bool HasSalesOrderProducts()
+        {
+            return GetSalesOrderProducts().Any();
         }
 
         private bool HasUnconfirmedDeliveryRequest()
@@ -90,6 +100,22 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
         private bool IsAllDuePaymentsPaid()
         {
             return GetSalesOrderProducts().All(sop =>
+                sop.GetPaymentStatus() is SalesOrderProductPaymentStatus.FullyPaid);
+        }
+
+        public bool HasDepositPayment()
+        {
+            return GetSalesOrderProductPayments().Any(sopp => sopp.IsDeposit);
+        }
+
+        private IEnumerable<SalesOrderProductPayment> GetSalesOrderProductPayments()
+        {
+            return GetSalesOrderProducts().SelectMany(sop => sop.GetProductPayments());
+        }
+
+        public bool HasCompletedPayment()
+        {
+            return GetSalesOrderProducts().Any(sop =>
                 sop.GetPaymentStatus() is SalesOrderProductPaymentStatus.FullyPaid);
         }
     }

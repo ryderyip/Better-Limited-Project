@@ -1,7 +1,7 @@
 ﻿
 namespace Better_Limited_Project.Sales.OrderPlacing.UI
 {
-    partial class EditSalesOrderForm
+    partial class ManageSalesOrderForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,10 +29,11 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditSalesOrderForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageSalesOrderForm));
             this.lblHeader = new System.Windows.Forms.Label();
             this.btnManageInstallation = new System.Windows.Forms.Button();
             this.btnManageDelivery = new System.Windows.Forms.Button();
+            this.btnCancelOrder = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblHeader
@@ -57,14 +58,24 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
             this.btnManageDelivery.UseVisualStyleBackColor = false;
             this.btnManageDelivery.Click += new System.EventHandler(this.btnManageDelivery_Click);
             // 
-            // EditSalesOrderForm
+            // btnCancelOrder
+            // 
+            this.btnCancelOrder.BackColor = System.Drawing.Color.OrangeRed;
+            resources.ApplyResources(this.btnCancelOrder, "btnCancelOrder");
+            this.btnCancelOrder.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnCancelOrder.Name = "btnCancelOrder";
+            this.btnCancelOrder.UseVisualStyleBackColor = false;
+            this.btnCancelOrder.Click += new System.EventHandler(this.btnCancelOrder_Click);
+            // 
+            // ManageSalesOrder
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnCancelOrder);
             this.Controls.Add(this.btnManageInstallation);
             this.Controls.Add(this.btnManageDelivery);
             this.Controls.Add(this.lblHeader);
-            this.Name = "EditSalesOrderForm";
+            this.Name = "ManageSalesOrderForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -75,5 +86,6 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
         private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.Button btnManageInstallation;
         private System.Windows.Forms.Button btnManageDelivery;
+        private System.Windows.Forms.Button btnCancelOrder;
     }
 }

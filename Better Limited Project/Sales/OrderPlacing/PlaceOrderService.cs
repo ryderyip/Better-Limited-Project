@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.CustomerRecord;
 using Better_Limited_Project.ProductUtility.Repository;
+using Better_Limited_Project.Sales.OrderPlacing;
 using Better_Limited_Project.Sales.OrderPlacing.Controller;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.UI;
@@ -11,7 +12,6 @@ using Better_Limited_Project.Sales.PaymentUtility;
 using Better_Limited_Project.Sales.PaymentUtility.UI;
 using Better_Limited_Project.ServiceUtility.Delivery;
 using Better_Limited_Project.SettingsUtility;
-using StringResources = Better_Limited_Project.Sales.OrderPlacing.StringResources;
 
 namespace Better_Limited_Project.ServiceUtility
 {
@@ -121,7 +121,7 @@ namespace Better_Limited_Project.ServiceUtility
         
         private void CompleteOrderPlacing()
         {
-            MessageBox.Show(StringResources.order_placed);
+            MessageBox.Show(OrderPlacingStringResources.order_placed);
             if (_salesOrderProduct.Any(sop => sop.IsOutOfStock))
                 new DepositReceiptGenerator(_order).GenerateAndOpen();
             if (_salesOrderProduct.Any(sop => !sop.IsOutOfStock))

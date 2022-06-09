@@ -478,6 +478,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>OrderPlacingStringResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Sales\OrderPlacing\PlaceOrderService.cs" />
     <Compile Include="Sales\OrderPlacing\Repository\ProductImageRepository.cs" />
     <Compile Include="Sales\OrderPlacing\Repository\SalesOrderProductPaymentRepository.cs" />
     <Compile Include="Sales\OrderPlacing\Repository\SalesOrderProductRepository.cs" />
@@ -496,11 +497,11 @@
     <Compile Include="Sales\OrderPlacing\UI\DeliverySessionSelectionForm.Designer.cs">
       <DependentUpon>DeliverySessionSelectionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sales\OrderPlacing\UI\EditSalesOrderForm.cs">
+    <Compile Include="Sales\OrderPlacing\UI\ManageSalesOrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sales\OrderPlacing\UI\EditSalesOrderForm.Designer.cs">
-      <DependentUpon>EditSalesOrderForm.cs</DependentUpon>
+    <Compile Include="Sales\OrderPlacing\UI\ManageSalesOrderForm.Designer.cs">
+      <DependentUpon>ManageSalesOrderForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Sales\OrderPlacing\UI\FindCustomerRecordForm.cs">
       <SubType>Form</SubType>
@@ -693,7 +694,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ServiceUtility\Installation\UI\InstallationRequestForm.Designer.cs" />
-    <Compile Include="ServiceUtility\PlaceOrderService.cs" />
     <Compile Include="ServiceUtility\ProductReservationService.cs" />
     <Compile Include="ServiceUtility\Reordering\ReorderRequestDetailsForm.cs">
       <SubType>Form</SubType>
@@ -1067,11 +1067,11 @@
     <EmbeddedResource Include="Sales\OrderPlacing\UI\DeliverySessionSelectionForm.zh-HK.resx">
       <DependentUpon>DeliverySessionSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sales\OrderPlacing\UI\EditSalesOrderForm.resx">
-      <DependentUpon>EditSalesOrderForm.cs</DependentUpon>
+    <EmbeddedResource Include="Sales\OrderPlacing\UI\ManageSalesOrderForm.resx">
+      <DependentUpon>ManageSalesOrderForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sales\OrderPlacing\UI\EditSalesOrderForm.zh-HK.resx">
-      <DependentUpon>EditSalesOrderForm.cs</DependentUpon>
+    <EmbeddedResource Include="Sales\OrderPlacing\UI\ManageSalesOrderForm.zh-HK.resx">
+      <DependentUpon>ManageSalesOrderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\OrderPlacing\UI\FindCustomerRecordForm.resx">
       <DependentUpon>FindCustomerRecordForm.cs</DependentUpon>

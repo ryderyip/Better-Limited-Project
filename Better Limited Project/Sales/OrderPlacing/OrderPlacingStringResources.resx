@@ -21,4 +21,7 @@
     <data name="order placed" xml:space="preserve">
         <value>Order placed!</value>
     </data>
+    <data name="active inactive order meaning tooltip" xml:space="preserve">
+        <value>Active orders can be updated and modified while inactive orders cannot.</value>
+    </data>
 </root>

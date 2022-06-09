@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
@@ -14,6 +15,8 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Controller
         public SalesOrderCalculator(SalesOrder salesOrder)
         {
             // TODO check is sales order created in db
+            if (new SalesOrderRepository().GetAll().All(so => so.Id != salesOrder.Id))
+                throw new ArgumentException($"Sales order with ID \"{salesOrder.Id}\" has not been created.");
             _salesOrderProducts = salesOrder.GetSalesOrderProducts().ToList();
         }
         

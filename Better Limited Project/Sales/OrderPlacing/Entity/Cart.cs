@@ -6,7 +6,7 @@ using Better_Limited_Project.ProductUtility.Repository;
 
 namespace Better_Limited_Project.Sales.OrderPlacing.Entity
 {
-    public class Cart // TODO Unit Test
+    public class Cart
     {
         private readonly string _retailStoreId;
         public event EventHandler? Updated;

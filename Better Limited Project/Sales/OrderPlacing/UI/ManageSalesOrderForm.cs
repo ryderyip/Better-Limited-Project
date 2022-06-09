@@ -9,14 +9,15 @@ using Better_Limited_Project.ServiceUtility.Delivery.Entity;
 
 namespace Better_Limited_Project.Sales.OrderPlacing.UI
 {
-    public partial class EditSalesOrderForm : Form
+    public partial class ManageSalesOrderForm : Form
     {
         public EventHandler? SalesOrderUpdated;
         private readonly SalesOrder _salesOrder;
 
-        public EditSalesOrderForm(SalesOrder salesOrder)
+        public ManageSalesOrderForm(SalesOrder salesOrder)
         {
             _salesOrder = salesOrder;
+            StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
         }
 
@@ -127,6 +128,11 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
             };
             form.StartPosition = FormStartPosition.CenterScreen;
             form.ShowDialog();
+        }
+
+        private void btnCancelOrder_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

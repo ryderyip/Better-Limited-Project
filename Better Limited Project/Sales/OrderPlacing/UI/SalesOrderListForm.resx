@@ -154,20 +154,17 @@
   <data name="createdOnColumn.HeaderText" xml:space="preserve">
     <value>Created On</value>
   </data>
-  <metadata name="retailStoreNameColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="retailStoreNameColumn.HeaderText" xml:space="preserve">
-    <value>Retail Store Name</value>
-  </data>
-  <data name="retailStoreNameColumn.Width" type="System.Int32, mscorlib">
+  <data name="createdOnColumn.Width" type="System.Int32, mscorlib">
     <value>120</value>
   </data>
-  <metadata name="createdByStaffNameColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="isActiveColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="createdByStaffNameColumn.HeaderText" xml:space="preserve">
-    <value>Created By Staff</value>
+  <data name="isActiveColumn.HeaderText" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="isActiveColumn.Width" type="System.Int32, mscorlib">
+    <value>50</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="dgvSalesOrders.Location" type="System.Drawing.Point, System.Drawing">
@@ -297,7 +294,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>623, 449</value>
+    <value>595, 449</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>SalesOrderForm</value>
@@ -332,16 +329,10 @@
   <data name="&gt;&gt;createdOnColumn.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;retailStoreNameColumn.Name" xml:space="preserve">
-    <value>retailStoreNameColumn</value>
+  <data name="&gt;&gt;isActiveColumn.Name" xml:space="preserve">
+    <value>isActiveColumn</value>
   </data>
-  <data name="&gt;&gt;retailStoreNameColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;createdByStaffNameColumn.Name" xml:space="preserve">
-    <value>createdByStaffNameColumn</value>
-  </data>
-  <data name="&gt;&gt;createdByStaffNameColumn.Type" xml:space="preserve">
+  <data name="&gt;&gt;isActiveColumn.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

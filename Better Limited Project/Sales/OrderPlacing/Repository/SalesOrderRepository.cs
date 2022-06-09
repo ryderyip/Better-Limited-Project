@@ -22,7 +22,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
         public IEnumerable<SalesOrder> GetAll()
         {
             var command = new MySqlCommand(
-                @"select id, sales_order_number, customer_id, retail_store_id, created_by_staff_id, created_on from sales_order;");
+                @"select id, sales_order_number, customer_id, retail_store_id, created_by_staff_id, created_on, is_active from sales_order;");
             var dataTable = DataTableRepository.RetrieveDataTable(command);
             return from DataRow row
                     in dataTable.Rows
@@ -32,7 +32,8 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
                 let staff = new StaffRepository().FindById(row.Field<int>("created_by_staff_id").ToString())
                 let retailStore = new RetailStoreRepository().GetById(row.Field<string>("retail_store_id"))
                 let createOn = row.Field<DateTime>("created_on")
-                select new SalesOrder(id, orderNumber, staff, retailStore, createOn)
+                let isActive = row.Field<bool>("is_active")
+                select new SalesOrder(id, orderNumber, staff, retailStore, createOn, isActive)
                 {
                     Customer = customerId.HasValue
                         ? new CustomerRepository().FindById(customerId.Value.ToString())
@@ -48,8 +49,8 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
         public void InsertOrUpdate(SalesOrder order)
         {
             var command = new MySqlCommand(
-                @"insert into sales_order (id, sales_order_number, customer_id, retail_store_id, created_by_staff_id, created_on) 
-                        value (@id, @orderNumber, @customerId, @retailStoreId, @createdByStaffId, @createdOn)
+                @"insert into sales_order (id, sales_order_number, customer_id, retail_store_id, created_by_staff_id, created_on, is_active) 
+                        value (@id, @orderNumber, @customerId, @retailStoreId, @createdByStaffId, @createdOn, @isActive)
                     on duplicate key update customer_id = @customerId, retail_store_id = @retailStoreId, created_by_staff_id = @createdByStaffId;");
 
             command.Parameters.AddWithValue("@id", order.Id);
@@ -59,6 +60,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
             command.Parameters.AddWithValue("@retailStoreId", order.RetailStore.Id);
             command.Parameters.AddWithValue("@createdByStaffId", order.Staff.Id);
             command.Parameters.AddWithValue("@createdOn", order.CreatedOn);
+            command.Parameters.AddWithValue("@isActive", order.IsActive);
             DataTableRepository.ExecuteNonQuery(command);
         }
 

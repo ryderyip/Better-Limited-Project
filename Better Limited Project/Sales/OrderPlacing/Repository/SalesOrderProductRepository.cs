@@ -60,8 +60,6 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
                     where sales_order_id = @salesOrderId;");
             command.Parameters.AddWithValue("@salesOrderId", salesOrderId);
             var dataTable = DataTableRepository.RetrieveDataTable(command);
-            if (dataTable.Rows.Count == 0)
-                throw new ArgumentException($"No sales order products are associated with order \"{salesOrderId}\"");
             return from DataRow row in dataTable.Rows select ConvertToSalesOrderProduct(row);
         }
     }

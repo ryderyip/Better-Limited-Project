@@ -147,7 +147,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblHeader.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="btnManageInstallation.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt, style=Bold</value>
@@ -174,7 +174,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnManageInstallation.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="btnManageDelivery.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt, style=Bold</value>
@@ -201,7 +201,38 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnManageDelivery.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
+  </data>
+  <data name="btnCancelOrder.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnCancelOrder.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnCancelOrder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>36, 239</value>
+  </data>
+  <data name="btnCancelOrder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>215, 58</value>
+  </data>
+  <data name="btnCancelOrder.TabIndex" type="System.Int32, mscorlib">
+    <value>146</value>
+  </data>
+  <data name="btnCancelOrder.Text" xml:space="preserve">
+    <value>Cancel Order</value>
+  </data>
+  <data name="&gt;&gt;btnCancelOrder.Name" xml:space="preserve">
+    <value>btnCancelOrder</value>
+  </data>
+  <data name="&gt;&gt;btnCancelOrder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnCancelOrder.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnCancelOrder.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -210,13 +241,13 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>286, 244</value>
+    <value>286, 327</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>EditSalesOrderForm</value>
+    <value>Manage Order</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>EditSalesOrderForm</value>
+    <value>ManageSalesOrderForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

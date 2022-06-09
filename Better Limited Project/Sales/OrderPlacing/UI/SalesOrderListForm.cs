@@ -4,11 +4,9 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
-using Better_Limited_Project.Login;
 using Better_Limited_Project.Sales.OrderPlacing.Controller;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;
-using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.Sales.OrderPlacing.UI
 {
@@ -27,8 +25,6 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
         {
             FillSalesOrderDgv(_salesOrders);
             dtpSearchDate.MaxDate = DateTime.Today;
-            if (LoginSession.GetSession().CurrentStaff.Department is Department.Sales)
-                retailStoreNameColumn.Visible = false;
         }
 
         private void FillSalesOrderDgv(List<SalesOrder> salesOrders)
@@ -39,8 +35,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
                 order.Customer != null ? order.Customer.Phone : "-",
                 new SalesOrderCalculator(order).GetTotalAmount().ToString("C", new CultureInfo("zh-HK")),
                 order.CreatedOn.ToShortDateString() + " : " + order.CreatedOn.ToShortTimeString(),
-                order.RetailStore.Name,
-                order.Staff.Name));
+                order.IsActive ? "Yes" : "No"));
             dgvSalesOrders.Sort(createdOnColumn, ListSortDirection.Descending);
         }
 

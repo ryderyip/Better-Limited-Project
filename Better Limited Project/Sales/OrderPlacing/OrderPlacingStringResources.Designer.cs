@@ -22,14 +22,14 @@ namespace Better_Limited_Project.Sales.OrderPlacing {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class StringResources {
+    internal class OrderPlacingStringResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal StringResources() {
+        internal OrderPlacingStringResources() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Better_Limited_Project.Sales.OrderPlacing.OrderPlacingStringResources", typeof(StringResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Better_Limited_Project.Sales.OrderPlacing.OrderPlacingStringResources", typeof(OrderPlacingStringResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -57,6 +57,15 @@ namespace Better_Limited_Project.Sales.OrderPlacing {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Active orders can be updated and modified while inactive orders cannot..
+        /// </summary>
+        internal static string active_inactive_order_meaning_tooltip {
+            get {
+                return ResourceManager.GetString("active inactive order meaning tooltip", resourceCulture);
             }
         }
         
