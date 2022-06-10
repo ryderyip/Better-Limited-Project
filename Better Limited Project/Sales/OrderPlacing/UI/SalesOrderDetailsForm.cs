@@ -26,6 +26,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
         {
             _salesOrder = salesOrder;
             _salesOrderProducts = salesOrder.GetSalesOrderProducts().ToList();
+            StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
         }
 

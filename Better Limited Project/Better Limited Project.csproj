@@ -319,11 +319,37 @@
     </Compile>
     <Compile Include="Procedure\IProcedure.cs" />
     <Compile Include="Procedure\LoginProcedure.cs" />
+    <Compile Include="ProductUtility\DefectiveItemReturning\DefectiveItemDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductUtility\DefectiveItemReturning\DefectiveItemDetailsForm.Designer.cs">
+      <DependentUpon>DefectiveItemDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductUtility\DefectiveItemReturning\DefectiveItemListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductUtility\DefectiveItemReturning\DefectiveItemListForm.Designer.cs">
+      <DependentUpon>DefectiveItemListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductUtility\DefectiveItemReturning\DefectiveItem.cs" />
+    <Compile Include="ProductUtility\DefectiveItemReturning\DefectiveItemRepository.cs" />
+    <Compile Include="ProductUtility\DefectiveItemReturning\NewDefectiveItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductUtility\DefectiveItemReturning\NewDefectiveItem.Designer.cs">
+      <DependentUpon>NewDefectiveItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductUtility\Entity\Category.cs" />
     <Compile Include="ProductUtility\Entity\IStock.cs" />
     <Compile Include="ProductUtility\Entity\Product.cs" />
     <Compile Include="ProductUtility\Entity\RetailStoreStock.cs" />
     <Compile Include="ProductUtility\NewProductStockCreator.cs" />
+    <Compile Include="ProductUtility\PickerForms\SalesOrderPickerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductUtility\PickerForms\SalesOrderPickerForm.Designer.cs">
+      <DependentUpon>SalesOrderPickerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductUtility\ProductList\Forms\IUpdateProductForm.cs" />
     <Compile Include="ProductUtility\ProductList\Forms\ProductDescriptionEditForm.cs">
       <SubType>Form</SubType>
@@ -349,6 +375,12 @@
       <DependentUpon>UpdateSellingPriceForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ProductUtility\ProductList\PermissionManagement\ProductPermissionManager.cs" />
+    <Compile Include="ProductUtility\PickerForms\SalesOrderProductPickerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductUtility\PickerForms\SalesOrderProductPickerForm.Designer.cs">
+      <DependentUpon>SalesOrderProductPickerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductUtility\ProductUtilityStringResources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -369,30 +401,6 @@
     </Compile>
     <Compile Include="ProductUtility\SupplierUtility\Supplier.cs" />
     <Compile Include="ProductUtility\Entity\WarehouseStock.cs" />
-    <Compile Include="ProductUtility\GoodsReceiving\CreateGoodsReceivedRecordForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProductUtility\GoodsReceiving\CreateGoodsReceivedRecordForm.Designer.cs" />
-    <Compile Include="ProductUtility\GoodsReceiving\GoodsReceivedDetailsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProductUtility\GoodsReceiving\GoodsReceivedDetailsForm.Designer.cs" />
-    <Compile Include="ProductUtility\GoodsReceiving\GoodsReceivedForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProductUtility\GoodsReceiving\GoodsReceivedForm.Designer.cs" />
-    <Compile Include="ProductUtility\GoodsReturning\CreateGoodsReturnedRecordForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProductUtility\GoodsReturning\CreateGoodsReturnedRecordForm.Designer.cs" />
-    <Compile Include="ProductUtility\GoodsReturning\GoodsReturnedDetailsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProductUtility\GoodsReturning\GoodsReturnedDetailsForm.Designer.cs" />
-    <Compile Include="ProductUtility\GoodsReturning\GoodsReturnedForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProductUtility\GoodsReturning\GoodsReturnedForm.Designer.cs" />
     <Compile Include="ProductUtility\ProductList\Forms\NewProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -953,12 +961,18 @@
     <EmbeddedResource Include="Navigation\UI\TechnicalSupportNavigationForm.zh-HK.resx">
       <DependentUpon>TechnicalSupportNavigationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProductUtility\GoodsReceiving\CreateGoodsReceivedRecordForm.resx" />
-    <EmbeddedResource Include="ProductUtility\GoodsReceiving\GoodsReceivedDetailsForm.resx" />
-    <EmbeddedResource Include="ProductUtility\GoodsReceiving\GoodsReceivedForm.resx" />
-    <EmbeddedResource Include="ProductUtility\GoodsReturning\CreateGoodsReturnedRecordForm.resx" />
-    <EmbeddedResource Include="ProductUtility\GoodsReturning\GoodsReturnedDetailsForm.resx" />
-    <EmbeddedResource Include="ProductUtility\GoodsReturning\GoodsReturnedForm.resx" />
+    <EmbeddedResource Include="ProductUtility\DefectiveItemReturning\DefectiveItemDetailsForm.resx">
+      <DependentUpon>DefectiveItemDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductUtility\DefectiveItemReturning\DefectiveItemListForm.resx">
+      <DependentUpon>DefectiveItemListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductUtility\DefectiveItemReturning\NewDefectiveItem.resx">
+      <DependentUpon>NewDefectiveItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductUtility\PickerForms\SalesOrderPickerForm.resx">
+      <DependentUpon>SalesOrderPickerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductUtility\ProductList\Forms\NewProductForm.resx">
       <DependentUpon>NewProductForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -1003,6 +1017,9 @@
     <EmbeddedResource Include="ProductUtility\ProductList\Forms\UpdateSellingPriceForm.resx" />
     <EmbeddedResource Include="ProductUtility\ProductList\Forms\UpdateSellingPriceForm.zh-HK.resx">
       <DependentUpon>UpdateSellingPriceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductUtility\PickerForms\SalesOrderProductPickerForm.resx">
+      <DependentUpon>SalesOrderProductPickerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductUtility\ProductUtilityStringResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

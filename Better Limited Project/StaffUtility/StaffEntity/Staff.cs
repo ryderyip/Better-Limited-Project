@@ -4,7 +4,6 @@ using System.Linq;
 using Better_Limited_Project.Login;
 using Better_Limited_Project.Properties;
 using Better_Limited_Project.StaffUtility.Repository;
-using Better_Limited_Project.StaffUtility.StaffEntity.Gender;
 
 namespace Better_Limited_Project.StaffUtility.StaffEntity
 {

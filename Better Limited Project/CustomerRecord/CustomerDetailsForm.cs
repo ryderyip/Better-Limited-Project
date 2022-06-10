@@ -12,6 +12,7 @@ namespace Better_Limited_Project.CustomerRecord
         public CustomerDetailsForm(Customer customer)
         {
             _customer = customer;
+            StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
             Shown += (_, _) => FillFields();
         }

@@ -72,7 +72,7 @@ namespace Better_Limited_Project.ProductUtility.Repository
             var product = ProductRepository.FindById(productId);
             int quantity = row.Field<int>("quantity");
             int restockLevel = row.Field<int>("restock_level");
-            Warehouse warehouse = WarehouseRepository.GetWarehouseById(row.Field<int>("warehouse_id").ToString());
+            Warehouse warehouse = WarehouseRepository.GetById(row.Field<int>("warehouse_id").ToString());
             return new WarehouseStock(product, warehouse, quantity, restockLevel);
         }
 

@@ -1,0 +1,69 @@
+﻿using System;
+using System.Drawing;
+using Better_Limited_Project.ProductUtility.Entity;
+using Better_Limited_Project.ProductUtility.Repository;
+using Better_Limited_Project.Sales.OrderPlacing.Entity;
+using Better_Limited_Project.Sales.OrderPlacing.Repository;
+using Better_Limited_Project.StaffUtility.Repository;
+using Better_Limited_Project.StaffUtility.StaffEntity;
+
+namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
+{
+    public class DefectiveItem
+    {
+        public DefectiveItem(string id, string productId, int quantity, string description,
+            string retailStoreId, string staffId, string salesOrderId, DateTime returnedToRetailStoreOn)
+        {
+            Id = id;
+            ProductId = productId;
+            Quantity = quantity;
+            Description = description;
+            RetailStoreId = retailStoreId;
+            StaffId = staffId;
+            SalesOrderId = salesOrderId;
+            ReturnedToRetailStoreOn = returnedToRetailStoreOn;
+        }
+
+        public DefectiveItem(string productId, int quantity, string description, string retailStoreId, string staffId,
+            string salesOrderId)
+        {
+            Id = DefectiveItemRepository.GetNewId();
+            ProductId = productId;
+            Quantity = quantity;
+            Description = description;
+            RetailStoreId = retailStoreId;
+            StaffId = staffId;
+            SalesOrderId = salesOrderId;
+            ReturnedToRetailStoreOn = DateTime.Now;
+        }
+
+        private Image? _image;
+        public string Id { get; }
+        public string ProductId { get; }
+        public int Quantity { get; }
+        public string Description { get; set; }
+        public Image? Image
+        {
+            get => DefectiveItemRepository.GetImageById(Id);
+            set => _image = value;
+        }
+        public string RetailStoreId { get; }
+        public string StaffId { get; }
+        public string SalesOrderId { get; }
+        public Product Product => ProductRepository.FindById(ProductId);
+        public RetailStore RetailStore => new RetailStoreRepository().GetById(RetailStoreId);
+        public Staff Staff => new StaffRepository().FindById(StaffId);
+        public SalesOrder SalesOrder => new SalesOrderRepository().FindById(SalesOrderId);
+        public DateTime ReturnedToRetailStoreOn { get; }
+        public DateTime? ReturnedToWarehouseOn { get; set; }
+        public string? WarehouseId { get; set; }
+        public Warehouse? Warehouse => WarehouseId != null ? WarehouseRepository.GetById(WarehouseId) : null;
+
+        public DateTime? ReturnedToSupplierOn { get; set; }
+
+        public void Save()
+        {
+            DefectiveItemRepository.InsertOrUpdate(this);
+        }
+    }
+}

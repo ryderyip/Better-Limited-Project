@@ -18,8 +18,7 @@ namespace Better_Limited_Project.StaffUtility.Repository
             if (dataTable.Rows.Count == 0)
                 return null;
             var bytes = dataTable.Rows[0].Field<byte[]>("image");
-            var image = new ImageConverter().ConvertFrom(bytes);
-            return image != null ? (Bitmap) image : null;
+            return new ImageConverter().ConvertFrom(bytes) as Image;
         }
         
         public static void InsertOrUpdate(Staff staff, Image image)

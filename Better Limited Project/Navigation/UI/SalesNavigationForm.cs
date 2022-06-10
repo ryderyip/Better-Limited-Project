@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using Better_Limited_Project.CustomerRecord;
 using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.Login;
+using Better_Limited_Project.ProductUtility.DefectiveItemReturning;
 using Better_Limited_Project.ProductUtility.ProductList.Forms;
 using Better_Limited_Project.Sales.OrderPlacing.Controller;
 using Better_Limited_Project.Sales.OrderPlacing.UI;
@@ -84,6 +85,12 @@ namespace Better_Limited_Project.Navigation.UI
         private void btnCustomer_Click(object sender, EventArgs e)
         {
             var form = new CustomerListForm();
+            _formController.OpenContentForm(form);
+        }
+
+        private void btnDefectiveItem_Click(object sender, EventArgs e)
+        {
+            var form = new DefectiveItemListForm();
             _formController.OpenContentForm(form);
         }
     }

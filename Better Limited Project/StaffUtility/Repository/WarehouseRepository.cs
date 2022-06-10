@@ -30,7 +30,7 @@ namespace Better_Limited_Project.StaffUtility.Repository
                 select new Warehouse(id, name, address)).ToList();
         }
         
-        public static Warehouse GetWarehouseById(string id)
+        public static Warehouse GetById(string id)
         {
             var command = new MySqlCommand(
                 @"select id, name, address
