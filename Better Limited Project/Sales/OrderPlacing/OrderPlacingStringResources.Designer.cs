@@ -70,6 +70,15 @@ namespace Better_Limited_Project.Sales.OrderPlacing {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The remaining payment can only be settled once the stock for all ordered products are replenished..
+        /// </summary>
+        internal static string cannot_settle_payment_yet {
+            get {
+                return ResourceManager.GetString("cannot settle payment yet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Order placed!.
         /// </summary>
         internal static string order_placed {

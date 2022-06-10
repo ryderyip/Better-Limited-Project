@@ -62,16 +62,18 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
         private void PopulateProductDgv()
         {
             dgvProducts.Rows.Clear();
-            foreach (var salesOrderProduct in _salesOrderProducts)
+            foreach (var sop in _salesOrderProducts)
             {
-                var product = salesOrderProduct.GetProduct();
-                dgvProducts.Rows.Add(product.Id,
+                var product = sop.GetProduct();
+                int rowIndex = dgvProducts.Rows.Add(product.Id,
                     product.Name,
-                    product.Category.Name,
-                    salesOrderProduct.IsStockReady() ? "Replenished" : "Awaiting Restock",
-                    salesOrderProduct.Price.ToString("C", new CultureInfo("zh-HK")),
-                    salesOrderProduct.Quantity,
-                    (salesOrderProduct.Price * salesOrderProduct.Quantity).ToString("C", new CultureInfo("zh-HK")));
+                    sop.Price.ToString("C", new CultureInfo("zh-HK")),
+                    sop.Quantity,
+                    (sop.Price * sop.Quantity).ToString("C", new CultureInfo("zh-HK")),
+                    sop.IsStockReady() ? "Replenished" : "Awaiting Restock",
+                    EnumToStringHelper.GetDisplayValue(sop.GetPaymentStatus()));
+                if (sop.GetPaymentStatus() is not SalesOrderProductPaymentStatus.FullyPaid)
+                    dgvProducts.Rows[rowIndex].DefaultCellStyle.BackColor = Color.SandyBrown;
             }
         }
 
@@ -125,12 +127,6 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
 
         private void btnPaymentReceipt_Click(object sender, EventArgs e)
         {
-            if (_salesOrderProducts.All(sop => sop.GetProductPayments().Any(sopp => sopp.IsDeposit)))
-            {
-                MessageBox.Show(PaymentStringResources.cantViewPaymentReceipt);
-                return;
-            }
-
             var generator = new PaymentReceiptGenerator(_salesOrder);
             generator.GenerateAndOpen();
         }
@@ -143,6 +139,19 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
 
         private void btnSettleIncompletePayment_Click(object sender, EventArgs e)
         {
+            if (!_salesOrder.IsAllStockReady())
+            {
+                MessageBox.Show(OrderPlacingStringResources.cannot_settle_payment_yet);
+                return;
+            }
+            
+            var service = new SettleIncompletePaymentService(_salesOrder);
+            service.PaymentSettled += (_, _) =>
+            {
+                Initialize();
+                OrderUpdated?.Invoke(this, EventArgs.Empty);
+            };
+            service.Start();
         }
 
         private void btnEditOrder_Click(object sender, EventArgs e)

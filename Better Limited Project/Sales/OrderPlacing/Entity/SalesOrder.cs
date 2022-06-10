@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Better_Limited_Project.CustomerRecord;
@@ -21,7 +22,8 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
             IsActive = true;
         }
 
-        public SalesOrder(string id, string orderNumber, Staff staff, RetailStore retailStore, DateTime createdOn, bool isActive)
+        public SalesOrder(string id, string orderNumber, Staff staff, RetailStore retailStore, DateTime createdOn,
+            bool isActive)
         {
             Id = id;
             OrderNumber = orderNumber;
@@ -79,10 +81,11 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
         }
 
         public bool IsCompleted()
-        { // TODO installion check
+        {
+            // TODO installion check
             return HasSalesOrderProducts()
-                &&!HasUnconfirmedDeliveryRequest() 
-                   && (!HasRequestedForDelivery() || IsAllDeliveryArrived()) 
+                   && !HasUnconfirmedDeliveryRequest()
+                   && (!HasRequestedForDelivery() || IsAllDeliveryArrived())
                    && HasNoDuePayment();
         }
 
@@ -124,9 +127,10 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
         /// Doesn't have delivery or installation arranged
         /// </summary>
         public bool IsRemovable()
-        { // TODO installion check
+        {
+            // TODO installion check
             var deliveryRequest = GetDeliveryRequest();
-            if (deliveryRequest == null)    
+            if (deliveryRequest == null)
                 return true;
             return !deliveryRequest.IsArranged();
         }
@@ -141,6 +145,22 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
             foreach (var salesOrderProduct in GetSalesOrderProducts())
                 salesOrderProduct.Remove();
             new SalesOrderRepository().Remove(this);
+        }
+
+        public IEnumerable<SalesOrderProduct> GetIncompletePaymentSalesOrderProducts()
+        {
+            return GetSalesOrderProducts()
+                .Where(sop => sop.GetPaymentStatus() is not SalesOrderProductPaymentStatus.FullyPaid);
+        }
+
+        public bool IsAllStockReady()
+        {
+            return GetSalesOrderProducts().All(sop => sop.IsStockReady());
+        }
+
+        public decimal GetDepositPaid()
+        {
+            return GetSalesOrderProducts().Sum(sop => sop.GetDepositPaid());
         }
     }
 }

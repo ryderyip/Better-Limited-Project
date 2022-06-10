@@ -36,7 +36,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
                 new SalesOrderCalculator(order.GetSalesOrderProducts()).GetTotalAmount().ToString("C", new CultureInfo("zh-HK")),
                 order.CreatedOn.ToShortDateString() + " : " + order.CreatedOn.ToShortTimeString(),
                 order.IsActive ? "Yes" : "No"));
-            dgvSalesOrders.Sort(createdOnColumn, ListSortDirection.Descending);
+            dgvSalesOrders.Sort(salesOrderNumberColumn, ListSortDirection.Descending);
         }
 
         private void dtpSearchDate_ValueChanged(object sender, EventArgs e)

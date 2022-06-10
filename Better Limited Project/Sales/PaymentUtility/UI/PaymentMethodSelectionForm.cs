@@ -10,6 +10,7 @@ namespace Better_Limited_Project.Sales.PaymentUtility.UI
         public PaymentMethodSelectionForm()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
             Shown += (_, _) => rbCash.Checked = true;
         }
 

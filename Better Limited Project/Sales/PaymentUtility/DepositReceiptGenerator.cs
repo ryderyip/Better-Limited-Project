@@ -18,14 +18,14 @@ namespace Better_Limited_Project.Sales.PaymentUtility
     public class DepositReceiptGenerator
     {
         private readonly SalesOrder _salesOrder;
-        private readonly List<SalesOrderProduct> _salesOrderProducts;
+        private readonly List<SalesOrderProduct> _depositSalesOrderProducts;
         private const string FileName = "deposit receipt.pdf";
         private readonly string _location;
 
         public DepositReceiptGenerator(SalesOrder salesOrder)
         {
             _salesOrder = salesOrder;
-            _salesOrderProducts = salesOrder.GetSalesOrderProducts()
+            _depositSalesOrderProducts = salesOrder.GetSalesOrderProducts()
                 .Where(sop => sop.GetProductPayments().Any(sopp => sopp.IsDeposit)).ToList();
             if (salesOrder.Customer == null)
                 throw new ArgumentException("Deposit receipt need customer's information.");
@@ -74,20 +74,20 @@ namespace Better_Limited_Project.Sales.PaymentUtility
             // Add the print date field
             paragraph = section.AddParagraph();
             paragraph.Format.Font = new Font("Helvetica", 9);
-            paragraph.AddText($"Date: {DateTime.Today.ToShortDateString()}");
+            paragraph.AddText($"Date: {_salesOrder.CreatedOn.ToShortDateString()}");
             paragraph.Format.Font.Name = "Times New Roman";
             paragraph.Format.Font.Size = 10;
             paragraph.Format.SpaceAfter = 3;
 
             // Deposit statement
 
-            var order = new SalesOrderCalculator(_salesOrder.GetSalesOrderProducts());
+            var calculator = new SalesOrderCalculator(_salesOrder.GetSalesOrderProducts());
             var statement = section.AddParagraph();
-            var method = _salesOrderProducts.First().GetProductPayments().First().GetPayment().PaymentMethod;
+            var method = _depositSalesOrderProducts.First().GetProductPayments().First().GetPayment().PaymentMethod;
             string methodText = method is PaymentMethod.CreditCard ? "Credit Card" : method.ToString();
-            decimal remainingFund = order.GetTotalAmount() - order.GetAmountPaid();
+            decimal remainingFund = calculator.GetTotalAmount() - _salesOrder.GetDepositPaid();
             string statementText = $"The receipt is for a product deposit for out of stock items in the amount of " +
-                                   $"{order.GetDepositAmount().ToString("C", new CultureInfo("zh-HK"))} " +
+                                   $"{calculator.GetDepositAmount().ToString("C", new CultureInfo("zh-HK"))} " +
                                    $"in the form of {methodText}.\n\n" +
                                    $"The products will be reserved for 30 days once the stocks are replenished. " +
                                    $"Buyer must pay the remaining {remainingFund.ToString("C", new CultureInfo("zh-HK"))} " +
@@ -156,7 +156,7 @@ namespace Better_Limited_Project.Sales.PaymentUtility
             table.SetEdge(0, 0, 4, 1, Edge.Box, BorderStyle.Single, 0.75, Color.Empty);
 
             int rowCount = 0;
-            foreach (var salesOrderProduct in _salesOrderProducts)
+            foreach (var salesOrderProduct in _depositSalesOrderProducts)
             {
                 row = table.AddRow();
                 row.Format.Alignment = ParagraphAlignment.Center;
@@ -179,7 +179,7 @@ namespace Better_Limited_Project.Sales.PaymentUtility
             row = table.AddRow();
             row.Cells[0].MergeRight = table.Columns.Count - 1;
             decimal totalDeposit =
-                _salesOrderProducts.Sum(sop => sop.Price * sop.Quantity * Product.DepositPricePercentage);
+                _depositSalesOrderProducts.Sum(sop => sop.Price * sop.Quantity * Product.DepositPricePercentage);
             row.Cells[0].AddParagraph($"Total: {totalDeposit.ToString("C", new CultureInfo("zh-HK"))}");
             row.Format.Alignment = ParagraphAlignment.Right;
             

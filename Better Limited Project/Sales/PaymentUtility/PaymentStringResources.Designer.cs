@@ -99,15 +99,6 @@ namespace Better_Limited_Project.Sales.PaymentUtility {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to There are currently no completed product payments. (To see deposit receipts, click the button on the right.).
-        /// </summary>
-        internal static string cantViewPaymentReceipt {
-            get {
-                return ResourceManager.GetString("cantViewPaymentReceipt", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to To request for a delivery, customer&apos;s information is needed.
         ///Start creating a customer record?.
         /// </summary>

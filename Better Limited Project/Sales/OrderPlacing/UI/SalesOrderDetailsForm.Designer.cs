@@ -55,13 +55,6 @@
             this.txtCustEmail = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.dgvProducts = new System.Windows.Forms.DataGridView();
-            this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvProductsName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvProductsCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stockStatusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvProductsPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvProductsQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvProductsSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbTotalAmount = new System.Windows.Forms.TextBox();
             this.lblTotalAmount = new System.Windows.Forms.Label();
             this.btnDepositReceipt = new System.Windows.Forms.Button();
@@ -72,6 +65,13 @@
             this.lblCreatedOn = new System.Windows.Forms.Label();
             this.lblHeader = new System.Windows.Forms.Label();
             this.lblIsActive = new System.Windows.Forms.Label();
+            this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvProductsName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvProductsPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvProductsQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvProductsSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stockStatusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.paymentStatusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -226,57 +226,15 @@
             this.dgvProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idColumn,
             this.dgvProductsName,
-            this.dgvProductsCategory,
-            this.stockStatusColumn,
             this.dgvProductsPrice,
             this.dgvProductsQuantity,
-            this.dgvProductsSubtotal});
+            this.dgvProductsSubtotal,
+            this.stockStatusColumn,
+            this.paymentStatusColumn});
             resources.ApplyResources(this.dgvProducts, "dgvProducts");
             this.dgvProducts.Name = "dgvProducts";
             this.dgvProducts.ReadOnly = true;
             this.dgvProducts.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducts_CellDoubleClick);
-            // 
-            // idColumn
-            // 
-            resources.ApplyResources(this.idColumn, "idColumn");
-            this.idColumn.Name = "idColumn";
-            this.idColumn.ReadOnly = true;
-            // 
-            // dgvProductsName
-            // 
-            resources.ApplyResources(this.dgvProductsName, "dgvProductsName");
-            this.dgvProductsName.Name = "dgvProductsName";
-            this.dgvProductsName.ReadOnly = true;
-            // 
-            // dgvProductsCategory
-            // 
-            resources.ApplyResources(this.dgvProductsCategory, "dgvProductsCategory");
-            this.dgvProductsCategory.Name = "dgvProductsCategory";
-            this.dgvProductsCategory.ReadOnly = true;
-            // 
-            // stockStatusColumn
-            // 
-            resources.ApplyResources(this.stockStatusColumn, "stockStatusColumn");
-            this.stockStatusColumn.Name = "stockStatusColumn";
-            this.stockStatusColumn.ReadOnly = true;
-            // 
-            // dgvProductsPrice
-            // 
-            resources.ApplyResources(this.dgvProductsPrice, "dgvProductsPrice");
-            this.dgvProductsPrice.Name = "dgvProductsPrice";
-            this.dgvProductsPrice.ReadOnly = true;
-            // 
-            // dgvProductsQuantity
-            // 
-            resources.ApplyResources(this.dgvProductsQuantity, "dgvProductsQuantity");
-            this.dgvProductsQuantity.Name = "dgvProductsQuantity";
-            this.dgvProductsQuantity.ReadOnly = true;
-            // 
-            // dgvProductsSubtotal
-            // 
-            resources.ApplyResources(this.dgvProductsSubtotal, "dgvProductsSubtotal");
-            this.dgvProductsSubtotal.Name = "dgvProductsSubtotal";
-            this.dgvProductsSubtotal.ReadOnly = true;
             // 
             // tbTotalAmount
             // 
@@ -339,6 +297,48 @@
             resources.ApplyResources(this.lblIsActive, "lblIsActive");
             this.lblIsActive.ForeColor = System.Drawing.Color.SeaGreen;
             this.lblIsActive.Name = "lblIsActive";
+            // 
+            // idColumn
+            // 
+            resources.ApplyResources(this.idColumn, "idColumn");
+            this.idColumn.Name = "idColumn";
+            this.idColumn.ReadOnly = true;
+            // 
+            // dgvProductsName
+            // 
+            resources.ApplyResources(this.dgvProductsName, "dgvProductsName");
+            this.dgvProductsName.Name = "dgvProductsName";
+            this.dgvProductsName.ReadOnly = true;
+            // 
+            // dgvProductsPrice
+            // 
+            resources.ApplyResources(this.dgvProductsPrice, "dgvProductsPrice");
+            this.dgvProductsPrice.Name = "dgvProductsPrice";
+            this.dgvProductsPrice.ReadOnly = true;
+            // 
+            // dgvProductsQuantity
+            // 
+            resources.ApplyResources(this.dgvProductsQuantity, "dgvProductsQuantity");
+            this.dgvProductsQuantity.Name = "dgvProductsQuantity";
+            this.dgvProductsQuantity.ReadOnly = true;
+            // 
+            // dgvProductsSubtotal
+            // 
+            resources.ApplyResources(this.dgvProductsSubtotal, "dgvProductsSubtotal");
+            this.dgvProductsSubtotal.Name = "dgvProductsSubtotal";
+            this.dgvProductsSubtotal.ReadOnly = true;
+            // 
+            // stockStatusColumn
+            // 
+            resources.ApplyResources(this.stockStatusColumn, "stockStatusColumn");
+            this.stockStatusColumn.Name = "stockStatusColumn";
+            this.stockStatusColumn.ReadOnly = true;
+            // 
+            // paymentStatusColumn
+            // 
+            resources.ApplyResources(this.paymentStatusColumn, "paymentStatusColumn");
+            this.paymentStatusColumn.Name = "paymentStatusColumn";
+            this.paymentStatusColumn.ReadOnly = true;
             // 
             // SalesOrderDetailsForm
             // 
@@ -425,13 +425,13 @@
         private System.Windows.Forms.TextBox tbCreatedOn;
         private System.Windows.Forms.Label lblCreatedOn;
         private System.Windows.Forms.Label lblHeader;
+        private System.Windows.Forms.Label lblIsActive;
         private System.Windows.Forms.DataGridViewTextBoxColumn idColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvProductsName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvProductsCategory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn stockStatusColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvProductsPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvProductsQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvProductsSubtotal;
-        private System.Windows.Forms.Label lblIsActive;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stockStatusColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn paymentStatusColumn;
     }
 }

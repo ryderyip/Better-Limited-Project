@@ -564,7 +564,7 @@
     <value>Microsoft Sans Serif, 12pt, style=Bold</value>
   </data>
   <data name="lblDeliveryInfo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>678, 90</value>
+    <value>707, 91</value>
   </data>
   <data name="lblDeliveryInfo.Size" type="System.Drawing.Size, System.Drawing">
     <value>109, 20</value>
@@ -588,7 +588,7 @@
     <value>19</value>
   </data>
   <data name="txtAddress2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>593, 203</value>
+    <value>622, 204</value>
   </data>
   <data name="txtAddress2.Size" type="System.Drawing.Size, System.Drawing">
     <value>295, 20</value>
@@ -618,7 +618,7 @@
     <value>Microsoft Sans Serif, 9pt</value>
   </data>
   <data name="lblAddress2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>591, 185</value>
+    <value>620, 186</value>
   </data>
   <data name="lblAddress2.Size" type="System.Drawing.Size, System.Drawing">
     <value>64, 15</value>
@@ -642,7 +642,7 @@
     <value>16</value>
   </data>
   <data name="txtAddress1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>592, 151</value>
+    <value>621, 152</value>
   </data>
   <data name="txtAddress1.Size" type="System.Drawing.Size, System.Drawing">
     <value>295, 20</value>
@@ -672,7 +672,7 @@
     <value>Microsoft Sans Serif, 9pt</value>
   </data>
   <data name="lblAddress1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>590, 133</value>
+    <value>619, 134</value>
   </data>
   <data name="lblAddress1.Size" type="System.Drawing.Size, System.Drawing">
     <value>64, 15</value>
@@ -726,7 +726,7 @@
     <value>Microsoft Sans Serif, 12pt, style=Bold</value>
   </data>
   <data name="btnSettleIncompletePayment.Location" type="System.Drawing.Point, System.Drawing">
-    <value>481, 495</value>
+    <value>498, 495</value>
   </data>
   <data name="btnSettleIncompletePayment.Size" type="System.Drawing.Size, System.Drawing">
     <value>185, 54</value>
@@ -806,71 +806,29 @@
   <metadata name="idColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="idColumn.HeaderText" xml:space="preserve">
-    <value>ID</value>
-  </data>
-  <data name="idColumn.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <metadata name="dgvProductsName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="dgvProductsName.HeaderText" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="dgvProductsName.Width" type="System.Int32, mscorlib">
-    <value>140</value>
-  </data>
-  <metadata name="dgvProductsCategory.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="dgvProductsCategory.HeaderText" xml:space="preserve">
-    <value>Category</value>
-  </data>
-  <data name="dgvProductsCategory.Width" type="System.Int32, mscorlib">
-    <value>90</value>
-  </data>
-  <metadata name="stockStatusColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="stockStatusColumn.HeaderText" xml:space="preserve">
-    <value>Stock Status</value>
-  </data>
-  <data name="stockStatusColumn.Width" type="System.Int32, mscorlib">
-    <value>110</value>
-  </data>
   <metadata name="dgvProductsPrice.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="dgvProductsPrice.HeaderText" xml:space="preserve">
-    <value>Price</value>
-  </data>
-  <data name="dgvProductsPrice.Width" type="System.Int32, mscorlib">
-    <value>90</value>
-  </data>
   <metadata name="dgvProductsQuantity.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="dgvProductsQuantity.HeaderText" xml:space="preserve">
-    <value>Qty</value>
-  </data>
-  <data name="dgvProductsQuantity.Width" type="System.Int32, mscorlib">
-    <value>50</value>
-  </data>
   <metadata name="dgvProductsSubtotal.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="dgvProductsSubtotal.HeaderText" xml:space="preserve">
-    <value>Subtotal</value>
-  </data>
-  <data name="dgvProductsSubtotal.Width" type="System.Int32, mscorlib">
-    <value>90</value>
-  </data>
+  <metadata name="stockStatusColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="paymentStatusColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="dgvProducts.Location" type="System.Drawing.Point, System.Drawing">
     <value>274, 308</value>
   </data>
   <data name="dgvProducts.Size" type="System.Drawing.Size, System.Drawing">
-    <value>613, 162</value>
+    <value>643, 162</value>
   </data>
   <data name="dgvProducts.TabIndex" type="System.Int32, mscorlib">
     <value>109</value>
@@ -945,7 +903,7 @@
     <value>Microsoft Sans Serif, 12pt, style=Bold</value>
   </data>
   <data name="btnDepositReceipt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>758, 495</value>
+    <value>787, 495</value>
   </data>
   <data name="btnDepositReceipt.Size" type="System.Drawing.Size, System.Drawing">
     <value>129, 54</value>
@@ -996,7 +954,7 @@
     <value>6</value>
   </data>
   <data name="tbDeliveryStatus.Location" type="System.Drawing.Point, System.Drawing">
-    <value>592, 257</value>
+    <value>621, 258</value>
   </data>
   <data name="tbDeliveryStatus.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 20</value>
@@ -1026,7 +984,7 @@
     <value>Microsoft Sans Serif, 9.75pt</value>
   </data>
   <data name="lblDeliveryStatus.Location" type="System.Drawing.Point, System.Drawing">
-    <value>589, 238</value>
+    <value>618, 239</value>
   </data>
   <data name="lblDeliveryStatus.Size" type="System.Drawing.Size, System.Drawing">
     <value>98, 16</value>
@@ -1173,6 +1131,69 @@
   <data name="&gt;&gt;lblIsActive.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <metadata name="idColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="idColumn.HeaderText" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="idColumn.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <metadata name="dgvProductsName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="dgvProductsName.HeaderText" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="dgvProductsName.Width" type="System.Int32, mscorlib">
+    <value>140</value>
+  </data>
+  <metadata name="dgvProductsPrice.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="dgvProductsPrice.HeaderText" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="dgvProductsPrice.Width" type="System.Int32, mscorlib">
+    <value>90</value>
+  </data>
+  <metadata name="dgvProductsQuantity.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="dgvProductsQuantity.HeaderText" xml:space="preserve">
+    <value>Qty</value>
+  </data>
+  <data name="dgvProductsQuantity.Width" type="System.Int32, mscorlib">
+    <value>50</value>
+  </data>
+  <metadata name="dgvProductsSubtotal.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="dgvProductsSubtotal.HeaderText" xml:space="preserve">
+    <value>Subtotal</value>
+  </data>
+  <data name="dgvProductsSubtotal.Width" type="System.Int32, mscorlib">
+    <value>90</value>
+  </data>
+  <metadata name="stockStatusColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="stockStatusColumn.HeaderText" xml:space="preserve">
+    <value>Stock Status</value>
+  </data>
+  <data name="stockStatusColumn.Width" type="System.Int32, mscorlib">
+    <value>110</value>
+  </data>
+  <metadata name="paymentStatusColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="paymentStatusColumn.HeaderText" xml:space="preserve">
+    <value>Payment Status</value>
+  </data>
+  <data name="paymentStatusColumn.Width" type="System.Int32, mscorlib">
+    <value>120</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -1180,7 +1201,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>919, 568</value>
+    <value>950, 568</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>-</value>
@@ -1195,18 +1216,6 @@
     <value>dgvProductsName</value>
   </data>
   <data name="&gt;&gt;dgvProductsName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dgvProductsCategory.Name" xml:space="preserve">
-    <value>dgvProductsCategory</value>
-  </data>
-  <data name="&gt;&gt;dgvProductsCategory.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;stockStatusColumn.Name" xml:space="preserve">
-    <value>stockStatusColumn</value>
-  </data>
-  <data name="&gt;&gt;stockStatusColumn.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;dgvProductsPrice.Name" xml:space="preserve">
@@ -1225,6 +1234,18 @@
     <value>dgvProductsSubtotal</value>
   </data>
   <data name="&gt;&gt;dgvProductsSubtotal.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;stockStatusColumn.Name" xml:space="preserve">
+    <value>stockStatusColumn</value>
+  </data>
+  <data name="&gt;&gt;stockStatusColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;paymentStatusColumn.Name" xml:space="preserve">
+    <value>paymentStatusColumn</value>
+  </data>
+  <data name="&gt;&gt;paymentStatusColumn.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

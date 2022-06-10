@@ -45,7 +45,6 @@ namespace Better_Limited_Project.ServiceUtility
         private void SelectPaymentMethod()
         {
             var form = new PaymentMethodSelectionForm();
-            form.StartPosition = FormStartPosition.CenterScreen;
             form.Selected += (_, method) => OpenPaymentForm(method);
             form.ShowDialog();
         }
@@ -86,8 +85,10 @@ namespace Better_Limited_Project.ServiceUtility
 
         private void SaveSalesOrderToDatabase(PaymentMethod paymentMethod)
         {
-            var payment = new Payment(_amountDue, paymentMethod);
-            payment.PaidOn = DateTime.Now;
+            var payment = new Payment(_amountDue, paymentMethod)
+            {
+                PaidOn = DateTime.Now
+            };
             payment.Save();
             
             _order.Save();

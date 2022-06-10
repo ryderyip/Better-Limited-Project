@@ -12,20 +12,17 @@ namespace Better_Limited_Project.Tools
         {
             var salesOrdersWaitingForStock = (from order in new SalesOrderRepository().GetAll()
                 let deliveryRequest = order.GetDeliveryRequest()
-                where deliveryRequest == null
-                      || deliveryRequest != null
-                      && !deliveryRequest.IsStockReadyForDelivery()
-                select order).OrderBy(so => so.CreatedOn);
-            
+                where order.GetSalesOrderProducts()
+                          .Any(sop => sop.ProductId == updatedStock.Product.Id && !sop.IsStockReady())
+                      && (deliveryRequest == null || !deliveryRequest.IsStockReadyForDelivery())
+                orderby order.CreatedOn
+                select order);
+
             string reservationMessage = string.Empty;
             foreach (var order in salesOrdersWaitingForStock)
             {
-                var orderProduct = order.GetSalesOrderProducts()
-                    .FirstOrDefault(sop => sop.ProductId == updatedStock.Product.Id && sop.IsOutOfStock);
-                
-                if (orderProduct == default)
-                    continue;
-                
+                var orderProduct = order.GetSalesOrderProducts().First(sop => sop.ProductId == updatedStock.Product.Id);
+
                 var service = new ProductReservationService(order);
                 int reservedQuantity = orderProduct.GetReservedStock()?.Quantity ?? 0;
                 // TODO here quantityToReserve shouldn't be 0
@@ -36,6 +33,7 @@ namespace Better_Limited_Project.Tools
                 reservationMessage += $"{quantityToReserve} \"{productName}\" has/have been reserved " +
                                       $"for order \"{order.OrderNumber}\".\n";
             }
+
             if (!string.IsNullOrWhiteSpace(reservationMessage))
                 MessageBox.Show(reservationMessage);
         }

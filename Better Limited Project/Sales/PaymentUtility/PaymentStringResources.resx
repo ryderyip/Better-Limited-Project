@@ -52,9 +52,6 @@ Confirm sending a delivery request for this order?</value>
     <data name="deliveryRequestSent" xml:space="preserve">
         <value>Delivery request sent.</value>
     </data>
-    <data name="cantViewPaymentReceipt" xml:space="preserve">
-        <value>There are currently no completed product payments. (To see deposit receipts, click the button on the right.)</value>
-    </data>
     <data name="cant remove delivery request" xml:space="preserve">
         <value>The delivery request has already been confirmed by the inventory department. Removal failed.</value>
     </data>

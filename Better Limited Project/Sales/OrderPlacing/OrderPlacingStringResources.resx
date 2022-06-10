@@ -24,4 +24,7 @@
     <data name="active inactive order meaning tooltip" xml:space="preserve">
         <value>Active orders can be updated and modified while inactive orders cannot.</value>
     </data>
+    <data name="cannot settle payment yet" xml:space="preserve">
+        <value>The remaining payment can only be settled once the stock for all ordered products are replenished.</value>
+    </data>
 </root>

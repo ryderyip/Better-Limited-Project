@@ -37,9 +37,9 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
         {
             var payments = GetProductPayments().ToList();
             decimal due = Price * Quantity;
-            if (payments.Sum(sopp => PaymentRepository.FindById(sopp.PaymentId).Amount) >= due)
+            if (payments.Sum(sopp => sopp.GetPayment().Amount) >= due)
                 return SalesOrderProductPaymentStatus.FullyPaid;
-            return payments.Count != 0
+            return payments.Any()
                 ? SalesOrderProductPaymentStatus.DepositPaid
                 : SalesOrderProductPaymentStatus.AwaitingPayment;
         }
@@ -70,6 +70,19 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
         public void Remove()
         {
             new SalesOrderProductRepository().Remove(this);
+        }
+
+        public SalesOrder GetSalesOrder()
+        {
+            return new SalesOrderRepository().FindById(SalesOrderId);
+        }
+
+        public decimal GetDepositPaid()
+        {
+            var payments = GetProductPayments().ToList();
+            if (!payments.Any(sopp => sopp.IsDeposit))
+                return 0;
+            return payments.First(sopp => sopp.IsDeposit).GetPayment().Amount;
         }
     }
 }

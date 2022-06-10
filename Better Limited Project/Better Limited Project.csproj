@@ -553,6 +553,7 @@
       <DependentUpon>PaymentStringResources.resx</DependentUpon>
     </Compile>
     <Compile Include="Sales\PaymentUtility\Repository\PaymentRepository.cs" />
+    <Compile Include="Sales\PaymentUtility\SettleIncompletePaymentService.cs" />
     <Compile Include="Sales\PaymentUtility\UI\CashPaymentForm.cs">
       <SubType>Form</SubType>
     </Compile>
