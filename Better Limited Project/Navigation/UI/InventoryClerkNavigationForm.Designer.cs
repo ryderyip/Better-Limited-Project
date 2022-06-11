@@ -36,9 +36,9 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnProfile = new System.Windows.Forms.Button();
             this.btnCouriers = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
-            this.btnGoodsReceived = new System.Windows.Forms.Button();
+            this.btnInwardGoods = new System.Windows.Forms.Button();
             this.btnGoodsReturned = new System.Windows.Forms.Button();
-            this.btnReorderRequests = new System.Windows.Forms.Button();
+            this.btnReorderGoods = new System.Windows.Forms.Button();
             this.btnRestockRequests = new System.Windows.Forms.Button();
             this.btnInventory = new System.Windows.Forms.Button();
             this.btnDeliveryDuty = new System.Windows.Forms.Button();
@@ -70,12 +70,12 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnSettings.UseVisualStyleBackColor = true;
             this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
-            // btnGoodsReceived
+            // btnInwardGoods
             // 
-            resources.ApplyResources(this.btnGoodsReceived, "btnGoodsReceived");
-            this.btnGoodsReceived.Name = "btnGoodsReceived";
-            this.btnGoodsReceived.UseVisualStyleBackColor = true;
-            this.btnGoodsReceived.Click += new System.EventHandler(this.btnGoodsReceived_Click);
+            resources.ApplyResources(this.btnInwardGoods, "btnInwardGoods");
+            this.btnInwardGoods.Name = "btnInwardGoods";
+            this.btnInwardGoods.UseVisualStyleBackColor = true;
+            this.btnInwardGoods.Click += new System.EventHandler(this.btnGoodsReceived_Click);
             // 
             // btnGoodsReturned
             // 
@@ -84,12 +84,12 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnGoodsReturned.UseVisualStyleBackColor = true;
             this.btnGoodsReturned.Click += new System.EventHandler(this.btnGoodsReturned_Click);
             // 
-            // btnReorderRequests
+            // btnReorderGoods
             // 
-            resources.ApplyResources(this.btnReorderRequests, "btnReorderRequests");
-            this.btnReorderRequests.Name = "btnReorderRequests";
-            this.btnReorderRequests.UseVisualStyleBackColor = true;
-            this.btnReorderRequests.Click += new System.EventHandler(this.btnReorderRequests_Click);
+            resources.ApplyResources(this.btnReorderGoods, "btnReorderGoods");
+            this.btnReorderGoods.Name = "btnReorderGoods";
+            this.btnReorderGoods.UseVisualStyleBackColor = true;
+            this.btnReorderGoods.Click += new System.EventHandler(this.btnReorderRequests_Click);
             // 
             // btnRestockRequests
             // 
@@ -119,13 +119,13 @@ namespace Better_Limited_Project.Navigation.UI
             this.Controls.Add(this.btnDeliveryDuty);
             this.Controls.Add(this.btnInventory);
             this.Controls.Add(this.btnRestockRequests);
-            this.Controls.Add(this.btnReorderRequests);
+            this.Controls.Add(this.btnReorderGoods);
             this.Controls.Add(this.btnGoodsReturned);
             this.Controls.Add(this.lblLoggedInAs);
             this.Controls.Add(this.btnProfile);
             this.Controls.Add(this.btnCouriers);
             this.Controls.Add(this.btnSettings);
-            this.Controls.Add(this.btnGoodsReceived);
+            this.Controls.Add(this.btnInwardGoods);
             this.Name = "InventoryClerkNavigationForm";
             this.ResumeLayout(false);
 
@@ -135,9 +135,9 @@ namespace Better_Limited_Project.Navigation.UI
         private System.Windows.Forms.Button btnProfile;
         private System.Windows.Forms.Button btnCouriers;
         private System.Windows.Forms.Button btnSettings;
-        private System.Windows.Forms.Button btnGoodsReceived;
+        private System.Windows.Forms.Button btnInwardGoods;
         private System.Windows.Forms.Button btnGoodsReturned;
-        private System.Windows.Forms.Button btnReorderRequests;
+        private System.Windows.Forms.Button btnReorderGoods;
         private System.Windows.Forms.Button btnRestockRequests;
         private System.Windows.Forms.Button btnInventory;
         private System.Windows.Forms.Button btnDeliveryDuty;

@@ -73,6 +73,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             resources.ApplyResources(this.cbShowArrangedRequests, "cbShowArrangedRequests");
             this.cbShowArrangedRequests.Name = "cbShowArrangedRequests";
             this.cbShowArrangedRequests.UseVisualStyleBackColor = true;
+            this.cbShowArrangedRequests.CheckedChanged += new System.EventHandler(cbShowArrangedRequests_CheckedChanged);
             // 
             // orderNumberColumn
             // 

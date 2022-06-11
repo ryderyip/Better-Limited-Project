@@ -31,16 +31,16 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeliveryListForm));
             this.dgvDeliveries = new System.Windows.Forms.DataGridView();
+            this.tbSearchBox = new System.Windows.Forms.TextBox();
+            this.lblSearchBox = new System.Windows.Forms.Label();
+            this.btnDailyDeliveryList = new System.Windows.Forms.Button();
+            this.btnDeliveryRequests = new System.Windows.Forms.Button();
             this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deliveryRequestIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.orderNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updatedOnColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.arrangedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tbSearchBox = new System.Windows.Forms.TextBox();
-            this.lblSearchBox = new System.Windows.Forms.Label();
-            this.btnDailyDeliveryList = new System.Windows.Forms.Button();
-            this.btnDeliveryRequests = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDeliveries)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,6 +61,35 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             this.dgvDeliveries.ReadOnly = true;
             this.dgvDeliveries.RowTemplate.Height = 24;
             this.dgvDeliveries.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDeliveries_CellDoubleClick);
+            // 
+            // tbSearchBox
+            // 
+            resources.ApplyResources(this.tbSearchBox, "tbSearchBox");
+            this.tbSearchBox.Name = "tbSearchBox";
+            this.tbSearchBox.TextChanged += new System.EventHandler(this.tbSearchBox_TextChanged);
+            // 
+            // lblSearchBox
+            // 
+            resources.ApplyResources(this.lblSearchBox, "lblSearchBox");
+            this.lblSearchBox.Name = "lblSearchBox";
+            // 
+            // btnDailyDeliveryList
+            // 
+            this.btnDailyDeliveryList.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            resources.ApplyResources(this.btnDailyDeliveryList, "btnDailyDeliveryList");
+            this.btnDailyDeliveryList.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnDailyDeliveryList.Name = "btnDailyDeliveryList";
+            this.btnDailyDeliveryList.UseVisualStyleBackColor = false;
+            this.btnDailyDeliveryList.Click += new System.EventHandler(this.btnDailyDeliveryList_Click);
+            // 
+            // btnDeliveryRequests
+            // 
+            this.btnDeliveryRequests.BackColor = System.Drawing.Color.DarkOrange;
+            resources.ApplyResources(this.btnDeliveryRequests, "btnDeliveryRequests");
+            this.btnDeliveryRequests.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnDeliveryRequests.Name = "btnDeliveryRequests";
+            this.btnDeliveryRequests.UseVisualStyleBackColor = false;
+            this.btnDeliveryRequests.Click += new System.EventHandler(this.btnDeliveryRequests_Click);
             // 
             // idColumn
             // 
@@ -98,35 +127,6 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
             this.arrangedBy.Name = "arrangedBy";
             this.arrangedBy.ReadOnly = true;
             // 
-            // tbSearchBox
-            // 
-            resources.ApplyResources(this.tbSearchBox, "tbSearchBox");
-            this.tbSearchBox.Name = "tbSearchBox";
-            this.tbSearchBox.TextChanged += new System.EventHandler(this.tbSearchBox_TextChanged);
-            // 
-            // lblSearchBox
-            // 
-            resources.ApplyResources(this.lblSearchBox, "lblSearchBox");
-            this.lblSearchBox.Name = "lblSearchBox";
-            // 
-            // btnDailyDeliveryList
-            // 
-            this.btnDailyDeliveryList.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            resources.ApplyResources(this.btnDailyDeliveryList, "btnDailyDeliveryList");
-            this.btnDailyDeliveryList.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnDailyDeliveryList.Name = "btnDailyDeliveryList";
-            this.btnDailyDeliveryList.UseVisualStyleBackColor = false;
-            this.btnDailyDeliveryList.Click += new System.EventHandler(this.btnDailyDeliveryList_Click);
-            // 
-            // btnDeliveryRequests
-            // 
-            this.btnDeliveryRequests.BackColor = System.Drawing.Color.DarkOrange;
-            resources.ApplyResources(this.btnDeliveryRequests, "btnDeliveryRequests");
-            this.btnDeliveryRequests.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnDeliveryRequests.Name = "btnDeliveryRequests";
-            this.btnDeliveryRequests.UseVisualStyleBackColor = false;
-            this.btnDeliveryRequests.Click += new System.EventHandler(this.btnDeliveryRequests_Click);
-            // 
             // DeliveryListForm
             // 
             resources.ApplyResources(this, "$this");
@@ -148,13 +148,13 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.UI
         public System.Windows.Forms.DataGridView dgvDeliveries;
         public System.Windows.Forms.TextBox tbSearchBox;
         private System.Windows.Forms.Label lblSearchBox;
+        private System.Windows.Forms.Button btnDailyDeliveryList;
+        private System.Windows.Forms.Button btnDeliveryRequests;
         private System.Windows.Forms.DataGridViewTextBoxColumn idColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn deliveryRequestIdColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn orderNumberColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn updatedOnColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn arrangedBy;
-        private System.Windows.Forms.Button btnDailyDeliveryList;
-        private System.Windows.Forms.Button btnDeliveryRequests;
     }
 }

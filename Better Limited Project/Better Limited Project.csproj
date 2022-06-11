@@ -319,6 +319,13 @@
     </Compile>
     <Compile Include="Procedure\IProcedure.cs" />
     <Compile Include="Procedure\LoginProcedure.cs" />
+    <Compile Include="Procedure\SelectWorkplaceProcedure.cs" />
+    <Compile Include="Procedure\WorkplacePickerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Procedure\WorkplacePickerForm.Designer.cs">
+      <DependentUpon>WorkplacePickerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductUtility\DefectiveItemReturning\DefectiveItemDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -963,6 +970,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\UI\TechnicalSupportNavigationForm.zh-HK.resx">
       <DependentUpon>TechnicalSupportNavigationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Procedure\WorkplacePickerForm.resx">
+      <DependentUpon>WorkplacePickerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductUtility\DefectiveItemReturning\DefectiveItemDetailsForm.resx">
       <DependentUpon>DefectiveItemDetailsForm.cs</DependentUpon>

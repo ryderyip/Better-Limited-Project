@@ -33,6 +33,7 @@ namespace Better_Limited_Project
         {
             var staff = new StaffRepository().FindById(staffId);
             LoginSession.SaveSession(staff);
+            new SelectWorkplaceProcedure().Start();
             OpenNavigationForm();
             OpenProfileForm();
             SystemInitialization.Initialize();

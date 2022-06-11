@@ -120,50 +120,10 @@
   <metadata name="idColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="deliveryRequestIdColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="orderNumberColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="statusColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="updatedOnColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="arrangedBy.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="dgvDeliveries.Location" type="System.Drawing.Point, System.Drawing">
-    <value>28, 99</value>
-  </data>
-  <data name="dgvDeliveries.Size" type="System.Drawing.Size, System.Drawing">
-    <value>532, 323</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="dgvDeliveries.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="&gt;&gt;dgvDeliveries.Name" xml:space="preserve">
-    <value>dgvDeliveries</value>
-  </data>
-  <data name="&gt;&gt;dgvDeliveries.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dgvDeliveries.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;dgvDeliveries.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <metadata name="idColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="idColumn.HeaderText" xml:space="preserve">
     <value>ID</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="idColumn.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -197,11 +157,36 @@
   <data name="updatedOnColumn.HeaderText" xml:space="preserve">
     <value>Last Updated</value>
   </data>
+  <data name="updatedOnColumn.Width" type="System.Int32, mscorlib">
+    <value>130</value>
+  </data>
   <metadata name="arrangedBy.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="arrangedBy.HeaderText" xml:space="preserve">
     <value>Arranged By</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="dgvDeliveries.Location" type="System.Drawing.Point, System.Drawing">
+    <value>28, 99</value>
+  </data>
+  <data name="dgvDeliveries.Size" type="System.Drawing.Size, System.Drawing">
+    <value>532, 323</value>
+  </data>
+  <data name="dgvDeliveries.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;dgvDeliveries.Name" xml:space="preserve">
+    <value>dgvDeliveries</value>
+  </data>
+  <data name="&gt;&gt;dgvDeliveries.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dgvDeliveries.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;dgvDeliveries.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="tbSearchBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>28, 43</value>
