@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using Better_Limited_Project.Login;
+using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
 {
@@ -18,6 +20,8 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
 
         private void Initialize()
         {
+            if (LoginSession.GetSession().CurrentStaff.Department is not Department.Sales)
+                btnNewItem.Visible = false;
             PopulateDgv(_defectiveItems);
         }
 

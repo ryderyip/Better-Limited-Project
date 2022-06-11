@@ -1,18 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
+using Better_Limited_Project.StaffUtility.Repository;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.ProductUtility.Reordering
 {
     public class ReorderRequest
     {
-        public Guid Id { get; set; }
-        public Warehouse RequestedFor { get; set; }
-        public Staff RequestedBy { get; set; }
-        public DateTime RequestedOn { get; set; }
-        public Staff? HandledBy { get; set; }
-        public DateTime? HandledOn { get; set; }
-        public bool IsApproved { get; set; }
-        public ICollection<ReorderRequestProduct> RequestedProducts { get; set; }
+        public ReorderRequest(string warehouseId, string requestedByStaffId)
+        {
+            Id = ReorderRequestRepository.GetNewId();
+            WarehouseId = warehouseId;
+            RequestedByStaffId = requestedByStaffId;
+            RequestedOn = DateTime.Now;
+        }
+
+        public ReorderRequest(string id, string warehouseId, string requestedByStaffId, string? approvedByStaffId, DateTime requestedOn, DateTime? approvedOn)
+        {
+            Id = id;
+            WarehouseId = warehouseId;
+            RequestedByStaffId = requestedByStaffId;
+            ApprovedByStaffId = approvedByStaffId;
+            RequestedOn = requestedOn;
+            ApprovedOn = approvedOn;
+        }
+
+        public string Id { get; }
+        public string WarehouseId { get; }
+        public string RequestedByStaffId { get; }
+        public string? ApprovedByStaffId { get; set; }
+        public Warehouse Warehouse => WarehouseRepository.GetById(WarehouseId);
+        public Staff RequestedByStaff => new StaffRepository().FindById(RequestedByStaffId);
+        public DateTime RequestedOn { get; }
+
+        public Staff? ApprovedBy => ApprovedByStaffId != null
+            ? new StaffRepository().FindById(ApprovedByStaffId)
+            : null;
+
+        public DateTime? ApprovedOn { get; }
+
+        public IEnumerable<ReorderRequestProduct> RequestedProducts
+            => ReorderRequestProductRepository.GetBy(this);
     }
 }
