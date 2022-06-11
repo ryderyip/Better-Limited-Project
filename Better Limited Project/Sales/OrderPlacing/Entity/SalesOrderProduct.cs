@@ -32,7 +32,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
         public SalesOrderProductPaymentStatus GetPaymentStatus()
         {
             var paidAmount = GetAmountPaid();
-            if (IsOutOfStock)
+            if (!IsStockReady())
                 return paidAmount >= Price * Quantity * Product.DepositPricePercentage
                     ? SalesOrderProductPaymentStatus.DepositPaid
                     : SalesOrderProductPaymentStatus.AwaitingPayment;
@@ -79,6 +79,13 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
         public void Delete()
         {
             new SalesOrderProductRepository().Remove(this);
+        }
+
+        public bool IsStockReady()
+        {
+            var reservedStock = GetReservedStock();
+            return !IsOutOfStock
+                   || reservedStock != null && reservedStock.Quantity >= Quantity;
         }
     }
 }

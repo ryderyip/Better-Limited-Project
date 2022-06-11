@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using System.Windows.Forms;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;
 using Better_Limited_Project.ServiceUtility;
@@ -8,37 +7,37 @@ namespace Better_Limited_Project.Tools
 {
     public static class AutoProductReserveHelper
     {
-        public static void OnStockUpdated(object sender, IStock updatedStock)
+        public static void WaitListToReservedOnStockUpdated(object sender, IStock updatedStock)
         {
             if (updatedStock.Quantity <= 0)
                 return;
-            
-            var salesOrdersWaitingForStock = (from order in new SalesOrderRepository().GetAll()
-                let deliveryRequest = order.GetDeliveryRequest()
-                where order.GetSalesOrderProducts()
-                          .Any(sop => sop.ProductId == updatedStock.Product.Id && sop.IsOutOfStock)
-                orderby order.CreatedOn
-                select order);
 
-            string reservationMessage = string.Empty;
-            foreach (var order in salesOrdersWaitingForStock)
+            var waitList = SalesOrderProductWaitingRepository.GetAll();
+            var idk = waitList.Where(sop => sop.ProductId == updatedStock.Product.Id).ToList();
+
+            if (!idk.Any())
+                return;
+
+            var productsWaitingForStock = idk.OrderByDescending(stock => stock.CreatedOn);
+            foreach (var productWaitingForStock in productsWaitingForStock)
             {
-                var orderProduct = order.GetSalesOrderProducts().First(sop => sop.ProductId == updatedStock.Product.Id
-                                                                              && sop.IsOutOfStock);
-
-                var service = new ProductReservationService(order);
-                int reservedQuantity = orderProduct.GetReservedStock()?.Quantity ?? 0;
-                // TODO here quantityToReserve shouldn't be 0
-                int quantityToReserve = orderProduct.Quantity - reservedQuantity;
-                service.Reserve(orderProduct.ProductId, quantityToReserve);
-
-                string productName = orderProduct.GetProduct().Name;
-                reservationMessage += $"{quantityToReserve} \"{productName}\" has/have been reserved " +
-                                      $"for order \"{order.OrderNumber}\".\n";
+                if (updatedStock.Quantity <= 0)
+                    return;
+                var service = new ProductReservationService(productWaitingForStock.SalesOrder);
+                int quantityToReserve;
+                if (updatedStock.Quantity >= productWaitingForStock.Quantity)
+                {
+                    quantityToReserve = productWaitingForStock.Quantity;
+                    productWaitingForStock.Delete();
+                }
+                else
+                {
+                    quantityToReserve = updatedStock.Quantity;
+                    productWaitingForStock.Quantity -= quantityToReserve;
+                    productWaitingForStock.Save();
+                }
+                service.Reserve(productWaitingForStock.ProductId, quantityToReserve);
             }
-
-            if (!string.IsNullOrWhiteSpace(reservationMessage))
-                MessageBox.Show(reservationMessage);
         }
     }
 }

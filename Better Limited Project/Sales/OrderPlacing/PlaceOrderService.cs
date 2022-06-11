@@ -6,6 +6,7 @@ using Better_Limited_Project.CustomerRecord;
 using Better_Limited_Project.ProductUtility.Repository;
 using Better_Limited_Project.Sales.OrderPlacing.Controller;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
+using Better_Limited_Project.Sales.OrderPlacing.Repository;
 using Better_Limited_Project.Sales.OrderPlacing.UI;
 using Better_Limited_Project.Sales.PaymentUtility;
 using Better_Limited_Project.Sales.PaymentUtility.UI;
@@ -49,7 +50,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
 
         private void OpenPaymentForm(PaymentMethod method)
         {
-            var amountDue = _calculator.GetInStockItemPrice() + _calculator.GetDepositAmount();
+            var amountDue = _calculator.GetNonDepositAmount() + _calculator.GetDepositAmount();
             var form = PaymentFormFactory.Generate(amountDue, method);
             form.PaymentCompleted += (_, paymentMethod) =>
             {
@@ -84,27 +85,55 @@ namespace Better_Limited_Project.Sales.OrderPlacing
 
         private void SaveSalesOrderToDatabase(PaymentMethod paymentMethod)
         {
-            var nonDepositPayment = new Payment(_calculator.GetInStockItemPrice(), paymentMethod);
+            var nonDepositPayment = new Payment(_calculator.GetNonDepositAmount(), paymentMethod);
             nonDepositPayment.Save();
             var depositPayment = new Payment(_calculator.GetDepositAmount(), paymentMethod);
             depositPayment.Save();
 
             _order.Save();
+            // save products and payments
             _salesOrderProduct.ForEach(sop =>
             {
                 new SalesOrderProductPayment(sop.SalesOrderId, sop.ProductId,
-                    sop.IsOutOfStock ? depositPayment.Id : nonDepositPayment.Id, 
+                    sop.IsOutOfStock ? depositPayment.Id : nonDepositPayment.Id,
                     isDeposit: sop.IsOutOfStock).Save();
                 sop.Save();
             });
 
+            if (_salesOrderProduct.Any(sop => sop.IsOutOfStock))
+            {
+                AddOutOfStockItemsToWaitingList();
+                ReserveInStockProducts();
+            }
+            else
+                MinusFromStock();
+        }
+
+        private void MinusFromStock()
+        {
             var stocks = StockRepository.GetStocks(UserSettings.GetSettings().Workplace!.Id).ToList();
-            foreach (var salesOrderProduct in _salesOrderProduct.Where(sop => !sop.IsOutOfStock))
+            foreach (var salesOrderProduct in _salesOrderProduct)
             {
                 var stock = stocks.First(s => s.Product.Id == salesOrderProduct.ProductId);
                 stock.Quantity -= salesOrderProduct.Quantity;
                 stock.Save();
             }
+        }
+
+        private void ReserveInStockProducts()
+        {
+            foreach (var salesOrderProduct in _salesOrderProduct.Where(sop => !sop.IsOutOfStock))
+            {
+                var service = new ProductReservationService(_order);
+                service.Reserve(salesOrderProduct.ProductId, salesOrderProduct.Quantity);
+            }
+        }
+
+        private void AddOutOfStockItemsToWaitingList()
+        {
+            foreach (var salesOrderProduct in _salesOrderProduct.Where(sop => sop.IsOutOfStock))
+                new SalesOrderProductWaitingForStock(salesOrderProduct.SalesOrderId,
+                    salesOrderProduct.ProductId, salesOrderProduct.Quantity).Save();
         }
 
         private void CompleteOrderPlacing()

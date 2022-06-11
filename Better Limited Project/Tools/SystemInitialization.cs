@@ -8,9 +8,9 @@ namespace Better_Limited_Project.Tools
     {
         public static void Initialize()
         {
-            StockRepository.StockUpdated += AutoProductReserveHelper.OnStockUpdated;
-            ReservedSalesOrderProductRepository.Updated += ReservedSalesOrderProductRemover.OnNonDeliveryReservedStockUpdated;
-            DeliveryRepository.DeliveryStatusUpdated += ReservedSalesOrderProductRemover.OnDeliveryStatusUpdated;
+            StockRepository.StockUpdated += AutoProductReserveHelper.WaitListToReservedOnStockUpdated;
+            // ReservedSalesOrderProductRepository.Updated += ReservedSalesOrderProductRemover.OnNonDeliveryReservedStockUpdated;
+            // DeliveryRepository.DeliveryStatusUpdated += ReservedSalesOrderProductRemover.OnDeliveryStatusUpdated;
         }
     }
 }

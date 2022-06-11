@@ -15,7 +15,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
             var command = new MySqlCommand(
                 @"insert into sales_order_product 
                         value (@salesOrderId, @productId, @price, @quantity, @is_out_of_stock)
-                    on duplicate key update price = @price, quantity = @quantity, is_out_of_stock = @is_out_of_stock");
+                    on duplicate key update price = @price, quantity = @quantity");
             command.Parameters.AddWithValue("@salesOrderId", salesOrderProduct.SalesOrderId);
             command.Parameters.AddWithValue("@productId", salesOrderProduct.ProductId);
             command.Parameters.AddWithValue("@price", salesOrderProduct.Price);

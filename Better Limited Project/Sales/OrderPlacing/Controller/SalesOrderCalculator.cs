@@ -27,7 +27,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Controller
                 .Sum(sop => sop.Price * sop.Quantity * Product.DepositPricePercentage);
         }
 
-        public decimal GetInStockItemPrice()
+        public decimal GetNonDepositAmount()
         {
             return _salesOrderProducts
                 .Where(sop => !sop.IsOutOfStock)

@@ -25,8 +25,7 @@ namespace Better_Limited_Project.Sales.PaymentUtility
         public DepositReceiptGenerator(SalesOrder salesOrder)
         {
             _salesOrder = salesOrder;
-            _depositSalesOrderProducts = salesOrder.GetSalesOrderProducts()
-                .Where(sop => sop.GetProductPayments().Any(sopp => sopp.IsDeposit)).ToList();
+            _depositSalesOrderProducts = salesOrder.GetSalesOrderProducts().Where(sop => sop.IsOutOfStock).ToList();
             if (salesOrder.Customer == null)
                 throw new ArgumentException("Deposit receipt need customer's information.");
             _location = UserSettings.GetSettings().DocumentGenerationDirectoryPath;
@@ -85,7 +84,7 @@ namespace Better_Limited_Project.Sales.PaymentUtility
             var statement = section.AddParagraph();
             var method = _depositSalesOrderProducts.First().GetProductPayments().First().GetPayment().PaymentMethod;
             string methodText = method is PaymentMethod.CreditCard ? "Credit Card" : method.ToString();
-            decimal remainingFund = calculator.GetTotalAmount() - _salesOrder.GetDepositPaid();
+            decimal remainingFund = calculator.GetTotalAmount() - calculator.GetDepositAmount() - calculator.GetNonDepositAmount();
             string statementText = $"The receipt is for a product deposit for out of stock items in the amount of " +
                                    $"{calculator.GetDepositAmount().ToString("C", new CultureInfo("zh-HK"))} " +
                                    $"in the form of {methodText}.\n\n" +

@@ -37,7 +37,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
             }
 
             var calculator = new SalesOrderCalculator(_salesOrderProduct);
-            decimal amountDue = calculator.GetInStockItemPrice() + calculator.GetDepositAmount();
+            decimal amountDue = calculator.GetNonDepositAmount() + calculator.GetDepositAmount();
             decimal priceToPayWhenStockReplenished = calculator.GetTotalAmount() - amountDue;
             tbPriceToPayWhenStockReplenished.Text = priceToPayWhenStockReplenished.ToString("C", new CultureInfo("zh-HK"));
             tbAmountDue.Text = amountDue.ToString("C", new CultureInfo("zh-HK"));

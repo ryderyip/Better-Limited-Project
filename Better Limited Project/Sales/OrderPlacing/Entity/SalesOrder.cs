@@ -155,12 +155,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
 
         public bool IsAllStockReady()
         {
-            return GetSalesOrderProducts().All(sop => !sop.IsOutOfStock);
-        }
-
-        public decimal GetDepositPaid()
-        {
-            return GetSalesOrderProducts().Where(sop => sop.IsOutOfStock).Sum(sop => sop.GetAmountPaid());
+            return GetSalesOrderProducts().All(sop => sop.IsStockReady());
         }
     }
 }
