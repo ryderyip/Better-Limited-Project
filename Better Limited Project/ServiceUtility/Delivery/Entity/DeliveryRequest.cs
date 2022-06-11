@@ -60,17 +60,7 @@ namespace Better_Limited_Project.ServiceUtility.Delivery.Entity
 
         public bool IsStockReadyForDelivery()
         {
-            foreach (var salesOrderProduct in GetSalesOrder().GetSalesOrderProducts())
-            {
-                if (!salesOrderProduct.IsOutOfStock)
-                    continue;
-                
-                int reservedQuantity = salesOrderProduct.GetReservedStock()?.Quantity ?? 0;
-                if (reservedQuantity < salesOrderProduct.Quantity)
-                    return false;
-            }
-
-            return true;
+            return GetSalesOrder().IsAllStockReady();
         }
 
         public IEnumerable<Delivery> GetDeliveries()

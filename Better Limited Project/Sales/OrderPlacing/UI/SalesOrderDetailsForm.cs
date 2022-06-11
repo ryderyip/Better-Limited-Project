@@ -70,7 +70,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
                     sop.Price.ToString("C", new CultureInfo("zh-HK")),
                     sop.Quantity,
                     (sop.Price * sop.Quantity).ToString("C", new CultureInfo("zh-HK")),
-                    sop.IsStockReady() ? "Replenished" : "Awaiting Restock",
+                    sop.IsOutOfStock ? "Awaiting Restock" : "Replenished",
                     EnumToStringHelper.GetDisplayValue(sop.GetPaymentStatus()));
                 if (sop.GetPaymentStatus() is not SalesOrderProductPaymentStatus.FullyPaid)
                     dgvProducts.Rows[rowIndex].DefaultCellStyle.BackColor = Color.SandyBrown;

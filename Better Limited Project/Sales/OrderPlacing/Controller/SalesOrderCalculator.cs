@@ -43,7 +43,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Controller
 
         public bool IsAllPaymentCompleted()
         {
-            return _salesOrderProducts.All(sop => sop.GetProductPayments().Any())
+            return _salesOrderProducts.All(sop => sop.GetProductPayments() != null)
                    && GetAmountPaid() >= GetTotalAmount();
         }
 

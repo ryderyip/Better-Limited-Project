@@ -10,6 +10,7 @@ namespace Better_Limited_Project.Sales.PaymentUtility
             Id = PaymentRepository.GetNewId();
             Amount = amount;
             PaymentMethod = paymentMethod;
+            PaidOn = DateTime.Now;
         }
 
         public Payment(string id, decimal amount, PaymentMethod paymentMethod, DateTime paidOn)
@@ -23,7 +24,7 @@ namespace Better_Limited_Project.Sales.PaymentUtility
         public string Id { get; }
         public decimal Amount { get; set; }
         public PaymentMethod PaymentMethod { get; set; }
-        public DateTime PaidOn { get; set; }
+        public DateTime PaidOn { get; }
 
         public void Save()
         {

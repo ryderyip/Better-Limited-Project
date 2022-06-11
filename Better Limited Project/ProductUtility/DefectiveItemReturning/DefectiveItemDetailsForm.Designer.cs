@@ -71,7 +71,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             // 
             // tbReturnedToRetailStoreOn
             // 
-            this.tbReturnedToRetailStoreOn.Location = new System.Drawing.Point(217, 184);
+            this.tbReturnedToRetailStoreOn.Location = new System.Drawing.Point(217, 156);
             this.tbReturnedToRetailStoreOn.Name = "tbReturnedToRetailStoreOn";
             this.tbReturnedToRetailStoreOn.ReadOnly = true;
             this.tbReturnedToRetailStoreOn.Size = new System.Drawing.Size(127, 20);
@@ -83,7 +83,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             this.lblReturnedToRetailStoreOn.AutoSize = true;
             this.lblReturnedToRetailStoreOn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.lblReturnedToRetailStoreOn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblReturnedToRetailStoreOn.Location = new System.Drawing.Point(32, 185);
+            this.lblReturnedToRetailStoreOn.Location = new System.Drawing.Point(32, 157);
             this.lblReturnedToRetailStoreOn.Name = "lblReturnedToRetailStoreOn";
             this.lblReturnedToRetailStoreOn.Size = new System.Drawing.Size(179, 16);
             this.lblReturnedToRetailStoreOn.TabIndex = 154;
@@ -91,7 +91,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             // 
             // tbOrderNumber
             // 
-            this.tbOrderNumber.Location = new System.Drawing.Point(217, 118);
+            this.tbOrderNumber.Location = new System.Drawing.Point(217, 110);
             this.tbOrderNumber.Name = "tbOrderNumber";
             this.tbOrderNumber.ReadOnly = true;
             this.tbOrderNumber.Size = new System.Drawing.Size(127, 20);
@@ -103,7 +103,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             this.lblOrderNumber.AutoSize = true;
             this.lblOrderNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.lblOrderNumber.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblOrderNumber.Location = new System.Drawing.Point(32, 119);
+            this.lblOrderNumber.Location = new System.Drawing.Point(32, 111);
             this.lblOrderNumber.Name = "lblOrderNumber";
             this.lblOrderNumber.Size = new System.Drawing.Size(96, 16);
             this.lblOrderNumber.TabIndex = 123;
@@ -115,7 +115,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             this.btnCustomerDetailedInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.btnCustomerDetailedInfo.ForeColor = System.Drawing.SystemColors.Window;
             this.btnCustomerDetailedInfo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnCustomerDetailedInfo.Location = new System.Drawing.Point(750, 544);
+            this.btnCustomerDetailedInfo.Location = new System.Drawing.Point(751, 468);
             this.btnCustomerDetailedInfo.Name = "btnCustomerDetailedInfo";
             this.btnCustomerDetailedInfo.Size = new System.Drawing.Size(144, 36);
             this.btnCustomerDetailedInfo.TabIndex = 150;
@@ -129,7 +129,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             this.btnSalesOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalesOrder.ForeColor = System.Drawing.SystemColors.Window;
             this.btnSalesOrder.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnSalesOrder.Location = new System.Drawing.Point(352, 108);
+            this.btnSalesOrder.Location = new System.Drawing.Point(352, 100);
             this.btnSalesOrder.Name = "btnSalesOrder";
             this.btnSalesOrder.Size = new System.Drawing.Size(137, 36);
             this.btnSalesOrder.TabIndex = 143;
@@ -139,7 +139,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             // 
             // tbDescription
             // 
-            this.tbDescription.Location = new System.Drawing.Point(217, 250);
+            this.tbDescription.Location = new System.Drawing.Point(217, 202);
             this.tbDescription.Multiline = true;
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.ReadOnly = true;
@@ -152,7 +152,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             this.lblDescription.AutoSize = true;
             this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.lblDescription.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblDescription.Location = new System.Drawing.Point(32, 251);
+            this.lblDescription.Location = new System.Drawing.Point(32, 203);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(79, 16);
             this.lblDescription.TabIndex = 157;
@@ -161,7 +161,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             // pbImageEvidence
             // 
             this.pbImageEvidence.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbImageEvidence.Location = new System.Drawing.Point(562, 108);
+            this.pbImageEvidence.Location = new System.Drawing.Point(562, 100);
             this.pbImageEvidence.Name = "pbImageEvidence";
             this.pbImageEvidence.Size = new System.Drawing.Size(247, 254);
             this.pbImageEvidence.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -173,7 +173,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             this.lblImageEvidence.AutoSize = true;
             this.lblImageEvidence.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.lblImageEvidence.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblImageEvidence.Location = new System.Drawing.Point(632, 75);
+            this.lblImageEvidence.Location = new System.Drawing.Point(614, 67);
             this.lblImageEvidence.Name = "lblImageEvidence";
             this.lblImageEvidence.Size = new System.Drawing.Size(137, 20);
             this.lblImageEvidence.TabIndex = 160;
@@ -181,7 +181,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             // 
             // tbRetailStoreName
             // 
-            this.tbRetailStoreName.Location = new System.Drawing.Point(217, 356);
+            this.tbRetailStoreName.Location = new System.Drawing.Point(217, 288);
             this.tbRetailStoreName.Name = "tbRetailStoreName";
             this.tbRetailStoreName.ReadOnly = true;
             this.tbRetailStoreName.Size = new System.Drawing.Size(127, 20);
@@ -193,7 +193,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             this.lblRetailStoreName.AutoSize = true;
             this.lblRetailStoreName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.lblRetailStoreName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblRetailStoreName.Location = new System.Drawing.Point(32, 357);
+            this.lblRetailStoreName.Location = new System.Drawing.Point(32, 289);
             this.lblRetailStoreName.Name = "lblRetailStoreName";
             this.lblRetailStoreName.Size = new System.Drawing.Size(81, 16);
             this.lblRetailStoreName.TabIndex = 161;
@@ -201,7 +201,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             // 
             // tbStaffName
             // 
-            this.tbStaffName.Location = new System.Drawing.Point(617, 468);
+            this.tbStaffName.Location = new System.Drawing.Point(217, 472);
             this.tbStaffName.Name = "tbStaffName";
             this.tbStaffName.ReadOnly = true;
             this.tbStaffName.Size = new System.Drawing.Size(127, 20);
@@ -213,7 +213,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             this.lblStaff.AutoSize = true;
             this.lblStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.lblStaff.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblStaff.Location = new System.Drawing.Point(469, 469);
+            this.lblStaff.Location = new System.Drawing.Point(32, 473);
             this.lblStaff.Name = "lblStaff";
             this.lblStaff.Size = new System.Drawing.Size(37, 16);
             this.lblStaff.TabIndex = 163;
@@ -221,7 +221,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             // 
             // tbReturnedToWarehouseOn
             // 
-            this.tbReturnedToWarehouseOn.Location = new System.Drawing.Point(217, 422);
+            this.tbReturnedToWarehouseOn.Location = new System.Drawing.Point(217, 334);
             this.tbReturnedToWarehouseOn.Name = "tbReturnedToWarehouseOn";
             this.tbReturnedToWarehouseOn.ReadOnly = true;
             this.tbReturnedToWarehouseOn.Size = new System.Drawing.Size(127, 20);
@@ -233,7 +233,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             this.lblReturnedToWarehouseOn.AutoSize = true;
             this.lblReturnedToWarehouseOn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.lblReturnedToWarehouseOn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblReturnedToWarehouseOn.Location = new System.Drawing.Point(32, 423);
+            this.lblReturnedToWarehouseOn.Location = new System.Drawing.Point(32, 335);
             this.lblReturnedToWarehouseOn.Name = "lblReturnedToWarehouseOn";
             this.lblReturnedToWarehouseOn.Size = new System.Drawing.Size(179, 16);
             this.lblReturnedToWarehouseOn.TabIndex = 165;
@@ -241,7 +241,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             // 
             // tbWarehouse
             // 
-            this.tbWarehouse.Location = new System.Drawing.Point(217, 488);
+            this.tbWarehouse.Location = new System.Drawing.Point(217, 380);
             this.tbWarehouse.Name = "tbWarehouse";
             this.tbWarehouse.ReadOnly = true;
             this.tbWarehouse.Size = new System.Drawing.Size(127, 20);
@@ -253,7 +253,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             this.lblWarehouse.AutoSize = true;
             this.lblWarehouse.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.lblWarehouse.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblWarehouse.Location = new System.Drawing.Point(32, 489);
+            this.lblWarehouse.Location = new System.Drawing.Point(32, 381);
             this.lblWarehouse.Name = "lblWarehouse";
             this.lblWarehouse.Size = new System.Drawing.Size(159, 16);
             this.lblWarehouse.TabIndex = 167;
@@ -261,7 +261,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             // 
             // tbReturnedToSupplierOn
             // 
-            this.tbReturnedToSupplierOn.Location = new System.Drawing.Point(217, 554);
+            this.tbReturnedToSupplierOn.Location = new System.Drawing.Point(217, 426);
             this.tbReturnedToSupplierOn.Name = "tbReturnedToSupplierOn";
             this.tbReturnedToSupplierOn.ReadOnly = true;
             this.tbReturnedToSupplierOn.Size = new System.Drawing.Size(127, 20);
@@ -273,7 +273,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             this.lblReturnedToSupplierOn.AutoSize = true;
             this.lblReturnedToSupplierOn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.lblReturnedToSupplierOn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblReturnedToSupplierOn.Location = new System.Drawing.Point(32, 555);
+            this.lblReturnedToSupplierOn.Location = new System.Drawing.Point(32, 427);
             this.lblReturnedToSupplierOn.Name = "lblReturnedToSupplierOn";
             this.lblReturnedToSupplierOn.Size = new System.Drawing.Size(159, 16);
             this.lblReturnedToSupplierOn.TabIndex = 169;
@@ -281,7 +281,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             // 
             // tbCustomerName
             // 
-            this.tbCustomerName.Location = new System.Drawing.Point(617, 511);
+            this.tbCustomerName.Location = new System.Drawing.Point(618, 435);
             this.tbCustomerName.Name = "tbCustomerName";
             this.tbCustomerName.ReadOnly = true;
             this.tbCustomerName.Size = new System.Drawing.Size(127, 20);
@@ -293,7 +293,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             this.lblCustomerName.AutoSize = true;
             this.lblCustomerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.lblCustomerName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblCustomerName.Location = new System.Drawing.Point(469, 512);
+            this.lblCustomerName.Location = new System.Drawing.Point(470, 436);
             this.lblCustomerName.Name = "lblCustomerName";
             this.lblCustomerName.Size = new System.Drawing.Size(68, 16);
             this.lblCustomerName.TabIndex = 171;
@@ -301,7 +301,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             // 
             // tbCustomerPhone
             // 
-            this.tbCustomerPhone.Location = new System.Drawing.Point(617, 554);
+            this.tbCustomerPhone.Location = new System.Drawing.Point(618, 478);
             this.tbCustomerPhone.Name = "tbCustomerPhone";
             this.tbCustomerPhone.ReadOnly = true;
             this.tbCustomerPhone.Size = new System.Drawing.Size(127, 20);
@@ -313,7 +313,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             this.lblCustomerPhone.AutoSize = true;
             this.lblCustomerPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.lblCustomerPhone.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblCustomerPhone.Location = new System.Drawing.Point(469, 555);
+            this.lblCustomerPhone.Location = new System.Drawing.Point(470, 479);
             this.lblCustomerPhone.Name = "lblCustomerPhone";
             this.lblCustomerPhone.Size = new System.Drawing.Size(140, 16);
             this.lblCustomerPhone.TabIndex = 173;
@@ -324,7 +324,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             this.lblCustomerInformation.AutoSize = true;
             this.lblCustomerInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.lblCustomerInformation.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblCustomerInformation.Location = new System.Drawing.Point(590, 413);
+            this.lblCustomerInformation.Location = new System.Drawing.Point(593, 389);
             this.lblCustomerInformation.Name = "lblCustomerInformation";
             this.lblCustomerInformation.Size = new System.Drawing.Size(183, 20);
             this.lblCustomerInformation.TabIndex = 175;
@@ -334,7 +334,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(922, 609);
+            this.ClientSize = new System.Drawing.Size(922, 528);
             this.Controls.Add(this.lblCustomerInformation);
             this.Controls.Add(this.tbCustomerPhone);
             this.Controls.Add(this.lblCustomerPhone);

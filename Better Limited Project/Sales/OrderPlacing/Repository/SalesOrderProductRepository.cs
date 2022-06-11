@@ -39,12 +39,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
             decimal price = row.Field<decimal>("price");
             int quantity = row.Field<int>("quantity");
             bool isOutOfStock = row.Field<bool>("is_out_of_stock");
-            return new SalesOrderProduct(salesOrderId, productId, price, quantity, isOutOfStock)
-            {
-                SalesOrderProductPaymentIds = SalesOrderProductPaymentRepository.GetByIds(salesOrderId, productId)
-                    .Select(sopp => sopp.PaymentId)
-                    .ToList()
-            };
+            return new SalesOrderProduct(salesOrderId, productId, price, quantity, isOutOfStock);
         }
 
         public IEnumerable<SalesOrderProduct> FindAll(Predicate<SalesOrderProduct> filter)
@@ -66,9 +61,11 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
         public void Remove(SalesOrderProduct salesOrderProduct)
         {
             var command = new MySqlCommand(
-                @"delete from sales_order_product where sales_order_id = @salesOrderId and product_id = @productId;");
+                @"delete from sales_order_product 
+                    where sales_order_id = @salesOrderId and product_id = @productId and is_out_of_stock = @isOutOfStock;");
             command.Parameters.AddWithValue("@salesOrderId", salesOrderProduct.SalesOrderId);
             command.Parameters.AddWithValue("@productId", salesOrderProduct.ProductId);
+            command.Parameters.AddWithValue("@isOutOfStock", salesOrderProduct.IsOutOfStock);
             DataTableRepository.ExecuteNonQuery(command);
         }
     }

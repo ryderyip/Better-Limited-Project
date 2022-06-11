@@ -84,6 +84,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             _productStock.Quantity = newStockLevel;
             _productStock.Save();
             _productStock.Product.Save();
+            NewProductStockCreator.CreateEmptyStockForNewProduct(_productStock.Product);
 
             MessageBox.Show(ProductList.productAndStockUpdated);
             

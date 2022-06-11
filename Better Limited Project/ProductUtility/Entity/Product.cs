@@ -59,7 +59,6 @@ namespace Better_Limited_Project.ProductUtility.Entity
         public void Save()
         {
             ProductRepository.InsertOrUpdate(this);
-            NewProductStockCreator.CreateEmptyStockForNewProduct(this);
         }
 
         public void SetImage(Image image)

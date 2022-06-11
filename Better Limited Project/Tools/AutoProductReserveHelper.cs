@@ -10,18 +10,21 @@ namespace Better_Limited_Project.Tools
     {
         public static void OnStockUpdated(object sender, IStock updatedStock)
         {
+            if (updatedStock.Quantity <= 0)
+                return;
+            
             var salesOrdersWaitingForStock = (from order in new SalesOrderRepository().GetAll()
                 let deliveryRequest = order.GetDeliveryRequest()
                 where order.GetSalesOrderProducts()
-                          .Any(sop => sop.ProductId == updatedStock.Product.Id && !sop.IsStockReady())
-                      && (deliveryRequest == null || !deliveryRequest.IsStockReadyForDelivery())
+                          .Any(sop => sop.ProductId == updatedStock.Product.Id && sop.IsOutOfStock)
                 orderby order.CreatedOn
                 select order);
 
             string reservationMessage = string.Empty;
             foreach (var order in salesOrdersWaitingForStock)
             {
-                var orderProduct = order.GetSalesOrderProducts().First(sop => sop.ProductId == updatedStock.Product.Id);
+                var orderProduct = order.GetSalesOrderProducts().First(sop => sop.ProductId == updatedStock.Product.Id
+                                                                              && sop.IsOutOfStock);
 
                 var service = new ProductReservationService(order);
                 int reservedQuantity = orderProduct.GetReservedStock()?.Quantity ?? 0;

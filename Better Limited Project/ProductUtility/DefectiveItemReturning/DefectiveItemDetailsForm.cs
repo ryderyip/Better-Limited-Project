@@ -11,6 +11,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
         public DefectiveItemDetailsForm(DefectiveItem defectiveItem)
         {
             _defectiveItem = defectiveItem;
+            StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
             Shown += (_, _) => Initialize();
         }

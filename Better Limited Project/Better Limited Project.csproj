@@ -492,7 +492,9 @@
     <Compile Include="Sales\OrderPlacing\Repository\SalesOrderProductRepository.cs" />
     <Compile Include="Sales\OrderPlacing\Repository\ReservedSalesOrderProduct.cs" />
     <Compile Include="Sales\OrderPlacing\Repository\ReservedSalesOrderProductRepository.cs" />
+    <Compile Include="Sales\OrderPlacing\Repository\Stock.cs" />
     <Compile Include="Sales\OrderPlacing\Repository\SalesOrderRepository.cs" />
+    <Compile Include="Sales\OrderPlacing\Repository\StockWaitingRepository.cs" />
     <Compile Include="Sales\OrderPlacing\UI\ConfirmPlacingOrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
