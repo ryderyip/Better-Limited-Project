@@ -2,9 +2,10 @@
 using System.Data;
 using System.Linq;
 using Better_Limited_Project.DatabaseUtility;
+using Better_Limited_Project.ProductUtility.Reordering.Entity;
 using MySql.Data.MySqlClient;
 
-namespace Better_Limited_Project.ProductUtility.Reordering
+namespace Better_Limited_Project.ProductUtility.Reordering.Repository
 {
     public static class ReorderRequestProductRepository
     {

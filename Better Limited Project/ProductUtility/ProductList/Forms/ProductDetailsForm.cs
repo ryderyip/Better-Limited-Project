@@ -30,7 +30,9 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
                 btnEditDescription.Visible = false;
                 btnUpdateImage.Visible = false;
             }
-            if (!ProductPermissionManager.CanCurrentStaffRemoveProduct())
+            if (!ProductPermissionManager.CanCurrentStaffRemoveProduct()
+            || _stock.Product.IsInAnyReorderRequest()
+            || _stock.Product.IsInAnyRestockRequest())
                 btnRemoveProduct.Visible = false;
         }
 

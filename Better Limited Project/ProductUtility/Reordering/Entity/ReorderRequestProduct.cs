@@ -1,7 +1,8 @@
 ﻿using Better_Limited_Project.ProductUtility.Entity;
+using Better_Limited_Project.ProductUtility.Reordering.Repository;
 using Better_Limited_Project.ProductUtility.Repository;
 
-namespace Better_Limited_Project.ProductUtility.Reordering
+namespace Better_Limited_Project.ProductUtility.Reordering.Entity
 {
     public class ReorderRequestProduct : IProductQuantity
     {

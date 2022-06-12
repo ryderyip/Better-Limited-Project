@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.Login;
 using Better_Limited_Project.ProductUtility.DefectiveItemReturning;
+using Better_Limited_Project.ProductUtility.GoodsPurchasing.UI;
 using Better_Limited_Project.ProductUtility.ProductList.Forms;
 using Better_Limited_Project.Sales.OrderPlacing.UI;
 using Better_Limited_Project.SettingsUtility;
@@ -60,6 +61,12 @@ namespace Better_Limited_Project.Navigation.UI
         private void btnProductList_Click(object sender, EventArgs e)
         {
             var form = new ProductListForm();
+            _formController.OpenContentForm(form);
+        }
+
+        private void btnPurchaseOrders_Click(object sender, EventArgs e)
+        {
+            var form = new PurchaseOrderListForm();
             _formController.OpenContentForm(form);
         }
     }

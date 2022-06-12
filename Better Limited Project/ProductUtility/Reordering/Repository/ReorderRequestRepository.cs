@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using Better_Limited_Project.DatabaseUtility;
+using Better_Limited_Project.ProductUtility.Reordering.Entity;
 using MySql.Data.MySqlClient;
 
-namespace Better_Limited_Project.ProductUtility.Reordering
+namespace Better_Limited_Project.ProductUtility.Reordering.Repository
 {
     public static class ReorderRequestRepository
     {
@@ -80,6 +81,11 @@ namespace Better_Limited_Project.ProductUtility.Reordering
                 @"delete from reorder_request where id = @id;");
             command.Parameters.AddWithValue("@id", reorderRequest.Id);
             DataTableRepository.ExecuteNonQuery(command);
+        }
+
+        public static IEnumerable<ReorderRequest> FindAll(Predicate<ReorderRequest> filter)
+        {
+            return GetAll().Where(filter.Invoke);
         }
     }
 }

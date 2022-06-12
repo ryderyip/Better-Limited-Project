@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.Login;
 using Better_Limited_Project.ProductUtility.DefectiveItemReturning;
+using Better_Limited_Project.ProductUtility.GoodsPurchasing.UI;
 using Better_Limited_Project.Sales.OrderPlacing.UI;
 using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.StaffUtility.StaffProfile;
@@ -23,7 +24,8 @@ namespace Better_Limited_Project.Navigation.UI
 
         private void btnPurchaseOrders_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var form = new PurchaseOrderListForm();
+            _formController.OpenContentForm(form);
         }
 
         private void btnSalesOrder_Click(object sender, EventArgs e)

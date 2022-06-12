@@ -1,5 +1,5 @@
 ﻿
-namespace Better_Limited_Project.ProductUtility.Reordering
+namespace Better_Limited_Project.ProductUtility.Reordering.UI
 {
     partial class ReorderRequestListForm
     {
@@ -37,6 +37,7 @@ namespace Better_Limited_Project.ProductUtility.Reordering
             this.tbSearchBox = new System.Windows.Forms.TextBox();
             this.lblSearchBox = new System.Windows.Forms.Label();
             this.btnNewRequest = new System.Windows.Forms.Button();
+            this.cbShowApproved = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReorderRequests)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,7 +92,6 @@ namespace Better_Limited_Project.ProductUtility.Reordering
             this.tbSearchBox.Name = "tbSearchBox";
             this.tbSearchBox.Size = new System.Drawing.Size(192, 20);
             this.tbSearchBox.TabIndex = 53;
-            this.tbSearchBox.TextChanged += new System.EventHandler(this.tbSearchBox_TextChanged);
             // 
             // lblSearchBox
             // 
@@ -117,11 +117,22 @@ namespace Better_Limited_Project.ProductUtility.Reordering
             this.btnNewRequest.UseVisualStyleBackColor = false;
             this.btnNewRequest.Click += new System.EventHandler(this.btnNewRequest_Click);
             // 
+            // cbShowApproved
+            // 
+            this.cbShowApproved.AutoSize = true;
+            this.cbShowApproved.Location = new System.Drawing.Point(221, 51);
+            this.cbShowApproved.Name = "cbShowApproved";
+            this.cbShowApproved.Size = new System.Drawing.Size(150, 17);
+            this.cbShowApproved.TabIndex = 56;
+            this.cbShowApproved.Text = "Show Approved Requests";
+            this.cbShowApproved.UseVisualStyleBackColor = true;
+            // 
             // ReorderRequestListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(602, 450);
+            this.Controls.Add(this.cbShowApproved);
             this.Controls.Add(this.btnNewRequest);
             this.Controls.Add(this.dgvReorderRequests);
             this.Controls.Add(this.tbSearchBox);
@@ -144,5 +155,6 @@ namespace Better_Limited_Project.ProductUtility.Reordering
         private System.Windows.Forms.DataGridViewTextBoxColumn isApprovedColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn requestedOnColumn;
         private System.Windows.Forms.Button btnNewRequest;
+        private System.Windows.Forms.CheckBox cbShowApproved;
     }
 }

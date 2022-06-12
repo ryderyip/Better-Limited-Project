@@ -1,10 +1,15 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
+using Better_Limited_Project.Login;
 using Better_Limited_Project.ProductUtility.Reordering.Controller;
+using Better_Limited_Project.ProductUtility.Reordering.Entity;
+using Better_Limited_Project.ProductUtility.Reordering.Repository;
+using Better_Limited_Project.StaffUtility.StaffEntity;
 using Better_Limited_Project.Tools;
 
-namespace Better_Limited_Project.ProductUtility.Reordering
+namespace Better_Limited_Project.ProductUtility.Reordering.UI
 {
     public partial class ReorderRequestListForm : Form
     {
@@ -19,8 +24,12 @@ namespace Better_Limited_Project.ProductUtility.Reordering
 
         private void Initialize()
         {
+            if (LoginSession.GetSession().CurrentStaff.Department is not Department.Inventory)
+                btnNewRequest.Visible = false;
             dgvReorderRequests.RowsAdded += (_, args) => HighLightNewRow(args.RowIndex);
-            PopulateDgv(_requests);
+            cbShowApproved.CheckedChanged += (_, _) => FilterDgv();
+            tbSearchBox.TextChanged += (_, _) => FilterDgv();
+            FilterDgv();
         }
 
         private void HighLightNewRow(int rowIndex)
@@ -31,8 +40,9 @@ namespace Better_Limited_Project.ProductUtility.Reordering
         private void PopulateDgv(List<ReorderRequest> requests)
         {
             dgvReorderRequests.Rows.Clear();
-            requests.ForEach(r => dgvReorderRequests.Rows.Add(r.Id, 
+            requests.ForEach(r => dgvReorderRequests.Rows.Add(r.Id,
                 r.RequestNumber, r.IsApproved() ? "Yes" : "No", r.RequestedOn.ToString("g")));
+            dgvReorderRequests.Sort(requestedOnColumn, ListSortDirection.Descending);
         }
 
         private void dgvReorderRequest_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -60,9 +70,11 @@ namespace Better_Limited_Project.ProductUtility.Reordering
             Initialize();
         }
 
-        private void tbSearchBox_TextChanged(object sender, System.EventArgs e)
+        private void FilterDgv()
         {
-            PopulateDgv(_requests.FindAll(r => r.RequestNumber.ToLower().Contains(tbSearchBox.Text.ToLower().Trim())));
+            PopulateDgv(_requests.FindAll(r => (cbShowApproved.Checked || !r.IsApproved())
+                                               && r.RequestNumber.ToLower()
+                                                   .Contains(tbSearchBox.Text.ToLower().Trim())));
         }
     }
 }

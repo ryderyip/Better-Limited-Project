@@ -351,6 +351,24 @@
     <Compile Include="ProductUtility\Entity\IStock.cs" />
     <Compile Include="ProductUtility\Entity\Product.cs" />
     <Compile Include="ProductUtility\Entity\RetailStoreStock.cs" />
+    <Compile Include="ProductUtility\GoodsPurchasing\Controller\PurchaseOrderCreationService.cs" />
+    <Compile Include="ProductUtility\GoodsPurchasing\Controller\PurchaseOrderNumberGenerator.cs" />
+    <Compile Include="ProductUtility\GoodsPurchasing\Entity\PurchaseOrder.cs" />
+    <Compile Include="ProductUtility\GoodsPurchasing\Entity\PurchaseOrderProduct.cs" />
+    <Compile Include="ProductUtility\GoodsPurchasing\Repository\PurchaseOrderProductRepository.cs" />
+    <Compile Include="ProductUtility\GoodsPurchasing\Repository\PurchaseOrderRepository.cs" />
+    <Compile Include="ProductUtility\GoodsPurchasing\UI\PurchaseOrderDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductUtility\GoodsPurchasing\UI\PurchaseOrderDetailsForm.Designer.cs">
+      <DependentUpon>PurchaseOrderDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductUtility\GoodsPurchasing\UI\PurchaseOrderListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductUtility\GoodsPurchasing\UI\PurchaseOrderListForm.Designer.cs">
+      <DependentUpon>PurchaseOrderListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductUtility\NewProductStockCreator.cs" />
     <Compile Include="ProductUtility\PickerForms\SalesOrderPickerForm.cs">
       <SubType>Form</SubType>
@@ -399,30 +417,30 @@
     <Compile Include="ProductUtility\Reordering\Entity\IProductQuantity.cs" />
     <Compile Include="ProductUtility\Reordering\Entity\ReorderRequest.cs" />
     <Compile Include="ProductUtility\Reordering\Entity\ReorderRequestProduct.cs" />
-    <Compile Include="ProductUtility\Reordering\NewReorderRestockRequestForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProductUtility\Reordering\NewReorderRestockRequestForm.Designer.cs">
-      <DependentUpon>NewReorderRestockRequestForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ProductUtility\Reordering\ReorderRequestDetailsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProductUtility\Reordering\ReorderRequestDetailsForm.Designer.cs">
-      <DependentUpon>ReorderRequestDetailsForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ProductUtility\Reordering\ReorderRequestListForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProductUtility\Reordering\ReorderRequestListForm.Designer.cs">
-      <DependentUpon>ReorderRequestListForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="ProductUtility\Reordering\Repository\ReorderRequestProductRepository.cs" />
     <Compile Include="ProductUtility\Reordering\Repository\ReorderRequestRepository.cs" />
-    <Compile Include="ProductUtility\Reordering\RequestProductSelectionForm.cs">
+    <Compile Include="ProductUtility\Reordering\UI\NewReorderRestockRequestForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProductUtility\Reordering\RequestProductSelectionForm.Designer.cs">
+    <Compile Include="ProductUtility\Reordering\UI\NewReorderRestockRequestForm.Designer.cs">
+      <DependentUpon>NewReorderRestockRequestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductUtility\Reordering\UI\ReorderRequestDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductUtility\Reordering\UI\ReorderRequestDetailsForm.Designer.cs">
+      <DependentUpon>ReorderRequestDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductUtility\Reordering\UI\ReorderRequestListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductUtility\Reordering\UI\ReorderRequestListForm.Designer.cs">
+      <DependentUpon>ReorderRequestListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductUtility\Reordering\UI\RequestProductSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductUtility\Reordering\UI\RequestProductSelectionForm.Designer.cs">
       <DependentUpon>RequestProductSelectionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ProductUtility\Repository\RetailStoreStockRepository.cs" />
@@ -461,14 +479,6 @@
     </Compile>
     <Compile Include="ProductUtility\ProductList\PermissionManagement\ProductInfoEditPermission.cs" />
     <Compile Include="ProductUtility\ProductList\ProductCreationDataVerifier.cs" />
-    <Compile Include="ProductUtility\PurchaseOrder\PurchaseOrderDetailsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProductUtility\PurchaseOrder\PurchaseOrderDetailsForm.Designer.cs" />
-    <Compile Include="ProductUtility\PurchaseOrder\PurchaseOrdersForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProductUtility\PurchaseOrder\PurchaseOrdersForm.Designer.cs" />
     <Compile Include="ProductUtility\Repository\CategoryRepository.cs" />
     <Compile Include="ProductUtility\Repository\ProductRepository.cs" />
     <Compile Include="ProductUtility\Repository\StockRepository.cs" />
@@ -1003,6 +1013,12 @@
     <EmbeddedResource Include="ProductUtility\DefectiveItemReturning\NewDefectiveItem.resx">
       <DependentUpon>NewDefectiveItem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProductUtility\GoodsPurchasing\UI\PurchaseOrderDetailsForm.resx">
+      <DependentUpon>PurchaseOrderDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductUtility\GoodsPurchasing\UI\PurchaseOrderListForm.resx">
+      <DependentUpon>PurchaseOrderListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductUtility\PickerForms\SalesOrderPickerForm.resx">
       <DependentUpon>SalesOrderPickerForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -1058,18 +1074,16 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ProductUtilityStringResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProductUtility\PurchaseOrder\PurchaseOrderDetailsForm.resx" />
-    <EmbeddedResource Include="ProductUtility\PurchaseOrder\PurchaseOrdersForm.resx" />
-    <EmbeddedResource Include="ProductUtility\Reordering\NewReorderRestockRequestForm.resx">
+    <EmbeddedResource Include="ProductUtility\Reordering\UI\NewReorderRestockRequestForm.resx">
       <DependentUpon>NewReorderRestockRequestForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProductUtility\Reordering\ReorderRequestDetailsForm.resx">
+    <EmbeddedResource Include="ProductUtility\Reordering\UI\ReorderRequestDetailsForm.resx">
       <DependentUpon>ReorderRequestDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProductUtility\Reordering\ReorderRequestListForm.resx">
+    <EmbeddedResource Include="ProductUtility\Reordering\UI\ReorderRequestListForm.resx">
       <DependentUpon>ReorderRequestListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProductUtility\Reordering\RequestProductSelectionForm.resx">
+    <EmbeddedResource Include="ProductUtility\Reordering\UI\RequestProductSelectionForm.resx">
       <DependentUpon>RequestProductSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductUtility\SupplierUtility\CreateSupplierForm.resx">

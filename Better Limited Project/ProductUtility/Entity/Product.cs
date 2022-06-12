@@ -1,11 +1,9 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Linq;
-using System.Windows.Forms;
+using Better_Limited_Project.ProductUtility.Reordering.Repository;
 using Better_Limited_Project.ProductUtility.Repository;
 using Better_Limited_Project.ProductUtility.SupplierUtility;
 using Better_Limited_Project.Properties;
-using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;
 using Better_Limited_Project.StaffUtility.Repository;
 
@@ -18,7 +16,7 @@ namespace Better_Limited_Project.ProductUtility.Entity
         public const decimal DepositPricePercentage = 0.2m;
         public const decimal DepositThreshold = 5000;
 
-        public string Id { get; set; }
+        public string Id { get; }
         public string Name { get; set; }
         public decimal OriginalPrice { get; set; }
         public string Description { get; set; }
@@ -92,6 +90,17 @@ namespace Better_Limited_Project.ProductUtility.Entity
             return new SalesOrderRepository()
                 .FindAll(so => so.GetSalesOrderProducts().Any(sop => sop.ProductId == Id))
                 .Any(so => !so.IsCompleted());
+        }
+
+        public bool IsInAnyReorderRequest()
+        {
+            return ReorderRequestRepository.FindAll(rr => rr.RequestedProducts.Any(rp => rp.ProductId == Id)).Any();
+        }
+
+        public bool IsInAnyRestockRequest()
+        {
+            // TODO do
+            return false;
         }
     }
 }

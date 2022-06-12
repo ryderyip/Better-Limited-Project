@@ -4,8 +4,9 @@ using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.ProductUtility.Entity;
+using Better_Limited_Project.ProductUtility.Reordering.Entity;
 
-namespace Better_Limited_Project.ProductUtility.Reordering
+namespace Better_Limited_Project.ProductUtility.Reordering.UI
 {
     public partial class NewReorderRestockRequestForm : Form
     {

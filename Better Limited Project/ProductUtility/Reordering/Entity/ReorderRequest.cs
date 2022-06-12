@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using Better_Limited_Project.ProductUtility.Reordering.Controller;
+using Better_Limited_Project.ProductUtility.Reordering.Repository;
 using Better_Limited_Project.StaffUtility.Repository;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 
-namespace Better_Limited_Project.ProductUtility.Reordering
+namespace Better_Limited_Project.ProductUtility.Reordering.Entity
 {
     public class ReorderRequest
     {
@@ -36,18 +38,18 @@ namespace Better_Limited_Project.ProductUtility.Reordering
         public Staff RequestedByStaff => new StaffRepository().FindById(RequestedByStaffId);
         public DateTime RequestedOn { get; }
 
-        public Staff? ApprovedBy => ApprovedByStaffId != null
+        public Staff? ApprovedByStaff => ApprovedByStaffId != null
             ? new StaffRepository().FindById(ApprovedByStaffId)
             : null;
 
-        public DateTime? ApprovedOn { get; }
+        public DateTime? ApprovedOn { get; set; }
 
         public IEnumerable<ReorderRequestProduct> RequestedProducts
             => ReorderRequestProductRepository.GetBy(this);
 
         public bool IsApproved()
         {
-            return ApprovedBy != null || ApprovedOn != null;
+            return ApprovedByStaff != null || ApprovedOn != null;
         }
 
         public void Save()

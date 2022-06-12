@@ -1,4 +1,4 @@
-﻿namespace Better_Limited_Project.ProductUtility.Reordering
+﻿namespace Better_Limited_Project.ProductUtility.Reordering.UI
 {
     partial class RequestProductSelectionForm
     {

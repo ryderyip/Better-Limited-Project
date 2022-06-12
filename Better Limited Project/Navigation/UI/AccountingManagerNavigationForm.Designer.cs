@@ -74,6 +74,7 @@ namespace Better_Limited_Project.Navigation.UI
             resources.ApplyResources(this.btnPurchaseOrders, "btnPurchaseOrders");
             this.btnPurchaseOrders.Name = "btnPurchaseOrders";
             this.btnPurchaseOrders.UseVisualStyleBackColor = true;
+            this.btnPurchaseOrders.Click += new System.EventHandler(this.btnPurchaseOrders_Click);
             // 
             // btnSettings
             // 
