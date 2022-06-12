@@ -8,15 +8,15 @@ namespace Better_Limited_Project.ProductUtility.Reordering
 {
     public static class ReorderRequestProductRepository
     {
-        public static void InsertOrUpdate(ReorderRequestProduct requestedProduct)
+        public static void InsertOrUpdate(ReorderRequestProduct requestedRequestProduct)
         {
             var command = new MySqlCommand(
                 @"insert into reorder_request_product
                     value (@reorderRequestId, @productId, @quantity)
                     on duplicate key update quantity = @quantity;");
-            command.Parameters.AddWithValue("@reorderRequestId", requestedProduct.ReorderRequestId);
-            command.Parameters.AddWithValue("@productId", requestedProduct.Product.Id);
-            command.Parameters.AddWithValue("@quantity", requestedProduct.Quantity);
+            command.Parameters.AddWithValue("@reorderRequestId", requestedRequestProduct.RequestId);
+            command.Parameters.AddWithValue("@productId", requestedRequestProduct.Product.Id);
+            command.Parameters.AddWithValue("@quantity", requestedRequestProduct.Quantity);
             DataTableRepository.ExecuteNonQuery(command);
         }
 
@@ -36,6 +36,16 @@ namespace Better_Limited_Project.ProductUtility.Reordering
             string productId = row.Field<int>("product_id").ToString();
             int quantity = row.Field<int>("quantity");
             return new ReorderRequestProduct(reorderRequest.Id, productId, quantity);
+        }
+
+        public static void Delete(ReorderRequestProduct requestedRequestProduct)
+        {
+            var command = new MySqlCommand(
+                @"delete from reorder_request_product 
+                where reorder_request_id = @requestId and product_id = @productId;");
+            command.Parameters.AddWithValue("@requestId", requestedRequestProduct.RequestId);
+            command.Parameters.AddWithValue("@productId", requestedRequestProduct.ProductId);
+            DataTableRepository.ExecuteNonQuery(command);
         }
     }
 }

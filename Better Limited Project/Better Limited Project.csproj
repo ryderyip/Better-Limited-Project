@@ -393,7 +393,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ProductUtilityStringResources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ProductUtility\Reordering\ReorderRequest.cs" />
+    <Compile Include="ProductUtility\Reordering\Controller\ReorderRequestNumberGenerator.cs" />
+    <Compile Include="ProductUtility\Reordering\Controller\ReorderService.cs" />
+    <Compile Include="ProductUtility\Reordering\Entity\IProductQuantity.cs" />
+    <Compile Include="ProductUtility\Reordering\Entity\ReorderRequest.cs" />
+    <Compile Include="ProductUtility\Reordering\Entity\ReorderRequestProduct.cs" />
+    <Compile Include="ProductUtility\Reordering\NewReorderRequestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductUtility\Reordering\NewReorderRequestForm.Designer.cs">
+      <DependentUpon>NewReorderRequestForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductUtility\Reordering\ReorderRequestDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -406,18 +416,14 @@
     <Compile Include="ProductUtility\Reordering\ReorderRequestListForm.Designer.cs">
       <DependentUpon>ReorderRequestListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProductUtility\Reordering\ReorderRequestNumberGenerator.cs" />
-    <Compile Include="ProductUtility\Reordering\ReorderRequestProduct.cs" />
-    <Compile Include="ProductUtility\Reordering\ReorderRequestProductRepository.cs" />
-    <Compile Include="ProductUtility\Reordering\ReorderRequestRepository.cs" />
-    <Compile Include="ProductUtility\Reordering\ReorderRequestSendingForm.cs">
+    <Compile Include="ProductUtility\Reordering\Repository\ReorderRequestProductRepository.cs" />
+    <Compile Include="ProductUtility\Reordering\Repository\ReorderRequestRepository.cs" />
+    <Compile Include="ProductUtility\Reordering\RequestProductSelectionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProductUtility\Reordering\ReorderRequestSendingForm.Designer.cs">
-      <DependentUpon>ReorderRequestSendingForm.cs</DependentUpon>
+    <Compile Include="ProductUtility\Reordering\RequestProductSelectionForm.Designer.cs">
+      <DependentUpon>RequestProductSelectionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProductUtility\Reordering\ReorderRequestService.cs" />
-    <Compile Include="ProductUtility\Reordering\ReorderService.cs" />
     <Compile Include="ProductUtility\Repository\RetailStoreStockRepository.cs" />
     <Compile Include="ProductUtility\Repository\WarehouseStockRepository.cs" />
     <Compile Include="ProductUtility\SupplierUtility\CreateSupplierForm.cs">
@@ -1052,14 +1058,17 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ProductUtility\PurchaseOrder\PurchaseOrderDetailsForm.resx" />
     <EmbeddedResource Include="ProductUtility\PurchaseOrder\PurchaseOrdersForm.resx" />
+    <EmbeddedResource Include="ProductUtility\Reordering\NewReorderRequestForm.resx">
+      <DependentUpon>NewReorderRequestForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductUtility\Reordering\ReorderRequestDetailsForm.resx">
       <DependentUpon>ReorderRequestDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductUtility\Reordering\ReorderRequestListForm.resx">
       <DependentUpon>ReorderRequestListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProductUtility\Reordering\ReorderRequestSendingForm.resx">
-      <DependentUpon>ReorderRequestSendingForm.cs</DependentUpon>
+    <EmbeddedResource Include="ProductUtility\Reordering\RequestProductSelectionForm.resx">
+      <DependentUpon>RequestProductSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductUtility\SupplierUtility\CreateSupplierForm.resx">
       <DependentUpon>CreateSupplierForm.cs</DependentUpon>

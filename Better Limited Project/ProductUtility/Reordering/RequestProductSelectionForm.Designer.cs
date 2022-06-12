@@ -1,6 +1,6 @@
 ﻿namespace Better_Limited_Project.ProductUtility.Reordering
 {
-    partial class ReorderRequestSendingForm
+    partial class RequestProductSelectionForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnSendReorderRequest = new System.Windows.Forms.Button();
+            this.btnConfirm = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dgvRequestedGoods = new System.Windows.Forms.DataGridView();
@@ -41,30 +41,32 @@
             this.productNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productStockQuantityColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtSearchKeywords = new System.Windows.Forms.TextBox();
+            this.tbSearchKeywords = new System.Windows.Forms.TextBox();
             this.lblSearchKeywords = new System.Windows.Forms.Label();
             this.lblHeader = new System.Windows.Forms.Label();
-            this.lblGoodsInRequest = new System.Windows.Forms.Label();
+            this.lblSelectedGoods = new System.Windows.Forms.Label();
             this.nudAmountToAdd = new System.Windows.Forms.NumericUpDown();
             this.btnRemoveSelected = new System.Windows.Forms.Button();
+            this.cbCategory = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequestedGoods)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAmountToAdd)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnSendReorderRequest
+            // btnConfirm
             // 
-            this.btnSendReorderRequest.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnSendReorderRequest.Enabled = false;
-            this.btnSendReorderRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSendReorderRequest.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnSendReorderRequest.Location = new System.Drawing.Point(286, 405);
-            this.btnSendReorderRequest.Name = "btnSendReorderRequest";
-            this.btnSendReorderRequest.Size = new System.Drawing.Size(213, 52);
-            this.btnSendReorderRequest.TabIndex = 57;
-            this.btnSendReorderRequest.Text = "Send Reorder Request";
-            this.btnSendReorderRequest.UseVisualStyleBackColor = false;
-            this.btnSendReorderRequest.Click += new System.EventHandler(this.btnSendReorderRequest_Click);
+            this.btnConfirm.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnConfirm.Enabled = false;
+            this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirm.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnConfirm.Location = new System.Drawing.Point(286, 405);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(213, 52);
+            this.btnConfirm.TabIndex = 57;
+            this.btnConfirm.Text = "Confirm";
+            this.btnConfirm.UseVisualStyleBackColor = false;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // btnClear
             // 
@@ -185,12 +187,12 @@
             this.categoryColumn.Name = "categoryColumn";
             this.categoryColumn.ReadOnly = true;
             // 
-            // txtSearchKeywords
+            // tbSearchKeywords
             // 
-            this.txtSearchKeywords.Location = new System.Drawing.Point(30, 86);
-            this.txtSearchKeywords.Name = "txtSearchKeywords";
-            this.txtSearchKeywords.Size = new System.Drawing.Size(174, 20);
-            this.txtSearchKeywords.TabIndex = 49;
+            this.tbSearchKeywords.Location = new System.Drawing.Point(30, 86);
+            this.tbSearchKeywords.Name = "tbSearchKeywords";
+            this.tbSearchKeywords.Size = new System.Drawing.Size(174, 20);
+            this.tbSearchKeywords.TabIndex = 49;
             // 
             // lblSearchKeywords
             // 
@@ -205,21 +207,21 @@
             // 
             this.lblHeader.AutoSize = true;
             this.lblHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeader.Location = new System.Drawing.Point(271, 25);
+            this.lblHeader.Location = new System.Drawing.Point(208, 25);
             this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(242, 25);
+            this.lblHeader.Size = new System.Drawing.Size(368, 25);
             this.lblHeader.TabIndex = 58;
-            this.lblHeader.Text = "New Reorder Request";
+            this.lblHeader.Text = "Reorder/Restock Goods Selection";
             // 
-            // lblGoodsInRequest
+            // lblSelectedGoods
             // 
-            this.lblGoodsInRequest.AutoSize = true;
-            this.lblGoodsInRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGoodsInRequest.Location = new System.Drawing.Point(534, 84);
-            this.lblGoodsInRequest.Name = "lblGoodsInRequest";
-            this.lblGoodsInRequest.Size = new System.Drawing.Size(155, 20);
-            this.lblGoodsInRequest.TabIndex = 59;
-            this.lblGoodsInRequest.Text = "Requested Goods";
+            this.lblSelectedGoods.AutoSize = true;
+            this.lblSelectedGoods.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSelectedGoods.Location = new System.Drawing.Point(543, 84);
+            this.lblSelectedGoods.Name = "lblSelectedGoods";
+            this.lblSelectedGoods.Size = new System.Drawing.Size(138, 20);
+            this.lblSelectedGoods.TabIndex = 59;
+            this.lblSelectedGoods.Text = "Selected Goods";
             // 
             // nudAmountToAdd
             // 
@@ -256,25 +258,45 @@
             this.btnRemoveSelected.UseVisualStyleBackColor = false;
             this.btnRemoveSelected.Click += new System.EventHandler(this.btnRemoveSelected_Click);
             // 
-            // ReorderRequestSendingForm
+            // cbCategory
+            // 
+            this.cbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCategory.FormattingEnabled = true;
+            this.cbCategory.Location = new System.Drawing.Point(253, 85);
+            this.cbCategory.Name = "cbCategory";
+            this.cbCategory.Size = new System.Drawing.Size(142, 21);
+            this.cbCategory.TabIndex = 62;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(250, 69);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(88, 13);
+            this.label1.TabIndex = 63;
+            this.label1.Text = "Filter by Category";
+            // 
+            // RequestProductSelectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 477);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cbCategory);
             this.Controls.Add(this.btnRemoveSelected);
             this.Controls.Add(this.nudAmountToAdd);
-            this.Controls.Add(this.lblGoodsInRequest);
+            this.Controls.Add(this.lblSelectedGoods);
             this.Controls.Add(this.lblHeader);
-            this.Controls.Add(this.btnSendReorderRequest);
+            this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dgvRequestedGoods);
             this.Controls.Add(this.lblAmountToAdd);
             this.Controls.Add(this.dgvProducts);
-            this.Controls.Add(this.txtSearchKeywords);
+            this.Controls.Add(this.tbSearchKeywords);
             this.Controls.Add(this.lblSearchKeywords);
             this.KeyPreview = true;
-            this.Name = "ReorderRequestSendingForm";
+            this.Name = "RequestProductSelectionForm";
             this.Text = "ReorderRequestSendingForm";
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequestedGoods)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
@@ -285,16 +307,16 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnSendReorderRequest;
+        private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridView dgvRequestedGoods;
         private System.Windows.Forms.Label lblAmountToAdd;
         private System.Windows.Forms.DataGridView dgvProducts;
-        private System.Windows.Forms.TextBox txtSearchKeywords;
+        private System.Windows.Forms.TextBox tbSearchKeywords;
         private System.Windows.Forms.Label lblSearchKeywords;
         private System.Windows.Forms.Label lblHeader;
-        private System.Windows.Forms.Label lblGoodsInRequest;
+        private System.Windows.Forms.Label lblSelectedGoods;
         private System.Windows.Forms.NumericUpDown nudAmountToAdd;
         private System.Windows.Forms.DataGridViewTextBoxColumn requestedProductIdColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn requestedProductNameColumn;
@@ -304,5 +326,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn productNameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn productStockQuantityColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryColumn;
+        private System.Windows.Forms.ComboBox cbCategory;
+        private System.Windows.Forms.Label label1;
     }
 }

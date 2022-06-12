@@ -19,7 +19,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
         public UpdateProductAdminForm(IStock stock)
         {
             _suppliers = SupplierRepository.GetSuppliers().ToList();
-            _categories = CategoryRepository.GetCategories().ToList();
+            _categories = CategoryRepository.GetAll().ToList();
             _stock = stock;
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;

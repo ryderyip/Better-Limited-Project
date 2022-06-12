@@ -52,7 +52,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 
             cbCategoryFilter.Items.Add(string.Empty);
             cbCategoryFilter.SelectedIndex = 0;
-            CategoryRepository.GetCategories().ToList()
+            CategoryRepository.GetAll().ToList()
                 .ForEach(c => cbCategoryFilter.Items.Add(c.Name));
         }
 

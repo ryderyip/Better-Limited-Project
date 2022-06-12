@@ -54,5 +54,12 @@ namespace Better_Limited_Project.ProductUtility.Reordering
         {
             ReorderRequestRepository.InsertOrUpdate(this);
         }
+
+        public void Remove()
+        {
+            foreach (var requestedProduct in RequestedProducts)
+                ReorderRequestProductRepository.Delete(requestedProduct);
+            ReorderRequestRepository.Delete(this);
+        }
     }
 }

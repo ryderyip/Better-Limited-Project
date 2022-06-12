@@ -33,19 +33,21 @@ namespace Better_Limited_Project.ProductUtility.Reordering
             string id = dgvReorderRequests.Rows[e.RowIndex].Cells[idColumn.Name].Value.ToString();
             var selected = _requests.Find(r => r.Id == id);
             var form = new ReorderRequestDetailsForm(selected);
-            form.ShowDialog();
+            var result = form.ShowDialog();
+            if (result is DialogResult.OK)
+                RefreshForm();
         }
 
         private void btnNewRequest_Click(object sender, System.EventArgs e)
         {
-            var form = new ReorderRequestSendingForm();
+            var form = new NewReorderRequestForm();
             var result = form.ShowDialog();
             if (result is not DialogResult.OK)
                 return;
-            RefreshDgv();
+            RefreshForm();
         }
 
-        private void RefreshDgv()
+        private void RefreshForm()
         {
             _requests = ReorderRequestRepository.GetAll().ToList();
             Initialize();

@@ -73,5 +73,13 @@ namespace Better_Limited_Project.ProductUtility.Reordering
                 return "1";
             return ((from DataRow row in dataTable.Rows select row.Field<int>("id")).First() + 1).ToString();
         }
+
+        public static void Delete(ReorderRequest reorderRequest)
+        {
+            var command = new MySqlCommand(
+                @"delete from reorder_request where id = @id;");
+            command.Parameters.AddWithValue("@id", reorderRequest.Id);
+            DataTableRepository.ExecuteNonQuery(command);
+        }
     }
 }

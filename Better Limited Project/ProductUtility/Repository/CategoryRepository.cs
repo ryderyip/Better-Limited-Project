@@ -22,7 +22,7 @@ namespace Better_Limited_Project.ProductUtility.Repository
             return new Category(categoryId, dataTable.Rows[0].Field<string>("name"));
         }
 
-        public static IEnumerable<Category> GetCategories()
+        public static IEnumerable<Category> GetAll()
         {
             var command = new MySqlCommand(
                 "select id, name from product_category;");

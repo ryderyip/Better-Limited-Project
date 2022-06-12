@@ -61,25 +61,25 @@
             // 
             // tbRequestedOn
             // 
-            this.tbRequestedOn.Location = new System.Drawing.Point(192, 155);
+            this.tbRequestedOn.Location = new System.Drawing.Point(168, 156);
             this.tbRequestedOn.Name = "tbRequestedOn";
             this.tbRequestedOn.ReadOnly = true;
-            this.tbRequestedOn.Size = new System.Drawing.Size(132, 20);
+            this.tbRequestedOn.Size = new System.Drawing.Size(161, 20);
             this.tbRequestedOn.TabIndex = 20;
             // 
             // tbRequestNumber
             // 
-            this.tbRequestNumber.Location = new System.Drawing.Point(192, 108);
+            this.tbRequestNumber.Location = new System.Drawing.Point(168, 109);
             this.tbRequestNumber.Name = "tbRequestNumber";
             this.tbRequestNumber.ReadOnly = true;
-            this.tbRequestNumber.Size = new System.Drawing.Size(132, 20);
+            this.tbRequestNumber.Size = new System.Drawing.Size(161, 20);
             this.tbRequestNumber.TabIndex = 19;
             // 
             // lblRequestedOn
             // 
             this.lblRequestedOn.AutoSize = true;
             this.lblRequestedOn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRequestedOn.Location = new System.Drawing.Point(60, 156);
+            this.lblRequestedOn.Location = new System.Drawing.Point(36, 157);
             this.lblRequestedOn.Name = "lblRequestedOn";
             this.lblRequestedOn.Size = new System.Drawing.Size(98, 16);
             this.lblRequestedOn.TabIndex = 18;
@@ -89,7 +89,7 @@
             // 
             this.lblRequestNumber.AutoSize = true;
             this.lblRequestNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRequestNumber.Location = new System.Drawing.Point(60, 109);
+            this.lblRequestNumber.Location = new System.Drawing.Point(36, 110);
             this.lblRequestNumber.Name = "lblRequestNumber";
             this.lblRequestNumber.Size = new System.Drawing.Size(113, 16);
             this.lblRequestNumber.TabIndex = 17;
@@ -116,17 +116,17 @@
             // 
             // tbWarehouseName
             // 
-            this.tbWarehouseName.Location = new System.Drawing.Point(192, 202);
+            this.tbWarehouseName.Location = new System.Drawing.Point(168, 203);
             this.tbWarehouseName.Name = "tbWarehouseName";
             this.tbWarehouseName.ReadOnly = true;
-            this.tbWarehouseName.Size = new System.Drawing.Size(132, 20);
+            this.tbWarehouseName.Size = new System.Drawing.Size(161, 20);
             this.tbWarehouseName.TabIndex = 24;
             // 
             // lblWarehouseName
             // 
             this.lblWarehouseName.AutoSize = true;
             this.lblWarehouseName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWarehouseName.Location = new System.Drawing.Point(60, 203);
+            this.lblWarehouseName.Location = new System.Drawing.Point(36, 204);
             this.lblWarehouseName.Name = "lblWarehouseName";
             this.lblWarehouseName.Size = new System.Drawing.Size(81, 16);
             this.lblWarehouseName.TabIndex = 23;
@@ -134,17 +134,17 @@
             // 
             // tbRequestedByStaffName
             // 
-            this.tbRequestedByStaffName.Location = new System.Drawing.Point(192, 249);
+            this.tbRequestedByStaffName.Location = new System.Drawing.Point(168, 250);
             this.tbRequestedByStaffName.Name = "tbRequestedByStaffName";
             this.tbRequestedByStaffName.ReadOnly = true;
-            this.tbRequestedByStaffName.Size = new System.Drawing.Size(132, 20);
+            this.tbRequestedByStaffName.Size = new System.Drawing.Size(161, 20);
             this.tbRequestedByStaffName.TabIndex = 26;
             // 
             // lblRequestedByStaffName
             // 
             this.lblRequestedByStaffName.AutoSize = true;
             this.lblRequestedByStaffName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRequestedByStaffName.Location = new System.Drawing.Point(60, 250);
+            this.lblRequestedByStaffName.Location = new System.Drawing.Point(36, 251);
             this.lblRequestedByStaffName.Name = "lblRequestedByStaffName";
             this.lblRequestedByStaffName.Size = new System.Drawing.Size(126, 16);
             this.lblRequestedByStaffName.TabIndex = 25;
@@ -152,10 +152,10 @@
             // 
             // tbApprovedByStaffName
             // 
-            this.tbApprovedByStaffName.Location = new System.Drawing.Point(192, 343);
+            this.tbApprovedByStaffName.Location = new System.Drawing.Point(168, 344);
             this.tbApprovedByStaffName.Name = "tbApprovedByStaffName";
             this.tbApprovedByStaffName.ReadOnly = true;
-            this.tbApprovedByStaffName.Size = new System.Drawing.Size(132, 20);
+            this.tbApprovedByStaffName.Size = new System.Drawing.Size(161, 20);
             this.tbApprovedByStaffName.TabIndex = 28;
             this.tbApprovedByStaffName.Text = "-";
             // 
@@ -163,7 +163,7 @@
             // 
             this.lblApprovedByStaffName.AutoSize = true;
             this.lblApprovedByStaffName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApprovedByStaffName.Location = new System.Drawing.Point(60, 344);
+            this.lblApprovedByStaffName.Location = new System.Drawing.Point(36, 345);
             this.lblApprovedByStaffName.Name = "lblApprovedByStaffName";
             this.lblApprovedByStaffName.Size = new System.Drawing.Size(119, 16);
             this.lblApprovedByStaffName.TabIndex = 27;
@@ -171,17 +171,17 @@
             // 
             // tbIsApproved
             // 
-            this.tbIsApproved.Location = new System.Drawing.Point(192, 296);
+            this.tbIsApproved.Location = new System.Drawing.Point(168, 297);
             this.tbIsApproved.Name = "tbIsApproved";
             this.tbIsApproved.ReadOnly = true;
-            this.tbIsApproved.Size = new System.Drawing.Size(132, 20);
+            this.tbIsApproved.Size = new System.Drawing.Size(161, 20);
             this.tbIsApproved.TabIndex = 30;
             // 
             // lblIsApproved
             // 
             this.lblIsApproved.AutoSize = true;
             this.lblIsApproved.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIsApproved.Location = new System.Drawing.Point(60, 297);
+            this.lblIsApproved.Location = new System.Drawing.Point(36, 298);
             this.lblIsApproved.Name = "lblIsApproved";
             this.lblIsApproved.Size = new System.Drawing.Size(84, 16);
             this.lblIsApproved.TabIndex = 29;
@@ -189,10 +189,10 @@
             // 
             // tbApprovedOn
             // 
-            this.tbApprovedOn.Location = new System.Drawing.Point(192, 390);
+            this.tbApprovedOn.Location = new System.Drawing.Point(168, 391);
             this.tbApprovedOn.Name = "tbApprovedOn";
             this.tbApprovedOn.ReadOnly = true;
-            this.tbApprovedOn.Size = new System.Drawing.Size(132, 20);
+            this.tbApprovedOn.Size = new System.Drawing.Size(161, 20);
             this.tbApprovedOn.TabIndex = 32;
             this.tbApprovedOn.Text = "-";
             // 
@@ -200,7 +200,7 @@
             // 
             this.lblApprovedOn.AutoSize = true;
             this.lblApprovedOn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApprovedOn.Location = new System.Drawing.Point(60, 391);
+            this.lblApprovedOn.Location = new System.Drawing.Point(36, 392);
             this.lblApprovedOn.Name = "lblApprovedOn";
             this.lblApprovedOn.Size = new System.Drawing.Size(91, 16);
             this.lblApprovedOn.TabIndex = 31;

@@ -20,7 +20,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 
         public NewProductForm()
         {
-            _categories = CategoryRepository.GetCategories().ToList();
+            _categories = CategoryRepository.GetAll().ToList();
             _suppliers = SupplierRepository.GetSuppliers().ToList();
             InitializeComponent();
             Shown += InitializeControls;
