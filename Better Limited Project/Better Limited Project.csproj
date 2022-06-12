@@ -347,6 +347,7 @@
       <DependentUpon>NewDefectiveItem.cs</DependentUpon>
     </Compile>
     <Compile Include="ProductUtility\Entity\Category.cs" />
+    <Compile Include="ProductUtility\Entity\IReorderRestockService.cs" />
     <Compile Include="ProductUtility\Entity\IStock.cs" />
     <Compile Include="ProductUtility\Entity\Product.cs" />
     <Compile Include="ProductUtility\Entity\RetailStoreStock.cs" />
@@ -398,11 +399,11 @@
     <Compile Include="ProductUtility\Reordering\Entity\IProductQuantity.cs" />
     <Compile Include="ProductUtility\Reordering\Entity\ReorderRequest.cs" />
     <Compile Include="ProductUtility\Reordering\Entity\ReorderRequestProduct.cs" />
-    <Compile Include="ProductUtility\Reordering\NewReorderRequestForm.cs">
+    <Compile Include="ProductUtility\Reordering\NewReorderRestockRequestForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProductUtility\Reordering\NewReorderRequestForm.Designer.cs">
-      <DependentUpon>NewReorderRequestForm.cs</DependentUpon>
+    <Compile Include="ProductUtility\Reordering\NewReorderRestockRequestForm.Designer.cs">
+      <DependentUpon>NewReorderRestockRequestForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ProductUtility\Reordering\ReorderRequestDetailsForm.cs">
       <SubType>Form</SubType>
@@ -832,6 +833,7 @@
       <DependentUpon>StaffUtilityStringResources.resx</DependentUpon>
     </Compile>
     <Compile Include="Tools\FileSizeChecker.cs" />
+    <Compile Include="Tools\FormColors.cs" />
     <Compile Include="Tools\ImageRetriever.cs" />
     <Compile Include="Tools\ToolsStringResources.Designer.cs">
       <DesignTime>True</DesignTime>
@@ -1058,8 +1060,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ProductUtility\PurchaseOrder\PurchaseOrderDetailsForm.resx" />
     <EmbeddedResource Include="ProductUtility\PurchaseOrder\PurchaseOrdersForm.resx" />
-    <EmbeddedResource Include="ProductUtility\Reordering\NewReorderRequestForm.resx">
-      <DependentUpon>NewReorderRequestForm.cs</DependentUpon>
+    <EmbeddedResource Include="ProductUtility\Reordering\NewReorderRestockRequestForm.resx">
+      <DependentUpon>NewReorderRestockRequestForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductUtility\Reordering\ReorderRequestDetailsForm.resx">
       <DependentUpon>ReorderRequestDetailsForm.cs</DependentUpon>

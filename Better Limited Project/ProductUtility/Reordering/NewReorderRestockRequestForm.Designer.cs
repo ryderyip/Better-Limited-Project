@@ -1,7 +1,7 @@
 ﻿
 namespace Better_Limited_Project.ProductUtility.Reordering
 {
-    partial class NewReorderRequestForm
+    partial class NewReorderRestockRequestForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace Better_Limited_Project.ProductUtility.Reordering
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewReorderRequestForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewReorderRestockRequestForm));
             this.lblGoodsInRequest = new System.Windows.Forms.Label();
             this.lblHeader = new System.Windows.Forms.Label();
             this.dgvRequestedGoods = new System.Windows.Forms.DataGridView();

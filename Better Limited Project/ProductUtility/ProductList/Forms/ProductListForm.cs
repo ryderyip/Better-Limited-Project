@@ -11,6 +11,7 @@ using Better_Limited_Project.ProductUtility.Repository;
 using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.StaffUtility.Repository;
 using Better_Limited_Project.StaffUtility.StaffEntity;
+using Better_Limited_Project.Tools;
 
 namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 {
@@ -75,7 +76,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
                         .Find(s => s.Product.Name == row.Cells[name.Name].Value.ToString());
                     return product.Quantity <= product.RestockLevel;
                 }).ToList()
-                .ForEach(row => row.DefaultCellStyle.BackColor = Color.PeachPuff);
+                .ForEach(row => row.DefaultCellStyle.BackColor = FormColors.DgvRowAttentionWeak);
 
             // if stock is 0 set color
             dgvProductList.Rows.Cast<DataGridViewRow>()
@@ -85,7 +86,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
                         .Find(s => s.Product.Name == row.Cells[name.Name].Value.ToString());
                     return product.Quantity == 0;
                 }).ToList()
-                .ForEach(row => row.DefaultCellStyle.BackColor = Color.SandyBrown);
+                .ForEach(row => row.DefaultCellStyle.BackColor = FormColors.DgvRowAttention);
         }
 
         private void PopulateProductDgvNoSellingPrice(List<IStock> stocks)

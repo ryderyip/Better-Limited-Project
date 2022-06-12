@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using Better_Limited_Project.ServiceUtility.Reordering;
+using Better_Limited_Project.ProductUtility.Reordering.Controller;
+using Better_Limited_Project.Tools;
 
 namespace Better_Limited_Project.ProductUtility.Reordering
 {
@@ -18,7 +19,13 @@ namespace Better_Limited_Project.ProductUtility.Reordering
 
         private void Initialize()
         {
+            dgvReorderRequests.RowsAdded += (_, args) => HighLightNewRow(args.RowIndex);
             PopulateDgv(_requests);
+        }
+
+        private void HighLightNewRow(int rowIndex)
+        {
+            dgvReorderRequests.Rows[rowIndex].DefaultCellStyle.BackColor = FormColors.DgvRowAttention;
         }
 
         private void PopulateDgv(List<ReorderRequest> requests)
@@ -40,7 +47,7 @@ namespace Better_Limited_Project.ProductUtility.Reordering
 
         private void btnNewRequest_Click(object sender, System.EventArgs e)
         {
-            var form = new NewReorderRequestForm();
+            var form = new NewReorderRestockRequestForm(new ReorderService());
             var result = form.ShowDialog();
             if (result is not DialogResult.OK)
                 return;

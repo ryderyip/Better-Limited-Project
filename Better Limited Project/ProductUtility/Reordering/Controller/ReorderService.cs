@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using Better_Limited_Project.Login;
+using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.SettingsUtility;
 
-namespace Better_Limited_Project.ProductUtility.Reordering
+namespace Better_Limited_Project.ProductUtility.Reordering.Controller
 {
-    public class ReorderService
+    public class ReorderService : IReorderRestockService
     {
         private readonly ReorderRequest _reorderRequest;
         private readonly List<IProductQuantity> _requestedProducts;
@@ -12,16 +13,18 @@ namespace Better_Limited_Project.ProductUtility.Reordering
         /// <summary>
         /// Initialize a <see cref="ReorderRequest"/> instance.
         /// </summary>
-        /// <param name="productQuantities">Products to reorder</param>
-        public ReorderService(IEnumerable<IProductQuantity>? productQuantities = null)
+        public ReorderService()
         {
             _reorderRequest = new ReorderRequest(UserSettings.GetSettings().Workplace!.Id,
                 LoginSession.GetSession().CurrentStaff.Id);
-            _requestedProducts = productQuantities != null
-                ? new List<IProductQuantity>(productQuantities)
-                : new List<IProductQuantity>();
+            _requestedProducts = new List<IProductQuantity>();
         }
-
+        
+        public void AddRange(IEnumerable<IProductQuantity> productQuantities)
+        {
+            _requestedProducts.AddRange(productQuantities);
+        }
+        
         /// <summary>
         /// Creates a reorder request record and requested product records.
         /// </summary>

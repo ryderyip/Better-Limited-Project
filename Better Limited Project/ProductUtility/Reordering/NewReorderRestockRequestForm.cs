@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
+using Better_Limited_Project.ProductUtility.Entity;
 
 namespace Better_Limited_Project.ProductUtility.Reordering
 {
-    public partial class NewReorderRequestForm : Form
+    public partial class NewReorderRestockRequestForm : Form
     {
         private List<IProductQuantity> _selectedProducts = new();
+        private readonly IReorderRestockService _reorderRestockService;
 
-        public NewReorderRequestForm()
+        public NewReorderRestockRequestForm(IReorderRestockService reorderRestockService)
         {
+            _reorderRestockService = reorderRestockService;
             StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
             Load += (_, _) => Initialize();
@@ -65,7 +68,8 @@ namespace Better_Limited_Project.ProductUtility.Reordering
                 MessageBoxButtons.OKCancel);
             if (result is not DialogResult.OK) return;
 
-            new ReorderService(_selectedProducts).Submit();
+            _reorderRestockService.AddRange(_selectedProducts);
+            _reorderRestockService.Submit();
 
             DialogResult = DialogResult.OK;
         }

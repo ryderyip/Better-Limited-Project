@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.Controller;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
+using Better_Limited_Project.Tools;
 using Color = System.Drawing.Color;
 
 namespace Better_Limited_Project.Sales.OrderPlacing.UI
@@ -67,7 +68,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
                     depositAmount.ToString("C", new CultureInfo("zh-HK")) + " (20%)",
                     salesOrderProduct.Quantity,
                     subtotal.ToString("C", new CultureInfo("zh-HK")));
-                dgvProducts.Rows[rowIndex].DefaultCellStyle.BackColor = Color.SandyBrown;
+                dgvProducts.Rows[rowIndex].DefaultCellStyle.BackColor = FormColors.DgvRowAttention;
             }
         }
 

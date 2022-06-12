@@ -73,7 +73,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
                     sop.IsStockReady() ? "Replenished" : "Awaiting Restock",
                     EnumToStringHelper.GetDisplayValue(sop.GetPaymentStatus()));
                 if (sop.GetPaymentStatus() is not SalesOrderProductPaymentStatus.FullyPaid)
-                    dgvProducts.Rows[rowIndex].DefaultCellStyle.BackColor = Color.SandyBrown;
+                    dgvProducts.Rows[rowIndex].DefaultCellStyle.BackColor = FormColors.DgvRowAttention;
             }
         }
 

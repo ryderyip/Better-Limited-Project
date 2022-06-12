@@ -64,7 +64,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
                     dgvCart.Rows.Cast<DataGridViewRow>()
                         .First(row => row.Cells[cartNameColumn.Name].Value.ToString() == cartItem.Product.Name
                                       && (bool) row.Cells[cartIsOutOfStock.Name].Value)
-                        .DefaultCellStyle.BackColor = Color.SandyBrown;
+                        .DefaultCellStyle.BackColor = FormColors.DgvRowAttention;
             });
             txtTotalPrice.Text = total.ToString("C", new CultureInfo("zh-HK"));
         }
