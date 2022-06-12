@@ -14,6 +14,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 
         public ProductDetailsForm(IStock selectedProductStock)
         {
+            StartPosition = FormStartPosition.CenterScreen;
             _stock = selectedProductStock;
             InitializeComponent();
         }

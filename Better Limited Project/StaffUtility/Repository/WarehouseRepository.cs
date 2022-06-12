@@ -13,7 +13,7 @@ namespace Better_Limited_Project.StaffUtility.Repository
         public static IEnumerable<Warehouse> GetAll()
         {
             var command = new MySqlCommand(
-                "SELECT id, name, address FROM warehouse;");
+                "SELECT id, abbreviation, name, address FROM warehouse;");
             var dataTable = DataTableRepository.RetrieveDataTable(command);
             return ConvertToWarehouses(dataTable);
         }
@@ -25,15 +25,16 @@ namespace Better_Limited_Project.StaffUtility.Repository
 
             return (from DataRow row in dataTable.Rows 
                 let id = row.Field<int>("id").ToString() 
+                let abbreviation = row.Field<string>("abbreviation")
                 let name = row.Field<string>("name") 
                 let address = row.Field<string>("address") 
-                select new Warehouse(id, name, address)).ToList();
+                select new Warehouse(id, abbreviation, name, address)).ToList();
         }
         
         public static Warehouse GetById(string id)
         {
             var command = new MySqlCommand(
-                @"select id, name, address
+                @"select id, name, address, abbreviation
                         from warehouse
                         where id = @id;");
             command.Parameters.AddWithValue("@id", id);

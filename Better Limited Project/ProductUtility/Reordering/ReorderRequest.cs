@@ -10,14 +10,16 @@ namespace Better_Limited_Project.ProductUtility.Reordering
         public ReorderRequest(string warehouseId, string requestedByStaffId)
         {
             Id = ReorderRequestRepository.GetNewId();
+            RequestNumber = ReorderRequestNumberGenerator.Generate(warehouseId);
             WarehouseId = warehouseId;
             RequestedByStaffId = requestedByStaffId;
             RequestedOn = DateTime.Now;
         }
 
-        public ReorderRequest(string id, string warehouseId, string requestedByStaffId, string? approvedByStaffId, DateTime requestedOn, DateTime? approvedOn)
+        public ReorderRequest(string id, string requestNumber, string warehouseId, string requestedByStaffId, string? approvedByStaffId, DateTime requestedOn, DateTime? approvedOn)
         {
             Id = id;
+            RequestNumber = requestNumber;
             WarehouseId = warehouseId;
             RequestedByStaffId = requestedByStaffId;
             ApprovedByStaffId = approvedByStaffId;
@@ -26,6 +28,7 @@ namespace Better_Limited_Project.ProductUtility.Reordering
         }
 
         public string Id { get; }
+        public string RequestNumber { get; }
         public string WarehouseId { get; }
         public string RequestedByStaffId { get; }
         public string? ApprovedByStaffId { get; set; }
@@ -41,5 +44,15 @@ namespace Better_Limited_Project.ProductUtility.Reordering
 
         public IEnumerable<ReorderRequestProduct> RequestedProducts
             => ReorderRequestProductRepository.GetBy(this);
+
+        public bool IsApproved()
+        {
+            return ApprovedBy != null || ApprovedOn != null;
+        }
+
+        public void Save()
+        {
+            ReorderRequestRepository.InsertOrUpdate(this);
+        }
     }
 }

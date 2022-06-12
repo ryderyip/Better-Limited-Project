@@ -8,7 +8,7 @@ namespace Better_Limited_Project.ProductUtility.Reordering
 {
     public static class ReorderRequestProductRepository
     {
-        public static void Insert(ReorderRequestProduct requestedProduct)
+        public static void InsertOrUpdate(ReorderRequestProduct requestedProduct)
         {
             var command = new MySqlCommand(
                 @"insert into reorder_request_product

@@ -9,12 +9,18 @@ namespace Better_Limited_Project.ProductUtility.Reordering
 {
     public static class ReorderRequestRepository
     {
-        public static void Insert(ReorderRequest reorderRequest)
+        /// <summary>
+        /// Insert new row. When id is duplicate, updates approved by staff id and approved on.
+        /// </summary>
+        /// <param name="reorderRequest"></param>
+        public static void InsertOrUpdate(ReorderRequest reorderRequest)
         {
             var command = new MySqlCommand(
-                @"insert into reorder_request (id, warehouse_id, requested_by_staff_id, requested_on, approved_by_staff_id, approved_on)
-                value (@id, @warehouse_id, @requestedByStaffId, @requestedOn, @approvedByStaffId, @approvedOn)");
+                @"insert into reorder_request (id, request_number, warehouse_id, requested_by_staff_id, requested_on, approved_by_staff_id, approved_on)
+                value (@id, @requestNumber, @warehouse_id, @requestedByStaffId, @requestedOn, @approvedByStaffId, @approvedOn)
+                on duplicate key update approved_by_staff_id = @approvedByStaffId, approved_on = @approvedOn;");
             command.Parameters.AddWithValue("@id", reorderRequest.Id);
+            command.Parameters.AddWithValue("@requestNumber", reorderRequest.RequestNumber);
             command.Parameters.AddWithValue("@warehouse_id", reorderRequest.Warehouse.Id);
             command.Parameters.AddWithValue("@requestedByStaffId", reorderRequest.RequestedByStaff.Id);
             command.Parameters.AddWithValue("@requestedOn", reorderRequest.RequestedOn);
@@ -28,7 +34,7 @@ namespace Better_Limited_Project.ProductUtility.Reordering
         public static IEnumerable<ReorderRequest> GetAll()
         {
             var command = new MySqlCommand(
-                @"select id, warehouse_id, requested_by_staff_id, requested_on, approved_by_staff_id, approved_on
+                @"select id, request_number, warehouse_id, requested_by_staff_id, requested_on, approved_by_staff_id, approved_on
                     from reorder_request;");
             var dataTable = DataTableRepository.RetrieveDataTable(command);
             return from DataRow row in dataTable.Rows select ConvertToReorderRequest(row);
@@ -37,18 +43,19 @@ namespace Better_Limited_Project.ProductUtility.Reordering
         private static ReorderRequest ConvertToReorderRequest(DataRow row)
         {
             string id = row.Field<int>("id").ToString();
-            string warehouseId = row.Field<string>("warehouse_id");
+            string requestNumber = row.Field<string>("request_number");
+            string warehouseId = row.Field<int>("warehouse_id").ToString();
             string requestedByStaffId = row.Field<int>("requested_by_staff_id").ToString();
-            DateTime requestedOn = row.Field<DateTime>("requested_on");
-            string approvedByStaffId = row.Field<int>("approved_by_staff_id").ToString();
-            DateTime approvedOn = row.Field<DateTime>("approved_on");
-            return new ReorderRequest(id, warehouseId, requestedByStaffId, approvedByStaffId, requestedOn, approvedOn);
+            var requestedOn = row.Field<DateTime>("requested_on");
+            var approvedByStaffId = row.Field<int?>("approved_by_staff_id")?.ToString();
+            var approvedOn = row.Field<DateTime?>("approved_on");
+            return new ReorderRequest(id, requestNumber, warehouseId, requestedByStaffId, approvedByStaffId, requestedOn, approvedOn);
         }
 
         public static ReorderRequest FindById(string id)
         {
             var command = new MySqlCommand(
-                @"select id, warehouse_id, requested_by_staff_id, requested_on, approved_by_staff_id, approved_on
+                @"select id, request_number, warehouse_id, requested_by_staff_id, requested_on, approved_by_staff_id, approved_on
                     from reorder_request
                     where id = @id;");
             command.Parameters.AddWithValue("@id", id);

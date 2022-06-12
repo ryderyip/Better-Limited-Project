@@ -11,7 +11,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList
 
         public ProductCreationDataVerifier()
         {
-            _products = ProductRepository.GetProducts().ToList();
+            _products = ProductRepository.GetAll().ToList();
         }
 
         public bool IsNameUnique(string name)

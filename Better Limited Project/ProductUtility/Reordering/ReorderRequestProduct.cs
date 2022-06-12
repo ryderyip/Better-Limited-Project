@@ -12,10 +12,15 @@ namespace Better_Limited_Project.ProductUtility.Reordering
             Quantity = quantity;
         }
 
-        public string ReorderRequestId { get; set; }
-        public string ProductId { get; set; }
-        public int Quantity { get; set; }
+        public string ReorderRequestId { get; }
+        public string ProductId { get; }
+        public int Quantity { get; }
         public ReorderRequest Request => ReorderRequestRepository.FindById(ReorderRequestId);
         public Product Product => ProductRepository.FindById(ProductId);
+
+        public void Save()
+        {
+            ReorderRequestProductRepository.InsertOrUpdate(this);
+        }
     }
 }

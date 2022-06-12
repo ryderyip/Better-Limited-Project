@@ -9,7 +9,7 @@ namespace Better_Limited_Project.ProductUtility.Repository
 {
     public static class ProductRepository
     {
-        public static IEnumerable<Product> GetProducts()
+        public static IEnumerable<Product> GetAll()
         {
             var command = new MySqlCommand(
                 @"select p.id, p.name, p.price, p.description, 
@@ -53,7 +53,7 @@ namespace Better_Limited_Project.ProductUtility.Repository
 
         public static Product FindById(string productId)
         {
-            return GetProducts().First(product => product.Id == productId);
+            return GetAll().First(product => product.Id == productId);
         }
 
         public static string GetNewId()

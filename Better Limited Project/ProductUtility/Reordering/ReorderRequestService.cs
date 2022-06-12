@@ -4,9 +4,9 @@
     {
         public static void SendRequest(ReorderRequest request)
         {
-            ReorderRequestRepository.Insert(request);
+            ReorderRequestRepository.InsertOrUpdate(request);
             foreach (var requestedProduct in request.RequestedProducts)
-                ReorderRequestProductRepository.Insert(requestedProduct);
+                ReorderRequestProductRepository.InsertOrUpdate(requestedProduct);
         }
     }
 }
