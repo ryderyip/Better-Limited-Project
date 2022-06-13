@@ -75,7 +75,7 @@ namespace Better_Limited_Project.Navigation.UI
             resources.ApplyResources(this.btnInwardGoods, "btnInwardGoods");
             this.btnInwardGoods.Name = "btnInwardGoods";
             this.btnInwardGoods.UseVisualStyleBackColor = true;
-            this.btnInwardGoods.Click += new System.EventHandler(this.btnGoodsReceived_Click);
+            this.btnInwardGoods.Click += new System.EventHandler(this.btnInwardGoods_Click);
             // 
             // btnGoodsReturned
             // 

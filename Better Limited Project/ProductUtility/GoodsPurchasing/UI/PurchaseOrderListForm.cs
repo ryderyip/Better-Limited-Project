@@ -2,8 +2,10 @@
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
+using Better_Limited_Project.Login;
 using Better_Limited_Project.ProductUtility.GoodsPurchasing.Entity;
 using Better_Limited_Project.ProductUtility.GoodsPurchasing.Repository;
+using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.ProductUtility.GoodsPurchasing.UI
 {
@@ -20,6 +22,12 @@ namespace Better_Limited_Project.ProductUtility.GoodsPurchasing.UI
 
         private void Initialize()
         {
+            if (LoginSession.GetSession().CurrentStaff.Title is StaffTitle.ReceivingClerk)
+            {
+                cbShowApproved.Checked = true;
+                cbShowApproved.Enabled = false;
+                _purchaseOrders = _purchaseOrders.Where(po => po.IsApproved()).ToList();
+            }
             tbSearchBox.TextChanged += (_, _) => FilterDgv();
             cbShowApproved.CheckedChanged += (_, _) => FilterDgv();
             FilterDgv();

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.Login;
@@ -34,7 +35,12 @@ namespace Better_Limited_Project.ProductUtility.Reordering.UI
 
         private void HighLightNewRow(int rowIndex)
         {
-            dgvReorderRequests.Rows[rowIndex].DefaultCellStyle.BackColor = FormColors.DgvRowAttention;
+            foreach (DataGridViewRow row in dgvReorderRequests.Rows)
+            {
+                if (row.Index == rowIndex)
+                    row.DefaultCellStyle.BackColor = FormColors.DgvRowAttention;
+                row.DefaultCellStyle.BackColor = Color.White;
+            }
         }
 
         private void PopulateDgv(List<ReorderRequest> requests)

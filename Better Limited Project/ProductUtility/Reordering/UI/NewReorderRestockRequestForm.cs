@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.ProductUtility.Reordering.Entity;
+using Better_Limited_Project.ProductUtility.UI;
 
 namespace Better_Limited_Project.ProductUtility.Reordering.UI
 {
@@ -48,7 +49,7 @@ namespace Better_Limited_Project.ProductUtility.Reordering.UI
 
         private void btnSelectGoods_Click(object sender, EventArgs e)
         {
-            var form = new RequestProductSelectionForm(_selectedProducts);
+            var form = new GoodsPickerForm(_selectedProducts);
             var result = form.ShowDialog();
             if (result is not DialogResult.OK)
                 return;

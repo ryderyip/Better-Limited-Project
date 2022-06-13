@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.Login;
 using Better_Limited_Project.ProductUtility.GoodsPurchasing.Entity;
+using Better_Limited_Project.ProductUtility.InwardGoodsUtility.UI;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.ProductUtility.GoodsPurchasing.UI
@@ -25,9 +26,13 @@ namespace Better_Limited_Project.ProductUtility.GoodsPurchasing.UI
 
         private void Initialize()
         {
-            if (LoginSession.GetSession().CurrentStaff.Department is not Department.Accounting
-            || _purchaseOrder.IsApproved())
+            var currentStaff = LoginSession.GetSession().CurrentStaff;
+            if (currentStaff.Department is not Department.Accounting
+                || _purchaseOrder.IsApproved())
                 btnApproveAndSend.Visible = false;
+            if (currentStaff.Title is StaffTitle.ReceivingClerk
+                && _purchaseOrder.GetNotYetReceivedProducts().Any())
+                btnCreateInwardGoodsRecord.Visible = true;
             FillFields();
             PopulateDgv();
         }
@@ -62,15 +67,24 @@ namespace Better_Limited_Project.ProductUtility.GoodsPurchasing.UI
 
         private void btnApproveAndSend_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("Confirm approving purchase order and sending it to the supplier(s)?", "Confirmation", MessageBoxButtons.YesNo);
+            var result = MessageBox.Show("Confirm approving purchase order and sending it to the supplier(s)?",
+                "Confirmation", MessageBoxButtons.YesNo);
             if (result is not DialogResult.Yes)
                 return;
-            
+
             _purchaseOrder.ApprovedByStaffId = LoginSession.GetSession().CurrentStaff.Id;
             _purchaseOrder.ApprovedOn = DateTime.Now;
             _purchaseOrder.SentToSupplierOn = DateTime.Now;
             _purchaseOrder.Save();
             Initialize();
+        }
+
+        private void btnCreateInwardGoodsRecord_Click(object sender, EventArgs e)
+        {
+            var form = new NewInwardGoodsRecordForm();
+            var result = form.ShowDialog();
+            if (result is DialogResult.OK)
+                Initialize();
         }
     }
 }

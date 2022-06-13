@@ -35,7 +35,7 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnPurchaseOrders = new System.Windows.Forms.Button();
             this.lblLoggedInAs = new System.Windows.Forms.Label();
             this.btnProfile = new System.Windows.Forms.Button();
-            this.btnGoodsReceived = new System.Windows.Forms.Button();
+            this.btnInwardGoods = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnInventory = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -59,12 +59,12 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnProfile.UseVisualStyleBackColor = true;
             this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
             // 
-            // btnGoodsReceived
+            // btnInwardGoods
             // 
-            resources.ApplyResources(this.btnGoodsReceived, "btnGoodsReceived");
-            this.btnGoodsReceived.Name = "btnGoodsReceived";
-            this.btnGoodsReceived.UseVisualStyleBackColor = true;
-            this.btnGoodsReceived.Click += new System.EventHandler(this.btnGoodsReceived_Click);
+            resources.ApplyResources(this.btnInwardGoods, "btnInwardGoods");
+            this.btnInwardGoods.Name = "btnInwardGoods";
+            this.btnInwardGoods.UseVisualStyleBackColor = true;
+            this.btnInwardGoods.Click += new System.EventHandler(this.btnInwardGoods_Click);
             // 
             // btnSettings
             // 
@@ -87,7 +87,7 @@ namespace Better_Limited_Project.Navigation.UI
             this.Controls.Add(this.btnPurchaseOrders);
             this.Controls.Add(this.lblLoggedInAs);
             this.Controls.Add(this.btnProfile);
-            this.Controls.Add(this.btnGoodsReceived);
+            this.Controls.Add(this.btnInwardGoods);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.btnInventory);
             this.Name = "ReceivingClerkNavigationForm";
@@ -98,7 +98,7 @@ namespace Better_Limited_Project.Navigation.UI
         private System.Windows.Forms.Button btnPurchaseOrders;
         private System.Windows.Forms.Label lblLoggedInAs;
         private System.Windows.Forms.Button btnProfile;
-        private System.Windows.Forms.Button btnGoodsReceived;
+        private System.Windows.Forms.Button btnInwardGoods;
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.Button btnInventory;
 

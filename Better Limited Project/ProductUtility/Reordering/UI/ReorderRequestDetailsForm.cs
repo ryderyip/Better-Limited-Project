@@ -85,7 +85,7 @@ namespace Better_Limited_Project.ProductUtility.Reordering.UI
                 dgvRequestedGoods.Rows[e.RowIndex].Cells[requestedProductIdColumn.Name].Value.ToString())).ShowDialog();
         }
 
-        private void btnApproveRequestAndCreatePurchaseOrder_Click(object sender, System.EventArgs e)
+        private void btnApproveRequestAndCreatePurchaseOrder_Click(object sender, EventArgs e)
         {
             var result = MessageBox.Show("Confirm approving request and create purchase order?", "Confirmation", MessageBoxButtons.YesNo);
             if (result is not DialogResult.Yes)
@@ -95,6 +95,7 @@ namespace Better_Limited_Project.ProductUtility.Reordering.UI
             service.AddRangeOrderProducts(_reorderRequest.RequestedProducts);
             service.Create();
             Initialize();
+            DialogResult = DialogResult.OK;
         }
     }
 }

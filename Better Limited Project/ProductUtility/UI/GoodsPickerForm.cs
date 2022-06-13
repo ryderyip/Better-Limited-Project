@@ -7,22 +7,26 @@ using Better_Limited_Project.ProductUtility.Reordering.Entity;
 using Better_Limited_Project.ProductUtility.Repository;
 using Better_Limited_Project.SettingsUtility;
 
-namespace Better_Limited_Project.ProductUtility.Reordering.UI
+namespace Better_Limited_Project.ProductUtility.UI
 {
-    public partial class RequestProductSelectionForm : Form
+    /// <summary>
+    /// For selecting products and their quantity. Returns dialog result <see cref="DialogResult.OK"/> when finished.
+    /// </summary>
+    public partial class GoodsPickerForm : Form
     {
         private readonly List<Product> _products;
         private readonly List<Category> _categories;
         public List<IProductQuantity> SelectedProducts { get; }
 
         /// <summary>
-        /// Creates a <see cref="RequestProductSelectionForm"/> instance.
+        /// Creates a <see cref="GoodsPickerForm"/> instance.
         /// </summary>
         /// <param name="productQuantities">Already selected products to be added
         /// to the selected goods data grid view.</param>
-        public RequestProductSelectionForm(IList<IProductQuantity>? productQuantities = null)
+        /// <param name="products"><para>Products for users to pick from.</para>Users can pick any product if unprovided.</param>
+        public GoodsPickerForm(IList<IProductQuantity>? productQuantities = null, IEnumerable<Product>? products = null)
         {
-            _products = ProductRepository.GetAll().ToList();
+            _products = products == null ? ProductRepository.GetAll().ToList() : products.ToList();
             _categories = CategoryRepository.GetAll().ToList();
             StartPosition = FormStartPosition.CenterScreen;
             SelectedProducts = productQuantities != null
@@ -44,6 +48,7 @@ namespace Better_Limited_Project.ProductUtility.Reordering.UI
             dgvRequestedGoods.Click += (_, _) => dgvProducts.ClearSelection();
             PopulateProductDgv(_products);
             _categories.ForEach(c => cbCategory.Items.Add(c.Name));
+            cbCategory.Items.Add(string.Empty);
             SelectedProducts.ForEach(sp => AddToSelectedGoodsDgv(sp.Product, sp.Quantity));
         }
 
@@ -75,7 +80,7 @@ namespace Better_Limited_Project.ProductUtility.Reordering.UI
                 string productId = row.Cells[productIdColumn.Name].Value.ToString();
                 var product = _products.Find(p => p.Id == productId);
                 int quantity = (int) nudAmountToAdd.Value;
-                AddToSelectedProducts(productId, quantity);
+                // AddToSelectedProducts(productId, quantity);
                 AddToSelectedGoodsDgv(product, quantity);
                 row.Selected = false;
             }
@@ -87,7 +92,7 @@ namespace Better_Limited_Project.ProductUtility.Reordering.UI
         {
             var productQuantity = SelectedProducts.Find(sp => sp.ProductId == productId);
             if (productQuantity == default)
-                SelectedProducts.Add(new RequestProduct(productId, quantity));
+                SelectedProducts.Add(new ProductQuantity(productId, quantity));
             else
                 productQuantity.Quantity += quantity;
         }
@@ -129,6 +134,14 @@ namespace Better_Limited_Project.ProductUtility.Reordering.UI
 
         private void btnConfirm_Click(object sender, System.EventArgs e)
         {
+            SelectedProducts.Clear();
+            foreach (DataGridViewRow row in dgvRequestedGoods.Rows)
+            {
+                string productId = row.Cells[requestedProductIdColumn.Name].Value.ToString();
+                int quantity = int.Parse(row.Cells[quantityToReorderColumn.Name].Value.ToString());
+                SelectedProducts.Add(new ProductQuantity(productId, quantity));
+            }
+
             DialogResult = DialogResult.OK;
         }
 
@@ -148,19 +161,6 @@ namespace Better_Limited_Project.ProductUtility.Reordering.UI
                 : _products.Where(p => p.Name.ToLower().Contains(keywords)
                                        && p.Category.Name == cbCategory.SelectedItem.ToString());
             PopulateProductDgv(filteredProducts.ToList());
-        }
-
-        private class RequestProduct : IProductQuantity
-        {
-            public RequestProduct(string productId, int quantity)
-            {
-                ProductId = productId;
-                Quantity = quantity;
-            }
-
-            public string ProductId { get; }
-            public Product Product => ProductRepository.FindById(ProductId);
-            public int Quantity { get; set; }
         }
     }
 }

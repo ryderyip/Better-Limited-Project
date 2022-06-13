@@ -3,8 +3,8 @@ using System.Windows.Forms;
 using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.Login;
 using Better_Limited_Project.ProductUtility.DefectiveItemReturning;
+using Better_Limited_Project.ProductUtility.InwardGoodsUtility.UI;
 using Better_Limited_Project.ProductUtility.ProductList.Forms;
-using Better_Limited_Project.ProductUtility.Reordering;
 using Better_Limited_Project.ProductUtility.Reordering.UI;
 using Better_Limited_Project.ServiceUtility.Delivery.UI;
 using Better_Limited_Project.SettingsUtility;
@@ -43,14 +43,15 @@ namespace Better_Limited_Project.Navigation.UI
             _formController.OpenContentForm(form);
         }
 
-        private void btnGoodsReceived_Click(object sender, EventArgs e)
+        private void btnInwardGoods_Click(object sender, EventArgs e)
         {
             if (!UserSettings.HasSelectedWorkplace())
             {
                 MessageBox.Show(NavigationForms.noSelectedWarehouseMessage);
                 return;
             }
-            throw new NotImplementedException();
+            var form = new InwardGoodsRecordListForm();
+            _formController.OpenContentForm(form);
         }
 
         private void btnGoodsReturned_Click(object sender, EventArgs e)

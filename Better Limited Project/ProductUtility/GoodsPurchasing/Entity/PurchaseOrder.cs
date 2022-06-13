@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Better_Limited_Project.ProductUtility.GoodsPurchasing.Controller;
 using Better_Limited_Project.ProductUtility.GoodsPurchasing.Repository;
+using Better_Limited_Project.ProductUtility.InwardGoodsUtility.Repository;
 using Better_Limited_Project.ProductUtility.Reordering.Entity;
 using Better_Limited_Project.ProductUtility.Reordering.Repository;
 using Better_Limited_Project.StaffUtility.Repository;
@@ -55,12 +56,35 @@ namespace Better_Limited_Project.ProductUtility.GoodsPurchasing.Entity
 
         public bool IsApproved()
         {
-            return ApprovedOn != null || ApprovedByStaff != null;
+            return ApprovedOn != null && ApprovedByStaff != null;
         }
 
         public decimal GetTotalCost()
         {
             return OrderProducts.Sum(op => op.Product.OriginalPrice * op.Quantity);
+        }
+
+        public IEnumerable<PurchaseOrderProduct> GetNotYetReceivedProducts()
+        {
+            var alreadyReceived = GetReceivedProducts().ToList();
+            var orderedProducts = OrderProducts;
+            return !alreadyReceived.Any() 
+                ? orderedProducts
+            : from orderedProduct in orderedProducts
+                let receivedProduct = alreadyReceived.Find(gp => gp.ProductId == orderedProduct.ProductId)
+                let missingQuantity = orderedProduct.Quantity - (receivedProduct?.Quantity ?? 0)
+                where receivedProduct == null || receivedProduct.Quantity < orderedProduct.Quantity
+                select new PurchaseOrderProduct(Id, orderedProduct.ProductId, missingQuantity > 0 ? missingQuantity : 0);
+        }
+
+        public IEnumerable<IProductQuantity> GetReceivedProducts()
+        {
+            var inwardRecords = InwardGoodsRepository.FindBy(ig => ig.PurchaseOrderId == Id).ToList();
+            return !inwardRecords.Any()
+                ? Enumerable.Empty<PurchaseOrderProduct>()
+                : inwardRecords.SelectMany(ir => ir.InwardProducts)
+                    .GroupBy(igp => igp.ProductId, igp => igp.Quantity)
+                    .Select(igpgp => new ProductQuantity(igpgp.Key, igpgp.Sum(qty => qty)));
         }
     }
 }

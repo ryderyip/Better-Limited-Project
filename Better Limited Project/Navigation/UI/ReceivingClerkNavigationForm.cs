@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.Login;
 using Better_Limited_Project.ProductUtility.GoodsPurchasing.UI;
+using Better_Limited_Project.ProductUtility.InwardGoodsUtility.UI;
 using Better_Limited_Project.ProductUtility.ProductList.Forms;
 using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.StaffUtility.StaffProfile;
@@ -34,14 +35,16 @@ namespace Better_Limited_Project.Navigation.UI
             controller.OpenForm();
         }
 
-        private void btnGoodsReceived_Click(object sender, EventArgs e)
+        private void btnInwardGoods_Click(object sender, EventArgs e)
         {
             if (!UserSettings.HasSelectedWorkplace())
             {
                 MessageBox.Show(NavigationForms.noSelectedWarehouseMessage);
                 return;
             }
-            throw new NotImplementedException();
+
+            var form = new InwardGoodsRecordListForm();
+            _formController.OpenContentForm(form);
         }
 
         private void btnInventory_Click(object sender, EventArgs e)

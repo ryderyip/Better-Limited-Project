@@ -1,6 +1,6 @@
-﻿namespace Better_Limited_Project.ProductUtility.Reordering.UI
+﻿namespace Better_Limited_Project.ProductUtility.UI
 {
-    partial class RequestProductSelectionForm
+    partial class GoodsPickerForm
     {
         /// <summary>
         /// Required designer variable.
@@ -207,17 +207,17 @@
             // 
             this.lblHeader.AutoSize = true;
             this.lblHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeader.Location = new System.Drawing.Point(208, 25);
+            this.lblHeader.Location = new System.Drawing.Point(300, 25);
             this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(368, 25);
+            this.lblHeader.Size = new System.Drawing.Size(185, 25);
             this.lblHeader.TabIndex = 58;
-            this.lblHeader.Text = "Reorder/Restock Goods Selection";
+            this.lblHeader.Text = "Goods Selection";
             // 
             // lblSelectedGoods
             // 
             this.lblSelectedGoods.AutoSize = true;
             this.lblSelectedGoods.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSelectedGoods.Location = new System.Drawing.Point(543, 84);
+            this.lblSelectedGoods.Location = new System.Drawing.Point(538, 84);
             this.lblSelectedGoods.Name = "lblSelectedGoods";
             this.lblSelectedGoods.Size = new System.Drawing.Size(138, 20);
             this.lblSelectedGoods.TabIndex = 59;
@@ -276,7 +276,7 @@
             this.label1.TabIndex = 63;
             this.label1.Text = "Filter by Category";
             // 
-            // RequestProductSelectionForm
+            // GoodsPickerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -296,8 +296,8 @@
             this.Controls.Add(this.tbSearchKeywords);
             this.Controls.Add(this.lblSearchKeywords);
             this.KeyPreview = true;
-            this.Name = "RequestProductSelectionForm";
-            this.Text = "ReorderRequestSendingForm";
+            this.Name = "GoodsPickerForm";
+            this.Text = "Goods Selection";
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequestedGoods)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAmountToAdd)).EndInit();
