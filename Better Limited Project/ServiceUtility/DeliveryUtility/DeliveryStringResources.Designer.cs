@@ -9,6 +9,9 @@
 //------------------------------------------------------------------------------
 
 namespace Better_Limited_Project.ServiceUtility.DeliveryUtility {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -36,7 +39,7 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Better_Limited_Project.ServiceUtility.Delivery.DeliveryStringResources", typeof(DeliveryStringResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Better_Limited_Project.ServiceUtility.DeliveryUtility.DeliveryStringResources", typeof(DeliveryStringResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -90,15 +93,6 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility {
         internal static string cant_choose_0_courier {
             get {
                 return ResourceManager.GetString("cant choose 0 courier", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Sunday is company holiday and will not have deliveries. Please choose another day..
-        /// </summary>
-        internal static string cant_delivery_on_sunday {
-            get {
-                return ResourceManager.GetString("cant delivery on sunday", resourceCulture);
             }
         }
         

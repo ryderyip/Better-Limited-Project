@@ -53,7 +53,7 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
             // 
             // tbSelectedTechnicians
             // 
-            this.tbSelectedTechnicians.Location = new System.Drawing.Point(19, 111);
+            this.tbSelectedTechnicians.Location = new System.Drawing.Point(19, 169);
             this.tbSelectedTechnicians.Name = "tbSelectedTechnicians";
             this.tbSelectedTechnicians.ReadOnly = true;
             this.tbSelectedTechnicians.Size = new System.Drawing.Size(200, 20);
@@ -65,7 +65,7 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
             this.lblSelectTechnicians.AutoSize = true;
             this.lblSelectTechnicians.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.lblSelectTechnicians.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblSelectTechnicians.Location = new System.Drawing.Point(16, 92);
+            this.lblSelectTechnicians.Location = new System.Drawing.Point(16, 150);
             this.lblSelectTechnicians.Name = "lblSelectTechnicians";
             this.lblSelectTechnicians.Size = new System.Drawing.Size(130, 16);
             this.lblSelectTechnicians.TabIndex = 129;
@@ -77,7 +77,7 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
             this.btnSelectTechnicians.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnSelectTechnicians.ForeColor = System.Drawing.SystemColors.Window;
             this.btnSelectTechnicians.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnSelectTechnicians.Location = new System.Drawing.Point(225, 103);
+            this.btnSelectTechnicians.Location = new System.Drawing.Point(240, 161);
             this.btnSelectTechnicians.Name = "btnSelectTechnicians";
             this.btnSelectTechnicians.Size = new System.Drawing.Size(81, 34);
             this.btnSelectTechnicians.TabIndex = 130;
@@ -105,7 +105,7 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
             this.lblScheduledOn.AutoSize = true;
             this.lblScheduledOn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.lblScheduledOn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblScheduledOn.Location = new System.Drawing.Point(16, 159);
+            this.lblScheduledOn.Location = new System.Drawing.Point(16, 92);
             this.lblScheduledOn.Name = "lblScheduledOn";
             this.lblScheduledOn.Size = new System.Drawing.Size(93, 16);
             this.lblScheduledOn.TabIndex = 133;
@@ -113,7 +113,7 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
             // 
             // dtpScheduledDate
             // 
-            this.dtpScheduledDate.Location = new System.Drawing.Point(19, 178);
+            this.dtpScheduledDate.Location = new System.Drawing.Point(19, 111);
             this.dtpScheduledDate.Name = "dtpScheduledDate";
             this.dtpScheduledDate.Size = new System.Drawing.Size(200, 20);
             this.dtpScheduledDate.TabIndex = 134;
@@ -121,7 +121,7 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
             // dtpScheduledTime
             // 
             this.dtpScheduledTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpScheduledTime.Location = new System.Drawing.Point(240, 178);
+            this.dtpScheduledTime.Location = new System.Drawing.Point(240, 111);
             this.dtpScheduledTime.Name = "dtpScheduledTime";
             this.dtpScheduledTime.Size = new System.Drawing.Size(85, 20);
             this.dtpScheduledTime.TabIndex = 135;

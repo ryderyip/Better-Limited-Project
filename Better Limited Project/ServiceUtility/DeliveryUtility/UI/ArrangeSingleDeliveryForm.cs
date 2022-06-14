@@ -26,9 +26,8 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
         private void OnFormShown(object sender, EventArgs e)
         {
             btnArrangeDelivery.Enabled = false;
-            tbSelectedCourier.TextChanged += (_, _) => btnArrangeDelivery.Enabled = !string.IsNullOrWhiteSpace(tbSelectedCourier.Text);
             tbCustomerChosenDeliverySession.Text = _deliveryRequest.DeliverySession.ToString();
-            var earliestDeliveryDate = Entity.Delivery.GetEarliestDeliveryDate(_deliveryRequest.DeliverySession);
+            var earliestDeliveryDate = Delivery.GetEarliestDeliveryDate(_deliveryRequest.DeliverySession);
             tbEarliestDeliveryDate.Text = earliestDeliveryDate.ToLongDateString();
             dtpSelectDeliveryDate.MinDate = earliestDeliveryDate;
             dtpSelectDeliveryDate.Value = dtpSelectDeliveryDate.MinDate;
@@ -64,6 +63,7 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
             {
                 _selectedCouriers = selectedCouriers;
                 tbSelectedCourier.Text = string.Join(", ", selectedCouriers.Select(c => c.Name));
+                btnArrangeDelivery.Enabled = _selectedCouriers.Any();
             };
             courierSelector.StartPosition = FormStartPosition.CenterScreen;
             courierSelector.ShowDialog();
@@ -87,7 +87,7 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
 
             if (scheduledOn.DayOfWeek is DayOfWeek.Sunday)
             {
-                MessageBox.Show(DeliveryStringResources.cant_delivery_on_sunday);
+                MessageBox.Show("Sunday is company holiday and will not have deliveries. Please choose another day.");
                 return;
             }
             

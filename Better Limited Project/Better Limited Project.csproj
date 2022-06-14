@@ -771,6 +771,18 @@
     <Compile Include="ServiceUtility\InstallationUtility\UI\ArrangeInstallationForm.Designer.cs">
       <DependentUpon>ArrangeInstallationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ServiceUtility\InstallationUtility\UI\InstallationDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServiceUtility\InstallationUtility\UI\InstallationDetailsForm.Designer.cs">
+      <DependentUpon>InstallationDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceUtility\InstallationUtility\UI\InstallationListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServiceUtility\InstallationUtility\UI\InstallationListForm.Designer.cs">
+      <DependentUpon>InstallationListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ServiceUtility\InstallationUtility\UI\InstallationRequestDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1354,6 +1366,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ServiceUtility\InstallationUtility\UI\ArrangeInstallationForm.resx">
       <DependentUpon>ArrangeInstallationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServiceUtility\InstallationUtility\UI\InstallationDetailsForm.resx">
+      <DependentUpon>InstallationDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServiceUtility\InstallationUtility\UI\InstallationListForm.resx">
+      <DependentUpon>InstallationListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServiceUtility\InstallationUtility\UI\InstallationProductStatusForm.resx">
+      <DependentUpon>InstallationProductStatusForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ServiceUtility\InstallationUtility\UI\InstallationRequestDetailsForm.resx">
       <DependentUpon>InstallationRequestDetailsForm.cs</DependentUpon>

@@ -39,18 +39,18 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
         private void FillFields()
         {
             tbOrderNumber.Text = _installationRequest.SalesOrder.OrderNumber;
-            tbCreatedOn.Text = _installationRequest.SalesOrder.CreatedOn.ToString("f");
-            tbArrangedOn.Text = _installationRequest.ArrangedOn?.ToString("f") ?? "-";
+            tbCreatedOn.Text = _installationRequest.SalesOrder.CreatedOn.ToString("g");
+            tbArrangedOn.Text = _installationRequest.ArrangedOn?.ToString("g") ?? "-";
             tbArrangedByStaffName.Text = _installationRequest.ArrangedByStaff?.Name ?? "-";
         }
 
         private void btnArrangeInstallation_Click(object sender, EventArgs e)
         {
             var form = new ArrangeInstallationForm(_installationRequest);
-var result =             form.ShowDialog();
-if (result is DialogResult.OK)
-    RefreshForm();
-InfoUpdated?.Invoke(this,EventArgs.Empty);
+            var result = form.ShowDialog();
+            if (result is DialogResult.OK)
+                RefreshForm();
+            InfoUpdated?.Invoke(this, EventArgs.Empty);
         }
 
         private void RefreshForm()

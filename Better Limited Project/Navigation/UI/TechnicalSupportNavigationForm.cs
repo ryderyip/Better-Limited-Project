@@ -35,7 +35,8 @@ namespace Better_Limited_Project.Navigation.UI
 
         private void btnInstallationDuty_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var form = new InstallationListForm();
+            _formController.OpenContentForm(form);
         }
 
         private void btnInstallationRequests_Click(object sender, EventArgs e)

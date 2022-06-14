@@ -21,9 +21,6 @@
     <data name="cant choose 0 courier" xml:space="preserve">
         <value>Please choose at least one courier for this delivery.</value>
     </data>
-    <data name="cant delivery on sunday" xml:space="preserve">
-        <value>Sunday is company holiday and will not have deliveries. Please choose another day.</value>
-    </data>
     <data name="ask setting dispatch time" xml:space="preserve">
         <value>Confirm setting dispatch time?</value>
     </data>
