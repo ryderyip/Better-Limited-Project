@@ -52,7 +52,7 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.Repository
         {
             string id = row.Field<int>("id").ToString();
             string salesOrderId = row.Field<int>("sales_order_id").ToString();
-            DateTime arrangedOn = row.Field<DateTime>("arranged_on");
+            var arrangedOn = row.Field<DateTime?>("arranged_on");
             var arrangedByStaffId = row.Field<int?>("arranged_by_staff_id")?.ToString();
             return new InstallationRequest(id, salesOrderId, arrangedOn, arrangedByStaffId);
         }

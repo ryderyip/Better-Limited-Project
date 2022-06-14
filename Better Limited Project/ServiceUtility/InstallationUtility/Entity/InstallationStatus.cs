@@ -2,8 +2,9 @@
 {
     public enum InstallationStatus
     {
-        NoInstallationAppointed,
-        InstallationAppointed,
-        Installed
+        NoInstallationRequested,
+        InstallationRequested,
+        InstallationArranged,
+        AllInstalled
     }
 }

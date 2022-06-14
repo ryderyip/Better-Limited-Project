@@ -6,6 +6,13 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.Entity
 {
     public class Technician
     {
+        public Technician(string name, string phone)
+        {
+            Id = TechnicianRepository.GetNewId();
+            Name = name;
+            Phone = phone;
+        }
+
         public Technician(string id, string name, string phone)
         {
             Id = id;
@@ -26,6 +33,16 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.Entity
         public void Save()
         {
             TechnicianRepository.InsertOrUpdate(this);
+        }
+
+        public bool HasAppointedIncompleteInstallation()
+        {
+            return AppointedInstallations.Any(i => i.Technicians.Any(t => t.TechnicianId == Id));
+        }
+
+        public void Remove()
+        {
+            TechnicianRepository.Remove(this);
         }
     }
 }

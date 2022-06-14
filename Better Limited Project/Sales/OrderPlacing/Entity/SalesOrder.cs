@@ -6,6 +6,8 @@ using Better_Limited_Project.CustomerRecord;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;
 using Better_Limited_Project.ServiceUtility.DeliveryUtility.Entity;
 using Better_Limited_Project.ServiceUtility.DeliveryUtility.Repository;
+using Better_Limited_Project.ServiceUtility.InstallationUtility.Entity;
+using Better_Limited_Project.ServiceUtility.InstallationUtility.Repository;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.Sales.OrderPlacing.Entity
@@ -156,6 +158,23 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
         public bool IsAllStockReady()
         {
             return GetSalesOrderProducts().All(sop => sop.IsStockReady());
+        }
+
+        public InstallationStatus GetInstallationStatus()
+        {
+            var installationRequest = GetInstallationRequest();
+            if (installationRequest == default)
+                return InstallationStatus.NoInstallationRequested;
+            
+            var installations = installationRequest.GetInstallations().ToList();
+            if (!installations.Any())
+                return InstallationStatus.InstallationRequested;
+            return installations.All(i => i.IsInstalled()) ? InstallationStatus.AllInstalled : InstallationStatus.InstallationArranged;
+        }
+
+        public InstallationRequest? GetInstallationRequest()
+        {
+            return InstallationRequestRepository.FindAll(ir => ir.SalesOrderId == Id).FirstOrDefault();
         }
     }
 }

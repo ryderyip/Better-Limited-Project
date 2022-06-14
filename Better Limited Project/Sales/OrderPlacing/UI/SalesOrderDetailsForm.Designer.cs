@@ -33,13 +33,11 @@
             this.lblOrderNumber = new System.Windows.Forms.Label();
             this.lblAmtDue = new System.Windows.Forms.Label();
             this.lblAmtPaid = new System.Windows.Forms.Label();
-            this.lblNeedDelivery = new System.Windows.Forms.Label();
-            this.lblNeedInstallation = new System.Windows.Forms.Label();
+            this.lblInstallation = new System.Windows.Forms.Label();
             this.txtOrderNumber = new System.Windows.Forms.TextBox();
             this.txtAmtDue = new System.Windows.Forms.TextBox();
             this.txtAmtPaid = new System.Windows.Forms.TextBox();
-            this.txtNeedDelivery = new System.Windows.Forms.TextBox();
-            this.txtNeedInstallation = new System.Windows.Forms.TextBox();
+            this.txtInstallation = new System.Windows.Forms.TextBox();
             this.lblCustInfo = new System.Windows.Forms.Label();
             this.txtCustPhoneNumber = new System.Windows.Forms.TextBox();
             this.txtCustName = new System.Windows.Forms.TextBox();
@@ -55,6 +53,11 @@
             this.txtCustEmail = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.dgvProducts = new System.Windows.Forms.DataGridView();
+            this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvProductsName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvProductsQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.paymentStatusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stockStatusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbTotalAmount = new System.Windows.Forms.TextBox();
             this.lblTotalAmount = new System.Windows.Forms.Label();
             this.btnDepositReceipt = new System.Windows.Forms.Button();
@@ -65,13 +68,7 @@
             this.lblCreatedOn = new System.Windows.Forms.Label();
             this.lblHeader = new System.Windows.Forms.Label();
             this.lblIsActive = new System.Windows.Forms.Label();
-            this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvProductsName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvProductsPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvProductsQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvProductsSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stockStatusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.paymentStatusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnInstallationStatus = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,15 +92,10 @@
             resources.ApplyResources(this.lblAmtPaid, "lblAmtPaid");
             this.lblAmtPaid.Name = "lblAmtPaid";
             // 
-            // lblNeedDelivery
+            // lblInstallation
             // 
-            resources.ApplyResources(this.lblNeedDelivery, "lblNeedDelivery");
-            this.lblNeedDelivery.Name = "lblNeedDelivery";
-            // 
-            // lblNeedInstallation
-            // 
-            resources.ApplyResources(this.lblNeedInstallation, "lblNeedInstallation");
-            this.lblNeedInstallation.Name = "lblNeedInstallation";
+            resources.ApplyResources(this.lblInstallation, "lblInstallation");
+            this.lblInstallation.Name = "lblInstallation";
             // 
             // txtOrderNumber
             // 
@@ -123,17 +115,11 @@
             this.txtAmtPaid.Name = "txtAmtPaid";
             this.txtAmtPaid.ReadOnly = true;
             // 
-            // txtNeedDelivery
+            // txtInstallation
             // 
-            resources.ApplyResources(this.txtNeedDelivery, "txtNeedDelivery");
-            this.txtNeedDelivery.Name = "txtNeedDelivery";
-            this.txtNeedDelivery.ReadOnly = true;
-            // 
-            // txtNeedInstallation
-            // 
-            resources.ApplyResources(this.txtNeedInstallation, "txtNeedInstallation");
-            this.txtNeedInstallation.Name = "txtNeedInstallation";
-            this.txtNeedInstallation.ReadOnly = true;
+            resources.ApplyResources(this.txtInstallation, "txtInstallation");
+            this.txtInstallation.Name = "txtInstallation";
+            this.txtInstallation.ReadOnly = true;
             // 
             // lblCustInfo
             // 
@@ -226,15 +212,43 @@
             this.dgvProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idColumn,
             this.dgvProductsName,
-            this.dgvProductsPrice,
             this.dgvProductsQuantity,
-            this.dgvProductsSubtotal,
-            this.stockStatusColumn,
-            this.paymentStatusColumn});
+            this.paymentStatusColumn,
+            this.stockStatusColumn});
             resources.ApplyResources(this.dgvProducts, "dgvProducts");
             this.dgvProducts.Name = "dgvProducts";
             this.dgvProducts.ReadOnly = true;
             this.dgvProducts.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducts_CellDoubleClick);
+            // 
+            // idColumn
+            // 
+            resources.ApplyResources(this.idColumn, "idColumn");
+            this.idColumn.Name = "idColumn";
+            this.idColumn.ReadOnly = true;
+            // 
+            // dgvProductsName
+            // 
+            resources.ApplyResources(this.dgvProductsName, "dgvProductsName");
+            this.dgvProductsName.Name = "dgvProductsName";
+            this.dgvProductsName.ReadOnly = true;
+            // 
+            // dgvProductsQuantity
+            // 
+            resources.ApplyResources(this.dgvProductsQuantity, "dgvProductsQuantity");
+            this.dgvProductsQuantity.Name = "dgvProductsQuantity";
+            this.dgvProductsQuantity.ReadOnly = true;
+            // 
+            // paymentStatusColumn
+            // 
+            resources.ApplyResources(this.paymentStatusColumn, "paymentStatusColumn");
+            this.paymentStatusColumn.Name = "paymentStatusColumn";
+            this.paymentStatusColumn.ReadOnly = true;
+            // 
+            // stockStatusColumn
+            // 
+            resources.ApplyResources(this.stockStatusColumn, "stockStatusColumn");
+            this.stockStatusColumn.Name = "stockStatusColumn";
+            this.stockStatusColumn.ReadOnly = true;
             // 
             // tbTotalAmount
             // 
@@ -298,52 +312,20 @@
             this.lblIsActive.ForeColor = System.Drawing.Color.SeaGreen;
             this.lblIsActive.Name = "lblIsActive";
             // 
-            // idColumn
+            // btnInstallationStatus
             // 
-            resources.ApplyResources(this.idColumn, "idColumn");
-            this.idColumn.Name = "idColumn";
-            this.idColumn.ReadOnly = true;
-            // 
-            // dgvProductsName
-            // 
-            resources.ApplyResources(this.dgvProductsName, "dgvProductsName");
-            this.dgvProductsName.Name = "dgvProductsName";
-            this.dgvProductsName.ReadOnly = true;
-            // 
-            // dgvProductsPrice
-            // 
-            resources.ApplyResources(this.dgvProductsPrice, "dgvProductsPrice");
-            this.dgvProductsPrice.Name = "dgvProductsPrice";
-            this.dgvProductsPrice.ReadOnly = true;
-            // 
-            // dgvProductsQuantity
-            // 
-            resources.ApplyResources(this.dgvProductsQuantity, "dgvProductsQuantity");
-            this.dgvProductsQuantity.Name = "dgvProductsQuantity";
-            this.dgvProductsQuantity.ReadOnly = true;
-            // 
-            // dgvProductsSubtotal
-            // 
-            resources.ApplyResources(this.dgvProductsSubtotal, "dgvProductsSubtotal");
-            this.dgvProductsSubtotal.Name = "dgvProductsSubtotal";
-            this.dgvProductsSubtotal.ReadOnly = true;
-            // 
-            // stockStatusColumn
-            // 
-            resources.ApplyResources(this.stockStatusColumn, "stockStatusColumn");
-            this.stockStatusColumn.Name = "stockStatusColumn";
-            this.stockStatusColumn.ReadOnly = true;
-            // 
-            // paymentStatusColumn
-            // 
-            resources.ApplyResources(this.paymentStatusColumn, "paymentStatusColumn");
-            this.paymentStatusColumn.Name = "paymentStatusColumn";
-            this.paymentStatusColumn.ReadOnly = true;
+            this.btnInstallationStatus.BackColor = System.Drawing.Color.Sienna;
+            resources.ApplyResources(this.btnInstallationStatus, "btnInstallationStatus");
+            this.btnInstallationStatus.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnInstallationStatus.Name = "btnInstallationStatus";
+            this.btnInstallationStatus.UseVisualStyleBackColor = false;
+            this.btnInstallationStatus.Click += new System.EventHandler(this.btnInstallationStatus_Click);
             // 
             // SalesOrderDetailsForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnInstallationStatus);
             this.Controls.Add(this.lblIsActive);
             this.Controls.Add(this.lblHeader);
             this.Controls.Add(this.tbCreatedOn);
@@ -369,13 +351,11 @@
             this.Controls.Add(this.lblCustomerPhoneNumber);
             this.Controls.Add(this.lblCustName);
             this.Controls.Add(this.lblCustInfo);
-            this.Controls.Add(this.txtNeedInstallation);
-            this.Controls.Add(this.txtNeedDelivery);
+            this.Controls.Add(this.txtInstallation);
             this.Controls.Add(this.txtAmtPaid);
             this.Controls.Add(this.txtAmtDue);
             this.Controls.Add(this.txtOrderNumber);
-            this.Controls.Add(this.lblNeedInstallation);
-            this.Controls.Add(this.lblNeedDelivery);
+            this.Controls.Add(this.lblInstallation);
             this.Controls.Add(this.lblAmtPaid);
             this.Controls.Add(this.lblAmtDue);
             this.Controls.Add(this.lblOrderNumber);
@@ -394,13 +374,11 @@
         private System.Windows.Forms.Label lblOrderNumber;
         private System.Windows.Forms.Label lblAmtDue;
         private System.Windows.Forms.Label lblAmtPaid;
-        private System.Windows.Forms.Label lblNeedDelivery;
-        private System.Windows.Forms.Label lblNeedInstallation;
+        private System.Windows.Forms.Label lblInstallation;
         private System.Windows.Forms.TextBox txtOrderNumber;
         private System.Windows.Forms.TextBox txtAmtDue;
         private System.Windows.Forms.TextBox txtAmtPaid;
-        private System.Windows.Forms.TextBox txtNeedDelivery;
-        private System.Windows.Forms.TextBox txtNeedInstallation;
+        private System.Windows.Forms.TextBox txtInstallation;
         private System.Windows.Forms.Label lblCustInfo;
         private System.Windows.Forms.TextBox txtCustPhoneNumber;
         private System.Windows.Forms.TextBox txtCustName;
@@ -428,10 +406,9 @@
         private System.Windows.Forms.Label lblIsActive;
         private System.Windows.Forms.DataGridViewTextBoxColumn idColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvProductsName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvProductsPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvProductsQuantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvProductsSubtotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn stockStatusColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn paymentStatusColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stockStatusColumn;
+        private System.Windows.Forms.Button btnInstallationStatus;
     }
 }

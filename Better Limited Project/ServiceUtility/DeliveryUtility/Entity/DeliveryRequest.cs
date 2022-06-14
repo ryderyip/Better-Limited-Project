@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Better_Limited_Project.Sales.OrderPlacing.Controller;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;
 using Better_Limited_Project.ServiceUtility.DeliveryUtility.Repository;
@@ -27,6 +28,7 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.Entity
         public DeliverySession DeliverySession { get; }
         public DateTime? ArrangedOn { get; set; }
         public string? ArrangedByStaffId { get; set; }
+        public TimeSpan DeliverySessionTime => DeliverySessionTimeConverter.GetTimeOfDay(DeliverySession);
 
         public void Save()
         {

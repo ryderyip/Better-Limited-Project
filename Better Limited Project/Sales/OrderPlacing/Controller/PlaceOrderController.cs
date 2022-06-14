@@ -41,7 +41,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Controller
         private void OnPlaceOrderFormNextClicked(object sender, EventArgs e)
         {
             if (_cart.IsEmpty())
-                return; // TODO prompt a non intruding message
+                return;
 
             if (_form.checkBoxNeedDelivery.Checked 
                 || _form.checkBoxNeedInstallation.Checked

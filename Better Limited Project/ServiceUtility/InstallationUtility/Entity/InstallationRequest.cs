@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;
 using Better_Limited_Project.ServiceUtility.InstallationUtility.Repository;
@@ -9,12 +11,10 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.Entity
 {
     public class InstallationRequest
     {
-        public InstallationRequest(string salesOrderId, string arrangedByStaffId)
+        public InstallationRequest(string salesOrderId)
         {
             Id = InstallationRequestRepository.GetNewId();
             SalesOrderId = salesOrderId;
-            ArrangedOn = DateTime.Now;
-            ArrangedByStaffId = arrangedByStaffId;
         }
 
         public InstallationRequest(string id, string salesOrderId, DateTime? arrangedOn, string? arrangedByStaffId)
@@ -27,15 +27,33 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.Entity
 
         public string Id { get; }
         public string SalesOrderId { get; }
-        public DateTime? ArrangedOn { get; }
-        public string? ArrangedByStaffId { get; }
+        public DateTime? ArrangedOn { get; set; }
+        public string? ArrangedByStaffId { get; set; }
         public SalesOrder SalesOrder => new SalesOrderRepository().FindById(SalesOrderId);
         public Staff? ArrangedByStaff => ArrangedByStaffId != null 
             ? new StaffRepository().FindById(ArrangedByStaffId) : null;
 
+        public IEnumerable<InstallationRequestProduct> ProductsToInstall => InstallationRequestProductRepository.FindByRequestId(Id);
+
         public void Save()
         {
             InstallationRequestRepository.InsertOrUpdate(this);
+        }
+
+        public IEnumerable<Installation> GetInstallations()
+        {
+            return InstallationRepository.FindBy(i => i.InstallationRequestId == Id);
+        }
+
+        public bool IsArranged()
+        {
+            return ArrangedOn != null;
+        }
+
+        public bool HasRequestedForDelieryButNotArranged()
+        {
+            var deliveryRequest = SalesOrder.GetDeliveryRequest();
+            return deliveryRequest != null && !deliveryRequest.IsArranged();
         }
     }
 }

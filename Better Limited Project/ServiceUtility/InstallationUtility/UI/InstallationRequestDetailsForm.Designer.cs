@@ -1,4 +1,5 @@
-﻿namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
+﻿
+namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
 {
     partial class InstallationRequestDetailsForm
     {
@@ -28,200 +29,203 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnBack = new System.Windows.Forms.Button();
-            this.dgvProductsNeedInstalled = new System.Windows.Forms.DataGridView();
-            this.lblProductsNeedInstalled = new System.Windows.Forms.Label();
-            this.txtAddress2 = new System.Windows.Forms.TextBox();
-            this.lblAddress2 = new System.Windows.Forms.Label();
-            this.txtAddress1 = new System.Windows.Forms.TextBox();
-            this.txtCity = new System.Windows.Forms.TextBox();
-            this.txtID = new System.Windows.Forms.TextBox();
-            this.lblAddress1 = new System.Windows.Forms.Label();
-            this.lblCity = new System.Windows.Forms.Label();
-            this.lblID = new System.Windows.Forms.Label();
-            this.lbInstallationInfo = new System.Windows.Forms.Label();
-            this.txtCountryRegion = new System.Windows.Forms.TextBox();
-            this.lblCountryRegion = new System.Windows.Forms.Label();
+            this.dgvInstallationProduct = new System.Windows.Forms.DataGridView();
+            this.lblHeader = new System.Windows.Forms.Label();
+            this.lblProductsToInstall = new System.Windows.Forms.Label();
+            this.tbCreatedOn = new System.Windows.Forms.TextBox();
+            this.lblCreatedOn = new System.Windows.Forms.Label();
+            this.tbOrderNumber = new System.Windows.Forms.TextBox();
+            this.lblOrderNumber = new System.Windows.Forms.Label();
             this.btnArrangeInstallation = new System.Windows.Forms.Button();
-            this.btnInstallationNote = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductsNeedInstalled)).BeginInit();
+            this.tbArrangedOn = new System.Windows.Forms.TextBox();
+            this.lblArrangedOn = new System.Windows.Forms.Label();
+            this.tbArrangedByStaffName = new System.Windows.Forms.TextBox();
+            this.lblArrangedByStaffName = new System.Windows.Forms.Label();
+            this.productNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvProductsQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnViewSalesOrder = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInstallationProduct)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnBack
+            // dgvInstallationProduct
             // 
-            this.btnBack.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnBack.Location = new System.Drawing.Point(368, 390);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(89, 33);
-            this.btnBack.TabIndex = 121;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = false;
+            this.dgvInstallationProduct.AllowUserToAddRows = false;
+            this.dgvInstallationProduct.AllowUserToDeleteRows = false;
+            this.dgvInstallationProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInstallationProduct.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.productNameColumn,
+            this.dgvProductsQuantity});
+            this.dgvInstallationProduct.Location = new System.Drawing.Point(329, 119);
+            this.dgvInstallationProduct.Name = "dgvInstallationProduct";
+            this.dgvInstallationProduct.ReadOnly = true;
+            this.dgvInstallationProduct.Size = new System.Drawing.Size(273, 177);
+            this.dgvInstallationProduct.TabIndex = 111;
             // 
-            // dgvProductsNeedInstalled
+            // lblHeader
             // 
-            this.dgvProductsNeedInstalled.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProductsNeedInstalled.Location = new System.Drawing.Point(378, 83);
-            this.dgvProductsNeedInstalled.Name = "dgvProductsNeedInstalled";
-            this.dgvProductsNeedInstalled.RowTemplate.Height = 24;
-            this.dgvProductsNeedInstalled.Size = new System.Drawing.Size(358, 212);
-            this.dgvProductsNeedInstalled.TabIndex = 120;
+            this.lblHeader.AutoSize = true;
+            this.lblHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
+            this.lblHeader.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblHeader.Location = new System.Drawing.Point(130, 25);
+            this.lblHeader.Name = "lblHeader";
+            this.lblHeader.Size = new System.Drawing.Size(380, 29);
+            this.lblHeader.TabIndex = 122;
+            this.lblHeader.Text = "Installation Request Information";
             // 
-            // lblProductsNeedInstalled
+            // lblProductsToInstall
             // 
-            this.lblProductsNeedInstalled.AutoSize = true;
-            this.lblProductsNeedInstalled.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProductsNeedInstalled.Location = new System.Drawing.Point(424, 51);
-            this.lblProductsNeedInstalled.Name = "lblProductsNeedInstalled";
-            this.lblProductsNeedInstalled.Size = new System.Drawing.Size(266, 20);
-            this.lblProductsNeedInstalled.TabIndex = 119;
-            this.lblProductsNeedInstalled.Text = "Products In Need Of Installation";
+            this.lblProductsToInstall.AutoSize = true;
+            this.lblProductsToInstall.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.lblProductsToInstall.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblProductsToInstall.Location = new System.Drawing.Point(380, 82);
+            this.lblProductsToInstall.Name = "lblProductsToInstall";
+            this.lblProductsToInstall.Size = new System.Drawing.Size(155, 20);
+            this.lblProductsToInstall.TabIndex = 124;
+            this.lblProductsToInstall.Text = "Products to Install";
             // 
-            // txtAddress2
+            // tbCreatedOn
             // 
-            this.txtAddress2.Location = new System.Drawing.Point(189, 280);
-            this.txtAddress2.Name = "txtAddress2";
-            this.txtAddress2.Size = new System.Drawing.Size(100, 22);
-            this.txtAddress2.TabIndex = 116;
+            this.tbCreatedOn.Location = new System.Drawing.Point(158, 168);
+            this.tbCreatedOn.Name = "tbCreatedOn";
+            this.tbCreatedOn.ReadOnly = true;
+            this.tbCreatedOn.Size = new System.Drawing.Size(127, 20);
+            this.tbCreatedOn.TabIndex = 128;
+            this.tbCreatedOn.Text = "-";
             // 
-            // lblAddress2
+            // lblCreatedOn
             // 
-            this.lblAddress2.AutoSize = true;
-            this.lblAddress2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddress2.Location = new System.Drawing.Point(55, 280);
-            this.lblAddress2.Name = "lblAddress2";
-            this.lblAddress2.Size = new System.Drawing.Size(71, 16);
-            this.lblAddress2.TabIndex = 115;
-            this.lblAddress2.Text = "Address 2:";
+            this.lblCreatedOn.AutoSize = true;
+            this.lblCreatedOn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lblCreatedOn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblCreatedOn.Location = new System.Drawing.Point(38, 169);
+            this.lblCreatedOn.Name = "lblCreatedOn";
+            this.lblCreatedOn.Size = new System.Drawing.Size(79, 16);
+            this.lblCreatedOn.TabIndex = 127;
+            this.lblCreatedOn.Text = "Created On:";
             // 
-            // txtAddress1
+            // tbOrderNumber
             // 
-            this.txtAddress1.Location = new System.Drawing.Point(189, 229);
-            this.txtAddress1.Name = "txtAddress1";
-            this.txtAddress1.Size = new System.Drawing.Size(100, 22);
-            this.txtAddress1.TabIndex = 114;
+            this.tbOrderNumber.Location = new System.Drawing.Point(158, 119);
+            this.tbOrderNumber.Name = "tbOrderNumber";
+            this.tbOrderNumber.ReadOnly = true;
+            this.tbOrderNumber.Size = new System.Drawing.Size(127, 20);
+            this.tbOrderNumber.TabIndex = 126;
+            this.tbOrderNumber.Text = "-";
             // 
-            // txtCity
+            // lblOrderNumber
             // 
-            this.txtCity.Location = new System.Drawing.Point(189, 180);
-            this.txtCity.Name = "txtCity";
-            this.txtCity.Size = new System.Drawing.Size(100, 22);
-            this.txtCity.TabIndex = 113;
-            // 
-            // txtID
-            // 
-            this.txtID.Location = new System.Drawing.Point(189, 98);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(100, 22);
-            this.txtID.TabIndex = 112;
-            // 
-            // lblAddress1
-            // 
-            this.lblAddress1.AutoSize = true;
-            this.lblAddress1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddress1.Location = new System.Drawing.Point(54, 229);
-            this.lblAddress1.Name = "lblAddress1";
-            this.lblAddress1.Size = new System.Drawing.Size(71, 16);
-            this.lblAddress1.TabIndex = 111;
-            this.lblAddress1.Text = "Address 1:";
-            // 
-            // lblCity
-            // 
-            this.lblCity.AutoSize = true;
-            this.lblCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCity.Location = new System.Drawing.Point(54, 186);
-            this.lblCity.Name = "lblCity";
-            this.lblCity.Size = new System.Drawing.Size(32, 16);
-            this.lblCity.TabIndex = 110;
-            this.lblCity.Text = "City:";
-            // 
-            // lblID
-            // 
-            this.lblID.AutoSize = true;
-            this.lblID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblID.Location = new System.Drawing.Point(54, 98);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(23, 16);
-            this.lblID.TabIndex = 109;
-            this.lblID.Text = "ID:";
-            // 
-            // lbInstallationInfo
-            // 
-            this.lbInstallationInfo.AutoSize = true;
-            this.lbInstallationInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbInstallationInfo.Location = new System.Drawing.Point(53, 51);
-            this.lbInstallationInfo.Name = "lbInstallationInfo";
-            this.lbInstallationInfo.Size = new System.Drawing.Size(135, 20);
-            this.lbInstallationInfo.TabIndex = 108;
-            this.lbInstallationInfo.Text = "Installation Info";
-            // 
-            // txtCountryRegion
-            // 
-            this.txtCountryRegion.Location = new System.Drawing.Point(189, 139);
-            this.txtCountryRegion.Name = "txtCountryRegion";
-            this.txtCountryRegion.Size = new System.Drawing.Size(100, 22);
-            this.txtCountryRegion.TabIndex = 123;
-            // 
-            // lblCountryRegion
-            // 
-            this.lblCountryRegion.AutoSize = true;
-            this.lblCountryRegion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCountryRegion.Location = new System.Drawing.Point(54, 139);
-            this.lblCountryRegion.Name = "lblCountryRegion";
-            this.lblCountryRegion.Size = new System.Drawing.Size(109, 16);
-            this.lblCountryRegion.TabIndex = 122;
-            this.lblCountryRegion.Text = "Country / Region:";
+            this.lblOrderNumber.AutoSize = true;
+            this.lblOrderNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lblOrderNumber.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblOrderNumber.Location = new System.Drawing.Point(38, 120);
+            this.lblOrderNumber.Name = "lblOrderNumber";
+            this.lblOrderNumber.Size = new System.Drawing.Size(96, 16);
+            this.lblOrderNumber.TabIndex = 125;
+            this.lblOrderNumber.Text = "Order Number:";
             // 
             // btnArrangeInstallation
             // 
             this.btnArrangeInstallation.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnArrangeInstallation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnArrangeInstallation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnArrangeInstallation.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnArrangeInstallation.Location = new System.Drawing.Point(189, 338);
+            this.btnArrangeInstallation.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnArrangeInstallation.Location = new System.Drawing.Point(41, 327);
             this.btnArrangeInstallation.Name = "btnArrangeInstallation";
-            this.btnArrangeInstallation.Size = new System.Drawing.Size(198, 33);
-            this.btnArrangeInstallation.TabIndex = 124;
+            this.btnArrangeInstallation.Size = new System.Drawing.Size(185, 54);
+            this.btnArrangeInstallation.TabIndex = 129;
             this.btnArrangeInstallation.Text = "Arrange Installation";
             this.btnArrangeInstallation.UseVisualStyleBackColor = false;
-            this.btnArrangeInstallation.Visible = false;
+            this.btnArrangeInstallation.Click += new System.EventHandler(this.btnArrangeInstallation_Click);
             // 
-            // btnInstallationNote
+            // tbArrangedOn
             // 
-            this.btnInstallationNote.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnInstallationNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInstallationNote.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnInstallationNote.Location = new System.Drawing.Point(443, 338);
-            this.btnInstallationNote.Name = "btnInstallationNote";
-            this.btnInstallationNote.Size = new System.Drawing.Size(198, 33);
-            this.btnInstallationNote.TabIndex = 125;
-            this.btnInstallationNote.Text = "Installation Note";
-            this.btnInstallationNote.UseVisualStyleBackColor = false;
+            this.tbArrangedOn.Location = new System.Drawing.Point(158, 216);
+            this.tbArrangedOn.Name = "tbArrangedOn";
+            this.tbArrangedOn.ReadOnly = true;
+            this.tbArrangedOn.Size = new System.Drawing.Size(127, 20);
+            this.tbArrangedOn.TabIndex = 131;
+            this.tbArrangedOn.Text = "-";
+            // 
+            // lblArrangedOn
+            // 
+            this.lblArrangedOn.AutoSize = true;
+            this.lblArrangedOn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lblArrangedOn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblArrangedOn.Location = new System.Drawing.Point(38, 217);
+            this.lblArrangedOn.Name = "lblArrangedOn";
+            this.lblArrangedOn.Size = new System.Drawing.Size(87, 16);
+            this.lblArrangedOn.TabIndex = 130;
+            this.lblArrangedOn.Text = "Arranged On:";
+            // 
+            // tbArrangedByStaffName
+            // 
+            this.tbArrangedByStaffName.Location = new System.Drawing.Point(158, 267);
+            this.tbArrangedByStaffName.Name = "tbArrangedByStaffName";
+            this.tbArrangedByStaffName.ReadOnly = true;
+            this.tbArrangedByStaffName.Size = new System.Drawing.Size(127, 20);
+            this.tbArrangedByStaffName.TabIndex = 133;
+            this.tbArrangedByStaffName.Text = "-";
+            // 
+            // lblArrangedByStaffName
+            // 
+            this.lblArrangedByStaffName.AutoSize = true;
+            this.lblArrangedByStaffName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lblArrangedByStaffName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblArrangedByStaffName.Location = new System.Drawing.Point(38, 268);
+            this.lblArrangedByStaffName.Name = "lblArrangedByStaffName";
+            this.lblArrangedByStaffName.Size = new System.Drawing.Size(114, 16);
+            this.lblArrangedByStaffName.TabIndex = 132;
+            this.lblArrangedByStaffName.Text = "Arranged by Staff:";
+            // 
+            // productNameColumn
+            // 
+            this.productNameColumn.HeaderText = "Product";
+            this.productNameColumn.Name = "productNameColumn";
+            this.productNameColumn.ReadOnly = true;
+            this.productNameColumn.Width = 180;
+            // 
+            // dgvProductsQuantity
+            // 
+            this.dgvProductsQuantity.HeaderText = "Qty";
+            this.dgvProductsQuantity.Name = "dgvProductsQuantity";
+            this.dgvProductsQuantity.ReadOnly = true;
+            this.dgvProductsQuantity.Width = 50;
+            // 
+            // btnViewSalesOrder
+            // 
+            this.btnViewSalesOrder.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnViewSalesOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnViewSalesOrder.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnViewSalesOrder.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnViewSalesOrder.Location = new System.Drawing.Point(417, 327);
+            this.btnViewSalesOrder.Name = "btnViewSalesOrder";
+            this.btnViewSalesOrder.Size = new System.Drawing.Size(185, 54);
+            this.btnViewSalesOrder.TabIndex = 134;
+            this.btnViewSalesOrder.Text = "View Sales Order";
+            this.btnViewSalesOrder.UseVisualStyleBackColor = false;
+            this.btnViewSalesOrder.Click += new System.EventHandler(this.btnViewSalesOrder_Click);
             // 
             // InstallationRequestDetailsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnInstallationNote);
+            this.ClientSize = new System.Drawing.Size(641, 409);
+            this.Controls.Add(this.btnViewSalesOrder);
+            this.Controls.Add(this.tbArrangedByStaffName);
+            this.Controls.Add(this.lblArrangedByStaffName);
+            this.Controls.Add(this.tbArrangedOn);
+            this.Controls.Add(this.lblArrangedOn);
             this.Controls.Add(this.btnArrangeInstallation);
-            this.Controls.Add(this.txtCountryRegion);
-            this.Controls.Add(this.lblCountryRegion);
-            this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.dgvProductsNeedInstalled);
-            this.Controls.Add(this.lblProductsNeedInstalled);
-            this.Controls.Add(this.txtAddress2);
-            this.Controls.Add(this.lblAddress2);
-            this.Controls.Add(this.txtAddress1);
-            this.Controls.Add(this.txtCity);
-            this.Controls.Add(this.txtID);
-            this.Controls.Add(this.lblAddress1);
-            this.Controls.Add(this.lblCity);
-            this.Controls.Add(this.lblID);
-            this.Controls.Add(this.lbInstallationInfo);
+            this.Controls.Add(this.tbCreatedOn);
+            this.Controls.Add(this.lblCreatedOn);
+            this.Controls.Add(this.tbOrderNumber);
+            this.Controls.Add(this.lblOrderNumber);
+            this.Controls.Add(this.lblProductsToInstall);
+            this.Controls.Add(this.lblHeader);
+            this.Controls.Add(this.dgvInstallationProduct);
             this.Name = "InstallationRequestDetailsForm";
             this.Text = "InstallationRequestDetailsForm";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductsNeedInstalled)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInstallationProduct)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -229,21 +233,20 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.DataGridView dgvProductsNeedInstalled;
-        private System.Windows.Forms.Label lblProductsNeedInstalled;
-        private System.Windows.Forms.TextBox txtAddress2;
-        private System.Windows.Forms.Label lblAddress2;
-        private System.Windows.Forms.TextBox txtAddress1;
-        private System.Windows.Forms.TextBox txtCity;
-        private System.Windows.Forms.TextBox txtID;
-        private System.Windows.Forms.Label lblAddress1;
-        private System.Windows.Forms.Label lblCity;
-        private System.Windows.Forms.Label lblID;
-        private System.Windows.Forms.Label lbInstallationInfo;
-        private System.Windows.Forms.TextBox txtCountryRegion;
-        private System.Windows.Forms.Label lblCountryRegion;
+        private System.Windows.Forms.DataGridView dgvInstallationProduct;
+        private System.Windows.Forms.Label lblHeader;
+        private System.Windows.Forms.Label lblProductsToInstall;
+        private System.Windows.Forms.TextBox tbCreatedOn;
+        private System.Windows.Forms.Label lblCreatedOn;
+        private System.Windows.Forms.TextBox tbOrderNumber;
+        private System.Windows.Forms.Label lblOrderNumber;
         private System.Windows.Forms.Button btnArrangeInstallation;
-        private System.Windows.Forms.Button btnInstallationNote;
+        private System.Windows.Forms.TextBox tbArrangedOn;
+        private System.Windows.Forms.Label lblArrangedOn;
+        private System.Windows.Forms.TextBox tbArrangedByStaffName;
+        private System.Windows.Forms.Label lblArrangedByStaffName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productNameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvProductsQuantity;
+        private System.Windows.Forms.Button btnViewSalesOrder;
     }
 }

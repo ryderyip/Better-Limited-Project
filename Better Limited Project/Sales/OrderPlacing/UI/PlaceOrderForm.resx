@@ -332,9 +332,6 @@
   <data name="checkBoxNeedInstallation.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="checkBoxNeedInstallation.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="checkBoxNeedInstallation.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
   </data>

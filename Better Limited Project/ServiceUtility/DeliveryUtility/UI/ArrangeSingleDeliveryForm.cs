@@ -25,6 +25,8 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
 
         private void OnFormShown(object sender, EventArgs e)
         {
+            btnArrangeDelivery.Enabled = false;
+            tbSelectedCourier.TextChanged += (_, _) => btnArrangeDelivery.Enabled = !string.IsNullOrWhiteSpace(tbSelectedCourier.Text);
             tbCustomerChosenDeliverySession.Text = _deliveryRequest.DeliverySession.ToString();
             var earliestDeliveryDate = Entity.Delivery.GetEarliestDeliveryDate(_deliveryRequest.DeliverySession);
             tbEarliestDeliveryDate.Text = earliestDeliveryDate.ToLongDateString();
@@ -89,7 +91,7 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
                 return;
             }
             
-            scheduledOn += DeliverySessionTimeConverter.GetTimeSpan(_deliveryRequest.DeliverySession);
+            scheduledOn += _deliveryRequest.DeliverySessionTime;
             // TODO no schedule if no stock available
             var delivery = new Entity.Delivery(_deliveryRequest.Id)
             {

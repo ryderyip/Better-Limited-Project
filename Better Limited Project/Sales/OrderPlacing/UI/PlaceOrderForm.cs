@@ -47,7 +47,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
             _cart.GetCartItems().ToList().ForEach(cartItem =>
             {
                 decimal sellingPrice = cartItem.Price;
-                decimal depositPrice = cartItem.Price * Product.DepositPricePercentage;
+                decimal depositPrice = sellingPrice * Product.DepositPricePercentage;
                 dgvCart.Rows.Add(cartItem.Product.Name,
                     cartItem.IsOutOfStock
                         ? depositPrice.ToString("C", new CultureInfo("zh-HK"))

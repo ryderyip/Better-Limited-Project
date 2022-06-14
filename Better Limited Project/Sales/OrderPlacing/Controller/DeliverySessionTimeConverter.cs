@@ -5,7 +5,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Controller
 {
     public static class DeliverySessionTimeConverter
     {
-        public static TimeSpan GetTimeSpan(DeliverySession session)
+        public static TimeSpan GetTimeOfDay(DeliverySession session)
         {
             return session switch
             {

@@ -10,6 +10,8 @@ using Better_Limited_Project.Sales.OrderPlacing.Controller;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;
 using Better_Limited_Project.Sales.PaymentUtility;
+using Better_Limited_Project.ServiceUtility.InstallationUtility.Entity;
+using Better_Limited_Project.ServiceUtility.InstallationUtility.UI;
 using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 using Better_Limited_Project.Tools;
@@ -67,11 +69,9 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
                 var product = sop.GetProduct();
                 int rowIndex = dgvProducts.Rows.Add(product.Id,
                     product.Name,
-                    sop.Price.ToString("C", new CultureInfo("zh-HK")),
                     sop.Quantity,
-                    (sop.Price * sop.Quantity).ToString("C", new CultureInfo("zh-HK")),
-                    sop.IsStockReady() ? "Replenished" : "Awaiting Restock",
-                    EnumToStringHelper.GetDisplayValue(sop.GetPaymentStatus()));
+                    EnumToStringHelper.GetDisplayValue(sop.GetPaymentStatus()),
+                    sop.IsStockReady() ? "Replenished" : "Awaiting Restock");
                 if (sop.GetPaymentStatus() is not SalesOrderProductPaymentStatus.FullyPaid)
                     dgvProducts.Rows[rowIndex].DefaultCellStyle.BackColor = FormColors.DgvRowAttention;
             }
@@ -96,6 +96,8 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
                 btnSettleIncompletePayment.Visible = false;
             if (!_salesOrder.IsActive)
                 btnManageOrder.Visible = false;
+            if (_salesOrder.GetInstallationStatus() is InstallationStatus.InstallationArranged or InstallationStatus.AllInstalled)
+                btnInstallationStatus.Visible = true;
         }
 
         private void FillFields()
@@ -108,8 +110,14 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
             tbTotalAmount.Text = calculator.GetTotalAmount().ToString("C", new CultureInfo("zh-HK"));
             txtAmtDue.Text = calculator.GetAmountDue().ToString("C", new CultureInfo("zh-HK"));
             txtAmtPaid.Text = calculator.GetAmountPaid().ToString("C", new CultureInfo("zh-HK"));
-            txtNeedDelivery.Text = _salesOrder.HasRequestedForDelivery() ? "Yes" : "No";
-            txtNeedInstallation.Text = _salesOrder.IsNeedInstallation() ? "Yes" : "No";
+            var installationStatus = _salesOrder.GetInstallationStatus();
+            txtInstallation.Text = installationStatus switch
+            {
+                InstallationStatus.AllInstalled => "All Installed",
+                InstallationStatus.InstallationRequested => "Installation Requested",
+                InstallationStatus.InstallationArranged => "Installation Arranged",
+                _ => "No Installation Appointed"
+            };
             tbDeliveryStatus.Text = delivery == default
                     ? deliveryRequest == default ? "-" : "Delivery Request Not Confirmed"
                     : EnumToStringHelper.GetDisplayValue(delivery.DeliveryStatus);
@@ -179,6 +187,12 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
             var productStock = UserSettings.GetSettings().Workplace!.GetProductStock(selectedProduct.ProductId);
             var form = new ProductDetailsForm(productStock);
             form.StartPosition = FormStartPosition.CenterScreen;
+            form.ShowDialog();
+        }
+
+        private void btnInstallationStatus_Click(object sender, EventArgs e)
+        {
+            var form = new InstallationProductStatusForm(_salesOrder);
             form.ShowDialog();
         }
     }

@@ -1,4 +1,5 @@
-﻿namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
+﻿
+namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
 {
     partial class ArrangeInstallationForm
     {
@@ -28,138 +29,133 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblSelectTechnician = new System.Windows.Forms.Label();
-            this.comboBoxSelectTechnician = new System.Windows.Forms.ComboBox();
-            this.lblSelectDateTime = new System.Windows.Forms.Label();
-            this.lblDate = new System.Windows.Forms.Label();
-            this.lblTime = new System.Windows.Forms.Label();
-            this.txtDate = new System.Windows.Forms.TextBox();
-            this.txtTime = new System.Windows.Forms.TextBox();
-            this.btnArrangeInstallation = new System.Windows.Forms.Button();
-            this.btnBack = new System.Windows.Forms.Button();
+            this.lblHeader = new System.Windows.Forms.Label();
+            this.tbSelectedTechnicians = new System.Windows.Forms.TextBox();
+            this.lblSelectTechnicians = new System.Windows.Forms.Label();
+            this.btnSelectTechnicians = new System.Windows.Forms.Button();
+            this.btnArrange = new System.Windows.Forms.Button();
+            this.lblScheduledOn = new System.Windows.Forms.Label();
+            this.dtpScheduledDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpScheduledTime = new System.Windows.Forms.DateTimePicker();
+            this.helpCannotChooseScheduleDateTime = new System.Windows.Forms.HelpProvider();
             this.SuspendLayout();
             // 
-            // lblSelectTechnician
+            // lblHeader
             // 
-            this.lblSelectTechnician.AutoSize = true;
-            this.lblSelectTechnician.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblSelectTechnician.Location = new System.Drawing.Point(366, 66);
-            this.lblSelectTechnician.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblSelectTechnician.Name = "lblSelectTechnician";
-            this.lblSelectTechnician.Size = new System.Drawing.Size(151, 20);
-            this.lblSelectTechnician.TabIndex = 0;
-            this.lblSelectTechnician.Text = "Select Technician";
+            this.lblHeader.AutoSize = true;
+            this.lblHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
+            this.lblHeader.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblHeader.Location = new System.Drawing.Point(51, 26);
+            this.lblHeader.Name = "lblHeader";
+            this.lblHeader.Size = new System.Drawing.Size(238, 29);
+            this.lblHeader.TabIndex = 127;
+            this.lblHeader.Text = "Arrange Installation";
             // 
-            // comboBoxSelectTechnician
+            // tbSelectedTechnicians
             // 
-            this.comboBoxSelectTechnician.FormattingEnabled = true;
-            this.comboBoxSelectTechnician.Location = new System.Drawing.Point(372, 121);
-            this.comboBoxSelectTechnician.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.comboBoxSelectTechnician.Name = "comboBoxSelectTechnician";
-            this.comboBoxSelectTechnician.Size = new System.Drawing.Size(289, 28);
-            this.comboBoxSelectTechnician.TabIndex = 1;
+            this.tbSelectedTechnicians.Location = new System.Drawing.Point(19, 111);
+            this.tbSelectedTechnicians.Name = "tbSelectedTechnicians";
+            this.tbSelectedTechnicians.ReadOnly = true;
+            this.tbSelectedTechnicians.Size = new System.Drawing.Size(200, 20);
+            this.tbSelectedTechnicians.TabIndex = 128;
+            this.tbSelectedTechnicians.Text = "-";
             // 
-            // lblSelectDateTime
+            // lblSelectTechnicians
             // 
-            this.lblSelectDateTime.AutoSize = true;
-            this.lblSelectDateTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblSelectDateTime.Location = new System.Drawing.Point(368, 182);
-            this.lblSelectDateTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblSelectDateTime.Name = "lblSelectDateTime";
-            this.lblSelectDateTime.Size = new System.Drawing.Size(200, 20);
-            this.lblSelectDateTime.TabIndex = 2;
-            this.lblSelectDateTime.Text = "Installation Date + Time";
+            this.lblSelectTechnicians.AutoSize = true;
+            this.lblSelectTechnicians.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lblSelectTechnicians.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblSelectTechnicians.Location = new System.Drawing.Point(16, 92);
+            this.lblSelectTechnicians.Name = "lblSelectTechnicians";
+            this.lblSelectTechnicians.Size = new System.Drawing.Size(130, 16);
+            this.lblSelectTechnicians.TabIndex = 129;
+            this.lblSelectTechnicians.Text = "Select Technician(s)";
             // 
-            // lblDate
+            // btnSelectTechnicians
             // 
-            this.lblDate.AutoSize = true;
-            this.lblDate.Location = new System.Drawing.Point(378, 227);
-            this.lblDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(48, 20);
-            this.lblDate.TabIndex = 3;
-            this.lblDate.Text = "Date:";
+            this.btnSelectTechnicians.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnSelectTechnicians.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnSelectTechnicians.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnSelectTechnicians.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnSelectTechnicians.Location = new System.Drawing.Point(225, 103);
+            this.btnSelectTechnicians.Name = "btnSelectTechnicians";
+            this.btnSelectTechnicians.Size = new System.Drawing.Size(81, 34);
+            this.btnSelectTechnicians.TabIndex = 130;
+            this.btnSelectTechnicians.Text = "Select";
+            this.btnSelectTechnicians.UseVisualStyleBackColor = false;
+            this.btnSelectTechnicians.Click += new System.EventHandler(this.btnSelectTechnicians_Click);
             // 
-            // lblTime
+            // btnArrange
             // 
-            this.lblTime.AutoSize = true;
-            this.lblTime.Location = new System.Drawing.Point(379, 279);
-            this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(47, 20);
-            this.lblTime.TabIndex = 4;
-            this.lblTime.Text = "Time:";
+            this.btnArrange.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnArrange.Enabled = false;
+            this.btnArrange.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnArrange.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnArrange.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnArrange.Location = new System.Drawing.Point(72, 228);
+            this.btnArrange.Name = "btnArrange";
+            this.btnArrange.Size = new System.Drawing.Size(197, 55);
+            this.btnArrange.TabIndex = 131;
+            this.btnArrange.Text = "Arrange";
+            this.btnArrange.UseVisualStyleBackColor = false;
+            this.btnArrange.Click += new System.EventHandler(this.btnArrange_Click);
             // 
-            // txtDate
+            // lblScheduledOn
             // 
-            this.txtDate.Location = new System.Drawing.Point(435, 224);
-            this.txtDate.Name = "txtDate";
-            this.txtDate.Size = new System.Drawing.Size(133, 26);
-            this.txtDate.TabIndex = 5;
+            this.lblScheduledOn.AutoSize = true;
+            this.lblScheduledOn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lblScheduledOn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblScheduledOn.Location = new System.Drawing.Point(16, 159);
+            this.lblScheduledOn.Name = "lblScheduledOn";
+            this.lblScheduledOn.Size = new System.Drawing.Size(93, 16);
+            this.lblScheduledOn.TabIndex = 133;
+            this.lblScheduledOn.Text = "Scheduled On";
             // 
-            // txtTime
+            // dtpScheduledDate
             // 
-            this.txtTime.Location = new System.Drawing.Point(435, 276);
-            this.txtTime.Name = "txtTime";
-            this.txtTime.Size = new System.Drawing.Size(133, 26);
-            this.txtTime.TabIndex = 6;
+            this.dtpScheduledDate.Location = new System.Drawing.Point(19, 178);
+            this.dtpScheduledDate.Name = "dtpScheduledDate";
+            this.dtpScheduledDate.Size = new System.Drawing.Size(200, 20);
+            this.dtpScheduledDate.TabIndex = 134;
             // 
-            // btnArrangeInstallation
+            // dtpScheduledTime
             // 
-            this.btnArrangeInstallation.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnArrangeInstallation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.btnArrangeInstallation.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnArrangeInstallation.Location = new System.Drawing.Point(372, 357);
-            this.btnArrangeInstallation.Name = "btnArrangeInstallation";
-            this.btnArrangeInstallation.Size = new System.Drawing.Size(198, 33);
-            this.btnArrangeInstallation.TabIndex = 125;
-            this.btnArrangeInstallation.Text = "Arrange Installation";
-            this.btnArrangeInstallation.UseVisualStyleBackColor = false;
-            this.btnArrangeInstallation.Visible = false;
-            // 
-            // btnBack
-            // 
-            this.btnBack.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.btnBack.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnBack.Location = new System.Drawing.Point(428, 408);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(89, 33);
-            this.btnBack.TabIndex = 126;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = false;
+            this.dtpScheduledTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpScheduledTime.Location = new System.Drawing.Point(240, 178);
+            this.dtpScheduledTime.Name = "dtpScheduledTime";
+            this.dtpScheduledTime.Size = new System.Drawing.Size(85, 20);
+            this.dtpScheduledTime.TabIndex = 135;
             // 
             // ArrangeInstallationForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(747, 621);
-            this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.btnArrangeInstallation);
-            this.Controls.Add(this.txtTime);
-            this.Controls.Add(this.txtDate);
-            this.Controls.Add(this.lblTime);
-            this.Controls.Add(this.lblDate);
-            this.Controls.Add(this.lblSelectDateTime);
-            this.Controls.Add(this.comboBoxSelectTechnician);
-            this.Controls.Add(this.lblSelectTechnician);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ClientSize = new System.Drawing.Size(340, 306);
+            this.Controls.Add(this.dtpScheduledTime);
+            this.Controls.Add(this.dtpScheduledDate);
+            this.Controls.Add(this.lblScheduledOn);
+            this.Controls.Add(this.btnArrange);
+            this.Controls.Add(this.btnSelectTechnicians);
+            this.Controls.Add(this.lblSelectTechnicians);
+            this.Controls.Add(this.tbSelectedTechnicians);
+            this.Controls.Add(this.lblHeader);
             this.Name = "ArrangeInstallationForm";
             this.Text = "ArrangeInstallationForm";
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
 
-        private System.Windows.Forms.Label lblSelectTechnician;
-        private System.Windows.Forms.ComboBox comboBoxSelectTechnician;
-        private System.Windows.Forms.Label lblSelectDateTime;
-        private System.Windows.Forms.Label lblDate;
-        private System.Windows.Forms.Label lblTime;
-        private System.Windows.Forms.TextBox txtDate;
-        private System.Windows.Forms.TextBox txtTime;
-        private System.Windows.Forms.Button btnArrangeInstallation;
-        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Label lblHeader;
+        private System.Windows.Forms.TextBox tbSelectedTechnicians;
+        private System.Windows.Forms.Label lblSelectTechnicians;
+        private System.Windows.Forms.Button btnSelectTechnicians;
+        private System.Windows.Forms.Button btnArrange;
+        private System.Windows.Forms.Label lblScheduledOn;
+        private System.Windows.Forms.DateTimePicker dtpScheduledDate;
+        private System.Windows.Forms.DateTimePicker dtpScheduledTime;
+        private System.Windows.Forms.HelpProvider helpCannotChooseScheduleDateTime;
     }
 }

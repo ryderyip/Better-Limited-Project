@@ -668,7 +668,6 @@
     <Compile Include="ServiceUtility\DeliveryUtility\Entity\Delivery.cs" />
     <Compile Include="ServiceUtility\DeliveryUtility\Entity\DeliveryCourier.cs" />
     <Compile Include="ServiceUtility\DeliveryUtility\Entity\DeliveryRequest.cs" />
-    <Compile Include="ServiceUtility\DeliveryUtility\InstallationService.cs" />
     <Compile Include="ServiceUtility\DeliveryUtility\Repository\CourierRepository.cs" />
     <Compile Include="ServiceUtility\DeliveryUtility\Repository\DeliveryCourierRepository.cs" />
     <Compile Include="ServiceUtility\DeliveryUtility\Repository\DeliveryRepository.cs" />
@@ -753,6 +752,8 @@
     <Compile Include="ServiceUtility\DeliveryUtility\UI\UpdateDeliveryForm.Designer.cs">
       <DependentUpon>UpdateDeliveryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ServiceUtility\InstallationUtility\Controller\InstallationRequestService.cs" />
+    <Compile Include="ServiceUtility\InstallationUtility\Controller\InstallationService.cs" />
     <Compile Include="ServiceUtility\InstallationUtility\Entity\Installation.cs" />
     <Compile Include="ServiceUtility\InstallationUtility\Entity\InstallationRequest.cs" />
     <Compile Include="ServiceUtility\InstallationUtility\Entity\InstallationRequestProduct.cs" />
@@ -767,27 +768,51 @@
     <Compile Include="ServiceUtility\InstallationUtility\UI\ArrangeInstallationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ServiceUtility\InstallationUtility\UI\ArrangeInstallationForm.Designer.cs" />
-    <Compile Include="ServiceUtility\InstallationUtility\UI\CreateInstallationDutyRecordForm.cs">
-      <SubType>Form</SubType>
+    <Compile Include="ServiceUtility\InstallationUtility\UI\ArrangeInstallationForm.Designer.cs">
+      <DependentUpon>ArrangeInstallationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ServiceUtility\InstallationUtility\UI\CreateInstallationDutyRecordForm.Designer.cs" />
-    <Compile Include="ServiceUtility\InstallationUtility\UI\InstallationDutyRecordDetailsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ServiceUtility\InstallationUtility\UI\InstallationDutyRecordDetailsForm.Designer.cs" />
-    <Compile Include="ServiceUtility\InstallationUtility\UI\InstallationDutyRecordForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ServiceUtility\InstallationUtility\UI\InstallationDutyRecordForm.Designer.cs" />
     <Compile Include="ServiceUtility\InstallationUtility\UI\InstallationRequestDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ServiceUtility\InstallationUtility\UI\InstallationRequestDetailsForm.Designer.cs" />
-    <Compile Include="ServiceUtility\InstallationUtility\UI\InstallationRequestForm.cs">
+    <Compile Include="ServiceUtility\InstallationUtility\UI\InstallationRequestDetailsForm.Designer.cs">
+      <DependentUpon>InstallationRequestDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceUtility\InstallationUtility\UI\InstallationProductStatusForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ServiceUtility\InstallationUtility\UI\InstallationRequestForm.Designer.cs" />
+    <Compile Include="ServiceUtility\InstallationUtility\UI\InstallationProductStatusForm.Designer.cs">
+      <DependentUpon>InstallationProductStatusForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceUtility\InstallationUtility\UI\InstallationRequestListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServiceUtility\InstallationUtility\UI\InstallationRequestListForm.Designer.cs">
+      <DependentUpon>InstallationRequestListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceUtility\InstallationUtility\UI\TechnicianCreateUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServiceUtility\InstallationUtility\UI\TechnicianCreateUpdateForm.Designer.cs">
+      <DependentUpon>TechnicianCreateUpdateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceUtility\InstallationUtility\UI\TechnicianDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServiceUtility\InstallationUtility\UI\TechnicianDetailsForm.Designer.cs">
+      <DependentUpon>TechnicianDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceUtility\InstallationUtility\UI\TechnicianListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServiceUtility\InstallationUtility\UI\TechnicianListForm.Designer.cs">
+      <DependentUpon>TechnicianListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceUtility\InstallationUtility\UI\TechnicianPickerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServiceUtility\InstallationUtility\UI\TechnicianPickerForm.Designer.cs">
+      <DependentUpon>TechnicianPickerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ServiceUtility\ProductReservationService.cs" />
     <Compile Include="ServiceUtility\SalesOrderComposer.cs" />
     <Compile Include="ServiceUtility\ServiceUtilityStringResources.Designer.cs">
@@ -1327,12 +1352,27 @@
     <EmbeddedResource Include="ServiceUtility\DeliveryUtility\UI\UpdateDeliveryForm.zh-HK.resx">
       <DependentUpon>UpdateDeliveryForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ServiceUtility\InstallationUtility\UI\ArrangeInstallationForm.resx" />
-    <EmbeddedResource Include="ServiceUtility\InstallationUtility\UI\CreateInstallationDutyRecordForm.resx" />
-    <EmbeddedResource Include="ServiceUtility\InstallationUtility\UI\InstallationDutyRecordDetailsForm.resx" />
-    <EmbeddedResource Include="ServiceUtility\InstallationUtility\UI\InstallationDutyRecordForm.resx" />
-    <EmbeddedResource Include="ServiceUtility\InstallationUtility\UI\InstallationRequestDetailsForm.resx" />
-    <EmbeddedResource Include="ServiceUtility\InstallationUtility\UI\InstallationRequestForm.resx" />
+    <EmbeddedResource Include="ServiceUtility\InstallationUtility\UI\ArrangeInstallationForm.resx">
+      <DependentUpon>ArrangeInstallationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServiceUtility\InstallationUtility\UI\InstallationRequestDetailsForm.resx">
+      <DependentUpon>InstallationRequestDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServiceUtility\InstallationUtility\UI\InstallationRequestListForm.resx">
+      <DependentUpon>InstallationRequestListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServiceUtility\InstallationUtility\UI\TechnicianCreateUpdateForm.resx">
+      <DependentUpon>TechnicianCreateUpdateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServiceUtility\InstallationUtility\UI\TechnicianDetailsForm.resx">
+      <DependentUpon>TechnicianDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServiceUtility\InstallationUtility\UI\TechnicianListForm.resx">
+      <DependentUpon>TechnicianListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServiceUtility\InstallationUtility\UI\TechnicianPickerForm.resx">
+      <DependentUpon>TechnicianPickerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ServiceUtility\ServiceUtilityStringResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ServiceUtilityStringResources.Designer.cs</LastGenOutput>
@@ -1425,7 +1465,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DataAnalytics\" />
-    <Folder Include="ServiceUtility\InstallationUtility\Controller" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\BL_Logo_Rectangle.png" />

@@ -34,9 +34,10 @@ namespace Better_Limited_Project.Navigation.UI
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TechnicalSupportNavigationForm));
             this.lblLoggedInAs = new System.Windows.Forms.Label();
             this.btnProfile = new System.Windows.Forms.Button();
-            this.btnInstallationDuty = new System.Windows.Forms.Button();
+            this.btnInstallations = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnInstallationRequests = new System.Windows.Forms.Button();
+            this.btnTechnician = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblLoggedInAs
@@ -51,12 +52,12 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnProfile.UseVisualStyleBackColor = true;
             this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
             // 
-            // btnInstallationDuty
+            // btnInstallations
             // 
-            resources.ApplyResources(this.btnInstallationDuty, "btnInstallationDuty");
-            this.btnInstallationDuty.Name = "btnInstallationDuty";
-            this.btnInstallationDuty.UseVisualStyleBackColor = true;
-            this.btnInstallationDuty.Click += new System.EventHandler(this.btnInstallationDuty_Click);
+            resources.ApplyResources(this.btnInstallations, "btnInstallations");
+            this.btnInstallations.Name = "btnInstallations";
+            this.btnInstallations.UseVisualStyleBackColor = true;
+            this.btnInstallations.Click += new System.EventHandler(this.btnInstallationDuty_Click);
             // 
             // btnSettings
             // 
@@ -72,13 +73,21 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnInstallationRequests.UseVisualStyleBackColor = true;
             this.btnInstallationRequests.Click += new System.EventHandler(this.btnInstallationRequests_Click);
             // 
+            // btnTechnician
+            // 
+            resources.ApplyResources(this.btnTechnician, "btnTechnician");
+            this.btnTechnician.Name = "btnTechnician";
+            this.btnTechnician.UseVisualStyleBackColor = true;
+            this.btnTechnician.Click += new System.EventHandler(this.btnTechnician_Click);
+            // 
             // TechnicalSupportNavigationForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnTechnician);
             this.Controls.Add(this.lblLoggedInAs);
             this.Controls.Add(this.btnProfile);
-            this.Controls.Add(this.btnInstallationDuty);
+            this.Controls.Add(this.btnInstallations);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.btnInstallationRequests);
             this.Name = "TechnicalSupportNavigationForm";
@@ -86,7 +95,7 @@ namespace Better_Limited_Project.Navigation.UI
 
         }
 
-        private System.Windows.Forms.Button btnInstallationDuty;
+        private System.Windows.Forms.Button btnInstallations;
         private System.Windows.Forms.Button btnInstallationRequests;
 
         private System.Windows.Forms.Label lblLoggedInAs;
@@ -94,5 +103,7 @@ namespace Better_Limited_Project.Navigation.UI
         private System.Windows.Forms.Button btnSettings;
 
         #endregion
+
+        private System.Windows.Forms.Button btnTechnician;
     }
 }

@@ -12,6 +12,7 @@ using Better_Limited_Project.Sales.PaymentUtility;
 using Better_Limited_Project.Sales.PaymentUtility.UI;
 using Better_Limited_Project.ServiceUtility;
 using Better_Limited_Project.ServiceUtility.DeliveryUtility;
+using Better_Limited_Project.ServiceUtility.InstallationUtility.Controller;
 using Better_Limited_Project.SettingsUtility;
 
 namespace Better_Limited_Project.Sales.OrderPlacing
@@ -79,8 +80,10 @@ namespace Better_Limited_Project.Sales.OrderPlacing
 
         private void SendInstallationServiceRequest()
         {
-            var service = new InstallationService();
-            service.SendRequest(_order);
+            var service = new InstallationRequestService(_order.Id);
+            service.AddProductRange(_salesOrderProduct);
+            service.SendRequest();
+            MessageBox.Show("Installation service request sent.");
         }
 
         private void SaveSalesOrderToDatabase(PaymentMethod paymentMethod)
