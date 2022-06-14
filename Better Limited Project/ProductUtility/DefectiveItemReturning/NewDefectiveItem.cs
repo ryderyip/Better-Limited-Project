@@ -1,10 +1,12 @@
 ﻿using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.DocumentUtility;
 using Better_Limited_Project.Login;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.ProductUtility.PickerForms;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
+using Better_Limited_Project.Sales.OrderPlacing.Repository;
 using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 using Better_Limited_Project.Tools;
@@ -15,7 +17,6 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
     {
         private Product? _selectedProduct;
         private SalesOrder? _selectedSalesOrder;
-        private Image? _selectedImage;
 
         public NewDefectiveItem()
         {
@@ -37,11 +38,14 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
                 return;
             _selectedProduct = form.SelectedProduct.GetProduct();
             tbProduct.Text = _selectedProduct.Name;
+            nudQuantity.Enabled = true;
+            nudQuantity.Maximum = form.SelectedProduct.Quantity;
         }
 
         private void btnChooseSalesOrder_Click(object sender, System.EventArgs e)
         {
-            var form = new SalesOrderPickerForm();
+            var completedSalesOrders = new SalesOrderRepository().GetAll().Where(so => so.IsCompleted());
+            var form = new SalesOrderPickerForm(completedSalesOrders);
             var result = form.ShowDialog();
             if (result is not DialogResult.OK || form.SelectedSalesOrder == null)
                 return;
@@ -56,11 +60,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             var path = ImageFileBrowser.Browse(browserDescription);
             if (path == null) return;
 
-            var image = ImageRetriever.Retrieve(path);
-            if (image == null) return;
-
-            pbEvidenceImage.Image = image;
-            _selectedImage = image;
+            pbEvidenceImage.Image = ImageRetriever.Retrieve(path);
         }
 
         private void btnCreate_Click(object sender, System.EventArgs e)
@@ -91,7 +91,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             var defectiveItem = new DefectiveItem(_selectedProduct.Id, quantity, description,
                 currentRetailStore.Id, staff.Id, _selectedSalesOrder.Id)
             {
-                Image = _selectedImage
+                Image = pbEvidenceImage.Image
             };
 
             defectiveItem.Save();

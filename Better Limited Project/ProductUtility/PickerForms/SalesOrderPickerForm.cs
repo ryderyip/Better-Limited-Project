@@ -15,10 +15,10 @@ namespace Better_Limited_Project.ProductUtility.PickerForms
         public SalesOrder? SelectedSalesOrder { get; private set; }
         private readonly List<SalesOrder> _salesOrders;
 
-        public SalesOrderPickerForm()
+        public SalesOrderPickerForm(IEnumerable<SalesOrder> salesOrders)
         {
             StartPosition = FormStartPosition.CenterScreen;
-            _salesOrders = new SalesOrderRepository().GetAll().ToList();
+            _salesOrders = salesOrders.ToList();
             InitializeComponent();
             Shown += (_, _) => Initialize();
         }

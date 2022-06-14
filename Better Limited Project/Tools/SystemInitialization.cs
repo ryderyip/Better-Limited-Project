@@ -1,6 +1,5 @@
 ﻿using Better_Limited_Project.ProductUtility.Repository;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;
-using Better_Limited_Project.ServiceUtility.Delivery.Repository;
 
 namespace Better_Limited_Project.Tools
 {

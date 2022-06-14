@@ -11,7 +11,7 @@ using Better_Limited_Project.Sales.OrderPlacing.UI;
 using Better_Limited_Project.Sales.PaymentUtility;
 using Better_Limited_Project.Sales.PaymentUtility.UI;
 using Better_Limited_Project.ServiceUtility;
-using Better_Limited_Project.ServiceUtility.Delivery;
+using Better_Limited_Project.ServiceUtility.DeliveryUtility;
 using Better_Limited_Project.SettingsUtility;
 
 namespace Better_Limited_Project.Sales.OrderPlacing
@@ -99,6 +99,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
                     isDeposit: sop.IsOutOfStock).Save();
                 sop.Save();
             });
+            _order.Save();
 
             if (_salesOrderProduct.Any(sop => sop.IsOutOfStock))
             {

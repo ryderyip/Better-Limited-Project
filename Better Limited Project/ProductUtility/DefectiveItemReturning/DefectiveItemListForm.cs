@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.Login;
@@ -33,6 +34,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
                 di.Product.Name,
                 di.Quantity,
                 di.ReturnedToRetailStoreOn.ToString("g")));
+            dgvDefectiveItems.Sort(returnedOnColumn, ListSortDirection.Descending);
         }
 
         private void btnNewItem_Click(object sender, System.EventArgs e)

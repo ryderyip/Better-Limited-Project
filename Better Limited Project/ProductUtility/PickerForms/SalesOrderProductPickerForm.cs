@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
+using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 
 namespace Better_Limited_Project.ProductUtility.PickerForms
@@ -11,13 +11,25 @@ namespace Better_Limited_Project.ProductUtility.PickerForms
     {
         public SalesOrderProduct? SelectedProduct { get; private set; }
         private readonly List<SalesOrderProduct> _salesOrderProducts;
+        private readonly List<Category> _categories;
 
         public SalesOrderProductPickerForm(IEnumerable<SalesOrderProduct> orderProducts)
         {
             StartPosition = FormStartPosition.CenterScreen;
             _salesOrderProducts = orderProducts.ToList();
+            _categories = _salesOrderProducts.Select(sop => sop.GetProduct().Category).ToList();
             InitializeComponent();
-            Shown += (_, _) => PopulateDgv(_salesOrderProducts);
+            Shown += (_, _) => Initialize();
+        }
+
+        private void Initialize()
+        {
+            tbSearchBox.TextChanged += (_, _) => FilterDgv();
+            cbCategoryFilter.SelectedIndexChanged += (_, _) => FilterDgv();
+            cbCategoryFilter.Items.Add(string.Empty);
+            _categories.ForEach(c => cbCategoryFilter.Items.Add(c.Name));
+            cbCategoryFilter.SelectedIndex = 0;
+            PopulateDgv(_salesOrderProducts);
         }
 
         private void PopulateDgv(IEnumerable<SalesOrderProduct> orderProducts)
@@ -27,7 +39,7 @@ namespace Better_Limited_Project.ProductUtility.PickerForms
             {
                 var product = salesOrderProduct.GetProduct();
                 dgvProductList.Rows.Add(salesOrderProduct.SalesOrderId,
-                    salesOrderProduct.ProductId, product.Name, 
+                    salesOrderProduct.ProductId, product.Name, salesOrderProduct.Quantity,
                     salesOrderProduct.Price.ToString("C", new CultureInfo("zh-HK")),
                     product.Category.Name, product.Supplier.Name);
             }
@@ -39,9 +51,9 @@ namespace Better_Limited_Project.ProductUtility.PickerForms
             var salesOrderProducts = (cbCategoryFilter.SelectedIndex != 0)
                 ? from sop in _salesOrderProducts
                 let product = sop.GetProduct()
-                where product.Name.ToLower().Contains(searchKeyword)
-                      || product.Supplier.Name.ToLower().Contains(searchKeyword)
-                      || product.Category.Name.ToLower().Contains(searchKeyword)
+                where (product.Name.ToLower().Contains(searchKeyword)
+                       || product.Supplier.Name.ToLower().Contains(searchKeyword))
+                      && product.Category.Name == cbCategoryFilter.SelectedItem.ToString()
                 select sop
                 : from sop in _salesOrderProducts
                 let product = sop.GetProduct()
@@ -49,16 +61,6 @@ namespace Better_Limited_Project.ProductUtility.PickerForms
                       || product.Supplier.Name.ToLower().Contains(searchKeyword)
                 select sop;
             PopulateDgv(salesOrderProducts);
-        }
-
-        private void tbSearchBox_TextChanged(object sender, EventArgs e)
-        {
-            FilterDgv();
-        }
-
-        private void cbCategoryFilter_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            FilterDgv();
         }
 
         private void dgvProductList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

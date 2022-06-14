@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Better_Limited_Project.CustomerRecord;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;
-using Better_Limited_Project.ServiceUtility.Delivery.Entity;
-using Better_Limited_Project.ServiceUtility.Delivery.Repository;
+using Better_Limited_Project.ServiceUtility.DeliveryUtility.Entity;
+using Better_Limited_Project.ServiceUtility.DeliveryUtility.Repository;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.Sales.OrderPlacing.Entity

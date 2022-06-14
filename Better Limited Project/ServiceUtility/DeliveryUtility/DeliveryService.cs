@@ -1,0 +1,20 @@
+﻿using System;
+using Better_Limited_Project.Sales.OrderPlacing.Entity;
+using Better_Limited_Project.ServiceUtility.DeliveryUtility.Entity;
+using Better_Limited_Project.ServiceUtility.DeliveryUtility.Repository;
+
+namespace Better_Limited_Project.ServiceUtility.DeliveryUtility
+{
+    public class DeliveryService
+    {
+        public void SendRequest(SalesOrder salesOrder, DeliverySession deliverySession)
+        {
+            var id = DeliveryRequestRepository.GetNewId();
+            string orderId = salesOrder.Id;
+            var createdOn = DateTime.Now;
+            var createdBy = salesOrder.Staff;
+            var request = new DeliveryRequest(id, orderId, createdOn, createdBy.Id, deliverySession);
+            request.Save();
+        }
+    }
+}

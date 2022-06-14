@@ -1,5 +1,6 @@
 ﻿using System.Windows.Forms;
 using Better_Limited_Project.CustomerRecord;
+using Better_Limited_Project.Properties;
 using Better_Limited_Project.Sales.OrderPlacing.UI;
 
 namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
@@ -41,6 +42,8 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
                 tbCustomerName.Text = _defectiveItem.SalesOrder.Customer.Name;
                 tbCustomerPhone.Text = _defectiveItem.SalesOrder.Customer.Phone;
             }
+
+            pbImageEvidence.Image = _defectiveItem.Image ?? Resources.no_image;
         }
 
         private void btnSalesOrder_Click(object sender, System.EventArgs e)

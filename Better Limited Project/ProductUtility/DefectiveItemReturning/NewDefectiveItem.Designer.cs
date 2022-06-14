@@ -176,6 +176,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             // 
             // nudQuantity
             // 
+            this.nudQuantity.Enabled = false;
             this.nudQuantity.Location = new System.Drawing.Point(140, 210);
             this.nudQuantity.Minimum = new decimal(new int[] {
             1,

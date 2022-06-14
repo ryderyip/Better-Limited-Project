@@ -6,7 +6,7 @@ using Better_Limited_Project.ProductUtility.DefectiveItemReturning;
 using Better_Limited_Project.ProductUtility.InwardGoodsUtility.UI;
 using Better_Limited_Project.ProductUtility.ProductList.Forms;
 using Better_Limited_Project.ProductUtility.Reordering.UI;
-using Better_Limited_Project.ServiceUtility.Delivery.UI;
+using Better_Limited_Project.ServiceUtility.DeliveryUtility.UI;
 using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.StaffUtility.StaffProfile;
 

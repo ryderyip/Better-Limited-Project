@@ -2,7 +2,7 @@
 using System.Linq;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;
-using Better_Limited_Project.ServiceUtility.Delivery.Entity;
+using Better_Limited_Project.ServiceUtility.DeliveryUtility.Entity;
 
 namespace Better_Limited_Project.Tools
 {

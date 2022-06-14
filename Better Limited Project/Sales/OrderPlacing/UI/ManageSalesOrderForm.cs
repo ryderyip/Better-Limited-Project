@@ -4,8 +4,8 @@ using System.Windows.Forms;
 using Better_Limited_Project.CustomerRecord;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.Sales.PaymentUtility;
-using Better_Limited_Project.ServiceUtility.Delivery;
-using Better_Limited_Project.ServiceUtility.Delivery.Entity;
+using Better_Limited_Project.ServiceUtility.DeliveryUtility;
+using Better_Limited_Project.ServiceUtility.DeliveryUtility.Entity;
 
 namespace Better_Limited_Project.Sales.OrderPlacing.UI
 {

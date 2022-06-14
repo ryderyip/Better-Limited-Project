@@ -37,8 +37,8 @@ namespace Better_Limited_Project.ProductUtility.PickerForms
             this.orderIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sellingPriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.supplierColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductList)).BeginInit();
             this.SuspendLayout();
@@ -52,8 +52,8 @@ namespace Better_Limited_Project.ProductUtility.PickerForms
             this.orderIdColumn,
             this.productIdColumn,
             this.name,
+            this.quantityColumn,
             this.sellingPriceColumn,
-            this.category,
             this.supplierColumn});
             this.dgvProductList.Location = new System.Drawing.Point(29, 95);
             this.dgvProductList.Name = "dgvProductList";
@@ -81,7 +81,6 @@ namespace Better_Limited_Project.ProductUtility.PickerForms
             this.cbCategoryFilter.Name = "cbCategoryFilter";
             this.cbCategoryFilter.Size = new System.Drawing.Size(195, 21);
             this.cbCategoryFilter.TabIndex = 13;
-            this.cbCategoryFilter.SelectedIndexChanged += new System.EventHandler(this.cbCategoryFilter_SelectedIndexChanged);
             // 
             // tbSearchBox
             // 
@@ -89,7 +88,6 @@ namespace Better_Limited_Project.ProductUtility.PickerForms
             this.tbSearchBox.Name = "tbSearchBox";
             this.tbSearchBox.Size = new System.Drawing.Size(239, 20);
             this.tbSearchBox.TabIndex = 12;
-            this.tbSearchBox.TextChanged += new System.EventHandler(this.tbSearchBox_TextChanged);
             // 
             // lblSearchBox
             // 
@@ -120,19 +118,20 @@ namespace Better_Limited_Project.ProductUtility.PickerForms
             this.name.HeaderText = "Name";
             this.name.Name = "name";
             this.name.ReadOnly = true;
-            this.name.Width = 230;
+            this.name.Width = 250;
+            // 
+            // quantityColumn
+            // 
+            this.quantityColumn.HeaderText = "Qty";
+            this.quantityColumn.Name = "quantityColumn";
+            this.quantityColumn.ReadOnly = true;
+            this.quantityColumn.Width = 80;
             // 
             // sellingPriceColumn
             // 
             this.sellingPriceColumn.HeaderText = "Selling Price";
             this.sellingPriceColumn.Name = "sellingPriceColumn";
             this.sellingPriceColumn.ReadOnly = true;
-            // 
-            // category
-            // 
-            this.category.HeaderText = "Category";
-            this.category.Name = "category";
-            this.category.ReadOnly = true;
             // 
             // supplierColumn
             // 
@@ -169,8 +168,8 @@ namespace Better_Limited_Project.ProductUtility.PickerForms
         private System.Windows.Forms.DataGridViewTextBoxColumn orderIdColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn productIdColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantityColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sellingPriceColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn category;
         private System.Windows.Forms.DataGridViewTextBoxColumn supplierColumn;
     }
 }

@@ -2,6 +2,7 @@
 using System.Drawing;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.ProductUtility.Repository;
+using Better_Limited_Project.Properties;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;
 using Better_Limited_Project.StaffUtility.Repository;
@@ -44,7 +45,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
         public string Description { get; set; }
         public Image? Image
         {
-            get => DefectiveItemRepository.GetImageById(Id);
+            get => _image ?? DefectiveItemRepository.GetImageById(Id);
             set => _image = value;
         }
         public string RetailStoreId { get; }
