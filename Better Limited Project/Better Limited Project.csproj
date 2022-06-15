@@ -753,6 +753,7 @@
       <DependentUpon>UpdateDeliveryForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ServiceUtility\InstallationUtility\Controller\InstallationListGenerator.cs" />
+    <Compile Include="ServiceUtility\InstallationUtility\Controller\InstallationNoteGenerator.cs" />
     <Compile Include="ServiceUtility\InstallationUtility\Controller\InstallationRequestService.cs" />
     <Compile Include="ServiceUtility\InstallationUtility\Controller\InstallationService.cs" />
     <Compile Include="ServiceUtility\InstallationUtility\Entity\Installation.cs" />

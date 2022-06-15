@@ -44,6 +44,7 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
             this.technicianPhoneColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSetAsInstalled = new System.Windows.Forms.Button();
             this.btnViewSalesOrder = new System.Windows.Forms.Button();
+            this.btnInstallationNote = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInstallationProduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTechnicians)).BeginInit();
             this.SuspendLayout();
@@ -181,7 +182,7 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
             this.btnSetAsInstalled.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnSetAsInstalled.Location = new System.Drawing.Point(26, 371);
             this.btnSetAsInstalled.Name = "btnSetAsInstalled";
-            this.btnSetAsInstalled.Size = new System.Drawing.Size(185, 54);
+            this.btnSetAsInstalled.Size = new System.Drawing.Size(164, 54);
             this.btnSetAsInstalled.TabIndex = 139;
             this.btnSetAsInstalled.Text = "Set as Installed";
             this.btnSetAsInstalled.UseVisualStyleBackColor = false;
@@ -193,19 +194,34 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
             this.btnViewSalesOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnViewSalesOrder.ForeColor = System.Drawing.SystemColors.Window;
             this.btnViewSalesOrder.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnViewSalesOrder.Location = new System.Drawing.Point(425, 371);
+            this.btnViewSalesOrder.Location = new System.Drawing.Point(446, 371);
             this.btnViewSalesOrder.Name = "btnViewSalesOrder";
-            this.btnViewSalesOrder.Size = new System.Drawing.Size(185, 54);
+            this.btnViewSalesOrder.Size = new System.Drawing.Size(164, 54);
             this.btnViewSalesOrder.TabIndex = 140;
             this.btnViewSalesOrder.Text = "View Sales Order";
             this.btnViewSalesOrder.UseVisualStyleBackColor = false;
             this.btnViewSalesOrder.Click += new System.EventHandler(this.btnViewSalesOrder_Click);
+            // 
+            // btnInstallationNote
+            // 
+            this.btnInstallationNote.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnInstallationNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnInstallationNote.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnInstallationNote.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnInstallationNote.Location = new System.Drawing.Point(236, 371);
+            this.btnInstallationNote.Name = "btnInstallationNote";
+            this.btnInstallationNote.Size = new System.Drawing.Size(164, 54);
+            this.btnInstallationNote.TabIndex = 141;
+            this.btnInstallationNote.Text = "Installation Note";
+            this.btnInstallationNote.UseVisualStyleBackColor = false;
+            this.btnInstallationNote.Click += new System.EventHandler(this.btnInstallationNote_Click);
             // 
             // InstallationDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(636, 450);
+            this.Controls.Add(this.btnInstallationNote);
             this.Controls.Add(this.btnViewSalesOrder);
             this.Controls.Add(this.btnSetAsInstalled);
             this.Controls.Add(this.tbScheduledOn);
@@ -242,5 +258,6 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn technicianPhoneColumn;
         private System.Windows.Forms.Button btnSetAsInstalled;
         private System.Windows.Forms.Button btnViewSalesOrder;
+        private System.Windows.Forms.Button btnInstallationNote;
     }
 }

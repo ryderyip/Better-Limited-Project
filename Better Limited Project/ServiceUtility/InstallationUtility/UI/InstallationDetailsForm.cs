@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.Sales.OrderPlacing.UI;
+using Better_Limited_Project.ServiceUtility.InstallationUtility.Controller;
 using Better_Limited_Project.ServiceUtility.InstallationUtility.Entity;
 
 namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
@@ -49,6 +50,12 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
             _installation.Save();
             Initialize();
             InfoUpdated?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void btnInstallationNote_Click(object sender, EventArgs e)
+        {
+            var generator = new InstallationNoteGenerator(_installation);
+            generator.GenerateAndOpen();
         }
     }
 }
