@@ -42,5 +42,11 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
             _installations = InstallationRepository.GetAll().ToList();
             Initialize();
         }
+
+        private void btnDailyList_Click(object sender, System.EventArgs e)
+        {
+            var form = new DailyInstallationListForm();
+            form.ShowDialog();
+        }
     }
 }

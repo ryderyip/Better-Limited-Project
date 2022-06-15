@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.Sales.PaymentUtility;
+using Better_Limited_Project.ServiceUtility.InstallationUtility.Entity;
 using Better_Limited_Project.SettingsUtility;
 using MigraDoc.DocumentObjectModel;
 using MigraDoc.DocumentObjectModel.Shapes;
@@ -13,22 +14,22 @@ using MigraDoc.Rendering;
 using BorderStyle = MigraDoc.DocumentObjectModel.BorderStyle;
 using TabAlignment = MigraDoc.DocumentObjectModel.TabAlignment;
 
-namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.Controller
+namespace Better_Limited_Project.ServiceUtility.InstallationUtility.Controller
 {
-    public class DeliveryListGenerator
+    public class InstallationListGenerator
     {
         private readonly string _fileName;
         private readonly string _location;
-        private readonly List<Entity.Delivery> _deliveries;
+        private readonly List<Installation> _installations;
 
-        public DeliveryListGenerator(IEnumerable<Entity.Delivery> deliveries)
+        public InstallationListGenerator(IEnumerable<Installation> installations)
         {
-            _deliveries = deliveries.ToList();
-            if (_deliveries.Count == 0)
+            _installations = installations.ToList();
+            if (_installations.Count == 0)
                 throw new ArgumentException("Cannot create a delivery list with 0 deliveries");
 
-            var date = _deliveries.First().ScheduledOn.ToString("yy-MMM-dd ddd");
-            _fileName = $"daily delivery list ({date}).pdf";
+            var date = _installations.First().ScheduledOn.ToString("yy-MMM-dd ddd");
+            _fileName = $"daily installations ({date}).pdf";
             _location = UserSettings.GetSettings().DocumentGenerationDirectoryPath;
         }
 
@@ -79,7 +80,7 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.Controller
         private Document Generate()
         {
             var doc = new Document();
-            doc.Info.Title = "Daily Deliveries";
+            doc.Info.Title = "Daily Installations";
 
             SetStyle(doc);
             CreatePage(doc);
@@ -96,7 +97,7 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.Controller
             headerText.Top = ShapePosition.Bottom;
             headerText.Left = ShapePosition.Left;
             headerText.Width = "10cm";
-            var paymentReceiptParagraph = headerText.AddParagraph("Daily Delivery List");
+            var paymentReceiptParagraph = headerText.AddParagraph("Daily Installations");
             paymentReceiptParagraph.Format.Font = new Font("Arial", 24);
 
             // Add the print date field
@@ -106,10 +107,8 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.Controller
             var paragraph = dateTextFrame.AddParagraph();
             paragraph.Format.SpaceAfter = "1cm";
             paragraph.Format.Font = new Font("Arial", 9);
-            string date = _deliveries.First().ScheduledOn.ToString("D");
-            string couriers = string.Join(", ", _deliveries.First().GetCouriers().Select(c => c.Name));
-            paragraph.AddText($"Date: {date}\n"
-                              + $"Courier(s): {couriers}");
+            string date = _installations.First().ScheduledOn.ToString("D");
+            paragraph.AddText($"Date: {date}");
 
             // Create the delivery table
             var table = section.AddTable();
@@ -124,16 +123,19 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.Controller
             Column column = table.AddColumn("1cm");
             column.Format.Alignment = ParagraphAlignment.Center;
 
-            column = table.AddColumn("5cm");
-            column.Format.Alignment = ParagraphAlignment.Right;
-
-            column = table.AddColumn("3.5cm");
+            column = table.AddColumn("4cm");
             column.Format.Alignment = ParagraphAlignment.Right;
 
             column = table.AddColumn("3cm");
             column.Format.Alignment = ParagraphAlignment.Right;
 
+            column = table.AddColumn("3cm");
+            column.Format.Alignment = ParagraphAlignment.Right;
+            
             column = table.AddColumn("4cm");
+            column.Format.Alignment = ParagraphAlignment.Right;
+
+            column = table.AddColumn("2.5cm");
             column.Format.Alignment = ParagraphAlignment.Right;
 
             // Create the header of the table
@@ -154,15 +156,18 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.Controller
             row.Cells[2].Format.Alignment = ParagraphAlignment.Left;
             row.Cells[3].AddParagraph("Customer Phone No.");
             row.Cells[3].Format.Alignment = ParagraphAlignment.Left;
-            row.Cells[4].AddParagraph("Scheduled Delivery Time");
+            row.Cells[4].AddParagraph("Technician(s)");
             row.Cells[4].Format.Alignment = ParagraphAlignment.Left;
+            row.Cells[5].AddParagraph("Scheduled Delivery Time");
+            row.Cells[5].Format.Alignment = ParagraphAlignment.Left;
 
             table.SetEdge(0, 0, 4, 1, Edge.Box, BorderStyle.Single, 0.75, Color.Empty);
 
             int rowCount = 0;
-            foreach (var delivery in _deliveries)
+            foreach (var installation in _installations)
             {
-                var order = delivery.GetSalesOrder();
+                var order = installation.InstallationRequest.SalesOrder;
+                var technicians = string.Join(", ", installation.Technicians.Select(it => it.Technician.Name));
                 if (order.Customer == null)
                     throw new ArgumentException(
                         $"Order with order number \"{order.OrderNumber}\" does not have customer information.");
@@ -176,8 +181,10 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.Controller
                 row.Cells[2].Format.Alignment = ParagraphAlignment.Left;
                 row.Cells[3].AddParagraph(order.Customer.Phone);
                 row.Cells[3].Format.Alignment = ParagraphAlignment.Left;
-                row.Cells[4].AddParagraph(delivery.ScheduledOn.ToString("t"));
+                row.Cells[4].AddParagraph(technicians);
                 row.Cells[4].Format.Alignment = ParagraphAlignment.Left;
+                row.Cells[5].AddParagraph(installation.ScheduledOn.ToString("HH:mm"));
+                row.Cells[5].Format.Alignment = ParagraphAlignment.Left;
             }
 
             row.Format.Alignment = ParagraphAlignment.Right;

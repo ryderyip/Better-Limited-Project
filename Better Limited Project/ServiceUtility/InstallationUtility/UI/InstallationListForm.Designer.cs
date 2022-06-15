@@ -36,6 +36,7 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
             this.orderNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.scheduledOnColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.installedOnColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnDailyList = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInstallations)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,11 +103,26 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
             this.installedOnColumn.ReadOnly = true;
             this.installedOnColumn.Width = 130;
             // 
+            // btnDailyList
+            // 
+            this.btnDailyList.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnDailyList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnDailyList.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnDailyList.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnDailyList.Location = new System.Drawing.Point(296, 19);
+            this.btnDailyList.Name = "btnDailyList";
+            this.btnDailyList.Size = new System.Drawing.Size(185, 43);
+            this.btnDailyList.TabIndex = 135;
+            this.btnDailyList.Text = "Daily Installation";
+            this.btnDailyList.UseVisualStyleBackColor = false;
+            this.btnDailyList.Click += new System.EventHandler(this.btnDailyList_Click);
+            // 
             // InstallationListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(512, 450);
+            this.Controls.Add(this.btnDailyList);
             this.Controls.Add(this.dgvInstallations);
             this.Controls.Add(this.tbSearchBar);
             this.Controls.Add(this.lblSearchBar);
@@ -126,5 +142,6 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn orderNumberColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn scheduledOnColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn installedOnColumn;
+        private System.Windows.Forms.Button btnDailyList;
     }
 }

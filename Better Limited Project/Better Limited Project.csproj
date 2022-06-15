@@ -752,6 +752,7 @@
     <Compile Include="ServiceUtility\DeliveryUtility\UI\UpdateDeliveryForm.Designer.cs">
       <DependentUpon>UpdateDeliveryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ServiceUtility\InstallationUtility\Controller\InstallationListGenerator.cs" />
     <Compile Include="ServiceUtility\InstallationUtility\Controller\InstallationRequestService.cs" />
     <Compile Include="ServiceUtility\InstallationUtility\Controller\InstallationService.cs" />
     <Compile Include="ServiceUtility\InstallationUtility\Entity\Installation.cs" />
@@ -770,6 +771,12 @@
     </Compile>
     <Compile Include="ServiceUtility\InstallationUtility\UI\ArrangeInstallationForm.Designer.cs">
       <DependentUpon>ArrangeInstallationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceUtility\InstallationUtility\UI\DailyInstallationListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServiceUtility\InstallationUtility\UI\DailyInstallationListForm.Designer.cs">
+      <DependentUpon>DailyInstallationListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ServiceUtility\InstallationUtility\UI\InstallationDetailsForm.cs">
       <SubType>Form</SubType>
@@ -1366,6 +1373,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ServiceUtility\InstallationUtility\UI\ArrangeInstallationForm.resx">
       <DependentUpon>ArrangeInstallationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServiceUtility\InstallationUtility\UI\DailyInstallationListForm.resx">
+      <DependentUpon>DailyInstallationListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ServiceUtility\InstallationUtility\UI\InstallationDetailsForm.resx">
       <DependentUpon>InstallationDetailsForm.cs</DependentUpon>
