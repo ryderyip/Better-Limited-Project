@@ -27,16 +27,15 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
             return new SalesOrderProductWaitingForStock(orderId, productId, quantity, createOn);
         }
 
-        public static SalesOrderProductWaitingForStock FindByIds(string salesOrderId, string productId)
+        public static IEnumerable<SalesOrderProductWaitingForStock> FindBySalesOrderId(string salesOrderId)
         {
             var command = new MySqlCommand(
                 @"select sales_order_id, product_id, quantity, created_on
                     from stock_waiting_list
-                where sales_order_id = @orderId and product_id = @productId;");
+                where sales_order_id = @orderId;");
             command.Parameters.AddWithValue("@orderId", salesOrderId);
-            command.Parameters.AddWithValue("@productId", productId);
             var dataTable = DataTableRepository.RetrieveDataTable(command);
-            return Convert(dataTable.Rows[0]);
+            return from DataRow row in dataTable.Rows select Convert(row);
         }
 
         public static void InsertOrUpdate(SalesOrderProductWaitingForStock salesOrderProductWaitingForStock)

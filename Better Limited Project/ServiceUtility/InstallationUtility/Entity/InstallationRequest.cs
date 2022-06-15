@@ -55,5 +55,17 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.Entity
             var deliveryRequest = SalesOrder.GetDeliveryRequest();
             return deliveryRequest != null && !deliveryRequest.IsArranged();
         }
+
+        public void Remove()
+        {
+            foreach (var installationRequestProduct in ProductsToInstall)
+                installationRequestProduct.Remove();
+            InstallationRepository.Remove(this);
+        }
+
+        public bool IsArrangedAndAllInstalled()
+        {
+            return IsArranged() && GetInstallations().All(i => i.IsInstalled());
+        }
     }
 }

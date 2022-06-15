@@ -47,6 +47,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
         {
             if (IsCompleted())
                 IsActive = false;
+
             new SalesOrderRepository().InsertOrUpdate(this);
         }
 
@@ -84,10 +85,10 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
 
         public bool IsCompleted()
         {
-            // TODO installion check
             return HasSalesOrderProducts()
                    && !HasUnconfirmedDeliveryRequest()
                    && (!HasRequestedForDelivery() || IsAllDeliveryArrived())
+                   && (GetInstallationRequest()?.IsArrangedAndAllInstalled() ?? true)
                    && HasNoDuePayment();
         }
 
@@ -130,23 +131,25 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
         /// </summary>
         public bool IsRemovable()
         {
-            // TODO installion check
             var deliveryRequest = GetDeliveryRequest();
-            if (deliveryRequest == null)
+            var installationRequest = GetInstallationRequest();
+            if (deliveryRequest == null && installationRequest == null)
                 return true;
-            return !deliveryRequest.IsArranged();
+            if (deliveryRequest == null)
+                return !installationRequest!.IsArranged();
+            if (installationRequest == null)
+                return !deliveryRequest.IsArranged();
+            return !deliveryRequest.IsArranged() && !installationRequest.IsArranged();
         }
 
-        public void Remove()
+        public void SetAsInactiveAndSave()
         {
-            Customer?.Remove();
+            IsActive = false;
+            Save();
+            foreach (var salesOrderProductWaitingForStock in SalesOrderProductWaitingRepository.FindBySalesOrderId(Id))
+                salesOrderProductWaitingForStock.Delete();
             GetDeliveryRequest()?.Remove();
-            // TODO delete installation req if have
-            foreach (var salesOrderProductPayment in GetSalesOrderProductPayments())
-                salesOrderProductPayment.Remove();
-            foreach (var salesOrderProduct in GetSalesOrderProducts())
-                salesOrderProduct.Remove();
-            new SalesOrderRepository().Remove(this);
+            GetInstallationRequest()?.Remove();
         }
 
         public IEnumerable<SalesOrderProduct> GetIncompletePaymentSalesOrderProducts()

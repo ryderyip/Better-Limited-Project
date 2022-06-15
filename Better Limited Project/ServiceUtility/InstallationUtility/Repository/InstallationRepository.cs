@@ -67,5 +67,13 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.Repository
         {
             return GetAll().Where(filter.Invoke);
         }
+
+        public static void Remove(InstallationRequest installationRequest)
+        {
+            var command = new MySqlCommand(
+                @"delete from installation_request where id = @id;");
+            command.Parameters.AddWithValue("@id", installationRequest.Id);
+            DataTableRepository.ExecuteNonQuery(command);
+        }
     }
 }

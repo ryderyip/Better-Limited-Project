@@ -34,5 +34,16 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.Repository
                 let quantity = row.Field<int>("quantity")
                 select new InstallationRequestProduct(installationRequestId, productId, quantity);
         }
+
+        public static void Remove(InstallationRequestProduct installationRequestProduct)
+        {
+            var command = new MySqlCommand(
+                @"delete from installation_request_product 
+                    where installation_request_id = @requestId 
+                      and product_id = @productId;");
+            command.Parameters.AddWithValue("@requestId", installationRequestProduct.InstallationRequestId);
+            command.Parameters.AddWithValue("@productId", installationRequestProduct.ProductId);
+            DataTableRepository.ExecuteNonQuery(command);
+        }
     }
 }

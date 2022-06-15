@@ -12,7 +12,6 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
     public partial class ManageSalesOrderForm : Form
     {
         public EventHandler? SalesOrderUpdated;
-        public EventHandler? SalesOrderRemoved;
         private readonly SalesOrder _salesOrder;
 
         public ManageSalesOrderForm(SalesOrder salesOrder)
@@ -133,7 +132,6 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
 
         private void btnCancelOrder_Click(object sender, EventArgs e)
         {
-            // TODO test thsi
             if (!_salesOrder.IsRemovable())
             {
                 MessageBox.Show("Current sales order has already been arranged a delivery or installation. Cancellation failed.");
@@ -147,8 +145,8 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
             if (result is not DialogResult.OK)
                 return;
 
-            _salesOrder.Remove();
-            SalesOrderRemoved?.Invoke(this, EventArgs.Empty);
+            _salesOrder.SetAsInactiveAndSave();
+            SalesOrderUpdated?.Invoke(this, EventArgs.Empty);
             Close();
         }
     }

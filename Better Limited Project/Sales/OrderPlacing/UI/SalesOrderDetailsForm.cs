@@ -30,11 +30,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
             _salesOrderProducts = salesOrder.GetSalesOrderProducts().ToList();
             StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
-        }
-
-        private void OnFormShown(object sender, EventArgs e)
-        {
-            Initialize();
+            Shown += (_, _) => Initialize();
         }
 
         private void Initialize()
@@ -95,7 +91,10 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
             if (calculator.IsAllPaymentCompleted())
                 btnSettleIncompletePayment.Visible = false;
             if (!_salesOrder.IsActive)
+            {
                 btnManageOrder.Visible = false;
+                btnSettleIncompletePayment.Visible = false;
+            }
             if (_salesOrder.GetInstallationStatus() is InstallationStatus.InstallationArranged or InstallationStatus.AllInstalled)
                 btnInstallationStatus.Visible = true;
         }
@@ -116,7 +115,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
                 InstallationStatus.AllInstalled => "All Installed",
                 InstallationStatus.InstallationRequested => "Installation Requested",
                 InstallationStatus.InstallationArranged => "Installation Arranged",
-                _ => "No Installation Appointed"
+                _ => "No Installation Requested"
             };
             tbDeliveryStatus.Text = delivery == default
                     ? deliveryRequest == default ? "-" : "Delivery Request Not Confirmed"
@@ -170,11 +169,6 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
             {
                 _salesOrder = new SalesOrderRepository().FindById(_salesOrder.Id);
                 Initialize();
-                OrderUpdated?.Invoke(this, EventArgs.Empty);
-            };
-            form.SalesOrderRemoved += (_, _) =>
-            {
-                Close();
                 OrderUpdated?.Invoke(this, EventArgs.Empty);
             };
             form.ShowDialog();

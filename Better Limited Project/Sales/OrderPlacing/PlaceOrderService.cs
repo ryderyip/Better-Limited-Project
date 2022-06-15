@@ -102,7 +102,6 @@ namespace Better_Limited_Project.Sales.OrderPlacing
                     isDeposit: sop.IsOutOfStock).Save();
                 sop.Save();
             });
-            _order.Save();
 
             if (_salesOrderProduct.Any(sop => sop.IsOutOfStock))
             {
@@ -143,6 +142,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
         private void CompleteOrderPlacing()
         {
             MessageBox.Show(OrderPlacingStringResources.order_placed);
+            _order.Save();
             // TODO turned off for easy debug
             /*if (_salesOrderProduct.Any(sop => sop.IsOutOfStock))
                 new DepositReceiptGenerator(_order).GenerateAndOpen();

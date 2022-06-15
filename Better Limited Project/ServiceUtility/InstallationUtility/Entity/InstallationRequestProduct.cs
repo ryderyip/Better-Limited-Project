@@ -24,5 +24,10 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.Entity
         {
             InstallationRequestProductRepository.InsertOrUpdate(this);
         }
+
+        public void Remove()
+        {
+            InstallationRequestProductRepository.Remove(this);
+        }
     }
 }

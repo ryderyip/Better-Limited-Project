@@ -361,7 +361,6 @@
             this.Controls.Add(this.lblOrderNumber);
             this.Controls.Add(this.lblOrderInfo);
             this.Name = "SalesOrderDetailsForm";
-            this.Shown += new System.EventHandler(this.OnFormShown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
