@@ -117,34 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="$this.Text" xml:space="preserve">
-    <value>AccountingClerkNavigationForm</value>
+  <data name="lblLoggedInAs.Text" xml:space="preserve">
+    <value>登入為</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>AccountingClerkNavigationForm</value>
+  <data name="btnPurchaseOrders.Text" xml:space="preserve">
+    <value>訂單</value>
+  </data>
+  <data name="btnSettings.Text" xml:space="preserve">
+    <value>設定</value>
+  </data>
+  <data name="btnSalesReport.Text" xml:space="preserve">
+    <value>銷售報告</value>
+  </data>
+  <data name="btnSalesOrder.Text" xml:space="preserve">
+    <value>銷售訂單</value>
   </data>
   <data name="btnGoodsReceived.Text" xml:space="preserve">
     <value>進貨</value>
   </data>
   <data name="btnGoodsReturned.Text" xml:space="preserve">
     <value>退貨</value>
-  </data>
-  <data name="btnProfile.Text" xml:space="preserve">
-    <value>(Name)</value>
-  </data>
-  <data name="btnPurchaseOrders.Text" xml:space="preserve">
-    <value>訂單</value>
-  </data>
-  <data name="btnSalesOrder.Text" xml:space="preserve">
-    <value>銷售訂單</value>
-  </data>
-  <data name="btnSalesReport.Text" xml:space="preserve">
-    <value>銷售報告</value>
-  </data>
-  <data name="btnSettings.Text" xml:space="preserve">
-    <value>設定</value>
-  </data>
-  <data name="lblLoggedInAs.Text" xml:space="preserve">
-    <value>登入為</value>
   </data>
 </root>

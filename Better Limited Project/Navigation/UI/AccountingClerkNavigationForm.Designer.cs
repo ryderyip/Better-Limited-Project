@@ -35,8 +35,8 @@
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnSalesReport = new System.Windows.Forms.Button();
             this.btnSalesOrder = new System.Windows.Forms.Button();
-            this.btnGoodsReceived = new System.Windows.Forms.Button();
-            this.btnGoodsReturned = new System.Windows.Forms.Button();
+            this.btnInwardGoods = new System.Windows.Forms.Button();
+            this.btnDefectiveItems = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblLoggedInAs
@@ -79,26 +79,26 @@
             this.btnSalesOrder.UseVisualStyleBackColor = true;
             this.btnSalesOrder.Click += new System.EventHandler(this.btnSalesOrder_Click);
             // 
-            // btnGoodsReceived
+            // btnInwardGoods
             // 
-            resources.ApplyResources(this.btnGoodsReceived, "btnGoodsReceived");
-            this.btnGoodsReceived.Name = "btnGoodsReceived";
-            this.btnGoodsReceived.UseVisualStyleBackColor = true;
-            this.btnGoodsReceived.Click += new System.EventHandler(this.btnGoodsReceived_Click);
+            resources.ApplyResources(this.btnInwardGoods, "btnInwardGoods");
+            this.btnInwardGoods.Name = "btnInwardGoods";
+            this.btnInwardGoods.UseVisualStyleBackColor = true;
+            this.btnInwardGoods.Click += new System.EventHandler(this.btnGoodsReceived_Click);
             // 
-            // btnGoodsReturned
+            // btnDefectiveItems
             // 
-            resources.ApplyResources(this.btnGoodsReturned, "btnGoodsReturned");
-            this.btnGoodsReturned.Name = "btnGoodsReturned";
-            this.btnGoodsReturned.UseVisualStyleBackColor = true;
-            this.btnGoodsReturned.Click += new System.EventHandler(this.btnGoodsReturned_Click);
+            resources.ApplyResources(this.btnDefectiveItems, "btnDefectiveItems");
+            this.btnDefectiveItems.Name = "btnDefectiveItems";
+            this.btnDefectiveItems.UseVisualStyleBackColor = true;
+            this.btnDefectiveItems.Click += new System.EventHandler(this.btnGoodsReturned_Click);
             // 
             // AccountingClerkNavigationForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnGoodsReturned);
-            this.Controls.Add(this.btnGoodsReceived);
+            this.Controls.Add(this.btnDefectiveItems);
+            this.Controls.Add(this.btnInwardGoods);
             this.Controls.Add(this.lblLoggedInAs);
             this.Controls.Add(this.btnProfile);
             this.Controls.Add(this.btnPurchaseOrders);
@@ -113,8 +113,8 @@
         private System.Windows.Forms.Button btnPurchaseOrders;
 
         private System.Windows.Forms.Button btnSalesReport;
-        private System.Windows.Forms.Button btnGoodsReceived;
-        private System.Windows.Forms.Button btnGoodsReturned;
+        private System.Windows.Forms.Button btnInwardGoods;
+        private System.Windows.Forms.Button btnDefectiveItems;
 
         private System.Windows.Forms.Label lblLoggedInAs;
         private System.Windows.Forms.Button btnProfile;

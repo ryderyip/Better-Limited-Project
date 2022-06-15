@@ -9,6 +9,7 @@ namespace Better_Limited_Project.ProductUtility.InwardGoodsUtility.UI
 
         public InwardGoodsDetailsForm(InwardGoods inwardGoods)
         {
+            StartPosition = FormStartPosition.CenterScreen;
             _inwardGoods = inwardGoods;
             InitializeComponent();
             Load += (_, _) => Initialize();

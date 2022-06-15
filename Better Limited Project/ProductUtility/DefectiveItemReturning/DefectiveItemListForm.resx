@@ -126,7 +126,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnNewItem.Location" type="System.Drawing.Point, System.Drawing">
-    <value>432, 28</value>
+    <value>443, 25</value>
   </data>
   <data name="btnNewItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>132, 39</value>
@@ -166,7 +166,7 @@
     <value>Order Number</value>
   </data>
   <data name="orderNumberColumn.Width" type="System.Int32, mscorlib">
-    <value>150</value>
+    <value>130</value>
   </data>
   <metadata name="productNameColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -175,7 +175,7 @@
     <value>Product</value>
   </data>
   <data name="productNameColumn.Width" type="System.Int32, mscorlib">
-    <value>170</value>
+    <value>150</value>
   </data>
   <metadata name="quantityColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -184,7 +184,7 @@
     <value>Qty</value>
   </data>
   <data name="quantityColumn.Width" type="System.Int32, mscorlib">
-    <value>50</value>
+    <value>40</value>
   </data>
   <metadata name="returnedOnColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -195,11 +195,20 @@
   <data name="returnedOnColumn.Width" type="System.Int32, mscorlib">
     <value>120</value>
   </data>
+  <metadata name="isReturnApprovedColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="isReturnApprovedColumn.HeaderText" xml:space="preserve">
+    <value>Is Return Approved</value>
+  </data>
+  <data name="isReturnApprovedColumn.Width" type="System.Int32, mscorlib">
+    <value>70</value>
+  </data>
   <data name="dgvDefectiveItems.Location" type="System.Drawing.Point, System.Drawing">
-    <value>30, 85</value>
+    <value>21, 82</value>
   </data>
   <data name="dgvDefectiveItems.Size" type="System.Drawing.Size, System.Drawing">
-    <value>534, 338</value>
+    <value>554, 338</value>
   </data>
   <data name="dgvDefectiveItems.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -217,7 +226,7 @@
     <value>1</value>
   </data>
   <data name="tbSearchBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>30, 44</value>
+    <value>21, 41</value>
   </data>
   <data name="tbSearchBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>239, 20</value>
@@ -244,7 +253,7 @@
     <value>NoControl</value>
   </data>
   <data name="lblSearchBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>27, 28</value>
+    <value>18, 25</value>
   </data>
   <data name="lblSearchBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>169, 13</value>
@@ -307,6 +316,12 @@
     <value>returnedOnColumn</value>
   </data>
   <data name="&gt;&gt;returnedOnColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;isReturnApprovedColumn.Name" xml:space="preserve">
+    <value>isReturnApprovedColumn</value>
+  </data>
+  <data name="&gt;&gt;isReturnApprovedColumn.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

@@ -33,7 +33,8 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
                 di.SalesOrder.OrderNumber,
                 di.Product.Name,
                 di.Quantity,
-                di.ReturnedToRetailStoreOn.ToString("g")));
+                di.ReturnedToRetailStoreOn.ToString("g"),
+                di.IsReturnApproved() ? "Yes" : "No"));
             dgvDefectiveItems.Sort(returnedOnColumn, ListSortDirection.Descending);
         }
 

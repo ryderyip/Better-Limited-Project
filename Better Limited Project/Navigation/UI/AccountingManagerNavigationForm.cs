@@ -4,6 +4,7 @@ using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.Login;
 using Better_Limited_Project.ProductUtility.DefectiveItemReturning;
 using Better_Limited_Project.ProductUtility.GoodsPurchasing.UI;
+using Better_Limited_Project.ProductUtility.InwardGoodsUtility.UI;
 using Better_Limited_Project.ProductUtility.ProductList.Forms;
 using Better_Limited_Project.Sales.OrderPlacing.UI;
 using Better_Limited_Project.SettingsUtility;
@@ -49,7 +50,8 @@ namespace Better_Limited_Project.Navigation.UI
 
         private void btnGoodsReceived_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var form = new InwardGoodsRecordListForm();
+            _formController.OpenContentForm(form);
         }
 
         private void btnGoodsReturned_Click(object sender, EventArgs e)

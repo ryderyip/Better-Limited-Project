@@ -245,28 +245,28 @@
   <data name="&gt;&gt;btnInwardGoods.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="btnGoodsReturned.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btnDefectiveItems.Location" type="System.Drawing.Point, System.Drawing">
     <value>41, 280</value>
   </data>
-  <data name="btnGoodsReturned.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnDefectiveItems.Size" type="System.Drawing.Size, System.Drawing">
     <value>111, 34</value>
   </data>
-  <data name="btnGoodsReturned.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnDefectiveItems.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
   </data>
-  <data name="btnGoodsReturned.Text" xml:space="preserve">
-    <value>Goods Returned</value>
+  <data name="btnDefectiveItems.Text" xml:space="preserve">
+    <value>Defective Items</value>
   </data>
-  <data name="&gt;&gt;btnGoodsReturned.Name" xml:space="preserve">
-    <value>btnGoodsReturned</value>
+  <data name="&gt;&gt;btnDefectiveItems.Name" xml:space="preserve">
+    <value>btnDefectiveItems</value>
   </data>
-  <data name="&gt;&gt;btnGoodsReturned.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnDefectiveItems.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnGoodsReturned.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnDefectiveItems.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;btnGoodsReturned.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnDefectiveItems.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
   <data name="btnReorderGoods.Location" type="System.Drawing.Point, System.Drawing">

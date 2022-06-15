@@ -2,8 +2,10 @@
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
+using Better_Limited_Project.Login;
 using Better_Limited_Project.ProductUtility.InwardGoodsUtility.Entity;
 using Better_Limited_Project.ProductUtility.InwardGoodsUtility.Repository;
+using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.ProductUtility.InwardGoodsUtility.UI
 {
@@ -20,6 +22,8 @@ namespace Better_Limited_Project.ProductUtility.InwardGoodsUtility.UI
 
         private void Initialize()
         {
+            if (LoginSession.GetSession().CurrentStaff.Title is not StaffTitle.ReceivingClerk)
+                btnReceiveGoods.Visible = false;
             tbSearchBox.TextChanged += (_, _) => FilterDgv();
             PopulateDgv(_inwardGoodsList);
         }

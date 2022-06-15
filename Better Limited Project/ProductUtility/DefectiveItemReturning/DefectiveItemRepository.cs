@@ -24,11 +24,15 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
         {
             var command = new MySqlCommand(
                 @"insert into defective_item (id, product_id, quantity, description, image, retail_store_id, staff_id, 
-                    sales_order_id, returned_to_retail_store_on, returned_to_warehouse_on, warehouse_id, returned_to_supplier_on)
+                    sales_order_id, returned_to_retail_store_on, returned_to_warehouse_on, warehouse_id, returned_to_supplier_on, return_approved_on)
                 value (@id, @productId, @quantity, @description, @image, @retailStoreId, @staffId, @salesOrderId, 
-                       @returnedToRetailStoreOn, @returnedToWarehouseOn, @warehouseId, @returnedToSupplierOn)
+                       @returnedToRetailStoreOn, @returnedToWarehouseOn, @warehouseId, @returnedToSupplierOn, @returnApprovedOn)
                 on duplicate key update product_id = @productId, quantity = @quantity, 
-                                        description = @description, image = @image;");
+                                        description = @description, image = @image,
+                                        returned_to_warehouse_on = @returnedToWarehouseOn,
+                                        warehouse_id = @warehouseId,
+                                        returned_to_supplier_on = @returnedToSupplierOn,
+                                        return_approved_on = @returnApprovedOn;");
             command.Parameters.AddWithValue("@id", defectiveItem.Id);
             command.Parameters.AddWithValue("@productId", defectiveItem.ProductId);
             command.Parameters.AddWithValue("@quantity", defectiveItem.Quantity);
@@ -36,13 +40,17 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             command.Parameters.AddWithValue("@image",
                 defectiveItem.Image != null ? ImageToBytesConverter.Convert(defectiveItem.Image) : DBNull.Value);
             command.Parameters.AddWithValue("@retailStoreId", defectiveItem.RetailStoreId);
-            command.Parameters.AddWithValue("@staffId", defectiveItem.StaffId);
+            command.Parameters.AddWithValue("@staffId", defectiveItem.CreatedByStaffId);
             command.Parameters.AddWithValue("@salesOrderId", defectiveItem.SalesOrderId);
             command.Parameters.AddWithValue("@returnedToRetailStoreOn", defectiveItem.ReturnedToRetailStoreOn);
-            command.Parameters.AddWithValue("@returnedToWarehouseOn", defectiveItem.ReturnedToWarehouseOn.HasValue 
-                ? defectiveItem.ReturnedToWarehouseOn : DBNull.Value);
-            command.Parameters.AddWithValue("@warehouseId", defectiveItem.WarehouseId != null ? defectiveItem.WarehouseId : DBNull.Value);
+            command.Parameters.AddWithValue("@returnedToWarehouseOn", defectiveItem.ReturnedToWarehouseOn.HasValue
+                ? defectiveItem.ReturnedToWarehouseOn
+                : DBNull.Value);
+            command.Parameters.AddWithValue("@warehouseId",
+                defectiveItem.WarehouseId != null ? defectiveItem.WarehouseId : DBNull.Value);
             command.Parameters.AddWithValue("@returnedToSupplierOn", defectiveItem.ReturnedToSupplierOn);
+            command.Parameters.AddWithValue("@returnApprovedOn",
+                defectiveItem.ReturnApprovedOn.HasValue ? defectiveItem.ReturnApprovedOn : DBNull.Value);
             DataTableRepository.ExecuteNonQuery(command);
         }
 
@@ -50,7 +58,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
         {
             var command = new MySqlCommand(
                 @"select id, product_id, quantity, description, image, retail_store_id, staff_id, sales_order_id, 
-                    returned_to_retail_store_on, returned_to_warehouse_on, warehouse_id, returned_to_supplier_on
+                    returned_to_retail_store_on, returned_to_warehouse_on, warehouse_id, returned_to_supplier_on, return_approved_on
                 from defective_item;");
             var dataTable = DataTableRepository.RetrieveDataTable(command);
             return from DataRow row in dataTable.Rows select ConvertToDefectiveItem(row);
@@ -60,7 +68,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
         {
             var command = new MySqlCommand(
                 @"select id, product_id, quantity, description, image, retail_store_id, staff_id, sales_order_id, 
-                    returned_to_retail_store_on, returned_to_warehouse_on, warehouse_id, returned_to_supplier_on
+                    returned_to_retail_store_on, returned_to_warehouse_on, warehouse_id, returned_to_supplier_on, return_approved_on
                 from defective_item where id = @id;");
             command.Parameters.AddWithValue("@id", id);
             var dataTable = DataTableRepository.RetrieveDataTable(command);
@@ -78,7 +86,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             if (dataTable.Rows.Count == 0)
                 return null;
             var bytes = dataTable.Rows[0].Field<byte[]>("image");
-            
+
             return bytes != null ? new ImageConverter().ConvertFrom(bytes) as Image : null;
         }
 
@@ -96,13 +104,15 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             var returnedToWarehouseOn = row.Field<DateTime?>("returned_to_warehouse_on");
             var returnedToSupplierOn = row.Field<DateTime?>("returned_to_supplier_on");
             var image = row.Field<byte[]>("image");
+            var returnApprovedOn = row.Field<DateTime?>("return_approved_on");
             return new DefectiveItem(id, productId, quantity, description, retailStoreId, staffId, salesOrderId,
                 returnedRetailStoreOn)
             {
                 Image = image != null ? new ImageConverter().ConvertFrom(image) as Image : null,
                 WarehouseId = warehouseId,
                 ReturnedToWarehouseOn = returnedToWarehouseOn,
-                ReturnedToSupplierOn = returnedToSupplierOn
+                ReturnedToSupplierOn = returnedToSupplierOn,
+                ReturnApprovedOn = returnApprovedOn
             };
         }
     }

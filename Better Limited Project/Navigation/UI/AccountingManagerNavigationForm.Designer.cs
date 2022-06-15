@@ -32,8 +32,8 @@ namespace Better_Limited_Project.Navigation.UI
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AccountingManagerNavigationForm));
-            this.btnGoodsReturned = new System.Windows.Forms.Button();
-            this.btnGoodsReceived = new System.Windows.Forms.Button();
+            this.btnDefectiveItems = new System.Windows.Forms.Button();
+            this.btnInwardGoods = new System.Windows.Forms.Button();
             this.lblLoggedInAs = new System.Windows.Forms.Label();
             this.btnProfile = new System.Windows.Forms.Button();
             this.btnPurchaseOrders = new System.Windows.Forms.Button();
@@ -43,19 +43,19 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnProductList = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btnGoodsReturned
+            // btnDefectiveItems
             // 
-            resources.ApplyResources(this.btnGoodsReturned, "btnGoodsReturned");
-            this.btnGoodsReturned.Name = "btnGoodsReturned";
-            this.btnGoodsReturned.UseVisualStyleBackColor = true;
-            this.btnGoodsReturned.Click += new System.EventHandler(this.btnGoodsReturned_Click);
+            resources.ApplyResources(this.btnDefectiveItems, "btnDefectiveItems");
+            this.btnDefectiveItems.Name = "btnDefectiveItems";
+            this.btnDefectiveItems.UseVisualStyleBackColor = true;
+            this.btnDefectiveItems.Click += new System.EventHandler(this.btnGoodsReturned_Click);
             // 
-            // btnGoodsReceived
+            // btnInwardGoods
             // 
-            resources.ApplyResources(this.btnGoodsReceived, "btnGoodsReceived");
-            this.btnGoodsReceived.Name = "btnGoodsReceived";
-            this.btnGoodsReceived.UseVisualStyleBackColor = true;
-            this.btnGoodsReceived.Click += new System.EventHandler(this.btnGoodsReceived_Click);
+            resources.ApplyResources(this.btnInwardGoods, "btnInwardGoods");
+            this.btnInwardGoods.Name = "btnInwardGoods";
+            this.btnInwardGoods.UseVisualStyleBackColor = true;
+            this.btnInwardGoods.Click += new System.EventHandler(this.btnGoodsReceived_Click);
             // 
             // lblLoggedInAs
             // 
@@ -109,8 +109,8 @@ namespace Better_Limited_Project.Navigation.UI
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnProductList);
-            this.Controls.Add(this.btnGoodsReturned);
-            this.Controls.Add(this.btnGoodsReceived);
+            this.Controls.Add(this.btnDefectiveItems);
+            this.Controls.Add(this.btnInwardGoods);
             this.Controls.Add(this.lblLoggedInAs);
             this.Controls.Add(this.btnProfile);
             this.Controls.Add(this.btnPurchaseOrders);
@@ -124,8 +124,8 @@ namespace Better_Limited_Project.Navigation.UI
 
         private System.Windows.Forms.Button btnProductList;
 
-        private System.Windows.Forms.Button btnGoodsReturned;
-        private System.Windows.Forms.Button btnGoodsReceived;
+        private System.Windows.Forms.Button btnDefectiveItems;
+        private System.Windows.Forms.Button btnInwardGoods;
         private System.Windows.Forms.Label lblLoggedInAs;
         private System.Windows.Forms.Button btnProfile;
         private System.Windows.Forms.Button btnPurchaseOrders;

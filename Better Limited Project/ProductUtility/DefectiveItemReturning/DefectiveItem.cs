@@ -13,19 +13,19 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
     public class DefectiveItem
     {
         public DefectiveItem(string id, string productId, int quantity, string description,
-            string retailStoreId, string staffId, string salesOrderId, DateTime returnedToRetailStoreOn)
+            string retailStoreId, string createdByStaffId, string salesOrderId, DateTime returnedToRetailStoreOn)
         {
             Id = id;
             ProductId = productId;
             Quantity = quantity;
             Description = description;
             RetailStoreId = retailStoreId;
-            StaffId = staffId;
+            CreatedByStaffId = createdByStaffId;
             SalesOrderId = salesOrderId;
             ReturnedToRetailStoreOn = returnedToRetailStoreOn;
         }
 
-        public DefectiveItem(string productId, int quantity, string description, string retailStoreId, string staffId,
+        public DefectiveItem(string productId, int quantity, string description, string retailStoreId, string createdByStaffId,
             string salesOrderId)
         {
             Id = DefectiveItemRepository.GetNewId();
@@ -33,7 +33,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             Quantity = quantity;
             Description = description;
             RetailStoreId = retailStoreId;
-            StaffId = staffId;
+            CreatedByStaffId = createdByStaffId;
             SalesOrderId = salesOrderId;
             ReturnedToRetailStoreOn = DateTime.Now;
         }
@@ -49,14 +49,15 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             set => _image = value;
         }
         public string RetailStoreId { get; }
-        public string StaffId { get; }
+        public string CreatedByStaffId { get; }
         public string SalesOrderId { get; }
         public Product Product => ProductRepository.FindById(ProductId);
         public RetailStore RetailStore => new RetailStoreRepository().GetById(RetailStoreId);
-        public Staff Staff => new StaffRepository().FindById(StaffId);
+        public Staff CreatedByStaff => new StaffRepository().FindById(CreatedByStaffId);
         public SalesOrder SalesOrder => new SalesOrderRepository().FindById(SalesOrderId);
         public DateTime ReturnedToRetailStoreOn { get; }
         public DateTime? ReturnedToWarehouseOn { get; set; }
+        public DateTime? ReturnApprovedOn { get; set; }
         public string? WarehouseId { get; set; }
         public Warehouse? Warehouse => WarehouseId != null ? WarehouseRepository.GetById(WarehouseId) : null;
 
@@ -65,6 +66,21 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
         public void Save()
         {
             DefectiveItemRepository.InsertOrUpdate(this);
+        }
+
+        public bool IsReturnApproved()
+        {
+            return ReturnApprovedOn != null;
+        }
+
+        public bool IsReturnedToWarehouse()
+        {
+            return ReturnedToWarehouseOn != null;
+        }
+
+        public bool IsReturnedToSupplier()
+        {
+            return ReturnedToSupplierOn != null;
         }
     }
 }

@@ -27,6 +27,7 @@ namespace Better_Limited_Project.ProductUtility.GoodsPurchasing.UI
                 cbShowApproved.Checked = true;
                 cbShowApproved.Enabled = false;
                 _purchaseOrders = _purchaseOrders.Where(po => po.IsApproved()).ToList();
+                isApprovedColumn.Visible = false;
             }
             tbSearchBox.TextChanged += (_, _) => FilterDgv();
             cbShowApproved.CheckedChanged += (_, _) => FilterDgv();

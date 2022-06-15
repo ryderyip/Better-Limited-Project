@@ -37,7 +37,7 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnCouriers = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnInwardGoods = new System.Windows.Forms.Button();
-            this.btnGoodsReturned = new System.Windows.Forms.Button();
+            this.btnDefectiveItems = new System.Windows.Forms.Button();
             this.btnReorderGoods = new System.Windows.Forms.Button();
             this.btnRestockRequests = new System.Windows.Forms.Button();
             this.btnInventory = new System.Windows.Forms.Button();
@@ -77,12 +77,12 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnInwardGoods.UseVisualStyleBackColor = true;
             this.btnInwardGoods.Click += new System.EventHandler(this.btnInwardGoods_Click);
             // 
-            // btnGoodsReturned
+            // btnDefectiveItems
             // 
-            resources.ApplyResources(this.btnGoodsReturned, "btnGoodsReturned");
-            this.btnGoodsReturned.Name = "btnGoodsReturned";
-            this.btnGoodsReturned.UseVisualStyleBackColor = true;
-            this.btnGoodsReturned.Click += new System.EventHandler(this.btnGoodsReturned_Click);
+            resources.ApplyResources(this.btnDefectiveItems, "btnDefectiveItems");
+            this.btnDefectiveItems.Name = "btnDefectiveItems";
+            this.btnDefectiveItems.UseVisualStyleBackColor = true;
+            this.btnDefectiveItems.Click += new System.EventHandler(this.btnGoodsReturned_Click);
             // 
             // btnReorderGoods
             // 
@@ -120,7 +120,7 @@ namespace Better_Limited_Project.Navigation.UI
             this.Controls.Add(this.btnInventory);
             this.Controls.Add(this.btnRestockRequests);
             this.Controls.Add(this.btnReorderGoods);
-            this.Controls.Add(this.btnGoodsReturned);
+            this.Controls.Add(this.btnDefectiveItems);
             this.Controls.Add(this.lblLoggedInAs);
             this.Controls.Add(this.btnProfile);
             this.Controls.Add(this.btnCouriers);
@@ -136,7 +136,7 @@ namespace Better_Limited_Project.Navigation.UI
         private System.Windows.Forms.Button btnCouriers;
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.Button btnInwardGoods;
-        private System.Windows.Forms.Button btnGoodsReturned;
+        private System.Windows.Forms.Button btnDefectiveItems;
         private System.Windows.Forms.Button btnReorderGoods;
         private System.Windows.Forms.Button btnRestockRequests;
         private System.Windows.Forms.Button btnInventory;

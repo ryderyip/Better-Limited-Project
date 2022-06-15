@@ -11,6 +11,7 @@ namespace Better_Limited_Project.ProductUtility.SupplierUtility
         
         public SupplierDetailsForm(Supplier supplier)
         {
+            StartPosition = FormStartPosition.CenterScreen;
             _supplier = supplier;
             InitializeComponent();
             Shown += (_, _) => btnRemoveCustomer.Visible = false;

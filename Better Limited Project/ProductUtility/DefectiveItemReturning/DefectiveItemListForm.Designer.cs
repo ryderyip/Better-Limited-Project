@@ -32,13 +32,14 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DefectiveItemListForm));
             this.btnNewItem = new System.Windows.Forms.Button();
             this.dgvDefectiveItems = new System.Windows.Forms.DataGridView();
+            this.tbSearchBox = new System.Windows.Forms.TextBox();
+            this.lblSearchBox = new System.Windows.Forms.Label();
             this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.orderNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.returnedOnColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tbSearchBox = new System.Windows.Forms.TextBox();
-            this.lblSearchBox = new System.Windows.Forms.Label();
+            this.isReturnApprovedColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDefectiveItems)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,12 +62,23 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             this.orderNumberColumn,
             this.productNameColumn,
             this.quantityColumn,
-            this.returnedOnColumn});
+            this.returnedOnColumn,
+            this.isReturnApprovedColumn});
             resources.ApplyResources(this.dgvDefectiveItems, "dgvDefectiveItems");
             this.dgvDefectiveItems.Name = "dgvDefectiveItems";
             this.dgvDefectiveItems.ReadOnly = true;
             this.dgvDefectiveItems.RowTemplate.Height = 24;
             this.dgvDefectiveItems.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDefectiveItems_CellDoubleClick);
+            // 
+            // tbSearchBox
+            // 
+            resources.ApplyResources(this.tbSearchBox, "tbSearchBox");
+            this.tbSearchBox.Name = "tbSearchBox";
+            // 
+            // lblSearchBox
+            // 
+            resources.ApplyResources(this.lblSearchBox, "lblSearchBox");
+            this.lblSearchBox.Name = "lblSearchBox";
             // 
             // idColumn
             // 
@@ -98,15 +110,11 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             this.returnedOnColumn.Name = "returnedOnColumn";
             this.returnedOnColumn.ReadOnly = true;
             // 
-            // tbSearchBox
+            // isReturnApprovedColumn
             // 
-            resources.ApplyResources(this.tbSearchBox, "tbSearchBox");
-            this.tbSearchBox.Name = "tbSearchBox";
-            // 
-            // lblSearchBox
-            // 
-            resources.ApplyResources(this.lblSearchBox, "lblSearchBox");
-            this.lblSearchBox.Name = "lblSearchBox";
+            resources.ApplyResources(this.isReturnApprovedColumn, "isReturnApprovedColumn");
+            this.isReturnApprovedColumn.Name = "isReturnApprovedColumn";
+            this.isReturnApprovedColumn.ReadOnly = true;
             // 
             // DefectiveItemListForm
             // 
@@ -127,11 +135,12 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
         public System.Windows.Forms.DataGridView dgvDefectiveItems;
         public System.Windows.Forms.TextBox tbSearchBox;
         private System.Windows.Forms.Label lblSearchBox;
+        private System.Windows.Forms.Button btnNewItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn idColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn orderNumberColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn productNameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn returnedOnColumn;
-        private System.Windows.Forms.Button btnNewItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn isReturnApprovedColumn;
     }
 }
