@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Better_Limited_Project.Sales.OrderPlacing.Controller;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
@@ -12,25 +14,38 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
 {
     public partial class SalesOrderListForm : Form
     {
-        private List<SalesOrder> _salesOrders;
+        private List<SalesOrder> _salesOrders = new();
 
         public SalesOrderListForm()
         {
-            _salesOrders = new SalesOrderRepository().GetAll().ToList();
             InitializeComponent();
             Shown += (_, _) => Initialize();
         }
 
-        private void Initialize()
+        private async void Initialize()
         {
+            ToggleLoadingScreen();
+            if (await GetAllSalesOrdersOrCancelOnClosing()) 
+                return;
+            ToggleLoadingScreen();
             FillSalesOrderDgv(_salesOrders);
             dtpSearchDate.MaxDate = DateTime.Today;
+        }
+
+        private async Task<bool> GetAllSalesOrdersOrCancelOnClosing()
+        {
+            var cancellationToken = new CancellationTokenSource();
+            Closing += (_, _) => cancellationToken.Cancel();
+            await Task.Run(async () => _salesOrders.AddRange(await
+                new SalesOrderRepository().GetAllAsync()), cancellationToken.Token);
+            return cancellationToken.IsCancellationRequested;
         }
 
         private void FillSalesOrderDgv(List<SalesOrder> salesOrders)
         {
             dgvSalesOrders.Rows.Clear();
-            salesOrders.ForEach(order => dgvSalesOrders.Rows.Add(order.OrderNumber, 
+            salesOrders.ForEach(order => dgvSalesOrders.Rows.Add(order.Id,
+                order.OrderNumber, 
                 order.Customer != null ? order.Customer.Name : "-",
                 order.Customer != null ? order.Customer.Phone : "-",
                 new SalesOrderCalculator(order.GetSalesOrderProducts()).GetTotalAmount().ToString("C", new CultureInfo("zh-HK")),
@@ -76,8 +91,8 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
 
         private void dgvSalesOrders_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            var orderNumber = dgvSalesOrders.Rows[e.RowIndex].Cells[salesOrderNumberColumn.Name].Value.ToString();
-            var selectedOrder = _salesOrders.Find(so => so.OrderNumber == orderNumber);
+            var orderId = dgvSalesOrders.Rows[e.RowIndex].Cells[idColumn.Name].Value.ToString();
+            var selectedOrder = _salesOrders.Find(so => so.Id == orderId);
             var form = new SalesOrderDetailsForm(selectedOrder);
             form.StartPosition = FormStartPosition.CenterScreen;
             form.OrderUpdated += (_, _) =>
@@ -86,6 +101,12 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
                 FillSalesOrderDgv(_salesOrders);
             };
             form.ShowDialog();
+        }
+        
+        private void ToggleLoadingScreen()
+        {
+            foreach (var control in Controls.Cast<Control>())
+                control.Visible = !control.Visible;
         }
     }
 }

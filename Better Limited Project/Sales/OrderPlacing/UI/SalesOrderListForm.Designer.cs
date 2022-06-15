@@ -34,6 +34,8 @@
             this.tbSearchBox = new System.Windows.Forms.TextBox();
             this.lblSearchBox = new System.Windows.Forms.Label();
             this.cbEnableSearchByDate = new System.Windows.Forms.CheckBox();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.salesOrderNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerPhoneColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +51,7 @@
             this.dgvSalesOrders.AllowUserToDeleteRows = false;
             this.dgvSalesOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSalesOrders.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idColumn,
             this.salesOrderNumberColumn,
             this.customerNameColumn,
             this.customerPhoneColumn,
@@ -84,6 +87,18 @@
             this.cbEnableSearchByDate.Name = "cbEnableSearchByDate";
             this.cbEnableSearchByDate.UseVisualStyleBackColor = true;
             this.cbEnableSearchByDate.CheckedChanged += new System.EventHandler(this.cbEnableSearchByDate_CheckedChanged);
+            // 
+            // progressBar
+            // 
+            resources.ApplyResources(this.progressBar, "progressBar");
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            // 
+            // idColumn
+            // 
+            resources.ApplyResources(this.idColumn, "idColumn");
+            this.idColumn.Name = "idColumn";
+            this.idColumn.ReadOnly = true;
             // 
             // salesOrderNumberColumn
             // 
@@ -125,6 +140,7 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.progressBar);
             this.Controls.Add(this.cbEnableSearchByDate);
             this.Controls.Add(this.dgvSalesOrders);
             this.Controls.Add(this.dtpSearchDate);
@@ -143,6 +159,8 @@
         private System.Windows.Forms.TextBox tbSearchBox;
         private System.Windows.Forms.Label lblSearchBox;
         private System.Windows.Forms.CheckBox cbEnableSearchByDate;
+        private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn salesOrderNumberColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerNameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerPhoneColumn;

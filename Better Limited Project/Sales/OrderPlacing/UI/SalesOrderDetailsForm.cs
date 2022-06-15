@@ -35,7 +35,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
 
         private void Initialize()
         {
-            ToolTipGenerator.Generate(initialDelay:0)
+            ToolTipGenerator.Generate(initialDelay: 0)
                 .SetToolTip(lblIsActive, OrderPlacingStringResources.active_inactive_order_meaning_tooltip);
             SetOrderActivityText();
             PopulateProductDgv();
@@ -82,7 +82,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
                 btnDepositReceipt.Visible = false;
                 btnManageOrder.Visible = false;
             }
-            
+
             var calculator = new SalesOrderCalculator(_salesOrder.GetSalesOrderProducts());
             if (!_salesOrder.HasCompletedPayment())
                 BtnPaymentReceipt.Visible = false;
@@ -95,7 +95,9 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
                 btnManageOrder.Visible = false;
                 btnSettleIncompletePayment.Visible = false;
             }
-            if (_salesOrder.GetInstallationStatus() is InstallationStatus.InstallationArranged or InstallationStatus.AllInstalled)
+
+            if (_salesOrder.GetInstallationStatus() is InstallationStatus.InstallationArranged or InstallationStatus
+                .AllInstalled)
                 btnInstallationStatus.Visible = true;
         }
 
@@ -104,7 +106,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
             var delivery = _salesOrder.GetDeliveries().FirstOrDefault();
             var deliveryRequest = _salesOrder.GetDeliveryRequest();
             var calculator = new SalesOrderCalculator(_salesOrder.GetSalesOrderProducts());
-            
+
             txtOrderNumber.Text = _salesOrder.OrderNumber;
             tbTotalAmount.Text = calculator.GetTotalAmount().ToString("C", new CultureInfo("zh-HK"));
             txtAmtDue.Text = calculator.GetAmountDue().ToString("C", new CultureInfo("zh-HK"));
@@ -118,10 +120,10 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
                 _ => "No Installation Requested"
             };
             tbDeliveryStatus.Text = delivery == default
-                    ? deliveryRequest == default ? "-" : "Delivery Request Not Confirmed"
-                    : EnumToStringHelper.GetDisplayValue(delivery.DeliveryStatus);
+                ? deliveryRequest == default ? "-" : "Delivery Request Not Confirmed"
+                : EnumToStringHelper.GetDisplayValue(delivery.DeliveryStatus);
             tbCreatedOn.Text = _salesOrder.CreatedOn.ToString("g");
-            
+
             if (_salesOrder.Customer != null)
             {
                 txtCustName.Text = _salesOrder.Customer.Name;
@@ -151,7 +153,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
                 MessageBox.Show(OrderPlacingStringResources.cannot_settle_payment_yet);
                 return;
             }
-            
+
             var service = new SettleIncompletePaymentService(_salesOrder);
             service.PaymentSettled += (_, _) =>
             {

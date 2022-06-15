@@ -117,13 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="idColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="idColumn.HeaderText" xml:space="preserve">
+    <value>id</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="idColumn.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <metadata name="salesOrderNumberColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="salesOrderNumberColumn.HeaderText" xml:space="preserve">
     <value>Order Number</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="salesOrderNumberColumn.Width" type="System.Int32, mscorlib">
     <value>130</value>
   </data>
@@ -186,7 +195,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dgvSalesOrders.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="dtpSearchDate.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -210,7 +219,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dtpSearchDate.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="tbSearchBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>27, 49</value>
@@ -231,7 +240,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbSearchBox.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="lblSearchBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -258,7 +267,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblSearchBox.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="cbEnableSearchByDate.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -285,6 +294,30 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cbEnableSearchByDate.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="progressBar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>179, 213</value>
+  </data>
+  <data name="progressBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>236, 23</value>
+  </data>
+  <data name="progressBar.TabIndex" type="System.Int32, mscorlib">
+    <value>53</value>
+  </data>
+  <data name="progressBar.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;progressBar.Name" xml:space="preserve">
+    <value>progressBar</value>
+  </data>
+  <data name="&gt;&gt;progressBar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;progressBar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;progressBar.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -298,6 +331,12 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>SalesOrderForm</value>
+  </data>
+  <data name="&gt;&gt;idColumn.Name" xml:space="preserve">
+    <value>idColumn</value>
+  </data>
+  <data name="&gt;&gt;idColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;salesOrderNumberColumn.Name" xml:space="preserve">
     <value>salesOrderNumberColumn</value>
