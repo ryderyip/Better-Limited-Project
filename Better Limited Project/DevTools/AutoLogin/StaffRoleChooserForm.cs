@@ -36,5 +36,19 @@ namespace Better_Limited_Project.DevTools.AutoLogin
 
             TitleSelected?.Invoke(this, selectedTitle);
         }
+
+        private void btnGenerateSalesOrder_Click(object sender, EventArgs e)
+        {
+            Dog();
+        }
+        
+        private void Dog()
+        {
+            var form = new RandomOrderPlacerForm()
+            {
+                MaxNumber = 1000, MinNumber = 1
+            };
+            form.ShowDialog();
+        }
     }
 }

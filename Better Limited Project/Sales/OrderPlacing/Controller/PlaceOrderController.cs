@@ -58,7 +58,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Controller
 
         private void PlaceOrder(Customer? customer = null)
         {
-            var service = new PlaceOrderService(_cart, customer)
+            var service = new PlaceOrderHandler(_cart, customer)
             {
                 IsNeedDelivery = _form.checkBoxNeedDelivery.Checked,
                 IsNeedInstallation = _form.checkBoxNeedInstallation.Checked

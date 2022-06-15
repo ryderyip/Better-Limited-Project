@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
+using Better_Limited_Project.DataAnalytics;
+using Better_Limited_Project.DataAnalytics.UI;
 using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.Login;
 using Better_Limited_Project.ProductUtility.DefectiveItemReturning;
@@ -45,7 +47,8 @@ namespace Better_Limited_Project.Navigation.UI
 
         private void btnSalesReport_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var form = new SalesAnalyticsForm();
+            _formController.OpenContentForm(form);
         }
 
         private void btnGoodsReceived_Click(object sender, EventArgs e)

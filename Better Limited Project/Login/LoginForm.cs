@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Better_Limited_Project.DevTools;
 using Better_Limited_Project.DevTools.AutoLogin;
 
 namespace Better_Limited_Project.Login
@@ -12,7 +13,7 @@ namespace Better_Limited_Project.Login
         public LoginForm()
         {
             InitializeComponent();
-            
+            StartPosition = FormStartPosition.CenterScreen;
             Shown += (_, _) => AutoLogin();
         }
 

@@ -42,6 +42,7 @@ namespace Better_Limited_Project.DevTools.AutoLogin
             this.btnTechManager = new System.Windows.Forms.Button();
             this.btnTechClerk = new System.Windows.Forms.Button();
             this.btnAdmin = new System.Windows.Forms.Button();
+            this.btnGenerateSalesOrder = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSalesRep
@@ -154,11 +155,22 @@ namespace Better_Limited_Project.DevTools.AutoLogin
             this.btnAdmin.UseVisualStyleBackColor = true;
             this.btnAdmin.Click += new System.EventHandler(this.BtnButtonClicked);
             // 
+            // btnGenerateSalesOrder
+            // 
+            this.btnGenerateSalesOrder.Location = new System.Drawing.Point(12, 378);
+            this.btnGenerateSalesOrder.Name = "btnGenerateSalesOrder";
+            this.btnGenerateSalesOrder.Size = new System.Drawing.Size(493, 55);
+            this.btnGenerateSalesOrder.TabIndex = 12;
+            this.btnGenerateSalesOrder.Text = "Generate Sales Orders";
+            this.btnGenerateSalesOrder.UseVisualStyleBackColor = true;
+            this.btnGenerateSalesOrder.Click += new System.EventHandler(this.btnGenerateSalesOrder_Click);
+            // 
             // StaffRoleChooserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(517, 390);
+            this.ClientSize = new System.Drawing.Size(517, 444);
+            this.Controls.Add(this.btnGenerateSalesOrder);
             this.Controls.Add(this.btnAdmin);
             this.Controls.Add(this.btnTechManager);
             this.Controls.Add(this.btnTechClerk);
@@ -173,6 +185,7 @@ namespace Better_Limited_Project.DevTools.AutoLogin
             this.Name = "StaffRoleChooserForm";
             this.Text = "DEVELOPMENT TOOL";
             this.ResumeLayout(false);
+
         }
 
         private System.Windows.Forms.Button btnReceivingClerk;
@@ -189,5 +202,7 @@ namespace Better_Limited_Project.DevTools.AutoLogin
         private System.Windows.Forms.Button btnAdmin;
 
         #endregion
+
+        private System.Windows.Forms.Button btnGenerateSalesOrder;
     }
 }

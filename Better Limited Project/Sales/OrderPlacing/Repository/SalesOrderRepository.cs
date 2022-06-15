@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Threading.Tasks;
 using Better_Limited_Project.CustomerRecord;
 using Better_Limited_Project.DatabaseUtility;
 using Better_Limited_Project.Login;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.StaffUtility.Repository;
+using Better_Limited_Project.StaffUtility.StaffEntity;
 using MySql.Data.MySqlClient;
 
 namespace Better_Limited_Project.Sales.OrderPlacing.Repository
@@ -19,26 +21,34 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
                    ?? throw new ArgumentException($"Sales order ID \"{id}\" does not exist.");
         }
 
+        public async Task<IEnumerable<SalesOrder>> GetAllAsync()
+        {
+            return await Task.Run(GetAll);
+        }
+
         public IEnumerable<SalesOrder> GetAll()
         {
             var command = new MySqlCommand(
                 @"select id, sales_order_number, customer_id, retail_store_id, created_by_staff_id, created_on, is_active from sales_order;");
             var dataTable = DataTableRepository.RetrieveDataTable(command);
-            return from DataRow row
-                    in dataTable.Rows
-                let id = row.Field<int>("id").ToString()
-                let orderNumber = row.Field<string>("sales_order_number")
-                let customerId = row.Field<int?>("customer_id")
-                let staff = new StaffRepository().FindById(row.Field<int>("created_by_staff_id").ToString())
-                let retailStore = new RetailStoreRepository().GetById(row.Field<string>("retail_store_id"))
-                let createOn = row.Field<DateTime>("created_on")
-                let isActive = row.Field<bool>("is_active")
-                select new SalesOrder(id, orderNumber, staff, retailStore, createOn, isActive)
-                {
-                    Customer = customerId.HasValue
-                        ? new CustomerRepository().FindById(customerId.Value.ToString())
-                        : null
-                };
+            return from DataRow row in dataTable.Rows select ConvertToSalesOrder(row);
+        }
+
+        private static SalesOrder ConvertToSalesOrder(DataRow row)
+        {
+            string id = row.Field<int>("id").ToString();
+            string orderNumber = row.Field<string>("sales_order_number");
+            int? customerId = row.Field<int?>("customer_id");
+            Staff staff = new StaffRepository().FindById(row.Field<int>("created_by_staff_id").ToString());
+            RetailStore retailStore = new RetailStoreRepository().GetById(row.Field<string>("retail_store_id"));
+            DateTime createOn = row.Field<DateTime>("created_on");
+            bool isActive = row.Field<bool>("is_active");
+            return new SalesOrder(id, orderNumber, staff, retailStore, createOn, isActive)
+            {
+                Customer = customerId.HasValue
+                    ? new CustomerRepository().FindById(customerId.Value.ToString())
+                    : null
+            };
         }
 
         public IEnumerable<SalesOrder> FindAll(Predicate<SalesOrder> filter)
@@ -62,26 +72,6 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
             command.Parameters.AddWithValue("@createdOn", order.CreatedOn);
             command.Parameters.AddWithValue("@isActive", order.IsActive);
             DataTableRepository.ExecuteNonQuery(command);
-        }
-
-        public string GetNewOrderNumber()
-        {
-            string staffId = LoginSession.GetSession().CurrentStaff.Id;
-            string retailStoreId = new RetailStoreRepository().GetAll().First().Id;
-            var command = new MySqlCommand(
-                @"insert into sales_order (id, sales_order_number, customer_id, retail_store_id, created_by_staff_id)
-                value (0, 0, null, @retailStoreId, @staffId);
-                select sales_order_number as orderNumber from sales_order order by created_on desc limit 1;
-                delete from sales_order where sales_order_number = (
-                    select sales_order_number from sales_order order by created_on desc limit 1
-                );
-                delete from sales_order_seq where id = (
-                    select max(id) from sales_order_seq
-                );");
-            command.Parameters.AddWithValue("@retailStoreId", retailStoreId);
-            command.Parameters.AddWithValue("@staffId", staffId);
-            var datatable = DataTableRepository.RetrieveDataTable(command);
-            return datatable.Rows[0].Field<string>("orderNumber");
         }
 
         public string GetNewId()

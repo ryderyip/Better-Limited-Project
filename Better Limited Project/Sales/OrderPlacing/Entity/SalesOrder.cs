@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Better_Limited_Project.CustomerRecord;
+using Better_Limited_Project.Sales.OrderPlacing.Controller;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;
 using Better_Limited_Project.ServiceUtility.DeliveryUtility.Entity;
 using Better_Limited_Project.ServiceUtility.DeliveryUtility.Repository;
@@ -17,9 +18,9 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
         public SalesOrder(Staff staff, RetailStore retailStore)
         {
             Id = new SalesOrderRepository().GetNewId();
-            OrderNumber = new SalesOrderRepository().GetNewOrderNumber();
             Staff = staff;
             RetailStore = retailStore;
+            OrderNumber = SalesOrderNumberGenerator.GetNewOrderNumber(RetailStore.Id);
             CreatedOn = DateTime.Now;
             IsActive = true;
         }

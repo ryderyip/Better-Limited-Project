@@ -114,6 +114,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -200,6 +201,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>CustomerRecord.resx</DependentUpon>
     </Compile>
+    <Compile Include="DataAnalytics\UI\SalesAnalyticsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataAnalytics\UI\SalesAnalyticsForm.Designer.cs">
+      <DependentUpon>SalesAnalyticsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseUtility\Database.cs" />
     <Compile Include="DatabaseUtility\DataTableRepository.cs" />
     <Compile Include="DevTools\AutoLogin\AutoLoginHelper.cs" />
@@ -209,6 +216,14 @@
     <Compile Include="DevTools\AutoLogin\StaffRoleChooserForm.Designer.cs">
       <DependentUpon>StaffRoleChooserForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DevTools\RandomOrderPlacerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DevTools\RandomOrderPlacerForm.Designer.cs">
+      <DependentUpon>RandomOrderPlacerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DevTools\RandomOrderPlacer.cs" />
+    <Compile Include="DevTools\RestockTool.cs" />
     <Compile Include="DocumentUtility\FolderBrowser.cs" />
     <Compile Include="DocumentUtility\WindowsExplorer.cs" />
     <Compile Include="FormControlling\FormController.cs" />
@@ -545,6 +560,7 @@
     <Compile Include="Sales\OrderPlacing\Controller\DeliverySessionTimeConverter.cs" />
     <Compile Include="Sales\OrderPlacing\Controller\PlaceOrderController.cs" />
     <Compile Include="Sales\OrderPlacing\Controller\SalesOrderCalculator.cs" />
+    <Compile Include="Sales\OrderPlacing\Controller\SalesOrderNumberGenerator.cs" />
     <Compile Include="Sales\OrderPlacing\Controller\SalesOrderPager\PlaceOrderFormPageFiller.cs" />
     <Compile Include="Sales\OrderPlacing\Controller\SalesOrderPager\PlaceOrderItemControlCollection.cs" />
     <Compile Include="Sales\OrderPlacing\Entity\Cart.cs" />
@@ -560,6 +576,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>OrderPlacingStringResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Sales\OrderPlacing\PlaceOrderHandler.cs" />
     <Compile Include="Sales\OrderPlacing\PlaceOrderService.cs" />
     <Compile Include="Sales\OrderPlacing\Repository\ProductImageRepository.cs" />
     <Compile Include="Sales\OrderPlacing\Repository\SalesOrderProductPaymentRepository.cs" />
@@ -997,8 +1014,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>CustomerRecord.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="DataAnalytics\UI\SalesAnalyticsForm.resx">
+      <DependentUpon>SalesAnalyticsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DevTools\AutoLogin\StaffRoleChooserForm.resx">
       <DependentUpon>StaffRoleChooserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevTools\RandomOrderPlacerForm.resx">
+      <DependentUpon>RandomOrderPlacerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\LoginForm.en-US.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -1496,9 +1519,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DataAnalytics\" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Resources\BL_Logo_Rectangle.png" />
   </ItemGroup>
   <ItemGroup>
@@ -1506,6 +1526,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\no_image.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DataAnalytics\Controller" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
