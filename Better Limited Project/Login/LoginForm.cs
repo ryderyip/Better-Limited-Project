@@ -31,12 +31,8 @@ namespace Better_Limited_Project.Login
                     ShowFillAllFieldMessage();
                     break;
                 
-                case LoginStatus.WrongUsername:
-                    ShowWrongUsernameMessage();
-                    break;
-                
-                case LoginStatus.WrongPassword:
-                    ShowWrongPasswordMessage();
+                case LoginStatus.WrongUsernameOrPassword:
+                    ShowWrongUsernameOrPasswordMessage();
                     break;
             }
         }
@@ -53,16 +49,10 @@ namespace Better_Limited_Project.Login
             lblLoginFailedMessage.Text = loginFailedMsg;
         }
         
-        private void ShowWrongUsernameMessage()
+        private void ShowWrongUsernameOrPasswordMessage()
         {
             lblLoginFailedMessage.Visible = true;
             lblLoginFailedMessage.Text = wrongUsernameMsg;
-        }
-
-        private void ShowWrongPasswordMessage()
-        {
-            lblLoginFailedMessage.Visible = true;
-            lblLoginFailedMessage.Text = wrongPasswordMsg;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

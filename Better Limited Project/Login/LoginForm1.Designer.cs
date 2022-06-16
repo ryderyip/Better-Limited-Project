@@ -29,7 +29,6 @@ namespace Better_Limited_Project.Login {
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
@@ -363,7 +362,7 @@ namespace Better_Limited_Project.Login {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Username Not Found.
+        ///   Looks up a localized string similar to Username or Password Not Found.
         /// </summary>
         internal static string wrongUsernameMsg {
             get {

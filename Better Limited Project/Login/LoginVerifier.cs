@@ -1,10 +1,15 @@
-﻿using System.Linq;
-
-namespace Better_Limited_Project.Login
+﻿namespace Better_Limited_Project.Login
 {
-    public static class LoginVerifier
+    public class LoginVerifier
     {
-        public static LoginStatus VerifyLogin(LoginCredentials credentials)
+        private readonly IStaffAccountRepository _repository;
+
+        public LoginVerifier(IStaffAccountRepository repository)
+        {
+            _repository = repository;
+        }
+
+        public LoginStatus VerifyLogin(LoginCredentials credentials)
         {
             string username = credentials.Username;
             string password = credentials.Password;
@@ -14,33 +19,24 @@ namespace Better_Limited_Project.Login
             if (IsEmptyPassword(password))
                 return LoginStatus.EmptyPassword;
 
-            var account = FindAccount(username);
-            if (account == null)
-                return LoginStatus.WrongUsername;
-
-            if (IsWrongPassword(password, account.Password))
-                return LoginStatus.WrongPassword;
+            var account = _repository.FindByKey(username);
+            if (account == null || IsWrongPassword(password, account.Password))
+                return LoginStatus.WrongUsernameOrPassword;
 
             return LoginStatus.Successful;
         }
 
-        private static bool IsEmptyUsername(string username)
+        private bool IsEmptyUsername(string username)
         {
             return string.IsNullOrWhiteSpace(username);
         }
 
-        private static bool IsEmptyPassword(string password)
+        private bool IsEmptyPassword(string password)
         {
             return string.IsNullOrWhiteSpace(password);
         }
 
-        private static StaffAccount? FindAccount(string username)
-        {
-            var accounts = StaffAccountRepository.GetAll();
-            return accounts.FirstOrDefault(account => account.Username == username);
-        }
-
-        private static bool IsWrongPassword(string enteredPassword, string accountPassword)
+        private bool IsWrongPassword(string enteredPassword, string accountPassword)
         {
             return enteredPassword != accountPassword;
         }

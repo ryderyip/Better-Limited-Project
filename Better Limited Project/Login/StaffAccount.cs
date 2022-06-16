@@ -2,6 +2,13 @@
 {
     public class StaffAccount
     {
+        public StaffAccount()
+        {
+            StaffId = "";
+            Username = "";
+            Password = "";
+        }
+
         public StaffAccount(string staffId, string username, string password)
         {
             StaffId = staffId;
@@ -9,18 +16,18 @@
             Password = password;
         }
 
-        public string StaffId { get; }
+        public string StaffId { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
 
-        public void Save()
+        public void Save(IStaffAccountRepository repository)
         {
-            StaffAccountRepository.InsertOrUpdate(this);
+            repository.InsertOrUpdate(this);
         }
 
-        public void Remove()
+        public void Remove(IStaffAccountRepository repository)
         {
-            StaffAccountRepository.Delete(this);
+            repository.Delete(this);
         }
     }
 }

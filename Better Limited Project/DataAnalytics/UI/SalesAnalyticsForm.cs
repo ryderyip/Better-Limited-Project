@@ -87,7 +87,7 @@ namespace Better_Limited_Project.DataAnalytics.UI
             chartRevenue.Series["revenue"].Points.Clear();
             var fromDate = dtpSalesDataFrom.Value.Date;
             var toDate = dtpSalesDataTo.Value.Date;
-            var payments = PaymentRepository.GetAll().Where(p => p.PaidOn.Date > fromDate.Date && p.PaidOn.Date < toDate.Date).ToList();
+            var payments = PaymentRepository.FindAll(p => p.PaidOn.Date > fromDate.Date && p.PaidOn.Date < toDate.Date).ToList();
             tbTotalRevenue.Text = payments.Sum(p => p.Amount).ToString("C", new CultureInfo("zh-HK"));
             var isSameMonth = fromDate.Month == toDate.Month;
             if (isSameMonth)

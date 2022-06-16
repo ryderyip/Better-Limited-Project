@@ -2004,6 +2004,6 @@
     <value>Incorrect Password</value>
   </data>
   <data name="wrongUsernameMsg" xml:space="preserve">
-    <value>Username Not Found</value>
+    <value>Username or Password Not Found</value>
   </data>
 </root>

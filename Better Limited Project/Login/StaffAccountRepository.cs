@@ -7,9 +7,9 @@ using MySql.Data.MySqlClient;
 
 namespace Better_Limited_Project.Login
 {
-    public static class StaffAccountRepository
+    public class StaffAccountRepository : IStaffAccountRepository
     {
-        public static IEnumerable<StaffAccount> GetAll()
+        public IEnumerable<StaffAccount> GetAll()
         {
             var command = new MySqlCommand(
                 "SELECT staff_id, username, password FROM staff_account;");
@@ -17,17 +17,7 @@ namespace Better_Limited_Project.Login
             return ConvertToStaffAccounts(dataTable);
         }
 
-        public static string GetStaffIdByUsername(string username)
-        {
-            var command = new MySqlCommand(
-                "SELECT staff_id FROM staff_account WHERE username = @username;");
-            command.Parameters.AddWithValue("@username", username);
-            var dataTable = DataTableRepository.RetrieveDataTable(command);
-            
-            return dataTable.Rows[0].Field<int>("staff_id").ToString();
-        }
-
-        private static List<StaffAccount> ConvertToStaffAccounts(DataTable dataTable)
+        private IEnumerable<StaffAccount> ConvertToStaffAccounts(DataTable dataTable)
         {
             var staffAccounts = new List<StaffAccount>();
             foreach (DataRow row in dataTable.Rows)
@@ -42,7 +32,7 @@ namespace Better_Limited_Project.Login
             return staffAccounts;
         }
 
-        public static void InsertOrUpdate(StaffAccount account)
+        public void InsertOrUpdate(StaffAccount account)
         {
             var command = new MySqlCommand(
                 @"insert into staff_account value (@id, @username, @password)
@@ -53,7 +43,7 @@ namespace Better_Limited_Project.Login
             DataTableRepository.ExecuteNonQuery(command);
         }
 
-        public static void Delete(StaffAccount staffAccount)
+        public void Delete(StaffAccount staffAccount)
         {
             var command = new MySqlCommand(
                 "delete from staff_account where staff_id = @staffId");
@@ -61,9 +51,19 @@ namespace Better_Limited_Project.Login
             DataTableRepository.ExecuteNonQuery(command);
         }
 
-        public static IEnumerable<StaffAccount> FindAll(Predicate<StaffAccount> filter)
+        public IEnumerable<StaffAccount> FindAll(Predicate<StaffAccount> filter)
         {
             return GetAll().Where(filter.Invoke);
+        }
+
+        public StaffAccount? FindByKey(string username)
+        {
+            var command = new MySqlCommand(
+                @"select staff_id, username, password from staff_account
+                where username = @username");
+            command.Parameters.AddWithValue("@username", username);
+            var dataTable = DataTableRepository.RetrieveDataTable(command);
+            return ConvertToStaffAccounts(dataTable).FirstOrDefault();
         }
     }
 }

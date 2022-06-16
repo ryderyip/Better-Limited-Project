@@ -37,7 +37,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
         {
             string keywords = tbSearch.Text;
 
-            var filteredStaff = StringHelper.IsAlphaNumeric(keywords)
+            var filteredStaff = StringHelper.IsAlphaNumericPlusUnderscore(keywords)
                 ? from staff in _staffs
                 where staff.Name.ToLower().Contains(keywords.ToLower())
                       || staff.Id.ToLower().Contains(keywords.ToLower())

@@ -5,7 +5,6 @@
         Successful,
         EmptyUsername,
         EmptyPassword,
-        WrongUsername,
-        WrongPassword
+        WrongUsernameOrPassword,
     }
 }

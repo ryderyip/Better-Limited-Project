@@ -40,7 +40,7 @@ namespace Better_Limited_Project.Navigation.UI
         private void btnSalesReport_Click(object sender, EventArgs e)
         {
             var form = new SalesAnalyticsForm();
-            form.ShowDialog();
+            _formController.OpenContentForm(form);
         }
 
         private void btnGoodsReceived_Click(object sender, EventArgs e)

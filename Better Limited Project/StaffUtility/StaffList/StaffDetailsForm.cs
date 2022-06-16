@@ -22,7 +22,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
 
         private bool DoesCurrentStaffHaveAccount()
         {
-            return StaffAccountRepository.GetAll()
+            return new StaffAccountRepository().GetAll()
                 .Any(account => account.StaffId == _staff.Id);
         }
 
@@ -74,7 +74,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
 
         private void RemoveStaff()
         {
-            _staff.GetLoginAccount().Remove();
+            _staff.GetLoginAccount().Remove(new StaffAccountRepository());
             _staff.Remove();
             Updated?.Invoke(this, EventArgs.Empty);
             Close();

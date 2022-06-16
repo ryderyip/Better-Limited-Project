@@ -64,7 +64,7 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
 
         public StaffAccount GetLoginAccount()
         {
-            return StaffAccountRepository.GetAll().FirstOrDefault(ac => ac.StaffId == Id)
+            return new StaffAccountRepository().GetAll().FirstOrDefault(ac => ac.StaffId == Id)
                    ?? throw new InvalidOperationException($"Staff \"{Name} ({Id}) does not have a staff account.");
         }
     }

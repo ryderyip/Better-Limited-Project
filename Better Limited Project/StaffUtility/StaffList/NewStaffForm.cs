@@ -68,7 +68,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
                 return;
             }
 
-            var accountVerifier = new StaffAccountCreationVerifier();
+            var accountVerifier = new StaffAccountCreationVerifier(new StaffAccountRepository());
             if (!accountVerifier.IsUsernameValid(username))
             {
                 MessageBox.Show(string.Format(StaffUtilityStringResources.username_not_valid, username));
@@ -98,7 +98,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             staff.Save();
 
             var staffAccount = new StaffAccount(staff.Id, username, password);
-            staffAccount.Save();
+            staffAccount.Save(new StaffAccountRepository());
 
             var image = pbImage.Image;
             if (image != null)

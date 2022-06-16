@@ -22,7 +22,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             string username = tbAccountUsername.Text.Trim();
-            var verifier = new StaffAccountCreationVerifier();
+            var verifier = new StaffAccountCreationVerifier(new StaffAccountRepository());
             if (!verifier.IsUsernameValid(username))
             {
                 MessageBox.Show(string.Format(StaffUtilityStringResources.username_not_valid, username));
@@ -49,7 +49,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             _staff.Save();
 
             _account.Username = username;
-            _account.Save();
+            _account.Save(new StaffAccountRepository());
             
             Updated?.Invoke(this, EventArgs.Empty);
             Close();

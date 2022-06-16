@@ -8,14 +8,14 @@ namespace Better_Limited_Project.Login
     {
         private readonly List<StaffAccount> _accounts;
 
-        public StaffAccountCreationVerifier()
+        public StaffAccountCreationVerifier(IStaffAccountRepository repository)
         {
-            _accounts = StaffAccountRepository.GetAll().ToList();
+            _accounts = repository.GetAll().ToList();
         }
 
         public bool IsUsernameValid(string username)
         {
-            return username.Length >= 4 && StringHelper.IsAlphaNumeric(username);
+            return username.Length >= 4 && StringHelper.IsAlphaNumericPlusUnderscore(username);
         }
         
         public bool IsUsernameUnique(string username)
@@ -25,7 +25,7 @@ namespace Better_Limited_Project.Login
         
         public bool IsPasswordValid(string password)
         {
-            return password.Length >= 8 && StringHelper.IsAlphaNumeric(password);
+            return password.Length >= 8 && StringHelper.IsAlphaNumericPlusUnderscore(password);
         }
     }
 }

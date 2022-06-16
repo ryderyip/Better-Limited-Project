@@ -230,6 +230,7 @@
     <Compile Include="FormControlling\FormPropertyController.cs" />
     <Compile Include="FormControlling\OuterFormGenerator.cs" />
     <Compile Include="IEntity.cs" />
+    <Compile Include="Login\IStaffAccountRepository.cs" />
     <Compile Include="Login\LoginController.cs" />
     <Compile Include="Login\LoginCredentials.cs" />
     <Compile Include="Login\LoginForm.cs">
@@ -555,6 +556,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoryUtility\IRepository.cs" />
     <Compile Include="RepositoryUtility\IRepositoryDelete.cs" />
+    <Compile Include="RepositoryUtility\IRepositoryFindByKey.cs" />
     <Compile Include="RepositoryUtility\IRepositoryInsert.cs" />
     <Compile Include="RepositoryUtility\IRepositoryInsertOrUpdate.cs" />
     <Compile Include="Sales\OrderPlacing\Controller\DeliverySessionTimeConverter.cs" />

@@ -1,4 +1,5 @@
-﻿using Better_Limited_Project.FormControlling;
+﻿using System.Linq;
+using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.SettingsUtility;
 
 namespace Better_Limited_Project.Login
@@ -28,7 +29,9 @@ namespace Better_Limited_Project.Login
 
         private void OnLoginClicked(object sender, LoginCredentials credentials)
         {
-            var status = LoginVerifier.VerifyLogin(credentials);
+            var staffAccountRepository = new StaffAccountRepository();
+            var verifier = new LoginVerifier(staffAccountRepository);
+            var status = verifier.VerifyLogin(credentials);
             if (status is not LoginStatus.Successful)
             {
                 _loginForm.LoginFailed(status);
@@ -36,7 +39,7 @@ namespace Better_Limited_Project.Login
             }
 
             _loginForm.Close();
-            string staffId = StaffAccountRepository.GetStaffIdByUsername(credentials.Username);
+            string staffId = staffAccountRepository.FindAll(ac => ac.Username == credentials.Username).First().StaffId;
             LoggedIn?.Invoke(this, staffId);
             
             SaveLastLoginUsername(credentials.Username);
