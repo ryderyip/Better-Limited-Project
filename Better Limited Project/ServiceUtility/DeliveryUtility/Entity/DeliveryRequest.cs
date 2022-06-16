@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Better_Limited_Project.Sales.OrderPlacing.Controller;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;
@@ -77,6 +78,11 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.Entity
                 : IsStockReadyForDelivery()
                     ? DeliveryGoodsStatus.ReadyForDelivery
                     : DeliveryGoodsStatus.WaitingForReplenishment;
+        }
+
+        public bool IsAllDelivered()
+        {
+            return IsArranged() && GetDeliveries().All(d => d.DeliveredOn != null);
         }
     }
 }

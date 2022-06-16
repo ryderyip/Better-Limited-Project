@@ -23,16 +23,13 @@ namespace Better_Limited_Project.Procedure
         private bool NeedToSelectWorkplace()
         {
             var workplace = UserSettings.GetSettings().Workplace;
-            if (workplace == null)
-                return true;
             var department = LoginSession.GetSession().CurrentStaff.Department;
+
+            if (department is not Department.Sales && department is not Department.Inventory)
+                return false;
             
-            return department switch
-            {
-                Department.Sales => workplace is not RetailStore,
-                Department.Inventory => workplace is not Warehouse,
-                _ => false
-            };
+            return department == Department.Sales 
+                ? workplace is not RetailStore : workplace is not Warehouse;
         }
 
         private void SetWorkplace(IWorkplace workplace)

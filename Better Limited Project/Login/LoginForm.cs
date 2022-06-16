@@ -46,13 +46,13 @@ namespace Better_Limited_Project.Login
         private void ShowFillAllFieldMessage()
         {
             lblLoginFailedMessage.Visible = true;
-            lblLoginFailedMessage.Text = loginFailedMsg;
+            lblLoginFailedMessage.Text = "Please enter both username and password";
         }
         
         private void ShowWrongUsernameOrPasswordMessage()
         {
             lblLoginFailedMessage.Visible = true;
-            lblLoginFailedMessage.Text = wrongUsernameMsg;
+            lblLoginFailedMessage.Text = "Username or password incorrect";
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

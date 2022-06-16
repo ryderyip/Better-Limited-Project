@@ -229,7 +229,6 @@
     <Compile Include="FormControlling\FormController.cs" />
     <Compile Include="FormControlling\FormPropertyController.cs" />
     <Compile Include="FormControlling\OuterFormGenerator.cs" />
-    <Compile Include="IEntity.cs" />
     <Compile Include="Login\IStaffAccountRepository.cs" />
     <Compile Include="Login\LoginController.cs" />
     <Compile Include="Login\LoginCredentials.cs" />
@@ -243,11 +242,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LoginForm.zh-HK.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Login\LoginForm1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LoginForm.resx</DependentUpon>
     </Compile>
     <Compile Include="Login\LoginSession.cs" />
     <Compile Include="Login\LoginStatus.cs" />
@@ -1030,8 +1024,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>LoginForm1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\LoginForm.zh-HK.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -1530,7 +1522,7 @@
     <EmbeddedResource Include="Resources\no_image.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DataAnalytics\Controller" />
+    <Folder Include="DataAnalytics\Controller\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

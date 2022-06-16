@@ -34,6 +34,7 @@ namespace Better_Limited_Project.Sales.PaymentUtility
                 foreach (var salesOrderProduct in _salesOrder.GetIncompletePaymentSalesOrderProducts())
                     new SalesOrderProductPayment(_salesOrder.Id, salesOrderProduct.ProductId, payment.Id,
                         isDeposit: false).Save();
+                _salesOrder.Save();
                 PaymentSettled?.Invoke(this, EventArgs.Empty);
             };
             form.ShowForm();

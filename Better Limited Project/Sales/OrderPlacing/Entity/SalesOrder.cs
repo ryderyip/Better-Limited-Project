@@ -13,7 +13,7 @@ using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.Sales.OrderPlacing.Entity
 {
-    public class SalesOrder : IEntity
+    public class SalesOrder 
     {
         public SalesOrder(Staff staff, RetailStore retailStore)
         {
@@ -85,10 +85,9 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
         }
 
         public bool IsCompleted()
-        {
+        {// broke
             return HasSalesOrderProducts()
-                   && !HasUnconfirmedDeliveryRequest()
-                   && (!HasRequestedForDelivery() || IsAllDeliveryArrived())
+                   && (GetDeliveryRequest()?.IsAllDelivered() ?? true)
                    && (GetInstallationRequest()?.IsArrangedAndAllInstalled() ?? true)
                    && HasNoDuePayment();
         }
@@ -96,12 +95,6 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
         private bool HasSalesOrderProducts()
         {
             return GetSalesOrderProducts().Any();
-        }
-
-        private bool HasUnconfirmedDeliveryRequest()
-        {
-            var deliveryRequest = GetDeliveryRequest();
-            return deliveryRequest != null && deliveryRequest.ArrangedOn == null;
         }
 
         private bool HasNoDuePayment()
@@ -126,10 +119,6 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
                 sop.GetPaymentStatus() is SalesOrderProductPaymentStatus.FullyPaid);
         }
 
-        /// <summary>
-        /// <para>Check if the order satisfies the following conditions:</para>
-        /// Doesn't have delivery or installation arranged
-        /// </summary>
         public bool IsRemovable()
         {
             var deliveryRequest = GetDeliveryRequest();

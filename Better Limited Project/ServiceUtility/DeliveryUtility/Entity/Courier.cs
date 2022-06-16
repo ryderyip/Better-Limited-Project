@@ -7,7 +7,7 @@ using Better_Limited_Project.StaffUtility.StaffEntity.Gender;
 
 namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.Entity
 {
-    public class Courier : IEntity
+    public class Courier 
     {
         public Courier(string name, Gender gender, string phone)
         {

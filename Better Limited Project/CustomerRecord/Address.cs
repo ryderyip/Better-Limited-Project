@@ -1,6 +1,6 @@
 ﻿namespace Better_Limited_Project.CustomerRecord
 {
-    public class Address : IEntity
+    public class Address 
     {
         public Address(string address1, string address2)
         {

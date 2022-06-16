@@ -4,7 +4,7 @@ using Better_Limited_Project.Sales.OrderPlacing.Repository;
 
 namespace Better_Limited_Project.CustomerRecord
 {
-    public class Customer : IEntity
+    public class Customer 
     {
         public Customer(string id, string name, string phone, Address address, string? email)
         {

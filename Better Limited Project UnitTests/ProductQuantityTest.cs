@@ -16,7 +16,7 @@ namespace UnitTests
         
         [TestCase("1", 2)]
         [TestCase("2", 1)]
-        public void DogUnequal(string productId, int quantity)
+        public void Inequality(string productId, int quantity)
         {
             var pq = new ProductQuantity(productId, quantity);
 
@@ -24,7 +24,7 @@ namespace UnitTests
         }
         
         [TestCase("1", 1)]
-        public void DogEqual(string productId, int quantity)
+        public void Equality(string productId, int quantity)
         {
             var pq = new ProductQuantity(productId, quantity);
 
@@ -32,7 +32,7 @@ namespace UnitTests
         }
         
         [TestCase("1", 1)]
-        public void DogEqualOperator(string productId, int quantity)
+        public void EqualityOperator(string productId, int quantity)
         {
             var pq = new ProductQuantity(productId, quantity);
 

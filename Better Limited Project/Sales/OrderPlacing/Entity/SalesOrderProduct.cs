@@ -34,13 +34,11 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
         public SalesOrderProductPaymentStatus GetPaymentStatus()
         {
             var paidAmount = GetAmountPaid();
-            if (!IsStockReady())
-                return paidAmount >= Price * Quantity * Product.DepositPricePercentage
-                    ? SalesOrderProductPaymentStatus.DepositPaid
-                    : SalesOrderProductPaymentStatus.AwaitingPayment;
             return paidAmount >= Price * Quantity
                 ? SalesOrderProductPaymentStatus.FullyPaid
-                : SalesOrderProductPaymentStatus.AwaitingPayment;
+                : paidAmount >= Price * Quantity * Product.DepositPricePercentage
+                    ? SalesOrderProductPaymentStatus.DepositPaid
+                    : SalesOrderProductPaymentStatus.AwaitingPayment;
         }
 
         public IEnumerable<SalesOrderProductPayment> GetProductPayments()
@@ -50,7 +48,8 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
 
         public SalesOrderProductPayment? GetProductDepositPayment()
         {
-            return SalesOrderProductPaymentRepository.GetByIds(SalesOrderId, ProductId).FirstOrDefault(sopp => sopp.IsDeposit);
+            return SalesOrderProductPaymentRepository.GetByIds(SalesOrderId, ProductId)
+                .FirstOrDefault(sopp => sopp.IsDeposit);
         }
 
         public Product GetProduct()

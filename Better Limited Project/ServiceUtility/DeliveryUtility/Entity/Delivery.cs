@@ -7,7 +7,7 @@ using Better_Limited_Project.ServiceUtility.DeliveryUtility.Repository;
 
 namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.Entity
 {
-    public class Delivery : IEntity
+    public class Delivery 
     {
         private const int MaximumDeliveriesPerSession = 5;
 

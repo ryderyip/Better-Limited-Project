@@ -2,6 +2,7 @@
 using System.Linq;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
+using Better_Limited_Project.Sales.OrderPlacing.Repository;
 using Better_Limited_Project.Sales.PaymentUtility.Repository;
 
 namespace Better_Limited_Project.Sales.OrderPlacing.Controller
@@ -36,15 +37,12 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Controller
 
         public decimal GetAmountPaid()
         {
-            return (from sop in _salesOrderProducts select sop.GetProductPayments()).SelectMany(payments => payments)
-                .GroupBy(p => p.PaymentId)
-                .Sum(paymentIdPayment => PaymentRepository.FindById(paymentIdPayment.Key).Amount);
+            return _salesOrderProducts.Sum(sop => sop.GetProductPayments().Sum(sopp => sopp.GetPayment().Amount));
         }
 
         public bool IsAllPaymentCompleted()
         {
-            return _salesOrderProducts.All(sop => sop.GetProductPayments() != null)
-                   && GetAmountPaid() >= GetTotalAmount();
+            return GetAmountPaid() >= GetTotalAmount();
         }
 
         public decimal GetAmountDue()
