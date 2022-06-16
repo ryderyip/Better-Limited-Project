@@ -43,7 +43,7 @@ namespace Better_Limited_Project.DevTools
             await Task.Run(() =>
             {
                 foreach (var retailStore in _retailStores)
-                    Restock(numberOfOrders / 2, retailStore);
+                    Restock((int) (numberOfOrders * 0.7), retailStore);
             });
 
             await Task.Run(() =>
@@ -133,7 +133,7 @@ namespace Better_Limited_Project.DevTools
         private DateTime GetRandomOrderDate()
         {
             int hoursInAMonth = 30 * 24;
-            return DateTime.Now - TimeSpan.FromHours(_random.Next(hoursInAMonth * 3));
+            return DateTime.Now - TimeSpan.FromHours(_random.Next(hoursInAMonth * 6));
         }
 
         private Staff GetRandomSalesStaff()
@@ -174,7 +174,7 @@ namespace Better_Limited_Project.DevTools
         private static RetailStore GetRandomRetailStore()
         {
             var random = new Random();
-            return random.Next(2) == 1
+            return random.Next(3) == 1
                 ? new RetailStoreRepository().GetAll().First()
                 : new RetailStoreRepository().GetAll().Last();
         }

@@ -119,6 +119,10 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
                 sop.GetPaymentStatus() is SalesOrderProductPaymentStatus.FullyPaid);
         }
 
+        /// <summary>
+        /// <para>Check if the order satisfies the following conditions:</para>
+        /// Doesn't have delivery or installation arranged
+        /// </summary>
         public bool IsRemovable()
         {
             var deliveryRequest = GetDeliveryRequest();

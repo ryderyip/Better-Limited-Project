@@ -30,27 +30,27 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DefectiveItemListForm));
-            this.btnNewItem = new System.Windows.Forms.Button();
+            this.btnNewRecord = new System.Windows.Forms.Button();
             this.dgvDefectiveItems = new System.Windows.Forms.DataGridView();
-            this.tbSearchBox = new System.Windows.Forms.TextBox();
-            this.lblSearchBox = new System.Windows.Forms.Label();
             this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.orderNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.returnedOnColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isReturnApprovedColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tbSearchBox = new System.Windows.Forms.TextBox();
+            this.lblSearchBox = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDefectiveItems)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnNewItem
+            // btnNewRecord
             // 
-            this.btnNewItem.BackColor = System.Drawing.Color.DarkOrange;
-            resources.ApplyResources(this.btnNewItem, "btnNewItem");
-            this.btnNewItem.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnNewItem.Name = "btnNewItem";
-            this.btnNewItem.UseVisualStyleBackColor = false;
-            this.btnNewItem.Click += new System.EventHandler(this.btnNewItem_Click);
+            this.btnNewRecord.BackColor = System.Drawing.Color.DarkOrange;
+            resources.ApplyResources(this.btnNewRecord, "btnNewRecord");
+            this.btnNewRecord.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnNewRecord.Name = "btnNewRecord";
+            this.btnNewRecord.UseVisualStyleBackColor = false;
+            this.btnNewRecord.Click += new System.EventHandler(this.btnNewItem_Click);
             // 
             // dgvDefectiveItems
             // 
@@ -69,16 +69,6 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             this.dgvDefectiveItems.ReadOnly = true;
             this.dgvDefectiveItems.RowTemplate.Height = 24;
             this.dgvDefectiveItems.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDefectiveItems_CellDoubleClick);
-            // 
-            // tbSearchBox
-            // 
-            resources.ApplyResources(this.tbSearchBox, "tbSearchBox");
-            this.tbSearchBox.Name = "tbSearchBox";
-            // 
-            // lblSearchBox
-            // 
-            resources.ApplyResources(this.lblSearchBox, "lblSearchBox");
-            this.lblSearchBox.Name = "lblSearchBox";
             // 
             // idColumn
             // 
@@ -116,11 +106,21 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             this.isReturnApprovedColumn.Name = "isReturnApprovedColumn";
             this.isReturnApprovedColumn.ReadOnly = true;
             // 
+            // tbSearchBox
+            // 
+            resources.ApplyResources(this.tbSearchBox, "tbSearchBox");
+            this.tbSearchBox.Name = "tbSearchBox";
+            // 
+            // lblSearchBox
+            // 
+            resources.ApplyResources(this.lblSearchBox, "lblSearchBox");
+            this.lblSearchBox.Name = "lblSearchBox";
+            // 
             // DefectiveItemListForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnNewItem);
+            this.Controls.Add(this.btnNewRecord);
             this.Controls.Add(this.dgvDefectiveItems);
             this.Controls.Add(this.tbSearchBox);
             this.Controls.Add(this.lblSearchBox);
@@ -135,7 +135,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
         public System.Windows.Forms.DataGridView dgvDefectiveItems;
         public System.Windows.Forms.TextBox tbSearchBox;
         private System.Windows.Forms.Label lblSearchBox;
-        private System.Windows.Forms.Button btnNewItem;
+        private System.Windows.Forms.Button btnNewRecord;
         private System.Windows.Forms.DataGridViewTextBoxColumn idColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn orderNumberColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn productNameColumn;

@@ -118,36 +118,36 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnNewItem.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btnNewRecord.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt, style=Bold</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnNewItem.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="btnNewRecord.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="btnNewItem.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btnNewRecord.Location" type="System.Drawing.Point, System.Drawing">
     <value>443, 25</value>
   </data>
-  <data name="btnNewItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnNewRecord.Size" type="System.Drawing.Size, System.Drawing">
     <value>132, 39</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnNewItem.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnNewRecord.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
   </data>
-  <data name="btnNewItem.Text" xml:space="preserve">
-    <value>New Item</value>
+  <data name="btnNewRecord.Text" xml:space="preserve">
+    <value>New Record</value>
   </data>
-  <data name="&gt;&gt;btnNewItem.Name" xml:space="preserve">
-    <value>btnNewItem</value>
+  <data name="&gt;&gt;btnNewRecord.Name" xml:space="preserve">
+    <value>btnNewRecord</value>
   </data>
-  <data name="&gt;&gt;btnNewItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnNewRecord.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnNewItem.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnNewRecord.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;btnNewItem.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnNewRecord.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="idColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

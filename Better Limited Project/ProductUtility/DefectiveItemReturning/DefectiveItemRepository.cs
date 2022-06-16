@@ -100,7 +100,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             string staffId = row.Field<int>("staff_id").ToString();
             string salesOrderId = row.Field<int>("sales_order_id").ToString();
             DateTime returnedRetailStoreOn = row.Field<DateTime>("returned_to_retail_store_on");
-            var warehouseId = row.Field<int?>("warehouse_id").ToString();
+            var warehouseId = row.Field<int?>("warehouse_id")?.ToString();
             var returnedToWarehouseOn = row.Field<DateTime?>("returned_to_warehouse_on");
             var returnedToSupplierOn = row.Field<DateTime?>("returned_to_supplier_on");
             var image = row.Field<byte[]>("image");

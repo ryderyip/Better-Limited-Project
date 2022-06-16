@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.lblGoodsReceived = new System.Windows.Forms.Label();
-            this.btnGoodsReceivedNote = new System.Windows.Forms.Button();
             this.tbReceivedByStaff = new System.Windows.Forms.TextBox();
             this.lblReceivedByStaffName = new System.Windows.Forms.Label();
             this.tbPurchaseOrderNumber = new System.Windows.Forms.TextBox();
@@ -53,18 +52,6 @@
             this.lblGoodsReceived.Size = new System.Drawing.Size(165, 24);
             this.lblGoodsReceived.TabIndex = 22;
             this.lblGoodsReceived.Text = "Goods Received";
-            // 
-            // btnGoodsReceivedNote
-            // 
-            this.btnGoodsReceivedNote.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnGoodsReceivedNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGoodsReceivedNote.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnGoodsReceivedNote.Location = new System.Drawing.Point(335, 331);
-            this.btnGoodsReceivedNote.Name = "btnGoodsReceivedNote";
-            this.btnGoodsReceivedNote.Size = new System.Drawing.Size(200, 54);
-            this.btnGoodsReceivedNote.TabIndex = 44;
-            this.btnGoodsReceivedNote.Text = "Goods Received Note";
-            this.btnGoodsReceivedNote.UseVisualStyleBackColor = false;
             // 
             // tbReceivedByStaff
             // 
@@ -172,7 +159,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(572, 410);
+            this.ClientSize = new System.Drawing.Size(570, 342);
             this.Controls.Add(this.dgvReceivedGoods);
             this.Controls.Add(this.lblHeader);
             this.Controls.Add(this.tbReceivedOn);
@@ -181,7 +168,6 @@
             this.Controls.Add(this.lblReceivedByStaffName);
             this.Controls.Add(this.tbPurchaseOrderNumber);
             this.Controls.Add(this.lblPurchaseOrderNumber);
-            this.Controls.Add(this.btnGoodsReceivedNote);
             this.Controls.Add(this.lblGoodsReceived);
             this.Name = "InwardGoodsDetailsForm";
             this.Text = "InwardGoodsDetailsForm";
@@ -193,7 +179,6 @@
 
         #endregion
         private System.Windows.Forms.Label lblGoodsReceived;
-        private System.Windows.Forms.Button btnGoodsReceivedNote;
         private System.Windows.Forms.TextBox tbReceivedByStaff;
         private System.Windows.Forms.Label lblReceivedByStaffName;
         private System.Windows.Forms.TextBox tbPurchaseOrderNumber;

@@ -22,7 +22,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
         private void Initialize()
         {
             if (LoginSession.GetSession().CurrentStaff.Department is not Department.Sales)
-                btnNewItem.Visible = false;
+                btnNewRecord.Visible = false;
             PopulateDgv(_defectiveItems);
         }
 

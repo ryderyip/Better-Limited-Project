@@ -341,28 +341,28 @@
   <data name="&gt;&gt;btnInventory.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="btnDeliveryDuty.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btnDeliveries.Location" type="System.Drawing.Point, System.Drawing">
     <value>41, 160</value>
   </data>
-  <data name="btnDeliveryDuty.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnDeliveries.Size" type="System.Drawing.Size, System.Drawing">
     <value>111, 34</value>
   </data>
-  <data name="btnDeliveryDuty.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnDeliveries.TabIndex" type="System.Int32, mscorlib">
     <value>22</value>
   </data>
-  <data name="btnDeliveryDuty.Text" xml:space="preserve">
-    <value>Delivery Duty</value>
+  <data name="btnDeliveries.Text" xml:space="preserve">
+    <value>Deliveries</value>
   </data>
-  <data name="&gt;&gt;btnDeliveryDuty.Name" xml:space="preserve">
-    <value>btnDeliveryDuty</value>
+  <data name="&gt;&gt;btnDeliveries.Name" xml:space="preserve">
+    <value>btnDeliveries</value>
   </data>
-  <data name="&gt;&gt;btnDeliveryDuty.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnDeliveries.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnDeliveryDuty.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnDeliveries.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;btnDeliveryDuty.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnDeliveries.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

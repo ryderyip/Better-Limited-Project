@@ -22,6 +22,9 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
 
         private void Initialize()
         {
+            dgvInstallationProduct.Rows.Clear();
+            dgvTechnicians.Rows.Clear();
+            
             if (_installation.IsInstalled())
                 btnSetAsInstalled.Visible = false;
             foreach (var installationRequestProduct in _installation.InstallationRequest.ProductsToInstall)

@@ -41,7 +41,7 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnReorderGoods = new System.Windows.Forms.Button();
             this.btnRestockRequests = new System.Windows.Forms.Button();
             this.btnInventory = new System.Windows.Forms.Button();
-            this.btnDeliveryDuty = new System.Windows.Forms.Button();
+            this.btnDeliveries = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblLoggedInAs
@@ -105,18 +105,18 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnInventory.UseVisualStyleBackColor = true;
             this.btnInventory.Click += new System.EventHandler(this.btnInventory_Click);
             // 
-            // btnDeliveryDuty
+            // btnDeliveries
             // 
-            resources.ApplyResources(this.btnDeliveryDuty, "btnDeliveryDuty");
-            this.btnDeliveryDuty.Name = "btnDeliveryDuty";
-            this.btnDeliveryDuty.UseVisualStyleBackColor = true;
-            this.btnDeliveryDuty.Click += new System.EventHandler(this.btnDeliveryDuty_Click);
+            resources.ApplyResources(this.btnDeliveries, "btnDeliveries");
+            this.btnDeliveries.Name = "btnDeliveries";
+            this.btnDeliveries.UseVisualStyleBackColor = true;
+            this.btnDeliveries.Click += new System.EventHandler(this.btnDeliveryDuty_Click);
             // 
             // InventoryClerkNavigationForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnDeliveryDuty);
+            this.Controls.Add(this.btnDeliveries);
             this.Controls.Add(this.btnInventory);
             this.Controls.Add(this.btnRestockRequests);
             this.Controls.Add(this.btnReorderGoods);
@@ -140,7 +140,7 @@ namespace Better_Limited_Project.Navigation.UI
         private System.Windows.Forms.Button btnReorderGoods;
         private System.Windows.Forms.Button btnRestockRequests;
         private System.Windows.Forms.Button btnInventory;
-        private System.Windows.Forms.Button btnDeliveryDuty;
+        private System.Windows.Forms.Button btnDeliveries;
 
         #endregion
     }

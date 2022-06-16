@@ -263,6 +263,9 @@
   <data name="btnDeliverytNote.Text" xml:space="preserve">
     <value>Delivery Note</value>
   </data>
+  <data name="btnDeliverytNote.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;btnDeliverytNote.Name" xml:space="preserve">
     <value>btnDeliverytNote</value>
   </data>
@@ -275,31 +278,31 @@
   <data name="&gt;&gt;btnDeliverytNote.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="btnUpdateDelivery.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btnEditDelivery.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt, style=Bold</value>
   </data>
-  <data name="btnUpdateDelivery.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btnEditDelivery.Location" type="System.Drawing.Point, System.Drawing">
     <value>47, 382</value>
   </data>
-  <data name="btnUpdateDelivery.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnEditDelivery.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 47</value>
   </data>
-  <data name="btnUpdateDelivery.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnEditDelivery.TabIndex" type="System.Int32, mscorlib">
     <value>159</value>
   </data>
-  <data name="btnUpdateDelivery.Text" xml:space="preserve">
-    <value>Update Delivery</value>
+  <data name="btnEditDelivery.Text" xml:space="preserve">
+    <value>Edit Delivery</value>
   </data>
-  <data name="&gt;&gt;btnUpdateDelivery.Name" xml:space="preserve">
-    <value>btnUpdateDelivery</value>
+  <data name="&gt;&gt;btnEditDelivery.Name" xml:space="preserve">
+    <value>btnEditDelivery</value>
   </data>
-  <data name="&gt;&gt;btnUpdateDelivery.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnEditDelivery.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnUpdateDelivery.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnEditDelivery.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;btnUpdateDelivery.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnEditDelivery.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
   <data name="tbCreatedOn.Location" type="System.Drawing.Point, System.Drawing">
@@ -489,7 +492,7 @@
     <value>Microsoft Sans Serif, 12pt, style=Bold</value>
   </data>
   <data name="btnSetAsDispatched.Location" type="System.Drawing.Point, System.Drawing">
-    <value>164, 319</value>
+    <value>301, 382</value>
   </data>
   <data name="btnSetAsDispatched.Size" type="System.Drawing.Size, System.Drawing">
     <value>198, 47</value>
@@ -516,7 +519,7 @@
     <value>Microsoft Sans Serif, 12pt, style=Bold</value>
   </data>
   <data name="btnSetAsDelivered.Location" type="System.Drawing.Point, System.Drawing">
-    <value>427, 319</value>
+    <value>301, 320</value>
   </data>
   <data name="btnSetAsDelivered.Size" type="System.Drawing.Size, System.Drawing">
     <value>198, 47</value>

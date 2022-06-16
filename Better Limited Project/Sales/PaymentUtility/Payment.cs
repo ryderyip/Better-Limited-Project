@@ -28,6 +28,8 @@ namespace Better_Limited_Project.Sales.PaymentUtility
 
         public void Save()
         {
+            if (Amount == 0)
+                return;
             PaymentRepository.InsertOrUpdate(this);
         }
     }

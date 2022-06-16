@@ -36,7 +36,7 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
             this.tbDispatchedOn = new System.Windows.Forms.TextBox();
             this.lblDispatchedOn = new System.Windows.Forms.Label();
             this.btnDeliverytNote = new System.Windows.Forms.Button();
-            this.btnUpdateDelivery = new System.Windows.Forms.Button();
+            this.btnEditDelivery = new System.Windows.Forms.Button();
             this.tbCreatedOn = new System.Windows.Forms.TextBox();
             this.lblCreatedOn = new System.Windows.Forms.Label();
             this.tbDeliveryStatus = new System.Windows.Forms.TextBox();
@@ -87,14 +87,14 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
             this.btnDeliverytNote.Name = "btnDeliverytNote";
             this.btnDeliverytNote.UseVisualStyleBackColor = false;
             // 
-            // btnUpdateDelivery
+            // btnEditDelivery
             // 
-            this.btnUpdateDelivery.BackColor = System.Drawing.Color.DarkOrange;
-            resources.ApplyResources(this.btnUpdateDelivery, "btnUpdateDelivery");
-            this.btnUpdateDelivery.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnUpdateDelivery.Name = "btnUpdateDelivery";
-            this.btnUpdateDelivery.UseVisualStyleBackColor = false;
-            this.btnUpdateDelivery.Click += new System.EventHandler(this.btnUpdateDelivery_Click);
+            this.btnEditDelivery.BackColor = System.Drawing.Color.DarkOrange;
+            resources.ApplyResources(this.btnEditDelivery, "btnEditDelivery");
+            this.btnEditDelivery.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnEditDelivery.Name = "btnEditDelivery";
+            this.btnEditDelivery.UseVisualStyleBackColor = false;
+            this.btnEditDelivery.Click += new System.EventHandler(this.btnUpdateDelivery_Click);
             // 
             // tbCreatedOn
             // 
@@ -164,7 +164,7 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
             this.Controls.Add(this.tbDispatchedOn);
             this.Controls.Add(this.lblDispatchedOn);
             this.Controls.Add(this.btnDeliverytNote);
-            this.Controls.Add(this.btnUpdateDelivery);
+            this.Controls.Add(this.btnEditDelivery);
             this.Controls.Add(this.tbCreatedOn);
             this.Controls.Add(this.lblCreatedOn);
             this.Controls.Add(this.tbDeliveryStatus);
@@ -186,7 +186,7 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
         private System.Windows.Forms.TextBox tbDispatchedOn;
         private System.Windows.Forms.Label lblDispatchedOn;
         private System.Windows.Forms.Button btnDeliverytNote;
-        private System.Windows.Forms.Button btnUpdateDelivery;
+        private System.Windows.Forms.Button btnEditDelivery;
         private System.Windows.Forms.TextBox tbCreatedOn;
         private System.Windows.Forms.Label lblCreatedOn;
         private System.Windows.Forms.TextBox tbDeliveryStatus;

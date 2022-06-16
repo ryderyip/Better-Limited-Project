@@ -104,7 +104,6 @@
             series1.Legend = "Legend1";
             series1.LegendText = "Kowloon Bay";
             series1.Name = "sales1";
-            series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
             series2.Legend = "Legend1";

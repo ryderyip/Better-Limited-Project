@@ -88,7 +88,7 @@ namespace Better_Limited_Project.DataAnalytics.UI
             var fromDate = dtpSalesDataFrom.Value.Date;
             var toDate = dtpSalesDataTo.Value.Date;
             var payments = PaymentRepository.FindAll(p => p.PaidOn.Date > fromDate.Date && p.PaidOn.Date < toDate.Date).ToList();
-            tbTotalRevenue.Text = payments.Sum(p => p.Amount).ToString("C", new CultureInfo("zh-HK"));
+            tbTotalRevenue.Text = payments.Sum(p => p.Amount).ToString("C0", new CultureInfo("zh-HK"));
             var isSameMonth = fromDate.Month == toDate.Month;
             if (isSameMonth)
             {

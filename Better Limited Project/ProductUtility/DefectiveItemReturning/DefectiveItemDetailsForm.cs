@@ -35,7 +35,6 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
                 btnApproveItemReturn.Visible = false;
             if (currentStaffDepartment is not Department.Inventory)
             {
-                btnApproveItemReturn.Visible = false;
                 btnSetAsReceivedItem.Visible = false;
                 btnSetAsReturnedToSupplier.Visible = false;
             }
