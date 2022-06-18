@@ -183,7 +183,6 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 
         private void btnRestock_Click(object sender, EventArgs e)
         {
-            // TODO do
             /*var form = new CreateRestockRequestForm();
             form.StartPosition = FormStartPosition.CenterScreen;
             form.ShowDialog();*/

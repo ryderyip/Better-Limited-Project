@@ -20,7 +20,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
         private void btnNext_Clicked(object sender, EventArgs e)
         {
             if (dgvCustomer.SelectedRows.Count == 0)
-                return; // TODO Display warning message if no row selected
+                return;
 
             CustomerRecordFound?.Invoke(this, GetSelectedCustomer());
             Close();

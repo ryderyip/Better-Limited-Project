@@ -3,8 +3,6 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.Login;
-using Better_Limited_Project.Sales.OrderPlacing.Entity;
-using Better_Limited_Project.Sales.OrderPlacing.Repository;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
@@ -12,13 +10,10 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
     public partial class DefectiveItemListForm : Form
     {
         private List<DefectiveItem> _defectiveItems;
-        private readonly List<SalesOrder> _salesOrders;
 
-        public DefectiveItemListForm()
+        public DefectiveItemListForm() // TODO implement search function
         {
             _defectiveItems = DefectiveItemRepository.GetAll().ToList();
-            _salesOrders = new SalesOrderRepository().FindAll(so => _defectiveItems.Any(di => di.SalesOrderId == so.Id))
-                .ToList();
             StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
             Shown += (_, _) => Initialize();
@@ -35,7 +30,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
         private void FilterDgv()
         {
             string searchKeyword = tbSearchBox.Text.Trim().ToLower();
-            var filtered = _defectiveItems.Where(di => _salesOrders.Find(so => so.Id == di.SalesOrderId).OrderNumber.ToLower().Contains(searchKeyword)
+            var filtered = _defectiveItems.Where(di => di.SalesOrder.OrderNumber.ToLower().Contains(searchKeyword)
                                                        || di.Product.Name.ToLower().Contains(searchKeyword));
             PopulateDgv(filtered);
         }

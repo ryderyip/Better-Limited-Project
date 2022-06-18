@@ -92,7 +92,6 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
             }
             
             scheduledOn += _deliveryRequest.DeliverySessionTime;
-            // TODO no schedule if no stock available
             var delivery = new Entity.Delivery(_deliveryRequest.Id)
             {
                 ScheduledOn = scheduledOn

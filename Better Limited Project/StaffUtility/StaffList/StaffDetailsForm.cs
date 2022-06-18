@@ -65,7 +65,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            return;  // TODO take care of problem
+            return;
             var form = new ConfirmRemovalForm();
             form.StartPosition = FormStartPosition.CenterScreen;
             form.Confirmed += (_, _) => RemoveStaff();

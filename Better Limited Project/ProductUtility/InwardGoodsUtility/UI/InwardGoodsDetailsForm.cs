@@ -34,7 +34,6 @@ namespace Better_Limited_Project.ProductUtility.InwardGoodsUtility.UI
         {
             tbPurchaseOrderNumber.Text = _inwardGoods.PurchaseOrder.PurchaseOrderNumber;
             tbReceivedOn.Text = _inwardGoods.ReceivedOn.ToString("f");
-            // tbReceivedByStaff.Text = TODO 
         }
 
         private void btnViewPurchaseOrder_Click(object sender, System.EventArgs e)

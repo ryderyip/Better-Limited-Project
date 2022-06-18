@@ -99,7 +99,6 @@ namespace Better_Limited_Project.ProductUtility.Entity
 
         public bool IsInAnyRestockRequest()
         {
-            // TODO do
             return false;
         }
     }
