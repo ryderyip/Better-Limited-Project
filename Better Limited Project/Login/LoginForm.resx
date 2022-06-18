@@ -138,7 +138,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbUsername.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="tbPassword.Location" type="System.Drawing.Point, System.Drawing">
     <value>387, 244</value>
@@ -159,7 +159,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbPassword.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="lblUsername.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -186,7 +186,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblUsername.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="lblPassword.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -217,7 +217,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblPassword.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="btnLogin.Font" type="System.Drawing.Font, System.Drawing">
     <value>Noto Sans, 15.75pt, style=Bold</value>
@@ -244,7 +244,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnLogin.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="lblLoginFailedMessage.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -277,6 +277,27 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblLoginFailedMessage.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="pbLogo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>159, 42</value>
+  </data>
+  <data name="pbLogo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>482, 93</value>
+  </data>
+  <data name="pbLogo.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;pbLogo.Name" xml:space="preserve">
+    <value>pbLogo</value>
+  </data>
+  <data name="&gt;&gt;pbLogo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pbLogo.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pbLogo.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

@@ -207,11 +207,11 @@
             // 
             this.lblHeader.AutoSize = true;
             this.lblHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeader.Location = new System.Drawing.Point(300, 25);
+            this.lblHeader.Location = new System.Drawing.Point(262, 25);
             this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(185, 25);
+            this.lblHeader.Size = new System.Drawing.Size(261, 25);
             this.lblHeader.TabIndex = 58;
-            this.lblHeader.Text = "Goods Selection";
+            this.lblHeader.Text = "Goods Selection Helper";
             // 
             // lblSelectedGoods
             // 

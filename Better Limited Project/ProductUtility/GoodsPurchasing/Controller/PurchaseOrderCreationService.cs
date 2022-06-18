@@ -28,10 +28,6 @@ namespace Better_Limited_Project.ProductUtility.GoodsPurchasing.Controller
             if (_orderProducts.Count == 0)
                 return;
 
-            _reorderRequest.ApprovedByStaffId = LoginSession.GetSession().CurrentStaff.Id;
-            _reorderRequest.ApprovedOn = DateTime.Now;
-            _reorderRequest.Save();
-            
             _purchaseOrder.Save();
             _orderProducts.ForEach(op => op.Save());
         }

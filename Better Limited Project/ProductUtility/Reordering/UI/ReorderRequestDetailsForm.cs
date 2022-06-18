@@ -91,11 +91,15 @@ namespace Better_Limited_Project.ProductUtility.Reordering.UI
             if (result is not DialogResult.Yes)
                 return;
             
+            _reorderRequest.ApprovedByStaffId = LoginSession.GetSession().CurrentStaff.Id;
+            _reorderRequest.ApprovedOn = DateTime.Now;
+            _reorderRequest.Save();
+            
             var service = new PurchaseOrderCreationService(_reorderRequest);
             service.AddRangeOrderProducts(_reorderRequest.RequestedProducts);
             service.Create();
+            
             Initialize();
-            DialogResult = DialogResult.OK;
         }
     }
 }

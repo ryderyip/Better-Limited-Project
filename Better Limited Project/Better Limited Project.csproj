@@ -1157,6 +1157,9 @@
     <EmbeddedResource Include="ProductUtility\ProductList\Forms\ProductListForm.resx">
       <DependentUpon>ProductListForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProductUtility\ProductList\Forms\ProductListForm.zh-Hans-HK.resx">
+      <DependentUpon>ProductListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductUtility\ProductList\Forms\ProductListForm.zh-HK.resx">
       <DependentUpon>ProductListForm.cs</DependentUpon>
     </EmbeddedResource>

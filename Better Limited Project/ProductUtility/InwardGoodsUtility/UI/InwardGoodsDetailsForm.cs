@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using Better_Limited_Project.ProductUtility.GoodsPurchasing.UI;
 using Better_Limited_Project.ProductUtility.InwardGoodsUtility.Entity;
 
 namespace Better_Limited_Project.ProductUtility.InwardGoodsUtility.UI
@@ -34,6 +35,12 @@ namespace Better_Limited_Project.ProductUtility.InwardGoodsUtility.UI
             tbPurchaseOrderNumber.Text = _inwardGoods.PurchaseOrder.PurchaseOrderNumber;
             tbReceivedOn.Text = _inwardGoods.ReceivedOn.ToString("f");
             // tbReceivedByStaff.Text = TODO 
+        }
+
+        private void btnViewPurchaseOrder_Click(object sender, System.EventArgs e)
+        {
+            var form = new PurchaseOrderDetailsForm(_inwardGoods.PurchaseOrder);
+            form.ShowDialog();
         }
     }
 }

@@ -29,10 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductListForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblSearchBox = new System.Windows.Forms.Label();
             this.tbSearchBox = new System.Windows.Forms.TextBox();
-            this.btnRestock = new System.Windows.Forms.Button();
             this.cbWorkplaceSelect = new System.Windows.Forms.ComboBox();
             this.lblWorkplaceSelect = new System.Windows.Forms.Label();
             this.gpWorkplaceSelect = new System.Windows.Forms.GroupBox();
@@ -59,20 +58,11 @@
             this.tbSearchBox.Name = "tbSearchBox";
             this.tbSearchBox.TextChanged += new System.EventHandler(this.tbSearchBox_TextChanged);
             // 
-            // btnRestock
-            // 
-            this.btnRestock.BackColor = System.Drawing.Color.DarkOrange;
-            resources.ApplyResources(this.btnRestock, "btnRestock");
-            this.btnRestock.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnRestock.Name = "btnRestock";
-            this.btnRestock.UseVisualStyleBackColor = false;
-            this.btnRestock.Click += new System.EventHandler(this.btnRestock_Click);
-            // 
             // cbWorkplaceSelect
             // 
+            resources.ApplyResources(this.cbWorkplaceSelect, "cbWorkplaceSelect");
             this.cbWorkplaceSelect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbWorkplaceSelect.FormattingEnabled = true;
-            resources.ApplyResources(this.cbWorkplaceSelect, "cbWorkplaceSelect");
             this.cbWorkplaceSelect.Name = "cbWorkplaceSelect";
             this.cbWorkplaceSelect.SelectedIndexChanged += new System.EventHandler(this.cbWorkplaceSelect_SelectedIndexChanged);
             // 
@@ -83,14 +73,15 @@
             // 
             // gpWorkplaceSelect
             // 
+            resources.ApplyResources(this.gpWorkplaceSelect, "gpWorkplaceSelect");
             this.gpWorkplaceSelect.Controls.Add(this.lblWorkplaceSelect);
             this.gpWorkplaceSelect.Controls.Add(this.cbWorkplaceSelect);
-            resources.ApplyResources(this.gpWorkplaceSelect, "gpWorkplaceSelect");
             this.gpWorkplaceSelect.Name = "gpWorkplaceSelect";
             this.gpWorkplaceSelect.TabStop = false;
             // 
             // dgvProductList
             // 
+            resources.ApplyResources(this.dgvProductList, "dgvProductList");
             this.dgvProductList.AllowUserToAddRows = false;
             this.dgvProductList.AllowUserToDeleteRows = false;
             this.dgvProductList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -99,7 +90,6 @@
             this.quantity,
             this.selling_price,
             this.category});
-            resources.ApplyResources(this.dgvProductList, "dgvProductList");
             this.dgvProductList.Name = "dgvProductList";
             this.dgvProductList.ReadOnly = true;
             this.dgvProductList.RowTemplate.Height = 24;
@@ -113,9 +103,9 @@
             // 
             // quantity
             // 
-            dataGridViewCellStyle1.Format = "N0";
-            dataGridViewCellStyle1.NullValue = null;
-            this.quantity.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Format = "N0";
+            dataGridViewCellStyle2.NullValue = null;
+            this.quantity.DefaultCellStyle = dataGridViewCellStyle2;
             resources.ApplyResources(this.quantity, "quantity");
             this.quantity.Name = "quantity";
             this.quantity.ReadOnly = true;
@@ -134,8 +124,8 @@
             // 
             // btnNewProductClicked
             // 
-            this.btnNewProductClicked.BackColor = System.Drawing.Color.DarkOrange;
             resources.ApplyResources(this.btnNewProductClicked, "btnNewProductClicked");
+            this.btnNewProductClicked.BackColor = System.Drawing.Color.DarkOrange;
             this.btnNewProductClicked.ForeColor = System.Drawing.SystemColors.Window;
             this.btnNewProductClicked.Name = "btnNewProductClicked";
             this.btnNewProductClicked.UseVisualStyleBackColor = false;
@@ -143,9 +133,9 @@
             // 
             // cbCategoryFilter
             // 
+            resources.ApplyResources(this.cbCategoryFilter, "cbCategoryFilter");
             this.cbCategoryFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCategoryFilter.FormattingEnabled = true;
-            resources.ApplyResources(this.cbCategoryFilter, "cbCategoryFilter");
             this.cbCategoryFilter.Name = "cbCategoryFilter";
             this.cbCategoryFilter.SelectedIndexChanged += new System.EventHandler(this.cbCategoryFilter_SelectedIndexChanged);
             // 
@@ -162,7 +152,6 @@
             this.Controls.Add(this.cbCategoryFilter);
             this.Controls.Add(this.btnNewProductClicked);
             this.Controls.Add(this.gpWorkplaceSelect);
-            this.Controls.Add(this.btnRestock);
             this.Controls.Add(this.dgvProductList);
             this.Controls.Add(this.tbSearchBox);
             this.Controls.Add(this.lblSearchBox);
@@ -187,7 +176,6 @@
         private System.Windows.Forms.Label lblSearchBox;
         public System.Windows.Forms.TextBox tbSearchBox;
         public System.Windows.Forms.DataGridView dgvProductList;
-        public System.Windows.Forms.Button btnRestock;
         private System.Windows.Forms.GroupBox gpWorkplaceSelect;
         public System.Windows.Forms.ComboBox cbCategoryFilter;
         private System.Windows.Forms.Label lblCategoryFilter;

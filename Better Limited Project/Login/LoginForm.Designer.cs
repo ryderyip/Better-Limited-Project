@@ -35,6 +35,8 @@
             this.lblPassword = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.lblLoginFailedMessage = new System.Windows.Forms.Label();
+            this.pbLogo = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // tbUsername
@@ -73,11 +75,18 @@
             resources.ApplyResources(this.lblLoginFailedMessage, "lblLoginFailedMessage");
             this.lblLoginFailedMessage.Name = "lblLoginFailedMessage";
             // 
+            // pbLogo
+            // 
+            resources.ApplyResources(this.pbLogo, "pbLogo");
+            this.pbLogo.Name = "pbLogo";
+            this.pbLogo.TabStop = false;
+            // 
             // LoginForm
             // 
             this.AcceptButton = this.btnLogin;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pbLogo);
             this.Controls.Add(this.lblLoginFailedMessage);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.lblPassword);
@@ -85,6 +94,7 @@
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbUsername);
             this.Name = "LoginForm";
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -100,6 +110,7 @@
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.PictureBox pbLogo;
     }
 }
 

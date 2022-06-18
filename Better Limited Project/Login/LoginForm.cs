@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using Better_Limited_Project.DevTools;
 using Better_Limited_Project.DevTools.AutoLogin;
+using Better_Limited_Project.Properties;
 
 namespace Better_Limited_Project.Login
 {
@@ -14,7 +15,14 @@ namespace Better_Limited_Project.Login
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
-            Shown += (_, _) => AutoLogin();
+            Shown += (_, _) => Initialize();
+        }
+
+        private void Initialize()
+        {
+            pbLogo.Image = Resources.BL_Logo_Rectangle;
+            pbLogo.SizeMode = PictureBoxSizeMode.StretchImage;
+            AutoLogin();
         }
 
         private void AutoLogin()

@@ -256,13 +256,13 @@
     <value>18, 25</value>
   </data>
   <data name="lblSearchBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>169, 13</value>
+    <value>197, 13</value>
   </data>
   <data name="lblSearchBox.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
   <data name="lblSearchBox.Text" xml:space="preserve">
-    <value>Search by Product Name/Supplier</value>
+    <value>Search by Order Number/Product Name</value>
   </data>
   <data name="&gt;&gt;lblSearchBox.Name" xml:space="preserve">
     <value>lblSearchBox</value>

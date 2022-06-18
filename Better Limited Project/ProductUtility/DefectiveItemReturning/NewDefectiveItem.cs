@@ -44,6 +44,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
 
         private void btnChooseSalesOrder_Click(object sender, System.EventArgs e)
         {
+            // TODO BRUH THIS RETRIEVE SLOW AS F
             var completedSalesOrders = new SalesOrderRepository().GetAll().Where(so => so.IsCompleted());
             var form = new SalesOrderPickerForm(completedSalesOrders);
             var result = form.ShowDialog();

@@ -7,8 +7,11 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
 {
     public partial class TechnicianCreateUpdateForm : Form
     {
+        private readonly Technician? _technician;
+
         public TechnicianCreateUpdateForm(Technician? technician = null)
         {
+            _technician = technician;
             StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
             if (technician != null)
@@ -23,7 +26,6 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            
             string name = tbName.Text.Trim();
             string phone = tbPhone.Text.Trim();
 
@@ -39,7 +41,14 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
                 return;
             }
 
-            new Technician(name, phone).Save();
+            if (_technician == null)
+                new Technician(name, phone).Save();
+            else
+            {
+                _technician.Name = name;
+                _technician.Phone = phone;
+                _technician.Save();
+            }
             DialogResult = DialogResult.OK;
         }
 
