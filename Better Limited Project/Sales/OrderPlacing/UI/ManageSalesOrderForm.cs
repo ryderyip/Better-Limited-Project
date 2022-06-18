@@ -106,6 +106,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
                 }
 
                 deliveryRequest.Remove();
+                _salesOrder.Save();
                 Close();
                 SalesOrderUpdated?.Invoke(this, EventArgs.Empty);
             }

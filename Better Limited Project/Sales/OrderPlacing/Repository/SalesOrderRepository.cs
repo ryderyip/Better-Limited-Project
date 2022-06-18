@@ -90,5 +90,16 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
             command.Parameters.AddWithValue("@id", salesOrder.Id);
             DataTableRepository.ExecuteNonQuery(command);
         }
+        
+        public IEnumerable<SalesOrder> GetCompletedOrders()
+        {
+            var command = new MySqlCommand(
+                @"select id, sales_order_number, customer_id, retail_store_id, 
+                        created_by_staff_id, created_on, is_active 
+                    from sales_order
+                    where is_active = 0;");
+            var dataTable = DataTableRepository.RetrieveDataTable(command);
+            return from DataRow row in dataTable.Rows select ConvertToSalesOrder(row);
+        }
     }
 }

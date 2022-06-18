@@ -52,7 +52,7 @@ namespace Better_Limited_Project.DevTools
                 {
                     var retailStore = GetRandomRetailStore();
                     var cart = new Cart(retailStore.Id);
-                    for (int j = 0; j < _random.Next(15); j++)
+                    for (int j = 0; j < _random.Next(1, 15); j++)
                         cart.Add(GetRandomProduct());
                     
                     var salesOrder = GetRandomSalesOrder(retailStore);
@@ -76,6 +76,7 @@ namespace Better_Limited_Project.DevTools
                             isDeposit: sop.IsOutOfStock).Save();
                         sop.Save();
                     });
+                    salesOrder.Save();
 
                     if (salesOrderProducts.Any(sop => sop.IsOutOfStock))
                     {

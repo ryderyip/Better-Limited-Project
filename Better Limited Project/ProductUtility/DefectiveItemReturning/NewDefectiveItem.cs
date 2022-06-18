@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-using System.Linq;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using Better_Limited_Project.DocumentUtility;
 using Better_Limited_Project.Login;
 using Better_Limited_Project.ProductUtility.Entity;
@@ -44,8 +42,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
 
         private void btnChooseSalesOrder_Click(object sender, System.EventArgs e)
         {
-            // TODO BRUH THIS RETRIEVE SLOW AS F
-            var completedSalesOrders = new SalesOrderRepository().GetAll().Where(so => so.IsCompleted());
+            var completedSalesOrders = new SalesOrderRepository().GetCompletedOrders();
             var form = new SalesOrderPickerForm(completedSalesOrders);
             var result = form.ShowDialog();
             if (result is not DialogResult.OK || form.SelectedSalesOrder == null)

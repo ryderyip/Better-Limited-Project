@@ -14,7 +14,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
         private List<DefectiveItem> _defectiveItems;
         private readonly List<SalesOrder> _salesOrders;
 
-        public DefectiveItemListForm() // TODO implement search function
+        public DefectiveItemListForm()
         {
             _defectiveItems = DefectiveItemRepository.GetAll().ToList();
             _salesOrders = new SalesOrderRepository().FindAll(so => _defectiveItems.Any(di => di.SalesOrderId == so.Id))
