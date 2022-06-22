@@ -480,6 +480,23 @@
     </Compile>
     <Compile Include="ProductUtility\Repository\RetailStoreStockRepository.cs" />
     <Compile Include="ProductUtility\Repository\WarehouseStockRepository.cs" />
+    <Compile Include="ProductUtility\Restocking\ArrangeRestockForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductUtility\Restocking\ArrangeRestockForm.Designer.cs">
+      <DependentUpon>ArrangeRestockForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductUtility\Restocking\CourierPickerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductUtility\Restocking\CourierPickerForm.Designer.cs">
+      <DependentUpon>CourierPickerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductUtility\Restocking\Entity\RestockDelivery.cs" />
+    <Compile Include="ProductUtility\Restocking\Repository\RestockDeliveryCourierRepository.cs" />
+    <Compile Include="ProductUtility\Restocking\Repository\RestockDeliveryRepository.cs" />
+    <Compile Include="ProductUtility\Restocking\Repository\RestockDeliveryRestockRequestRepository.cs" />
+    <Compile Include="ProductUtility\Restocking\RestockArrangingService.cs" />
     <Compile Include="ProductUtility\Restocking\RestockRequest.cs" />
     <Compile Include="ProductUtility\Restocking\RestockRequestDetailsForm.cs">
       <SubType>Form</SubType>
@@ -494,6 +511,12 @@
       <DependentUpon>RestockRequestListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ProductUtility\Restocking\RestockRequestNumberGenerator.cs" />
+    <Compile Include="ProductUtility\Restocking\RestockRequestPickerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductUtility\Restocking\RestockRequestPickerForm.Designer.cs">
+      <DependentUpon>RestockRequestPickerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductUtility\Restocking\RestockRequestProduct.cs" />
     <Compile Include="ProductUtility\Restocking\RestockRequestProductRepository.cs" />
     <Compile Include="ProductUtility\Restocking\RestockRequestRepository.cs" />
@@ -1214,11 +1237,20 @@
     <EmbeddedResource Include="ProductUtility\Reordering\UI\ReorderRequestListForm.resx">
       <DependentUpon>ReorderRequestListForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProductUtility\Restocking\ArrangeRestockForm.resx">
+      <DependentUpon>ArrangeRestockForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductUtility\Restocking\CourierPickerForm.resx">
+      <DependentUpon>CourierPickerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductUtility\Restocking\RestockRequestDetailsForm.resx">
       <DependentUpon>RestockRequestDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductUtility\Restocking\RestockRequestListForm.resx">
       <DependentUpon>RestockRequestListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductUtility\Restocking\RestockRequestPickerForm.resx">
+      <DependentUpon>RestockRequestPickerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductUtility\SupplierUtility\CreateSupplierForm.resx">
       <DependentUpon>CreateSupplierForm.cs</DependentUpon>

@@ -81,5 +81,10 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.Entity
         {
             return DeliveredOn ?? DispatchedOn ?? CreatedOn;
         }
+
+        public bool IsDelivered()
+        {
+            return DeliveredOn != null;
+        }
     }
 }

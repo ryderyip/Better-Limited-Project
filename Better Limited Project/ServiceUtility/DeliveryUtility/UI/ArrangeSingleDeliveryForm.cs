@@ -51,12 +51,7 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
         private void btnChooseCourier_Click(object sender, EventArgs e)
         {
             var selectedDate = dtpSelectDeliveryDate.Value.Date;
-            var freeCouriers = from courier in CourierRepository.GetAll()
-                let deliveries = DeliveryCourierRepository.FindByCourierId(courier.Id)
-                where !deliveries.Any() 
-                      || deliveries.All(d => d.ScheduledOn == null)
-                      || deliveries.All(d => d.ScheduledOn.Date != selectedDate)
-                select courier;
+            var freeCouriers = CourierRepository.FindAll(c => c.IsFreeOn(selectedDate));
 
             var courierSelector = new CourierSelectorForm(freeCouriers);
             courierSelector.CouriersSelected += (_, selectedCouriers) =>

@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
+using Better_Limited_Project.Login;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.ProductUtility.Reordering.UI;
+using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.ProductUtility.Restocking
 {
@@ -21,10 +23,24 @@ namespace Better_Limited_Project.ProductUtility.Restocking
 
         private void Initialize()
         {
+            if (LoginSession.GetSession().CurrentStaff.Department is Department.Inventory)
+                btnNewRequest.Visible = false;
+            else
+                btnArrangeRestock.Visible = false;
+            btnArrangeRestock.Click += BtnArrangeRestockOnClick;
             btnNewRequest.Click += BtnNewRequestOnClick; 
             dgvRestockRequests.CellDoubleClick += (_, args) => DgvCellDoubleClicked(args.RowIndex);
             tbSearchBox.TextChanged += (_, _) => FilterDgv();
             PopulateDgv(_restockRequests);
+        }
+
+        private void BtnArrangeRestockOnClick(object sender, EventArgs e)
+        {
+            var form = new ArrangeRestockForm();
+            var result = form.ShowDialog();
+            if (result is not DialogResult.OK)
+                return;
+            RefreshDgv();
         }
 
         private void BtnNewRequestOnClick(object sender, EventArgs e)

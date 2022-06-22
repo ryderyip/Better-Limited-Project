@@ -32,6 +32,10 @@ namespace Better_Limited_Project.ProductUtility.Restocking
             this.tbNoOfProducts = new System.Windows.Forms.TextBox();
             this.lblNoOfProducts = new System.Windows.Forms.Label();
             this.dgvRequestedGoods = new System.Windows.Forms.DataGridView();
+            this.requestedProductIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.requestedProductNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityToReorderColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnUnsendRequest = new System.Windows.Forms.Button();
             this.tbArrangedOn = new System.Windows.Forms.TextBox();
             this.lblArrangedOn = new System.Windows.Forms.Label();
@@ -49,10 +53,6 @@ namespace Better_Limited_Project.ProductUtility.Restocking
             this.lblRequestedOn = new System.Windows.Forms.Label();
             this.lblRequestNumber = new System.Windows.Forms.Label();
             this.lblHeader = new System.Windows.Forms.Label();
-            this.requestedProductIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.requestedProductNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityToReorderColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbGoodsReceivedOn = new System.Windows.Forms.TextBox();
             this.lblGoodsReceivedOn = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequestedGoods)).BeginInit();
@@ -60,7 +60,7 @@ namespace Better_Limited_Project.ProductUtility.Restocking
             // 
             // tbNoOfProducts
             // 
-            this.tbNoOfProducts.Location = new System.Drawing.Point(659, 360);
+            this.tbNoOfProducts.Location = new System.Drawing.Point(671, 360);
             this.tbNoOfProducts.Name = "tbNoOfProducts";
             this.tbNoOfProducts.ReadOnly = true;
             this.tbNoOfProducts.Size = new System.Drawing.Size(161, 20);
@@ -72,7 +72,7 @@ namespace Better_Limited_Project.ProductUtility.Restocking
             this.lblNoOfProducts.AutoSize = true;
             this.lblNoOfProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.lblNoOfProducts.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblNoOfProducts.Location = new System.Drawing.Point(656, 341);
+            this.lblNoOfProducts.Location = new System.Drawing.Point(668, 341);
             this.lblNoOfProducts.Name = "lblNoOfProducts";
             this.lblNoOfProducts.Size = new System.Drawing.Size(99, 16);
             this.lblNoOfProducts.TabIndex = 93;
@@ -88,173 +88,13 @@ namespace Better_Limited_Project.ProductUtility.Restocking
             this.requestedProductNameColumn,
             this.quantityToReorderColumn,
             this.categoryColumn});
-            this.dgvRequestedGoods.Location = new System.Drawing.Point(356, 109);
+            this.dgvRequestedGoods.Location = new System.Drawing.Point(368, 109);
             this.dgvRequestedGoods.Name = "dgvRequestedGoods";
             this.dgvRequestedGoods.ReadOnly = true;
             this.dgvRequestedGoods.RowTemplate.Height = 24;
             this.dgvRequestedGoods.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvRequestedGoods.Size = new System.Drawing.Size(464, 212);
             this.dgvRequestedGoods.TabIndex = 92;
-            // 
-            // btnUnsendRequest
-            // 
-            this.btnUnsendRequest.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnUnsendRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUnsendRequest.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnUnsendRequest.Location = new System.Drawing.Point(24, 419);
-            this.btnUnsendRequest.Name = "btnUnsendRequest";
-            this.btnUnsendRequest.Size = new System.Drawing.Size(190, 37);
-            this.btnUnsendRequest.TabIndex = 91;
-            this.btnUnsendRequest.Text = "Unsend Request";
-            this.btnUnsendRequest.UseVisualStyleBackColor = false;
-            // 
-            // tbArrangedOn
-            // 
-            this.tbArrangedOn.Location = new System.Drawing.Point(153, 360);
-            this.tbArrangedOn.Name = "tbArrangedOn";
-            this.tbArrangedOn.ReadOnly = true;
-            this.tbArrangedOn.Size = new System.Drawing.Size(161, 20);
-            this.tbArrangedOn.TabIndex = 90;
-            this.tbArrangedOn.Text = "-";
-            // 
-            // lblArrangedOn
-            // 
-            this.lblArrangedOn.AutoSize = true;
-            this.lblArrangedOn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblArrangedOn.Location = new System.Drawing.Point(21, 361);
-            this.lblArrangedOn.Name = "lblArrangedOn";
-            this.lblArrangedOn.Size = new System.Drawing.Size(87, 16);
-            this.lblArrangedOn.TabIndex = 89;
-            this.lblArrangedOn.Text = "Arranged On:";
-            // 
-            // tbIsArranged
-            // 
-            this.tbIsArranged.Location = new System.Drawing.Point(153, 266);
-            this.tbIsArranged.Name = "tbIsArranged";
-            this.tbIsArranged.ReadOnly = true;
-            this.tbIsArranged.Size = new System.Drawing.Size(161, 20);
-            this.tbIsArranged.TabIndex = 88;
-            // 
-            // lblIsArranged
-            // 
-            this.lblIsArranged.AutoSize = true;
-            this.lblIsArranged.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIsArranged.Location = new System.Drawing.Point(21, 267);
-            this.lblIsArranged.Name = "lblIsArranged";
-            this.lblIsArranged.Size = new System.Drawing.Size(80, 16);
-            this.lblIsArranged.TabIndex = 87;
-            this.lblIsArranged.Text = "Is Arranged:";
-            // 
-            // tbArrangedByStaffName
-            // 
-            this.tbArrangedByStaffName.Location = new System.Drawing.Point(153, 313);
-            this.tbArrangedByStaffName.Name = "tbArrangedByStaffName";
-            this.tbArrangedByStaffName.ReadOnly = true;
-            this.tbArrangedByStaffName.Size = new System.Drawing.Size(161, 20);
-            this.tbArrangedByStaffName.TabIndex = 86;
-            this.tbArrangedByStaffName.Text = "-";
-            // 
-            // lblArrangedByStaffName
-            // 
-            this.lblArrangedByStaffName.AutoSize = true;
-            this.lblArrangedByStaffName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblArrangedByStaffName.Location = new System.Drawing.Point(21, 314);
-            this.lblArrangedByStaffName.Name = "lblArrangedByStaffName";
-            this.lblArrangedByStaffName.Size = new System.Drawing.Size(115, 16);
-            this.lblArrangedByStaffName.TabIndex = 85;
-            this.lblArrangedByStaffName.Text = "Arranged By Staff:";
-            // 
-            // tbRequestedByStaffName
-            // 
-            this.tbRequestedByStaffName.Location = new System.Drawing.Point(153, 219);
-            this.tbRequestedByStaffName.Name = "tbRequestedByStaffName";
-            this.tbRequestedByStaffName.ReadOnly = true;
-            this.tbRequestedByStaffName.Size = new System.Drawing.Size(161, 20);
-            this.tbRequestedByStaffName.TabIndex = 84;
-            // 
-            // lblRequestedByStaffName
-            // 
-            this.lblRequestedByStaffName.AutoSize = true;
-            this.lblRequestedByStaffName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRequestedByStaffName.Location = new System.Drawing.Point(21, 220);
-            this.lblRequestedByStaffName.Name = "lblRequestedByStaffName";
-            this.lblRequestedByStaffName.Size = new System.Drawing.Size(126, 16);
-            this.lblRequestedByStaffName.TabIndex = 83;
-            this.lblRequestedByStaffName.Text = "Requested By Staff:";
-            // 
-            // tbWarehouseName
-            // 
-            this.tbWarehouseName.Location = new System.Drawing.Point(153, 172);
-            this.tbWarehouseName.Name = "tbWarehouseName";
-            this.tbWarehouseName.ReadOnly = true;
-            this.tbWarehouseName.Size = new System.Drawing.Size(161, 20);
-            this.tbWarehouseName.TabIndex = 82;
-            // 
-            // lblWarehouseName
-            // 
-            this.lblWarehouseName.AutoSize = true;
-            this.lblWarehouseName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWarehouseName.Location = new System.Drawing.Point(21, 173);
-            this.lblWarehouseName.Name = "lblWarehouseName";
-            this.lblWarehouseName.Size = new System.Drawing.Size(81, 16);
-            this.lblWarehouseName.TabIndex = 81;
-            this.lblWarehouseName.Text = "Warehouse:";
-            // 
-            // lblGoodsInRequest
-            // 
-            this.lblGoodsInRequest.AutoSize = true;
-            this.lblGoodsInRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGoodsInRequest.Location = new System.Drawing.Point(503, 75);
-            this.lblGoodsInRequest.Name = "lblGoodsInRequest";
-            this.lblGoodsInRequest.Size = new System.Drawing.Size(155, 20);
-            this.lblGoodsInRequest.TabIndex = 80;
-            this.lblGoodsInRequest.Text = "Requested Goods";
-            // 
-            // tbRequestedOn
-            // 
-            this.tbRequestedOn.Location = new System.Drawing.Point(153, 125);
-            this.tbRequestedOn.Name = "tbRequestedOn";
-            this.tbRequestedOn.ReadOnly = true;
-            this.tbRequestedOn.Size = new System.Drawing.Size(161, 20);
-            this.tbRequestedOn.TabIndex = 79;
-            // 
-            // tbRequestNumber
-            // 
-            this.tbRequestNumber.Location = new System.Drawing.Point(153, 78);
-            this.tbRequestNumber.Name = "tbRequestNumber";
-            this.tbRequestNumber.ReadOnly = true;
-            this.tbRequestNumber.Size = new System.Drawing.Size(161, 20);
-            this.tbRequestNumber.TabIndex = 78;
-            // 
-            // lblRequestedOn
-            // 
-            this.lblRequestedOn.AutoSize = true;
-            this.lblRequestedOn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRequestedOn.Location = new System.Drawing.Point(21, 126);
-            this.lblRequestedOn.Name = "lblRequestedOn";
-            this.lblRequestedOn.Size = new System.Drawing.Size(98, 16);
-            this.lblRequestedOn.TabIndex = 77;
-            this.lblRequestedOn.Text = "Requested On:";
-            // 
-            // lblRequestNumber
-            // 
-            this.lblRequestNumber.AutoSize = true;
-            this.lblRequestNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRequestNumber.Location = new System.Drawing.Point(21, 79);
-            this.lblRequestNumber.Name = "lblRequestNumber";
-            this.lblRequestNumber.Size = new System.Drawing.Size(113, 16);
-            this.lblRequestNumber.TabIndex = 76;
-            this.lblRequestNumber.Text = "Request Number:";
-            // 
-            // lblHeader
-            // 
-            this.lblHeader.AutoSize = true;
-            this.lblHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeader.Location = new System.Drawing.Point(265, 21);
-            this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(315, 25);
-            this.lblHeader.TabIndex = 75;
-            this.lblHeader.Text = "Restock Request Information";
             // 
             // requestedProductIdColumn
             // 
@@ -284,12 +124,172 @@ namespace Better_Limited_Project.ProductUtility.Restocking
             this.categoryColumn.ReadOnly = true;
             this.categoryColumn.Width = 120;
             // 
+            // btnUnsendRequest
+            // 
+            this.btnUnsendRequest.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnUnsendRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUnsendRequest.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnUnsendRequest.Location = new System.Drawing.Point(24, 408);
+            this.btnUnsendRequest.Name = "btnUnsendRequest";
+            this.btnUnsendRequest.Size = new System.Drawing.Size(190, 37);
+            this.btnUnsendRequest.TabIndex = 91;
+            this.btnUnsendRequest.Text = "Unsend Request";
+            this.btnUnsendRequest.UseVisualStyleBackColor = false;
+            // 
+            // tbArrangedOn
+            // 
+            this.tbArrangedOn.Location = new System.Drawing.Point(153, 360);
+            this.tbArrangedOn.Name = "tbArrangedOn";
+            this.tbArrangedOn.ReadOnly = true;
+            this.tbArrangedOn.Size = new System.Drawing.Size(177, 20);
+            this.tbArrangedOn.TabIndex = 90;
+            this.tbArrangedOn.Text = "-";
+            // 
+            // lblArrangedOn
+            // 
+            this.lblArrangedOn.AutoSize = true;
+            this.lblArrangedOn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblArrangedOn.Location = new System.Drawing.Point(21, 361);
+            this.lblArrangedOn.Name = "lblArrangedOn";
+            this.lblArrangedOn.Size = new System.Drawing.Size(87, 16);
+            this.lblArrangedOn.TabIndex = 89;
+            this.lblArrangedOn.Text = "Arranged On:";
+            // 
+            // tbIsArranged
+            // 
+            this.tbIsArranged.Location = new System.Drawing.Point(153, 266);
+            this.tbIsArranged.Name = "tbIsArranged";
+            this.tbIsArranged.ReadOnly = true;
+            this.tbIsArranged.Size = new System.Drawing.Size(177, 20);
+            this.tbIsArranged.TabIndex = 88;
+            // 
+            // lblIsArranged
+            // 
+            this.lblIsArranged.AutoSize = true;
+            this.lblIsArranged.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIsArranged.Location = new System.Drawing.Point(21, 267);
+            this.lblIsArranged.Name = "lblIsArranged";
+            this.lblIsArranged.Size = new System.Drawing.Size(80, 16);
+            this.lblIsArranged.TabIndex = 87;
+            this.lblIsArranged.Text = "Is Arranged:";
+            // 
+            // tbArrangedByStaffName
+            // 
+            this.tbArrangedByStaffName.Location = new System.Drawing.Point(153, 313);
+            this.tbArrangedByStaffName.Name = "tbArrangedByStaffName";
+            this.tbArrangedByStaffName.ReadOnly = true;
+            this.tbArrangedByStaffName.Size = new System.Drawing.Size(177, 20);
+            this.tbArrangedByStaffName.TabIndex = 86;
+            this.tbArrangedByStaffName.Text = "-";
+            // 
+            // lblArrangedByStaffName
+            // 
+            this.lblArrangedByStaffName.AutoSize = true;
+            this.lblArrangedByStaffName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblArrangedByStaffName.Location = new System.Drawing.Point(21, 314);
+            this.lblArrangedByStaffName.Name = "lblArrangedByStaffName";
+            this.lblArrangedByStaffName.Size = new System.Drawing.Size(115, 16);
+            this.lblArrangedByStaffName.TabIndex = 85;
+            this.lblArrangedByStaffName.Text = "Arranged By Staff:";
+            // 
+            // tbRequestedByStaffName
+            // 
+            this.tbRequestedByStaffName.Location = new System.Drawing.Point(153, 219);
+            this.tbRequestedByStaffName.Name = "tbRequestedByStaffName";
+            this.tbRequestedByStaffName.ReadOnly = true;
+            this.tbRequestedByStaffName.Size = new System.Drawing.Size(177, 20);
+            this.tbRequestedByStaffName.TabIndex = 84;
+            // 
+            // lblRequestedByStaffName
+            // 
+            this.lblRequestedByStaffName.AutoSize = true;
+            this.lblRequestedByStaffName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRequestedByStaffName.Location = new System.Drawing.Point(21, 220);
+            this.lblRequestedByStaffName.Name = "lblRequestedByStaffName";
+            this.lblRequestedByStaffName.Size = new System.Drawing.Size(126, 16);
+            this.lblRequestedByStaffName.TabIndex = 83;
+            this.lblRequestedByStaffName.Text = "Requested By Staff:";
+            // 
+            // tbWarehouseName
+            // 
+            this.tbWarehouseName.Location = new System.Drawing.Point(153, 172);
+            this.tbWarehouseName.Name = "tbWarehouseName";
+            this.tbWarehouseName.ReadOnly = true;
+            this.tbWarehouseName.Size = new System.Drawing.Size(177, 20);
+            this.tbWarehouseName.TabIndex = 82;
+            // 
+            // lblWarehouseName
+            // 
+            this.lblWarehouseName.AutoSize = true;
+            this.lblWarehouseName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWarehouseName.Location = new System.Drawing.Point(21, 173);
+            this.lblWarehouseName.Name = "lblWarehouseName";
+            this.lblWarehouseName.Size = new System.Drawing.Size(81, 16);
+            this.lblWarehouseName.TabIndex = 81;
+            this.lblWarehouseName.Text = "Warehouse:";
+            // 
+            // lblGoodsInRequest
+            // 
+            this.lblGoodsInRequest.AutoSize = true;
+            this.lblGoodsInRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGoodsInRequest.Location = new System.Drawing.Point(515, 75);
+            this.lblGoodsInRequest.Name = "lblGoodsInRequest";
+            this.lblGoodsInRequest.Size = new System.Drawing.Size(155, 20);
+            this.lblGoodsInRequest.TabIndex = 80;
+            this.lblGoodsInRequest.Text = "Requested Goods";
+            // 
+            // tbRequestedOn
+            // 
+            this.tbRequestedOn.Location = new System.Drawing.Point(153, 125);
+            this.tbRequestedOn.Name = "tbRequestedOn";
+            this.tbRequestedOn.ReadOnly = true;
+            this.tbRequestedOn.Size = new System.Drawing.Size(177, 20);
+            this.tbRequestedOn.TabIndex = 79;
+            // 
+            // tbRequestNumber
+            // 
+            this.tbRequestNumber.Location = new System.Drawing.Point(153, 78);
+            this.tbRequestNumber.Name = "tbRequestNumber";
+            this.tbRequestNumber.ReadOnly = true;
+            this.tbRequestNumber.Size = new System.Drawing.Size(177, 20);
+            this.tbRequestNumber.TabIndex = 78;
+            // 
+            // lblRequestedOn
+            // 
+            this.lblRequestedOn.AutoSize = true;
+            this.lblRequestedOn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRequestedOn.Location = new System.Drawing.Point(21, 126);
+            this.lblRequestedOn.Name = "lblRequestedOn";
+            this.lblRequestedOn.Size = new System.Drawing.Size(98, 16);
+            this.lblRequestedOn.TabIndex = 77;
+            this.lblRequestedOn.Text = "Requested On:";
+            // 
+            // lblRequestNumber
+            // 
+            this.lblRequestNumber.AutoSize = true;
+            this.lblRequestNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRequestNumber.Location = new System.Drawing.Point(21, 79);
+            this.lblRequestNumber.Name = "lblRequestNumber";
+            this.lblRequestNumber.Size = new System.Drawing.Size(113, 16);
+            this.lblRequestNumber.TabIndex = 76;
+            this.lblRequestNumber.Text = "Request Number:";
+            // 
+            // lblHeader
+            // 
+            this.lblHeader.AutoSize = true;
+            this.lblHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeader.Location = new System.Drawing.Point(272, 21);
+            this.lblHeader.Name = "lblHeader";
+            this.lblHeader.Size = new System.Drawing.Size(315, 25);
+            this.lblHeader.TabIndex = 75;
+            this.lblHeader.Text = "Restock Request Information";
+            // 
             // tbGoodsReceivedOn
             // 
-            this.tbGoodsReceivedOn.Location = new System.Drawing.Point(367, 360);
+            this.tbGoodsReceivedOn.Location = new System.Drawing.Point(368, 360);
             this.tbGoodsReceivedOn.Name = "tbGoodsReceivedOn";
             this.tbGoodsReceivedOn.ReadOnly = true;
-            this.tbGoodsReceivedOn.Size = new System.Drawing.Size(161, 20);
+            this.tbGoodsReceivedOn.Size = new System.Drawing.Size(177, 20);
             this.tbGoodsReceivedOn.TabIndex = 96;
             this.tbGoodsReceivedOn.Text = "-";
             // 
@@ -297,7 +297,7 @@ namespace Better_Limited_Project.ProductUtility.Restocking
             // 
             this.lblGoodsReceivedOn.AutoSize = true;
             this.lblGoodsReceivedOn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGoodsReceivedOn.Location = new System.Drawing.Point(364, 341);
+            this.lblGoodsReceivedOn.Location = new System.Drawing.Point(365, 341);
             this.lblGoodsReceivedOn.Name = "lblGoodsReceivedOn";
             this.lblGoodsReceivedOn.Size = new System.Drawing.Size(131, 16);
             this.lblGoodsReceivedOn.TabIndex = 95;
@@ -307,7 +307,7 @@ namespace Better_Limited_Project.ProductUtility.Restocking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(844, 475);
+            this.ClientSize = new System.Drawing.Size(859, 469);
             this.Controls.Add(this.tbGoodsReceivedOn);
             this.Controls.Add(this.lblGoodsReceivedOn);
             this.Controls.Add(this.tbNoOfProducts);

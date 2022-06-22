@@ -41,7 +41,8 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
 
             btnSetAsReturnedToSupplier.Visible = currentStaffDepartment is Department.Inventory &&
                                                  !_defectiveItem.IsReturnedToSupplier() &&
-                                                 _defectiveItem.IsReturnedToWarehouse();
+                                                 _defectiveItem.IsReturnedToWarehouse() &&
+                                                 _defectiveItem.IsReturnApproved();
             FillFields();
         }
 

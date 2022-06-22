@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Better_Limited_Project.ProductUtility.Restocking.Entity;
+using Better_Limited_Project.ProductUtility.Restocking.Repository;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.ServiceUtility.DeliveryUtility.Repository;
 using Better_Limited_Project.StaffUtility.StaffEntity.Gender;
@@ -40,7 +42,8 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.Entity
 
         public bool HasUnfinishedDelivery()
         {
-            return GetAppointedDeliveries().Any(d => d.DeliveryStatus is not DeliveryStatus.Delivered);
+            return GetAppointedDeliveries().Any(d => d.DeliveryStatus is not DeliveryStatus.Delivered)
+                || GetAppointedRestockDelivery().Any(rd => !rd.IsDelivered());
         }
 
         public IEnumerable<Delivery> GetAppointedDeliveries()
@@ -48,9 +51,21 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.Entity
             return DeliveryRepository.FindAll(d => d.DeliveryCouriers.Any(dc => dc.CourierId == Id));
         }
 
+        public IEnumerable<RestockDelivery> GetAppointedRestockDelivery()
+        {
+            return RestockDeliveryRepository.FindAll(d => d.Couriers.Any(c => c.Id == Id));
+        }
+
         public void Remove()
         {
             CourierRepository.Remove(this);
+        }
+
+        public bool IsFreeOn(DateTime selectedDate)
+        {
+            return GetAppointedDeliveries().Where(d => d.ScheduledOn.Date == selectedDate).All(d => d.IsDelivered())
+                   && GetAppointedRestockDelivery().Where(d => d.ScheduledOn.Date == selectedDate)
+                       .All(d => d.IsDelivered());
         }
     }
 }

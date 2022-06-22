@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
+using Better_Limited_Project.Login;
 using Better_Limited_Project.ProductUtility.ProductList.Forms;
 using Better_Limited_Project.ProductUtility.Repository;
 using Better_Limited_Project.SettingsUtility;
+using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.ProductUtility.Restocking
 {
@@ -59,6 +61,8 @@ namespace Better_Limited_Project.ProductUtility.Restocking
 
             if (_restockRequest.ReceivedOn != null)
                 tbGoodsReceivedOn.Text = _restockRequest.ReceivedOn.Value.ToString("f");
+            if (LoginSession.GetSession().CurrentStaff.Department is not Department.Sales)
+                btnUnsendRequest.Visible = false;
 
             var requestedProducts = _restockRequest.RequestedProducts.ToList();
             tbNoOfProducts.Text = requestedProducts.Count.ToString();
