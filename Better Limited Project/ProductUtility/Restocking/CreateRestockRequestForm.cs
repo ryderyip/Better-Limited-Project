@@ -16,10 +16,10 @@ namespace Better_Limited_Project.ProductUtility.Restocking
         private readonly List<IStock> _stocks;
         private readonly List<Category> _categories;
 
-        public CreateRestockRequestForm() // TODO Keep in mind this for is for retail and inventory
+        public CreateRestockRequestForm()
         {
             _stocks = StockRepository.GetStocks(UserSettings.GetSettings().Workplace!.Id).ToList();
-            _categories = CategoryRepository.GetCategories().ToList();
+            _categories = CategoryRepository.GetAll().ToList();
             InitializeComponent();
         }
 
@@ -126,8 +126,8 @@ namespace Better_Limited_Project.ProductUtility.Restocking
                 var request = new RestockRequest
                 {
                     Id = newGuid,
-                    RequestedFor = (RetailStore) UserSettings.GetSettings().Workplace!,
-                    RequestedBy = LoginSession.GetSession().CurrentStaff,
+                    RequestedForRetailStore = (RetailStore) UserSettings.GetSettings().Workplace!,
+                    RequestedByStaff = LoginSession.GetSession().CurrentStaff,
                     RequestedOn = DateTime.Now,
                     RequestedProducts = restockRequestProducts
                 };

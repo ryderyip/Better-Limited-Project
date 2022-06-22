@@ -4,7 +4,7 @@
     {
         public static void SendRequest(RestockRequest request)
         {
-            RestockRequestRepository.Insert(request);
+            RestockRequestRepository.InsertOrUpdate(request);
             foreach (var requestedProduct in request.RequestedProducts)
                 RestockRequestProductRepository.Insert(requestedProduct);
         }

@@ -1,0 +1,73 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Windows.Forms;
+using Better_Limited_Project.ProductUtility.Entity;
+using Better_Limited_Project.ProductUtility.Reordering.UI;
+
+namespace Better_Limited_Project.ProductUtility.Restocking
+{
+    public partial class RestockRequestListForm : Form
+    {
+        private List<RestockRequest> _restockRequests;
+
+        public RestockRequestListForm()
+        {
+            InitializeComponent();
+            _restockRequests = RestockRequestRepository.GetAll().ToList();
+            Load += (_, _) => Initialize();
+        }
+
+        private void Initialize()
+        {
+            btnNewRequest.Click += BtnNewRequestOnClick; 
+            dgvRestockRequests.CellDoubleClick += (_, args) => DgvCellDoubleClicked(args.RowIndex);
+            tbSearchBox.TextChanged += (_, _) => FilterDgv();
+            PopulateDgv(_restockRequests);
+        }
+
+        private void BtnNewRequestOnClick(object sender, EventArgs e)
+        {
+            var form = new NewReorderRestockRequestForm(new RestockService());
+            var result = form.ShowDialog();
+            if (result is not DialogResult.OK)
+                return;
+            RefreshDgv();
+        }
+
+        private void FilterDgv()
+        {
+            string searchKeyword = tbSearchBox.Text.Trim().ToLower();
+            var filtered = _restockRequests.Where(rr => rr.RequestNumber.ToLower().Contains(searchKeyword));
+            PopulateDgv(filtered);
+        }
+
+        private void DgvCellDoubleClicked(int rowIndex)
+        {
+            var restockRequest = _restockRequests.Find(rr =>
+                rr.Id == dgvRestockRequests.Rows[rowIndex].Cells[idColumn.Name].Value.ToString());
+            var form = new RestockRequestDetailsForm(restockRequest);
+            form.RequestRemoved += (_, _) => RefreshDgv();
+            form.ShowDialog();
+        }
+
+        private void RefreshDgv()
+        {
+            _restockRequests = RestockRequestRepository.GetAll().ToList();
+            FilterDgv();
+        }
+
+        private void PopulateDgv(IEnumerable<RestockRequest> restockRequests)
+        {
+            dgvRestockRequests.Rows.Clear();
+            foreach (var restockRequest in restockRequests)
+                dgvRestockRequests.Rows.Add(restockRequest.Id,
+                    restockRequest.RequestNumber,
+                    restockRequest.RequestedForRetailStore.Name,
+                    restockRequest.RequestedOn.ToString("g"),
+                    restockRequest.IsArranged() ? "Yes" : "No");
+            dgvRestockRequests.Sort(requestedOnColumn, ListSortDirection.Descending);
+        }
+    }
+}

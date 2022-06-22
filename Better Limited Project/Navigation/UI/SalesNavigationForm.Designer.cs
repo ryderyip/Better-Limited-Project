@@ -40,6 +40,7 @@ namespace Better_Limited_Project.Navigation.UI
             this.lblLoggedInAs = new System.Windows.Forms.Label();
             this.btnCustomer = new System.Windows.Forms.Button();
             this.btnDefectiveItem = new System.Windows.Forms.Button();
+            this.btnRestockRequest = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSalesOrder
@@ -96,11 +97,19 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnDefectiveItem.UseVisualStyleBackColor = true;
             this.btnDefectiveItem.Click += new System.EventHandler(this.btnDefectiveItem_Click);
             // 
+            // btnRestockRequest
+            // 
+            resources.ApplyResources(this.btnRestockRequest, "btnRestockRequest");
+            this.btnRestockRequest.Name = "btnRestockRequest";
+            this.btnRestockRequest.UseVisualStyleBackColor = true;
+            this.btnRestockRequest.Click += new System.EventHandler(this.btnRestockRequest_Click);
+            // 
             // SalesNavigationForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.btnRestockRequest);
             this.Controls.Add(this.btnDefectiveItem);
             this.Controls.Add(this.btnCustomer);
             this.Controls.Add(this.lblLoggedInAs);
@@ -129,5 +138,6 @@ namespace Better_Limited_Project.Navigation.UI
 
         private System.Windows.Forms.Button btnCustomer;
         private System.Windows.Forms.Button btnDefectiveItem;
+        private System.Windows.Forms.Button btnRestockRequest;
     }
 }

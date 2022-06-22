@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.ProductUtility.Entity;
+using Better_Limited_Project.ProductUtility.Reordering.Controller;
 using Better_Limited_Project.ProductUtility.Reordering.Entity;
 using Better_Limited_Project.ProductUtility.UI;
 
@@ -37,9 +38,10 @@ namespace Better_Limited_Project.ProductUtility.Reordering.UI
             }
 
             tbNoOfProducts.Text = _selectedProducts.Count.ToString();
-            tbEstimatedTotalCost.Text =
-                _selectedProducts.Sum(sp => sp.Product.OriginalPrice * sp.Quantity)
-                    .ToString("C", new CultureInfo("zh-HK"));
+            if (_reorderRestockService is ReorderService)
+                tbEstimatedTotalCost.Text =
+                    _selectedProducts.Sum(sp => sp.Product.OriginalPrice * sp.Quantity)
+                        .ToString("C", new CultureInfo("zh-HK"));
         }
 
         private void DisableSubmitButtonIfNoProductSelected()
@@ -66,7 +68,7 @@ namespace Better_Limited_Project.ProductUtility.Reordering.UI
             if (_selectedProducts.Count == 0)
                 return;
 
-            var result = MessageBox.Show("Confirm Sending Reorder Request?", "Confirmation",
+            var result = MessageBox.Show("Confirm Sending Reorder/Restock Request?", "Confirmation",
                 MessageBoxButtons.OKCancel);
             if (result is not DialogResult.OK) return;
 

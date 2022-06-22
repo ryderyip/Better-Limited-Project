@@ -6,6 +6,7 @@ using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.Login;
 using Better_Limited_Project.ProductUtility.DefectiveItemReturning;
 using Better_Limited_Project.ProductUtility.ProductList.Forms;
+using Better_Limited_Project.ProductUtility.Restocking;
 using Better_Limited_Project.Sales.OrderPlacing.Controller;
 using Better_Limited_Project.Sales.OrderPlacing.UI;
 using Better_Limited_Project.SettingsUtility;
@@ -91,6 +92,12 @@ namespace Better_Limited_Project.Navigation.UI
         private void btnDefectiveItem_Click(object sender, EventArgs e)
         {
             var form = new DefectiveItemListForm();
+            _formController.OpenContentForm(form);
+        }
+
+        private void btnRestockRequest_Click(object sender, EventArgs e)
+        {
+            var form = new RestockRequestListForm();
             _formController.OpenContentForm(form);
         }
     }

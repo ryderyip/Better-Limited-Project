@@ -6,6 +6,7 @@ using Better_Limited_Project.ProductUtility.DefectiveItemReturning;
 using Better_Limited_Project.ProductUtility.InwardGoodsUtility.UI;
 using Better_Limited_Project.ProductUtility.ProductList.Forms;
 using Better_Limited_Project.ProductUtility.Reordering.UI;
+using Better_Limited_Project.ProductUtility.Restocking;
 using Better_Limited_Project.ServiceUtility.DeliveryUtility.UI;
 using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.StaffUtility.StaffProfile;
@@ -103,6 +104,12 @@ namespace Better_Limited_Project.Navigation.UI
             }
 
             var form = new DeliveryListForm();
+            _formController.OpenContentForm(form);
+        }
+
+        private void btnRestockRequest_Click(object sender, EventArgs e)
+        {
+            var form = new RestockRequestListForm();
             _formController.OpenContentForm(form);
         }
     }

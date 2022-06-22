@@ -65,7 +65,7 @@ namespace Better_Limited_Project.ProductUtility.UI
         private void PopulateProductDgv(List<Product> products)
         {
             dgvProducts.Rows.Clear();
-            var stocks = StockRepository.GetWarehouseStocks(UserSettings.GetSettings().Workplace!.Id).ToList();
+            var stocks = StockRepository.GetStocks(UserSettings.GetSettings().Workplace!.Id).ToList();
             foreach (var product in products)
             {
                 var stock = stocks.Find(s => s.Product.Id == product.Id);
@@ -86,15 +86,6 @@ namespace Better_Limited_Project.ProductUtility.UI
             }
 
             nudAmountToAdd.Value = nudAmountToAdd.Minimum;
-        }
-
-        private void AddToSelectedProducts(string productId, int quantity)
-        {
-            var productQuantity = SelectedProducts.Find(sp => sp.ProductId == productId);
-            if (productQuantity == default)
-                SelectedProducts.Add(new ProductQuantity(productId, quantity));
-            else
-                productQuantity.Quantity += quantity;
         }
 
         private void AddToSelectedGoodsDgv(Product product, int quantity)
