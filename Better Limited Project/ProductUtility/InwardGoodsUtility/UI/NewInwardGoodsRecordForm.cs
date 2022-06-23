@@ -26,9 +26,8 @@ namespace Better_Limited_Project.ProductUtility.InwardGoodsUtility.UI
         {
             tbPurchaseOrder.TextChanged += (_, _) => btnChooseReceivedGoods.Enabled = true;
             if (_selectedPurchaseOrder is not null)
-            {
                 tbPurchaseOrder.Text = _selectedPurchaseOrder.PurchaseOrderNumber;
-            }
+
             tbDateReceived.Text = DateTime.Today.ToString("D");
             _inwardGoodsProducts.ForEach(
                 igp => dgvReceivedGoods.Rows.Add(igp.ProductId, igp.Product.Name, igp.Quantity));
@@ -44,16 +43,8 @@ namespace Better_Limited_Project.ProductUtility.InwardGoodsUtility.UI
             _selectedPurchaseOrder = form.SelectedPurchaseOrder;
             tbPurchaseOrder.Text = _selectedPurchaseOrder.PurchaseOrderNumber;
             dgvReceivedGoods.Rows.Clear();
-            PopulateWithPreviouslyReceivedGoods(_selectedPurchaseOrder);
             PopulatePurchasedGoodsDgv(_selectedPurchaseOrder.OrderProducts);
-            PopulateMissingGoodsDgv(FindMissingGoods(_selectedPurchaseOrder.OrderProducts));
-        }
-
-        private void PopulateWithPreviouslyReceivedGoods(PurchaseOrder selectedPurchaseOrder)
-        {
-            var previousInwardGoodsProducts = selectedPurchaseOrder.GetReceivedProducts().ToList();
-            _inwardGoodsProducts.AddRange(previousInwardGoodsProducts);
-            PopulateReceivedGoodsDgv(previousInwardGoodsProducts);
+            PopulateMissingGoodsDgv(FindMissingGoods(_selectedPurchaseOrder.GetNotYetReceivedProducts()));
         }
 
         private void PopulateMissingGoodsDgv(IEnumerable<IProductQuantity> missingGoods)
@@ -65,9 +56,7 @@ namespace Better_Limited_Project.ProductUtility.InwardGoodsUtility.UI
 
         private IEnumerable<IProductQuantity> FindMissingGoods(IEnumerable<PurchaseOrderProduct> orderedProducts)
         {
-            return !_inwardGoodsProducts.Any()
-                ? Enumerable.Empty<IProductQuantity>()
-                : from orderedProduct in orderedProducts
+            return from orderedProduct in orderedProducts
                 let receivedProduct = _inwardGoodsProducts.Find(gp => gp.ProductId == orderedProduct.ProductId)
                 let missingQuantity = orderedProduct.Quantity - (receivedProduct?.Quantity ?? 0)
                 where receivedProduct == null || receivedProduct.Quantity < orderedProduct.Quantity
@@ -86,7 +75,7 @@ namespace Better_Limited_Project.ProductUtility.InwardGoodsUtility.UI
             if (_selectedPurchaseOrder == null)
                 return;
             var form = new GoodsPickerForm(_inwardGoodsProducts,
-                _selectedPurchaseOrder.OrderProducts.Select(op => op.Product));
+                _selectedPurchaseOrder.GetNotYetReceivedProducts().Select(pop => pop.Product));
             var result = form.ShowDialog();
             if (result is not DialogResult.OK)
                 return;
@@ -95,7 +84,7 @@ namespace Better_Limited_Project.ProductUtility.InwardGoodsUtility.UI
             _inwardGoodsProducts.AddRange(form.SelectedProducts);
             PopulateReceivedGoodsDgv(_inwardGoodsProducts);
             btnCreate.Enabled = _inwardGoodsProducts.Any();
-            PopulateMissingGoodsDgv(FindMissingGoods(_selectedPurchaseOrder.OrderProducts));
+            PopulateMissingGoodsDgv(FindMissingGoods(_selectedPurchaseOrder.GetNotYetReceivedProducts()));
         }
 
         private void PopulateReceivedGoodsDgv(List<IProductQuantity> inwardGoodsProducts)

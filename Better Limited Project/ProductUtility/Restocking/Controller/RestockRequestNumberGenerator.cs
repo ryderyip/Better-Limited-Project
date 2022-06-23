@@ -4,7 +4,7 @@ using Better_Limited_Project.DatabaseUtility;
 using Better_Limited_Project.StaffUtility.Repository;
 using MySql.Data.MySqlClient;
 
-namespace Better_Limited_Project.ProductUtility.Restocking
+namespace Better_Limited_Project.ProductUtility.Restocking.Controller
 {
     public static class RestockRequestNumberGenerator
     {

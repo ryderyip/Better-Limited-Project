@@ -21,7 +21,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Controller.SalesOrderPager
             {
                 var controlCollection = _controlCollections[i];
                 var stock = stocks[i];
-                var product = stock.GetProduct();
+                var product = stock.Product;
                 controlCollection.Name.Text = product.Name;
                 controlCollection.Price.Text = stock.SellingPrice.ToString("C", new CultureInfo("zh-HK"));
                 controlCollection.Quantity.Text = stock.Quantity.ToString();

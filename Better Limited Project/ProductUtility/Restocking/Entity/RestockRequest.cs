@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using Better_Limited_Project.ProductUtility.Restocking.Controller;
+using Better_Limited_Project.ProductUtility.Restocking.Repository;
 using Better_Limited_Project.StaffUtility.Repository;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 
-namespace Better_Limited_Project.ProductUtility.Restocking
+namespace Better_Limited_Project.ProductUtility.Restocking.Entity
 {
     public class RestockRequest
     {
@@ -63,6 +65,11 @@ namespace Better_Limited_Project.ProductUtility.Restocking
             foreach (var restockRequestProduct in RequestedProducts)
                 restockRequestProduct.Remove();
             RestockRequestRepository.Remove(this);
+        }
+
+        public bool IsReceived()
+        {
+            return ReceivedOn != null;
         }
     }
 }

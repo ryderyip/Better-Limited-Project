@@ -454,6 +454,7 @@
     </Compile>
     <Compile Include="ProductUtility\Reordering\Controller\ReorderRequestNumberGenerator.cs" />
     <Compile Include="ProductUtility\Reordering\Controller\ReorderService.cs" />
+    <Compile Include="ProductUtility\Reordering\Controller\ReorderStockUpdateService.cs" />
     <Compile Include="ProductUtility\Reordering\Entity\IProductQuantity.cs" />
     <Compile Include="ProductUtility\Reordering\Entity\ProductQuantity.cs" />
     <Compile Include="ProductUtility\Reordering\Entity\ReorderRequest.cs" />
@@ -480,47 +481,61 @@
     </Compile>
     <Compile Include="ProductUtility\Repository\RetailStoreStockRepository.cs" />
     <Compile Include="ProductUtility\Repository\WarehouseStockRepository.cs" />
-    <Compile Include="ProductUtility\Restocking\ArrangeRestockForm.cs">
+    <Compile Include="ProductUtility\Restocking\Controller\RestockDeliveryNoteGenerator.cs" />
+    <Compile Include="ProductUtility\Restocking\Controller\RestockStockUpdateService.cs" />
+    <Compile Include="ProductUtility\Restocking\UI\ArrangeRestockForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProductUtility\Restocking\ArrangeRestockForm.Designer.cs">
+    <Compile Include="ProductUtility\Restocking\UI\ArrangeRestockForm.Designer.cs">
       <DependentUpon>ArrangeRestockForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProductUtility\Restocking\CourierPickerForm.cs">
+    <Compile Include="ProductUtility\Restocking\UI\CourierPickerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProductUtility\Restocking\CourierPickerForm.Designer.cs">
+    <Compile Include="ProductUtility\Restocking\UI\CourierPickerForm.Designer.cs">
       <DependentUpon>CourierPickerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ProductUtility\Restocking\Entity\RestockDelivery.cs" />
     <Compile Include="ProductUtility\Restocking\Repository\RestockDeliveryCourierRepository.cs" />
     <Compile Include="ProductUtility\Restocking\Repository\RestockDeliveryRepository.cs" />
     <Compile Include="ProductUtility\Restocking\Repository\RestockDeliveryRestockRequestRepository.cs" />
-    <Compile Include="ProductUtility\Restocking\RestockArrangingService.cs" />
-    <Compile Include="ProductUtility\Restocking\RestockRequest.cs" />
-    <Compile Include="ProductUtility\Restocking\RestockRequestDetailsForm.cs">
+    <Compile Include="ProductUtility\Restocking\Controller\RestockArrangingService.cs" />
+    <Compile Include="ProductUtility\Restocking\Entity\RestockRequest.cs" />
+    <Compile Include="ProductUtility\Restocking\UI\RestockDeliveryDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProductUtility\Restocking\RestockRequestDetailsForm.Designer.cs">
+    <Compile Include="ProductUtility\Restocking\UI\RestockDeliveryDetailsForm.Designer.cs">
+      <DependentUpon>RestockDeliveryDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductUtility\Restocking\UI\RestockDeliveryListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductUtility\Restocking\UI\RestockDeliveryListForm.Designer.cs">
+      <DependentUpon>RestockDeliveryListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductUtility\Restocking\UI\RestockRequestDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductUtility\Restocking\UI\RestockRequestDetailsForm.Designer.cs">
       <DependentUpon>RestockRequestDetailsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProductUtility\Restocking\RestockRequestListForm.cs">
+    <Compile Include="ProductUtility\Restocking\UI\RestockRequestListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProductUtility\Restocking\RestockRequestListForm.Designer.cs">
+    <Compile Include="ProductUtility\Restocking\UI\RestockRequestListForm.Designer.cs">
       <DependentUpon>RestockRequestListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProductUtility\Restocking\RestockRequestNumberGenerator.cs" />
-    <Compile Include="ProductUtility\Restocking\RestockRequestPickerForm.cs">
+    <Compile Include="ProductUtility\Restocking\Controller\RestockRequestNumberGenerator.cs" />
+    <Compile Include="ProductUtility\Restocking\UI\RestockRequestPickerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProductUtility\Restocking\RestockRequestPickerForm.Designer.cs">
+    <Compile Include="ProductUtility\Restocking\UI\RestockRequestPickerForm.Designer.cs">
       <DependentUpon>RestockRequestPickerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProductUtility\Restocking\RestockRequestProduct.cs" />
-    <Compile Include="ProductUtility\Restocking\RestockRequestProductRepository.cs" />
-    <Compile Include="ProductUtility\Restocking\RestockRequestRepository.cs" />
-    <Compile Include="ProductUtility\Restocking\RestockRequestService.cs" />
+    <Compile Include="ProductUtility\Restocking\Entity\RestockRequestProduct.cs" />
+    <Compile Include="ProductUtility\Restocking\Repository\RestockRequestProductRepository.cs" />
+    <Compile Include="ProductUtility\Restocking\Repository\RestockRequestRepository.cs" />
+    <Compile Include="ProductUtility\Restocking\Controller\RestockRequestService.cs" />
     <Compile Include="ProductUtility\SupplierUtility\CreateSupplierForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1237,19 +1252,25 @@
     <EmbeddedResource Include="ProductUtility\Reordering\UI\ReorderRequestListForm.resx">
       <DependentUpon>ReorderRequestListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProductUtility\Restocking\ArrangeRestockForm.resx">
+    <EmbeddedResource Include="ProductUtility\Restocking\UI\ArrangeRestockForm.resx">
       <DependentUpon>ArrangeRestockForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProductUtility\Restocking\CourierPickerForm.resx">
+    <EmbeddedResource Include="ProductUtility\Restocking\UI\CourierPickerForm.resx">
       <DependentUpon>CourierPickerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProductUtility\Restocking\RestockRequestDetailsForm.resx">
+    <EmbeddedResource Include="ProductUtility\Restocking\UI\RestockDeliveryDetailsForm.resx">
+      <DependentUpon>RestockDeliveryDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductUtility\Restocking\UI\RestockDeliveryListForm.resx">
+      <DependentUpon>RestockDeliveryListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductUtility\Restocking\UI\RestockRequestDetailsForm.resx">
       <DependentUpon>RestockRequestDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProductUtility\Restocking\RestockRequestListForm.resx">
+    <EmbeddedResource Include="ProductUtility\Restocking\UI\RestockRequestListForm.resx">
       <DependentUpon>RestockRequestListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProductUtility\Restocking\RestockRequestPickerForm.resx">
+    <EmbeddedResource Include="ProductUtility\Restocking\UI\RestockRequestPickerForm.resx">
       <DependentUpon>RestockRequestPickerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductUtility\SupplierUtility\CreateSupplierForm.resx">

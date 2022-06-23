@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Better_Limited_Project.ProductUtility.InwardGoodsUtility.Entity;
+using Better_Limited_Project.ProductUtility.Reordering.Controller;
 using Better_Limited_Project.ProductUtility.Reordering.Entity;
 
 namespace Better_Limited_Project.ProductUtility.InwardGoodsUtility.Controller
@@ -23,6 +24,7 @@ namespace Better_Limited_Project.ProductUtility.InwardGoodsUtility.Controller
             
             _inwardGoods.Save();
             _inwardGoodsProducts.ForEach(igp => igp.Save());
+            ReorderStockUpdateService.Receive(_inwardGoods);
         }
 
         public void AddRangeGoods(IEnumerable<IProductQuantity> inwardGoodsProducts)

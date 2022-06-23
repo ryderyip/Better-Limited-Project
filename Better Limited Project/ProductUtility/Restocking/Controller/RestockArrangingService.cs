@@ -4,17 +4,20 @@ using Better_Limited_Project.Login;
 using Better_Limited_Project.ProductUtility.Restocking.Entity;
 using Better_Limited_Project.ProductUtility.Restocking.Repository;
 using Better_Limited_Project.ServiceUtility.DeliveryUtility.Entity;
+using Better_Limited_Project.StaffUtility.StaffEntity;
 
-namespace Better_Limited_Project.ProductUtility.Restocking
+namespace Better_Limited_Project.ProductUtility.Restocking.Controller
 {
     public class RestockArrangingService
     {
+        private readonly Warehouse _currentWarehouse;
         private readonly RestockDelivery _restockDelivery   ;
         private readonly List<RestockRequest> _selectedRestockRequests = new();
         private readonly List<Courier> _selectedCouriers  = new();
 
-        public RestockArrangingService(DateTime deliveryDateTime)
+        public RestockArrangingService(Warehouse currentWarehouse, DateTime deliveryDateTime)
         {
+            _currentWarehouse = currentWarehouse;
             _restockDelivery = new RestockDelivery(deliveryDateTime);
         }
 
@@ -45,6 +48,8 @@ namespace Better_Limited_Project.ProductUtility.Restocking
 
             foreach (var courier in _selectedCouriers)
                 RestockDeliveryCourierRepository.Insert(_restockDelivery, courier);
+
+            RestockStockUpdateService.Arrange(_currentWarehouse, _restockDelivery.RestockRequests);
         }
     }
 }

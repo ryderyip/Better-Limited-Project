@@ -1,4 +1,7 @@
-﻿namespace Better_Limited_Project.ProductUtility.Restocking
+﻿using Better_Limited_Project.ProductUtility.Restocking.Entity;
+using Better_Limited_Project.ProductUtility.Restocking.Repository;
+
+namespace Better_Limited_Project.ProductUtility.Restocking.Controller
 {
     public static class RestockRequestService
     {

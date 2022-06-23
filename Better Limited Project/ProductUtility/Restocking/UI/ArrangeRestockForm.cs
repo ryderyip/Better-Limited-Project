@@ -2,10 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using Better_Limited_Project.ProductUtility.Restocking.Controller;
+using Better_Limited_Project.ProductUtility.Restocking.Entity;
+using Better_Limited_Project.ProductUtility.Restocking.Repository;
 using Better_Limited_Project.ServiceUtility.DeliveryUtility.Entity;
 using Better_Limited_Project.ServiceUtility.DeliveryUtility.Repository;
+using Better_Limited_Project.SettingsUtility;
+using Better_Limited_Project.StaffUtility.StaffEntity;
 
-namespace Better_Limited_Project.ProductUtility.Restocking
+namespace Better_Limited_Project.ProductUtility.Restocking.UI
 {
     public partial class ArrangeRestockForm : Form
     {
@@ -104,7 +109,8 @@ namespace Better_Limited_Project.ProductUtility.Restocking
                 return;
             }
 
-            var service = new RestockArrangingService(deliveryDateTime);
+            var currentWarehouse = (Warehouse) UserSettings.GetSettings().Workplace!;
+            var service = new RestockArrangingService(currentWarehouse, deliveryDateTime);
             foreach (var restockRequest in GetSelectedRestockRequests())
                 service.AddRestockRequest(restockRequest);
             foreach (var courier in GetSelectedCourier())

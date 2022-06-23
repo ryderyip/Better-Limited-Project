@@ -64,7 +64,7 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.Entity
         public bool IsFreeOn(DateTime selectedDate)
         {
             return GetAppointedDeliveries().Where(d => d.ScheduledOn.Date == selectedDate).All(d => d.IsDelivered())
-                   && GetAppointedRestockDelivery().Where(d => d.ScheduledOn.Date == selectedDate)
+                   && GetAppointedRestockDelivery().Where(d => d.DepartureScheduledOn.Date == selectedDate)
                        .All(d => d.IsDelivered());
         }
     }

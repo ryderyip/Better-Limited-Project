@@ -6,16 +6,20 @@ using System.Windows.Forms;
 using Better_Limited_Project.Login;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.ProductUtility.Reordering.UI;
+using Better_Limited_Project.ProductUtility.Restocking.Entity;
+using Better_Limited_Project.ProductUtility.Restocking.Repository;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 
-namespace Better_Limited_Project.ProductUtility.Restocking
+namespace Better_Limited_Project.ProductUtility.Restocking.UI
 {
     public partial class RestockRequestListForm : Form
     {
+        public event EventHandler? Updated;
         private List<RestockRequest> _restockRequests;
 
         public RestockRequestListForm()
         {
+            StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
             _restockRequests = RestockRequestRepository.GetAll().ToList();
             Load += (_, _) => Initialize();
@@ -41,6 +45,7 @@ namespace Better_Limited_Project.ProductUtility.Restocking
             if (result is not DialogResult.OK)
                 return;
             RefreshDgv();
+            Updated?.Invoke(this, EventArgs.Empty);
         }
 
         private void BtnNewRequestOnClick(object sender, EventArgs e)
@@ -64,7 +69,7 @@ namespace Better_Limited_Project.ProductUtility.Restocking
             var restockRequest = _restockRequests.Find(rr =>
                 rr.Id == dgvRestockRequests.Rows[rowIndex].Cells[idColumn.Name].Value.ToString());
             var form = new RestockRequestDetailsForm(restockRequest);
-            form.RequestRemoved += (_, _) => RefreshDgv();
+            form.Updated += (_, _) => RefreshDgv();
             form.ShowDialog();
         }
 
@@ -82,7 +87,7 @@ namespace Better_Limited_Project.ProductUtility.Restocking
                     restockRequest.RequestNumber,
                     restockRequest.RequestedForRetailStore.Name,
                     restockRequest.RequestedOn.ToString("g"),
-                    restockRequest.IsArranged() ? "Yes" : "No");
+                    restockRequest.IsReceived() ? "Yes" : "No");
             dgvRestockRequests.Sort(requestedOnColumn, ListSortDirection.Descending);
         }
     }

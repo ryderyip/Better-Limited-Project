@@ -4,7 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.ServiceUtility.DeliveryUtility.Entity;
 
-namespace Better_Limited_Project.ProductUtility.Restocking
+namespace Better_Limited_Project.ProductUtility.Restocking.UI
 {
     public partial class CourierPickerForm : Form
     {

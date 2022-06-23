@@ -342,31 +342,31 @@
     <value>1</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnRestockRequest.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="btnRestockDeliveries.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="btnRestockRequest.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btnRestockDeliveries.Location" type="System.Drawing.Point, System.Drawing">
     <value>41, 320</value>
   </data>
-  <data name="btnRestockRequest.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnRestockDeliveries.Size" type="System.Drawing.Size, System.Drawing">
     <value>111, 34</value>
   </data>
-  <data name="btnRestockRequest.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnRestockDeliveries.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
   </data>
-  <data name="btnRestockRequest.Text" xml:space="preserve">
-    <value>Restock Request</value>
+  <data name="btnRestockDeliveries.Text" xml:space="preserve">
+    <value>Restock Deliveries</value>
   </data>
-  <data name="&gt;&gt;btnRestockRequest.Name" xml:space="preserve">
-    <value>btnRestockRequest</value>
+  <data name="&gt;&gt;btnRestockDeliveries.Name" xml:space="preserve">
+    <value>btnRestockDeliveries</value>
   </data>
-  <data name="&gt;&gt;btnRestockRequest.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnRestockDeliveries.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnRestockRequest.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnRestockDeliveries.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;btnRestockRequest.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnRestockDeliveries.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

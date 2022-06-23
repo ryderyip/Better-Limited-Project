@@ -5,7 +5,8 @@ namespace Better_Limited_Project.ProductUtility.Entity
 {
     public class WarehouseStock : IStock
     {
-        public Product Product { get; }
+        public string ProductId { get; }
+        public Product Product => ProductRepository.FindById(ProductId);
         public IWorkplace Workplace { get; }
         public int Quantity { get; set; }
         public int RestockLevel { get; set; }
@@ -20,9 +21,9 @@ namespace Better_Limited_Project.ProductUtility.Entity
             WarehouseStockRepository.Remove(Workplace.Id, Product.Id);
         }
 
-        public WarehouseStock(Product product, Warehouse warehouse, int quantity, int restockLevel)
+        public WarehouseStock(string productId, Warehouse warehouse, int quantity, int restockLevel)
         {
-            Product = product;
+            ProductId = productId;
             Workplace = warehouse;
             Quantity = quantity;
             RestockLevel = restockLevel;

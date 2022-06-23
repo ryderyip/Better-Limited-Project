@@ -5,20 +5,16 @@ namespace Better_Limited_Project.ProductUtility.Entity
 {
     public class RetailStoreStock : IStock
     {
-        public Product Product { get; }
+        public string ProductId { get; set; }
+        public Product Product => ProductRepository.FindById(ProductId);
         public IWorkplace Workplace { get; }
         public int Quantity { get; set; }
         public decimal SellingPrice { get; set; }
         public int RestockLevel { get; set; }
-        
+
         public void Save()
         {
             StockRepository.InsertOrUpdate(this);
-        }
-
-        public Product GetProduct()
-        {
-            return ProductRepository.FindById(Product.Id);
         }
 
         public void Remove()
@@ -26,9 +22,9 @@ namespace Better_Limited_Project.ProductUtility.Entity
             RetailStoreStockRepository.Remove(Workplace.Id, Product.Id);
         }
 
-        public RetailStoreStock(Product product, RetailStore retailStore, int quantity, decimal sellingPrice, int restockLevel)
+        public RetailStoreStock(string productId, RetailStore retailStore, int quantity, decimal sellingPrice, int restockLevel)
         {
-            Product = product;
+            ProductId = productId;
             Workplace = retailStore;
             Quantity = quantity;
             SellingPrice = sellingPrice;

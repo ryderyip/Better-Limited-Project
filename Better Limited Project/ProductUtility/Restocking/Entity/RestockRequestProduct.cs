@@ -1,7 +1,8 @@
 ﻿using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.ProductUtility.Repository;
+using Better_Limited_Project.ProductUtility.Restocking.Repository;
 
-namespace Better_Limited_Project.ProductUtility.Restocking
+namespace Better_Limited_Project.ProductUtility.Restocking.Entity
 {
     public class RestockRequestProduct
     {

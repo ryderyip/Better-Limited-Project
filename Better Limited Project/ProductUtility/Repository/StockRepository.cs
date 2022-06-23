@@ -45,13 +45,12 @@ namespace Better_Limited_Project.ProductUtility.Repository
         private static RetailStoreStock ConvertToRetailStoreStock(DataRow row)
         {
             string productId = row.Field<int>("product_id").ToString();
-            var product = ProductRepository.FindById(productId);
             decimal sellingPrice = row.Field<decimal>("selling_price");
             int quantity = row.Field<int>("quantity");
             int restockLevel = row.Field<int>("restock_level");
             string retailStoreId = row.Field<string>("retail_store_id");
             RetailStore retailStore = new RetailStoreRepository().GetById(retailStoreId);
-            return new RetailStoreStock(product, retailStore, quantity, sellingPrice, restockLevel);
+            return new RetailStoreStock(productId, retailStore, quantity, sellingPrice, restockLevel);
         }
 
         public static IEnumerable<WarehouseStock> GetWarehouseStocks(string warehouseId)
@@ -69,11 +68,10 @@ namespace Better_Limited_Project.ProductUtility.Repository
         private static WarehouseStock ConvertToWarehouseStock(DataRow row)
         {
             string productId = row.Field<int>("product_id").ToString();
-            var product = ProductRepository.FindById(productId);
             int quantity = row.Field<int>("quantity");
             int restockLevel = row.Field<int>("restock_level");
             Warehouse warehouse = WarehouseRepository.GetById(row.Field<int>("warehouse_id").ToString());
-            return new WarehouseStock(product, warehouse, quantity, restockLevel);
+            return new WarehouseStock(productId, warehouse, quantity, restockLevel);
         }
 
         public static void InsertOrUpdate(IStock stock)

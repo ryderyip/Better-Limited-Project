@@ -1,20 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.Login;
 using Better_Limited_Project.ProductUtility.ProductList.Forms;
 using Better_Limited_Project.ProductUtility.Repository;
+using Better_Limited_Project.ProductUtility.Restocking.Controller;
+using Better_Limited_Project.ProductUtility.Restocking.Entity;
+using Better_Limited_Project.ProductUtility.Restocking.Repository;
 using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 
-namespace Better_Limited_Project.ProductUtility.Restocking
+namespace Better_Limited_Project.ProductUtility.Restocking.UI
 {
     public partial class RestockRequestDetailsForm : Form
     {
-        public event EventHandler? RequestRemoved;
-        private readonly RestockRequest _restockRequest;
+        public event EventHandler? Updated;
+        private RestockRequest _restockRequest;
 
         public RestockRequestDetailsForm(RestockRequest restockRequest)
         {
@@ -27,10 +29,30 @@ namespace Better_Limited_Project.ProductUtility.Restocking
         private void Initialize()
         {
             btnUnsendRequest.Click += BtnUnsendRequestOnClick;
+            btnSetAsReceived.Click += BtnSetAsReceivedOnClick;
+            if (LoginSession.GetSession().CurrentStaff.Department is not Department.Sales)
+            {
+                btnSetAsReceived.Visible = false;
+                btnUnsendRequest.Visible = false;
+            }
+            if (_restockRequest.IsReceived())
+                btnSetAsReceived.Visible = false;
             dgvRequestedGoods.CellDoubleClick += dgvRequestedGoods_CellDoubleClick;
             if (_restockRequest.IsArranged())
                 btnUnsendRequest.Visible = false;
             FillFields();
+        }
+
+        private void BtnSetAsReceivedOnClick(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Confirm receiving goods?", "Confirmation", MessageBoxButtons.OKCancel);
+            if (result is not DialogResult.OK)
+                return;
+
+            RestockStockUpdateService.Receive(_restockRequest.RequestedForRetailStore, _restockRequest);
+            _restockRequest = RestockRequestRepository.FindById(_restockRequest.Id);
+            Updated?.Invoke(this, EventArgs.Empty);
+            Initialize();
         }
 
         private void BtnUnsendRequestOnClick(object sender, EventArgs e)
@@ -42,7 +64,7 @@ namespace Better_Limited_Project.ProductUtility.Restocking
                 return;
             
             _restockRequest.Remove();
-            RequestRemoved?.Invoke(this, EventArgs.Empty);
+            Updated?.Invoke(this, EventArgs.Empty);
             Close();
         }
 

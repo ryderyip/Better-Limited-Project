@@ -14,11 +14,10 @@ namespace Better_Limited_Project.ProductUtility.Restocking.Repository
         {
             var command = new MySqlCommand(
                 @"insert into restock_delivery 
-                value (@id, @createdOn, @scheduledOn, @departedOn) on duplicate key update departed_on = @departedOn;");
+                value (@id, @createdOn, @scheduledOn) on duplicate key update id = id;");
             command.Parameters.AddWithValue("@id", restockDelivery.Id);
             command.Parameters.AddWithValue("@createdOn", restockDelivery.CreatedOn);
-            command.Parameters.AddWithValue("@scheduledOn", restockDelivery.ScheduledOn);
-            command.Parameters.AddWithValue("@departedOn", restockDelivery.DepartedOn != null ? restockDelivery.DepartedOn : DBNull.Value);
+            command.Parameters.AddWithValue("@scheduledOn", restockDelivery.DepartureScheduledOn);
             DataTableRepository.ExecuteNonQuery(command);
         }
 
@@ -31,8 +30,7 @@ namespace Better_Limited_Project.ProductUtility.Restocking.Repository
                 let id = row.Field<int>("id").ToString()
                 let createdOn = row.Field<DateTime>("created_on")
                 let scheduledOn = row.Field<DateTime>("scheduled_on")
-                let departedOn = row.Field<DateTime?>("departed_on") ?? null
-                select new RestockDelivery(id, createdOn, scheduledOn, departedOn);
+                select new RestockDelivery(id, createdOn, scheduledOn);
         }
 
         public static IEnumerable<RestockDelivery> FindAll(Predicate<RestockDelivery> filter)

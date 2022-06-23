@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.ProductUtility.GoodsPurchasing.Entity;
@@ -44,6 +45,7 @@ namespace Better_Limited_Project.ProductUtility.InwardGoodsUtility.UI
                 po.PurchaseOrderNumber, po.ReorderRequest.RequestNumber, 
                 po.CreatedOn.ToString("g"),
                 po.ApprovedOn!.Value.ToString("g")));
+            dgvPurchaseOrders.Sort(createdOnColumn, ListSortDirection.Descending);
         }
 
         private void dgvPurchaseOrders_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

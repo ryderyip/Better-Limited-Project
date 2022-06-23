@@ -1,5 +1,5 @@
 ﻿
-namespace Better_Limited_Project.ProductUtility.Restocking
+namespace Better_Limited_Project.ProductUtility.Restocking.UI
 {
     partial class RestockRequestDetailsForm
     {
@@ -55,6 +55,7 @@ namespace Better_Limited_Project.ProductUtility.Restocking
             this.lblHeader = new System.Windows.Forms.Label();
             this.tbGoodsReceivedOn = new System.Windows.Forms.TextBox();
             this.lblGoodsReceivedOn = new System.Windows.Forms.Label();
+            this.btnSetAsReceived = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequestedGoods)).BeginInit();
             this.SuspendLayout();
             // 
@@ -303,11 +304,25 @@ namespace Better_Limited_Project.ProductUtility.Restocking
             this.lblGoodsReceivedOn.TabIndex = 95;
             this.lblGoodsReceivedOn.Text = "Goods Received On";
             // 
+            // btnSetAsReceived
+            // 
+            this.btnSetAsReceived.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnSetAsReceived.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnSetAsReceived.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnSetAsReceived.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnSetAsReceived.Location = new System.Drawing.Point(659, 398);
+            this.btnSetAsReceived.Name = "btnSetAsReceived";
+            this.btnSetAsReceived.Size = new System.Drawing.Size(173, 47);
+            this.btnSetAsReceived.TabIndex = 97;
+            this.btnSetAsReceived.Text = "Set as Received";
+            this.btnSetAsReceived.UseVisualStyleBackColor = false;
+            // 
             // RestockRequestDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(859, 469);
+            this.Controls.Add(this.btnSetAsReceived);
             this.Controls.Add(this.tbGoodsReceivedOn);
             this.Controls.Add(this.lblGoodsReceivedOn);
             this.Controls.Add(this.tbNoOfProducts);
@@ -365,5 +380,6 @@ namespace Better_Limited_Project.ProductUtility.Restocking
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryColumn;
         private System.Windows.Forms.TextBox tbGoodsReceivedOn;
         private System.Windows.Forms.Label lblGoodsReceivedOn;
+        private System.Windows.Forms.Button btnSetAsReceived;
     }
 }

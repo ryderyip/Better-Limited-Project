@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using Better_Limited_Project.DatabaseUtility;
+using Better_Limited_Project.ProductUtility.Restocking.Entity;
 using MySql.Data.MySqlClient;
 
-namespace Better_Limited_Project.ProductUtility.Restocking
+namespace Better_Limited_Project.ProductUtility.Restocking.Repository
 {
     public static class RestockRequestRepository
     {

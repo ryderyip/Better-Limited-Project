@@ -41,7 +41,7 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnReorderGoods = new System.Windows.Forms.Button();
             this.btnInventory = new System.Windows.Forms.Button();
             this.btnDeliveries = new System.Windows.Forms.Button();
-            this.btnRestockRequest = new System.Windows.Forms.Button();
+            this.btnRestockDeliveries = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblLoggedInAs
@@ -105,18 +105,18 @@ namespace Better_Limited_Project.Navigation.UI
             this.btnDeliveries.UseVisualStyleBackColor = true;
             this.btnDeliveries.Click += new System.EventHandler(this.btnDeliveryDuty_Click);
             // 
-            // btnRestockRequest
+            // btnRestockDeliveries
             // 
-            resources.ApplyResources(this.btnRestockRequest, "btnRestockRequest");
-            this.btnRestockRequest.Name = "btnRestockRequest";
-            this.btnRestockRequest.UseVisualStyleBackColor = true;
-            this.btnRestockRequest.Click += new System.EventHandler(this.btnRestockRequest_Click);
+            resources.ApplyResources(this.btnRestockDeliveries, "btnRestockDeliveries");
+            this.btnRestockDeliveries.Name = "btnRestockDeliveries";
+            this.btnRestockDeliveries.UseVisualStyleBackColor = true;
+            this.btnRestockDeliveries.Click += new System.EventHandler(this.btnRestockRequest_Click);
             // 
             // InventoryClerkNavigationForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnRestockRequest);
+            this.Controls.Add(this.btnRestockDeliveries);
             this.Controls.Add(this.btnDeliveries);
             this.Controls.Add(this.btnInventory);
             this.Controls.Add(this.btnReorderGoods);
@@ -143,6 +143,6 @@ namespace Better_Limited_Project.Navigation.UI
 
         #endregion
 
-        private System.Windows.Forms.Button btnRestockRequest;
+        private System.Windows.Forms.Button btnRestockDeliveries;
     }
 }

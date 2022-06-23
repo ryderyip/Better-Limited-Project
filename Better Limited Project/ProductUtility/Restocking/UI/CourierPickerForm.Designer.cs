@@ -1,5 +1,5 @@
 ﻿
-namespace Better_Limited_Project.ProductUtility.Restocking
+namespace Better_Limited_Project.ProductUtility.Restocking.UI
 {
     partial class CourierPickerForm
     {
