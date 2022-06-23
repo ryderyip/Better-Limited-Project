@@ -101,5 +101,10 @@ namespace Better_Limited_Project.ProductUtility.Entity
         {
             return false;
         }
+
+        public bool CanRemove()
+        {
+            return !IsInAnyReorderRequest() && !IsInAnyRestockRequest();
+        }
     }
 }

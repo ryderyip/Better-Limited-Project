@@ -5,8 +5,9 @@ using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.Login;
+using Better_Limited_Project.PermissionManagement.Permissions;
+using Better_Limited_Project.PermissionManagement.Repository;
 using Better_Limited_Project.ProductUtility.Entity;
-using Better_Limited_Project.ProductUtility.ProductList.PermissionManagement;
 using Better_Limited_Project.ProductUtility.Repository;
 using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.StaffUtility.Repository;
@@ -39,22 +40,24 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 
         private void Initialize()
         {
-            if (ProductPermissionManager.CanCurrentStaffCreateProduct())
-                btnNewProductClicked.Visible = true;
-
-            if (ProductPermissionManager.CanCurrentStaffSwitchWorkplaceInProductList())
+            var currentStaffTitle = LoginSession.GetSession().CurrentStaff.Title;
+            btnNewProduct.Visible = PermissionRepository
+                .FindBy(Permission.CanStaffCreateProduct).PermissionMap(currentStaffTitle);
+            if (PermissionRepository.FindBy(Permission.CanStaffViewAllWorkplaceProductStocksInProductListView)
+                .PermissionMap(currentStaffTitle))
             {
                 gpWorkplaceSelect.Visible = true;
                 _workplaces.ForEach(workplace => cbWorkplaceSelect.Items.Add(workplace.Name));
                 cbWorkplaceSelect.SelectedIndex = 0;
             }
+            else
+                gpWorkplaceSelect.Visible = false;
 
             PopulateProductDgv(_stocks);
 
             cbCategoryFilter.Items.Add(string.Empty);
             cbCategoryFilter.SelectedIndex = 0;
-            CategoryRepository.GetAll().ToList()
-                .ForEach(c => cbCategoryFilter.Items.Add(c.Name));
+            CategoryRepository.GetAll().ToList().ForEach(c => cbCategoryFilter.Items.Add(c.Name));
         }
 
         private void PopulateProductDgv(List<IStock> stocks)

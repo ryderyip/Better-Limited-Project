@@ -36,7 +36,7 @@ namespace Better_Limited_Project
             new SelectWorkplaceProcedure().Start();
             OpenNavigationForm();
             OpenProfileForm();
-            SystemInitialization.Initialize();
+            // SystemInitialization.Initialize();
         }
 
         private void OpenNavigationForm()

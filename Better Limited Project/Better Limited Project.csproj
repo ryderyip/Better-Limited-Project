@@ -274,16 +274,6 @@
     <Compile Include="Navigation\UI\AdminNavigationForm.Designer.cs">
       <DependentUpon>AdminNavigationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Navigation\UI\AdminNavigationForm.zh-HK.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AdminNavigationForm.zh-HK.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Navigation\UI\AdminNavigationForm1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AdminNavigationForm.resx</DependentUpon>
-    </Compile>
     <Compile Include="Navigation\UI\InventoryClerkNavigationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -326,6 +316,23 @@
     </Compile>
     <Compile Include="Navigation\UI\TechnicalSupportNavigationForm.Designer.cs">
       <DependentUpon>TechnicalSupportNavigationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PermissionManagement\Controller\StaffTitlePermissionService.cs" />
+    <Compile Include="PermissionManagement\Controller\UpdatePermissionService.cs" />
+    <Compile Include="PermissionManagement\Permissions\CanStaffCreateProduct.cs" />
+    <Compile Include="PermissionManagement\Permissions\CanStaffEditPhasingOut.cs" />
+    <Compile Include="PermissionManagement\Permissions\CanStaffEditProductSellingPrice.cs" />
+    <Compile Include="PermissionManagement\Permissions\CanStaffViewAllWorkplaceProductStocksInProductListView.cs" />
+    <Compile Include="PermissionManagement\Permissions\IPermission.cs" />
+    <Compile Include="PermissionManagement\Permissions\Permission.cs" />
+    <Compile Include="PermissionManagement\Permissions\PermissionFactory.cs" />
+    <Compile Include="PermissionManagement\Repository\PermissionRepository.cs" />
+    <Compile Include="PermissionManagement\Repository\PermissionStaffTitleRepository.cs" />
+    <Compile Include="PermissionManagement\UI\PermissionManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PermissionManagement\UI\PermissionManagementForm.Designer.cs">
+      <DependentUpon>PermissionManagementForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Procedure\IProcedure.cs" />
     <Compile Include="Procedure\LoginProcedure.cs" />
@@ -440,7 +447,6 @@
     <Compile Include="ProductUtility\ProductList\Forms\UpdateSellingPriceForm.Designer.cs">
       <DependentUpon>UpdateSellingPriceForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProductUtility\ProductList\PermissionManagement\ProductPermissionManager.cs" />
     <Compile Include="ProductUtility\PickerForms\SalesOrderProductPickerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -568,7 +574,6 @@
     <Compile Include="ProductUtility\ProductList\Forms\UpdateProductForm.Designer.cs">
       <DependentUpon>UpdateProductForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProductUtility\ProductList\PermissionManagement\ProductInfoEditPermission.cs" />
     <Compile Include="ProductUtility\ProductList\ProductCreationDataVerifier.cs" />
     <Compile Include="ProductUtility\Repository\CategoryRepository.cs" />
     <Compile Include="ProductUtility\Repository\ProductRepository.cs" />
@@ -1104,13 +1109,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\UI\AdminNavigationForm.resx">
       <DependentUpon>AdminNavigationForm.cs</DependentUpon>
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>AdminNavigationForm1.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Navigation\UI\AdminNavigationForm.zh-HK.resx">
-      <DependentUpon>AdminNavigationForm.cs</DependentUpon>
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>AdminNavigationForm.zh-HK.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\UI\InventoryClerkNavigationForm.resx">
       <DependentUpon>InventoryClerkNavigationForm.cs</DependentUpon>
@@ -1154,6 +1152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\UI\TechnicalSupportNavigationForm.zh-HK.resx">
       <DependentUpon>TechnicalSupportNavigationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PermissionManagement\UI\PermissionManagementForm.resx">
+      <DependentUpon>PermissionManagementForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Procedure\WorkplacePickerForm.resx">
       <DependentUpon>WorkplacePickerForm.cs</DependentUpon>

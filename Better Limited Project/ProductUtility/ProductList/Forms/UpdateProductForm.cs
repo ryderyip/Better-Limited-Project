@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows.Forms;
+using Better_Limited_Project.Login;
+using Better_Limited_Project.PermissionManagement.Permissions;
+using Better_Limited_Project.PermissionManagement.Repository;
 using Better_Limited_Project.ProductUtility.Entity;
-using Better_Limited_Project.ProductUtility.ProductList.PermissionManagement;
 
 namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 {
@@ -38,8 +40,9 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             nudNewStockLevel.DecimalPlaces = 0;
             nudNewStockLevel.Increment = 1;
 
-            if (!ProductPermissionManager.CanCurrentStaffEditPhasingOut())
-                DisablePhasingOutEdit();
+            var currentStaffTitle = LoginSession.GetSession().CurrentStaff.Title;
+            rbPhasingOutOn.Enabled = rbPhasingOutOff.Enabled = PermissionRepository
+                .FindBy(Permission.CanStaffEditPhasingOut).PermissionMap(currentStaffTitle);
 
             FillFields();
         }
@@ -84,7 +87,6 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             _productStock.Quantity = newStockLevel;
             _productStock.Save();
             _productStock.Product.Save();
-            NewProductStockCreator.CreateEmptyStockForNewProduct(_productStock.Product);
 
             MessageBox.Show(ProductList.productAndStockUpdated);
             
@@ -98,12 +100,6 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             lblSellingPrice.Visible = false;
             lblNewSellingPrice.Visible = false;
             nudNewSellingPirce.Visible = false;
-        }
-        
-        private void DisablePhasingOutEdit()
-        {
-            rbPhasingOutOn.Enabled = false;
-            rbPhasingOutOff.Enabled = false;
         }
     }
 }

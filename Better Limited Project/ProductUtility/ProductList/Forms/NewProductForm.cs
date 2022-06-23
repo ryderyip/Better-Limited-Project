@@ -63,7 +63,8 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             
             if (_productImage != null)
                 product.SetImage(_productImage);
-
+            
+            NewProductStockCreator.CreateEmptyStockForNewProduct(product);
             ProductCreated?.Invoke(this, EventArgs.Empty);
             Close();
         }

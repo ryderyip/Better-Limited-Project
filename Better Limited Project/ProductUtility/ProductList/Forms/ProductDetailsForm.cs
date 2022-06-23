@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows.Forms;
+using Better_Limited_Project.Login;
+using Better_Limited_Project.PermissionManagement.Permissions;
+using Better_Limited_Project.PermissionManagement.Repository;
 using Better_Limited_Project.ProductUtility.Entity;
-using Better_Limited_Project.ProductUtility.ProductList.PermissionManagement;
 using Better_Limited_Project.Tools;
 
 namespace Better_Limited_Project.ProductUtility.ProductList.Forms
@@ -23,17 +25,21 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
         {
             pbImage.SizeMode = PictureBoxSizeMode.Zoom;
             RefreshProductInfo();
-            if (!ProductPermissionManager.CanCurrentStaffEditSellingPrice())
-                btnUpdateProductInfo.Visible = false;
-            if (!ProductPermissionManager.CanEditAllInformation())
-            {
-                btnEditDescription.Visible = false;
-                btnUpdateImage.Visible = false;
-            }
-            if (!ProductPermissionManager.CanCurrentStaffRemoveProduct()
-            || _stock.Product.IsInAnyReorderRequest()
-            || _stock.Product.IsInAnyRestockRequest())
-                btnRemoveProduct.Visible = false;
+            SetButtonVisibility();
+        }
+
+        private void SetButtonVisibility()
+        {
+            var currentStaffTitle = LoginSession.GetSession().CurrentStaff.Title;
+            btnUpdateProductInfo.Visible = PermissionRepository
+                .FindBy(Permission.CanStaffEditProductSellingPrice)
+                .PermissionMap(currentStaffTitle);
+            btnEditDescription.Visible = btnUpdateImage.Visible = btnRemoveProduct.Visible = PermissionRepository
+                .FindBy(Permission.CanStaffCreateProduct)
+                .PermissionMap(currentStaffTitle);
+            btnRemoveProduct.Visible = _stock.Product.CanRemove()
+                                       && PermissionRepository.FindBy(Permission.CanStaffCreateProduct)
+                                           .PermissionMap(currentStaffTitle);
         }
 
         private void FillAllFields()
@@ -76,9 +82,11 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 
         private void btnUpdateProductInfo_Click(object sender, EventArgs e)
         {
-            IUpdateProductForm form = ProductPermissionManager.CanEditAllInformation()
-                ? new UpdateProductAdminForm(_stock)
-                : new UpdateProductForm(_stock);
+            var currentStaffTitle = LoginSession.GetSession().CurrentStaff.Title;
+            IUpdateProductForm form =
+                PermissionRepository.FindBy(Permission.CanStaffCreateProduct).PermissionMap(currentStaffTitle)
+                    ? new UpdateProductAdminForm(_stock)
+                    : new UpdateProductForm(_stock);
             form.ProductUpdated += (_, _) => RefreshProductInfo();
             form.ProductUpdated += (_, _) => ProductUpdated?.Invoke(this, e);
             form.ShowForm();

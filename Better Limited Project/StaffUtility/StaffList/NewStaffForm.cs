@@ -21,7 +21,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
         public NewStaffForm()
         {
             _departments = DepartmentRepository.GetDepartments().ToList();
-            _titles = StaffTitleRepository.GetTitles().ToList();
+            _titles = StaffTitleRepository.GetAll().ToList();
             InitializeComponent();
         }
 

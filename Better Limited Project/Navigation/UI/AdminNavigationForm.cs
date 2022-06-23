@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using Better_Limited_Project.CustomerRecord;
 using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.Login;
+using Better_Limited_Project.PermissionManagement.UI;
 using Better_Limited_Project.ProductUtility.ProductList.Forms;
 using Better_Limited_Project.ProductUtility.SupplierUtility;
 using Better_Limited_Project.SettingsUtility;
@@ -18,7 +19,7 @@ namespace Better_Limited_Project.Navigation.UI
         public AdminNavigationForm(FormController formController)
         {
             _formController = formController;
-            Shown += (_, _) => btnProfile.Text = admin + LoginSession.GetSession().CurrentStaff.Name;
+            Shown += (_, _) => btnProfile.Text = "Admin\n" + LoginSession.GetSession().CurrentStaff.Name;
             InitializeComponent();
         }
 
@@ -59,6 +60,12 @@ namespace Better_Limited_Project.Navigation.UI
         {
             var form = new SupplierListForm();
             _formController.OpenContentForm(form);
+        }
+
+        private void btnManagePermission_Click(object sender, EventArgs e)
+        {
+            var form = new PermissionManagementForm();
+            form.ShowDialog();
         }
     }
 }
