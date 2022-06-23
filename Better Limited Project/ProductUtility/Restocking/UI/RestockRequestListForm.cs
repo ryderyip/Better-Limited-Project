@@ -8,6 +8,7 @@ using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.ProductUtility.Reordering.UI;
 using Better_Limited_Project.ProductUtility.Restocking.Entity;
 using Better_Limited_Project.ProductUtility.Restocking.Repository;
+using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.ProductUtility.Restocking.UI
@@ -15,11 +16,13 @@ namespace Better_Limited_Project.ProductUtility.Restocking.UI
     public partial class RestockRequestListForm : Form
     {
         private List<RestockRequest> _restockRequests;
+        private readonly Department _currentStaffDepartment;
 
         public RestockRequestListForm()
         {
             StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
+            _currentStaffDepartment = LoginSession.GetSession().CurrentStaff.Department;
             _restockRequests = RestockRequestRepository.GetAll().ToList();
             Load += (_, _) => Initialize();
         }
@@ -28,15 +31,17 @@ namespace Better_Limited_Project.ProductUtility.Restocking.UI
 
         private void Initialize()
         {
-            if (LoginSession.GetSession().CurrentStaff.Department is Department.Inventory)
+            if (_currentStaffDepartment is Department.Inventory)
                 btnNewRequest.Visible = false;
             else
                 btnArrangeRestock.Visible = false;
+            if (_currentStaffDepartment is Department.Sales)
+                requestedByRetailStoreName.Visible = false;
             btnArrangeRestock.Click += BtnArrangeRestockOnClick;
             btnNewRequest.Click += BtnNewRequestOnClick;
             dgvRestockRequests.CellDoubleClick += (_, args) => DgvCellDoubleClicked(args.RowIndex);
             tbSearchBox.TextChanged += (_, _) => FilterDgv();
-            PopulateDgv(_restockRequests);
+            FilterDgv();
         }
 
         private void BtnArrangeRestockOnClick(object sender, EventArgs e)
@@ -61,7 +66,11 @@ namespace Better_Limited_Project.ProductUtility.Restocking.UI
         private void FilterDgv()
         {
             string searchKeyword = tbSearchBox.Text.Trim().ToLower();
-            var filtered = _restockRequests.Where(rr => rr.RequestNumber.ToLower().Contains(searchKeyword));
+            var filtered = _currentStaffDepartment is Department.Sales
+                ? _restockRequests.Where(rr => rr.RequestNumber.ToLower().Contains(searchKeyword)
+                                               && rr.RequestedForRetailStoreId ==
+                                               UserSettings.GetSettings().Workplace!.Id)
+                : _restockRequests.Where(rr => rr.RequestNumber.ToLower().Contains(searchKeyword));
             PopulateDgv(filtered);
         }
 

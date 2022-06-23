@@ -12,7 +12,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
     {
         private List<DefectiveItem> _defectiveItems;
 
-        public DefectiveItemListForm() // TODO implement search function
+        public DefectiveItemListForm()
         {
             _defectiveItems = DefectiveItemRepository.GetAll().ToList();
             StartPosition = FormStartPosition.CenterScreen;

@@ -31,24 +31,19 @@ namespace Better_Limited_Project.ProductUtility.Restocking.UI
         {
             btnUnsendRequest.Click += BtnUnsendRequestOnClick;
             btnSetAsReceived.Click += BtnSetAsReceivedOnClick;
-            if (LoginSession.GetSession().CurrentStaff.Department is not Department.Sales)
-            {
-                btnSetAsReceived.Visible = false;
-                btnUnsendRequest.Visible = false;
-            }
+            btnSetAsReceived.Visible = btnUnsendRequest.Visible = 
+                LoginSession.GetSession().CurrentStaff.Department is not Department.Sales;
 
-            if (_restockRequest.IsReceived())
-                btnSetAsReceived.Visible = false;
             dgvRequestedGoods.CellDoubleClick += dgvRequestedGoods_CellDoubleClick;
-            if (_restockRequest.IsArranged())
-                btnUnsendRequest.Visible = false;
+            btnUnsendRequest.Visible = !_restockRequest.IsArranged();
+            btnSetAsReceived.Visible = _restockRequest.IsArranged() && !_restockRequest.IsReceived();
             FillFields();
         }
 
         private void BtnSetAsReceivedOnClick(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("Confirm receiving goods?", "Confirmation", MessageBoxButtons.OKCancel);
-            if (result is not DialogResult.OK)
+            var result = MessageBox.Show("Confirm receiving goods?", "Confirmation", MessageBoxButtons.YesNo);
+            if (result is not DialogResult.Yes)
                 return;
 
             RestockStockUpdateService.Receive(_restockRequest.RequestedForRetailStore, _restockRequest);
@@ -61,8 +56,8 @@ namespace Better_Limited_Project.ProductUtility.Restocking.UI
         {
             if (_restockRequest.IsArranged())
                 return;
-            var result = MessageBox.Show("Confirm unsending request?", "Confirmation", MessageBoxButtons.OKCancel);
-            if (result is not DialogResult.OK)
+            var result = MessageBox.Show("Confirm unsending request?", "Confirmation", MessageBoxButtons.YesNo);
+            if (result is not DialogResult.Yes)
                 return;
 
             _restockRequest.Remove();

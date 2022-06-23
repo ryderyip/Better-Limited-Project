@@ -34,7 +34,7 @@ namespace Better_Limited_Project.ProductUtility.Restocking.UI
                     restockRequest.RequestedForRetailStore.Name,
                     requestedProduct.Product.Name,
                     requestedProduct.Quantity,
-                    restockRequest.ReceivedOn.HasValue ? restockRequest.ReceivedOn.Value.ToString("g") : "Not Yet");
+                    restockRequest.IsReceived() ? "Yes" : "Not Yet");
         }
 
         private void PopulateCouriersDgv()
