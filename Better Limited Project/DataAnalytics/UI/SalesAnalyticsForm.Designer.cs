@@ -90,6 +90,8 @@
             // 
             // noOfSalesMadeLineGraph
             // 
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.DarkGray;
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.DarkGray;
             chartArea1.Name = "ChartArea1";
             this.noOfSalesMadeLineGraph.ChartAreas.Add(chartArea1);
             legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
@@ -151,6 +153,9 @@
             // 
             // chartRevenue
             // 
+            chartArea3.AxisX.LineColor = System.Drawing.Color.DarkGray;
+            chartArea3.AxisX.MajorGrid.LineColor = System.Drawing.Color.DarkGray;
+            chartArea3.AxisY.MajorGrid.LineColor = System.Drawing.Color.DarkGray;
             chartArea3.Name = "ChartArea1";
             this.chartRevenue.ChartAreas.Add(chartArea3);
             this.chartRevenue.Location = new System.Drawing.Point(26, 174);

@@ -76,7 +76,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
             findCustomerForm.StartPosition = FormStartPosition.CenterScreen;
             findCustomerForm.CustomerRecordFound += (_, customer) =>
             {
-                _salesOrder.Customer = customer;
+                _salesOrder.CustomerId = customer.Id;
                 _salesOrder.Save();
                 SalesOrderUpdated?.Invoke(this, EventArgs.Empty);
             };
@@ -89,7 +89,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
             createCustomerRecordForm.StartPosition = FormStartPosition.CenterScreen;
             createCustomerRecordForm.CustomerCreated += (_, customer) =>
             {
-                _salesOrder.Customer = customer;
+                _salesOrder.CustomerId = customer.Id;
                 _salesOrder.Save();
                 SalesOrderUpdated?.Invoke(this, EventArgs.Empty);
             };

@@ -125,12 +125,12 @@ namespace Better_Limited_Project.DevTools
         {
             return new SalesOrder(new SalesOrderRepository().GetNewId(),
                 SalesOrderNumberGenerator.GetNewOrderNumber(retailStore.Id),
-                GetRandomSalesStaff(),
-                retailStore,
+                GetRandomSalesStaffId(),
+                retailStore.Id,
                 GetRandomOrderDate(),
                 true)
             {
-                Customer = GetRandomCustomerOrNoCustomer()
+                CustomerId = GetRandomCustomerOrNoCustomer()?.Id
             };
         }
 
@@ -140,10 +140,10 @@ namespace Better_Limited_Project.DevTools
             return DateTime.Now - TimeSpan.FromHours(_random.Next(hoursInAMonth * 6));
         }
 
-        private Staff GetRandomSalesStaff()
+        private string GetRandomSalesStaffId()
         {
             var randomSalesStaff = new StaffRepository().GetAll().ToList();
-            return randomSalesStaff[_random.Next(randomSalesStaff.Count)];
+            return randomSalesStaff[_random.Next(randomSalesStaff.Count)].Id;
         }
 
         private PaymentMethod GetRandomPaymentMethod()
