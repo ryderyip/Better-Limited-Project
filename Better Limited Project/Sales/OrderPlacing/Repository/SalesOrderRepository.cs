@@ -37,14 +37,16 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
         {
             string id = row.Field<int>("id").ToString();
             string orderNumber = row.Field<string>("sales_order_number");
-            var customerId = row.Field<int?>("customer_id")?.ToString() ?? null;
-            string staffId = row.Field<int>("created_by_staff_id").ToString();
-            string retailStoreId = row.Field<string>("retail_store_id");
+            var customerId = row.Field<int?>("customer_id");
+            Staff staff = new StaffRepository().FindById(row.Field<int>("created_by_staff_id").ToString());
+            RetailStore retailStore = new RetailStoreRepository().GetById(row.Field<string>("retail_store_id"));
             var createOn = row.Field<DateTime>("created_on");
             var isActive = row.Field<bool>("is_active");
-            return new SalesOrder(id, orderNumber, staffId, retailStoreId, createOn, isActive)
+            return new SalesOrder(id, orderNumber, staff, retailStore, createOn, isActive)
             {
-                CustomerId = customerId
+                Customer = customerId.HasValue
+                    ? new CustomerRepository().FindById(customerId.Value.ToString())
+                    : null
             };
         }
 

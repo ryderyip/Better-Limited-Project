@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Threading;
@@ -85,6 +86,8 @@ namespace Better_Limited_Project.DataAnalytics.UI
         private void LoadRevenueChart()
         {
             chartRevenue.Series["revenue"].Points.Clear();
+            chartRevenue.ChartAreas["ChartArea1"].AxisX.MajorGrid.LineColor = Color.DarkGray;
+            chartRevenue.ChartAreas["ChartArea1"].AxisY.MajorGrid.LineColor = Color.DarkGray;
             var fromDate = dtpSalesDataFrom.Value.Date;
             var toDate = dtpSalesDataTo.Value.Date;
             var payments = PaymentRepository.FindAll(p => p.PaidOn.Date > fromDate.Date && p.PaidOn.Date < toDate.Date)
@@ -125,6 +128,9 @@ namespace Better_Limited_Project.DataAnalytics.UI
         {
             noOfSalesMadeLineGraph.Series["sales1"].Points.Clear();
             noOfSalesMadeLineGraph.Series["sales2"].Points.Clear();
+            noOfSalesMadeLineGraph.ChartAreas["ChartArea1"].AxisX.MajorGrid.LineColor = Color.DarkGray;
+            noOfSalesMadeLineGraph.ChartAreas["ChartArea1"].AxisY.MajorGrid.LineColor = Color.DarkGray;
+
             var kowloonRetailStore = new RetailStoreRepository().GetById("KB01");
             var tsuenWanRetailStore = new RetailStoreRepository().GetById("TW01");
 

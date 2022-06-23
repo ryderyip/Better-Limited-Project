@@ -21,14 +21,14 @@ namespace Better_Limited_Project.ServiceUtility
             _cart = cart;
             _customer = customer;
             _salesStaff = LoginSession.GetSession().CurrentStaff;
-            _retailStore = (RetailStore) UserSettings.GetSettings().Workplace!;
+            _retailStore = new RetailStoreRepository().GetById(UserSettings.GetSettings().Workplace!.Id);
         }
 
         public SalesOrder GetSalesOrder()
         {
-            return new SalesOrder(_salesStaff.Id, _retailStore.Id)
+            return new SalesOrder(_salesStaff, _retailStore)
             {
-                CustomerId = _customer?.Id
+                Customer = _customer
             };
         }
 

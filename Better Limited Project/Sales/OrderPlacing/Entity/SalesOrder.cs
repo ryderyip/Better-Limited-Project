@@ -8,42 +8,38 @@ using Better_Limited_Project.ServiceUtility.DeliveryUtility.Entity;
 using Better_Limited_Project.ServiceUtility.DeliveryUtility.Repository;
 using Better_Limited_Project.ServiceUtility.InstallationUtility.Entity;
 using Better_Limited_Project.ServiceUtility.InstallationUtility.Repository;
-using Better_Limited_Project.StaffUtility.Repository;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.Sales.OrderPlacing.Entity
 {
     public class SalesOrder
     {
-        public SalesOrder(string staffId, string retailStoreId)
+        public SalesOrder(Staff staff, RetailStore retailStore)
         {
             Id = new SalesOrderRepository().GetNewId();
-            StaffId = staffId;
-            RetailStoreId = retailStoreId;
+            Staff = staff;
+            RetailStore = retailStore;
             OrderNumber = SalesOrderNumberGenerator.GetNewOrderNumber(RetailStore.Id);
             CreatedOn = DateTime.Now;
             IsActive = true;
         }
 
-        public SalesOrder(string id, string orderNumber, string staffId, string retailStoreId, DateTime createdOn,
+        public SalesOrder(string id, string orderNumber, Staff staff, RetailStore retailStore, DateTime createdOn,
             bool isActive)
         {
             Id = id;
             OrderNumber = orderNumber;
-            StaffId = staffId;
-            RetailStoreId = retailStoreId;
+            Staff = staff;
+            RetailStore = retailStore;
             CreatedOn = createdOn;
             IsActive = isActive;
         }
 
         public string Id { get; }
         public string OrderNumber { get; }
-        public string StaffId { get; }
-        public Staff Staff => new StaffRepository().FindById(StaffId);
-        public string RetailStoreId { get; }
-        public RetailStore RetailStore => new RetailStoreRepository().GetById(RetailStoreId);
-        public string? CustomerId { get; set; }
-        public Customer? Customer => CustomerId != null ? new CustomerRepository().FindById(CustomerId) : null;
+        public Staff Staff { get; }
+        public RetailStore RetailStore { get; }
+        public Customer? Customer { get; set; }
         public DateTime CreatedOn { get; }
         public bool IsActive { get; private set; }
 
@@ -58,6 +54,18 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
         public bool HasRequestedForDelivery()
         {
             return GetDeliveryRequest() != null;
+        }
+
+        public bool IsNeedInstallation()
+        {
+            return false;
+            // return new InstallationRequestRepository().GetAll().Any(ir => ir.)
+        }
+
+        public bool IsAllDeliveryArrived()
+        {
+            var deliveries = GetDeliveries().ToList();
+            return deliveries.Any() && deliveries.All(d => d.DeliveryStatus is DeliveryStatus.Delivered);
         }
 
         public IEnumerable<Delivery> GetDeliveries()
