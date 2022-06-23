@@ -45,9 +45,9 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
         {
             dgvInstallations.Rows.Clear();
             foreach (var installation in installations)
-                dgvInstallations.Rows.Add(installation.Id, 
-                    installation.InstallationRequest.SalesOrder.OrderNumber, 
-                    installation.ScheduledOn.ToShortTimeString(), 
+                dgvInstallations.Rows.Add(installation.Id,
+                    installation.InstallationRequest.SalesOrder.OrderNumber,
+                    installation.ScheduledOn.ToShortTimeString(),
                     installation.InstallationRequest.ProductsToInstall.Count());
             dgvInstallations.Sort(orderNumberColumn, ListSortDirection.Descending);
         }

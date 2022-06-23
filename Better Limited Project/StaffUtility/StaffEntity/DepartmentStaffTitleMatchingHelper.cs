@@ -9,15 +9,15 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
         {
             return department switch
             {
-                Department.Admin => new List<StaffTitle> 
+                Department.Admin => new List<StaffTitle>
                     {StaffTitle.Admin},
-                Department.Sales => new List<StaffTitle> 
+                Department.Sales => new List<StaffTitle>
                     {StaffTitle.SalesRepresentative, StaffTitle.SalesManager},
                 Department.Accounting => new List<StaffTitle>
                     {StaffTitle.AccountingClerk, StaffTitle.AccountingManager},
-                Department.Purchase => new List<StaffTitle> 
+                Department.Purchase => new List<StaffTitle>
                     {StaffTitle.PurchaseClerk, StaffTitle.PurchaseManager},
-                Department.Inventory => new List<StaffTitle> 
+                Department.Inventory => new List<StaffTitle>
                     {StaffTitle.InventoryClerk, StaffTitle.ReceivingClerk},
                 Department.TechnicalSupport => new List<StaffTitle>
                     {StaffTitle.TechnicalSupportClerk, StaffTitle.TechnicalSupportManager},

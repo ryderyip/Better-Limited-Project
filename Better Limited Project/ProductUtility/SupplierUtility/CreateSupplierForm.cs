@@ -7,12 +7,12 @@ namespace Better_Limited_Project.ProductUtility.SupplierUtility
 {
     public partial class CreateSupplierForm : Form
     {
-        public event EventHandler? SupplierCreated;
-        
         public CreateSupplierForm()
         {
             InitializeComponent();
         }
+
+        public event EventHandler? SupplierCreated;
 
         private void btnCreate_Click(object sender, EventArgs e)
         {

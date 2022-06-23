@@ -13,14 +13,15 @@ namespace Better_Limited_Project.Navigation.UI
     public partial class PurchaseManagerNavigationForm : Form, INavigationForm
     {
         private readonly FormController _formController;
-        public event INavigationForm.LogOutClickedEventHandler? LogOutClicked;
-        
+
         public PurchaseManagerNavigationForm(FormController formController)
         {
             _formController = formController;
             Shown += (_, _) => btnProfile.Text = LoginSession.GetSession().CurrentStaff.Name;
             InitializeComponent();
         }
+
+        public event INavigationForm.LogOutClickedEventHandler? LogOutClicked;
 
         private void btnProfile_Click(object sender, EventArgs e)
         {

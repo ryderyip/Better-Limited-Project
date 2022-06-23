@@ -12,8 +12,8 @@ namespace Better_Limited_Project.ProductUtility.GoodsPurchasing.UI
 {
     public partial class PurchaseOrderDetailsForm : Form
     {
-        private readonly PurchaseOrder _purchaseOrder;
         private readonly List<PurchaseOrderProduct> _orderProducts;
+        private readonly PurchaseOrder _purchaseOrder;
 
         public PurchaseOrderDetailsForm(PurchaseOrder purchaseOrder)
         {

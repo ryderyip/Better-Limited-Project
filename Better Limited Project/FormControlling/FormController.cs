@@ -6,7 +6,6 @@ namespace Better_Limited_Project.FormControlling
     public class FormController
     {
         private readonly Form _outerForm;
-        public Form? ContentForm { get; private set; }
         private Form? _navigationBar;
 
         public FormController(Form outerForm)
@@ -14,6 +13,8 @@ namespace Better_Limited_Project.FormControlling
             _outerForm = outerForm;
             _outerForm.IsMdiContainer = true;
         }
+
+        public Form? ContentForm { get; private set; }
 
         public void OpenFullForm(Form form)
         {
@@ -23,7 +24,7 @@ namespace Better_Limited_Project.FormControlling
             FormPropertyController.SetInnerFormProperty(_outerForm, ContentForm, DockStyle.Fill);
             ContentForm.Show();
         }
-        
+
         public void OpenContentForm(Form contentForm)
         {
             OpenOuterForm();
@@ -32,7 +33,7 @@ namespace Better_Limited_Project.FormControlling
             ContentForm = contentForm;
             ContentForm.Size = FormPropertyController.GetChildFormSize(_outerForm.Size);
             FormPropertyController.SetInnerFormProperty(_outerForm, ContentForm, DockStyle.Right);
-            
+
             ContentForm.Show();
         }
 

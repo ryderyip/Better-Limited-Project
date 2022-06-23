@@ -29,6 +29,7 @@ namespace Better_Limited_Project.ProductUtility.GoodsPurchasing.UI
                 _purchaseOrders = _purchaseOrders.Where(po => po.IsApproved()).ToList();
                 isApprovedColumn.Visible = false;
             }
+
             tbSearchBox.TextChanged += (_, _) => FilterDgv();
             cbShowApproved.CheckedChanged += (_, _) => FilterDgv();
             FilterDgv();
@@ -37,11 +38,11 @@ namespace Better_Limited_Project.ProductUtility.GoodsPurchasing.UI
         private void PopulateDgv(List<PurchaseOrder> purchaseOrders)
         {
             dgvPurchaseOrders.Rows.Clear();
-            purchaseOrders.ForEach(po => dgvPurchaseOrders.Rows.Add(po.Id, 
+            purchaseOrders.ForEach(po => dgvPurchaseOrders.Rows.Add(po.Id,
                 po.PurchaseOrderNumber,
                 po.ReorderRequest.RequestNumber,
-                po.CreatedOn.ToString("g"), 
-                po.IsApproved() ? "Yes" : "No", 
+                po.CreatedOn.ToString("g"),
+                po.IsApproved() ? "Yes" : "No",
                 po.ApprovedOn?.ToString("g") ?? "-"));
             dgvPurchaseOrders.Sort(createdOnColumn, ListSortDirection.Descending);
         }
@@ -51,7 +52,7 @@ namespace Better_Limited_Project.ProductUtility.GoodsPurchasing.UI
             string searchKeywords = tbSearchBox.Text.Trim().ToLower();
             var filteredPurchaseOrders = cbShowApproved.Checked
                 ? _purchaseOrders.Where(po => po.PurchaseOrderNumber.ToLower().Contains(searchKeywords)
-                                        || po.ReorderRequest.RequestNumber.ToLower().Contains(searchKeywords))
+                                              || po.ReorderRequest.RequestNumber.ToLower().Contains(searchKeywords))
                 : _purchaseOrders.Where(po => (po.PurchaseOrderNumber.ToLower().Contains(searchKeywords)
                                                || po.ReorderRequest.RequestNumber.ToLower().Contains(searchKeywords))
                                               && !po.IsApproved());

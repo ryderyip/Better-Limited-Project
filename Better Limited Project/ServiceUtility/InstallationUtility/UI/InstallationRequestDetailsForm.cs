@@ -8,7 +8,6 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
 {
     public partial class InstallationRequestDetailsForm : Form
     {
-        public event EventHandler? InfoUpdated;
         private InstallationRequest _installationRequest;
 
         public InstallationRequestDetailsForm(InstallationRequest installationRequest)
@@ -18,6 +17,8 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
             InitializeComponent();
             Load += (_, _) => Initialize();
         }
+
+        public event EventHandler? InfoUpdated;
 
         private void Initialize()
         {

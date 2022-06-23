@@ -36,6 +36,7 @@ namespace Better_Limited_Project.Tools
                     productWaitingForStock.Quantity -= quantityToReserve;
                     productWaitingForStock.Save();
                 }
+
                 service.Reserve(productWaitingForStock.ProductId, quantityToReserve);
             }
         }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
@@ -21,9 +22,9 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
         private void Initialize()
         {
             dgvInstallations.Rows.Clear();
-            _installations.ForEach(i => dgvInstallations.Rows.Add(i.Id, 
-                i.InstallationRequest.SalesOrder.OrderNumber, 
-                i.ScheduledOn, 
+            _installations.ForEach(i => dgvInstallations.Rows.Add(i.Id,
+                i.InstallationRequest.SalesOrder.OrderNumber,
+                i.ScheduledOn,
                 i.InstalledOn?.ToString("g") ?? "-"));
             dgvInstallations.Sort(orderNumberColumn, ListSortDirection.Descending);
         }
@@ -43,7 +44,7 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
             Initialize();
         }
 
-        private void btnDailyList_Click(object sender, System.EventArgs e)
+        private void btnDailyList_Click(object sender, EventArgs e)
         {
             var form = new DailyInstallationListForm();
             form.ShowDialog();

@@ -20,7 +20,7 @@ namespace Better_Limited_Project.Tools
         }
 
         /// <summary>
-        /// If enough product is reserved
+        ///     If enough product is reserved
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="reservedStock"></param>
@@ -29,18 +29,19 @@ namespace Better_Limited_Project.Tools
         {
             var salesOrder = reservedStock.GetSalesOrder();
             var salesOrderProductOutOfSTock = salesOrder.GetSalesOrderProducts()
-                                        .FirstOrDefault(sop => sop.ProductId == reservedStock.ProductId && sop.IsOutOfStock)
-                                    ?? throw new ArgumentException(
-                                        "have reserved stock but dont have sales order product.");
+                                                  .FirstOrDefault(sop =>
+                                                      sop.ProductId == reservedStock.ProductId && sop.IsOutOfStock)
+                                              ?? throw new ArgumentException(
+                                                  "have reserved stock but dont have sales order product.");
 
-            if (salesOrder.HasRequestedForDelivery() || reservedStock.Quantity < salesOrderProductOutOfSTock.Quantity) 
+            if (salesOrder.HasRequestedForDelivery() || reservedStock.Quantity < salesOrderProductOutOfSTock.Quantity)
                 return;
 
             var salesOrderProductInStock = salesOrder.GetSalesOrderProducts()
                 .First(sop => sop.ProductId == reservedStock.ProductId && !sop.IsOutOfStock);
             salesOrderProductInStock.Quantity += salesOrderProductOutOfSTock.Quantity;
             salesOrderProductInStock.Save();
-            
+
             salesOrderProductOutOfSTock.Delete();
             reservedStock.Delete();
         }

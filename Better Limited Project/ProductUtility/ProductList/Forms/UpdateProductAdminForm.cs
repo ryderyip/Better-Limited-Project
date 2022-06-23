@@ -12,10 +12,9 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
     public partial class UpdateProductAdminForm : Form, IUpdateProductForm
     {
         private readonly List<Category> _categories;
-        private readonly List<Supplier> _suppliers;
         private readonly IStock _stock;
-        public event EventHandler? ProductUpdated;
-        
+        private readonly List<Supplier> _suppliers;
+
         public UpdateProductAdminForm(IStock stock)
         {
             _suppliers = SupplierRepository.GetSuppliers().ToList();
@@ -24,12 +23,14 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
         }
-        
+
+        public event EventHandler? ProductUpdated;
+
         public void ShowForm()
         {
             ShowDialog();
         }
-        
+
         private void btnUpdateInfo_Click(object sender, EventArgs e)
         {
             var verifier = new ProductCreationDataVerifier();
@@ -45,12 +46,12 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
                 MessageBox.Show(string.Format(ProductList.updateProductNameNotUnique, name));
                 return;
             }
-            
-            decimal newSellingPrice = nudNewSellingPirce.Value;
-            decimal newOriginalPrice = nudNewOriginalPrice.Value;
-            int newReorderLevel = (int) nudNewReorderLevel.Value;
-            int newStockLevel = (int) nudNewStockLevel.Value;
-            bool phasingOut = rbPhasingOutOn.Checked;
+
+            var newSellingPrice = nudNewSellingPirce.Value;
+            var newOriginalPrice = nudNewOriginalPrice.Value;
+            var newReorderLevel = (int) nudNewReorderLevel.Value;
+            var newStockLevel = (int) nudNewStockLevel.Value;
+            var phasingOut = rbPhasingOutOn.Checked;
 
             if (_stock is RetailStoreStock retailStoreStock)
                 retailStoreStock.SellingPrice = newSellingPrice;
@@ -61,7 +62,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             _stock.Quantity = newStockLevel;
             _stock.Product.Category = _categories.Find(c => c.Name == cbCategory.SelectedItem.ToString());
             _stock.Product.Supplier = _suppliers.Find(s => s.Name == cbSupplier.SelectedItem.ToString());
-            
+
             _stock.Save();
             _stock.Product.Save();
 
@@ -78,21 +79,21 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             nudNewOriginalPrice.Maximum = Product.MaximumPrice;
             nudNewOriginalPrice.DecimalPlaces = 2;
             nudNewOriginalPrice.ThousandsSeparator = true;
-            
+
             nudNewReorderLevel.Maximum = Product.MaximumReorderLevel;
             nudNewReorderLevel.DecimalPlaces = 0;
             nudNewReorderLevel.Increment = 1;
-            
+
             nudNewStockLevel.Maximum = Product.MaximumReorderLevel;
             nudNewStockLevel.DecimalPlaces = 0;
             nudNewStockLevel.Increment = 1;
-            
+
             _suppliers.ForEach(s => cbSupplier.Items.Add(s.Name));
             _categories.ForEach(c => cbCategory.Items.Add(c.Name));
 
             FillFields();
         }
-        
+
         private void FillFields()
         {
             nudNewStockLevel.Value = _stock.Quantity;
@@ -107,7 +108,9 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
                 nudNewSellingPirce.Value = stock.SellingPrice;
             }
             else
+            {
                 HideSellingPrice();
+            }
 
             nudNewOriginalPrice.Value = product.OriginalPrice;
             txtOriginalPrice.Text = product.OriginalPrice.ToString("C", new CultureInfo("zh-HK"));
@@ -123,7 +126,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             cbSupplier.SelectedIndex = _suppliers.FindIndex(s => s.Id == _stock.Product.Supplier.Id);
             cbCategory.SelectedIndex = _categories.FindIndex(c => c.Id == _stock.Product.Category.Id);
         }
-        
+
         private void HideSellingPrice()
         {
             txtSellingPrice.Visible = false;

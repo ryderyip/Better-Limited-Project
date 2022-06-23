@@ -6,7 +6,7 @@ namespace Better_Limited_Project.DocumentUtility
     public static class FolderBrowser
     {
         /// <summary>
-        /// Show a folder browser dialog
+        ///     Show a folder browser dialog
         /// </summary>
         /// <param name="rootFolder">The root folder where the browsing starts from</param>
         /// <param name="browserDescription">The description to be displayed</param>
@@ -33,7 +33,7 @@ namespace Better_Limited_Project.DocumentUtility
             dialog.Multiselect = false;
             dialog.CheckFileExists = true;
             dialog.Filter = @"Images|*.jpg;*.jpeg;*.png";
-            return dialog.ShowDialog() == DialogResult.OK 
+            return dialog.ShowDialog() == DialogResult.OK
                 ? dialog.FileName
                 : null;
         }

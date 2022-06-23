@@ -13,8 +13,6 @@ namespace Better_Limited_Project.StaffUtility.StaffList
 {
     public partial class NewStaffForm : Form
     {
-        public event EventHandler? StaffAdded;
-
         private readonly List<Department> _departments;
         private readonly List<StaffTitle> _titles;
 
@@ -24,6 +22,8 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             _titles = StaffTitleRepository.GetAll().ToList();
             InitializeComponent();
         }
+
+        public event EventHandler? StaffAdded;
 
         private void NewStaffForm_Shown(object sender, EventArgs e)
         {
@@ -64,7 +64,8 @@ namespace Better_Limited_Project.StaffUtility.StaffList
 
             if (!IsSelectedTitleMatchSelectedDepartment())
             {
-                MessageBox.Show(string.Format(StaffUtilityStringResources.selected_department_title_dont_match, selectedTitle, selectedDepartment));
+                MessageBox.Show(string.Format(StaffUtilityStringResources.selected_department_title_dont_match,
+                    selectedTitle, selectedDepartment));
                 return;
             }
 
@@ -88,11 +89,11 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             }
 
             string name = tbName.Text.Trim();
-            Gender gender = rbGenderMale.Checked ? Gender.Male
+            var gender = rbGenderMale.Checked ? Gender.Male
                 : rbGenderFemale.Checked ? Gender.Female
                 : rbGenderNonbinary.Checked ? Gender.NonBinary
                 : throw new InvalidOperationException("No gender is selected.");
-            DateTime dob = dtpDateOfBirth.Value;
+            var dob = dtpDateOfBirth.Value;
 
             var staff = new Staff(name, dob, DateTime.Now, gender, selectedDepartment, selectedTitle);
             staff.Save();
@@ -103,7 +104,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             var image = pbImage.Image;
             if (image != null)
                 StaffImageRepository.InsertOrUpdate(staff, image);
-            
+
             StaffAdded?.Invoke(this, EventArgs.Empty);
             Close();
         }
@@ -142,7 +143,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             string browserDescription = "Select a Product Image";
             var path = ImageFileBrowser.Browse(browserDescription);
             if (path == null) return;
-            
+
             tbStaffImagePath.Text = path;
             var image = ImageRetriever.Retrieve(path);
             if (image != null)

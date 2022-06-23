@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using Better_Limited_Project.CustomerRecord;
 using Better_Limited_Project.ServiceUtility.DeliveryUtility.Entity;
 using Better_Limited_Project.StaffUtility.StaffEntity.Gender;
 using Better_Limited_Project.Tools;
@@ -21,13 +20,13 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
 
             if (!IsAllFieldsFilled(name, phone))
             {
-                MessageBox.Show(CreateCustomerRecordForm.hasUnfilledRequiredFieldsMessage);
+                MessageBox.Show("Please enter all required fields");
                 return;
             }
 
             if (!CommonInformationVerifier.IsValidPhoneNumber(phone))
             {
-                MessageBox.Show(CreateCustomerRecordForm.invalidPhoneNumberMessage);
+                MessageBox.Show("Invalid phone number. Please enter an 8-digit Hong Kong phone number. E.g. 12345678.");
                 return;
             }
 

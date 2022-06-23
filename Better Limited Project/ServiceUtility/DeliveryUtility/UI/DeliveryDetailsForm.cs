@@ -1,21 +1,23 @@
 ﻿using System;
 using System.Windows.Forms;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
+using Better_Limited_Project.ServiceUtility.DeliveryUtility.Entity;
 using Better_Limited_Project.Tools;
 
 namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
 {
     public partial class DeliveryDetailsForm : Form
     {
-        public event EventHandler? DeliveryUpdated;
-        private readonly Entity.Delivery _delivery;
+        private readonly Delivery _delivery;
 
-        public DeliveryDetailsForm(Entity.Delivery delivery)
+        public DeliveryDetailsForm(Delivery delivery)
         {
             _delivery = delivery;
             InitializeComponent();
             Shown += (_, _) => Initialize();
         }
+
+        public event EventHandler? DeliveryUpdated;
 
         private void Initialize()
         {
@@ -23,7 +25,7 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
                 btnSetAsDispatched.Enabled = false;
             if (_delivery.DeliveredOn != null)
                 btnSetAsDelivered.Enabled = false;
-            
+
             FillFields();
         }
 
@@ -54,7 +56,8 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
 
         private void btnSetAsDispatched_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show(DeliveryStringResources.ask_setting_dispatch_time, DeliveryStringResources.set_dispatch_time,
+            var result = MessageBox.Show(DeliveryStringResources.ask_setting_dispatch_time,
+                DeliveryStringResources.set_dispatch_time,
                 MessageBoxButtons.YesNo);
             if (result is DialogResult.No)
                 return;
@@ -69,7 +72,8 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
         {
             if (_delivery.DeliveredOn != null)
                 return;
-            var result = MessageBox.Show(DeliveryStringResources.ask_confirm_setting_delivery_time, DeliveryStringResources.set_time_delivered,
+            var result = MessageBox.Show(DeliveryStringResources.ask_confirm_setting_delivery_time,
+                DeliveryStringResources.set_time_delivered,
                 MessageBoxButtons.YesNo);
             if (result is DialogResult.No)
                 return;

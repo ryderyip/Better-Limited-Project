@@ -11,10 +11,10 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.Controller
     public class ArrangeDeliveryController
     {
         private readonly DeliveryRequest _deliveryRequest;
-        public EventHandler? DeliveryArranged;
-        private IArrangeDeliveryForm _form;
-        private readonly List<Courier> _selectedDeliveryCouriers = new();
         private readonly FormController _formController;
+        private readonly List<Courier> _selectedDeliveryCouriers = new();
+        private IArrangeDeliveryForm _form;
+        public EventHandler? DeliveryArranged;
 
         public ArrangeDeliveryController(DeliveryRequest deliveryRequest)
         {

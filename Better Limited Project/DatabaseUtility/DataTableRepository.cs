@@ -4,7 +4,7 @@ using MySql.Data.MySqlClient;
 namespace Better_Limited_Project.DatabaseUtility
 {
     /// <summary>
-    /// Provide functionality for basic database operations
+    ///     Provide functionality for basic database operations
     /// </summary>
     public static class DataTableRepository
     {

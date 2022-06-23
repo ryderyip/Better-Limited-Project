@@ -8,14 +8,15 @@ namespace Better_Limited_Project.Login
     public partial class LoginForm : Form
     {
         public delegate void LoginClickedEventHandler<T>(object sender, T t);
-        public event LoginClickedEventHandler<LoginCredentials>? LoginClicked;
-        
+
         public LoginForm()
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
             Shown += (_, _) => Initialize();
         }
+
+        public event LoginClickedEventHandler<LoginCredentials>? LoginClicked;
 
         private void Initialize()
         {
@@ -37,7 +38,7 @@ namespace Better_Limited_Project.Login
                 case LoginStatus.EmptyUsername or LoginStatus.EmptyPassword:
                     ShowFillAllFieldMessage();
                     break;
-                
+
                 case LoginStatus.WrongUsernameOrPassword:
                     ShowWrongUsernameOrPasswordMessage();
                     break;
@@ -55,7 +56,7 @@ namespace Better_Limited_Project.Login
             lblLoginFailedMessage.Visible = true;
             lblLoginFailedMessage.Text = "Please enter both username and password";
         }
-        
+
         private void ShowWrongUsernameOrPasswordMessage()
         {
             lblLoginFailedMessage.Visible = true;
@@ -66,7 +67,7 @@ namespace Better_Limited_Project.Login
         {
             string username = tbUsername.Text;
             string password = tbPassword.Text;
-            
+
             LoginClicked?.Invoke(this, new LoginCredentials(username, password));
         }
     }

@@ -25,7 +25,7 @@ namespace Better_Limited_Project.SettingsUtility
             if (stream.Length == 0)
                 throw new SerializationException("The file being deserialized is empty");
             settings = (UserSettings) formatter.Deserialize(stream);
-            
+
             stream.Dispose();
             return settings;
         }

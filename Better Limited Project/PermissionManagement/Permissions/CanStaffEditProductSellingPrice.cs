@@ -6,7 +6,8 @@ namespace Better_Limited_Project.PermissionManagement.Permissions
 {
     public class CanStaffEditProductSellingPrice : IPermission
     {
-        public CanStaffEditProductSellingPrice(string id, string name, string description, Func<StaffTitle, bool> permissionMap, Func<IEnumerable<StaffTitle>> permittedStaffTitles)
+        public CanStaffEditProductSellingPrice(string id, string name, string description,
+            Func<StaffTitle, bool> permissionMap, Func<IEnumerable<StaffTitle>> permittedStaffTitles)
         {
             Id = id;
             Name = name;

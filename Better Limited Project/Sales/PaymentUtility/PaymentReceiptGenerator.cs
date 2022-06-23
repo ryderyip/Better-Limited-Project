@@ -218,7 +218,7 @@ namespace Better_Limited_Project.Sales.PaymentUtility
 
             table.SetEdge(0, 0, 4, 1, Edge.Box, BorderStyle.Single, 0.75, Color.Empty);
 
-            int rowCount = 0;
+            var rowCount = 0;
             foreach (var salesOrderProduct in _salesOrderProducts)
             {
                 row = table.AddRow();
@@ -239,7 +239,7 @@ namespace Better_Limited_Project.Sales.PaymentUtility
 
             row = table.AddRow();
             row.Cells[0].MergeRight = table.Columns.Count - 1;
-            decimal total = _salesOrderProducts.Sum(sop => sop.Price * sop.Quantity);
+            var total = _salesOrderProducts.Sum(sop => sop.Price * sop.Quantity);
             row.Cells[0].AddParagraph($"Total: {total.ToString("C", new CultureInfo("zh-HK"))}");
             row.Format.Alignment = ParagraphAlignment.Right;
         }

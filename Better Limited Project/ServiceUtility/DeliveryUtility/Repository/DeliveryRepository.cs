@@ -4,15 +4,16 @@ using System.Data;
 using System.Linq;
 using Better_Limited_Project.DatabaseUtility;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
+using Better_Limited_Project.ServiceUtility.DeliveryUtility.Entity;
 using MySql.Data.MySqlClient;
 
 namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.Repository
 {
     public static class DeliveryRepository
     {
-        public static event EventHandler<Entity.Delivery>? DeliveryStatusUpdated;
-        
-        public static IEnumerable<Entity.Delivery> GetAll()
+        public static event EventHandler<Delivery>? DeliveryStatusUpdated;
+
+        public static IEnumerable<Delivery> GetAll()
         {
             var dataTable = DataTableRepository.RetrieveDataTable(new MySqlCommand(
                 @"select id, delivery_request_id, created_on, scheduled_on, 
@@ -20,7 +21,7 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.Repository
             return from DataRow row in dataTable.Rows select ConvertToDelivery(row);
         }
 
-        public static Entity.Delivery GetById(string id)
+        public static Delivery GetById(string id)
         {
             var command = new MySqlCommand(
                 @"select id, delivery_request_id, created_on, scheduled_on, 
@@ -33,12 +34,12 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.Repository
             return ConvertToDelivery(dataTable.Rows[0]);
         }
 
-        public static IEnumerable<Entity.Delivery> FindAll(Predicate<Entity.Delivery> filter)
+        public static IEnumerable<Delivery> FindAll(Predicate<Delivery> filter)
         {
             return GetAll().Where(filter.Invoke);
         }
 
-        private static Entity.Delivery ConvertToDelivery(DataRow row)
+        private static Delivery ConvertToDelivery(DataRow row)
         {
             string id = row.Field<int>("id").ToString();
             string deliveryRequestId = row.Field<int>("delivery_request_id").ToString();
@@ -52,11 +53,11 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.Repository
                 ? null
                 : row.Field<DateTime?>("delivered_on");
             var courierIds = DeliveryCourierRepository.FindByDeliveryId(id).ToList();
-            return new Entity.Delivery(id, deliveryRequestId, createdOn, scheduledOn, deliveryStatus, 
+            return new Delivery(id, deliveryRequestId, createdOn, scheduledOn, deliveryStatus,
                 dispatchedOn, deliveredOn, courierIds);
         }
 
-        public static void InsertOrUpdate(Entity.Delivery delivery)
+        public static void InsertOrUpdate(Delivery delivery)
         {
             var command = new MySqlCommand(
                 @"insert into delivery (id, delivery_request_id, created_on, scheduled_on, delivery_status_id, 
@@ -84,7 +85,8 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.Repository
             var dataTable = DataTableRepository.RetrieveDataTable(new MySqlCommand(
                 @"select max(id) + 1 as id from delivery;"));
             return dataTable.Rows[0]["id"] == DBNull.Value
-                ? "1" : dataTable.Rows[0].Field<long>("id").ToString();
+                ? "1"
+                : dataTable.Rows[0].Field<long>("id").ToString();
         }
     }
 }

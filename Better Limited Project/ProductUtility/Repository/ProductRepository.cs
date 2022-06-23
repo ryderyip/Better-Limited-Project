@@ -20,7 +20,7 @@ namespace Better_Limited_Project.ProductUtility.Repository
 
             return from DataRow row in dataTable.Rows select ConvertToProduct(row);
         }
-        
+
         private static Product ConvertToProduct(DataRow row)
         {
             var id = row.Field<int>("id").ToString();
@@ -36,7 +36,8 @@ namespace Better_Limited_Project.ProductUtility.Repository
 
         public static void InsertOrUpdate(Product product)
         {
-            var command = new MySqlCommand(@"insert into product (id, name, price, description, is_phasing_out, category_id, supplier_id)
+            var command = new MySqlCommand(
+                @"insert into product (id, name, price, description, is_phasing_out, category_id, supplier_id)
                 values (@id, @name, @price, @description, @isPhasingOut, @categoryId, @supplierId)
                 on duplicate key update name = @name, price = @price, description = @description, 
                     is_phasing_out = @isPhasingOut,

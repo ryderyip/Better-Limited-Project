@@ -11,7 +11,6 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 {
     public partial class ProductDetailsForm : Form
     {
-        public event EventHandler? ProductUpdated;
         private IStock _stock;
 
         public ProductDetailsForm(IStock selectedProductStock)
@@ -20,6 +19,8 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             _stock = selectedProductStock;
             InitializeComponent();
         }
+
+        public event EventHandler? ProductUpdated;
 
         private void OnShown(object sender, EventArgs e)
         {

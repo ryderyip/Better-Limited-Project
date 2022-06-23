@@ -20,7 +20,7 @@ namespace Better_Limited_Project.ProductUtility.InwardGoodsUtility.Repository
             command.Parameters.AddWithValue("@quantity", inwardGoodsProduct.Quantity);
             DataTableRepository.ExecuteNonQuery(command);
         }
-        
+
         public static IEnumerable<InwardGoodsProduct> GetByInwardGoodsId(string inwardGoodsId)
         {
             var command = new MySqlCommand(
@@ -34,7 +34,7 @@ namespace Better_Limited_Project.ProductUtility.InwardGoodsUtility.Repository
         private static InwardGoodsProduct ConvertToInwardGoodsProduct(string inwardGoodsId, DataRow row)
         {
             string productId = row.Field<int>("product_id").ToString();
-            int quantity = row.Field<int>("quantity");
+            var quantity = row.Field<int>("quantity");
             return new InwardGoodsProduct(inwardGoodsId, productId, quantity);
         }
     }

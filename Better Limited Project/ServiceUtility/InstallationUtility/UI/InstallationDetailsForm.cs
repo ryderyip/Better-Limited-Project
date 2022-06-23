@@ -9,7 +9,6 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
 {
     public partial class InstallationDetailsForm : Form
     {
-        public event EventHandler? InfoUpdated;
         private readonly Installation _installation;
 
         public InstallationDetailsForm(Installation installation)
@@ -20,17 +19,19 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
             Load += (_, _) => Initialize();
         }
 
+        public event EventHandler? InfoUpdated;
+
         private void Initialize()
         {
             dgvInstallationProduct.Rows.Clear();
             dgvTechnicians.Rows.Clear();
-            
+
             if (_installation.IsInstalled())
                 btnSetAsInstalled.Visible = false;
             foreach (var installationRequestProduct in _installation.InstallationRequest.ProductsToInstall)
                 dgvInstallationProduct.Rows.Add(installationRequestProduct.Product.Name,
                     installationRequestProduct.Quantity);
-            
+
             tbScheduledOn.Text = _installation.ScheduledOn.ToString("f");
             tbInstalledOn.Text = _installation.InstalledOn?.ToString("f") ?? "-";
 
@@ -46,7 +47,8 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
 
         private void btnSetAsInstalled_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("Confirm setting this installation as installed?", "Confirmation", MessageBoxButtons.YesNo);
+            var result = MessageBox.Show("Confirm setting this installation as installed?", "Confirmation",
+                MessageBoxButtons.YesNo);
             if (result is not DialogResult.Yes)
                 return;
             _installation.InstalledOn = DateTime.Now;

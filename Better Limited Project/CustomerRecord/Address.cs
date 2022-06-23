@@ -1,6 +1,6 @@
 ﻿namespace Better_Limited_Project.CustomerRecord
 {
-    public class Address 
+    public class Address
     {
         public Address(string address1, string address2)
         {
@@ -17,7 +17,7 @@
             new AddressRepository().Insert(this);
         }
 
-        public void  Remove()
+        public void Remove()
         {
             new AddressRepository().Remove(this);
         }

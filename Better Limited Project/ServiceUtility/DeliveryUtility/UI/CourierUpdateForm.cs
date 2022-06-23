@@ -1,5 +1,5 @@
-﻿using System.Windows.Forms;
-using Better_Limited_Project.CustomerRecord;
+﻿using System;
+using System.Windows.Forms;
 using Better_Limited_Project.ServiceUtility.DeliveryUtility.Entity;
 using Better_Limited_Project.StaffUtility.StaffEntity.Gender;
 using Better_Limited_Project.Tools;
@@ -33,23 +33,23 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
                 rbGenderMale.Checked = true;
         }
 
-        private void btnUpdate_Click(object sender, System.EventArgs e)
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
             string name = tbNewName.Text.Trim();
             string phone = tbNewPhoneNumber.Text.Trim();
 
             if (!IsAllFieldsFilled(name, phone))
             {
-                MessageBox.Show(CreateCustomerRecordForm.hasUnfilledRequiredFieldsMessage);
+                MessageBox.Show("Please enter all required fields");
                 return;
             }
 
             if (!CommonInformationVerifier.IsValidPhoneNumber(phone))
             {
-                MessageBox.Show(CreateCustomerRecordForm.invalidPhoneNumberMessage);
+                MessageBox.Show("Invalid phone number. Please enter an 8-digit Hong Kong phone number. E.g. 12345678.");
                 return;
             }
-            
+
             var gender = GetSelectedGender();
             _courier.Name = name;
             _courier.Phone = phone;
@@ -57,14 +57,14 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
             _courier.Save();
             DialogResult = DialogResult.OK;
         }
-        
+
         private Gender GetSelectedGender()
         {
             return rbGenderMale.Checked ? Gender.Male
                 : rbGenderFemale.Checked ? Gender.Female
                 : Gender.NonBinary;
         }
-        
+
         private bool IsAllFieldsFilled(string name, string phone)
         {
             return !string.IsNullOrWhiteSpace(name)

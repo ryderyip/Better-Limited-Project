@@ -1,578 +1,584 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
-    Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
-    associated with the data types.
-    
-    Example:
-    
-    ... ado.net/XML headers & schema ...
-    <resheader name="resmimetype">text/microsoft-resx</resheader>
-    <resheader name="version">2.0</resheader>
-    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    <!-- 
+      Microsoft ResX Schema 
+      
+      Version 2.0
+      
+      The primary goals of this format is to allow a simple XML format 
+      that is mostly human readable. The generation and parsing of the 
+      various data types are done through the TypeConverter classes 
+      associated with the data types.
+      
+      Example:
+      
+      ... ado.net/XML headers & schema ...
+      <resheader name="resmimetype">text/microsoft-resx</resheader>
+      <resheader name="version">2.0</resheader>
+      <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+      <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+      <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+      <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+      <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+          <value>[base64 mime encoded serialized .NET Framework object]</value>
+      </data>
+      <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+          <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+          <comment>This is a comment</comment>
+      </data>
+                  
+      There are any number of "resheader" rows that contain simple 
+      name/value pairs.
+      
+      Each data row contains a name, and value. The row also contains a 
+      type or mimetype. Type corresponds to a .NET class that support 
+      text/value conversion through the TypeConverter architecture. 
+      Classes that don't support this are serialized and stored with the 
+      mimetype set.
+      
+      The mimetype is used for serialized objects, and tells the 
+      ResXResourceReader how to depersist the object. This is currently not 
+      extensible. For a given mimetype the value must be set accordingly:
+      
+      Note - application/x-microsoft.net.object.binary.base64 is the format 
+      that the ResXResourceWriter will generate, however the reader can 
+      read any of the formats listed below.
+      
+      mimetype: application/x-microsoft.net.object.binary.base64
+      value   : The object must be serialized with 
+              : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+              : and then encoded with base64 encoding.
+      
+      mimetype: application/x-microsoft.net.object.soap.base64
+      value   : The object must be serialized with 
+              : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+              : and then encoded with base64 encoding.
+  
+      mimetype: application/x-microsoft.net.object.bytearray.base64
+      value   : The object must be serialized into a byte array 
+              : using a System.ComponentModel.TypeConverter
+              : and then encoded with base64 encoding.
+      -->
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root"
+                xmlns="">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+        <xsd:element name="root" msdata:IsDataSet="true">
+            <xsd:complexType>
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string"/>
+                            <xsd:attribute name="type" type="xsd:string"/>
+                            <xsd:attribute name="mimetype" type="xsd:string"/>
+                            <xsd:attribute ref="xml:space"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string"/>
+                            <xsd:attribute name="name" type="xsd:string"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+                            <xsd:attribute ref="xml:space"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
+            </xsd:complexType>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+    </resheader>
+    <assembly alias="System.Drawing"
+              name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"/>
+    <data name="btnUpdateProductInfo.Font" type="System.Drawing.Font, System.Drawing">
+        <value>Microsoft Sans Serif, 12pt, style=Bold</value>
     </data>
-    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
-        <comment>This is a comment</comment>
+    <data name="btnUpdateProductInfo.Location" type="System.Drawing.Point, System.Drawing">
+        <value>392, 403</value>
     </data>
-                
-    There are any number of "resheader" rows that contain simple 
-    name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
-    mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
-    extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
-    read any of the formats listed below.
-    
-    mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
-            : and then encoded with base64 encoding.
-    
-    mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-            : and then encoded with base64 encoding.
-
-    mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
-            : using a System.ComponentModel.TypeConverter
-            : and then encoded with base64 encoding.
-    -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnUpdateProductInfo.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
-  </data>
-  <data name="btnUpdateProductInfo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>392, 403</value>
-  </data>
-  <data name="btnUpdateProductInfo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 54</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnUpdateProductInfo.TabIndex" type="System.Int32, mscorlib">
-    <value>58</value>
-  </data>
-  <data name="btnUpdateProductInfo.Text" xml:space="preserve">
+    <data name="btnUpdateProductInfo.Size" type="System.Drawing.Size, System.Drawing">
+        <value>200, 54</value>
+    </data>
+    <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"/>
+    <data name="btnUpdateProductInfo.TabIndex" type="System.Int32, mscorlib">
+        <value>58</value>
+    </data>
+    <data name="btnUpdateProductInfo.Text" xml:space="preserve">
     <value>更新產品信息</value>
   </data>
-  <data name="lblSellingPrice.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblSellingPrice.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt</value>
-  </data>
-  <data name="lblSellingPrice.Location" type="System.Drawing.Point, System.Drawing">
-    <value>58, 352</value>
-  </data>
-  <data name="lblSellingPrice.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 15</value>
-  </data>
-  <data name="lblSellingPrice.TabIndex" type="System.Int32, mscorlib">
-    <value>49</value>
-  </data>
-  <data name="lblSellingPrice.Text" xml:space="preserve">
+    <data name="lblSellingPrice.AutoSize" type="System.Boolean, mscorlib">
+        <value>True</value>
+    </data>
+    <data name="lblSellingPrice.Font" type="System.Drawing.Font, System.Drawing">
+        <value>Microsoft Sans Serif, 9pt</value>
+    </data>
+    <data name="lblSellingPrice.Location" type="System.Drawing.Point, System.Drawing">
+        <value>58, 352</value>
+    </data>
+    <data name="lblSellingPrice.Size" type="System.Drawing.Size, System.Drawing">
+        <value>79, 15</value>
+    </data>
+    <data name="lblSellingPrice.TabIndex" type="System.Int32, mscorlib">
+        <value>49</value>
+    </data>
+    <data name="lblSellingPrice.Text" xml:space="preserve">
     <value>售價:</value>
   </data>
-  <data name="lblOriginalPrice.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblOriginalPrice.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt</value>
-  </data>
-  <data name="lblOriginalPrice.Location" type="System.Drawing.Point, System.Drawing">
-    <value>53, 318</value>
-  </data>
-  <data name="lblOriginalPrice.Size" type="System.Drawing.Size, System.Drawing">
-    <value>84, 15</value>
-  </data>
-  <data name="lblOriginalPrice.TabIndex" type="System.Int32, mscorlib">
-    <value>48</value>
-  </data>
-  <data name="lblOriginalPrice.Text" xml:space="preserve">
+    <data name="lblOriginalPrice.AutoSize" type="System.Boolean, mscorlib">
+        <value>True</value>
+    </data>
+    <data name="lblOriginalPrice.Font" type="System.Drawing.Font, System.Drawing">
+        <value>Microsoft Sans Serif, 9pt</value>
+    </data>
+    <data name="lblOriginalPrice.Location" type="System.Drawing.Point, System.Drawing">
+        <value>53, 318</value>
+    </data>
+    <data name="lblOriginalPrice.Size" type="System.Drawing.Size, System.Drawing">
+        <value>84, 15</value>
+    </data>
+    <data name="lblOriginalPrice.TabIndex" type="System.Int32, mscorlib">
+        <value>48</value>
+    </data>
+    <data name="lblOriginalPrice.Text" xml:space="preserve">
     <value>原價:</value>
   </data>
-  <data name="lblProductInfo.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblProductInfo.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
-  </data>
-  <data name="lblProductInfo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>85, 85</value>
-  </data>
-  <data name="lblProductInfo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>168, 20</value>
-  </data>
-  <data name="lblProductInfo.TabIndex" type="System.Int32, mscorlib">
-    <value>46</value>
-  </data>
-  <data name="lblProductInfo.Text" xml:space="preserve">
+    <data name="lblProductInfo.AutoSize" type="System.Boolean, mscorlib">
+        <value>True</value>
+    </data>
+    <data name="lblProductInfo.Font" type="System.Drawing.Font, System.Drawing">
+        <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+    </data>
+    <data name="lblProductInfo.Location" type="System.Drawing.Point, System.Drawing">
+        <value>85, 85</value>
+    </data>
+    <data name="lblProductInfo.Size" type="System.Drawing.Size, System.Drawing">
+        <value>168, 20</value>
+    </data>
+    <data name="lblProductInfo.TabIndex" type="System.Int32, mscorlib">
+        <value>46</value>
+    </data>
+    <data name="lblProductInfo.Text" xml:space="preserve">
     <value>產品資料</value>
   </data>
-  <data name="tbOriginalPrice.Location" type="System.Drawing.Point, System.Drawing">
-    <value>143, 318</value>
-  </data>
-  <data name="tbOriginalPrice.Size" type="System.Drawing.Size, System.Drawing">
-    <value>139, 20</value>
-  </data>
-  <data name="tbOriginalPrice.TabIndex" type="System.Int32, mscorlib">
-    <value>59</value>
-  </data>
-  <data name="tbSellingPrice.Location" type="System.Drawing.Point, System.Drawing">
-    <value>143, 353</value>
-  </data>
-  <data name="tbSellingPrice.Size" type="System.Drawing.Size, System.Drawing">
-    <value>139, 20</value>
-  </data>
-  <data name="tbSellingPrice.TabIndex" type="System.Int32, mscorlib">
-    <value>60</value>
-  </data>
-  <data name="lblHeader.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblHeader.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 16pt, style=Bold</value>
-  </data>
-  <data name="lblHeader.Location" type="System.Drawing.Point, System.Drawing">
-    <value>290, 24</value>
-  </data>
-  <data name="lblHeader.Size" type="System.Drawing.Size, System.Drawing">
-    <value>221, 26</value>
-  </data>
-  <data name="lblHeader.TabIndex" type="System.Int32, mscorlib">
-    <value>61</value>
-  </data>
-  <data name="lblHeader.Text" xml:space="preserve">
+    <data name="tbOriginalPrice.Location" type="System.Drawing.Point, System.Drawing">
+        <value>143, 318</value>
+    </data>
+    <data name="tbOriginalPrice.Size" type="System.Drawing.Size, System.Drawing">
+        <value>139, 20</value>
+    </data>
+    <data name="tbOriginalPrice.TabIndex" type="System.Int32, mscorlib">
+        <value>59</value>
+    </data>
+    <data name="tbSellingPrice.Location" type="System.Drawing.Point, System.Drawing">
+        <value>143, 353</value>
+    </data>
+    <data name="tbSellingPrice.Size" type="System.Drawing.Size, System.Drawing">
+        <value>139, 20</value>
+    </data>
+    <data name="tbSellingPrice.TabIndex" type="System.Int32, mscorlib">
+        <value>60</value>
+    </data>
+    <data name="lblHeader.AutoSize" type="System.Boolean, mscorlib">
+        <value>True</value>
+    </data>
+    <data name="lblHeader.Font" type="System.Drawing.Font, System.Drawing">
+        <value>Microsoft Sans Serif, 16pt, style=Bold</value>
+    </data>
+    <data name="lblHeader.Location" type="System.Drawing.Point, System.Drawing">
+        <value>290, 24</value>
+    </data>
+    <data name="lblHeader.Size" type="System.Drawing.Size, System.Drawing">
+        <value>221, 26</value>
+    </data>
+    <data name="lblHeader.TabIndex" type="System.Int32, mscorlib">
+        <value>61</value>
+    </data>
+    <data name="lblHeader.Text" xml:space="preserve">
     <value>產品資料</value>
   </data>
-  <data name="lblHeader.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="lblPhasingOut.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblPhasingOut.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt</value>
-  </data>
-  <data name="lblPhasingOut.Location" type="System.Drawing.Point, System.Drawing">
-    <value>58, 198</value>
-  </data>
-  <data name="lblPhasingOut.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 15</value>
-  </data>
-  <data name="lblPhasingOut.TabIndex" type="System.Int32, mscorlib">
-    <value>62</value>
-  </data>
-  <data name="lblPhasingOut.Text" xml:space="preserve">
+    <data name="lblHeader.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+        <value>MiddleCenter</value>
+    </data>
+    <data name="lblPhasingOut.AutoSize" type="System.Boolean, mscorlib">
+        <value>True</value>
+    </data>
+    <data name="lblPhasingOut.Font" type="System.Drawing.Font, System.Drawing">
+        <value>Microsoft Sans Serif, 9pt</value>
+    </data>
+    <data name="lblPhasingOut.Location" type="System.Drawing.Point, System.Drawing">
+        <value>58, 198</value>
+    </data>
+    <data name="lblPhasingOut.Size" type="System.Drawing.Size, System.Drawing">
+        <value>76, 15</value>
+    </data>
+    <data name="lblPhasingOut.TabIndex" type="System.Int32, mscorlib">
+        <value>62</value>
+    </data>
+    <data name="lblPhasingOut.Text" xml:space="preserve">
     <value>淘汰:</value>
   </data>
-  <data name="tbPhasingOut.Location" type="System.Drawing.Point, System.Drawing">
-    <value>143, 198</value>
-  </data>
-  <data name="tbPhasingOut.Size" type="System.Drawing.Size, System.Drawing">
-    <value>139, 20</value>
-  </data>
-  <data name="tbPhasingOut.TabIndex" type="System.Int32, mscorlib">
-    <value>63</value>
-  </data>
-  <data name="tbReorderLevel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>143, 275</value>
-  </data>
-  <data name="tbReorderLevel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>139, 20</value>
-  </data>
-  <data name="tbReorderLevel.TabIndex" type="System.Int32, mscorlib">
-    <value>65</value>
-  </data>
-  <data name="lblReorderLevel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblReorderLevel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt</value>
-  </data>
-  <data name="lblReorderLevel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>50, 274</value>
-  </data>
-  <data name="lblReorderLevel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 15</value>
-  </data>
-  <data name="lblReorderLevel.TabIndex" type="System.Int32, mscorlib">
-    <value>64</value>
-  </data>
-  <data name="lblReorderLevel.Text" xml:space="preserve">
+    <data name="tbPhasingOut.Location" type="System.Drawing.Point, System.Drawing">
+        <value>143, 198</value>
+    </data>
+    <data name="tbPhasingOut.Size" type="System.Drawing.Size, System.Drawing">
+        <value>139, 20</value>
+    </data>
+    <data name="tbPhasingOut.TabIndex" type="System.Int32, mscorlib">
+        <value>63</value>
+    </data>
+    <data name="tbReorderLevel.Location" type="System.Drawing.Point, System.Drawing">
+        <value>143, 275</value>
+    </data>
+    <data name="tbReorderLevel.Size" type="System.Drawing.Size, System.Drawing">
+        <value>139, 20</value>
+    </data>
+    <data name="tbReorderLevel.TabIndex" type="System.Int32, mscorlib">
+        <value>65</value>
+    </data>
+    <data name="lblReorderLevel.AutoSize" type="System.Boolean, mscorlib">
+        <value>True</value>
+    </data>
+    <data name="lblReorderLevel.Font" type="System.Drawing.Font, System.Drawing">
+        <value>Microsoft Sans Serif, 9pt</value>
+    </data>
+    <data name="lblReorderLevel.Location" type="System.Drawing.Point, System.Drawing">
+        <value>50, 274</value>
+    </data>
+    <data name="lblReorderLevel.Size" type="System.Drawing.Size, System.Drawing">
+        <value>87, 15</value>
+    </data>
+    <data name="lblReorderLevel.TabIndex" type="System.Int32, mscorlib">
+        <value>64</value>
+    </data>
+    <data name="lblReorderLevel.Text" xml:space="preserve">
     <value>重訂水平:</value>
   </data>
-  <data name="tbQuantity.Location" type="System.Drawing.Point, System.Drawing">
-    <value>143, 234</value>
-  </data>
-  <data name="tbQuantity.Size" type="System.Drawing.Size, System.Drawing">
-    <value>139, 20</value>
-  </data>
-  <data name="tbQuantity.TabIndex" type="System.Int32, mscorlib">
-    <value>67</value>
-  </data>
-  <data name="lblQuantity.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblQuantity.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt</value>
-  </data>
-  <data name="lblQuantity.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 234</value>
-  </data>
-  <data name="lblQuantity.Size" type="System.Drawing.Size, System.Drawing">
-    <value>113, 15</value>
-  </data>
-  <data name="lblQuantity.TabIndex" type="System.Int32, mscorlib">
-    <value>66</value>
-  </data>
-  <data name="lblQuantity.Text" xml:space="preserve">
+    <data name="tbQuantity.Location" type="System.Drawing.Point, System.Drawing">
+        <value>143, 234</value>
+    </data>
+    <data name="tbQuantity.Size" type="System.Drawing.Size, System.Drawing">
+        <value>139, 20</value>
+    </data>
+    <data name="tbQuantity.TabIndex" type="System.Int32, mscorlib">
+        <value>67</value>
+    </data>
+    <data name="lblQuantity.AutoSize" type="System.Boolean, mscorlib">
+        <value>True</value>
+    </data>
+    <data name="lblQuantity.Font" type="System.Drawing.Font, System.Drawing">
+        <value>Microsoft Sans Serif, 9pt</value>
+    </data>
+    <data name="lblQuantity.Location" type="System.Drawing.Point, System.Drawing">
+        <value>24, 234</value>
+    </data>
+    <data name="lblQuantity.Size" type="System.Drawing.Size, System.Drawing">
+        <value>113, 15</value>
+    </data>
+    <data name="lblQuantity.TabIndex" type="System.Int32, mscorlib">
+        <value>66</value>
+    </data>
+    <data name="lblQuantity.Text" xml:space="preserve">
     <value>存量:</value>
   </data>
-  <data name="tbDescription.Location" type="System.Drawing.Point, System.Drawing">
-    <value>316, 272</value>
-  </data>
-  <data name="tbDescription.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="tbDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>208, 101</value>
-  </data>
-  <data name="tbDescription.TabIndex" type="System.Int32, mscorlib">
-    <value>69</value>
-  </data>
-  <data name="lblDescription.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblDescription.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
-  </data>
-  <data name="lblDescription.Location" type="System.Drawing.Point, System.Drawing">
-    <value>339, 239</value>
-  </data>
-  <data name="lblDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>167, 20</value>
-  </data>
-  <data name="lblDescription.TabIndex" type="System.Int32, mscorlib">
-    <value>70</value>
-  </data>
-  <data name="lblDescription.Text" xml:space="preserve">
+    <data name="tbDescription.Location" type="System.Drawing.Point, System.Drawing">
+        <value>316, 272</value>
+    </data>
+    <data name="tbDescription.Multiline" type="System.Boolean, mscorlib">
+        <value>True</value>
+    </data>
+    <data name="tbDescription.Size" type="System.Drawing.Size, System.Drawing">
+        <value>208, 101</value>
+    </data>
+    <data name="tbDescription.TabIndex" type="System.Int32, mscorlib">
+        <value>69</value>
+    </data>
+    <data name="lblDescription.AutoSize" type="System.Boolean, mscorlib">
+        <value>True</value>
+    </data>
+    <data name="lblDescription.Font" type="System.Drawing.Font, System.Drawing">
+        <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+    </data>
+    <data name="lblDescription.Location" type="System.Drawing.Point, System.Drawing">
+        <value>339, 239</value>
+    </data>
+    <data name="lblDescription.Size" type="System.Drawing.Size, System.Drawing">
+        <value>167, 20</value>
+    </data>
+    <data name="lblDescription.TabIndex" type="System.Int32, mscorlib">
+        <value>70</value>
+    </data>
+    <data name="lblDescription.Text" xml:space="preserve">
     <value>產品描述</value>
   </data>
-  <data name="lblSupplierInFo.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblSupplierInFo.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
-  </data>
-  <data name="lblSupplierInFo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>339, 85</value>
-  </data>
-  <data name="lblSupplierInFo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>172, 20</value>
-  </data>
-  <data name="lblSupplierInFo.TabIndex" type="System.Int32, mscorlib">
-    <value>71</value>
-  </data>
-  <data name="lblSupplierInFo.Text" xml:space="preserve">
+    <data name="lblSupplierInFo.AutoSize" type="System.Boolean, mscorlib">
+        <value>True</value>
+    </data>
+    <data name="lblSupplierInFo.Font" type="System.Drawing.Font, System.Drawing">
+        <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+    </data>
+    <data name="lblSupplierInFo.Location" type="System.Drawing.Point, System.Drawing">
+        <value>339, 85</value>
+    </data>
+    <data name="lblSupplierInFo.Size" type="System.Drawing.Size, System.Drawing">
+        <value>172, 20</value>
+    </data>
+    <data name="lblSupplierInFo.TabIndex" type="System.Int32, mscorlib">
+        <value>71</value>
+    </data>
+    <data name="lblSupplierInFo.Text" xml:space="preserve">
     <value>供貨商資料</value>
   </data>
-  <data name="tbSupplierName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>374, 124</value>
-  </data>
-  <data name="tbSupplierName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 20</value>
-  </data>
-  <data name="tbSupplierName.TabIndex" type="System.Int32, mscorlib">
-    <value>76</value>
-  </data>
-  <data name="lblSupplierName.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblSupplierName.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt</value>
-  </data>
-  <data name="lblSupplierName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>326, 125</value>
-  </data>
-  <data name="lblSupplierName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 15</value>
-  </data>
-  <data name="lblSupplierName.TabIndex" type="System.Int32, mscorlib">
-    <value>73</value>
-  </data>
-  <data name="lblSupplierName.Text" xml:space="preserve">
+    <data name="tbSupplierName.Location" type="System.Drawing.Point, System.Drawing">
+        <value>374, 124</value>
+    </data>
+    <data name="tbSupplierName.Size" type="System.Drawing.Size, System.Drawing">
+        <value>125, 20</value>
+    </data>
+    <data name="tbSupplierName.TabIndex" type="System.Int32, mscorlib">
+        <value>76</value>
+    </data>
+    <data name="lblSupplierName.AutoSize" type="System.Boolean, mscorlib">
+        <value>True</value>
+    </data>
+    <data name="lblSupplierName.Font" type="System.Drawing.Font, System.Drawing">
+        <value>Microsoft Sans Serif, 9pt</value>
+    </data>
+    <data name="lblSupplierName.Location" type="System.Drawing.Point, System.Drawing">
+        <value>326, 125</value>
+    </data>
+    <data name="lblSupplierName.Size" type="System.Drawing.Size, System.Drawing">
+        <value>44, 15</value>
+    </data>
+    <data name="lblSupplierName.TabIndex" type="System.Int32, mscorlib">
+        <value>73</value>
+    </data>
+    <data name="lblSupplierName.Text" xml:space="preserve">
     <value>名稱:</value>
   </data>
-  <data name="lblSupplierEmail.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblSupplierEmail.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt</value>
-  </data>
-  <data name="lblSupplierEmail.Location" type="System.Drawing.Point, System.Drawing">
-    <value>326, 198</value>
-  </data>
-  <data name="lblSupplierEmail.Size" type="System.Drawing.Size, System.Drawing">
-    <value>42, 15</value>
-  </data>
-  <data name="lblSupplierEmail.TabIndex" type="System.Int32, mscorlib">
-    <value>78</value>
-  </data>
-  <data name="lblSupplierEmail.Text" xml:space="preserve">
+    <data name="lblSupplierEmail.AutoSize" type="System.Boolean, mscorlib">
+        <value>True</value>
+    </data>
+    <data name="lblSupplierEmail.Font" type="System.Drawing.Font, System.Drawing">
+        <value>Microsoft Sans Serif, 9pt</value>
+    </data>
+    <data name="lblSupplierEmail.Location" type="System.Drawing.Point, System.Drawing">
+        <value>326, 198</value>
+    </data>
+    <data name="lblSupplierEmail.Size" type="System.Drawing.Size, System.Drawing">
+        <value>42, 15</value>
+    </data>
+    <data name="lblSupplierEmail.TabIndex" type="System.Int32, mscorlib">
+        <value>78</value>
+    </data>
+    <data name="lblSupplierEmail.Text" xml:space="preserve">
     <value>電郵地址:</value>
   </data>
-  <data name="lblSupplierPhone.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblSupplierPhone.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt</value>
-  </data>
-  <data name="lblSupplierPhone.Location" type="System.Drawing.Point, System.Drawing">
-    <value>322, 162</value>
-  </data>
-  <data name="lblSupplierPhone.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 15</value>
-  </data>
-  <data name="lblSupplierPhone.TabIndex" type="System.Int32, mscorlib">
-    <value>80</value>
-  </data>
-  <data name="lblSupplierPhone.Text" xml:space="preserve">
+    <data name="lblSupplierPhone.AutoSize" type="System.Boolean, mscorlib">
+        <value>True</value>
+    </data>
+    <data name="lblSupplierPhone.Font" type="System.Drawing.Font, System.Drawing">
+        <value>Microsoft Sans Serif, 9pt</value>
+    </data>
+    <data name="lblSupplierPhone.Location" type="System.Drawing.Point, System.Drawing">
+        <value>322, 162</value>
+    </data>
+    <data name="lblSupplierPhone.Size" type="System.Drawing.Size, System.Drawing">
+        <value>46, 15</value>
+    </data>
+    <data name="lblSupplierPhone.TabIndex" type="System.Int32, mscorlib">
+        <value>80</value>
+    </data>
+    <data name="lblSupplierPhone.Text" xml:space="preserve">
     <value>電話號碼:</value>
   </data>
-  <data name="tbSupplierPhone.Location" type="System.Drawing.Point, System.Drawing">
-    <value>374, 161</value>
-  </data>
-  <data name="tbSupplierPhone.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 20</value>
-  </data>
-  <data name="tbSupplierPhone.TabIndex" type="System.Int32, mscorlib">
-    <value>81</value>
-  </data>
-  <data name="tbSupplierEmail.Location" type="System.Drawing.Point, System.Drawing">
-    <value>374, 197</value>
-  </data>
-  <data name="tbSupplierEmail.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 20</value>
-  </data>
-  <data name="tbSupplierEmail.TabIndex" type="System.Int32, mscorlib">
-    <value>82</value>
-  </data>
-  <data name="btnRemoveProduct.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
-  </data>
-  <data name="btnRemoveProduct.Location" type="System.Drawing.Point, System.Drawing">
-    <value>42, 403</value>
-  </data>
-  <data name="btnRemoveProduct.Size" type="System.Drawing.Size, System.Drawing">
-    <value>167, 54</value>
-  </data>
-  <data name="btnRemoveProduct.TabIndex" type="System.Int32, mscorlib">
-    <value>83</value>
-  </data>
-  <data name="btnRemoveProduct.Text" xml:space="preserve">
+    <data name="tbSupplierPhone.Location" type="System.Drawing.Point, System.Drawing">
+        <value>374, 161</value>
+    </data>
+    <data name="tbSupplierPhone.Size" type="System.Drawing.Size, System.Drawing">
+        <value>125, 20</value>
+    </data>
+    <data name="tbSupplierPhone.TabIndex" type="System.Int32, mscorlib">
+        <value>81</value>
+    </data>
+    <data name="tbSupplierEmail.Location" type="System.Drawing.Point, System.Drawing">
+        <value>374, 197</value>
+    </data>
+    <data name="tbSupplierEmail.Size" type="System.Drawing.Size, System.Drawing">
+        <value>125, 20</value>
+    </data>
+    <data name="tbSupplierEmail.TabIndex" type="System.Int32, mscorlib">
+        <value>82</value>
+    </data>
+    <data name="btnRemoveProduct.Font" type="System.Drawing.Font, System.Drawing">
+        <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+    </data>
+    <data name="btnRemoveProduct.Location" type="System.Drawing.Point, System.Drawing">
+        <value>42, 403</value>
+    </data>
+    <data name="btnRemoveProduct.Size" type="System.Drawing.Size, System.Drawing">
+        <value>167, 54</value>
+    </data>
+    <data name="btnRemoveProduct.TabIndex" type="System.Int32, mscorlib">
+        <value>83</value>
+    </data>
+    <data name="btnRemoveProduct.Text" xml:space="preserve">
     <value>刪除產品</value>
   </data>
-  <data name="btnEditDescription.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
-  </data>
-  <data name="btnEditDescription.Location" type="System.Drawing.Point, System.Drawing">
-    <value>234, 403</value>
-  </data>
-  <data name="btnEditDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 54</value>
-  </data>
-  <data name="btnEditDescription.TabIndex" type="System.Int32, mscorlib">
-    <value>110</value>
-  </data>
-  <data name="btnEditDescription.Text" xml:space="preserve">
+    <data name="btnEditDescription.Font" type="System.Drawing.Font, System.Drawing">
+        <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+    </data>
+    <data name="btnEditDescription.Location" type="System.Drawing.Point, System.Drawing">
+        <value>234, 403</value>
+    </data>
+    <data name="btnEditDescription.Size" type="System.Drawing.Size, System.Drawing">
+        <value>133, 54</value>
+    </data>
+    <data name="btnEditDescription.TabIndex" type="System.Int32, mscorlib">
+        <value>110</value>
+    </data>
+    <data name="btnEditDescription.Text" xml:space="preserve">
     <value>編輯產品描述</value>
   </data>
-  <data name="tbName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>143, 123</value>
-  </data>
-  <data name="tbName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>139, 20</value>
-  </data>
-  <data name="tbName.TabIndex" type="System.Int32, mscorlib">
-    <value>112</value>
-  </data>
-  <data name="lblName.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblName.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt</value>
-  </data>
-  <data name="lblName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>90, 124</value>
-  </data>
-  <data name="lblName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 15</value>
-  </data>
-  <data name="lblName.TabIndex" type="System.Int32, mscorlib">
-    <value>111</value>
-  </data>
-  <data name="lblName.Text" xml:space="preserve">
+    <data name="tbName.Location" type="System.Drawing.Point, System.Drawing">
+        <value>143, 123</value>
+    </data>
+    <data name="tbName.Size" type="System.Drawing.Size, System.Drawing">
+        <value>139, 20</value>
+    </data>
+    <data name="tbName.TabIndex" type="System.Int32, mscorlib">
+        <value>112</value>
+    </data>
+    <data name="lblName.AutoSize" type="System.Boolean, mscorlib">
+        <value>True</value>
+    </data>
+    <data name="lblName.Font" type="System.Drawing.Font, System.Drawing">
+        <value>Microsoft Sans Serif, 9pt</value>
+    </data>
+    <data name="lblName.Location" type="System.Drawing.Point, System.Drawing">
+        <value>90, 124</value>
+    </data>
+    <data name="lblName.Size" type="System.Drawing.Size, System.Drawing">
+        <value>44, 15</value>
+    </data>
+    <data name="lblName.TabIndex" type="System.Int32, mscorlib">
+        <value>111</value>
+    </data>
+    <data name="lblName.Text" xml:space="preserve">
     <value>姓名:</value>
   </data>
-  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>607, 85</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 20</value>
-  </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>114</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
+    <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+        <value>True</value>
+    </data>
+    <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
+        <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+    </data>
+    <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+        <value>607, 85</value>
+    </data>
+    <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+        <value>126, 20</value>
+    </data>
+    <data name="label1.TabIndex" type="System.Int32, mscorlib">
+        <value>114</value>
+    </data>
+    <data name="label1.Text" xml:space="preserve">
     <value>產品圖片</value>
   </data>
-  <data name="btnUpdateImage.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
-  </data>
-  <data name="btnUpdateImage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>617, 403</value>
-  </data>
-  <data name="btnUpdateImage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>156, 54</value>
-  </data>
-  <data name="btnUpdateImage.TabIndex" type="System.Int32, mscorlib">
-    <value>169</value>
-  </data>
-  <data name="btnUpdateImage.Text" xml:space="preserve">
+    <data name="btnUpdateImage.Font" type="System.Drawing.Font, System.Drawing">
+        <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+    </data>
+    <data name="btnUpdateImage.Location" type="System.Drawing.Point, System.Drawing">
+        <value>617, 403</value>
+    </data>
+    <data name="btnUpdateImage.Size" type="System.Drawing.Size, System.Drawing">
+        <value>156, 54</value>
+    </data>
+    <data name="btnUpdateImage.TabIndex" type="System.Int32, mscorlib">
+        <value>169</value>
+    </data>
+    <data name="btnUpdateImage.Text" xml:space="preserve">
     <value>上傳圖片</value>
   </data>
-  <data name="tbCategory.Location" type="System.Drawing.Point, System.Drawing">
-    <value>143, 161</value>
-  </data>
-  <data name="tbCategory.Size" type="System.Drawing.Size, System.Drawing">
-    <value>139, 20</value>
-  </data>
-  <data name="tbCategory.TabIndex" type="System.Int32, mscorlib">
-    <value>171</value>
-  </data>
-  <data name="lblCategory.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblCategory.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt</value>
-  </data>
-  <data name="lblCategory.Location" type="System.Drawing.Point, System.Drawing">
-    <value>76, 162</value>
-  </data>
-  <data name="lblCategory.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 15</value>
-  </data>
-  <data name="lblCategory.TabIndex" type="System.Int32, mscorlib">
-    <value>170</value>
-  </data>
-  <data name="lblCategory.Text" xml:space="preserve">
+    <data name="tbCategory.Location" type="System.Drawing.Point, System.Drawing">
+        <value>143, 161</value>
+    </data>
+    <data name="tbCategory.Size" type="System.Drawing.Size, System.Drawing">
+        <value>139, 20</value>
+    </data>
+    <data name="tbCategory.TabIndex" type="System.Int32, mscorlib">
+        <value>171</value>
+    </data>
+    <data name="lblCategory.AutoSize" type="System.Boolean, mscorlib">
+        <value>True</value>
+    </data>
+    <data name="lblCategory.Font" type="System.Drawing.Font, System.Drawing">
+        <value>Microsoft Sans Serif, 9pt</value>
+    </data>
+    <data name="lblCategory.Location" type="System.Drawing.Point, System.Drawing">
+        <value>76, 162</value>
+    </data>
+    <data name="lblCategory.Size" type="System.Drawing.Size, System.Drawing">
+        <value>58, 15</value>
+    </data>
+    <data name="lblCategory.TabIndex" type="System.Int32, mscorlib">
+        <value>170</value>
+    </data>
+    <data name="lblCategory.Text" xml:space="preserve">
     <value>類別:</value>
   </data>
-  <data name="pbImage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>561, 123</value>
-  </data>
-  <data name="pbImage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>214, 250</value>
-  </data>
-  <data name="pbImage.TabIndex" type="System.Int32, mscorlib">
-    <value>113</value>
-  </data>
-  <data name="$this.Language" type="System.Globalization.CultureInfo, mscorlib">
-    <value>zh-Hans-HK</value>
-  </data>
-  <data name="$this.Localizable" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>800, 481</value>
-  </data>
+    <data name="pbImage.Location" type="System.Drawing.Point, System.Drawing">
+        <value>561, 123</value>
+    </data>
+    <data name="pbImage.Size" type="System.Drawing.Size, System.Drawing">
+        <value>214, 250</value>
+    </data>
+    <data name="pbImage.TabIndex" type="System.Int32, mscorlib">
+        <value>113</value>
+    </data>
+    <data name="$this.Language" type="System.Globalization.CultureInfo, mscorlib">
+        <value>zh-Hans-HK</value>
+    </data>
+    <data name="$this.Localizable" type="System.Boolean, mscorlib">
+        <value>True</value>
+    </data>
+    <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+        <value>6, 13</value>
+    </data>
+    <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+        <value>800, 481</value>
+    </data>
 </root>

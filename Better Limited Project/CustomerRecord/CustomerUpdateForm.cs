@@ -6,7 +6,6 @@ namespace Better_Limited_Project.CustomerRecord
 {
     public partial class CustomerUpdateForm : Form
     {
-        public event EventHandler? Updated;
         private readonly Customer _customer;
 
         public CustomerUpdateForm(Customer customer)
@@ -16,6 +15,8 @@ namespace Better_Limited_Project.CustomerRecord
             Shown += (_, _) => FillFields();
         }
 
+        public event EventHandler? Updated;
+
         private void FillFields()
         {
             tbname.Text = _customer.Name;
@@ -23,7 +24,7 @@ namespace Better_Limited_Project.CustomerRecord
             tbEmailAddress.Text = _customer.Email ?? "-";
             tbAddress1.Text = _customer.Address.Address1;
             tbAddress2.Text = _customer.Address.Address2;
-            
+
             tbNewName.Text = _customer.Name;
             tbNewPhone.Text = _customer.Phone;
             tbNewEmail.Text = _customer.Email ?? string.Empty;
@@ -33,7 +34,7 @@ namespace Better_Limited_Project.CustomerRecord
 
         private void btnUpdateInfo_Click(object sender, EventArgs e)
         {
-            bool allInformationValid = VerifyFieldsAndDisplayMessage();
+            var allInformationValid = VerifyFieldsAndDisplayMessage();
             if (!allInformationValid)
                 return;
 
@@ -51,26 +52,26 @@ namespace Better_Limited_Project.CustomerRecord
         {
             if (!IsAllFieldsFilledExceptEmail())
             {
-                MessageBox.Show(hasUnfilledRequiredFields);
+                MessageBox.Show("Please enter all required fields");
                 return false;
             }
-            
+
             if (!CommonInformationVerifier.IsValidPhoneNumber(tbNewPhone.Text))
             {
-                MessageBox.Show(invalidPhoneNumberMessage);
+                MessageBox.Show("Invalid phone number. Please enter an 8-digit Hong Kong phone number. E.g. 12345678.");
                 return false;
             }
 
             if (!string.IsNullOrWhiteSpace(tbNewEmail.Text)
                 && !CommonInformationVerifier.IsValidEmailAddress(tbNewEmail.Text))
             {
-                MessageBox.Show(invalidEmailAddressMessage);
+                MessageBox.Show("Invalid email address. Please enter a valid email address or leave it blank.");
                 return false;
             }
 
             return true;
         }
-        
+
         private bool IsAllFieldsFilledExceptEmail()
         {
             return !string.IsNullOrWhiteSpace(tbNewName.Text)

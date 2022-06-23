@@ -8,10 +8,9 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
 {
     public class Cart
     {
-        private readonly string _retailStoreId;
-        public event EventHandler? Updated;
         private readonly List<CartItem> _cartItems = new();
         private readonly List<CartItem> _depositCardItems = new();
+        private readonly string _retailStoreId;
         private List<RetailStoreStock> _stocks;
 
         public Cart(string retailStoreId)
@@ -19,6 +18,8 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
             _retailStoreId = retailStoreId;
             _stocks = GetStocks();
         }
+
+        public event EventHandler? Updated;
 
         public void Add(Product product)
         {
@@ -39,8 +40,10 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
                 }
             }
             else if (stock.SellingPrice >= Product.DepositThreshold)
+            {
                 AddToDepositCart(product, stock);
-            
+            }
+
             Updated?.Invoke(this, EventArgs.Empty);
         }
 

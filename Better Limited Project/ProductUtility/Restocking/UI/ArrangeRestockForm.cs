@@ -77,7 +77,7 @@ namespace Better_Limited_Project.ProductUtility.Restocking.UI
                 string retailStoreName = row.Cells[retailStoreNameColumn.Name].Value.ToString();
                 foreach (var requestedProduct in restockRequest.RequestedProducts)
                 {
-                    int rowIndex = dgvGoodsToDeliver.Rows.Add(retailStoreName,
+                    var rowIndex = dgvGoodsToDeliver.Rows.Add(retailStoreName,
                         requestedProduct.Product.Name, requestedProduct.Quantity);
                     dgvGoodsToDeliver.Rows[rowIndex].Selected = true;
                 }
@@ -127,8 +127,8 @@ namespace Better_Limited_Project.ProductUtility.Restocking.UI
 
         private IEnumerable<RestockRequest> GetSelectedRestockRequests()
         {
-            return from DataGridViewRow row 
-                in dgvRestockRequests.Rows 
+            return from DataGridViewRow row
+                    in dgvRestockRequests.Rows
                 select RestockRequestRepository.FindById(row.Cells[restockRequestIdColumn.Name].Value.ToString());
         }
     }

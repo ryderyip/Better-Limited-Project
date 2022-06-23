@@ -21,7 +21,7 @@ namespace Better_Limited_Project.ProductUtility.InwardGoodsUtility.Controller
         {
             if (!_inwardGoodsProducts.Any())
                 throw new InvalidOperationException("You can't create an inward goods record with no product.");
-            
+
             _inwardGoods.Save();
             _inwardGoodsProducts.ForEach(igp => igp.Save());
             ReorderStockUpdateService.Receive(_inwardGoods);

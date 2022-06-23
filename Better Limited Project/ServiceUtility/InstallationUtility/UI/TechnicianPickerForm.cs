@@ -9,19 +9,20 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
 {
     public partial class TechnicianPickerForm : Form
     {
-        public List<Technician> SelectedTechnicians { get; }
         private readonly List<Technician> _technicians;
 
         public TechnicianPickerForm(IEnumerable<Technician>? preselectedTechnicians = null)
         {
             _technicians = TechnicianRepository.GetAll().ToList();
             StartPosition = FormStartPosition.CenterScreen;
-            SelectedTechnicians = preselectedTechnicians != null 
+            SelectedTechnicians = preselectedTechnicians != null
                 ? preselectedTechnicians.ToList()
                 : new List<Technician>();
             InitializeComponent();
             Load += (_, _) => Initialize();
         }
+
+        public List<Technician> SelectedTechnicians { get; }
 
         private void Initialize()
         {

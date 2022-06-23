@@ -16,14 +16,15 @@ namespace Better_Limited_Project.Navigation.UI
     public partial class InventoryClerkNavigationForm : Form, INavigationForm
     {
         private readonly FormController _formController;
-        public event INavigationForm.LogOutClickedEventHandler? LogOutClicked;
-        
+
         public InventoryClerkNavigationForm(FormController formController)
         {
             _formController = formController;
             Shown += (_, _) => btnProfile.Text = LoginSession.GetSession().CurrentStaff.Name;
             InitializeComponent();
         }
+
+        public event INavigationForm.LogOutClickedEventHandler? LogOutClicked;
 
         private void btnProfile_Click(object sender, EventArgs e)
         {
@@ -51,6 +52,7 @@ namespace Better_Limited_Project.Navigation.UI
                 MessageBox.Show(NavigationForms.noSelectedWarehouseMessage);
                 return;
             }
+
             var form = new InwardGoodsRecordListForm();
             _formController.OpenContentForm(form);
         }
@@ -86,6 +88,7 @@ namespace Better_Limited_Project.Navigation.UI
                 MessageBox.Show(NavigationForms.noSelectedWarehouseMessage);
                 return;
             }
+
             var form = new ProductListForm();
             _formController.OpenContentForm(form);
         }

@@ -9,8 +9,6 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
 {
     public partial class CourierDetailsForm : Form
     {
-        public event EventHandler? CourierUpdated;
-        
         private Courier _courier;
 
         public CourierDetailsForm(Courier courier)
@@ -19,6 +17,8 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
             InitializeComponent();
             Shown += (_, _) => FillFields();
         }
+
+        public event EventHandler? CourierUpdated;
 
         private void FillFields()
         {

@@ -20,7 +20,7 @@ namespace Better_Limited_Project.StaffUtility.Repository
             var bytes = dataTable.Rows[0].Field<byte[]>("image");
             return new ImageConverter().ConvertFrom(bytes) as Image;
         }
-        
+
         public static void InsertOrUpdate(Staff staff, Image image)
         {
             var command = new MySqlCommand(

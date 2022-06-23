@@ -36,9 +36,9 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
         {
             string salesOrderId = row.Field<int>("sales_order_id").ToString();
             string productId = row.Field<int>("product_id").ToString();
-            decimal price = row.Field<decimal>("price");
-            int quantity = row.Field<int>("quantity");
-            bool isOutOfStock = row.Field<bool>("is_out_of_stock");
+            var price = row.Field<decimal>("price");
+            var quantity = row.Field<int>("quantity");
+            var isOutOfStock = row.Field<bool>("is_out_of_stock");
             return new SalesOrderProduct(salesOrderId, productId, price, quantity, isOutOfStock);
         }
 

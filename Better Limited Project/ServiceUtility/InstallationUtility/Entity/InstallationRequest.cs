@@ -30,10 +30,13 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.Entity
         public DateTime? ArrangedOn { get; set; }
         public string? ArrangedByStaffId { get; set; }
         public SalesOrder SalesOrder => new SalesOrderRepository().FindById(SalesOrderId);
-        public Staff? ArrangedByStaff => ArrangedByStaffId != null 
-            ? new StaffRepository().FindById(ArrangedByStaffId) : null;
 
-        public IEnumerable<InstallationRequestProduct> ProductsToInstall => InstallationRequestProductRepository.FindByRequestId(Id);
+        public Staff? ArrangedByStaff => ArrangedByStaffId != null
+            ? new StaffRepository().FindById(ArrangedByStaffId)
+            : null;
+
+        public IEnumerable<InstallationRequestProduct> ProductsToInstall =>
+            InstallationRequestProductRepository.FindByRequestId(Id);
 
         public void Save()
         {

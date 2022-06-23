@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
@@ -11,8 +12,8 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
 {
     public partial class DeliveryRequestListForm : Form
     {
-        private List<DeliveryRequest> _deliveryRequests;
         private readonly List<SalesOrder> _salesOrders;
+        private List<DeliveryRequest> _deliveryRequests;
 
         public DeliveryRequestListForm()
         {
@@ -23,12 +24,12 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
             InitializeComponent();
         }
 
-        private void tbSearchBox_TextChanged(object sender, System.EventArgs e)
+        private void tbSearchBox_TextChanged(object sender, EventArgs e)
         {
             ApplyFilterOnDgv();
         }
-        
-        private void cbShowArrangedRequests_CheckedChanged(object sender, System.EventArgs e)
+
+        private void cbShowArrangedRequests_CheckedChanged(object sender, EventArgs e)
         {
             ApplyFilterOnDgv();
         }
@@ -37,7 +38,7 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
         {
             string searchKeyword = tbSearchBox.Text.ToLower().Trim();
             var requests = _deliveryRequests.Where(dr => _salesOrders.Find(so => so.Id == dr.SalesOrderId)
-                    .OrderNumber.ToLower().Contains(searchKeyword));
+                .OrderNumber.ToLower().Contains(searchKeyword));
             requests = !cbShowArrangedRequests.Checked ? requests.Where(dr => !dr.IsArranged()) : requests;
 
             PopulateDgv(requests);
@@ -49,18 +50,19 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
             foreach (var request in requests)
             {
                 string orderNumber = _salesOrders.Find(so => so.Id == request.SalesOrderId).OrderNumber;
-                dgvDeliveryRequests.Rows.Add(orderNumber, 
+                dgvDeliveryRequests.Rows.Add(orderNumber,
                     request.CreatedOn.ToString("g"),
-                    request.ArrangedOn.HasValue ? 
-                        request.ArrangedOn.Value.ToString("g") : "-",
+                    request.ArrangedOn.HasValue ? request.ArrangedOn.Value.ToString("g") : "-",
                     request.DeliverySession.ToString());
             }
+
             dgvDeliveryRequests.Sort(createdOnColumn, ListSortDirection.Descending);
         }
 
         private void dgvDeliveryRequests_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            string selectedOrderNumber = dgvDeliveryRequests.Rows[e.RowIndex].Cells[orderNumberColumn.Name].Value.ToString();
+            string selectedOrderNumber =
+                dgvDeliveryRequests.Rows[e.RowIndex].Cells[orderNumberColumn.Name].Value.ToString();
             string selectedSalesOrderId = _salesOrders.Find(so => so.OrderNumber == selectedOrderNumber).Id;
             var selectedDeliveryRequest = _deliveryRequests.Find(dr => dr.SalesOrderId == selectedSalesOrderId);
             var form = new DeliveryRequestDetailsForm(selectedDeliveryRequest);

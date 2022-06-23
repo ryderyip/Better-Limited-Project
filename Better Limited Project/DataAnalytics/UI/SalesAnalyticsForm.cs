@@ -63,7 +63,7 @@ namespace Better_Limited_Project.DataAnalytics.UI
             var toDate = dtpSalesDataTo.Value.Date;
             var salesOrders = _salesOrders.Where(so => so.CreatedOn.Date > fromDate && so.CreatedOn.Date < toDate)
                 .ToList();
-            
+
             LoadNoOfSalesGraph(salesOrders);
             LoadRevenueChart();
             LoadSalesByDistrict(salesOrders);
@@ -74,9 +74,9 @@ namespace Better_Limited_Project.DataAnalytics.UI
             chartSalesByDistrict.Series["district"].Points.Clear();
             var kowloonRetailStore = new RetailStoreRepository().GetById("KB01");
             var tsuenWanRetailStore = new RetailStoreRepository().GetById("TW01");
-            int kowloonBayNoOfSales = salesOrders
+            var kowloonBayNoOfSales = salesOrders
                 .Count(so => so.RetailStore.Id == kowloonRetailStore.Id);
-            int tsuenWanNoOfSales = salesOrders
+            var tsuenWanNoOfSales = salesOrders
                 .Count(so => so.RetailStore.Id == tsuenWanRetailStore.Id);
             chartSalesByDistrict.Series["district"].Points.AddXY("Kowloon Bay", kowloonBayNoOfSales);
             chartSalesByDistrict.Series["district"].Points.AddXY("Tsuen Wan", tsuenWanNoOfSales);
@@ -87,13 +87,15 @@ namespace Better_Limited_Project.DataAnalytics.UI
             chartRevenue.Series["revenue"].Points.Clear();
             var fromDate = dtpSalesDataFrom.Value.Date;
             var toDate = dtpSalesDataTo.Value.Date;
-            var payments = PaymentRepository.FindAll(p => p.PaidOn.Date > fromDate.Date && p.PaidOn.Date < toDate.Date).ToList();
+            var payments = PaymentRepository.FindAll(p => p.PaidOn.Date > fromDate.Date && p.PaidOn.Date < toDate.Date)
+                .ToList();
             tbTotalRevenue.Text = payments.Sum(p => p.Amount).ToString("C0", new CultureInfo("zh-HK"));
             var isSameMonth = fromDate.Month == toDate.Month;
             if (isSameMonth)
             {
                 var weekRevenueTuples = payments.GroupBy(p => p.PaidOn.Day / 7 + 1)
-                    .Select(weekRevenue => new Tuple<int, double>(weekRevenue.Key, (double) weekRevenue.Sum(p => p.Amount)));
+                    .Select(weekRevenue =>
+                        new Tuple<int, double>(weekRevenue.Key, (double) weekRevenue.Sum(p => p.Amount)));
                 chartRevenue.Titles[0].Text = "Revenue by Week";
                 foreach (var weekRevenueTuple in weekRevenueTuples)
                     chartRevenue.Series["revenue"].Points.AddXY($"Week {weekRevenueTuple.Item1}",
@@ -102,7 +104,8 @@ namespace Better_Limited_Project.DataAnalytics.UI
             else
             {
                 var monthRevenueTuples = payments.GroupBy(p => p.PaidOn.Month)
-                    .Select(monthRevenue => new Tuple<int, double>(monthRevenue.Key, (double) monthRevenue.Sum(p => p.Amount)))
+                    .Select(monthRevenue =>
+                        new Tuple<int, double>(monthRevenue.Key, (double) monthRevenue.Sum(p => p.Amount)))
                     .OrderBy(monthRevenue => monthRevenue.Item1);
                 chartRevenue.Titles[0].Text = "Revenue by Month";
                 foreach (var monthRevenueTuple in monthRevenueTuples)

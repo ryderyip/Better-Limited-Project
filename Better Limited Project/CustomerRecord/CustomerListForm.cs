@@ -43,8 +43,9 @@ namespace Better_Limited_Project.CustomerRecord
             string searchKeyword = tbSearchBox.Text.ToLower();
             var customers = _customers
                 .Where(customer => customer.Name.ToLower().Contains(searchKeyword)
-                || customer.Phone.Contains(searchKeyword)
-                || customer.Email != null && customer.Email.ToLower().Contains(searchKeyword)).ToList();
+                                   || customer.Phone.Contains(searchKeyword)
+                                   || customer.Email != null && customer.Email.ToLower().Contains(searchKeyword))
+                .ToList();
             LoadCustomerDgv(customers);
         }
 

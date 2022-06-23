@@ -7,14 +7,15 @@ namespace Better_Limited_Project.ProductUtility.SupplierUtility
     public partial class UpdateSupplierForm : Form
     {
         private readonly Supplier _supplier;
-        public event EventHandler? Updated;
-        
+
         public UpdateSupplierForm(Supplier supplier)
         {
             _supplier = supplier;
             InitializeComponent();
             Shown += (_, _) => FillFields();
         }
+
+        public event EventHandler? Updated;
 
         private void FillFields()
         {
@@ -31,19 +32,19 @@ namespace Better_Limited_Project.ProductUtility.SupplierUtility
             string name = tbNewName.Text;
             string phone = tbNewPhone.Text;
             string email = tbNewEmail.Text;
-            
+
             if (!IsAllFieldsFilled())
             {
                 MessageBox.Show(SupplierResource.notAllFieldsFilled);
                 return;
             }
-            
+
             if (!CommonInformationVerifier.IsValidPhoneNumber(phone))
             {
                 MessageBox.Show(string.Format(SupplierResource.phone_number_invalid, phone));
                 return;
             }
-            
+
             if (!CommonInformationVerifier.IsValidEmailAddress(email))
             {
                 MessageBox.Show(string.Format(SupplierResource.email_invalid, email));

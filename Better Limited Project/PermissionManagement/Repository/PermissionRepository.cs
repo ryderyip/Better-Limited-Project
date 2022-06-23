@@ -22,7 +22,7 @@ namespace Better_Limited_Project.PermissionManagement.Repository
 
         public static IPermission FindBy(Permission permission)
         {
-            int id = (int) permission;
+            var id = (int) permission;
             return GetAll().FirstOrDefault(p => p.Id == id.ToString())
                    ?? throw new ArgumentException($"Unknown enumeration \"{nameof(permission)}\".");
         }

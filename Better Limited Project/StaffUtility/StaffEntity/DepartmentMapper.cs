@@ -3,7 +3,7 @@
 namespace Better_Limited_Project.StaffUtility.StaffEntity
 {
     /// <summary>
-    /// Provide functions for mapping department types to or from department names
+    ///     Provide functions for mapping department types to or from department names
     /// </summary>
     public static class DepartmentMapper
     {
@@ -17,38 +17,39 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
 
         private static readonly Dictionary<string, Department> StringToTypeMap = new()
         {
-            { SalesDepartment.ToLower(), Department.Sales },
-            { AccountingDepartment.ToLower(), Department.Accounting },
-            { PurchaseDepartment.ToLower(), Department.Purchase },
-            { InventoryDepartment.ToLower(), Department.Inventory },
-            { TechnicalSupportDepartment.ToLower(), Department.TechnicalSupport },
-            { Admin.ToLower(), Department.Admin }
+            {SalesDepartment.ToLower(), Department.Sales},
+            {AccountingDepartment.ToLower(), Department.Accounting},
+            {PurchaseDepartment.ToLower(), Department.Purchase},
+            {InventoryDepartment.ToLower(), Department.Inventory},
+            {TechnicalSupportDepartment.ToLower(), Department.TechnicalSupport},
+            {Admin.ToLower(), Department.Admin}
         };
+
         private static readonly Dictionary<Department, string> TypeToStringMap = new()
         {
-            { Department.Sales, SalesDepartment },
-            { Department.Accounting, AccountingDepartment },
-            { Department.Purchase, PurchaseDepartment },
-            { Department.Inventory, InventoryDepartment },
-            { Department.TechnicalSupport, TechnicalSupportDepartment },
-            { Department.Admin, Admin },
-            { Department.Unknown, UnknownDepartment }
+            {Department.Sales, SalesDepartment},
+            {Department.Accounting, AccountingDepartment},
+            {Department.Purchase, PurchaseDepartment},
+            {Department.Inventory, InventoryDepartment},
+            {Department.TechnicalSupport, TechnicalSupportDepartment},
+            {Department.Admin, Admin},
+            {Department.Unknown, UnknownDepartment}
         };
 
         /// <summary>
-        /// Get the department type of the provided department name. The department name is not case sensitive.
+        ///     Get the department type of the provided department name. The department name is not case sensitive.
         /// </summary>
         public static Department Map(string departmentName)
         {
             departmentName = departmentName.ToLower();
             if (string.IsNullOrWhiteSpace(departmentName) || !StringToTypeMap.ContainsKey(departmentName))
                 return Department.Unknown;
-            
+
             return StringToTypeMap[departmentName];
         }
 
         /// <summary>
-        /// Get the department name of the provided department type separated with a space
+        ///     Get the department name of the provided department type separated with a space
         /// </summary>
         public static string Map(Department department)
         {

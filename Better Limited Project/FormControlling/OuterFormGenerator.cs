@@ -7,7 +7,7 @@ namespace Better_Limited_Project.FormControlling
     {
         private const int Width = 1280;
         private const int Height = 720;
-        
+
         public static Form Generate()
         {
             var form = new Form();

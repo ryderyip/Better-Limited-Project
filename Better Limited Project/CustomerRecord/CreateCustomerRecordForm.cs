@@ -4,18 +4,18 @@ using Better_Limited_Project.Tools;
 
 namespace Better_Limited_Project.CustomerRecord
 {
-    partial class CreateCustomerRecordForm : Form
+    internal partial class CreateCustomerRecordForm : Form
     {
-        public event EventHandler<Customer>? CustomerCreated;
-
         public CreateCustomerRecordForm()
         {
             InitializeComponent();
         }
 
+        public event EventHandler<Customer>? CustomerCreated;
+
         private void btnNext_Click(object sender, EventArgs e)
         {
-            bool isValidInputs = ValidateInputsAndDisplayMessageIfInvalid();
+            var isValidInputs = ValidateInputsAndDisplayMessageIfInvalid();
             if (!isValidInputs)
                 return;
 
@@ -30,20 +30,20 @@ namespace Better_Limited_Project.CustomerRecord
         {
             if (HasAnyUnfilledRequiredFields())
             {
-                MessageBox.Show(hasUnfilledRequiredFieldsMessage);
+                MessageBox.Show("Please enter all required fields");
                 return false;
             }
 
             if (!CommonInformationVerifier.IsValidPhoneNumber(txtCustPhoneNumber.Text))
             {
-                MessageBox.Show(invalidPhoneNumberMessage);
+                MessageBox.Show("Invalid phone number. Please enter an 8-digit Hong Kong phone number. E.g. 12345678.");
                 return false;
             }
 
             if (!string.IsNullOrWhiteSpace(txtEmailAddress.Text)
                 && !CommonInformationVerifier.IsValidEmailAddress(txtEmailAddress.Text))
             {
-                MessageBox.Show(invalidEmailMessage);
+                MessageBox.Show("Invalid email address. Please enter a valid email address or leave it blank.");
                 return false;
             }
 
@@ -66,8 +66,7 @@ namespace Better_Limited_Project.CustomerRecord
 
             string name = txtCustName.Text.Trim();
             string phone = txtCustPhoneNumber.Text.Trim();
-            string? email = string.IsNullOrWhiteSpace(txtEmailAddress.Text) ?
-                null : txtEmailAddress.Text.ToLower().Trim();
+            var email = string.IsNullOrWhiteSpace(txtEmailAddress.Text) ? null : txtEmailAddress.Text.ToLower().Trim();
 
             return new Customer(name, phone, address, email);
         }

@@ -27,12 +27,12 @@ namespace Better_Limited_Project.ProductUtility.Restocking.Controller
         {
             var stocks = StockRepository.GetWarehouseStocks(warehouse.Id).ToList();
             foreach (var restockRequest in restockDeliveryRestockRequests)
-                foreach (var requestedProduct in restockRequest.RequestedProducts)
-                {
-                    var stock = stocks.Find(s => s.ProductId == requestedProduct.ProductId);
-                    stock.Quantity -= requestedProduct.Quantity;
-                    stock.Save();
-                }
+            foreach (var requestedProduct in restockRequest.RequestedProducts)
+            {
+                var stock = stocks.Find(s => s.ProductId == requestedProduct.ProductId);
+                stock.Quantity -= requestedProduct.Quantity;
+                stock.Save();
+            }
         }
     }
 }

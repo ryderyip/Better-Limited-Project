@@ -8,16 +8,16 @@ namespace UnitTests
     [TestFixture]
     public class Pager
     {
-        [Test] 
+        [Test]
         public void AddItem_PageSizeIsNegative_ThrowException()
         {
-            int pageSize = -1;
+            var pageSize = -1;
             Pager<string> book;
 
-            Assert.Throws<ArgumentException>(() => book = new(pageSize));
+            Assert.Throws<ArgumentException>(() => book = new Pager<string>(pageSize));
         }
 
-        [Test] 
+        [Test]
         public void GetCurrentPage_PageSize4With6Items_First4Items()
         {
             Pager<string> book = new(4);
@@ -36,11 +36,11 @@ namespace UnitTests
                 "Paragraph 3",
                 "Paragraph 4"
             };
-            
+
             Assert.AreEqual(expected, result);
         }
 
-        [Test] 
+        [Test]
         public void GetCurrentPage_FirstNextPageThenCurrentPagePageSize4With6Items_First4Items()
         {
             Pager<string> book = new(4);
@@ -58,10 +58,10 @@ namespace UnitTests
                 "Paragraph 5",
                 "Paragraph 6"
             };
-            
+
             Assert.AreEqual(expected, result);
         }
-        
+
         [Test]
         public void GetNextPage_PageSize3With7Items_Item4To6()
         {
@@ -81,10 +81,10 @@ namespace UnitTests
                 "Paragraph 5",
                 "Paragraph 6"
             };
-            
+
             Assert.AreEqual(expected, result);
         }
-        
+
         [Test]
         public void GetNextPage_PageSize4With2Items_Item1And2()
         {
@@ -98,14 +98,14 @@ namespace UnitTests
                 "Paragraph 1",
                 "Paragraph 2"
             };
-            
+
             Assert.AreEqual(expected, result);
         }
-        
+
         [Test]
         public void GetLastPage_PageSize3With5Items_Item3To5()
         {
-            int pageSize = 3;
+            var pageSize = 3;
             Pager<string> book = new(pageSize);
             book.AddItem("Paragraph 1");
             book.AddItem("Paragraph 2");
@@ -119,14 +119,14 @@ namespace UnitTests
                 "Paragraph 4",
                 "Paragraph 5"
             };
-            
+
             Assert.AreEqual(expected, result);
         }
-        
+
         [Test]
         public void GetPreviousPage_PageSize3With5Items_Item1To3()
         {
-            int pageSize = 3;
+            var pageSize = 3;
             Pager<string> book = new(pageSize);
             book.AddItem("Paragraph 1");
             book.AddItem("Paragraph 2");
@@ -141,14 +141,14 @@ namespace UnitTests
                 "Paragraph 2",
                 "Paragraph 3"
             };
-            
+
             Assert.AreEqual(expected, result);
         }
-        
+
         [Test]
         public void GetPreviousPage_GetNextPageThenGetPreviousPagePageSize3With5Items_Item1To3()
         {
-            int pageSize = 3;
+            var pageSize = 3;
             Pager<string> book = new(pageSize);
             book.AddItem("Paragraph 1");
             book.AddItem("Paragraph 2");
@@ -165,14 +165,14 @@ namespace UnitTests
                 "Paragraph 2",
                 "Paragraph 3"
             };
-            
+
             Assert.AreEqual(expected, result);
         }
-        
+
         [Test]
         public void GetFirstPage_GetNextPageThenGetFirstPagePageSize3With1Items_Item1()
         {
-            int pageSize = 3;
+            var pageSize = 3;
             Pager<string> book = new(pageSize);
             book.AddItem("Paragraph 1");
 
@@ -181,14 +181,14 @@ namespace UnitTests
             {
                 "Paragraph 1"
             };
-            
+
             Assert.AreEqual(expected, result);
         }
 
         [Test]
         public void GetFirstPage_GetNextPageThenGetFirstPagePageSize3With5Items_Item1To3()
         {
-            int pageSize = 3;
+            var pageSize = 3;
             Pager<string> book = new(pageSize);
             book.AddItem("Paragraph 1");
             book.AddItem("Paragraph 2");
@@ -204,27 +204,27 @@ namespace UnitTests
                 "Paragraph 2",
                 "Paragraph 3"
             };
-            
+
             Assert.AreEqual(expected, result);
         }
 
         [Test]
         public void HasPage_PageSize3With1Items_True()
         {
-            int pageSize = 3;
+            var pageSize = 3;
             Pager<string> book = new(pageSize);
             book.AddItem("Paragraph 1");
 
-            bool result = book.HasPage();
-            bool expected = true;
-            
+            var result = book.HasPage();
+            var expected = true;
+
             Assert.AreEqual(expected, result);
         }
 
         [Test]
         public void ApplyFilter_PageSize3With7ItemsFilterWordsStartingWithLetterA_BookWithItemsStartingWithA()
         {
-            int pageSize = 3;
+            var pageSize = 3;
             Pager<string> book = new(pageSize);
             book.AddItem("Apple");
             book.AddItem("apple");
@@ -242,7 +242,7 @@ namespace UnitTests
                 "Apple2",
                 "Apple3"
             };
-            
+
             Assert.AreEqual(expected, result);
         }
     }

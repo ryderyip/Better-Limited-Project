@@ -40,7 +40,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
         {
             string orderId = row.Field<int>("sales_order_id").ToString();
             string productId = row.Field<int>("product_id").ToString();
-            int quantity = row.Field<int>("quantity");
+            var quantity = row.Field<int>("quantity");
             return new ReservedSalesOrderProduct(orderId, productId, quantity);
         }
 

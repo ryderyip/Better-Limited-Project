@@ -9,7 +9,7 @@ using Better_Limited_Project.StaffUtility.StaffEntity.Gender;
 
 namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.Entity
 {
-    public class Courier 
+    public class Courier
     {
         public Courier(string name, Gender gender, string phone)
         {
@@ -43,7 +43,7 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.Entity
         public bool HasUnfinishedDelivery()
         {
             return GetAppointedDeliveries().Any(d => d.DeliveryStatus is not DeliveryStatus.Delivered)
-                || GetAppointedRestockDelivery().Any(rd => !rd.IsDelivered());
+                   || GetAppointedRestockDelivery().Any(rd => !rd.IsDelivered());
         }
 
         public IEnumerable<Delivery> GetAppointedDeliveries()

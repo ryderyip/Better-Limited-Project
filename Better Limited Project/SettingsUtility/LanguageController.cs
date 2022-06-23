@@ -4,12 +4,12 @@ using System.Threading;
 namespace Better_Limited_Project.SettingsUtility
 {
     /// <summary>
-    /// For switching languages in forms
+    ///     For switching languages in forms
     /// </summary>
     public static class LanguageController
     {
         /// <summary>
-        /// Set the language of all forms to the specified language
+        ///     Set the language of all forms to the specified language
         /// </summary>
         public static void SetSystemLanguage(Language language)
         {

@@ -36,6 +36,7 @@ namespace Better_Limited_Project.ProductUtility.Reordering.UI
                 btnApproveRequestAndCreatePurchaseOrder.Visible = false;
                 btnUnsendRequest.Visible = false;
             }
+
             FillFields();
         }
 
@@ -74,7 +75,7 @@ namespace Better_Limited_Project.ProductUtility.Reordering.UI
             var result = MessageBox.Show("Confirm unsending request?", "Confirmation", MessageBoxButtons.OKCancel);
             if (result is not DialogResult.OK)
                 return;
-            
+
             _reorderRequest.Remove();
             DialogResult = DialogResult.OK;
         }
@@ -87,18 +88,19 @@ namespace Better_Limited_Project.ProductUtility.Reordering.UI
 
         private void btnApproveRequestAndCreatePurchaseOrder_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("Confirm approving request and create purchase order?", "Confirmation", MessageBoxButtons.YesNo);
+            var result = MessageBox.Show("Confirm approving request and create purchase order?", "Confirmation",
+                MessageBoxButtons.YesNo);
             if (result is not DialogResult.Yes)
                 return;
-            
+
             _reorderRequest.ApprovedByStaffId = LoginSession.GetSession().CurrentStaff.Id;
             _reorderRequest.ApprovedOn = DateTime.Now;
             _reorderRequest.Save();
-            
+
             var service = new PurchaseOrderCreationService(_reorderRequest);
             service.AddRangeOrderProducts(_reorderRequest.RequestedProducts);
             service.Create();
-            
+
             Initialize();
         }
     }

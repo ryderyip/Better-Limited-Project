@@ -11,6 +11,8 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
 {
     public class DefectiveItem
     {
+        private Image? _image;
+
         public DefectiveItem(string id, string productId, int quantity, string description,
             string retailStoreId, string createdByStaffId, string salesOrderId, DateTime returnedToRetailStoreOn)
         {
@@ -24,7 +26,8 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             ReturnedToRetailStoreOn = returnedToRetailStoreOn;
         }
 
-        public DefectiveItem(string productId, int quantity, string description, string retailStoreId, string createdByStaffId,
+        public DefectiveItem(string productId, int quantity, string description, string retailStoreId,
+            string createdByStaffId,
             string salesOrderId)
         {
             Id = DefectiveItemRepository.GetNewId();
@@ -37,16 +40,17 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             ReturnedToRetailStoreOn = DateTime.Now;
         }
 
-        private Image? _image;
         public string Id { get; }
         public string ProductId { get; }
         public int Quantity { get; }
         public string Description { get; set; }
+
         public Image? Image
         {
             get => _image ?? DefectiveItemRepository.GetImageById(Id);
             set => _image = value;
         }
+
         public string RetailStoreId { get; }
         public string CreatedByStaffId { get; }
         public string SalesOrderId { get; }

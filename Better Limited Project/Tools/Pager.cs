@@ -6,8 +6,8 @@ namespace Better_Limited_Project.Tools
 {
     public class Pager<T>
     {
-        private readonly int _pageSize;
         private readonly List<T> _dataItems = new();
+        private readonly int _pageSize;
         private int _currentPageIndex;
 
         /// <param name="pageSize">Page size of the pager</param>
@@ -25,7 +25,7 @@ namespace Better_Limited_Project.Tools
         }
 
         /// <summary>
-        /// Adds a generic item to the pager
+        ///     Adds a generic item to the pager
         /// </summary>
         public void AddItem(T item)
         {
@@ -33,7 +33,7 @@ namespace Better_Limited_Project.Tools
         }
 
         /// <summary>
-        /// Get the first page of the pager with the page size of the pager
+        ///     Get the first page of the pager with the page size of the pager
         /// </summary>
         public IEnumerable<T> GetFirstPage()
         {
@@ -43,7 +43,7 @@ namespace Better_Limited_Project.Tools
         }
 
         /// <summary>
-        /// Returns the current page with the page size of the pager
+        ///     Returns the current page with the page size of the pager
         /// </summary>
         public IEnumerable<T> GetCurrentPage()
         {
@@ -51,9 +51,9 @@ namespace Better_Limited_Project.Tools
                 ? GetLastPage()
                 : _dataItems.GetRange(_currentPageIndex, _pageSize);
         }
-        
+
         /// <summary>
-        /// Advances to the next page and returns it
+        ///     Advances to the next page and returns it
         /// </summary>
         public IEnumerable<T> GetNextPage()
         {
@@ -65,7 +65,7 @@ namespace Better_Limited_Project.Tools
         }
 
         /// <summary>
-        /// Get the previous page of the pager
+        ///     Get the previous page of the pager
         /// </summary>
         public IEnumerable<T> GetPreviousPage()
         {
@@ -76,23 +76,23 @@ namespace Better_Limited_Project.Tools
         }
 
         /// <summary>
-        /// Get the last page of the pager
+        ///     Get the last page of the pager
         /// </summary>
         public IEnumerable<T> GetLastPage()
         {
             if (_dataItems.Count == 0)
                 return Enumerable.Empty<T>();
-            int noOfItemsInLastPage = _dataItems.Count % _pageSize == 0 ? _pageSize : _dataItems.Count % _pageSize;
+            var noOfItemsInLastPage = _dataItems.Count % _pageSize == 0 ? _pageSize : _dataItems.Count % _pageSize;
             return _dataItems.GetRange(_dataItems.Count - noOfItemsInLastPage, noOfItemsInLastPage);
         }
 
-        public Pager<T> ApplyFilter(Func<T,bool> condition)
+        public Pager<T> ApplyFilter(Func<T, bool> condition)
         {
             return new Pager<T>(_pageSize, _dataItems.Where(condition));
         }
-        
+
         /// <summary>
-        /// Check if the pager contains any pages
+        ///     Check if the pager contains any pages
         /// </summary>
         public bool HasPage()
         {
@@ -101,7 +101,7 @@ namespace Better_Limited_Project.Tools
 
         private bool IsAlreadyLastPage()
         {
-            int lastPageIndex = _dataItems.Count - 1;
+            var lastPageIndex = _dataItems.Count - 1;
             return lastPageIndex - _currentPageIndex < _pageSize;
         }
 

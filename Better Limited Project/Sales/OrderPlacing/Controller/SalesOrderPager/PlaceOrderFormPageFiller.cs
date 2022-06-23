@@ -17,7 +17,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Controller.SalesOrderPager
         public void FillPageWithProducts(IReadOnlyList<RetailStoreStock> stocks)
         {
             ShowAllProductControls();
-            for (int i = 0; i < stocks.Count; i++)
+            for (var i = 0; i < stocks.Count; i++)
             {
                 var controlCollection = _controlCollections[i];
                 var stock = stocks[i];
@@ -28,7 +28,8 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Controller.SalesOrderPager
                 controlCollection.Picture.SizeMode = PictureBoxSizeMode.Zoom;
                 controlCollection.Picture.Image = product.GetImage();
             }
-            HideProductControls(_controlCollections.Count-stocks.Count);
+
+            HideProductControls(_controlCollections.Count - stocks.Count);
         }
 
         private void ShowAllProductControls()
@@ -36,11 +37,11 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Controller.SalesOrderPager
             foreach (var controls in _controlCollections)
                 controls.Panel.Visible = true;
         }
-        
+
         private void HideProductControls(int noOfControlsToHide)
         {
-            for (int i = 0; i < noOfControlsToHide; i++)
-                _controlCollections[_controlCollections.Count-i-1].Panel.Visible = false;
+            for (var i = 0; i < noOfControlsToHide; i++)
+                _controlCollections[_controlCollections.Count - i - 1].Panel.Visible = false;
         }
     }
 }

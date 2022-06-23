@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
@@ -10,16 +11,18 @@ namespace Better_Limited_Project.ProductUtility.InwardGoodsUtility.UI
     public partial class PurchaseOrderPickerForm : Form
     {
         private readonly List<PurchaseOrder> _purchaseOrders;
-        public PurchaseOrder? SelectedPurchaseOrder { get; private set; }
 
         public PurchaseOrderPickerForm(PurchaseOrder? purchaseOrder = null)
         {
-            _purchaseOrders = PurchaseOrderRepository.GetAll().Where(po => po.IsApproved() && po.GetNotYetReceivedProducts().Any()).ToList();
+            _purchaseOrders = PurchaseOrderRepository.GetAll()
+                .Where(po => po.IsApproved() && po.GetNotYetReceivedProducts().Any()).ToList();
             SelectedPurchaseOrder = purchaseOrder;
             StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
             Shown += (_, _) => Initialize();
         }
+
+        public PurchaseOrder? SelectedPurchaseOrder { get; private set; }
 
         private void Initialize()
         {
@@ -42,7 +45,7 @@ namespace Better_Limited_Project.ProductUtility.InwardGoodsUtility.UI
         {
             dgvPurchaseOrders.Rows.Clear();
             purchaseOrders.ForEach(po => dgvPurchaseOrders.Rows.Add(po.Id,
-                po.PurchaseOrderNumber, po.ReorderRequest.RequestNumber, 
+                po.PurchaseOrderNumber, po.ReorderRequest.RequestNumber,
                 po.CreatedOn.ToString("g"),
                 po.ApprovedOn!.Value.ToString("g")));
             dgvPurchaseOrders.Sort(createdOnColumn, ListSortDirection.Descending);
@@ -62,12 +65,12 @@ namespace Better_Limited_Project.ProductUtility.InwardGoodsUtility.UI
             DialogResult = DialogResult.OK;
         }
 
-        private void btnSelect_Click(object sender, System.EventArgs e)
+        private void btnSelect_Click(object sender, EventArgs e)
         {
             PickPurchaseOrderAndExit(dgvPurchaseOrders.SelectedRows[0].Index);
         }
 
-        private void tbSearchBox_TextChanged(object sender, System.EventArgs e)
+        private void tbSearchBox_TextChanged(object sender, EventArgs e)
         {
             string searchKeywords = tbSearchBox.Text.Trim().ToLower();
             var filteredPurchaseOrders = _purchaseOrders.Where(po =>

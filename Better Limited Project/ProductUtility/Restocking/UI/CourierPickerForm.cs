@@ -9,7 +9,6 @@ namespace Better_Limited_Project.ProductUtility.Restocking.UI
     public partial class CourierPickerForm : Form
     {
         private readonly List<Courier> _couriers;
-        public event EventHandler<IEnumerable<Courier>>? Finished;
 
         public CourierPickerForm(IEnumerable<Courier> couriers, IEnumerable<Courier>? preselected = null)
         {
@@ -18,6 +17,8 @@ namespace Better_Limited_Project.ProductUtility.Restocking.UI
             InitializeComponent();
             Load += (_, _) => Initialize(preselected);
         }
+
+        public event EventHandler<IEnumerable<Courier>>? Finished;
 
         private void Initialize(IEnumerable<Courier>? preselected)
         {

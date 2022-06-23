@@ -23,7 +23,7 @@ namespace Better_Limited_Project.ServiceUtility
         {
             if (reserveQuantity <= 0)
                 throw new ArgumentException("Reserve quantity cannot be equal to or less than 0.");
-            
+
             var productStock = _stocks.FirstOrDefault(stock => stock.Product.Id == productId)
                                ?? throw new ArgumentException(
                                    $"Product {ProductRepository.FindById(productId)} does not have stock record in database.");

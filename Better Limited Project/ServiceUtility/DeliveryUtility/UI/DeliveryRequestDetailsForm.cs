@@ -11,7 +11,6 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
 {
     public partial class DeliveryRequestDetailsForm : Form
     {
-        public event EventHandler? InfoUpdated;
         private DeliveryRequest _deliveryRequest;
 
         public DeliveryRequestDetailsForm(DeliveryRequest deliveryRequest)
@@ -20,6 +19,8 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
             InitializeComponent();
             Shown += (_, _) => Initialize();
         }
+
+        public event EventHandler? InfoUpdated;
 
         private void Initialize()
         {

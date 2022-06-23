@@ -12,17 +12,17 @@ namespace UnitTests
         public void IsAlphaNumericPlusUnderscore(string text)
         {
             var result = StringHelper.IsAlphaNumericPlusUnderscore(text);
-            
+
             Assert.True(result);
         }
-        
+
         [Test]
         [TestCase("%^&*)")]
         [TestCase(" ")]
         public void IsAlphaNumericPlusUnderscore_NotAlphanumeric(string text)
         {
             var result = StringHelper.IsAlphaNumericPlusUnderscore(text);
-            
+
             Assert.False(result);
         }
     }

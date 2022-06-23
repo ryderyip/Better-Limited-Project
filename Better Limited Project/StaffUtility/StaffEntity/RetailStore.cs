@@ -9,10 +9,6 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
     [Serializable]
     public class RetailStore : IWorkplace
     {
-        public string Id { get; }
-        public string Name { get; }
-        public string Address { get; }
-
         public RetailStore(string id, string name, string address)
         {
             Id = id;
@@ -20,11 +16,15 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
             Address = address;
         }
 
+        public string Id { get; }
+        public string Name { get; }
+        public string Address { get; }
+
         public IStock GetProductStock(string productId)
         {
             return StockRepository.FindByIds(Id, productId);
         }
-        
+
         public IEnumerable<IStock> GetProductStocks()
         {
             return StockRepository.GetRetailStoreStocks(Id);

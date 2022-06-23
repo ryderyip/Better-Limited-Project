@@ -8,8 +8,8 @@ namespace Better_Limited_Project.ProductUtility.Entity
 {
     public class RestockService : IReorderRestockService
     {
-        private readonly RestockRequest _restockRequest;
         private readonly List<IProductQuantity> _requestedProducts;
+        private readonly RestockRequest _restockRequest;
 
         public RestockService()
         {

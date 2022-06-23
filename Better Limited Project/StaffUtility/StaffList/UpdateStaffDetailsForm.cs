@@ -8,16 +8,17 @@ namespace Better_Limited_Project.StaffUtility.StaffList
 {
     public partial class UpdateStaffDetailsForm : Form
     {
-        private readonly Staff _staff;
         private readonly StaffAccount _account;
-        public event EventHandler? Updated;
-        
+        private readonly Staff _staff;
+
         public UpdateStaffDetailsForm(Staff staff)
         {
             _staff = staff;
             _account = _staff.GetLoginAccount();
             InitializeComponent();
         }
+
+        public event EventHandler? Updated;
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
@@ -34,14 +35,14 @@ namespace Better_Limited_Project.StaffUtility.StaffList
                 MessageBox.Show(string.Format(StaffUtilityStringResources.username_not_unique, username));
                 return;
             }
-            
+
             string name = tbName.Text.Trim();
-            Gender gender = rbGenderMale.Checked ? Gender.Male
+            var gender = rbGenderMale.Checked ? Gender.Male
                 : rbGenderFemale.Checked ? Gender.Female
                 : Gender.NonBinary;
-            DateTime dob = dtpDateOfBirth.Value;
-            StaffTitle title = new StaffTitleMapper().Map(cbTitle.SelectedItem.ToString());
-            
+            var dob = dtpDateOfBirth.Value;
+            var title = new StaffTitleMapper().Map(cbTitle.SelectedItem.ToString());
+
             _staff.Name = name;
             _staff.Gender = gender;
             _staff.DateOfBirth = dob;
@@ -50,7 +51,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
 
             _account.Username = username;
             _account.Save(new StaffAccountRepository());
-            
+
             Updated?.Invoke(this, EventArgs.Empty);
             Close();
         }

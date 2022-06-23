@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
@@ -61,7 +62,7 @@ namespace Better_Limited_Project.ProductUtility.Reordering.UI
                 RefreshForm();
         }
 
-        private void btnNewRequest_Click(object sender, System.EventArgs e)
+        private void btnNewRequest_Click(object sender, EventArgs e)
         {
             var form = new NewReorderRestockRequestForm(new ReorderService());
             var result = form.ShowDialog();

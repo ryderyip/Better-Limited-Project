@@ -94,12 +94,12 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
         {
             string id = row.Field<int>("id").ToString();
             string productId = row.Field<int>("product_id").ToString();
-            int quantity = row.Field<int>("quantity");
+            var quantity = row.Field<int>("quantity");
             string description = row.Field<string>("description");
             string retailStoreId = row.Field<string>("retail_store_id");
             string staffId = row.Field<int>("staff_id").ToString();
             string salesOrderId = row.Field<int>("sales_order_id").ToString();
-            DateTime returnedRetailStoreOn = row.Field<DateTime>("returned_to_retail_store_on");
+            var returnedRetailStoreOn = row.Field<DateTime>("returned_to_retail_store_on");
             var warehouseId = row.Field<int?>("warehouse_id")?.ToString();
             var returnedToWarehouseOn = row.Field<DateTime?>("returned_to_warehouse_on");
             var returnedToSupplierOn = row.Field<DateTime?>("returned_to_supplier_on");

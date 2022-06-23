@@ -12,7 +12,7 @@ namespace Better_Limited_Project.ProductUtility.Reordering.Controller
         private readonly List<IProductQuantity> _requestedProducts;
 
         /// <summary>
-        /// Initialize a <see cref="ReorderRequest"/> instance.
+        ///     Initialize a <see cref="ReorderRequest" /> instance.
         /// </summary>
         public ReorderService()
         {
@@ -20,14 +20,14 @@ namespace Better_Limited_Project.ProductUtility.Reordering.Controller
                 LoginSession.GetSession().CurrentStaff.Id);
             _requestedProducts = new List<IProductQuantity>();
         }
-        
+
         public void AddRange(IEnumerable<IProductQuantity> productQuantities)
         {
             _requestedProducts.AddRange(productQuantities);
         }
-        
+
         /// <summary>
-        /// Creates a reorder request record and requested product records.
+        ///     Creates a reorder request record and requested product records.
         /// </summary>
         public void Submit()
         {

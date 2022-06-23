@@ -15,7 +15,6 @@ namespace Better_Limited_Project.ProductUtility.Restocking.UI
 {
     public partial class RestockRequestDetailsForm : Form
     {
-        public event EventHandler? Updated;
         private RestockRequest _restockRequest;
 
         public RestockRequestDetailsForm(RestockRequest restockRequest)
@@ -26,6 +25,8 @@ namespace Better_Limited_Project.ProductUtility.Restocking.UI
             Shown += (_, _) => Initialize();
         }
 
+        public event EventHandler? Updated;
+
         private void Initialize()
         {
             btnUnsendRequest.Click += BtnUnsendRequestOnClick;
@@ -35,6 +36,7 @@ namespace Better_Limited_Project.ProductUtility.Restocking.UI
                 btnSetAsReceived.Visible = false;
                 btnUnsendRequest.Visible = false;
             }
+
             if (_restockRequest.IsReceived())
                 btnSetAsReceived.Visible = false;
             dgvRequestedGoods.CellDoubleClick += dgvRequestedGoods_CellDoubleClick;
@@ -62,7 +64,7 @@ namespace Better_Limited_Project.ProductUtility.Restocking.UI
             var result = MessageBox.Show("Confirm unsending request?", "Confirmation", MessageBoxButtons.OKCancel);
             if (result is not DialogResult.OK)
                 return;
-            
+
             _restockRequest.Remove();
             Updated?.Invoke(this, EventArgs.Empty);
             Close();

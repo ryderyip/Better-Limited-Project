@@ -16,8 +16,8 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.Controller
     public class InstallationNoteGenerator
     {
         private readonly string _fileName;
-        private readonly string _location;
         private readonly Installation _installation;
+        private readonly string _location;
 
         public InstallationNoteGenerator(Installation installation)
         {
@@ -44,7 +44,7 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.Controller
             PdfDocumentRenderer pdfRenderer = new(unicode);
             pdfRenderer.Document = doc;
             pdfRenderer.RenderDocument(); // Layout and render document to PDF
-            
+
             try
             {
                 pdfRenderer.PdfDocument.Save(path);
@@ -61,7 +61,7 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.Controller
             var path = Path.Combine(_location, _fileName);
 
             RenderFile(doc, path);
-            
+
             var process = new Process();
             process.StartInfo = new ProcessStartInfo
             {
@@ -156,7 +156,7 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.Controller
 
             table.SetEdge(0, 0, 3, 1, Edge.Box, BorderStyle.Single, 0.75, Color.Empty);
 
-            int rowCount = 0;
+            var rowCount = 0;
             foreach (var installationProduct in _installation.InstallationRequest.ProductsToInstall)
             {
                 row = table.AddRow();

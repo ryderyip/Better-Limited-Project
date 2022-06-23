@@ -59,17 +59,20 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.Repository
             command.Parameters.AddWithValue("@createOn", deliveryRequest.CreatedOn);
             command.Parameters.AddWithValue("@createByStaffId", deliveryRequest.CreatedByStaffId);
             command.Parameters.AddWithValue("@deliverySessionId", (int) deliveryRequest.DeliverySession);
-            command.Parameters.AddWithValue("@arrangedByStaffId", deliveryRequest.ArrangedByStaffId != null ? deliveryRequest.ArrangedByStaffId : DBNull.Value);
-            command.Parameters.AddWithValue("@arrangedOn", deliveryRequest.ArrangedOn != null ? deliveryRequest.ArrangedOn.Value : DBNull.Value);
+            command.Parameters.AddWithValue("@arrangedByStaffId",
+                deliveryRequest.ArrangedByStaffId != null ? deliveryRequest.ArrangedByStaffId : DBNull.Value);
+            command.Parameters.AddWithValue("@arrangedOn",
+                deliveryRequest.ArrangedOn != null ? deliveryRequest.ArrangedOn.Value : DBNull.Value);
             DataTableRepository.ExecuteNonQuery(command);
         }
-        
+
         public static string GetNewId()
         {
             var dataTable = DataTableRepository.RetrieveDataTable(new MySqlCommand(
                 @"select max(id) + 1 as id from delivery_request;"));
             return dataTable.Rows[0]["id"] == DBNull.Value
-                ? "1" : dataTable.Rows[0].Field<long>("id").ToString();
+                ? "1"
+                : dataTable.Rows[0].Field<long>("id").ToString();
         }
 
         public static void Delete(DeliveryRequest deliveryRequest)

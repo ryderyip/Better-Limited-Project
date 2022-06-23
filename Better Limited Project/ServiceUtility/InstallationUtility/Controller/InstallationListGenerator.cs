@@ -19,8 +19,8 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.Controller
     public class InstallationListGenerator
     {
         private readonly string _fileName;
-        private readonly string _location;
         private readonly List<Installation> _installations;
+        private readonly string _location;
 
         public InstallationListGenerator(IEnumerable<Installation> installations)
         {
@@ -49,7 +49,7 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.Controller
             PdfDocumentRenderer pdfRenderer = new(unicode);
             pdfRenderer.Document = doc;
             pdfRenderer.RenderDocument(); // Layout and render document to PDF
-            
+
             try
             {
                 pdfRenderer.PdfDocument.Save(path);
@@ -66,7 +66,7 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.Controller
             var path = Path.Combine(_location, _fileName);
 
             RenderFile(doc, path);
-            
+
             var process = new Process();
             process.StartInfo = new ProcessStartInfo
             {
@@ -131,7 +131,7 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.Controller
 
             column = table.AddColumn("3cm");
             column.Format.Alignment = ParagraphAlignment.Right;
-            
+
             column = table.AddColumn("4cm");
             column.Format.Alignment = ParagraphAlignment.Right;
 
@@ -163,7 +163,7 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.Controller
 
             table.SetEdge(0, 0, 4, 1, Edge.Box, BorderStyle.Single, 0.75, Color.Empty);
 
-            int rowCount = 0;
+            var rowCount = 0;
             foreach (var installation in _installations)
             {
                 var order = installation.InstallationRequest.SalesOrder;

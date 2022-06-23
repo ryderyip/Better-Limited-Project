@@ -146,16 +146,6 @@
     <Compile Include="CustomerRecord\CreateCustomerRecordForm.Designer.cs">
       <DependentUpon>CreateCustomerRecordForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomerRecord\CreateCustomerRecordForm.zh-HK.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CreateCustomerRecordForm.zh-HK.resx</DependentUpon>
-    </Compile>
-    <Compile Include="CustomerRecord\CreateCustomerRecordForm1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CreateCustomerRecordForm.resx</DependentUpon>
-    </Compile>
     <Compile Include="CustomerRecord\CustomerDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,16 +153,6 @@
       <DependentUpon>CustomerDetailsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomerRecord\Customer.cs" />
-    <Compile Include="CustomerRecord\CustomerDetailsForm.zh-HK.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CustomerDetailsForm.zh-HK.resx</DependentUpon>
-    </Compile>
-    <Compile Include="CustomerRecord\CustomerDetailsForm1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CustomerDetailsForm.resx</DependentUpon>
-    </Compile>
     <Compile Include="CustomerRecord\CustomerListForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,16 +165,6 @@
     </Compile>
     <Compile Include="CustomerRecord\CustomerUpdateForm.Designer.cs">
       <DependentUpon>CustomerUpdateForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CustomerRecord\CustomerUpdateForm.zh-HK.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CustomerUpdateForm.zh-HK.resx</DependentUpon>
-    </Compile>
-    <Compile Include="CustomerRecord\CustomerUpdateForm1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CustomerUpdateForm.resx</DependentUpon>
     </Compile>
     <Compile Include="CustomerRecord\CustomerRecord.Designer.cs">
       <DesignTime>True</DesignTime>
@@ -1009,11 +979,6 @@
     <Compile Include="Tools\CommonInformationVerifier.cs" />
     <Compile Include="Tools\AutoProductReserveHelper.cs" />
     <Compile Include="Tools\EnumToStringHelper.cs" />
-    <Compile Include="Tools\LowStockLevelNotifier.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>LowStockLevelNotifier.resx</DependentUpon>
-    </Compile>
     <Compile Include="Tools\PopUpForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1034,23 +999,15 @@
     </Compile>
     <EmbeddedResource Include="CustomerRecord\CreateCustomerRecordForm.resx">
       <DependentUpon>CreateCustomerRecordForm.cs</DependentUpon>
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>CreateCustomerRecordForm1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerRecord\CreateCustomerRecordForm.zh-HK.resx">
       <DependentUpon>CreateCustomerRecordForm.cs</DependentUpon>
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>CreateCustomerRecordForm.zh-HK.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerRecord\CustomerDetailsForm.resx">
       <DependentUpon>CustomerDetailsForm.cs</DependentUpon>
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>CustomerDetailsForm1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerRecord\CustomerDetailsForm.zh-HK.resx">
       <DependentUpon>CustomerDetailsForm.cs</DependentUpon>
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>CustomerDetailsForm.zh-HK.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerRecord\CustomerListForm.resx">
       <DependentUpon>CustomerListForm.cs</DependentUpon>
@@ -1060,13 +1017,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerRecord\CustomerUpdateForm.resx">
       <DependentUpon>CustomerUpdateForm.cs</DependentUpon>
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>CustomerUpdateForm1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerRecord\CustomerUpdateForm.zh-HK.resx">
       <DependentUpon>CustomerUpdateForm.cs</DependentUpon>
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>CustomerUpdateForm.zh-HK.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerRecord\CustomerRecord.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -1563,13 +1516,6 @@
     <EmbeddedResource Include="Tools\ToolsStringResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ToolsStringResources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Tools\LowStockLevelNotifier.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>LowStockLevelNotifier.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Tools\LowStockLevelNotifier.zh-hk.resx">
-      <DependentUpon>LowStockLevelNotifier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tools\PopUpForm.resx">
       <DependentUpon>PopUpForm.cs</DependentUpon>

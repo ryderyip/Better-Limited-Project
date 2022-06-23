@@ -7,7 +7,7 @@ namespace Better_Limited_Project.Procedure
     public class LoginProcedure : IProcedure<string>
     {
         private readonly FormController _formController;
-        
+
         public LoginProcedure(FormController formController)
         {
             _formController = formController;
@@ -20,12 +20,13 @@ namespace Better_Limited_Project.Procedure
             LanguageController.SetSystemLanguage(UserSettings.GetSettings().Language);
             OpenLoginForm();
         }
-        
+
         private void OpenLoginForm()
         {
-            string? lastLoginUsername = UserSettings.GetSettings().LastLoginUsername;
-            LoginController loginController = lastLoginUsername == null ? 
-                new LoginController() : new LoginController(lastLoginUsername);
+            var lastLoginUsername = UserSettings.GetSettings().LastLoginUsername;
+            LoginController loginController = lastLoginUsername == null
+                ? new LoginController()
+                : new LoginController(lastLoginUsername);
             loginController.LoggedIn += (_, staffId) => Finished?.Invoke(this, staffId);
             loginController.OpenForm(_formController);
         }

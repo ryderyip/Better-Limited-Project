@@ -8,8 +8,8 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
 {
     public partial class CourierSelectorForm : Form
     {
-        public EventHandler<List<Courier>>? CouriersSelected;
         private readonly List<Courier> _couriers;
+        public EventHandler<List<Courier>>? CouriersSelected;
 
         public CourierSelectorForm(IEnumerable<Courier> freeCouriers)
         {
@@ -34,7 +34,7 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
             var selectedCouriers = dgvCouriers.SelectedRows.Cast<DataGridViewRow>()
                 .Select(row => row.Cells[idColumn.Name].Value.ToString())
                 .Select(id => _couriers.Find(c => c.Id == id));
-            
+
             CouriersSelected?.Invoke(this, selectedCouriers.ToList());
             Close();
         }

@@ -7,7 +7,6 @@ namespace Better_Limited_Project.Login
     public class LoginController
     {
         public delegate void LoggedInEventHandler<T>(object sender, T staffId);
-        public event LoggedInEventHandler<string>? LoggedIn;
 
         private readonly LoginForm _loginForm;
 
@@ -21,6 +20,8 @@ namespace Better_Limited_Project.Login
         {
             _loginForm.FillLastLoginUsername(lastLoginUsername);
         }
+
+        public event LoggedInEventHandler<string>? LoggedIn;
 
         public void OpenForm(FormController formController)
         {
@@ -41,7 +42,7 @@ namespace Better_Limited_Project.Login
             _loginForm.Close();
             string staffId = staffAccountRepository.FindAll(ac => ac.Username == credentials.Username).First().StaffId;
             LoggedIn?.Invoke(this, staffId);
-            
+
             SaveLastLoginUsername(credentials.Username);
         }
 

@@ -11,7 +11,8 @@ namespace Better_Limited_Project.Procedure
             if (!NeedToSelectWorkplace())
                 return;
             var form = new WorkplacePickerForm();
-            while (true) {
+            while (true)
+            {
                 form.ShowDialog();
                 if (form.SelectedWorkplace != null)
                     break;
@@ -27,9 +28,10 @@ namespace Better_Limited_Project.Procedure
 
             if (department is not Department.Sales && department is not Department.Inventory)
                 return false;
-            
-            return department == Department.Sales 
-                ? workplace is not RetailStore : workplace is not Warehouse;
+
+            return department == Department.Sales
+                ? workplace is not RetailStore
+                : workplace is not Warehouse;
         }
 
         private void SetWorkplace(IWorkplace workplace)

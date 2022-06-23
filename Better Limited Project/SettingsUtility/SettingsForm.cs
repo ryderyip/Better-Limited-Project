@@ -10,11 +10,9 @@ namespace Better_Limited_Project.SettingsUtility
 {
     public partial class SettingsForm : Form
     {
+        private readonly Department _staffDepartment;
         private readonly List<IWorkplace> _workplaces;
         private bool _isSalesOrInventory;
-        private readonly Department _staffDepartment;
-        public event EventHandler<UserSettings>? UpdateClicked;
-        public event EventHandler<string>? BrowseDocPathClicked;
 
         public SettingsForm(Department staffDepartment)
         {
@@ -25,6 +23,9 @@ namespace Better_Limited_Project.SettingsUtility
             ScrollPageToTop();
         }
 
+        public event EventHandler<UserSettings>? UpdateClicked;
+        public event EventHandler<string>? BrowseDocPathClicked;
+
         private void ScrollPageToTop()
         {
             Select();
@@ -34,9 +35,9 @@ namespace Better_Limited_Project.SettingsUtility
         {
             CheckCurrentLanguageRadioButton(settings.Language);
             tbDocPath.Text = settings.DocumentGenerationDirectoryPath;
-            if (_staffDepartment is not (Department.Sales or Department.Inventory)) 
+            if (_staffDepartment is not (Department.Sales or Department.Inventory))
                 return;
-            
+
             _isSalesOrInventory = true;
             panWorkplace.Enabled = true;
             ShowLabelAccordingToWorkplace();

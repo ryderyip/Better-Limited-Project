@@ -34,7 +34,7 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
                 MessageBox.Show("Please fill in all fields.");
                 return;
             }
-            
+
             if (!CommonInformationVerifier.IsValidPhoneNumber(phone))
             {
                 MessageBox.Show($"{phone} is not a valid phone number. Please enter a valid Hong Kong phone number.");
@@ -42,13 +42,16 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
             }
 
             if (_technician == null)
+            {
                 new Technician(name, phone).Save();
+            }
             else
             {
                 _technician.Name = name;
                 _technician.Phone = phone;
                 _technician.Save();
             }
+
             DialogResult = DialogResult.OK;
         }
 

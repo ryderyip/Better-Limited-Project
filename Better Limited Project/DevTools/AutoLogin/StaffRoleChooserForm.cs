@@ -7,13 +7,14 @@ namespace Better_Limited_Project.DevTools.AutoLogin
     public partial class StaffRoleChooserForm : Form
     {
         public delegate void RoleSelectedEventHandler(object sender, StaffTitle title);
-        public event RoleSelectedEventHandler? TitleSelected;
 
         public StaffRoleChooserForm()
         {
             InitializeComponent();
         }
-        
+
+        public event RoleSelectedEventHandler? TitleSelected;
+
         private void BtnButtonClicked(object sender, EventArgs e)
         {
             var button = (Button) sender;
@@ -41,10 +42,10 @@ namespace Better_Limited_Project.DevTools.AutoLogin
         {
             Dog();
         }
-        
+
         private void Dog()
         {
-            var form = new RandomOrderPlacerForm()
+            var form = new RandomOrderPlacerForm
             {
                 MaxNumber = 1000, MinNumber = 1
             };

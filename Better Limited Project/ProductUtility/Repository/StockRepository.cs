@@ -15,7 +15,7 @@ namespace Better_Limited_Project.ProductUtility.Repository
         public static EventHandler<IStock>? StockUpdated;
 
         /// <summary>
-        /// Get the stocks of a specified workplace (retail store/warehouse).
+        ///     Get the stocks of a specified workplace (retail store/warehouse).
         /// </summary>
         /// <param name="workplaceId">retail store id/warehouse id</param>
         public static IEnumerable<IStock> GetStocks(string workplaceId)
@@ -28,7 +28,7 @@ namespace Better_Limited_Project.ProductUtility.Repository
         }
 
         /// <summary>
-        /// Get the stock of all products from the specified retail store
+        ///     Get the stock of all products from the specified retail store
         /// </summary>
         public static IEnumerable<RetailStoreStock> GetRetailStoreStocks(string retailStoreId)
         {
@@ -45,9 +45,9 @@ namespace Better_Limited_Project.ProductUtility.Repository
         private static RetailStoreStock ConvertToRetailStoreStock(DataRow row)
         {
             string productId = row.Field<int>("product_id").ToString();
-            decimal sellingPrice = row.Field<decimal>("selling_price");
-            int quantity = row.Field<int>("quantity");
-            int restockLevel = row.Field<int>("restock_level");
+            var sellingPrice = row.Field<decimal>("selling_price");
+            var quantity = row.Field<int>("quantity");
+            var restockLevel = row.Field<int>("restock_level");
             string retailStoreId = row.Field<string>("retail_store_id");
             RetailStore retailStore = new RetailStoreRepository().GetById(retailStoreId);
             return new RetailStoreStock(productId, retailStore, quantity, sellingPrice, restockLevel);
@@ -68,8 +68,8 @@ namespace Better_Limited_Project.ProductUtility.Repository
         private static WarehouseStock ConvertToWarehouseStock(DataRow row)
         {
             string productId = row.Field<int>("product_id").ToString();
-            int quantity = row.Field<int>("quantity");
-            int restockLevel = row.Field<int>("restock_level");
+            var quantity = row.Field<int>("quantity");
+            var restockLevel = row.Field<int>("restock_level");
             Warehouse warehouse = WarehouseRepository.GetById(row.Field<int>("warehouse_id").ToString());
             return new WarehouseStock(productId, warehouse, quantity, restockLevel);
         }

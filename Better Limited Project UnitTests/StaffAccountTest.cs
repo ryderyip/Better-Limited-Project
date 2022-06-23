@@ -13,21 +13,21 @@ namespace UnitTests
             // Arrange
             var staffAccount = new StaffAccount();
             var repo = new Mock<IStaffAccountRepository>();
-            bool inserted = false;
+            var inserted = false;
             repo.Setup(x => x.InsertOrUpdate(staffAccount)).Callback(() => inserted = true);
             // Act
             staffAccount.Save(repo.Object);
             // Assert
             Assert.True(inserted);
         }
-        
+
         [Test]
         public void Remove_NoCondition_DeleteRecord()
         {
             // Arrange
             var staffAccount = new StaffAccount();
             var repo = new Mock<IStaffAccountRepository>();
-            bool deleted = false;
+            var deleted = false;
             repo.Setup(x => x.Delete(staffAccount)).Callback(() => deleted = true);
             // Act
             staffAccount.Remove(repo.Object);

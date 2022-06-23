@@ -11,19 +11,20 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
     public partial class UpdateProductForm : Form, IUpdateProductForm
     {
         private readonly IStock _productStock;
-        public event EventHandler? ProductUpdated;
-
-        public void ShowForm()
-        {
-            ShowDialog();
-        }
 
         public UpdateProductForm(IStock productStock)
         {
             _productStock = productStock;
             StartPosition = FormStartPosition.CenterScreen;
-            
+
             InitializeComponent();
+        }
+
+        public event EventHandler? ProductUpdated;
+
+        public void ShowForm()
+        {
+            ShowDialog();
         }
 
         private void OnFormShown(object sender, EventArgs e)
@@ -35,7 +36,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             nudNewReorderLevel.Maximum = Product.MaximumReorderLevel;
             nudNewReorderLevel.DecimalPlaces = 0;
             nudNewReorderLevel.Increment = 1;
-            
+
             nudNewStockLevel.Maximum = Product.MaximumReorderLevel;
             nudNewStockLevel.DecimalPlaces = 0;
             nudNewStockLevel.Increment = 1;
@@ -53,7 +54,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             tbStockLevel.Text = _productStock.Quantity.ToString();
             var product = _productStock.Product;
             txtName.Text = product.Name;
-            
+
 
             if (_productStock is RetailStoreStock stock)
             {
@@ -61,7 +62,9 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
                 nudNewSellingPirce.Value = stock.SellingPrice;
             }
             else
+            {
                 HideSellingPrice();
+            }
 
             txtOriginalPrice.Text = product.OriginalPrice.ToString("C", new CultureInfo("zh-HK"));
             txtPhasingOut.Text = product.IsPhasingOut ? "Yes" : "No";
@@ -75,10 +78,10 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 
         private void btnUpdateInfo_Click(object sender, EventArgs e)
         {
-            decimal newSellingPrice = nudNewSellingPirce.Value;
-            int newReorderLevel = (int) nudNewReorderLevel.Value;
-            int newStockLevel = (int) nudNewStockLevel.Value;
-            bool phasingOut = rbPhasingOutOn.Checked;
+            var newSellingPrice = nudNewSellingPirce.Value;
+            var newReorderLevel = (int) nudNewReorderLevel.Value;
+            var newStockLevel = (int) nudNewStockLevel.Value;
+            var phasingOut = rbPhasingOutOn.Checked;
 
             if (_productStock is RetailStoreStock retailStoreStock)
                 retailStoreStock.SellingPrice = newSellingPrice;
@@ -89,7 +92,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             _productStock.Product.Save();
 
             MessageBox.Show(ProductList.productAndStockUpdated);
-            
+
             ProductUpdated?.Invoke(this, EventArgs.Empty);
             Close();
         }

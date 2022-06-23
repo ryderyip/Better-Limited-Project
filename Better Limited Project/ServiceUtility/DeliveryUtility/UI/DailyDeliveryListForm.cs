@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.ServiceUtility.DeliveryUtility.Controller;
+using Better_Limited_Project.ServiceUtility.DeliveryUtility.Entity;
 using Better_Limited_Project.ServiceUtility.DeliveryUtility.Repository;
 using Better_Limited_Project.Tools;
 
@@ -10,7 +11,7 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
 {
     public partial class DailyDeliveryListForm : Form
     {
-        private readonly List<Entity.Delivery> _deliveries;
+        private readonly List<Delivery> _deliveries;
 
         public DailyDeliveryListForm()
         {
@@ -18,19 +19,19 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
             InitializeComponent();
             Shown += (_, _) => Initialize();
         }
-        
+
         private void Initialize()
         {
             var orderedDeliveries = _deliveries.OrderBy(d => d.ScheduledOn).ToList();
-            dtpDeliveryDate.MinDate = orderedDeliveries.FirstOrDefault()?.ScheduledOn.Date 
+            dtpDeliveryDate.MinDate = orderedDeliveries.FirstOrDefault()?.ScheduledOn.Date
                                       ?? DateTime.Today;
-            dtpDeliveryDate.MaxDate = orderedDeliveries.LastOrDefault()?.ScheduledOn.Date 
+            dtpDeliveryDate.MaxDate = orderedDeliveries.LastOrDefault()?.ScheduledOn.Date
                                       ?? DateTime.Today;
             var todayDeliveries = _deliveries.Where(d => d.ScheduledOn.Date == dtpDeliveryDate.MinDate.Date);
             PopulateDgvDeliveries(todayDeliveries.ToList());
         }
 
-        private void PopulateDgvDeliveries(List<Entity.Delivery> deliveryList)
+        private void PopulateDgvDeliveries(List<Delivery> deliveryList)
         {
             dgvDeliveries.Rows.Clear();
             deliveryList.ForEach(delivery => dgvDeliveries.Rows.Add(delivery.Id, delivery.DeliveryRequestId,
@@ -51,14 +52,14 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
             var generator = new DeliveryListGenerator(GetDeliveriesOfSelectedDate());
             generator.GenerateAndPrint();
         }
-        
+
         private void btnGenerateDeliveryList_Click(object sender, EventArgs e)
         {
             var generator = new DeliveryListGenerator(GetDeliveriesOfSelectedDate());
             generator.GenerateAndOpen();
         }
-        
-        private IEnumerable<Entity.Delivery> GetDeliveriesOfSelectedDate()
+
+        private IEnumerable<Delivery> GetDeliveriesOfSelectedDate()
         {
             return _deliveries.Where(d => d.ScheduledOn.Date == dtpDeliveryDate.Value.Date);
         }

@@ -17,20 +17,20 @@ namespace Better_Limited_Project.StaffUtility.Repository
             var dataTable = DataTableRepository.RetrieveDataTable(command);
             return ConvertToWarehouses(dataTable);
         }
-        
+
         private static IEnumerable<Warehouse> ConvertToWarehouses(DataTable dataTable)
         {
             if (dataTable.Rows.Count == 0)
                 return Enumerable.Empty<Warehouse>();
 
-            return (from DataRow row in dataTable.Rows 
-                let id = row.Field<int>("id").ToString() 
+            return (from DataRow row in dataTable.Rows
+                let id = row.Field<int>("id").ToString()
                 let abbreviation = row.Field<string>("abbreviation")
-                let name = row.Field<string>("name") 
-                let address = row.Field<string>("address") 
+                let name = row.Field<string>("name")
+                let address = row.Field<string>("address")
                 select new Warehouse(id, abbreviation, name, address)).ToList();
         }
-        
+
         public static Warehouse GetById(string id)
         {
             var command = new MySqlCommand(

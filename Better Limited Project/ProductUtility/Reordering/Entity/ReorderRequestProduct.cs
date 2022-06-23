@@ -14,9 +14,9 @@ namespace Better_Limited_Project.ProductUtility.Reordering.Entity
         }
 
         public string RequestId { get; }
+        public ReorderRequest Request => ReorderRequestRepository.FindById(RequestId);
         public string ProductId { get; }
         public int Quantity { get; set; }
-        public ReorderRequest Request => ReorderRequestRepository.FindById(RequestId);
         public Product Product => ProductRepository.FindById(ProductId);
 
         public void Save()

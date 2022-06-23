@@ -10,7 +10,6 @@ namespace Better_Limited_Project.StaffUtility.StaffList
 {
     public partial class StaffDetailsForm : Form
     {
-        public event EventHandler? Updated;
         private Staff _staff;
 
         public StaffDetailsForm(string staffId)
@@ -19,6 +18,8 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             Shown += (_, _) => Initialize();
             InitializeComponent();
         }
+
+        public event EventHandler? Updated;
 
         private bool DoesCurrentStaffHaveAccount()
         {
@@ -37,7 +38,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             tbDepartment.Text = DepartmentMapper.Map(_staff.Department);
             tbUsername.Text = _staff.GetLoginAccount().Username;
             pbImage.Image = _staff.GetImage();
-        }   
+        }
 
         private void RefreshAllFields()
         {

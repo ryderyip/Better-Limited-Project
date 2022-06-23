@@ -8,9 +8,10 @@ using Better_Limited_Project.StaffUtility.Repository;
 namespace Better_Limited_Project.StaffUtility.StaffEntity
 {
     [Serializable]
-    public class Staff 
+    public class Staff
     {
-        public Staff(string name, DateTime dateOfBirth, DateTime hiredOn, Gender.Gender gender, Department department, StaffTitle title)
+        public Staff(string name, DateTime dateOfBirth, DateTime hiredOn, Gender.Gender gender, Department department,
+            StaffTitle title)
         {
             Id = new StaffRepository().GetNewId();
             Name = name;
@@ -21,7 +22,8 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
             Title = title;
         }
 
-        public Staff(string id, string name, DateTime dateOfBirth, DateTime hiredOn, Gender.Gender gender, Department department, StaffTitle title)
+        public Staff(string id, string name, DateTime dateOfBirth, DateTime hiredOn, Gender.Gender gender,
+            Department department, StaffTitle title)
         {
             Id = id;
             Name = name;

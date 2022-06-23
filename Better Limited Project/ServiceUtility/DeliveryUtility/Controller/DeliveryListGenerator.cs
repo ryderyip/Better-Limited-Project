@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.Sales.PaymentUtility;
+using Better_Limited_Project.ServiceUtility.DeliveryUtility.Entity;
 using Better_Limited_Project.SettingsUtility;
 using MigraDoc.DocumentObjectModel;
 using MigraDoc.DocumentObjectModel.Shapes;
@@ -17,11 +18,11 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.Controller
 {
     public class DeliveryListGenerator
     {
+        private readonly List<Delivery> _deliveries;
         private readonly string _fileName;
         private readonly string _location;
-        private readonly List<Entity.Delivery> _deliveries;
 
-        public DeliveryListGenerator(IEnumerable<Entity.Delivery> deliveries)
+        public DeliveryListGenerator(IEnumerable<Delivery> deliveries)
         {
             _deliveries = deliveries.ToList();
             if (_deliveries.Count == 0)
@@ -48,7 +49,7 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.Controller
             PdfDocumentRenderer pdfRenderer = new(unicode);
             pdfRenderer.Document = doc;
             pdfRenderer.RenderDocument(); // Layout and render document to PDF
-            
+
             try
             {
                 pdfRenderer.PdfDocument.Save(path);
@@ -65,7 +66,7 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.Controller
             var path = Path.Combine(_location, _fileName);
 
             RenderFile(doc, path);
-            
+
             var process = new Process();
             process.StartInfo = new ProcessStartInfo
             {
@@ -159,7 +160,7 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.Controller
 
             table.SetEdge(0, 0, 4, 1, Edge.Box, BorderStyle.Single, 0.75, Color.Empty);
 
-            int rowCount = 0;
+            var rowCount = 0;
             foreach (var delivery in _deliveries)
             {
                 var order = delivery.GetSalesOrder();

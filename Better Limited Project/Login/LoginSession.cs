@@ -11,19 +11,20 @@ namespace Better_Limited_Project.Login
     public class LoginSession
     {
         private const string SessionFileName = "Login Session.ini";
-        public Staff CurrentStaff { get; }
 
         public LoginSession(Staff currentStaff)
         {
             CurrentStaff = currentStaff;
         }
-        
+
+        public Staff CurrentStaff { get; }
+
         public static void SaveSession(Staff staff)
         {
             string directoryPath = UserSettingsDirectory.GetSettingsDirectory();
             if (!Directory.Exists(directoryPath))
                 Directory.CreateDirectory(directoryPath);
-            
+
             string sessionPath = Path.Combine(directoryPath, SessionFileName);
 
             if (File.Exists(sessionPath))
@@ -40,10 +41,7 @@ namespace Better_Limited_Project.Login
             string sessionPath = Path.Combine(directoryPath, SessionFileName);
 
 
-            if (!File.Exists(sessionPath))
-            {
-                throw new InvalidOperationException("No login session found.");
-            }
+            if (!File.Exists(sessionPath)) throw new InvalidOperationException("No login session found.");
 
             var stream = new FileStream(sessionPath, FileMode.Open, FileAccess.Read);
             var formatter = new BinaryFormatter();
@@ -51,7 +49,7 @@ namespace Better_Limited_Project.Login
             if (stream.Length == 0)
                 throw new SerializationException("The file being deserialized is empty");
             var session = (LoginSession) formatter.Deserialize(stream);
-            
+
             stream.Dispose();
             return session;
         }

@@ -11,9 +11,9 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
 {
     public partial class PlaceOrderForm : Form
     {
+        private readonly Cart _cart;
         private readonly PlaceOrderFormPageFiller _pageFiller;
         private readonly Pager<RetailStoreStock> _pager;
-        private readonly Cart _cart;
         private Pager<RetailStoreStock> _filteredPager;
 
         public PlaceOrderForm(Pager<RetailStoreStock> pager, Cart cart)
@@ -45,8 +45,8 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
             dgvCart.Rows.Clear();
             _cart.GetCartItems().ToList().ForEach(cartItem =>
             {
-                decimal sellingPrice = cartItem.Price;
-                decimal depositPrice = sellingPrice * Product.DepositPricePercentage;
+                var sellingPrice = cartItem.Price;
+                var depositPrice = sellingPrice * Product.DepositPricePercentage;
                 dgvCart.Rows.Add(cartItem.Product.Name,
                     cartItem.IsOutOfStock
                         ? depositPrice.ToString("C", new CultureInfo("zh-HK"))

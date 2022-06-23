@@ -9,8 +9,16 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
     [Serializable]
     public class Warehouse : IWorkplace
     {
-        public string Id { get; }
+        public Warehouse(string id, string abbreviation, string name, string address)
+        {
+            Id = id;
+            Abbreviation = abbreviation;
+            Name = name;
+            Address = address;
+        }
+
         public string Abbreviation { get; }
+        public string Id { get; }
         public string Name { get; }
         public string Address { get; }
 
@@ -22,14 +30,6 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
         public IEnumerable<IStock> GetProductStocks()
         {
             return StockRepository.GetWarehouseStocks(Id);
-        }
-
-        public Warehouse(string id, string abbreviation, string name, string address)
-        {
-            Id = id;
-            Abbreviation = abbreviation;
-            Name = name;
-            Address = address;
         }
     }
 }

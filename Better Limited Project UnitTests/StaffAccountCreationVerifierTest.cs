@@ -27,7 +27,7 @@ namespace UnitTests
             // Arrange
             string username = "a_unique_username";
             var repo = new Mock<IStaffAccountRepository>();
-            repo.Setup(x => x.GetAll()).Returns(new List<StaffAccount> {new StaffAccount()});
+            repo.Setup(x => x.GetAll()).Returns(new List<StaffAccount> {new()});
             var verifier = new StaffAccountCreationVerifier(repo.Object);
             // Act
             var result = verifier.IsUsernameUnique(username);

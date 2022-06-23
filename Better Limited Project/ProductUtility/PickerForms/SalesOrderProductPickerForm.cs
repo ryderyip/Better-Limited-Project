@@ -9,9 +9,8 @@ namespace Better_Limited_Project.ProductUtility.PickerForms
 {
     public partial class SalesOrderProductPickerForm : Form
     {
-        public SalesOrderProduct? SelectedProduct { get; private set; }
-        private readonly List<SalesOrderProduct> _salesOrderProducts;
         private readonly List<Category> _categories;
+        private readonly List<SalesOrderProduct> _salesOrderProducts;
 
         public SalesOrderProductPickerForm(IEnumerable<SalesOrderProduct> orderProducts)
         {
@@ -21,6 +20,8 @@ namespace Better_Limited_Project.ProductUtility.PickerForms
             InitializeComponent();
             Shown += (_, _) => Initialize();
         }
+
+        public SalesOrderProduct? SelectedProduct { get; private set; }
 
         private void Initialize()
         {
@@ -48,7 +49,7 @@ namespace Better_Limited_Project.ProductUtility.PickerForms
         private void FilterDgv()
         {
             string searchKeyword = tbSearchBox.Text.ToLower().Trim();
-            var salesOrderProducts = (cbCategoryFilter.SelectedIndex != 0)
+            var salesOrderProducts = cbCategoryFilter.SelectedIndex != 0
                 ? from sop in _salesOrderProducts
                 let product = sop.GetProduct()
                 where (product.Name.ToLower().Contains(searchKeyword)

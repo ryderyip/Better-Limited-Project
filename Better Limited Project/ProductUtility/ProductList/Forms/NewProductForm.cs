@@ -12,7 +12,6 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 {
     public partial class NewProductForm : Form
     {
-        public event EventHandler? ProductCreated;
         private const int MaximumDescriptionLength = 1200;
         private readonly List<Category> _categories;
         private readonly List<Supplier> _suppliers;
@@ -25,6 +24,8 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             InitializeComponent();
             Shown += InitializeControls;
         }
+
+        public event EventHandler? ProductCreated;
 
         private void InitializeControls(object sender, EventArgs e)
         {
@@ -40,11 +41,11 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
         {
             var verifier = new ProductCreationDataVerifier();
             string name = tbName.Text.Trim();
-            decimal price = nudPrice.Value;
+            var price = nudPrice.Value;
             string description = tbDescription.Text.Trim();
             var selectedCategory = _categories[cbCategory.SelectedIndex];
             var selectedSupplier = _suppliers[cbSupplier.SelectedIndex];
-            bool isPhasingOut = false;
+            var isPhasingOut = false;
 
             if (!IsAllFieldsFilled())
             {
@@ -60,10 +61,10 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 
             var product = new Product(name, price, description, selectedSupplier, selectedCategory, isPhasingOut);
             product.Save();
-            
+
             if (_productImage != null)
                 product.SetImage(_productImage);
-            
+
             NewProductStockCreator.CreateEmptyStockForNewProduct(product);
             ProductCreated?.Invoke(this, EventArgs.Empty);
             Close();
@@ -72,7 +73,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
         private bool IsAllFieldsFilled()
         {
             string name = tbName.Text;
-            decimal price = nudPrice.Value;
+            var price = nudPrice.Value;
             string description = tbDescription.Text;
 
             return !string.IsNullOrWhiteSpace(name)

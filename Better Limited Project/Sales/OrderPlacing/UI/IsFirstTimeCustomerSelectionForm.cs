@@ -5,12 +5,12 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
 {
     public partial class IsFirstTimeCustomerSelectionForm : Form
     {
-        public event EventHandler<bool>? IsFirstTimeCustomerSelected;
-        
         public IsFirstTimeCustomerSelectionForm()
         {
             InitializeComponent();
         }
+
+        public event EventHandler<bool>? IsFirstTimeCustomerSelected;
 
         private void btnFirstTime_Click(object sender, EventArgs e)
         {

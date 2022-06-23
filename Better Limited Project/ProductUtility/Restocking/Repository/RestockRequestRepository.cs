@@ -66,7 +66,7 @@ namespace Better_Limited_Project.ProductUtility.Restocking.Repository
             string id = row.Field<int>("id").ToString();
             string requestNumber = row.Field<string>("request_number");
             string retailStoreId = row.Field<string>("retail_store_id");
-            DateTime createdOn = row.Field<DateTime>("created_on");
+            var createdOn = row.Field<DateTime>("created_on");
             string createdByStaffId = row.Field<int>("created_by_staff_id").ToString();
             var arrangedOn = row.Field<DateTime?>("arranged_on") ?? null;
             var arrangedByStaffId = row.Field<int?>("arranged_by_staff_id")?.ToString() ?? null;

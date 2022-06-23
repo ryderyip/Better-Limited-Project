@@ -25,7 +25,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             string id = departmentAcronym +
                         (staffsOfDepartment.Count + 1).ToString().PadLeft(4, '0');
 
-            int increment = 2;
+            var increment = 2;
             while (IsIdUsed(id))
                 id = departmentAcronym +
                      (staffsOfDepartment.Count + increment++).ToString().PadLeft(4, '0');

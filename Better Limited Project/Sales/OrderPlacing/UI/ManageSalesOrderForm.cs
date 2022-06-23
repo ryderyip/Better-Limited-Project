@@ -11,8 +11,8 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
 {
     public partial class ManageSalesOrderForm : Form
     {
-        public EventHandler? SalesOrderUpdated;
         private readonly SalesOrder _salesOrder;
+        public EventHandler? SalesOrderUpdated;
 
         public ManageSalesOrderForm(SalesOrder salesOrder)
         {
@@ -31,25 +31,28 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
                     MessageBox.Show(PaymentStringResources.cant_remove_delivery_request);
                     return;
                 }
+
                 AskForAndRemoveDeliveryRequest(deliveryRequest);
                 return;
             }
 
             if (_salesOrder.GetSalesOrderProducts().Any(sop => !sop.IsOutOfStock))
             {
-                MessageBox.Show("Currently you can only add a delivery to sales orders whose products are all waiting for stock.");
+                MessageBox.Show(
+                    "Currently you can only add a delivery to sales orders whose products are all waiting for stock.");
                 return;
             }
-            
+
             if (_salesOrder.Customer == null)
             {
-                var confirmResult = MessageBox.Show(PaymentStringResources.create_customer_information_to_request_delivery,
-                    CreateCustomerRecordForm.lblHeader_Text, MessageBoxButtons.YesNo);
+                var confirmResult = MessageBox.Show(
+                    PaymentStringResources.create_customer_information_to_request_delivery,
+                    "Create Customer Record", MessageBoxButtons.YesNo);
                 if (confirmResult is DialogResult.Yes)
                     CreateCustomerRecord();
                 return;
             }
-            
+
             AskForDeliverySessionAndSendDeliveryRequest();
         }
 
@@ -118,7 +121,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
                 PaymentStringResources.sendDeliveryRequest, MessageBoxButtons.YesNo);
             if (confirmResult is not DialogResult.Yes)
                 return;
-            
+
             var form = new DeliverySessionSelectionForm();
             form.SessionSelected += (_, session) =>
             {
@@ -135,7 +138,8 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
         {
             if (!_salesOrder.IsRemovable())
             {
-                MessageBox.Show("Current sales order has already been arranged a delivery or installation. Cancellation failed.");
+                MessageBox.Show(
+                    "Current sales order has already been arranged a delivery or installation. Cancellation failed.");
                 return;
             }
 

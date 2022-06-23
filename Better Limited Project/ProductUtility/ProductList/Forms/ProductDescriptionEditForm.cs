@@ -7,14 +7,15 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
     public partial class ProductDescriptionEditForm : Form
     {
         private readonly Product _product;
-        public event EventHandler? DescriptionUpdated;
-        
+
         public ProductDescriptionEditForm(Product product)
         {
             _product = product;
             InitializeComponent();
             Shown += (_, _) => FillTextBox();
         }
+
+        public event EventHandler? DescriptionUpdated;
 
         private void FillTextBox()
         {

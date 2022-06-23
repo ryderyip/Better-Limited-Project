@@ -34,7 +34,7 @@ namespace Better_Limited_Project.ProductUtility.InwardGoodsUtility.Repository
         {
             string id = row.Field<int>("id").ToString();
             string purchaseOrderId = row.Field<int>("purchase_order_id").ToString();
-            DateTime receivedOn = row.Field<DateTime>("received_on");
+            var receivedOn = row.Field<DateTime>("received_on");
             return new InwardGoods(id, purchaseOrderId, receivedOn);
         }
 

@@ -37,11 +37,11 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
         {
             string id = row.Field<int>("id").ToString();
             string orderNumber = row.Field<string>("sales_order_number");
-            int? customerId = row.Field<int?>("customer_id");
+            var customerId = row.Field<int?>("customer_id");
             Staff staff = new StaffRepository().FindById(row.Field<int>("created_by_staff_id").ToString());
             RetailStore retailStore = new RetailStoreRepository().GetById(row.Field<string>("retail_store_id"));
-            DateTime createOn = row.Field<DateTime>("created_on");
-            bool isActive = row.Field<bool>("is_active");
+            var createOn = row.Field<DateTime>("created_on");
+            var isActive = row.Field<bool>("is_active");
             return new SalesOrder(id, orderNumber, staff, retailStore, createOn, isActive)
             {
                 Customer = customerId.HasValue
@@ -89,7 +89,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
             command.Parameters.AddWithValue("@id", salesOrder.Id);
             DataTableRepository.ExecuteNonQuery(command);
         }
-        
+
         public IEnumerable<SalesOrder> GetCompletedOrders()
         {
             var command = new MySqlCommand(

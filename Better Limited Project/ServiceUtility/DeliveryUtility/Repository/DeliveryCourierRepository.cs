@@ -15,7 +15,7 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.Repository
                 @"select courier_id from delivery_courier where delivery_id = @deliveryId;");
             command.Parameters.AddWithValue("@deliveryId", deliveryId);
             var dataTable = DataTableRepository.RetrieveDataTable(command);
-            return from DataRow row in dataTable.Rows 
+            return from DataRow row in dataTable.Rows
                 select new DeliveryCourier(deliveryId, row.Field<int>("courier_id").ToString());
         }
 

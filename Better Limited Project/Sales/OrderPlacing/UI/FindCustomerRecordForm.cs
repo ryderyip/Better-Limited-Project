@@ -8,7 +8,6 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
 {
     public partial class FindCustomerRecordForm : Form
     {
-        public event EventHandler<Customer>? CustomerRecordFound;
         private readonly List<Customer> _customers;
 
         public FindCustomerRecordForm()
@@ -16,6 +15,8 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
             _customers = new CustomerRepository().GetAll().ToList();
             InitializeComponent();
         }
+
+        public event EventHandler<Customer>? CustomerRecordFound;
 
         private void btnNext_Clicked(object sender, EventArgs e)
         {

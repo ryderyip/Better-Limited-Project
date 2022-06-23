@@ -9,8 +9,8 @@ namespace Better_Limited_Project.DevTools
 {
     public class RestockTool
     {
-        private readonly RetailStore _retailStore;
         private readonly List<IProductQuantity> _productQuantities = new();
+        private readonly RetailStore _retailStore;
 
         public RestockTool(RetailStore retailStore)
         {

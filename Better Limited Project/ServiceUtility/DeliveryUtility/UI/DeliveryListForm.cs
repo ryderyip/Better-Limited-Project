@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
+using Better_Limited_Project.ServiceUtility.DeliveryUtility.Entity;
 using Better_Limited_Project.ServiceUtility.DeliveryUtility.Repository;
 using Better_Limited_Project.Tools;
 
@@ -9,7 +11,7 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
 {
     public partial class DeliveryListForm : Form
     {
-        private List<Entity.Delivery> _deliveries;
+        private List<Delivery> _deliveries;
 
         public DeliveryListForm()
         {
@@ -23,7 +25,7 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
             PopulateDgvDeliveries(_deliveries);
         }
 
-        private void PopulateDgvDeliveries(List<Entity.Delivery> deliveryList)
+        private void PopulateDgvDeliveries(List<Delivery> deliveryList)
         {
             dgvDeliveries.Rows.Clear();
             deliveryList.ForEach(delivery => dgvDeliveries.Rows.Add(delivery.Id, delivery.DeliveryRequestId,
@@ -34,7 +36,7 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
             dgvDeliveries.Sort(updatedOnColumn, ListSortDirection.Descending);
         }
 
-        private void tbSearchBox_TextChanged(object sender, System.EventArgs e)
+        private void tbSearchBox_TextChanged(object sender, EventArgs e)
         {
             string searchKeyword = tbSearchBox.Text.ToLower().Trim();
             var filteredDeliveries =
@@ -56,14 +58,14 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
             form.ShowDialog();
         }
 
-        private void btnDailyDeliveryList_Click(object sender, System.EventArgs e)
+        private void btnDailyDeliveryList_Click(object sender, EventArgs e)
         {
             var form = new DailyDeliveryListForm();
             form.StartPosition = FormStartPosition.CenterScreen;
             form.ShowDialog();
         }
 
-        private void btnDeliveryRequests_Click(object sender, System.EventArgs e)
+        private void btnDeliveryRequests_Click(object sender, EventArgs e)
         {
             var form = new DeliveryRequestListForm();
             form.StartPosition = FormStartPosition.CenterScreen;

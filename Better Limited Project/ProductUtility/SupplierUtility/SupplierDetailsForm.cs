@@ -7,8 +7,7 @@ namespace Better_Limited_Project.ProductUtility.SupplierUtility
     public partial class SupplierDetailsForm : Form
     {
         private Supplier _supplier;
-        public event EventHandler? Updated;
-        
+
         public SupplierDetailsForm(Supplier supplier)
         {
             StartPosition = FormStartPosition.CenterScreen;
@@ -17,6 +16,8 @@ namespace Better_Limited_Project.ProductUtility.SupplierUtility
             Shown += (_, _) => btnRemoveCustomer.Visible = false;
             Shown += (_, _) => FillFields();
         }
+
+        public event EventHandler? Updated;
 
         private void FillFields()
         {

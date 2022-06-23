@@ -8,8 +8,8 @@ namespace Better_Limited_Project.ProductUtility.GoodsPurchasing.Controller
 {
     public class PurchaseOrderCreationService
     {
-        private readonly PurchaseOrder _purchaseOrder;
         private readonly List<PurchaseOrderProduct> _orderProducts;
+        private readonly PurchaseOrder _purchaseOrder;
 
         public PurchaseOrderCreationService(ReorderRequest reorderRequest)
         {
@@ -18,7 +18,7 @@ namespace Better_Limited_Project.ProductUtility.GoodsPurchasing.Controller
         }
 
         /// <summary>
-        /// Creates a purchase order
+        ///     Creates a purchase order
         /// </summary>
         public void Create()
         {

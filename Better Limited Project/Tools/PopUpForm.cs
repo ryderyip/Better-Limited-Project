@@ -1,13 +1,14 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 namespace Better_Limited_Project.Tools
 {
     public partial class PopUpForm : Form
     {
+        private const double Duration = 2;
         private readonly string _header;
         private readonly string _text;
         private readonly Timer _timer;
-        private const double Duration = 2;
 
         public PopUpForm(string header, string text)
         {
@@ -31,6 +32,7 @@ namespace Better_Limited_Project.Tools
             _timer.Start();
             _timer.Tick += (_, _) => Close();
         }
+
         private void PopUpForm_MouseClick(object sender, MouseEventArgs e)
         {
             Close();
@@ -42,7 +44,7 @@ namespace Better_Limited_Project.Tools
                 Close();
         }
 
-        private void tbMainText_Click(object sender, System.EventArgs e)
+        private void tbMainText_Click(object sender, EventArgs e)
         {
             Close();
         }

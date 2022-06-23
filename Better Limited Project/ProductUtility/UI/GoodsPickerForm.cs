@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.ProductUtility.Entity;
@@ -10,20 +11,24 @@ using Better_Limited_Project.SettingsUtility;
 namespace Better_Limited_Project.ProductUtility.UI
 {
     /// <summary>
-    /// For selecting products and their quantity. Returns dialog result <see cref="DialogResult.OK"/> when finished.
+    ///     For selecting products and their quantity. Returns dialog result <see cref="DialogResult.OK" /> when finished.
     /// </summary>
     public partial class GoodsPickerForm : Form
     {
-        private readonly List<Product> _products;
         private readonly List<Category> _categories;
-        public List<IProductQuantity> SelectedProducts { get; }
+        private readonly List<Product> _products;
 
         /// <summary>
-        /// Creates a <see cref="GoodsPickerForm"/> instance.
+        ///     Creates a <see cref="GoodsPickerForm" /> instance.
         /// </summary>
-        /// <param name="productQuantities">Already selected products to be added
-        /// to the selected goods data grid view.</param>
-        /// <param name="products"><para>Products for users to pick from.</para>Users can pick any product if unprovided.</param>
+        /// <param name="productQuantities">
+        ///     Already selected products to be added
+        ///     to the selected goods data grid view.
+        /// </param>
+        /// <param name="products">
+        ///     <para>Products for users to pick from.</para>
+        ///     Users can pick any product if unprovided.
+        /// </param>
         public GoodsPickerForm(IList<IProductQuantity>? productQuantities = null, IEnumerable<Product>? products = null)
         {
             _products = products == null ? ProductRepository.GetAll().ToList() : products.ToList();
@@ -35,6 +40,8 @@ namespace Better_Limited_Project.ProductUtility.UI
             Load += (_, _) => Initialize();
             InitializeComponent();
         }
+
+        public List<IProductQuantity> SelectedProducts { get; }
 
         private void Initialize()
         {
@@ -73,13 +80,13 @@ namespace Better_Limited_Project.ProductUtility.UI
             }
         }
 
-        private void btnAdd_Click(object sender, System.EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow row in dgvProducts.SelectedRows)
             {
                 string productId = row.Cells[productIdColumn.Name].Value.ToString();
                 var product = _products.Find(p => p.Id == productId);
-                int quantity = (int) nudAmountToAdd.Value;
+                var quantity = (int) nudAmountToAdd.Value;
                 // AddToSelectedProducts(productId, quantity);
                 AddToSelectedGoodsDgv(product, quantity);
                 row.Selected = false;
@@ -97,7 +104,9 @@ namespace Better_Limited_Project.ProductUtility.UI
                 requestedGoodsProductRow.Cells[quantityToReorderColumn.Name].Value = quantity;
             }
             else
+            {
                 dgvRequestedGoods.Rows.Add(product.Id, product.Name, quantity);
+            }
         }
 
         private DataGridViewRow? GetRowInDgvRequestedGoods(string productId)
@@ -106,7 +115,7 @@ namespace Better_Limited_Project.ProductUtility.UI
                 .FirstOrDefault(r => r.Cells[requestedProductIdColumn.Name].Value.ToString() == productId);
         }
 
-        private void btnRemoveSelected_Click(object sender, System.EventArgs e)
+        private void btnRemoveSelected_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow row in dgvRequestedGoods.SelectedRows)
             {
@@ -114,22 +123,23 @@ namespace Better_Limited_Project.ProductUtility.UI
                 SelectedProducts.RemoveAll(p => p.ProductId == productId);
                 dgvRequestedGoods.Rows.Remove(row);
             }
+
             dgvRequestedGoods.ClearSelection();
         }
 
-        private void btnClear_Click(object sender, System.EventArgs e)
+        private void btnClear_Click(object sender, EventArgs e)
         {
             dgvRequestedGoods.Rows.Clear();
             SelectedProducts.Clear();
         }
 
-        private void btnConfirm_Click(object sender, System.EventArgs e)
+        private void btnConfirm_Click(object sender, EventArgs e)
         {
             SelectedProducts.Clear();
             foreach (DataGridViewRow row in dgvRequestedGoods.Rows)
             {
                 string productId = row.Cells[requestedProductIdColumn.Name].Value.ToString();
-                int quantity = int.Parse(row.Cells[quantityToReorderColumn.Name].Value.ToString());
+                var quantity = int.Parse(row.Cells[quantityToReorderColumn.Name].Value.ToString());
                 SelectedProducts.Add(new ProductQuantity(productId, quantity));
             }
 

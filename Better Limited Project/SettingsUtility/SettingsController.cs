@@ -8,15 +8,15 @@ namespace Better_Limited_Project.SettingsUtility
     public class SettingsController
     {
         private readonly FormController _formController;
-        private readonly SettingsForm _settingsForm;
         private readonly UserSettings _settings;
+        private readonly SettingsForm _settingsForm;
 
         public SettingsController(FormController formController)
         {
             _formController = formController;
             _settingsForm = new SettingsForm(LoginSession.GetSession().CurrentStaff.Department);
             _settings = UserSettings.GetSettings();
-            
+
             _settingsForm.Shown += OnSettingsFormShown;
             _settingsForm.UpdateClicked += OnUpdateSettingsClicked;
             _settingsForm.BrowseDocPathClicked += OnBrowseDocPathClicked;
@@ -26,7 +26,7 @@ namespace Better_Limited_Project.SettingsUtility
         {
             _settingsForm.ShowCurrentSettings(_settings);
         }
-        
+
         private void OnUpdateSettingsClicked(object sender, UserSettings newSettings)
         {
             var oldSettings = _settings;
@@ -48,7 +48,7 @@ namespace Better_Limited_Project.SettingsUtility
         {
             WindowsExplorer.OpenDirectory(path);
         }
-        
+
         public void OpenForm()
         {
             _formController.OpenContentForm(_settingsForm);

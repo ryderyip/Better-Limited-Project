@@ -14,10 +14,10 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Controller
 {
     public class PlaceOrderController
     {
-        private PlaceOrderForm _form;
-        private Pager<RetailStoreStock> _pager;
         private const int PageSize = 6;
         private Cart _cart;
+        private PlaceOrderForm _form;
+        private Pager<RetailStoreStock> _pager;
 
         public PlaceOrderController()
         {
@@ -32,7 +32,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Controller
             _pager = new Pager<RetailStoreStock>(PageSize);
             _form = new PlaceOrderForm(_pager, _cart);
             _form.btnNext.Click += OnPlaceOrderFormNextClicked;
-            
+
             StockRepository.GetRetailStoreStocks(UserSettings.GetSettings().Workplace?.Id!)
                 .ToList()
                 .ForEach(stock => _pager.AddItem(stock));
@@ -43,7 +43,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Controller
             if (_cart.IsEmpty())
                 return;
 
-            if (_form.checkBoxNeedDelivery.Checked 
+            if (_form.checkBoxNeedDelivery.Checked
                 || _form.checkBoxNeedInstallation.Checked
                 || _cart.GetCartItems().Any(ci => ci.IsOutOfStock))
             {
@@ -53,7 +53,9 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Controller
             }
 
             else
+            {
                 PlaceOrder();
+            }
         }
 
         private void PlaceOrder(Customer? customer = null)

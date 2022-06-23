@@ -16,14 +16,6 @@ namespace Better_Limited_Project.ProductUtility.Entity
         public const decimal DepositPricePercentage = 0.2m;
         public const decimal DepositThreshold = 5000;
 
-        public string Id { get; }
-        public string Name { get; set; }
-        public decimal OriginalPrice { get; set; }
-        public string Description { get; set; }
-        public Supplier Supplier { get; set; }
-        public Category Category { get; set; }
-        public bool IsPhasingOut { get; set; }
-
         public Product(string id, string name, decimal originalPrice, string description, Supplier supplier,
             Category category, bool isPhasingOut)
         {
@@ -48,6 +40,14 @@ namespace Better_Limited_Project.ProductUtility.Entity
             IsPhasingOut = isPhasingOut;
         }
 
+        public string Id { get; }
+        public string Name { get; set; }
+        public decimal OriginalPrice { get; set; }
+        public string Description { get; set; }
+        public Supplier Supplier { get; set; }
+        public Category Category { get; set; }
+        public bool IsPhasingOut { get; set; }
+
         public Image GetImage()
         {
             return ProductImageRepository.GetByProductId(Id)
@@ -71,7 +71,7 @@ namespace Better_Limited_Project.ProductUtility.Entity
 
             if (IsInAnySalesOrder())
                 return;
-            
+
             ProductImageRepository.Delete(Id);
             ProductRepository.Remove(this);
         }
@@ -82,8 +82,8 @@ namespace Better_Limited_Project.ProductUtility.Entity
         }
 
         /// <summary>
-        /// Check if product is used in one or more sales orders that has/have incomplete payments
-        /// or deliveries which have not arrived.
+        ///     Check if product is used in one or more sales orders that has/have incomplete payments
+        ///     or deliveries which have not arrived.
         /// </summary>
         public bool IsBelongsToAnyIncompleteSalesOrder()
         {

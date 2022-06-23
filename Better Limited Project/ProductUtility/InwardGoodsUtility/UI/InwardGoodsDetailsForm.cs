@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using Better_Limited_Project.ProductUtility.GoodsPurchasing.UI;
 using Better_Limited_Project.ProductUtility.InwardGoodsUtility.Entity;
 
@@ -25,8 +26,8 @@ namespace Better_Limited_Project.ProductUtility.InwardGoodsUtility.UI
         private void PopulateDgv()
         {
             foreach (var inwardProduct in _inwardGoods.InwardProducts)
-                dgvReceivedGoods.Rows.Add(inwardProduct.ProductId, 
-                    inwardProduct.Product.Name, 
+                dgvReceivedGoods.Rows.Add(inwardProduct.ProductId,
+                    inwardProduct.Product.Name,
                     inwardProduct.Quantity);
         }
 
@@ -36,7 +37,7 @@ namespace Better_Limited_Project.ProductUtility.InwardGoodsUtility.UI
             tbReceivedOn.Text = _inwardGoods.ReceivedOn.ToString("f");
         }
 
-        private void btnViewPurchaseOrder_Click(object sender, System.EventArgs e)
+        private void btnViewPurchaseOrder_Click(object sender, EventArgs e)
         {
             var form = new PurchaseOrderDetailsForm(_inwardGoods.PurchaseOrder);
             form.ShowDialog();

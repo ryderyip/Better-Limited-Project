@@ -12,14 +12,14 @@ namespace Better_Limited_Project.ProductUtility.Reordering.Entity
             Quantity = quantity;
         }
 
-        public string ProductId { get; }
-        public Product Product => ProductRepository.FindById(ProductId);
-        public int Quantity { get; set; }
-
         public bool Equals(ProductQuantity other)
         {
             return ProductId == other.ProductId && Quantity == other.Quantity;
         }
+
+        public string ProductId { get; }
+        public Product Product => ProductRepository.FindById(ProductId);
+        public int Quantity { get; set; }
 
         public override int GetHashCode()
         {
@@ -35,7 +35,7 @@ namespace Better_Limited_Project.ProductUtility.Reordering.Entity
         {
             return !x.Equals(y);
         }
-        
+
         public override bool Equals(object? obj)
         {
             if (ReferenceEquals(null, obj)) return false;

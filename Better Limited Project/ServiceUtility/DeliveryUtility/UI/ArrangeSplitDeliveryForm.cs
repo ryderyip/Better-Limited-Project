@@ -7,8 +7,6 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
 {
     public partial class ArrangeSplitDeliveryForm : Form, IArrangeDeliveryForm
     {
-        public event EventHandler? SwitchFormClicked;
-        public event EventHandler? DeliveryArranged;
         private readonly DeliveryRequest _deliveryRequest;
         private readonly List<Courier> _selectedCouriers;
 
@@ -18,7 +16,10 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
             _selectedCouriers = selectedCouriers;
             InitializeComponent();
         }
-        
+
+        public event EventHandler? SwitchFormClicked;
+        public event EventHandler? DeliveryArranged;
+
         public void ShowForm()
         {
             StartPosition = FormStartPosition.CenterScreen;

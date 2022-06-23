@@ -11,7 +11,7 @@ namespace Better_Limited_Project.ProductUtility.Reordering.Repository
     public static class ReorderRequestRepository
     {
         /// <summary>
-        /// Insert new row. When id is duplicate, updates approved by staff id and approved on.
+        ///     Insert new row. When id is duplicate, updates approved by staff id and approved on.
         /// </summary>
         /// <param name="reorderRequest"></param>
         public static void InsertOrUpdate(ReorderRequest reorderRequest)
@@ -50,7 +50,8 @@ namespace Better_Limited_Project.ProductUtility.Reordering.Repository
             var requestedOn = row.Field<DateTime>("requested_on");
             var approvedByStaffId = row.Field<int?>("approved_by_staff_id")?.ToString();
             var approvedOn = row.Field<DateTime?>("approved_on");
-            return new ReorderRequest(id, requestNumber, warehouseId, requestedByStaffId, approvedByStaffId, requestedOn, approvedOn);
+            return new ReorderRequest(id, requestNumber, warehouseId, requestedByStaffId, approvedByStaffId,
+                requestedOn, approvedOn);
         }
 
         public static ReorderRequest FindById(string id)

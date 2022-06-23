@@ -10,12 +10,6 @@ namespace Better_Limited_Project.CustomerRecord
 {
     public class AddressRepository : IRepositoryInsert<Address>
     {
-        public static Address GetById(string id)
-        {
-            return GetAddresses().FirstOrDefault(address => address.Id == id)
-                   ?? throw new ArgumentException($"Id \"{id}\" does not exist.");
-        }
-
         public void Insert(Address address)
         {
             var command = new MySqlCommand(
@@ -25,6 +19,12 @@ namespace Better_Limited_Project.CustomerRecord
             command.Parameters.AddWithValue("@address1", address.Address1);
             command.Parameters.AddWithValue("@address2", address.Address2);
             DataTableRepository.ExecuteNonQuery(command);
+        }
+
+        public static Address GetById(string id)
+        {
+            return GetAddresses().FirstOrDefault(address => address.Id == id)
+                   ?? throw new ArgumentException($"Id \"{id}\" does not exist.");
         }
 
         public static IEnumerable<Address> GetAddresses()

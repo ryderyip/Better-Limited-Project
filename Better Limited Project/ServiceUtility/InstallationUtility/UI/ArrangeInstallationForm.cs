@@ -51,7 +51,9 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
             if (IsAfter5Pm(arrangedDeliveryTime))
             {
                 var nextDayMorning = arrangedDeliveryTime.Date + TimeSpan.FromDays(1) + TimeSpan.FromHours(9);
-                return nextDayMorning.DayOfWeek is DayOfWeek.Sunday ? nextDayMorning + TimeSpan.FromDays(1) : nextDayMorning;
+                return nextDayMorning.DayOfWeek is DayOfWeek.Sunday
+                    ? nextDayMorning + TimeSpan.FromDays(1)
+                    : nextDayMorning;
             }
 
             return arrangedDeliveryTime + TimeSpan.FromHours(2);

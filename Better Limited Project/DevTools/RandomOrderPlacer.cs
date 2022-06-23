@@ -19,9 +19,9 @@ namespace Better_Limited_Project.DevTools
 {
     public class RandomOrderPlacer
     {
-        private readonly List<RetailStoreStock> _stocks;
         private readonly Random _random;
         private readonly List<RetailStore> _retailStores;
+        private readonly List<RetailStoreStock> _stocks;
 
         public RandomOrderPlacer()
         {
@@ -31,8 +31,8 @@ namespace Better_Limited_Project.DevTools
         }
 
         /// <summary>
-        /// Places orders randomly for a specified number of times.
-        /// Cart items and customer info will be selected randomly.
+        ///     Places orders randomly for a specified number of times.
+        ///     Cart items and customer info will be selected randomly.
         /// </summary>
         public async Task PlaceOrdersAsync(int numberOfOrders, IProgress<double> progress)
         {
@@ -47,13 +47,13 @@ namespace Better_Limited_Project.DevTools
 
             await Task.Run(() =>
             {
-                for (int i = 0; i < numberOfOrders; i++)
+                for (var i = 0; i < numberOfOrders; i++)
                 {
                     var retailStore = GetRandomRetailStore();
                     var cart = new Cart(retailStore.Id);
-                    for (int j = 0; j < _random.Next(1, 15); j++)
+                    for (var j = 0; j < _random.Next(1, 15); j++)
                         cart.Add(GetRandomProduct());
-                    
+
                     var salesOrder = GetRandomSalesOrder(retailStore);
                     var salesOrderProducts = cart.GetCartItems().Select(cartItem =>
                         new SalesOrderProduct(salesOrder.Id, cartItem.Product.Id, cartItem.Price, cartItem.Quantity,
@@ -61,9 +61,11 @@ namespace Better_Limited_Project.DevTools
 
                     var paymentMethod = GetRandomPaymentMethod();
                     var calculator = new SalesOrderCalculator(salesOrderProducts);
-                    var nonDepositPayment = new Payment(PaymentRepository.GetNewId(), calculator.GetNonDepositAmount(), paymentMethod, salesOrder.CreatedOn);
+                    var nonDepositPayment = new Payment(PaymentRepository.GetNewId(), calculator.GetNonDepositAmount(),
+                        paymentMethod, salesOrder.CreatedOn);
                     nonDepositPayment.Save();
-                    var depositPayment = new Payment(PaymentRepository.GetNewId(), calculator.GetDepositAmount(), paymentMethod, salesOrder.CreatedOn);
+                    var depositPayment = new Payment(PaymentRepository.GetNewId(), calculator.GetDepositAmount(),
+                        paymentMethod, salesOrder.CreatedOn);
                     depositPayment.Save();
 
                     salesOrder.Save();
@@ -72,7 +74,7 @@ namespace Better_Limited_Project.DevTools
                     {
                         new SalesOrderProductPayment(sop.SalesOrderId, sop.ProductId,
                             sop.IsOutOfStock ? depositPayment.Id : nonDepositPayment.Id,
-                            isDeposit: sop.IsOutOfStock).Save();
+                            sop.IsOutOfStock).Save();
                         sop.Save();
                     });
                     salesOrder.Save();
@@ -83,13 +85,15 @@ namespace Better_Limited_Project.DevTools
                         ReserveInStockProducts(salesOrder, salesOrderProducts);
                     }
                     else
+                    {
                         MinusFromStock(salesOrderProducts);
-                    
-                    progress.Report(i*100.0 / numberOfOrders);
+                    }
+
+                    progress.Report(i * 100.0 / numberOfOrders);
                 }
             });
         }
-        
+
         private void MinusFromStock(List<SalesOrderProduct> salesOrderProducts)
         {
             var stocks = StockRepository.GetStocks(UserSettings.GetSettings().Workplace!.Id).ToList();
@@ -121,7 +125,7 @@ namespace Better_Limited_Project.DevTools
         {
             return new SalesOrder(new SalesOrderRepository().GetNewId(),
                 SalesOrderNumberGenerator.GetNewOrderNumber(retailStore.Id),
-                GetRandomSalesStaff(), 
+                GetRandomSalesStaff(),
                 retailStore,
                 GetRandomOrderDate(),
                 true)
@@ -132,7 +136,7 @@ namespace Better_Limited_Project.DevTools
 
         private DateTime GetRandomOrderDate()
         {
-            int hoursInAMonth = 30 * 24;
+            var hoursInAMonth = 30 * 24;
             return DateTime.Now - TimeSpan.FromHours(_random.Next(hoursInAMonth * 6));
         }
 
@@ -155,7 +159,7 @@ namespace Better_Limited_Project.DevTools
         private Customer? GetRandomCustomerOrNoCustomer()
         {
             var customers = new CustomerRepository().GetAll().ToList();
-            int random = _random.Next(-1, customers.Count);
+            var random = _random.Next(-1, customers.Count);
             return random == -1 ? null : customers[random];
         }
 

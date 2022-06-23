@@ -4,11 +4,6 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
 {
     public class CartItem
     {
-        public Product Product { get; }
-        public int Quantity { get; set; }
-        public decimal Price { get; }
-        public bool IsOutOfStock { get; set; }
-
         public CartItem(Product product, int quantity, decimal price, bool isOutOfStock)
         {
             Product = product;
@@ -16,5 +11,10 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
             Price = price;
             IsOutOfStock = isOutOfStock;
         }
+
+        public Product Product { get; }
+        public int Quantity { get; set; }
+        public decimal Price { get; }
+        public bool IsOutOfStock { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using Better_Limited_Project.DocumentUtility;
 using Better_Limited_Project.Login;
 using Better_Limited_Project.ProductUtility.Entity;
@@ -22,7 +23,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             InitializeComponent();
         }
 
-        private void btnChooseProduct_Click(object sender, System.EventArgs e)
+        private void btnChooseProduct_Click(object sender, EventArgs e)
         {
             if (_selectedSalesOrder == null)
             {
@@ -40,7 +41,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             nudQuantity.Maximum = form.SelectedProduct.Quantity;
         }
 
-        private void btnChooseSalesOrder_Click(object sender, System.EventArgs e)
+        private void btnChooseSalesOrder_Click(object sender, EventArgs e)
         {
             var completedSalesOrders = new SalesOrderRepository().GetCompletedOrders();
             var form = new SalesOrderPickerForm(completedSalesOrders);
@@ -52,7 +53,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             tbSalesOrderNumber.Text = _selectedSalesOrder.OrderNumber;
         }
 
-        private void btnChooseImage_Click(object sender, System.EventArgs e)
+        private void btnChooseImage_Click(object sender, EventArgs e)
         {
             string browserDescription = "Select an image as an evidence";
             var path = ImageFileBrowser.Browse(browserDescription);
@@ -61,10 +62,10 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             pbEvidenceImage.Image = ImageRetriever.Retrieve(path);
         }
 
-        private void btnCreate_Click(object sender, System.EventArgs e)
+        private void btnCreate_Click(object sender, EventArgs e)
         {
             string description = tbDescription.Text.Trim();
-            int quantity = (int) nudQuantity.Value;
+            var quantity = (int) nudQuantity.Value;
             var currentRetailStore = (RetailStore) UserSettings.GetSettings().Workplace!;
             var staff = LoginSession.GetSession().CurrentStaff;
             if (string.IsNullOrWhiteSpace(description))

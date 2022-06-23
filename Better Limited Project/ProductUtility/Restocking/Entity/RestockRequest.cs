@@ -18,8 +18,8 @@ namespace Better_Limited_Project.ProductUtility.Restocking.Entity
             RequestedOn = DateTime.Now;
         }
 
-        public RestockRequest(string id, string requestNumber, string requestedForRetailStoreId, 
-            string requestedByStaffId, DateTime requestedOn, string? arrangedByStaffId, 
+        public RestockRequest(string id, string requestNumber, string requestedForRetailStoreId,
+            string requestedByStaffId, DateTime requestedOn, string? arrangedByStaffId,
             DateTime? arrangedOn, DateTime? receivedOn)
         {
             Id = id;

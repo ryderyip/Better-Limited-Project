@@ -4,26 +4,32 @@ using System.Data;
 using System.Linq;
 using Better_Limited_Project.DatabaseUtility;
 using Better_Limited_Project.RepositoryUtility;
-
-
 using MySql.Data.MySqlClient;
 
 namespace Better_Limited_Project.CustomerRecord
 {
     public class CustomerRepository : IRepository<Customer>, IRepositoryInsert<Customer>, IRepositoryDelete<Customer>
     {
-        private Customer ConvertToCustomer(DataRow row)
+        public IEnumerable<Customer> GetAll()
         {
-            string id = row.Field<int>("id").ToString();
-            string name = row.Field<string>("name");
-            string phone = row.Field<string>("phone");
-            string addressId = row.Field<int>("address_id").ToString();
-            var address = AddressRepository.GetById(addressId);
-            string? email = row["email"] != DBNull.Value
-                ? row.Field<string>("email")
-                : null;
+            var command = new MySqlCommand(
+                @"select id, name, delivery_address_id as address_id, phone, email 
+                        from customer;");
+            var dataTable = DataTableRepository.RetrieveDataTable(command);
+            return from DataRow row in dataTable.Rows select ConvertToCustomer(row);
+        }
 
-            return new Customer(id, name, phone, address, email);
+        public IEnumerable<Customer> FindAll(Predicate<Customer> filter)
+        {
+            return GetAll().Where(filter.Invoke);
+        }
+
+        public void Delete(Customer customer)
+        {
+            var command = new MySqlCommand(
+                @"delete from customer where id = @customerId;");
+            command.Parameters.AddWithValue("@customerId", customer.Id);
+            DataTableRepository.ExecuteNonQuery(command);
         }
 
         public void Insert(Customer customer)
@@ -40,12 +46,18 @@ namespace Better_Limited_Project.CustomerRecord
             DataTableRepository.ExecuteNonQuery(command);
         }
 
-        public void Delete(Customer customer)
+        private Customer ConvertToCustomer(DataRow row)
         {
-            var command = new MySqlCommand(
-                @"delete from customer where id = @customerId;");
-            command.Parameters.AddWithValue("@customerId", customer.Id);
-            DataTableRepository.ExecuteNonQuery(command);
+            string id = row.Field<int>("id").ToString();
+            string name = row.Field<string>("name");
+            string phone = row.Field<string>("phone");
+            string addressId = row.Field<int>("address_id").ToString();
+            var address = AddressRepository.GetById(addressId);
+            var email = row["email"] != DBNull.Value
+                ? row.Field<string>("email")
+                : null;
+
+            return new Customer(id, name, phone, address, email);
         }
 
         public Customer FindById(string id)
@@ -55,25 +67,11 @@ namespace Better_Limited_Project.CustomerRecord
                     where id = @id;");
             command.Parameters.AddWithValue("@id", id);
             var datatable = DataTableRepository.RetrieveDataTable(command);
-            
+
             if (datatable.Rows.Count == 0)
                 throw new ArgumentException($"Customer ID \"{id}\" does not exist.");
-            
+
             return ConvertToCustomer(datatable.Rows[0]);
-        }
-
-        public IEnumerable<Customer> GetAll()
-        {
-            var command = new MySqlCommand(
-                @"select id, name, delivery_address_id as address_id, phone, email 
-                        from customer;");
-            var dataTable = DataTableRepository.RetrieveDataTable(command);
-            return from DataRow row in dataTable.Rows select ConvertToCustomer(row);
-        }
-
-        public IEnumerable<Customer> FindAll(Predicate<Customer> filter)
-        {
-            return GetAll().Where(filter.Invoke);
         }
 
         public string GetNewId()

@@ -7,7 +7,6 @@ namespace Better_Limited_Project.StaffUtility.StaffProfile
     {
         private readonly FormController _formController;
         private readonly ProfileForm _profileForm;
-        public event EventHandler? LogOutClicked;
 
         public ProfileController(FormController formController)
         {
@@ -16,14 +15,16 @@ namespace Better_Limited_Project.StaffUtility.StaffProfile
             _profileForm.LogOutClicked += OnLogOutClicked;
         }
 
+        public event EventHandler? LogOutClicked;
+
         public void OpenForm()
         {
             if (IsProfileFormAlreadyOpened())
                 return;
-            
+
             _formController.OpenContentForm(_profileForm);
         }
-        
+
         private void OnLogOutClicked(object sender, EventArgs e)
         {
             LogOutClicked?.Invoke(sender, e);
@@ -32,7 +33,7 @@ namespace Better_Limited_Project.StaffUtility.StaffProfile
 
         private bool IsProfileFormAlreadyOpened()
         {
-            return _formController.ContentForm != null 
+            return _formController.ContentForm != null
                    && _formController.ContentForm.GetType() == typeof(ProfileForm);
         }
     }

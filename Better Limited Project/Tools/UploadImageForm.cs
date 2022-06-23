@@ -7,13 +7,13 @@ namespace Better_Limited_Project.Tools
 {
     public partial class UploadImageForm : Form
     {
-        public event EventHandler<Image?>? Uploaded;
-
         public UploadImageForm(Image? originalImage = null)
         {
             InitializeComponent();
             Shown += (_, _) => FillOriginalInfo(originalImage);
         }
+
+        public event EventHandler<Image?>? Uploaded;
 
         private void FillOriginalInfo(Image? originalImage)
         {
@@ -31,9 +31,11 @@ namespace Better_Limited_Project.Tools
 
             if (FileSizeChecker.IsFileLargerThan(5_000_000, path))
             {
-                MessageBox.Show(ToolsStringResources.UploadImageForm_btnChooseImage_Click_File_size_cannot_be_larger_than_5MB_);
+                MessageBox.Show(ToolsStringResources
+                    .UploadImageForm_btnChooseImage_Click_File_size_cannot_be_larger_than_5MB_);
                 return;
             }
+
             var image = ImageRetriever.Retrieve(path);
             if (image != null)
                 pbImage.Image = image;

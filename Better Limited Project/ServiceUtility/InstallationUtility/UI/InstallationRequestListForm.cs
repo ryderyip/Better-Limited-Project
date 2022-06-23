@@ -7,7 +7,7 @@ using Better_Limited_Project.ServiceUtility.InstallationUtility.Repository;
 
 namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
 {
-     public partial class InstallationRequestListForm : Form
+    public partial class InstallationRequestListForm : Form
     {
         private List<InstallationRequest> _requests;
 
@@ -35,7 +35,7 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
         {
             dgvInstallationRequests.Rows.Clear();
             requests.ForEach(r => dgvInstallationRequests.Rows.Add(r.Id, r.SalesOrder.OrderNumber,
-                r.SalesOrder.CreatedOn.ToString("g"), 
+                r.SalesOrder.CreatedOn.ToString("g"),
                 r.IsArranged() ? "Yes" : "No",
                 r.ArrangedOn?.ToString("g") ?? "-"));
             dgvInstallationRequests.Sort(orderNumberColumn, ListSortDirection.Descending);

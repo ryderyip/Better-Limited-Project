@@ -6,7 +6,6 @@ namespace Better_Limited_Project.CustomerRecord
 {
     public partial class CustomerDetailsForm : Form
     {
-        public event EventHandler? Updated;
         private Customer _customer;
 
         public CustomerDetailsForm(Customer customer)
@@ -16,6 +15,8 @@ namespace Better_Limited_Project.CustomerRecord
             InitializeComponent();
             Shown += (_, _) => FillFields();
         }
+
+        public event EventHandler? Updated;
 
         private void FillFields()
         {
@@ -49,10 +50,13 @@ namespace Better_Limited_Project.CustomerRecord
                 return;
             }
 
-            var result = MessageBox.Show("This will erase the customer's personal information. Any sales orders the customer has placed will be kept. Confirm removal?", "Confirm Removal", MessageBoxButtons.YesNo);
+            var result =
+                MessageBox.Show(
+                    "This will erase the customer's personal information. Any sales orders the customer has placed will be kept. Confirm removal?",
+                    "Confirm Removal", MessageBoxButtons.YesNo);
             if (result is not DialogResult.Yes)
                 return;
-            
+
             var form = new ConfirmRemovalForm();
             form.StartPosition = FormStartPosition.CenterScreen;
             form.Confirmed += (_, _) =>

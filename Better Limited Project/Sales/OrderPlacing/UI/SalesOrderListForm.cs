@@ -25,7 +25,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
         private async void Initialize()
         {
             ToggleLoadingScreen();
-            if (await GetAllSalesOrdersOrCancelOnClosing()) 
+            if (await GetAllSalesOrdersOrCancelOnClosing())
                 return;
             ToggleLoadingScreen();
             FillSalesOrderDgv(_salesOrders);
@@ -45,10 +45,11 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
         {
             dgvSalesOrders.Rows.Clear();
             salesOrders.ForEach(order => dgvSalesOrders.Rows.Add(order.Id,
-                order.OrderNumber, 
+                order.OrderNumber,
                 order.Customer != null ? order.Customer.Name : "-",
                 order.Customer != null ? order.Customer.Phone : "-",
-                new SalesOrderCalculator(order.GetSalesOrderProducts()).GetTotalAmount().ToString("C", new CultureInfo("zh-HK")),
+                new SalesOrderCalculator(order.GetSalesOrderProducts()).GetTotalAmount()
+                    .ToString("C", new CultureInfo("zh-HK")),
                 order.CreatedOn.ToShortDateString() + " : " + order.CreatedOn.ToShortTimeString(),
                 order.IsActive ? "Yes" : "No"));
             dgvSalesOrders.Sort(salesOrderNumberColumn, ListSortDirection.Descending);
@@ -59,33 +60,35 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
             if (dtpSearchDate.Enabled)
                 FilterSalesOrderDgv();
         }
-        
+
         private void tbSearchBox_TextChanged(object sender, EventArgs e)
         {
             FilterSalesOrderDgv();
         }
-       
+
         private void cbEnableSearchByDate_CheckedChanged(object sender, EventArgs e)
         {
             dtpSearchDate.Enabled = !dtpSearchDate.Enabled;
             FilterSalesOrderDgv();
         }
-        
+
         private void FilterSalesOrderDgv()
         {
             string searchKeyword = tbSearchBox.Text.ToLower().Trim();
-            var ordersFilteredByKeyword = 
+            var ordersFilteredByKeyword =
                 _salesOrders.Where(order => order.OrderNumber.ToLower().Contains(searchKeyword)
-                || order.Customer != null && order.Customer.Name.ToLower().Contains(searchKeyword)
-                || order.Customer != null && order.Customer.Phone.Contains(searchKeyword)
-                || order.Customer is {Email: { }} && order.Customer.Email.ToLower().Contains(searchKeyword));
-            
+                                            || order.Customer != null &&
+                                            order.Customer.Name.ToLower().Contains(searchKeyword)
+                                            || order.Customer != null && order.Customer.Phone.Contains(searchKeyword)
+                                            || order.Customer is {Email: { }} &&
+                                            order.Customer.Email.ToLower().Contains(searchKeyword));
+
             if (dtpSearchDate.Enabled)
             {
                 var selectedDate = dtpSearchDate.Value.Date;
                 ordersFilteredByKeyword = _salesOrders.Where(order => order.CreatedOn.Date == selectedDate);
             }
-            
+
             FillSalesOrderDgv(ordersFilteredByKeyword.ToList());
         }
 
@@ -102,7 +105,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
             };
             form.ShowDialog();
         }
-        
+
         private void ToggleLoadingScreen()
         {
             foreach (var control in Controls.Cast<Control>())

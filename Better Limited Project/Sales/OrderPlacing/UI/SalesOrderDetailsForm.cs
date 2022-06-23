@@ -20,9 +20,9 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
 {
     public partial class SalesOrderDetailsForm : Form
     {
-        public EventHandler? OrderUpdated;
-        private SalesOrder _salesOrder;
         private readonly List<SalesOrderProduct> _salesOrderProducts;
+        private SalesOrder _salesOrder;
+        public EventHandler? OrderUpdated;
 
         public SalesOrderDetailsForm(SalesOrder salesOrder)
         {
@@ -35,7 +35,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
 
         private void Initialize()
         {
-            ToolTipGenerator.Generate(initialDelay: 0)
+            ToolTipGenerator.Generate(0)
                 .SetToolTip(lblIsActive, OrderPlacingStringResources.active_inactive_order_meaning_tooltip);
             SetOrderActivityText();
             PopulateProductDgv();
@@ -63,7 +63,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
             foreach (var sop in _salesOrderProducts)
             {
                 var product = sop.GetProduct();
-                int rowIndex = dgvProducts.Rows.Add(product.Id,
+                var rowIndex = dgvProducts.Rows.Add(product.Id,
                     product.Name,
                     sop.Quantity,
                     EnumToStringHelper.GetDisplayValue(sop.GetPaymentStatus()),

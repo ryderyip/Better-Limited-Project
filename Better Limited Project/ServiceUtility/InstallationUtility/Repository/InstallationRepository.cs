@@ -23,7 +23,7 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.Repository
         {
             var command = new MySqlCommand(
                 @"select id, installation_request_id, scheduled_on, installed_on 
-                from installation where id = @id;" );
+                from installation where id = @id;");
             command.Parameters.AddWithValue("@id", id);
             var dataTable = DataTableRepository.RetrieveDataTable(command);
             if (dataTable.Rows.Count == 0)
@@ -35,7 +35,7 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.Repository
         {
             string id = row.Field<int>("id").ToString();
             string requestId = row.Field<int>("installation_request_id").ToString();
-            DateTime scheduledOn = row.Field<DateTime>("scheduled_on");
+            var scheduledOn = row.Field<DateTime>("scheduled_on");
             var installedOn = row.Field<DateTime?>("installed_on");
             return new Installation(id, requestId, scheduledOn, installedOn);
         }

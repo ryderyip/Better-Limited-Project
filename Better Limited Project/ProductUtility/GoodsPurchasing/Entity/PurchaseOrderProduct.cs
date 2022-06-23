@@ -15,9 +15,9 @@ namespace Better_Limited_Project.ProductUtility.GoodsPurchasing.Entity
         }
 
         public string PurchaseOrderId { get; set; }
+        public PurchaseOrder PurchaseOrder => PurchaseOrderRepository.GetById(PurchaseOrderId);
         public string ProductId { get; }
         public int Quantity { get; set; }
-        public PurchaseOrder PurchaseOrder => PurchaseOrderRepository.GetById(PurchaseOrderId);
         public Product Product => ProductRepository.FindById(ProductId);
 
         public void Save()

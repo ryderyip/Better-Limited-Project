@@ -11,7 +11,6 @@ namespace Better_Limited_Project.ProductUtility.PickerForms
 {
     public partial class SalesOrderPickerForm : Form
     {
-        public SalesOrder? SelectedSalesOrder { get; private set; }
         private readonly List<SalesOrder> _salesOrders;
 
         public SalesOrderPickerForm(IEnumerable<SalesOrder> salesOrders)
@@ -21,7 +20,9 @@ namespace Better_Limited_Project.ProductUtility.PickerForms
             InitializeComponent();
             Shown += (_, _) => Initialize();
         }
-        
+
+        public SalesOrder? SelectedSalesOrder { get; private set; }
+
         private void Initialize()
         {
             dtpSearchDate.MaxDate = DateTime.Today;
@@ -31,12 +32,13 @@ namespace Better_Limited_Project.ProductUtility.PickerForms
         {
             dgvSalesOrders.Rows.Clear();
             salesOrders.ForEach(order => dgvSalesOrders.Rows.Add(order.Id,
-                order.OrderNumber, 
+                order.OrderNumber,
                 order.Customer?.Name ?? "-",
                 order.Customer?.Phone ?? "-",
                 order.Customer?.Email ?? "-",
                 order.CreatedOn.ToShortDateString() + " : " + order.CreatedOn.ToShortTimeString(),
-                new SalesOrderCalculator(order.GetSalesOrderProducts()).GetTotalAmount().ToString("C", new CultureInfo("zh-HK"))));
+                new SalesOrderCalculator(order.GetSalesOrderProducts()).GetTotalAmount()
+                    .ToString("C", new CultureInfo("zh-HK"))));
             dgvSalesOrders.Sort(createdOnColumn, ListSortDirection.Descending);
         }
 
@@ -57,11 +59,11 @@ namespace Better_Limited_Project.ProductUtility.PickerForms
         {
             FilterSalesOrderDgv();
         }
-        
+
         private void FilterSalesOrderDgv()
         {
             string searchKeyword = tbSearchBox.Text.ToLower().Trim();
-            var ordersFilteredByKeyword = (dtpSearchDate.Enabled)
+            var ordersFilteredByKeyword = dtpSearchDate.Enabled
                 ? _salesOrders.Where(order => (order.OrderNumber.ToLower().Contains(searchKeyword)
                                                || order.Customer != null &&
                                                order.Customer.Name.ToLower().Contains(searchKeyword)
@@ -70,10 +72,12 @@ namespace Better_Limited_Project.ProductUtility.PickerForms
                                                    .Contains(searchKeyword))
                                               && order.CreatedOn.Date == dtpSearchDate.Value.Date)
                 : _salesOrders.Where(order => order.OrderNumber.ToLower().Contains(searchKeyword)
-                                            || order.Customer != null && order.Customer.Name.ToLower().Contains(searchKeyword)
-                                            || order.Customer != null && order.Customer.Phone.Contains(searchKeyword)
-                                            || order.Customer is {Email: { }} && order.Customer.Email.ToLower().Contains(searchKeyword));
-            
+                                              || order.Customer != null &&
+                                              order.Customer.Name.ToLower().Contains(searchKeyword)
+                                              || order.Customer != null && order.Customer.Phone.Contains(searchKeyword)
+                                              || order.Customer is {Email: { }} && order.Customer.Email.ToLower()
+                                                  .Contains(searchKeyword));
+
             PopulateDgv(ordersFilteredByKeyword.ToList());
         }
 

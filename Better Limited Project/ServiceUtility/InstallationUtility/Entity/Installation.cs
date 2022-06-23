@@ -12,7 +12,7 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.Entity
             InstallationRequestId = installationRequestId;
             ScheduledOn = scheduledOn;
         }
-        
+
         public Installation(string id, string installationRequestId, DateTime scheduledOn, DateTime? installedOn)
         {
             Id = id;

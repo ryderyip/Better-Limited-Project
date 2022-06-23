@@ -8,7 +8,7 @@ using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.Tools
 {
-    public static partial class LowStockLevelNotifier
+    public static class LowStockLevelNotifier
     {
         public static void OnOrderPlaced(object sender, EventArgs e)
         {
@@ -16,15 +16,17 @@ namespace Better_Limited_Project.Tools
             var currentStaffDepartment = LoginSession.GetSession().CurrentStaff.Department;
             if (currentStaffDepartment is not Department.Sales and not Department.Inventory)
                 return;
-            
-            int noOfLowStock = currentStaffDepartment is Department.Sales 
-                ? StockRepository.GetRetailStoreStocks(workplace.Id).Count(stock => stock.Quantity < stock.RestockLevel || stock.Quantity == 0)
-                : StockRepository.GetWarehouseStocks(workplace.Id).Count(stock => stock.Quantity < stock.RestockLevel || stock.Quantity == 0);
+
+            var noOfLowStock = currentStaffDepartment is Department.Sales
+                ? StockRepository.GetRetailStoreStocks(workplace.Id)
+                    .Count(stock => stock.Quantity < stock.RestockLevel || stock.Quantity == 0)
+                : StockRepository.GetWarehouseStocks(workplace.Id)
+                    .Count(stock => stock.Quantity < stock.RestockLevel || stock.Quantity == 0);
 
             if (noOfLowStock == 0)
                 return;
-            
-            string text = string.Format(lowStockMessage, noOfLowStock);
+
+            string text = $"There are {noOfLowStock} low stock items!";
             MessageBox.Show(text);
         }
     }

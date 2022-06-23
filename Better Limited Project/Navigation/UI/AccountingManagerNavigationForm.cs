@@ -16,7 +16,6 @@ namespace Better_Limited_Project.Navigation.UI
     public partial class AccountingManagerNavigationForm : Form, INavigationForm
     {
         private readonly FormController _formController;
-        public event INavigationForm.LogOutClickedEventHandler? LogOutClicked;
 
         public AccountingManagerNavigationForm(FormController formController)
         {
@@ -24,6 +23,8 @@ namespace Better_Limited_Project.Navigation.UI
             Shown += (_, _) => btnProfile.Text = LoginSession.GetSession().CurrentStaff.Name;
             InitializeComponent();
         }
+
+        public event INavigationForm.LogOutClickedEventHandler? LogOutClicked;
 
         private void btnProfile_Click(object sender, EventArgs e)
         {

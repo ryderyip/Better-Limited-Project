@@ -28,14 +28,14 @@ namespace Better_Limited_Project.ProductUtility.Reordering.Repository
                     where reorder_request_id = @requestId;");
             command.Parameters.AddWithValue("@requestId", reorderRequest.Id);
             var dataTable = DataTableRepository.RetrieveDataTable(command);
-            return from DataRow row in dataTable.Rows 
+            return from DataRow row in dataTable.Rows
                 select ConvertToReorderRequestProduct(reorderRequest, row);
         }
 
         private static ReorderRequestProduct ConvertToReorderRequestProduct(ReorderRequest reorderRequest, DataRow row)
         {
             string productId = row.Field<int>("product_id").ToString();
-            int quantity = row.Field<int>("quantity");
+            var quantity = row.Field<int>("quantity");
             return new ReorderRequestProduct(reorderRequest.Id, productId, quantity);
         }
 

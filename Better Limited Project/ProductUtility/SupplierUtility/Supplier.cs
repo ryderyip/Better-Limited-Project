@@ -4,11 +4,6 @@ namespace Better_Limited_Project.ProductUtility.SupplierUtility
 {
     public class Supplier
     {
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public string Phone { get; set; }
-        public string Email { get; set; }
-
         public Supplier(string name, string phone, string email)
         {
             Id = SupplierRepository.GetNewId();
@@ -24,6 +19,11 @@ namespace Better_Limited_Project.ProductUtility.SupplierUtility
             Phone = phone;
             Email = email;
         }
+
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
 
         public void Save()
         {

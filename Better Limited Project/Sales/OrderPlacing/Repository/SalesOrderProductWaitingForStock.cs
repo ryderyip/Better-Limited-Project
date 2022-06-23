@@ -13,7 +13,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Repository
             ProductId = productId;
             Quantity = quantity;
         }
-        
+
         public SalesOrderProductWaitingForStock(string salesOrderId, string productId, int quantity, DateTime createdOn)
         {
             SalesOrderId = salesOrderId;

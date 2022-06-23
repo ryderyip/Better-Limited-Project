@@ -12,7 +12,7 @@ using Better_Limited_Project.StaffUtility.StaffEntity;
 
 namespace Better_Limited_Project.Sales.OrderPlacing.Entity
 {
-    public class SalesOrder 
+    public class SalesOrder
     {
         public SalesOrder(Staff staff, RetailStore retailStore)
         {
@@ -84,7 +84,8 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
         }
 
         public bool IsCompleted()
-        {// broke
+        {
+            // broke
             return HasSalesOrderProducts()
                    && (GetDeliveryRequest()?.IsAllDelivered() ?? true)
                    && (GetInstallationRequest()?.IsArrangedAndAllInstalled() ?? true)
@@ -119,8 +120,8 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
         }
 
         /// <summary>
-        /// <para>Check if the order satisfies the following conditions:</para>
-        /// Doesn't have delivery or installation arranged
+        ///     <para>Check if the order satisfies the following conditions:</para>
+        ///     Doesn't have delivery or installation arranged
         /// </summary>
         public bool IsRemovable()
         {
@@ -161,11 +162,13 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
             var installationRequest = GetInstallationRequest();
             if (installationRequest == default)
                 return InstallationStatus.NoInstallationRequested;
-            
+
             var installations = installationRequest.GetInstallations().ToList();
             if (!installations.Any())
                 return InstallationStatus.InstallationRequested;
-            return installations.All(i => i.IsInstalled()) ? InstallationStatus.AllInstalled : InstallationStatus.InstallationArranged;
+            return installations.All(i => i.IsInstalled())
+                ? InstallationStatus.AllInstalled
+                : InstallationStatus.InstallationArranged;
         }
 
         public InstallationRequest? GetInstallationRequest()

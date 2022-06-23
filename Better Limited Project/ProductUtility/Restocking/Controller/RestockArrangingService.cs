@@ -11,9 +11,9 @@ namespace Better_Limited_Project.ProductUtility.Restocking.Controller
     public class RestockArrangingService
     {
         private readonly Warehouse _currentWarehouse;
-        private readonly RestockDelivery _restockDelivery   ;
+        private readonly RestockDelivery _restockDelivery;
+        private readonly List<Courier> _selectedCouriers = new();
         private readonly List<RestockRequest> _selectedRestockRequests = new();
-        private readonly List<Courier> _selectedCouriers  = new();
 
         public RestockArrangingService(Warehouse currentWarehouse, DateTime deliveryDateTime)
         {
@@ -37,7 +37,7 @@ namespace Better_Limited_Project.ProductUtility.Restocking.Controller
                 throw new InvalidOperationException("At least 1 restock request and courier must be selected");
 
             _restockDelivery.Save();
-            
+
             foreach (var request in _selectedRestockRequests)
             {
                 request.ArrangedOn = DateTime.Now;

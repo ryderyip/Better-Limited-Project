@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
+using Better_Limited_Project.PermissionManagement.Permissions;
 using Better_Limited_Project.PermissionManagement.Repository;
 using Better_Limited_Project.StaffUtility.StaffEntity;
-using IPermission = Better_Limited_Project.PermissionManagement.Permissions.IPermission;
 
 namespace Better_Limited_Project.PermissionManagement.Controller
 {

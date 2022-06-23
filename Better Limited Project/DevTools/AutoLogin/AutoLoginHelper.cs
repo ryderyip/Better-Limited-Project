@@ -7,14 +7,14 @@ using Better_Limited_Project.StaffUtility.StaffEntity;
 namespace Better_Limited_Project.DevTools.AutoLogin
 {
     /// <summary>
-    /// Only for facilitating login progress
+    ///     Only for facilitating login progress
     /// </summary>
     public class AutoLoginHelper
     {
-        private readonly TextBox _tbUsername;
-        private readonly TextBox _tbPassword;
         private readonly Action<object, EventArgs> _btnLoginClicked;
         private readonly StaffRoleChooserForm _form;
+        private readonly TextBox _tbPassword;
+        private readonly TextBox _tbUsername;
 
         public AutoLoginHelper(TextBox tbUsername, TextBox tbPassword, Action<object, EventArgs> btnLoginClicked)
         {
@@ -25,8 +25,8 @@ namespace Better_Limited_Project.DevTools.AutoLogin
         }
 
         /// <summary>
-        /// Automatically fill the username and password text box in the login form and clicks
-        /// the login button.
+        ///     Automatically fill the username and password text box in the login form and clicks
+        ///     the login button.
         /// </summary>
         public void Login()
         {

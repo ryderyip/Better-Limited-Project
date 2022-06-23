@@ -27,6 +27,25 @@ namespace Better_Limited_Project.StaffUtility.Repository
             return GetAll().Where(filter.Invoke);
         }
 
+        public void Insert(Staff staff)
+        {
+            string departmentId = ((int) staff.Department).ToString();
+            string titleId = StaffTitleRepository.GetId(staff.Title);
+
+            var command = new MySqlCommand(
+                @"insert into staff value (@id, @name, @dob, @gender, @hiredOn, @departmentId, @titleId)
+                    on duplicate key update name = @name, date_of_birth = @dob, gender = @gender,
+                                            hired_on = @hiredOn, department_id = @departmentId, title_id = @titleId;");
+            command.Parameters.AddWithValue("@id", staff.Id);
+            command.Parameters.AddWithValue("@name", staff.Name);
+            command.Parameters.AddWithValue("@dob", staff.DateOfBirth);
+            command.Parameters.AddWithValue("@gender", GenderConverter.Convert(staff.Gender));
+            command.Parameters.AddWithValue("@hiredOn", DateTime.Now);
+            command.Parameters.AddWithValue("@departmentId", departmentId);
+            command.Parameters.AddWithValue("@titleId", titleId);
+            DataTableRepository.ExecuteNonQuery(command);
+        }
+
         public Staff FindById(string staffId)
         {
             var command = new MySqlCommand(
@@ -56,25 +75,6 @@ namespace Better_Limited_Project.StaffUtility.Repository
             var command = new MySqlCommand(
                 @"delete from staff where id = @id;");
             command.Parameters.AddWithValue("@id", staff.Id);
-            DataTableRepository.ExecuteNonQuery(command);
-        }
-
-        public void Insert(Staff staff)
-        {
-            string departmentId = ((int) staff.Department).ToString();
-            string titleId = StaffTitleRepository.GetId(staff.Title);
-
-            var command = new MySqlCommand(
-                @"insert into staff value (@id, @name, @dob, @gender, @hiredOn, @departmentId, @titleId)
-                    on duplicate key update name = @name, date_of_birth = @dob, gender = @gender,
-                                            hired_on = @hiredOn, department_id = @departmentId, title_id = @titleId;");
-            command.Parameters.AddWithValue("@id", staff.Id);
-            command.Parameters.AddWithValue("@name", staff.Name);
-            command.Parameters.AddWithValue("@dob", staff.DateOfBirth);
-            command.Parameters.AddWithValue("@gender", GenderConverter.Convert(staff.Gender));
-            command.Parameters.AddWithValue("@hiredOn", DateTime.Now);
-            command.Parameters.AddWithValue("@departmentId", departmentId);
-            command.Parameters.AddWithValue("@titleId", titleId);
             DataTableRepository.ExecuteNonQuery(command);
         }
 

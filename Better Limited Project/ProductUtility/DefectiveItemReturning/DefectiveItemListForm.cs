@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
@@ -48,7 +49,7 @@ namespace Better_Limited_Project.ProductUtility.DefectiveItemReturning
             dgvDefectiveItems.Sort(returnedOnColumn, ListSortDirection.Descending);
         }
 
-        private void btnNewItem_Click(object sender, System.EventArgs e)
+        private void btnNewItem_Click(object sender, EventArgs e)
         {
             var form = new NewDefectiveItem();
             var result = form.ShowDialog();

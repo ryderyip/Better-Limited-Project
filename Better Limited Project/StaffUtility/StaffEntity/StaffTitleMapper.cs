@@ -3,7 +3,7 @@
 namespace Better_Limited_Project.StaffUtility.StaffEntity
 {
     /// <summary>
-    /// To map staff title enum to string and vise versa
+    ///     To map staff title enum to string and vise versa
     /// </summary>
     public class StaffTitleMapper
     {
@@ -19,7 +19,7 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
         private const string TechnicalSupportManager = "Technical Support Manager";
         private const string Admin = "Admin";
         private const string UnknownTitle = "Unknown Title";
-        
+
         private readonly Dictionary<StaffTitle, string> _enumToString = new();
         private readonly Dictionary<string, StaffTitle> _stringToEnum = new();
 
@@ -28,9 +28,9 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
             InitializeEnumToStringDictionary();
             InitializeStringToEnumDictionary();
         }
-        
+
         /// <summary>
-        /// Map from title name to title enum
+        ///     Map from title name to title enum
         /// </summary>
         public StaffTitle Map(string title)
         {
@@ -41,7 +41,7 @@ namespace Better_Limited_Project.StaffUtility.StaffEntity
         }
 
         /// <summary>
-        /// Map from title enum to title name
+        ///     Map from title enum to title name
         /// </summary>
         /// <returns>Staff title separated by a space</returns>
         public string Map(StaffTitle title)

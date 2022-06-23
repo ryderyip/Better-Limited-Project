@@ -12,7 +12,7 @@ namespace Better_Limited_Project.Navigation
         {
             return LoginSession.GetSession().CurrentStaff.Title switch
             {
-                StaffTitle.SalesRepresentative or StaffTitle.SalesManager 
+                StaffTitle.SalesRepresentative or StaffTitle.SalesManager
                     => new SalesNavigationForm(controller),
                 StaffTitle.AccountingClerk => new AccountingClerkNavigationForm(controller),
                 StaffTitle.AccountingManager => new AccountingManagerNavigationForm(controller),

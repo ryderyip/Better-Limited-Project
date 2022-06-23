@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.ProductUtility.Repository;
@@ -7,7 +8,7 @@ namespace Better_Limited_Project.ProductUtility.SupplierUtility
 {
     public partial class SupplierListForm : Form
     {
-        private List<Supplier> _suppliers; 
+        private List<Supplier> _suppliers;
 
         public SupplierListForm()
         {
@@ -19,7 +20,7 @@ namespace Better_Limited_Project.ProductUtility.SupplierUtility
         private void PopulateSupplierDgv(List<Supplier> supplier)
         {
             dgvSupplier.Rows.Clear();
-            supplier.ForEach(supp => 
+            supplier.ForEach(supp =>
                 dgvSupplier.Rows.Add(supp.Name, supp.Phone,
                     supp.Email));
         }
@@ -34,7 +35,7 @@ namespace Better_Limited_Project.ProductUtility.SupplierUtility
             form.ShowDialog();
         }
 
-        private void btnNewProductClicked_Click(object sender, System.EventArgs e)
+        private void btnNewProductClicked_Click(object sender, EventArgs e)
         {
             var form = new CreateSupplierForm();
             form.StartPosition = FormStartPosition.CenterScreen;
@@ -48,7 +49,7 @@ namespace Better_Limited_Project.ProductUtility.SupplierUtility
             PopulateSupplierDgv(_suppliers);
         }
 
-        private void tbSearchBox_TextChanged(object sender, System.EventArgs e)
+        private void tbSearchBox_TextChanged(object sender, EventArgs e)
         {
             string keyword = tbSearchBox.Text.ToLower();
             var suppliers = _suppliers

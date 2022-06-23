@@ -7,13 +7,14 @@ namespace Better_Limited_Project.Sales.PaymentUtility
 {
     public class SettleIncompletePaymentService
     {
-        public event EventHandler? PaymentSettled;
         private readonly SalesOrder _salesOrder;
 
         public SettleIncompletePaymentService(SalesOrder salesOrder)
         {
             _salesOrder = salesOrder;
         }
+
+        public event EventHandler? PaymentSettled;
 
         public void Start()
         {
@@ -33,7 +34,7 @@ namespace Better_Limited_Project.Sales.PaymentUtility
                 payment.Save();
                 foreach (var salesOrderProduct in _salesOrder.GetIncompletePaymentSalesOrderProducts())
                     new SalesOrderProductPayment(_salesOrder.Id, salesOrderProduct.ProductId, payment.Id,
-                        isDeposit: false).Save();
+                        false).Save();
                 _salesOrder.Save();
                 PaymentSettled?.Invoke(this, EventArgs.Empty);
             };

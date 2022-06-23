@@ -5,14 +5,14 @@ namespace Better_Limited_Project.Sales.PaymentUtility.UI
 {
     public partial class PaymentMethodSelectionForm : Form
     {
-        public event EventHandler<PaymentMethod>? Selected;
-
         public PaymentMethodSelectionForm()
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
             Shown += (_, _) => rbCash.Checked = true;
         }
+
+        public event EventHandler<PaymentMethod>? Selected;
 
         private void btnNext_Click(object sender, EventArgs e)
         {

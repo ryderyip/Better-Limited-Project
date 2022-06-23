@@ -15,16 +15,16 @@ namespace Better_Limited_Project
     {
         private readonly FormController _formController;
         private INavigationForm? _navigationForm;
-        
+
         public MainController(MainForm mainForm)
         {
             LanguageController.SetSystemLanguage(UserSettings.GetSettings().Language);
 
             _formController = new FormController(mainForm);
-            
+
             var loginProcess = new LoginProcedure(_formController);
             loginProcess.Finished += OnLoggedIn;
-            
+
             mainForm.Shown += (_, _) => loginProcess.Start();
         }
 
@@ -44,19 +44,19 @@ namespace Better_Limited_Project
             _navigationForm.LogOutClicked += OnLogOut;
             _formController.OpenNavigationForm((Form) _navigationForm);
         }
-        
+
         private void OpenProfileForm()
         {
             var profileController = new ProfileController(_formController);
             profileController.LogOutClicked += OnLogOut;
             profileController.OpenForm();
         }
-        
+
         private void OnLogOut(object sender, EventArgs e)
         {
-            if (IsNavigationFormOpened()) 
+            if (IsNavigationFormOpened())
                 ((Form) _navigationForm!).Close();
-            
+
             var loginProcess = new LoginProcedure(_formController);
             loginProcess.Finished += OnLoggedIn;
             loginProcess.Start();

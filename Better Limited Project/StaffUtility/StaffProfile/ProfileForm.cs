@@ -9,18 +9,20 @@ namespace Better_Limited_Project.StaffUtility.StaffProfile
     public partial class ProfileForm : Form
     {
         public delegate void LogOutClickedEventHandler(object sender, EventArgs e);
-        public event LogOutClickedEventHandler? LogOutClicked;
-        
+
         public ProfileForm()
         {
             InitializeComponent();
             SetProfileFields();
         }
 
+        public event LogOutClickedEventHandler? LogOutClicked;
+
         private void SetProfileFields()
         {
             var staff = LoginSession.GetSession().CurrentStaff;
-            string workplaceName = UserSettings.GetSettings().Workplace?.Name ?? StaffUtilityStringResources.workplace_not_chosen;
+            string workplaceName = UserSettings.GetSettings().Workplace?.Name ??
+                                   StaffUtilityStringResources.workplace_not_chosen;
             string space = " ";
             string titleName = new StaffTitleMapper().Map(staff.Title);
             lblLoggedInAs.Text += space + staff.Name;

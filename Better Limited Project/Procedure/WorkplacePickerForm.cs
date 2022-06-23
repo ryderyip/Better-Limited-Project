@@ -11,18 +11,17 @@ namespace Better_Limited_Project.Procedure
     public partial class WorkplacePickerForm : Form
     {
         private readonly List<IWorkplace> _workplaces;
-        public IWorkplace? SelectedWorkplace { get; private set; }
 
         public WorkplacePickerForm()
         {
             var department = LoginSession.GetSession().CurrentStaff.Department;
-            _workplaces = department is Department.Sales 
+            _workplaces = department is Department.Sales
                 ? new RetailStoreRepository().GetAll().Cast<IWorkplace>().ToList()
                 : WarehouseRepository.GetAll().Cast<IWorkplace>().ToList();
-            
+
             if (department is not Department.Sales and not Department.Inventory)
                 return;
-            
+
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
             Load += (_, _) =>
@@ -31,6 +30,8 @@ namespace Better_Limited_Project.Procedure
                 cbWorkplace.SelectedIndex = 0;
             };
         }
+
+        public IWorkplace? SelectedWorkplace { get; private set; }
 
         private void btnSelect_Click(object sender, EventArgs e)
         {

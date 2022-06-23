@@ -6,7 +6,6 @@ namespace Better_Limited_Project.StaffUtility.StaffList
 {
     public partial class ConfirmRemovalForm : Form
     {
-        public event EventHandler? Confirmed;
         private readonly StaffAccount _currentLoggedInStaffAccount;
 
         public ConfirmRemovalForm()
@@ -15,6 +14,8 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             InitializeComponent();
         }
 
+        public event EventHandler? Confirmed;
+
         private void btnRemove_Click(object sender, EventArgs e)
         {
             if (_currentLoggedInStaffAccount.Password != tbPassword.Text)
@@ -22,15 +23,16 @@ namespace Better_Limited_Project.StaffUtility.StaffList
                 MessageBox.Show(StaffUtilityStringResources.wrong_password);
                 return;
             }
+
             Confirmed?.Invoke(this, EventArgs.Empty);
             Close();
         }
 
         private void ConfirmRemoveStaffForm_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Escape)
+            if (e.KeyChar == (char) Keys.Escape)
                 Close();
-            else if (e.KeyChar == (char)Keys.Enter)
+            else if (e.KeyChar == (char) Keys.Enter)
                 btnRemove.PerformClick();
         }
     }

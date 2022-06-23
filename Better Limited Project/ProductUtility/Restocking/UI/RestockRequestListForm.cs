@@ -14,7 +14,6 @@ namespace Better_Limited_Project.ProductUtility.Restocking.UI
 {
     public partial class RestockRequestListForm : Form
     {
-        public event EventHandler? Updated;
         private List<RestockRequest> _restockRequests;
 
         public RestockRequestListForm()
@@ -25,6 +24,8 @@ namespace Better_Limited_Project.ProductUtility.Restocking.UI
             Load += (_, _) => Initialize();
         }
 
+        public event EventHandler? Updated;
+
         private void Initialize()
         {
             if (LoginSession.GetSession().CurrentStaff.Department is Department.Inventory)
@@ -32,7 +33,7 @@ namespace Better_Limited_Project.ProductUtility.Restocking.UI
             else
                 btnArrangeRestock.Visible = false;
             btnArrangeRestock.Click += BtnArrangeRestockOnClick;
-            btnNewRequest.Click += BtnNewRequestOnClick; 
+            btnNewRequest.Click += BtnNewRequestOnClick;
             dgvRestockRequests.CellDoubleClick += (_, args) => DgvCellDoubleClicked(args.RowIndex);
             tbSearchBox.TextChanged += (_, _) => FilterDgv();
             PopulateDgv(_restockRequests);

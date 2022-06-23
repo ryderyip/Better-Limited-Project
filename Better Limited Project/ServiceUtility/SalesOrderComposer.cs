@@ -13,8 +13,8 @@ namespace Better_Limited_Project.ServiceUtility
     {
         private readonly Cart _cart;
         private readonly Customer? _customer;
-        private readonly Staff _salesStaff;
         private readonly RetailStore _retailStore;
+        private readonly Staff _salesStaff;
 
         public SalesOrderComposer(Cart cart, Customer? customer)
         {

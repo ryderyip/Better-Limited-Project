@@ -8,7 +8,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
     public partial class ChangePasswordForm : Form
     {
         private readonly StaffAccount _account;
-        
+
         public ChangePasswordForm(string staffId)
         {
             _account = new StaffAccountRepository().GetAll()
@@ -21,10 +21,11 @@ namespace Better_Limited_Project.StaffUtility.StaffList
         {
             if (!IsPasswordValid())
             {
-                MessageBox.Show(StaffUtilityStringResources.ChangePasswordForm_btnApply_Click_New_password_does_not_meet_requirement__Passwords_must_consist_of_at_least_8_characters_of_a_combination_of_English_character_and_or_numbers_);
+                MessageBox.Show(StaffUtilityStringResources
+                    .ChangePasswordForm_btnApply_Click_New_password_does_not_meet_requirement__Passwords_must_consist_of_at_least_8_characters_of_a_combination_of_English_character_and_or_numbers_);
                 return;
             }
-            
+
             if (!DoesReEnteredPasswordMatch())
             {
                 MessageBox.Show(StaffUtilityStringResources.reentered_password_dont_match);

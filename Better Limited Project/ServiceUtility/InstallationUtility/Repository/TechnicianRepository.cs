@@ -31,7 +31,7 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.Repository
                 throw new ArgumentException($"Technician with id \"{id}\" does not exist.");
             return ConvertToTechnician(dataTable.Rows[0]);
         }
-        
+
         public static IEnumerable<Technician> GetAll()
         {
             var command = new MySqlCommand(@"select id, name,phone from technician;");

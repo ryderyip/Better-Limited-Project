@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
@@ -28,7 +29,8 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
         private void FilterDgv()
         {
             string searchKeyword = tbSearchBar.Text.Trim().ToLower();
-            var filtered = _technicians.Where(t => t.Name.ToLower().Contains(searchKeyword) || t.Phone.Contains(searchKeyword));
+            var filtered = _technicians.Where(t =>
+                t.Name.ToLower().Contains(searchKeyword) || t.Phone.Contains(searchKeyword));
             PopulateDgv(filtered);
         }
 
@@ -55,7 +57,7 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
             Initialize();
         }
 
-        private void btnNewTechnician_Click(object sender, System.EventArgs e)
+        private void btnNewTechnician_Click(object sender, EventArgs e)
         {
             var form = new TechnicianCreateUpdateForm();
             var result = form.ShowDialog();

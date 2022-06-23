@@ -7,7 +7,6 @@ namespace Better_Limited_Project.Sales.PaymentUtility.UI
 {
     public partial class CashPaymentForm : Form, IPaymentForm
     {
-        public event EventHandler<PaymentMethod>? PaymentCompleted;
         private readonly Payment _payment;
 
         public CashPaymentForm(decimal amount)
@@ -17,6 +16,8 @@ namespace Better_Limited_Project.Sales.PaymentUtility.UI
             StartPosition = FormStartPosition.CenterScreen;
         }
 
+        public event EventHandler<PaymentMethod>? PaymentCompleted;
+
         public void ShowForm()
         {
             ShowDialog();
@@ -25,14 +26,14 @@ namespace Better_Limited_Project.Sales.PaymentUtility.UI
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            decimal owned = _payment.Amount;
-            decimal tendered = nudAmountTendered.Value;
+            var owned = _payment.Amount;
+            var tendered = nudAmountTendered.Value;
             if (tendered < owned)
             {
                 MessageBox.Show(PaymentStringResources.notEnoughCashPaid);
                 return;
             }
-            
+
             PaymentCompleted?.Invoke(this, PaymentMethod.Cash);
             Close();
         }
@@ -47,8 +48,8 @@ namespace Better_Limited_Project.Sales.PaymentUtility.UI
 
         private void nudAmountTendered_ValueChanged(object sender, EventArgs e)
         {
-            decimal owned = _payment.Amount;
-            decimal tendered = nudAmountTendered.Value;
+            var owned = _payment.Amount;
+            var tendered = nudAmountTendered.Value;
             if (tendered < owned)
                 return;
             tbChange.Text = (tendered - owned).ToString("C", new CultureInfo("zh-HK"));

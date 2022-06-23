@@ -14,7 +14,7 @@ namespace Better_Limited_Project.SettingsUtility
         }
 
         /// <summary>
-        /// Gets the document generation file path 
+        ///     Gets the document generation file path
         /// </summary>
         public static string GetDefaultDocumentGenerationDirectoryPath()
         {

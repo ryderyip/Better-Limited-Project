@@ -7,12 +7,12 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
 {
     public partial class DeliverySessionSelectionForm : Form
     {
-        public event EventHandler<DeliverySession>? SessionSelected;
-
         public DeliverySessionSelectionForm()
         {
             InitializeComponent();
         }
+
+        public event EventHandler<DeliverySession>? SessionSelected;
 
         private void btnNext_Click(object sender, EventArgs e)
         {

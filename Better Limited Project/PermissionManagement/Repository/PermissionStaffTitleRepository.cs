@@ -2,10 +2,10 @@
 using System.Data;
 using System.Linq;
 using Better_Limited_Project.DatabaseUtility;
+using Better_Limited_Project.PermissionManagement.Permissions;
 using Better_Limited_Project.StaffUtility.Repository;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 using MySql.Data.MySqlClient;
-using IPermission = Better_Limited_Project.PermissionManagement.Permissions.IPermission;
 
 namespace Better_Limited_Project.PermissionManagement.Repository
 {

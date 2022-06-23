@@ -10,8 +10,6 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
 {
     public partial class ArrangeSingleDeliveryForm : Form, IArrangeDeliveryForm
     {
-        public event EventHandler? SwitchFormClicked;
-        public event EventHandler? DeliveryArranged;
         private readonly DeliveryRequest _deliveryRequest;
         private List<Courier> _selectedCouriers;
 
@@ -22,19 +20,8 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
             _selectedCouriers = selectedCouriers.ToList();
         }
 
-        private void OnFormShown(object sender, EventArgs e)
-        {
-            btnArrangeDelivery.Enabled = false;
-            tbCustomerChosenDeliverySession.Text = _deliveryRequest.DeliverySession.ToString();
-            var earliestDeliveryDate = Delivery.GetEarliestDeliveryDate(_deliveryRequest.DeliverySession);
-            tbEarliestDeliveryDate.Text = earliestDeliveryDate.ToLongDateString();
-            dtpSelectDeliveryDate.MinDate = earliestDeliveryDate;
-            dtpSelectDeliveryDate.Value = dtpSelectDeliveryDate.MinDate;
-            int daysInMonth = 30;
-            dtpSelectDeliveryDate.MaxDate = dtpSelectDeliveryDate.MinDate + TimeSpan.FromDays(3 * daysInMonth);
-            _deliveryRequest.GetSalesOrder().GetSalesOrderProducts().ToList()
-                .ForEach(sop => dgvProductsDelivered.Rows.Add(sop.GetProduct().Name, sop.Quantity));
-        }
+        public event EventHandler? SwitchFormClicked;
+        public event EventHandler? DeliveryArranged;
 
         public void ShowForm()
         {
@@ -45,6 +32,20 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
         public void CloseForm()
         {
             Close();
+        }
+
+        private void OnFormShown(object sender, EventArgs e)
+        {
+            btnArrangeDelivery.Enabled = false;
+            tbCustomerChosenDeliverySession.Text = _deliveryRequest.DeliverySession.ToString();
+            var earliestDeliveryDate = Delivery.GetEarliestDeliveryDate(_deliveryRequest.DeliverySession);
+            tbEarliestDeliveryDate.Text = earliestDeliveryDate.ToLongDateString();
+            dtpSelectDeliveryDate.MinDate = earliestDeliveryDate;
+            dtpSelectDeliveryDate.Value = dtpSelectDeliveryDate.MinDate;
+            var daysInMonth = 30;
+            dtpSelectDeliveryDate.MaxDate = dtpSelectDeliveryDate.MinDate + TimeSpan.FromDays(3 * daysInMonth);
+            _deliveryRequest.GetSalesOrder().GetSalesOrderProducts().ToList()
+                .ForEach(sop => dgvProductsDelivered.Rows.Add(sop.GetProduct().Name, sop.Quantity));
         }
 
         private void btnChooseCourier_Click(object sender, EventArgs e)
@@ -84,7 +85,7 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
                 MessageBox.Show("Sunday is company holiday and will not have deliveries. Please choose another day.");
                 return;
             }
-            
+
             scheduledOn += _deliveryRequest.DeliverySessionTime;
             var delivery = new Delivery(_deliveryRequest.Id)
             {

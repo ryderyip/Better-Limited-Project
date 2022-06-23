@@ -12,10 +12,10 @@ namespace Better_Limited_Project.Sales.OrderPlacing
 {
     public class PlaceOrderService
     {
+        private readonly SalesOrderCalculator _calculator;
         private readonly SalesOrder _salesOrder;
         private readonly List<SalesOrderProduct> _salesOrderProduct;
-        private readonly SalesOrderCalculator _calculator;
-        
+
         public PlaceOrderService(SalesOrder salesOrder, IEnumerable<SalesOrderProduct> salesOrderProduct)
         {
             _salesOrder = salesOrder;
@@ -36,7 +36,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             {
                 new SalesOrderProductPayment(sop.SalesOrderId, sop.ProductId,
                     sop.IsOutOfStock ? depositPayment.Id : nonDepositPayment.Id,
-                    isDeposit: sop.IsOutOfStock).Save();
+                    sop.IsOutOfStock).Save();
                 sop.Save();
             });
 
@@ -46,7 +46,9 @@ namespace Better_Limited_Project.Sales.OrderPlacing
                 ReserveInStockProducts();
             }
             else
+            {
                 MinusFromStock();
+            }
         }
 
         private void MinusFromStock()

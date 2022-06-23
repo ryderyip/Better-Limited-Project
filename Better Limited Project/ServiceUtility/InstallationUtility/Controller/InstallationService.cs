@@ -22,7 +22,7 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.Controller
 
             var installation = new Installation(_installationRequest.Id, scheduledInstallationTime);
             installation.Save();
-            
+
             var installationTechnicians =
                 _selectedTechnicians.Select(t => new InstallationTechnician(installation.Id, t.Id));
             foreach (var installationTechnician in installationTechnicians)

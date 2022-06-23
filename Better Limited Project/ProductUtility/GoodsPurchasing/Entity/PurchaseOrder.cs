@@ -22,7 +22,8 @@ namespace Better_Limited_Project.ProductUtility.GoodsPurchasing.Entity
             CreatedByStaffId = createdByStaffId;
         }
 
-        public PurchaseOrder(string id, string purchaseOrderNumber, string reorderRequestId, DateTime createdOn, string createdByStaffId, string? approvedByStaffId, DateTime? approvedOn, DateTime? sentToSupplierOn)
+        public PurchaseOrder(string id, string purchaseOrderNumber, string reorderRequestId, DateTime createdOn,
+            string createdByStaffId, string? approvedByStaffId, DateTime? approvedOn, DateTime? sentToSupplierOn)
         {
             Id = id;
             PurchaseOrderNumber = purchaseOrderNumber;
@@ -47,6 +48,7 @@ namespace Better_Limited_Project.ProductUtility.GoodsPurchasing.Entity
 
         public Staff? ApprovedByStaff =>
             ApprovedByStaffId != null ? new StaffRepository().FindById(ApprovedByStaffId) : null;
+
         public IEnumerable<PurchaseOrderProduct> OrderProducts => PurchaseOrderProductRepository.GetByOrderId(Id);
 
         public void Save()
@@ -68,13 +70,14 @@ namespace Better_Limited_Project.ProductUtility.GoodsPurchasing.Entity
         {
             var alreadyReceived = GetReceivedProducts().ToList();
             var orderedProducts = OrderProducts;
-            return !alreadyReceived.Any() 
+            return !alreadyReceived.Any()
                 ? orderedProducts
-            : from orderedProduct in orderedProducts
+                : from orderedProduct in orderedProducts
                 let receivedProduct = alreadyReceived.Find(gp => gp.ProductId == orderedProduct.ProductId)
                 let missingQuantity = orderedProduct.Quantity - (receivedProduct?.Quantity ?? 0)
                 where receivedProduct == null || receivedProduct.Quantity < orderedProduct.Quantity
-                select new PurchaseOrderProduct(Id, orderedProduct.ProductId, missingQuantity > 0 ? missingQuantity : 0);
+                select new PurchaseOrderProduct(Id, orderedProduct.ProductId,
+                    missingQuantity > 0 ? missingQuantity : 0);
         }
 
         public IEnumerable<IProductQuantity> GetReceivedProducts()

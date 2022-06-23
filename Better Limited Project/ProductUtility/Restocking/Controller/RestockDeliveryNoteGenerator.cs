@@ -43,7 +43,7 @@ namespace Better_Limited_Project.ProductUtility.Restocking.Controller
             PdfDocumentRenderer pdfRenderer = new(unicode);
             pdfRenderer.Document = doc;
             pdfRenderer.RenderDocument(); // Layout and render document to PDF
-            
+
             try
             {
                 pdfRenderer.PdfDocument.Save(path);
@@ -60,7 +60,7 @@ namespace Better_Limited_Project.ProductUtility.Restocking.Controller
             var path = Path.Combine(_location, _fileName);
 
             RenderFile(doc, path);
-            
+
             var process = new Process();
             process.StartInfo = new ProcessStartInfo
             {
@@ -130,7 +130,7 @@ namespace Better_Limited_Project.ProductUtility.Restocking.Controller
 
             column = table.AddColumn("3cm");
             column.Format.Alignment = ParagraphAlignment.Right;
-            
+
             column = table.AddColumn("1cm");
             column.Format.Alignment = ParagraphAlignment.Right;
 
@@ -159,26 +159,26 @@ namespace Better_Limited_Project.ProductUtility.Restocking.Controller
 
             table.SetEdge(0, 0, 4, 1, Edge.Box, BorderStyle.Single, 0.75, Color.Empty);
 
-            int rowCount = 0;
+            var rowCount = 0;
             foreach (var restockRequest in _restockDelivery.RestockRequests)
-                foreach (var requestedProduct in restockRequest.RequestedProducts)
-                {
-                    var retailStore = restockRequest.RequestedForRetailStore;
-                    row = table.AddRow();
-                    row.Format.Alignment = ParagraphAlignment.Center;
-                    row.Cells[0].AddParagraph((++rowCount).ToString());
-                    row.Cells[0].Format.Alignment = ParagraphAlignment.Left;
-                    row.Cells[1].AddParagraph(restockRequest.RequestNumber);
-                    row.Cells[1].Format.Alignment = ParagraphAlignment.Left;
-                    row.Cells[2].AddParagraph(retailStore.Name);
-                    row.Cells[2].Format.Alignment = ParagraphAlignment.Left;
-                    row.Cells[3].AddParagraph(retailStore.Address);
-                    row.Cells[3].Format.Alignment = ParagraphAlignment.Left;
-                    row.Cells[4].AddParagraph(requestedProduct.Product.Name);
-                    row.Cells[4].Format.Alignment = ParagraphAlignment.Left;
-                    row.Cells[5].AddParagraph(requestedProduct.Quantity.ToString());
-                    row.Cells[5].Format.Alignment = ParagraphAlignment.Left;
-                }
+            foreach (var requestedProduct in restockRequest.RequestedProducts)
+            {
+                var retailStore = restockRequest.RequestedForRetailStore;
+                row = table.AddRow();
+                row.Format.Alignment = ParagraphAlignment.Center;
+                row.Cells[0].AddParagraph((++rowCount).ToString());
+                row.Cells[0].Format.Alignment = ParagraphAlignment.Left;
+                row.Cells[1].AddParagraph(restockRequest.RequestNumber);
+                row.Cells[1].Format.Alignment = ParagraphAlignment.Left;
+                row.Cells[2].AddParagraph(retailStore.Name);
+                row.Cells[2].Format.Alignment = ParagraphAlignment.Left;
+                row.Cells[3].AddParagraph(retailStore.Address);
+                row.Cells[3].Format.Alignment = ParagraphAlignment.Left;
+                row.Cells[4].AddParagraph(requestedProduct.Product.Name);
+                row.Cells[4].Format.Alignment = ParagraphAlignment.Left;
+                row.Cells[5].AddParagraph(requestedProduct.Quantity.ToString());
+                row.Cells[5].Format.Alignment = ParagraphAlignment.Left;
+            }
 
             row.Format.Alignment = ParagraphAlignment.Right;
         }

@@ -18,9 +18,6 @@ namespace Better_Limited_Project.Sales.OrderPlacing
     {
         private readonly SalesOrder _order;
         private readonly List<SalesOrderProduct> _salesOrderProduct;
-        public event EventHandler? SalesOrderPlaced;
-        public bool IsNeedDelivery { get; set; }
-        public bool IsNeedInstallation { get; set; }
 
         public PlaceOrderHandler(Cart cart, Customer? customer = null)
         {
@@ -28,6 +25,10 @@ namespace Better_Limited_Project.Sales.OrderPlacing
             _order = composer.GetSalesOrder();
             _salesOrderProduct = composer.GetSalesOrderProducts().ToList();
         }
+
+        public bool IsNeedDelivery { get; set; }
+        public bool IsNeedInstallation { get; set; }
+        public event EventHandler? SalesOrderPlaced;
 
         public void PlaceOrder()
         {

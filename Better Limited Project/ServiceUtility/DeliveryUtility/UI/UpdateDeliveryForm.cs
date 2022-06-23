@@ -1,19 +1,21 @@
 ﻿using System;
 using System.Windows.Forms;
+using Better_Limited_Project.ServiceUtility.DeliveryUtility.Entity;
 
 namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
 {
     public partial class UpdateDeliveryForm : Form
     {
-        public event EventHandler? Updated;
-        private readonly Entity.Delivery _delivery;
+        private readonly Delivery _delivery;
 
-        public UpdateDeliveryForm(Entity.Delivery delivery)
+        public UpdateDeliveryForm(Delivery delivery)
         {
             _delivery = delivery;
             InitializeComponent();
             Shown += (_, _) => Initialize();
         }
+
+        public event EventHandler? Updated;
 
         private void Initialize()
         {
@@ -27,14 +29,15 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
             tbScheduledOn.Text = _delivery.ScheduledOn.ToString("f");
             tbDispatchedOn.Text = _delivery.DispatchedOn?.ToString("f") ?? "Not yet dispatched";
             tbDeliveredOn.Text = _delivery.DeliveredOn?.ToString("f") ?? "Not yet delivered";
-            
+
             dtpNewScheduledOnDate.Value = _delivery.ScheduledOn.Date;
             dtpNewScheduledOnTime.Value = _delivery.ScheduledOn;
 
-            dtpNewScheduledOnDate.MinDate = Entity.Delivery.GetEarliestDeliveryDate(_delivery.GetDeliveryRequest().DeliverySession);
+            dtpNewScheduledOnDate.MinDate =
+                Delivery.GetEarliestDeliveryDate(_delivery.GetDeliveryRequest().DeliverySession);
             dtpNewDispatchedOnDate.MinDate = DateTime.Today.Date - TimeSpan.FromDays(7);
             dtpNewDeliveredOnDate.MinDate = DateTime.Today.Date - TimeSpan.FromDays(7);
-            
+
             dtpNewScheduledOnDate.MaxDate = dtpNewScheduledOnDate.MinDate + TimeSpan.FromDays(30);
             dtpNewDispatchedOnDate.MaxDate = DateTime.Today.Date;
             dtpNewDeliveredOnDate.MaxDate = DateTime.Today.Date;
@@ -42,11 +45,11 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
             dtpNewScheduledOnTime.MinDate = dtpNewScheduledOnDate.MinDate;
             dtpNewDispatchedOnTime.MinDate = dtpNewDispatchedOnDate.MinDate;
             dtpNewDeliveredOnTime.MinDate = dtpNewDispatchedOnTime.MinDate;
-            
+
             dtpNewScheduledOnTime.MaxDate = dtpNewScheduledOnDate.MaxDate + TimeSpan.FromDays(1);
             dtpNewDispatchedOnTime.MaxDate = dtpNewDispatchedOnDate.MaxDate + TimeSpan.FromDays(1);
             dtpNewDeliveredOnTime.MaxDate = dtpNewDeliveredOnDate.MaxDate + TimeSpan.FromDays(1);
-            
+
             DisableUnneededButtons();
         }
 
@@ -90,7 +93,7 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
             _delivery.ScheduledOn = scheduledOn;
             _delivery.DispatchedOn = dispatchedOn;
             _delivery.DeliveredOn = deliveredOn;
-            
+
             _delivery.Save();
             Close();
             Updated?.Invoke(this, EventArgs.Empty);

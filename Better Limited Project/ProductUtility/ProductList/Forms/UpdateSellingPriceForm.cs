@@ -20,7 +20,7 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 
         private void btnUpdateSellingPrice_Click(object sender, EventArgs e)
         {
-            decimal newSellingPrice = nudNewSellingPrice.Value;
+            var newSellingPrice = nudNewSellingPrice.Value;
             _stock.SellingPrice = newSellingPrice;
             _stock.Save();
             Close();

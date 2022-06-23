@@ -9,9 +9,8 @@ namespace Better_Limited_Project.ProductUtility.Restocking.UI
     public partial class RestockRequestPickerForm : Form
     {
         private readonly List<RestockRequest> _restockRequests;
-        public event EventHandler<IEnumerable<RestockRequest>>? Finished;
-        
-        public RestockRequestPickerForm(IEnumerable<RestockRequest> restockRequests, 
+
+        public RestockRequestPickerForm(IEnumerable<RestockRequest> restockRequests,
             IEnumerable<RestockRequest>? preselected = null)
         {
             _restockRequests = restockRequests.ToList();
@@ -20,6 +19,8 @@ namespace Better_Limited_Project.ProductUtility.Restocking.UI
             Load += (_, _) => Initialize(preselected);
         }
 
+        public event EventHandler<IEnumerable<RestockRequest>>? Finished;
+
         private void Initialize(IEnumerable<RestockRequest>? preselected)
         {
             dgvRestockRequests.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -27,7 +28,7 @@ namespace Better_Limited_Project.ProductUtility.Restocking.UI
             btnConfirm.Enabled = false;
             dgvRestockRequests.SelectionChanged += (_, _) => EnableOrDisableConfirmButton();
             foreach (var restockRequest in _restockRequests)
-                dgvRestockRequests.Rows.Add(restockRequest.Id, restockRequest.RequestNumber, 
+                dgvRestockRequests.Rows.Add(restockRequest.Id, restockRequest.RequestNumber,
                     restockRequest.RequestedForRetailStore.Name, restockRequest.RequestedOn.ToString("g"));
             if (preselected != null)
                 HighlightPreselectedRows(preselected);

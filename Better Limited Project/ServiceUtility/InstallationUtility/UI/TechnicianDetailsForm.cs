@@ -7,7 +7,6 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
 {
     public partial class TechnicianDetailsForm : Form
     {
-        public event EventHandler? TechnicianUpdated;
         private Technician _technician;
 
         public TechnicianDetailsForm(Technician technician)
@@ -17,6 +16,8 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
             InitializeComponent();
             Load += (_, _) => Initialize();
         }
+
+        public event EventHandler? TechnicianUpdated;
 
         private void Initialize()
         {
@@ -30,7 +31,7 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
         {
             var form = new TechnicianCreateUpdateForm();
             var result = form.ShowDialog();
-            if (result is not DialogResult.OK) 
+            if (result is not DialogResult.OK)
                 return;
             RefreshForm();
             TechnicianUpdated?.Invoke(this, EventArgs.Empty);

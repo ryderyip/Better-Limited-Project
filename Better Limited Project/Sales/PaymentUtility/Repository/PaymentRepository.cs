@@ -12,7 +12,7 @@ namespace Better_Limited_Project.Sales.PaymentUtility.Repository
         public static Payment FindById(string id)
         {
             return FindAll(p => p.Id == id).FirstOrDefault()
-                ?? throw new ArgumentException($"Payment id \"{id}\" does not exist.");
+                   ?? throw new ArgumentException($"Payment id \"{id}\" does not exist.");
         }
 
         public static IEnumerable<Payment> GetAll()

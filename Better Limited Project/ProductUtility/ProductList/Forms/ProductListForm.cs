@@ -17,8 +17,8 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
 {
     public partial class ProductListForm : Form
     {
-        private readonly List<IWorkplace> _workplaces;
         private readonly Staff _currentStaff;
+        private readonly List<IWorkplace> _workplaces;
         private List<IStock> _stocks;
 
         public ProductListForm()
@@ -50,7 +50,9 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
                 cbWorkplaceSelect.SelectedIndex = 0;
             }
             else
+            {
                 gpWorkplaceSelect.Visible = false;
+            }
 
             PopulateProductDgv(_stocks);
 
@@ -65,49 +67,23 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
             if (stocks.Count == 0)
                 return;
 
-            if (stocks.First() is RetailStoreStock)
-                PopulateProductDgvWithSellingPrice(stocks);
-            else
-                PopulateProductDgvNoSellingPrice(stocks);
-
-            // if stock is lower than restock level set color
-            dgvProductList.Rows.Cast<DataGridViewRow>()
-                .Where(row =>
-                {
-                    var product = stocks
-                        .Find(s => s.Product.Name == row.Cells[name.Name].Value.ToString());
-                    return product.Quantity <= product.RestockLevel;
-                }).ToList()
-                .ForEach(row => row.DefaultCellStyle.BackColor = FormColors.DgvRowAttentionWeak);
-
-            // if stock is 0 set color
-            dgvProductList.Rows.Cast<DataGridViewRow>()
-                .Where(row =>
-                {
-                    var product = stocks
-                        .Find(s => s.Product.Name == row.Cells[name.Name].Value.ToString());
-                    return product.Quantity == 0;
-                }).ToList()
-                .ForEach(row => row.DefaultCellStyle.BackColor = FormColors.DgvRowAttention);
-        }
-
-        private void PopulateProductDgvNoSellingPrice(List<IStock> stocks)
-        {
-            dgvProductList.Columns["selling_price"]!.Visible = false;
-            stocks.ForEach(stock => dgvProductList.Rows.Add(stock.Product.Name,
-                $"{stock.Quantity} ({stock.RestockLevel})", 0, stock.Product.Category.Name));
-        }
-
-        private void PopulateProductDgvWithSellingPrice(List<IStock> stocks)
-        {
-            dgvProductList.Columns["selling_price"]!.Visible = true;
-            stocks.Cast<RetailStoreStock>().ToList()
-                .ForEach(stock => dgvProductList.Rows.Add(stock.Product.Name,
+            dgvProductList.Columns[selling_price.Name]!.Visible = stocks.First() is RetailStoreStock;
+            foreach (var stock in stocks)
+            {
+                int rowIndex = dgvProductList.Rows.Add(stock.Product.Name,
                     $"{stock.Quantity} ({stock.RestockLevel})",
-                    stock.SellingPrice == decimal.Zero
-                        ? "-"
-                        : stock.SellingPrice.ToString("C", new CultureInfo("zh-HK")),
-                    stock.Product.Category.Name));
+                    stocks.First() is RetailStoreStock retailStoreStock
+                        ? retailStoreStock.SellingPrice == decimal.Zero
+                            ? "-"
+                            : retailStoreStock.SellingPrice.ToString("C", new CultureInfo("zh-HK"))
+                        : "-",
+                    stock.Product.Category.Name);
+                if (stock.Quantity > stock.RestockLevel)
+                    continue;
+                dgvProductList.Rows[rowIndex].DefaultCellStyle.BackColor = stock.Quantity == 0
+                    ? FormColors.DgvRowAttention
+                    : FormColors.DgvRowAttentionWeak;
+            }
         }
 
         private IWorkplace GetSelectedWorkplace()

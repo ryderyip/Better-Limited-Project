@@ -7,10 +7,6 @@ namespace Better_Limited_Project.DevTools
 {
     public partial class RandomOrderPlacerForm : Form
     {
-        public int InputtedNumber { get; private set; }
-        public int MaxNumber { get; set; } = 100;
-        public int MinNumber { get; set; } = 1;
-
         public RandomOrderPlacerForm()
         {
             StartPosition = FormStartPosition.CenterScreen;
@@ -18,6 +14,10 @@ namespace Better_Limited_Project.DevTools
             Load += (_, _) => Initialize();
             btnOk.Click += btnOk_Click;
         }
+
+        public int InputtedNumber { get; private set; }
+        public int MaxNumber { get; set; } = 100;
+        public int MinNumber { get; set; } = 1;
 
         private void Initialize()
         {
@@ -30,11 +30,8 @@ namespace Better_Limited_Project.DevTools
             InputtedNumber = (int) numericUpDown1.Value;
             var autoDog = new RandomOrderPlacer();
             var progress = new Progress<double>();
-            progress.ProgressChanged += (_, i) =>
-            {
-                progressBar1.Value = (int) i;
-            };
-            
+            progress.ProgressChanged += (_, i) => { progressBar1.Value = (int) i; };
+
             await autoDog.PlaceOrdersAsync(InputtedNumber, progress);
             Close();
         }

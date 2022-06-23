@@ -17,10 +17,10 @@ namespace Better_Limited_Project.Sales.PaymentUtility
 {
     public class DepositReceiptGenerator
     {
-        private readonly SalesOrder _salesOrder;
-        private readonly List<SalesOrderProduct> _depositSalesOrderProducts;
         private const string FileName = "deposit receipt.pdf";
+        private readonly List<SalesOrderProduct> _depositSalesOrderProducts;
         private readonly string _location;
+        private readonly SalesOrder _salesOrder;
 
         public DepositReceiptGenerator(SalesOrder salesOrder)
         {
@@ -84,13 +84,14 @@ namespace Better_Limited_Project.Sales.PaymentUtility
             var statement = section.AddParagraph();
             var method = _depositSalesOrderProducts.First().GetProductPayments().First().GetPayment().PaymentMethod;
             string methodText = method is PaymentMethod.CreditCard ? "Credit Card" : method.ToString();
-            decimal remainingFund = calculator.GetTotalAmount() - calculator.GetDepositAmount() - calculator.GetNonDepositAmount();
-            string statementText = $"The receipt is for a product deposit for out of stock items in the amount of " +
+            var remainingFund = calculator.GetTotalAmount() - calculator.GetDepositAmount() -
+                                calculator.GetNonDepositAmount();
+            string statementText = "The receipt is for a product deposit for out of stock items in the amount of " +
                                    $"{calculator.GetDepositAmount().ToString("C", new CultureInfo("zh-HK"))} " +
                                    $"in the form of {methodText}.\n\n" +
-                                   $"The products will be reserved for 30 days once the stocks are replenished. " +
+                                   "The products will be reserved for 30 days once the stocks are replenished. " +
                                    $"Buyer must pay the remaining {remainingFund.ToString("C", new CultureInfo("zh-HK"))} " +
-                                   $"within the period or else the non-refundable deposit will be forfeited.";
+                                   "within the period or else the non-refundable deposit will be forfeited.";
             statement.Format.SpaceBefore = "1cm";
             statement.AddText(statementText);
 
@@ -154,7 +155,7 @@ namespace Better_Limited_Project.Sales.PaymentUtility
 
             table.SetEdge(0, 0, 4, 1, Edge.Box, BorderStyle.Single, 0.75, Color.Empty);
 
-            int rowCount = 0;
+            var rowCount = 0;
             foreach (var salesOrderProduct in _depositSalesOrderProducts)
             {
                 row = table.AddRow();
@@ -165,7 +166,7 @@ namespace Better_Limited_Project.Sales.PaymentUtility
                 row.Cells[1].Format.Alignment = ParagraphAlignment.Left;
                 row.Cells[2].AddParagraph(salesOrderProduct.Price.ToString("C", new CultureInfo("zh-HK")));
                 row.Cells[2].Format.Alignment = ParagraphAlignment.Left;
-                decimal depositAmount = salesOrderProduct.Price * Product.DepositPricePercentage;
+                var depositAmount = salesOrderProduct.Price * Product.DepositPricePercentage;
                 row.Cells[3].AddParagraph(depositAmount.ToString("C", new CultureInfo("zh-HK")));
                 row.Cells[3].Format.Alignment = ParagraphAlignment.Left;
                 row.Cells[4].AddParagraph(salesOrderProduct.Quantity.ToString());
@@ -177,12 +178,12 @@ namespace Better_Limited_Project.Sales.PaymentUtility
 
             row = table.AddRow();
             row.Cells[0].MergeRight = table.Columns.Count - 1;
-            decimal totalDeposit =
+            var totalDeposit =
                 _depositSalesOrderProducts.Sum(sop => sop.Price * sop.Quantity * Product.DepositPricePercentage);
             row.Cells[0].AddParagraph($"Total: {totalDeposit.ToString("C", new CultureInfo("zh-HK"))}");
             row.Format.Alignment = ParagraphAlignment.Right;
-            
-            
+
+
             // Create Sender frame
             var addressFrame = section.AddTextFrame();
             addressFrame.Height = "3.0cm";

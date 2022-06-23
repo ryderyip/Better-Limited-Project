@@ -27,9 +27,9 @@ namespace Better_Limited_Project.ProductUtility.Repository
             var command = new MySqlCommand(
                 "select id, name from product_category;");
             var dataTable = DataTableRepository.RetrieveDataTable(command);
-            
-            
-            return from DataRow row in dataTable.Rows 
+
+
+            return from DataRow row in dataTable.Rows
                 select new Category(row.Field<int>("id").ToString(),
                     row.Field<string>("name"));
         }

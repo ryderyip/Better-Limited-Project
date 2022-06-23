@@ -12,8 +12,8 @@ namespace Better_Limited_Project.ProductUtility.Reordering.UI
 {
     public partial class NewReorderRestockRequestForm : Form
     {
-        private List<IProductQuantity> _selectedProducts = new();
         private readonly IReorderRestockService _reorderRestockService;
+        private List<IProductQuantity> _selectedProducts = new();
 
         public NewReorderRestockRequestForm(IReorderRestockService reorderRestockService)
         {

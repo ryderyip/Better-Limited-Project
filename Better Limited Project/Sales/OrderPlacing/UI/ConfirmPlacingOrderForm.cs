@@ -12,7 +12,6 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
 {
     public partial class ConfirmPlacingOrderForm : Form
     {
-        public event EventHandler? OrderConfirmed;
         private readonly SalesOrder _order;
         private readonly List<SalesOrderProduct> _salesOrderProduct;
 
@@ -23,6 +22,8 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
             Shown += (_, _) => FillFields();
             InitializeComponent();
         }
+
+        public event EventHandler? OrderConfirmed;
 
         private void FillFields()
         {
@@ -37,9 +38,10 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
             }
 
             var calculator = new SalesOrderCalculator(_salesOrderProduct);
-            decimal amountDue = calculator.GetNonDepositAmount() + calculator.GetDepositAmount();
-            decimal priceToPayWhenStockReplenished = calculator.GetTotalAmount() - amountDue;
-            tbPriceToPayWhenStockReplenished.Text = priceToPayWhenStockReplenished.ToString("C", new CultureInfo("zh-HK"));
+            var amountDue = calculator.GetNonDepositAmount() + calculator.GetDepositAmount();
+            var priceToPayWhenStockReplenished = calculator.GetTotalAmount() - amountDue;
+            tbPriceToPayWhenStockReplenished.Text =
+                priceToPayWhenStockReplenished.ToString("C", new CultureInfo("zh-HK"));
             tbAmountDue.Text = amountDue.ToString("C", new CultureInfo("zh-HK"));
 
             if (calculator.GetDepositAmount() == 0)
@@ -52,7 +54,7 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
         {
             foreach (var salesOrderProduct in _salesOrderProduct.Where(sop => !sop.IsOutOfStock))
             {
-                decimal subtotal = salesOrderProduct.Price * salesOrderProduct.Quantity;
+                var subtotal = salesOrderProduct.Price * salesOrderProduct.Quantity;
                 dgvProducts.Rows.Add(salesOrderProduct.GetProduct().Name,
                     salesOrderProduct.Price.ToString("C", new CultureInfo("zh-HK")),
                     salesOrderProduct.Quantity,
@@ -61,9 +63,9 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
 
             foreach (var salesOrderProduct in _salesOrderProduct.Where(sop => sop.IsOutOfStock))
             {
-                decimal depositAmount = salesOrderProduct.Price * Product.DepositPricePercentage;
-                decimal subtotal = depositAmount * salesOrderProduct.Quantity;
-                int rowIndex = dgvProducts.Rows.Add(salesOrderProduct.GetProduct().Name,
+                var depositAmount = salesOrderProduct.Price * Product.DepositPricePercentage;
+                var subtotal = depositAmount * salesOrderProduct.Quantity;
+                var rowIndex = dgvProducts.Rows.Add(salesOrderProduct.GetProduct().Name,
                     depositAmount.ToString("C", new CultureInfo("zh-HK")) + " (20%)",
                     salesOrderProduct.Quantity,
                     subtotal.ToString("C", new CultureInfo("zh-HK")));

@@ -18,7 +18,8 @@ namespace Better_Limited_Project.ProductUtility.Reordering.Entity
             RequestedOn = DateTime.Now;
         }
 
-        public ReorderRequest(string id, string requestNumber, string warehouseId, string requestedByStaffId, string? approvedByStaffId, DateTime requestedOn, DateTime? approvedOn)
+        public ReorderRequest(string id, string requestNumber, string warehouseId, string requestedByStaffId,
+            string? approvedByStaffId, DateTime requestedOn, DateTime? approvedOn)
         {
             Id = id;
             RequestNumber = requestNumber;

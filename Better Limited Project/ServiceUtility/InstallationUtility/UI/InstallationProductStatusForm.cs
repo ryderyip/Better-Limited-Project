@@ -29,12 +29,13 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
             foreach (var installationRequestProduct in productsToInstall)
                 dgvInstallationProduct.Rows.Add(installationRequestProduct.Product.Name,
                     installationRequestProduct.Quantity);
-            
+
             var installations = installationRequest.GetInstallations().ToList();
             tbScheduledOn.Text = installations.First().ScheduledOn.ToString("f");
             tbInstalledOn.Text = installations.First().InstalledOn?.ToString("f") ?? "-";
 
-            foreach (var technician in installationRequest.GetInstallations().SelectMany(i => i.Technicians.Select(t => t.Technician)))
+            foreach (var technician in installationRequest.GetInstallations()
+                .SelectMany(i => i.Technicians.Select(t => t.Technician)))
                 dgvTechnicians.Rows.Add(technician.Name, technician.Phone);
         }
     }

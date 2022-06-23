@@ -10,17 +10,17 @@ namespace Better_Limited_Project.SettingsUtility
     [Serializable]
     public class UserSettings
     {
-        public Language Language { get; set; }
-        public Theme Theme { get; set; }
-        public IWorkplace? Workplace { get; set; }
-        public string? LastLoginUsername { get; set; }
-        public string DocumentGenerationDirectoryPath { get; set; }
-
         public UserSettings()
         {
             DocumentGenerationDirectoryPath =
                 UserSettingsDirectory.GetDefaultDocumentGenerationDirectoryPath();
         }
+
+        public Language Language { get; set; }
+        public Theme Theme { get; set; }
+        public IWorkplace? Workplace { get; set; }
+        public string? LastLoginUsername { get; set; }
+        public string DocumentGenerationDirectoryPath { get; set; }
 
         public void Save()
         {

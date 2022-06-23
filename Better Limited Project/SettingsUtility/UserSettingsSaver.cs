@@ -10,7 +10,7 @@ namespace Better_Limited_Project.SettingsUtility
             string directoryPath = UserSettingsDirectory.GetSettingsDirectory();
             if (!Directory.Exists(directoryPath))
                 Directory.CreateDirectory(directoryPath);
-            
+
             string settingsPath = Path.Combine(directoryPath, UserSettingsDirectory.SettingsFileName);
 
             if (File.Exists(settingsPath))

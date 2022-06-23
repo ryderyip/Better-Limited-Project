@@ -1,473 +1,490 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
-    Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
-    associated with the data types.
-    
-    Example:
-    
-    ... ado.net/XML headers & schema ...
-    <resheader name="resmimetype">text/microsoft-resx</resheader>
-    <resheader name="version">2.0</resheader>
-    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    <!-- 
+      Microsoft ResX Schema 
+      
+      Version 2.0
+      
+      The primary goals of this format is to allow a simple XML format 
+      that is mostly human readable. The generation and parsing of the 
+      various data types are done through the TypeConverter classes 
+      associated with the data types.
+      
+      Example:
+      
+      ... ado.net/XML headers & schema ...
+      <resheader name="resmimetype">text/microsoft-resx</resheader>
+      <resheader name="version">2.0</resheader>
+      <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+      <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+      <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+      <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+      <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+          <value>[base64 mime encoded serialized .NET Framework object]</value>
+      </data>
+      <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+          <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+          <comment>This is a comment</comment>
+      </data>
+                  
+      There are any number of "resheader" rows that contain simple 
+      name/value pairs.
+      
+      Each data row contains a name, and value. The row also contains a 
+      type or mimetype. Type corresponds to a .NET class that support 
+      text/value conversion through the TypeConverter architecture. 
+      Classes that don't support this are serialized and stored with the 
+      mimetype set.
+      
+      The mimetype is used for serialized objects, and tells the 
+      ResXResourceReader how to depersist the object. This is currently not 
+      extensible. For a given mimetype the value must be set accordingly:
+      
+      Note - application/x-microsoft.net.object.binary.base64 is the format 
+      that the ResXResourceWriter will generate, however the reader can 
+      read any of the formats listed below.
+      
+      mimetype: application/x-microsoft.net.object.binary.base64
+      value   : The object must be serialized with 
+              : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+              : and then encoded with base64 encoding.
+      
+      mimetype: application/x-microsoft.net.object.soap.base64
+      value   : The object must be serialized with 
+              : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+              : and then encoded with base64 encoding.
+  
+      mimetype: application/x-microsoft.net.object.bytearray.base64
+      value   : The object must be serialized into a byte array 
+              : using a System.ComponentModel.TypeConverter
+              : and then encoded with base64 encoding.
+      -->
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root"
+                xmlns="">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+        <xsd:element name="root" msdata:IsDataSet="true">
+            <xsd:complexType>
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string"/>
+                            <xsd:attribute name="type" type="xsd:string"/>
+                            <xsd:attribute name="mimetype" type="xsd:string"/>
+                            <xsd:attribute ref="xml:space"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string"/>
+                            <xsd:attribute name="name" type="xsd:string"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+                            <xsd:attribute ref="xml:space"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
+            </xsd:complexType>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+    </resheader>
+    <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"/>
+    <data name="lblGoodsInRequest.AutoSize" type="System.Boolean, mscorlib">
+        <value>True</value>
     </data>
-    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
-        <comment>This is a comment</comment>
+    <assembly alias="System.Drawing"
+              name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"/>
+    <data name="lblGoodsInRequest.Font" type="System.Drawing.Font, System.Drawing">
+        <value>Microsoft Sans Serif, 12pt, style=Bold</value>
     </data>
-                
-    There are any number of "resheader" rows that contain simple 
-    name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
-    mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
-    extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
-    read any of the formats listed below.
-    
-    mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
-            : and then encoded with base64 encoding.
-    
-    mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-            : and then encoded with base64 encoding.
-
-    mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
-            : using a System.ComponentModel.TypeConverter
-            : and then encoded with base64 encoding.
-    -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblGoodsInRequest.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lblGoodsInRequest.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
-  </data>
-  <data name="lblGoodsInRequest.Location" type="System.Drawing.Point, System.Drawing">
-    <value>241, 94</value>
-  </data>
-  <data name="lblGoodsInRequest.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 20</value>
-  </data>
-  <data name="lblGoodsInRequest.TabIndex" type="System.Int32, mscorlib">
-    <value>62</value>
-  </data>
-  <data name="lblGoodsInRequest.Text" xml:space="preserve">
+    <data name="lblGoodsInRequest.Location" type="System.Drawing.Point, System.Drawing">
+        <value>241, 94</value>
+    </data>
+    <data name="lblGoodsInRequest.Size" type="System.Drawing.Size, System.Drawing">
+        <value>155, 20</value>
+    </data>
+    <data name="lblGoodsInRequest.TabIndex" type="System.Int32, mscorlib">
+        <value>62</value>
+    </data>
+    <data name="lblGoodsInRequest.Text" xml:space="preserve">
     <value>Requested Goods</value>
   </data>
-  <data name="&gt;&gt;lblGoodsInRequest.Name" xml:space="preserve">
+    <data name="&gt;&gt;lblGoodsInRequest.Name" xml:space="preserve">
     <value>lblGoodsInRequest</value>
   </data>
-  <data name="&gt;&gt;lblGoodsInRequest.Type" xml:space="preserve">
+    <data name="&gt;&gt;lblGoodsInRequest.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lblGoodsInRequest.Parent" xml:space="preserve">
+    <data name="&gt;&gt;lblGoodsInRequest.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;lblGoodsInRequest.ZOrder" xml:space="preserve">
+    <data name="&gt;&gt;lblGoodsInRequest.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="lblHeader.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblHeader.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 15.75pt, style=Bold</value>
-  </data>
-  <data name="lblHeader.Location" type="System.Drawing.Point, System.Drawing">
-    <value>253, 28</value>
-  </data>
-  <data name="lblHeader.Size" type="System.Drawing.Size, System.Drawing">
-    <value>334, 25</value>
-  </data>
-  <data name="lblHeader.TabIndex" type="System.Int32, mscorlib">
-    <value>61</value>
-  </data>
-  <data name="lblHeader.Text" xml:space="preserve">
+    <data name="lblHeader.AutoSize" type="System.Boolean, mscorlib">
+        <value>True</value>
+    </data>
+    <data name="lblHeader.Font" type="System.Drawing.Font, System.Drawing">
+        <value>Microsoft Sans Serif, 15.75pt, style=Bold</value>
+    </data>
+    <data name="lblHeader.Location" type="System.Drawing.Point, System.Drawing">
+        <value>253, 28</value>
+    </data>
+    <data name="lblHeader.Size" type="System.Drawing.Size, System.Drawing">
+        <value>334, 25</value>
+    </data>
+    <data name="lblHeader.TabIndex" type="System.Int32, mscorlib">
+        <value>61</value>
+    </data>
+    <data name="lblHeader.Text" xml:space="preserve">
     <value>New Reorder/Restock Request</value>
   </data>
-  <data name="&gt;&gt;lblHeader.Name" xml:space="preserve">
+    <data name="&gt;&gt;lblHeader.Name" xml:space="preserve">
     <value>lblHeader</value>
   </data>
-  <data name="&gt;&gt;lblHeader.Type" xml:space="preserve">
+    <data name="&gt;&gt;lblHeader.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lblHeader.Parent" xml:space="preserve">
+    <data name="&gt;&gt;lblHeader.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;lblHeader.ZOrder" xml:space="preserve">
+    <data name="&gt;&gt;lblHeader.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <metadata name="requestedProductIdColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="requestedProductNameColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="priceColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="quantityToReorderColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="categoryColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="dgvRequestedGoods.Location" type="System.Drawing.Point, System.Drawing">
-    <value>36, 127</value>
-  </data>
-  <data name="dgvRequestedGoods.Size" type="System.Drawing.Size, System.Drawing">
-    <value>564, 196</value>
-  </data>
-  <data name="dgvRequestedGoods.TabIndex" type="System.Int32, mscorlib">
-    <value>60</value>
-  </data>
-  <data name="&gt;&gt;dgvRequestedGoods.Name" xml:space="preserve">
+    <metadata name="requestedProductIdColumn.UserAddedColumn"
+              type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <value>True</value>
+    </metadata>
+    <metadata name="requestedProductNameColumn.UserAddedColumn"
+              type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <value>True</value>
+    </metadata>
+    <metadata name="priceColumn.UserAddedColumn"
+              type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <value>True</value>
+    </metadata>
+    <metadata name="quantityToReorderColumn.UserAddedColumn"
+              type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <value>True</value>
+    </metadata>
+    <metadata name="categoryColumn.UserAddedColumn"
+              type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <value>True</value>
+    </metadata>
+    <data name="dgvRequestedGoods.Location" type="System.Drawing.Point, System.Drawing">
+        <value>36, 127</value>
+    </data>
+    <data name="dgvRequestedGoods.Size" type="System.Drawing.Size, System.Drawing">
+        <value>564, 196</value>
+    </data>
+    <data name="dgvRequestedGoods.TabIndex" type="System.Int32, mscorlib">
+        <value>60</value>
+    </data>
+    <data name="&gt;&gt;dgvRequestedGoods.Name" xml:space="preserve">
     <value>dgvRequestedGoods</value>
   </data>
-  <data name="&gt;&gt;dgvRequestedGoods.Type" xml:space="preserve">
+    <data name="&gt;&gt;dgvRequestedGoods.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;dgvRequestedGoods.Parent" xml:space="preserve">
+    <data name="&gt;&gt;dgvRequestedGoods.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;dgvRequestedGoods.ZOrder" xml:space="preserve">
+    <data name="&gt;&gt;dgvRequestedGoods.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="btnSendRequest.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="btnSendRequest.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
-  </data>
-  <data name="btnSendRequest.Location" type="System.Drawing.Point, System.Drawing">
-    <value>274, 387</value>
-  </data>
-  <data name="btnSendRequest.Size" type="System.Drawing.Size, System.Drawing">
-    <value>293, 52</value>
-  </data>
-  <data name="btnSendRequest.TabIndex" type="System.Int32, mscorlib">
-    <value>63</value>
-  </data>
-  <data name="btnSendRequest.Text" xml:space="preserve">
+    <data name="btnSendRequest.Enabled" type="System.Boolean, mscorlib">
+        <value>False</value>
+    </data>
+    <data name="btnSendRequest.Font" type="System.Drawing.Font, System.Drawing">
+        <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+    </data>
+    <data name="btnSendRequest.Location" type="System.Drawing.Point, System.Drawing">
+        <value>274, 387</value>
+    </data>
+    <data name="btnSendRequest.Size" type="System.Drawing.Size, System.Drawing">
+        <value>293, 52</value>
+    </data>
+    <data name="btnSendRequest.TabIndex" type="System.Int32, mscorlib">
+        <value>63</value>
+    </data>
+    <data name="btnSendRequest.Text" xml:space="preserve">
     <value>Send Request</value>
   </data>
-  <data name="&gt;&gt;btnSendRequest.Name" xml:space="preserve">
+    <data name="&gt;&gt;btnSendRequest.Name" xml:space="preserve">
     <value>btnSendRequest</value>
   </data>
-  <data name="&gt;&gt;btnSendRequest.Type" xml:space="preserve">
+    <data name="&gt;&gt;btnSendRequest.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnSendRequest.Parent" xml:space="preserve">
+    <data name="&gt;&gt;btnSendRequest.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;btnSendRequest.ZOrder" xml:space="preserve">
+    <data name="&gt;&gt;btnSendRequest.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="btnSelectGoods.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
-  </data>
-  <data name="btnSelectGoods.Location" type="System.Drawing.Point, System.Drawing">
-    <value>36, 329</value>
-  </data>
-  <data name="btnSelectGoods.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 37</value>
-  </data>
-  <data name="btnSelectGoods.TabIndex" type="System.Int32, mscorlib">
-    <value>64</value>
-  </data>
-  <data name="btnSelectGoods.Text" xml:space="preserve">
+    <data name="btnSelectGoods.Font" type="System.Drawing.Font, System.Drawing">
+        <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+    </data>
+    <data name="btnSelectGoods.Location" type="System.Drawing.Point, System.Drawing">
+        <value>36, 329</value>
+    </data>
+    <data name="btnSelectGoods.Size" type="System.Drawing.Size, System.Drawing">
+        <value>149, 37</value>
+    </data>
+    <data name="btnSelectGoods.TabIndex" type="System.Int32, mscorlib">
+        <value>64</value>
+    </data>
+    <data name="btnSelectGoods.Text" xml:space="preserve">
     <value>Select Goods</value>
   </data>
-  <data name="&gt;&gt;btnSelectGoods.Name" xml:space="preserve">
+    <data name="&gt;&gt;btnSelectGoods.Name" xml:space="preserve">
     <value>btnSelectGoods</value>
   </data>
-  <data name="&gt;&gt;btnSelectGoods.Type" xml:space="preserve">
+    <data name="&gt;&gt;btnSelectGoods.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnSelectGoods.Parent" xml:space="preserve">
+    <data name="&gt;&gt;btnSelectGoods.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;btnSelectGoods.ZOrder" xml:space="preserve">
+    <data name="&gt;&gt;btnSelectGoods.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="tbNoOfProducts.Location" type="System.Drawing.Point, System.Drawing">
-    <value>642, 183</value>
-  </data>
-  <data name="tbNoOfProducts.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 20</value>
-  </data>
-  <data name="tbNoOfProducts.TabIndex" type="System.Int32, mscorlib">
-    <value>66</value>
-  </data>
-  <data name="tbNoOfProducts.Text" xml:space="preserve">
+    <data name="tbNoOfProducts.Location" type="System.Drawing.Point, System.Drawing">
+        <value>642, 183</value>
+    </data>
+    <data name="tbNoOfProducts.Size" type="System.Drawing.Size, System.Drawing">
+        <value>161, 20</value>
+    </data>
+    <data name="tbNoOfProducts.TabIndex" type="System.Int32, mscorlib">
+        <value>66</value>
+    </data>
+    <data name="tbNoOfProducts.Text" xml:space="preserve">
     <value>-</value>
   </data>
-  <data name="&gt;&gt;tbNoOfProducts.Name" xml:space="preserve">
+    <data name="&gt;&gt;tbNoOfProducts.Name" xml:space="preserve">
     <value>tbNoOfProducts</value>
   </data>
-  <data name="&gt;&gt;tbNoOfProducts.Type" xml:space="preserve">
+    <data name="&gt;&gt;tbNoOfProducts.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tbNoOfProducts.Parent" xml:space="preserve">
+    <data name="&gt;&gt;tbNoOfProducts.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;tbNoOfProducts.ZOrder" xml:space="preserve">
+    <data name="&gt;&gt;tbNoOfProducts.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="lblNoOfProducts.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblNoOfProducts.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9.75pt</value>
-  </data>
-  <data name="lblNoOfProducts.Location" type="System.Drawing.Point, System.Drawing">
-    <value>639, 164</value>
-  </data>
-  <data name="lblNoOfProducts.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 16</value>
-  </data>
-  <data name="lblNoOfProducts.TabIndex" type="System.Int32, mscorlib">
-    <value>65</value>
-  </data>
-  <data name="lblNoOfProducts.Text" xml:space="preserve">
+    <data name="lblNoOfProducts.AutoSize" type="System.Boolean, mscorlib">
+        <value>True</value>
+    </data>
+    <data name="lblNoOfProducts.Font" type="System.Drawing.Font, System.Drawing">
+        <value>Microsoft Sans Serif, 9.75pt</value>
+    </data>
+    <data name="lblNoOfProducts.Location" type="System.Drawing.Point, System.Drawing">
+        <value>639, 164</value>
+    </data>
+    <data name="lblNoOfProducts.Size" type="System.Drawing.Size, System.Drawing">
+        <value>99, 16</value>
+    </data>
+    <data name="lblNoOfProducts.TabIndex" type="System.Int32, mscorlib">
+        <value>65</value>
+    </data>
+    <data name="lblNoOfProducts.Text" xml:space="preserve">
     <value>No. of Products</value>
   </data>
-  <data name="&gt;&gt;lblNoOfProducts.Name" xml:space="preserve">
+    <data name="&gt;&gt;lblNoOfProducts.Name" xml:space="preserve">
     <value>lblNoOfProducts</value>
   </data>
-  <data name="&gt;&gt;lblNoOfProducts.Type" xml:space="preserve">
+    <data name="&gt;&gt;lblNoOfProducts.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lblNoOfProducts.Parent" xml:space="preserve">
+    <data name="&gt;&gt;lblNoOfProducts.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;lblNoOfProducts.ZOrder" xml:space="preserve">
+    <data name="&gt;&gt;lblNoOfProducts.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="tbEstimatedTotalCost.Location" type="System.Drawing.Point, System.Drawing">
-    <value>642, 255</value>
-  </data>
-  <data name="tbEstimatedTotalCost.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 20</value>
-  </data>
-  <data name="tbEstimatedTotalCost.TabIndex" type="System.Int32, mscorlib">
-    <value>68</value>
-  </data>
-  <data name="tbEstimatedTotalCost.Text" xml:space="preserve">
+    <data name="tbEstimatedTotalCost.Location" type="System.Drawing.Point, System.Drawing">
+        <value>642, 255</value>
+    </data>
+    <data name="tbEstimatedTotalCost.Size" type="System.Drawing.Size, System.Drawing">
+        <value>161, 20</value>
+    </data>
+    <data name="tbEstimatedTotalCost.TabIndex" type="System.Int32, mscorlib">
+        <value>68</value>
+    </data>
+    <data name="tbEstimatedTotalCost.Text" xml:space="preserve">
     <value>-</value>
   </data>
-  <data name="&gt;&gt;tbEstimatedTotalCost.Name" xml:space="preserve">
+    <data name="&gt;&gt;tbEstimatedTotalCost.Name" xml:space="preserve">
     <value>tbEstimatedTotalCost</value>
   </data>
-  <data name="&gt;&gt;tbEstimatedTotalCost.Type" xml:space="preserve">
+    <data name="&gt;&gt;tbEstimatedTotalCost.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tbEstimatedTotalCost.Parent" xml:space="preserve">
+    <data name="&gt;&gt;tbEstimatedTotalCost.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;tbEstimatedTotalCost.ZOrder" xml:space="preserve">
+    <data name="&gt;&gt;tbEstimatedTotalCost.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="lblEstimatedTotalCost.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblEstimatedTotalCost.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9.75pt</value>
-  </data>
-  <data name="lblEstimatedTotalCost.Location" type="System.Drawing.Point, System.Drawing">
-    <value>639, 236</value>
-  </data>
-  <data name="lblEstimatedTotalCost.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 16</value>
-  </data>
-  <data name="lblEstimatedTotalCost.TabIndex" type="System.Int32, mscorlib">
-    <value>67</value>
-  </data>
-  <data name="lblEstimatedTotalCost.Text" xml:space="preserve">
+    <data name="lblEstimatedTotalCost.AutoSize" type="System.Boolean, mscorlib">
+        <value>True</value>
+    </data>
+    <data name="lblEstimatedTotalCost.Font" type="System.Drawing.Font, System.Drawing">
+        <value>Microsoft Sans Serif, 9.75pt</value>
+    </data>
+    <data name="lblEstimatedTotalCost.Location" type="System.Drawing.Point, System.Drawing">
+        <value>639, 236</value>
+    </data>
+    <data name="lblEstimatedTotalCost.Size" type="System.Drawing.Size, System.Drawing">
+        <value>132, 16</value>
+    </data>
+    <data name="lblEstimatedTotalCost.TabIndex" type="System.Int32, mscorlib">
+        <value>67</value>
+    </data>
+    <data name="lblEstimatedTotalCost.Text" xml:space="preserve">
     <value>Estimated Total Cost</value>
   </data>
-  <data name="&gt;&gt;lblEstimatedTotalCost.Name" xml:space="preserve">
+    <data name="&gt;&gt;lblEstimatedTotalCost.Name" xml:space="preserve">
     <value>lblEstimatedTotalCost</value>
   </data>
-  <data name="&gt;&gt;lblEstimatedTotalCost.Type" xml:space="preserve">
+    <data name="&gt;&gt;lblEstimatedTotalCost.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lblEstimatedTotalCost.Parent" xml:space="preserve">
+    <data name="&gt;&gt;lblEstimatedTotalCost.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;lblEstimatedTotalCost.ZOrder" xml:space="preserve">
+    <data name="&gt;&gt;lblEstimatedTotalCost.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <metadata name="requestedProductIdColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="requestedProductIdColumn.HeaderText" xml:space="preserve">
+    <metadata name="requestedProductIdColumn.UserAddedColumn"
+              type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <value>True</value>
+    </metadata>
+    <data name="requestedProductIdColumn.HeaderText" xml:space="preserve">
     <value>id</value>
   </data>
-  <data name="requestedProductIdColumn.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <metadata name="requestedProductNameColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="requestedProductNameColumn.HeaderText" xml:space="preserve">
+    <data name="requestedProductIdColumn.Visible" type="System.Boolean, mscorlib">
+        <value>False</value>
+    </data>
+    <metadata name="requestedProductNameColumn.UserAddedColumn"
+              type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <value>True</value>
+    </metadata>
+    <data name="requestedProductNameColumn.HeaderText" xml:space="preserve">
     <value>Product</value>
   </data>
-  <data name="requestedProductNameColumn.Width" type="System.Int32, mscorlib">
-    <value>180</value>
-  </data>
-  <metadata name="priceColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="priceColumn.HeaderText" xml:space="preserve">
+    <data name="requestedProductNameColumn.Width" type="System.Int32, mscorlib">
+        <value>180</value>
+    </data>
+    <metadata name="priceColumn.UserAddedColumn"
+              type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <value>True</value>
+    </metadata>
+    <data name="priceColumn.HeaderText" xml:space="preserve">
     <value>Price</value>
   </data>
-  <metadata name="quantityToReorderColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="quantityToReorderColumn.HeaderText" xml:space="preserve">
+    <metadata name="quantityToReorderColumn.UserAddedColumn"
+              type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <value>True</value>
+    </metadata>
+    <data name="quantityToReorderColumn.HeaderText" xml:space="preserve">
     <value>Qty To Reorder</value>
   </data>
-  <data name="quantityToReorderColumn.Width" type="System.Int32, mscorlib">
-    <value>120</value>
-  </data>
-  <metadata name="categoryColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="categoryColumn.HeaderText" xml:space="preserve">
+    <data name="quantityToReorderColumn.Width" type="System.Int32, mscorlib">
+        <value>120</value>
+    </data>
+    <metadata name="categoryColumn.UserAddedColumn"
+              type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <value>True</value>
+    </metadata>
+    <data name="categoryColumn.HeaderText" xml:space="preserve">
     <value>Category</value>
   </data>
-  <data name="categoryColumn.Width" type="System.Int32, mscorlib">
-    <value>120</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>840, 459</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
+    <data name="categoryColumn.Width" type="System.Int32, mscorlib">
+        <value>120</value>
+    </data>
+    <metadata name="$this.Localizable"
+              type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <value>True</value>
+    </metadata>
+    <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+        <value>6, 13</value>
+    </data>
+    <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+        <value>840, 459</value>
+    </data>
+    <data name="$this.Text" xml:space="preserve">
     <value>NewReorderRequestForm</value>
   </data>
-  <data name="&gt;&gt;requestedProductIdColumn.Name" xml:space="preserve">
+    <data name="&gt;&gt;requestedProductIdColumn.Name" xml:space="preserve">
     <value>requestedProductIdColumn</value>
   </data>
-  <data name="&gt;&gt;requestedProductIdColumn.Type" xml:space="preserve">
+    <data name="&gt;&gt;requestedProductIdColumn.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;requestedProductNameColumn.Name" xml:space="preserve">
+    <data name="&gt;&gt;requestedProductNameColumn.Name" xml:space="preserve">
     <value>requestedProductNameColumn</value>
   </data>
-  <data name="&gt;&gt;requestedProductNameColumn.Type" xml:space="preserve">
+    <data name="&gt;&gt;requestedProductNameColumn.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;priceColumn.Name" xml:space="preserve">
+    <data name="&gt;&gt;priceColumn.Name" xml:space="preserve">
     <value>priceColumn</value>
   </data>
-  <data name="&gt;&gt;priceColumn.Type" xml:space="preserve">
+    <data name="&gt;&gt;priceColumn.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;quantityToReorderColumn.Name" xml:space="preserve">
+    <data name="&gt;&gt;quantityToReorderColumn.Name" xml:space="preserve">
     <value>quantityToReorderColumn</value>
   </data>
-  <data name="&gt;&gt;quantityToReorderColumn.Type" xml:space="preserve">
+    <data name="&gt;&gt;quantityToReorderColumn.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;categoryColumn.Name" xml:space="preserve">
+    <data name="&gt;&gt;categoryColumn.Name" xml:space="preserve">
     <value>categoryColumn</value>
   </data>
-  <data name="&gt;&gt;categoryColumn.Type" xml:space="preserve">
+    <data name="&gt;&gt;categoryColumn.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>NewReorderRequestForm</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

@@ -11,8 +11,8 @@ namespace Better_Limited_Project.PermissionManagement.UI
 {
     public partial class PermissionManagementForm : Form
     {
-        private List<IPermission> _permissions;
         private readonly List<StaffTitle> _staffTitles;
+        private readonly List<IPermission> _permissions;
 
         public PermissionManagementForm()
         {
