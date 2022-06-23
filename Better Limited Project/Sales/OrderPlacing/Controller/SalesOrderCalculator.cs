@@ -2,8 +2,6 @@
 using System.Linq;
 using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
-using Better_Limited_Project.Sales.OrderPlacing.Repository;
-using Better_Limited_Project.Sales.PaymentUtility.Repository;
 
 namespace Better_Limited_Project.Sales.OrderPlacing.Controller
 {

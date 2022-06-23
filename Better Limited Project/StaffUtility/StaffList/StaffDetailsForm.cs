@@ -16,7 +16,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
         public StaffDetailsForm(string staffId)
         {
             _staff = new StaffRepository().FindById(staffId);
-            Shown += (_, _) => FillAllFields();
+            Shown += (_, _) => Initialize();
             InitializeComponent();
         }
 
@@ -26,7 +26,7 @@ namespace Better_Limited_Project.StaffUtility.StaffList
                 .Any(account => account.StaffId == _staff.Id);
         }
 
-        private void FillAllFields()
+        private void Initialize()
         {
             tbId.Text = "-";
             tbName.Text = _staff.Name;
@@ -37,15 +37,12 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             tbDepartment.Text = DepartmentMapper.Map(_staff.Department);
             tbUsername.Text = _staff.GetLoginAccount().Username;
             pbImage.Image = _staff.GetImage();
-
-            if (_staff.Id == LoginSession.GetSession().CurrentStaff.Id)
-                btnRemove.Enabled = false;
         }   
 
         private void RefreshAllFields()
         {
             _staff = new StaffRepository().FindById(_staff.Id);
-            FillAllFields();
+            Initialize();
         }
 
         private void btnUpdateStaffInfo_Click(object sender, EventArgs e)
@@ -61,23 +58,6 @@ namespace Better_Limited_Project.StaffUtility.StaffList
         {
             RefreshAllFields();
             Updated?.Invoke(this, EventArgs.Empty);
-        }
-
-        private void btnRemove_Click(object sender, EventArgs e)
-        {
-            return;
-            var form = new ConfirmRemovalForm();
-            form.StartPosition = FormStartPosition.CenterScreen;
-            form.Confirmed += (_, _) => RemoveStaff();
-            form.ShowDialog();
-        }
-
-        private void RemoveStaff()
-        {
-            _staff.GetLoginAccount().Remove(new StaffAccountRepository());
-            _staff.Remove();
-            Updated?.Invoke(this, EventArgs.Empty);
-            Close();
         }
 
         private void btnChangePassword_Click(object sender, EventArgs e)

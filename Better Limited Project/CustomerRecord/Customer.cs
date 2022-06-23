@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using Better_Limited_Project.Sales.OrderPlacing.Controller;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;
 
 namespace Better_Limited_Project.CustomerRecord

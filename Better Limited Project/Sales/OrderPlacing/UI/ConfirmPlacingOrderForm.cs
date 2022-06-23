@@ -7,7 +7,6 @@ using Better_Limited_Project.ProductUtility.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.Controller;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.Tools;
-using Color = System.Drawing.Color;
 
 namespace Better_Limited_Project.Sales.OrderPlacing.UI
 {

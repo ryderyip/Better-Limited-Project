@@ -1,7 +1,4 @@
-﻿using Better_Limited_Project.ProductUtility.Repository;
-using Better_Limited_Project.Sales.OrderPlacing.Repository;
-
-namespace Better_Limited_Project.Tools
+﻿namespace Better_Limited_Project.Tools
 {
     public static class SystemInitialization
     {

@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using Better_Limited_Project.Login;
 using Better_Limited_Project.ProductUtility.Reordering.Entity;
-using Better_Limited_Project.ProductUtility.Restocking;
 using Better_Limited_Project.ProductUtility.Restocking.Entity;
 using Better_Limited_Project.SettingsUtility;
 

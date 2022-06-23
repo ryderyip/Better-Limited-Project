@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.Login;
-using Better_Limited_Project.Sales.OrderPlacing.Controller;
 using Better_Limited_Project.ServiceUtility.DeliveryUtility.Entity;
 using Better_Limited_Project.ServiceUtility.DeliveryUtility.Repository;
 
@@ -87,7 +86,7 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.UI
             }
             
             scheduledOn += _deliveryRequest.DeliverySessionTime;
-            var delivery = new Entity.Delivery(_deliveryRequest.Id)
+            var delivery = new Delivery(_deliveryRequest.Id)
             {
                 ScheduledOn = scheduledOn
             };

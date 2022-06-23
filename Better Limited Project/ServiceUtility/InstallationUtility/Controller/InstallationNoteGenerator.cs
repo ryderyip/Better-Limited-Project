@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.Sales.PaymentUtility;
 using Better_Limited_Project.ServiceUtility.InstallationUtility.Entity;
@@ -113,8 +112,6 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.Controller
                 "Scheduled Installation Time: ",
                 "Sales Order Number: "
             };
-            int longestLineLength = lines.Max(l => l.Length);
-            // lines = lines.Select(l => l.PadRight(longestLineLength, ' ') + ": ").ToArray();
             lines[0] += date;
             lines[1] += time;
             lines[2] += orderNumber;

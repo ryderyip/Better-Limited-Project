@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using Better_Limited_Project.ProductUtility.InwardGoodsUtility.Entity;
-using Better_Limited_Project.ProductUtility.Reordering.Entity;
 using Better_Limited_Project.ProductUtility.Repository;
 
 namespace Better_Limited_Project.ProductUtility.Reordering.Controller

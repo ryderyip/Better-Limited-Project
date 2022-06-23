@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using Better_Limited_Project.DataAnalytics;
 using Better_Limited_Project.DataAnalytics.UI;
 using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.Login;

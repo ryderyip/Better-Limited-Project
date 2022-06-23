@@ -29,7 +29,7 @@ namespace Better_Limited_Project.ServiceUtility.DeliveryUtility.Repository
             DataTableRepository.ExecuteNonQuery(command);
         }
 
-        public static IEnumerable<Entity.Delivery> FindByCourierId(string courierId)
+        public static IEnumerable<Delivery> FindByCourierId(string courierId)
         {
             var command = new MySqlCommand(
                 @"select delivery_id from delivery_courier where courier_id = @courierId;");

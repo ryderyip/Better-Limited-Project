@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
@@ -182,13 +181,6 @@ namespace Better_Limited_Project.ProductUtility.ProductList.Forms
         private void cbWorkplaceSelect_SelectedIndexChanged(object sender, EventArgs e)
         {
             FilterProductDgv();
-        }
-
-        private void btnRestock_Click(object sender, EventArgs e)
-        {
-            /*var form = new CreateRestockRequestForm();
-            form.StartPosition = FormStartPosition.CenterScreen;
-            form.ShowDialog();*/
         }
     }
 }

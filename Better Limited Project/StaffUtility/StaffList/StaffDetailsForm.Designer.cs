@@ -30,7 +30,6 @@ namespace Better_Limited_Project.StaffUtility.StaffList
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StaffDetailsForm));
-            this.btnRemove = new System.Windows.Forms.Button();
             this.tbTitle = new System.Windows.Forms.TextBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.tbDepartment = new System.Windows.Forms.TextBox();
@@ -55,15 +54,6 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             this.btnUpdateImage = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnRemove
-            // 
-            this.btnRemove.BackColor = System.Drawing.Color.OrangeRed;
-            resources.ApplyResources(this.btnRemove, "btnRemove");
-            this.btnRemove.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.UseVisualStyleBackColor = false;
-            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // tbTitle
             // 
@@ -207,7 +197,6 @@ namespace Better_Limited_Project.StaffUtility.StaffList
             this.Controls.Add(this.tbUsername);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnChangePassword);
-            this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.tbTitle);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.tbDepartment);
@@ -234,8 +223,6 @@ namespace Better_Limited_Project.StaffUtility.StaffList
         private System.Windows.Forms.Button btnChangePassword;
 
         #endregion
-
-        private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.TextBox tbTitle;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.TextBox tbDepartment;

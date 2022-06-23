@@ -6,7 +6,6 @@ using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.Login;
 using Better_Limited_Project.ProductUtility.DefectiveItemReturning;
 using Better_Limited_Project.ProductUtility.ProductList.Forms;
-using Better_Limited_Project.ProductUtility.Restocking;
 using Better_Limited_Project.ProductUtility.Restocking.UI;
 using Better_Limited_Project.Sales.OrderPlacing.Controller;
 using Better_Limited_Project.Sales.OrderPlacing.UI;

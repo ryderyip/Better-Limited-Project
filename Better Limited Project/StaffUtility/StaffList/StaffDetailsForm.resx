@@ -118,40 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnRemove.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
-  </data>
-  <data name="btnRemove.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 370</value>
-  </data>
-  <data name="btnRemove.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 54</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnRemove.TabIndex" type="System.Int32, mscorlib">
-    <value>108</value>
-  </data>
-  <data name="btnRemove.Text" xml:space="preserve">
-    <value>Remove Staff</value>
-  </data>
-  <data name="&gt;&gt;btnRemove.Name" xml:space="preserve">
-    <value>btnRemove</value>
-  </data>
-  <data name="&gt;&gt;btnRemove.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnRemove.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnRemove.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
   <data name="tbTitle.Location" type="System.Drawing.Point, System.Drawing">
     <value>366, 244</value>
   </data>
   <data name="tbTitle.Size" type="System.Drawing.Size, System.Drawing">
     <value>174, 20</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="tbTitle.TabIndex" type="System.Int32, mscorlib">
     <value>106</value>
   </data>
@@ -165,7 +138,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbTitle.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>6</value>
   </data>
   <data name="lblTitle.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -195,7 +168,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblTitle.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>7</value>
   </data>
   <data name="tbDepartment.Location" type="System.Drawing.Point, System.Drawing">
     <value>366, 193</value>
@@ -216,7 +189,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbDepartment.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>8</value>
   </data>
   <data name="lblDept.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -246,7 +219,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblDept.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>9</value>
   </data>
   <data name="tbId.Location" type="System.Drawing.Point, System.Drawing">
     <value>106, 124</value>
@@ -267,7 +240,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbId.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>10</value>
   </data>
   <data name="lblId.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -297,7 +270,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblId.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>11</value>
   </data>
   <data name="tbDateOfBirth.Location" type="System.Drawing.Point, System.Drawing">
     <value>106, 266</value>
@@ -318,7 +291,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbDateOfBirth.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>12</value>
   </data>
   <data name="lblDateOfBirth.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -348,7 +321,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblDateOfBirth.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>13</value>
   </data>
   <data name="tbName.Location" type="System.Drawing.Point, System.Drawing">
     <value>106, 169</value>
@@ -369,7 +342,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbName.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>14</value>
   </data>
   <data name="lblName.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -399,7 +372,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblName.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>15</value>
   </data>
   <data name="lblBig.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -432,7 +405,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblBig.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>16</value>
   </data>
   <data name="tbHiredOn.Location" type="System.Drawing.Point, System.Drawing">
     <value>366, 146</value>
@@ -453,7 +426,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbHiredOn.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>17</value>
   </data>
   <data name="tbGender.Location" type="System.Drawing.Point, System.Drawing">
     <value>106, 218</value>
@@ -474,13 +447,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbGender.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>18</value>
   </data>
   <data name="btnUpdateProductInfo.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt, style=Bold</value>
   </data>
   <data name="btnUpdateProductInfo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 370</value>
+    <value>26, 370</value>
   </data>
   <data name="btnUpdateProductInfo.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 54</value>
@@ -501,7 +474,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnUpdateProductInfo.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>19</value>
   </data>
   <data name="lblHiredOn.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -531,7 +504,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblHiredOn.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>20</value>
   </data>
   <data name="lblGender.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -561,13 +534,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblGender.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>21</value>
   </data>
   <data name="btnChangePassword.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt, style=Bold</value>
   </data>
   <data name="btnChangePassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>450, 370</value>
+    <value>330, 370</value>
   </data>
   <data name="btnChangePassword.Size" type="System.Drawing.Size, System.Drawing">
     <value>133, 54</value>

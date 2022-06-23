@@ -3,7 +3,6 @@ using System.Windows.Forms;
 using Better_Limited_Project.FormControlling;
 using Better_Limited_Project.Login;
 using Better_Limited_Project.ProductUtility.GoodsPurchasing.UI;
-using Better_Limited_Project.ProductUtility.Reordering;
 using Better_Limited_Project.ProductUtility.Reordering.UI;
 using Better_Limited_Project.SettingsUtility;
 using Better_Limited_Project.StaffUtility.StaffProfile;

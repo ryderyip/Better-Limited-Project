@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Better_Limited_Project.Login;
 using Better_Limited_Project.ProductUtility.GoodsPurchasing.Entity;
@@ -9,13 +8,11 @@ namespace Better_Limited_Project.ProductUtility.GoodsPurchasing.Controller
 {
     public class PurchaseOrderCreationService
     {
-        private readonly ReorderRequest _reorderRequest;
         private readonly PurchaseOrder _purchaseOrder;
         private readonly List<PurchaseOrderProduct> _orderProducts;
 
         public PurchaseOrderCreationService(ReorderRequest reorderRequest)
         {
-            _reorderRequest = reorderRequest;
             _purchaseOrder = new PurchaseOrder(reorderRequest.Id, LoginSession.GetSession().CurrentStaff.Id);
             _orderProducts = new List<PurchaseOrderProduct>();
         }

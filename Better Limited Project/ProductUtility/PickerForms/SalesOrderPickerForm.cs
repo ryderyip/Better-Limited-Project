@@ -6,7 +6,6 @@ using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.Sales.OrderPlacing.Controller;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
-using Better_Limited_Project.Sales.OrderPlacing.Repository;
 
 namespace Better_Limited_Project.ProductUtility.PickerForms
 {
