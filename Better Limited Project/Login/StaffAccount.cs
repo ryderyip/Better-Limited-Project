@@ -16,7 +16,7 @@
             Password = password;
         }
 
-        public string StaffId { get; set; }
+        public string StaffId { get; }
         public string Username { get; set; }
         public string Password { get; set; }
 

@@ -8,6 +8,14 @@ namespace Better_Limited_Project.Sales.OrderPlacing.Entity
 {
     public class SalesOrderProduct
     {
+        public SalesOrderProduct()
+        {
+            SalesOrderId = "";
+            ProductId = "";
+            Price = 0;
+            Quantity = 0;
+        }
+
         public SalesOrderProduct(string salesOrderId, string productId, decimal price, int quantity, bool isOutOfStock)
         {
             SalesOrderId = salesOrderId;

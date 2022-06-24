@@ -40,7 +40,7 @@ namespace UnitTests
         }
 
         [Test]
-        public void VerifyLogin_UsernameDoesntExist_ReturnWrongUsernameStatus()
+        public void VerifyLogin_WrongUsernameOrPassword_ReturnWrongUsernameOrPasswordStatus()
         {
             var credentials = new LoginCredentials(
                 "some_wrong_username", "some_wrong_password");

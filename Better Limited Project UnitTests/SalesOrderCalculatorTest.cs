@@ -10,12 +10,20 @@ namespace UnitTests
     public class SalesOrderCalculatorTest
     {
         [Test]
-        public void GetTotalAmount_2SalesOrderProducts_ReturnCalculatedValue()
+        public void GetTotalAmount_2SalesOrderProducts_ReturnTotalAmount()
         {
             var sops = new List<SalesOrderProduct>
             {
-                new("", "", 100, 10, false),
-                new("", "", 200, 10, false)
+                new()
+                {
+                    Price = 100,
+                    Quantity = 10
+                },
+                new()
+                {
+                    Price = 200,
+                    Quantity = 10
+                }
             };
             var calculator = new SalesOrderCalculator(sops);
 
