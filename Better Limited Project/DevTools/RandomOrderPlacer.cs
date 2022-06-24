@@ -137,7 +137,7 @@ namespace Better_Limited_Project.DevTools
         private DateTime GetRandomOrderDate()
         {
             var hoursInAMonth = 30 * 24;
-            return DateTime.Now - TimeSpan.FromHours(_random.Next(hoursInAMonth * 6));
+            return DateTime.Now - TimeSpan.FromHours(_random.Next(hoursInAMonth * 3));
         }
 
         private Staff GetRandomSalesStaff()

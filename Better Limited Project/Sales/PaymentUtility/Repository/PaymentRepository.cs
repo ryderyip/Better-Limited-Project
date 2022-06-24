@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Threading.Tasks;
 using Better_Limited_Project.DatabaseUtility;
 using MySql.Data.MySqlClient;
 
@@ -51,6 +52,11 @@ namespace Better_Limited_Project.Sales.PaymentUtility.Repository
             var dataTable = DataTableRepository.RetrieveDataTable(new MySqlCommand(
                 @"select max(id) as id from payment;"));
             return (from DataRow row in dataTable.Rows select row.Field<int>("id") + 1).First().ToString();
+        }
+
+        public static async Task<IEnumerable<Payment>> GetAllAsync()
+        {
+            return await Task.Run(GetAll);
         }
     }
 }

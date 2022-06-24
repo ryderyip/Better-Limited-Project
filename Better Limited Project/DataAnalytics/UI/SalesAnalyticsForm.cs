@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Better_Limited_Project.Sales.OrderPlacing.Entity;
 using Better_Limited_Project.Sales.OrderPlacing.Repository;
+using Better_Limited_Project.Sales.PaymentUtility;
 using Better_Limited_Project.Sales.PaymentUtility.Repository;
 using Better_Limited_Project.StaffUtility.Repository;
 
@@ -16,6 +17,7 @@ namespace Better_Limited_Project.DataAnalytics.UI
     public partial class SalesAnalyticsForm : Form
     {
         private readonly List<SalesOrder> _salesOrders = new();
+        private readonly List<Payment> _payments = new();
 
         public SalesAnalyticsForm()
         {
@@ -24,7 +26,7 @@ namespace Better_Limited_Project.DataAnalytics.UI
             Load += (_, _) => Initialize();
         }
 
-        private async void Initialize()
+        private async Task Initialize()
         {
             dtpSalesDataFrom.ValueChanged += (_, _) => RefreshGraphs();
             dtpSalesDataTo.ValueChanged += (_, _) => RefreshGraphs();
@@ -36,7 +38,10 @@ namespace Better_Limited_Project.DataAnalytics.UI
 
             var cancellationToken = new CancellationTokenSource();
             Closing += (_, _) => cancellationToken.Cancel();
-            await Task.Run(LoadSalesOrders, cancellationToken.Token);
+            var loadSalesOrdersTask = Task.Run(LoadSalesOrders, cancellationToken.Token);
+            var loadPaymentsTask = Task.Run(LoadPayments, cancellationToken.Token);
+            await Task.WhenAll(loadSalesOrdersTask, loadPaymentsTask);
+
             if (cancellationToken.IsCancellationRequested)
                 return;
             SetAllControlsVisibility(true);
@@ -47,6 +52,7 @@ namespace Better_Limited_Project.DataAnalytics.UI
             dtpSalesDataFrom.Value = dtpSalesDataFrom.MinDate;
             dtpSalesDataTo.Value = dtpSalesDataTo.MaxDate;
 
+            tbTotalRevenue.Text = _payments.Sum(p => p.Amount).ToString("C0", new CultureInfo("zh-HK"));
             LoadNoOfSalesGraph(_salesOrders);
             LoadRevenueChart();
             LoadSalesByDistrict(_salesOrders);
@@ -62,12 +68,18 @@ namespace Better_Limited_Project.DataAnalytics.UI
         {
             var fromDate = dtpSalesDataFrom.Value.Date;
             var toDate = dtpSalesDataTo.Value.Date;
-            var salesOrders = _salesOrders.Where(so => so.CreatedOn.Date > fromDate && so.CreatedOn.Date < toDate)
+            var salesOrders = _salesOrders.Where(so => so.CreatedOn.Date >= fromDate && so.CreatedOn.Date <= toDate)
                 .ToList();
 
+            
             LoadNoOfSalesGraph(salesOrders);
             LoadRevenueChart();
             LoadSalesByDistrict(salesOrders);
+        }
+
+        private async Task LoadPayments()
+        {
+            _payments.AddRange(await PaymentRepository.GetAllAsync());
         }
 
         private void LoadSalesByDistrict(List<SalesOrder> salesOrders)
@@ -90,11 +102,20 @@ namespace Better_Limited_Project.DataAnalytics.UI
             chartRevenue.ChartAreas["ChartArea1"].AxisY.MajorGrid.LineColor = Color.DarkGray;
             var fromDate = dtpSalesDataFrom.Value.Date;
             var toDate = dtpSalesDataTo.Value.Date;
-            var payments = PaymentRepository.FindAll(p => p.PaidOn.Date > fromDate.Date && p.PaidOn.Date < toDate.Date)
-                .ToList();
-            tbTotalRevenue.Text = payments.Sum(p => p.Amount).ToString("C0", new CultureInfo("zh-HK"));
+            var payments = _payments.FindAll(p => p.PaidOn.Date >= fromDate.Date && p.PaidOn.Date <= toDate.Date);
             var isSameMonth = fromDate.Month == toDate.Month;
-            if (isSameMonth)
+            var isSameWeek = Math.Abs(fromDate.DayOfYear - toDate.DayOfYear) <= 7;
+            if (isSameWeek)
+            {
+                var dayRevenueTuples = payments.GroupBy(p => p.PaidOn.Day)
+                    .Select(dailyRevenue =>
+                        new Tuple<int, double>(dailyRevenue.Key, (double) dailyRevenue.Sum(p => p.Amount)));
+                chartRevenue.Titles[0].Text = "Revenue by Day";
+                foreach (var dayRevenueTuple in dayRevenueTuples)
+                    chartRevenue.Series["revenue"].Points.AddXY($"Day {dayRevenueTuple.Item1}",
+                        dayRevenueTuple.Item2);
+            }
+            else if (isSameMonth)
             {
                 var weekRevenueTuples = payments.GroupBy(p => p.PaidOn.Day / 7 + 1)
                     .Select(weekRevenue =>
@@ -131,17 +152,14 @@ namespace Better_Limited_Project.DataAnalytics.UI
             noOfSalesMadeLineGraph.ChartAreas["ChartArea1"].AxisX.MajorGrid.LineColor = Color.DarkGray;
             noOfSalesMadeLineGraph.ChartAreas["ChartArea1"].AxisY.MajorGrid.LineColor = Color.DarkGray;
 
-            var kowloonRetailStore = new RetailStoreRepository().GetById("KB01");
-            var tsuenWanRetailStore = new RetailStoreRepository().GetById("TW01");
-
             var dateNoOfSalesKowloonRetailTuple = salesOrders
-                .Where(so => so.RetailStore.Id == kowloonRetailStore.Id)
+                .Where(so => so.RetailStore.Id == "KB01")
                 .GroupBy(so => so.CreatedOn.Date)
                 .Select(dateOrder => new Tuple<DateTime, int>(dateOrder.Key, dateOrder.Count()))
                 .OrderBy(tuple => tuple.Item1)
                 .ToList();
             var dateNoOfSalesTsuenRetailTuple = salesOrders
-                .Where(so => so.RetailStore.Id == tsuenWanRetailStore.Id)
+                .Where(so => so.RetailStore.Id == "TW01")
                 .GroupBy(so => so.CreatedOn.Date)
                 .Select(dateOrder => new Tuple<DateTime, int>(dateOrder.Key, dateOrder.Count()))
                 .OrderBy(tuple => tuple.Item1)
