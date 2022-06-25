@@ -56,6 +56,7 @@
             this.quantityToReorderColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnApproveRequestAndCreatePurchaseOrder = new System.Windows.Forms.Button();
+            this.btnViewPurchaseOrder = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequestedGoods)).BeginInit();
             this.SuspendLayout();
             // 
@@ -330,11 +331,27 @@
             this.btnApproveRequestAndCreatePurchaseOrder.Visible = false;
             this.btnApproveRequestAndCreatePurchaseOrder.Click += new System.EventHandler(this.btnApproveRequestAndCreatePurchaseOrder_Click);
             // 
+            // btnViewPurchaseOrder
+            // 
+            this.btnViewPurchaseOrder.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnViewPurchaseOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnViewPurchaseOrder.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnViewPurchaseOrder.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnViewPurchaseOrder.Location = new System.Drawing.Point(707, 412);
+            this.btnViewPurchaseOrder.Name = "btnViewPurchaseOrder";
+            this.btnViewPurchaseOrder.Size = new System.Drawing.Size(228, 52);
+            this.btnViewPurchaseOrder.TabIndex = 75;
+            this.btnViewPurchaseOrder.Text = "View Purchase Order";
+            this.btnViewPurchaseOrder.UseVisualStyleBackColor = false;
+            this.btnViewPurchaseOrder.Visible = false;
+            this.btnViewPurchaseOrder.Click += new System.EventHandler(this.btnViewPurchaseOrder_Click);
+            // 
             // ReorderRequestDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(956, 488);
+            this.Controls.Add(this.btnViewPurchaseOrder);
             this.Controls.Add(this.btnApproveRequestAndCreatePurchaseOrder);
             this.Controls.Add(this.tbEstimatedTotalCost);
             this.Controls.Add(this.lblEstimatedTotalCost);
@@ -395,5 +412,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityToReorderColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryColumn;
         private System.Windows.Forms.Button btnApproveRequestAndCreatePurchaseOrder;
+        private System.Windows.Forms.Button btnViewPurchaseOrder;
     }
 }

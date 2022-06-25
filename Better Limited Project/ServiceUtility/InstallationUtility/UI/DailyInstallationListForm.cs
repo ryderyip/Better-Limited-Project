@@ -13,9 +13,9 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
     {
         private readonly List<Installation> _installations;
 
-        public DailyInstallationListForm()
+        public DailyInstallationListForm(List<Installation> installations)
         {
-            _installations = InstallationRepository.FindBy(i => !i.IsInstalled()).ToList();
+            _installations = installations;
             StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
             Load += (_, _) => Initialize();

@@ -46,7 +46,13 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
 
         private void btnDailyList_Click(object sender, EventArgs e)
         {
-            var form = new DailyInstallationListForm();
+            var installations = InstallationRepository.FindBy(i => !i.IsInstalled()).ToList();
+            if (installations.Count == 0)
+            {
+                MessageBox.Show("There are no appointed installations");
+                return;
+            }
+            var form = new DailyInstallationListForm(installations);
             form.ShowDialog();
         }
     }

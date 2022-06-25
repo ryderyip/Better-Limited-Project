@@ -5,6 +5,8 @@ using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.Login;
 using Better_Limited_Project.ProductUtility.GoodsPurchasing.Controller;
+using Better_Limited_Project.ProductUtility.GoodsPurchasing.Repository;
+using Better_Limited_Project.ProductUtility.GoodsPurchasing.UI;
 using Better_Limited_Project.ProductUtility.ProductList.Forms;
 using Better_Limited_Project.ProductUtility.Reordering.Entity;
 using Better_Limited_Project.ProductUtility.Repository;
@@ -36,6 +38,8 @@ namespace Better_Limited_Project.ProductUtility.Reordering.UI
                 btnApproveRequestAndCreatePurchaseOrder.Visible = false;
                 btnUnsendRequest.Visible = false;
             }
+
+            btnViewPurchaseOrder.Visible = _reorderRequest.IsApproved();
 
             FillFields();
         }
@@ -102,6 +106,16 @@ namespace Better_Limited_Project.ProductUtility.Reordering.UI
             service.Create();
 
             Initialize();
+        }
+
+        private void btnViewPurchaseOrder_Click(object sender, EventArgs e)
+        {
+            var purchaseOrder = PurchaseOrderRepository.GetAll()
+                .FirstOrDefault(po => po.ReorderRequestId == _reorderRequest.Id);
+            if (purchaseOrder == default)
+                return;
+            var form = new PurchaseOrderDetailsForm(purchaseOrder);
+            form.ShowDialog();
         }
     }
 }

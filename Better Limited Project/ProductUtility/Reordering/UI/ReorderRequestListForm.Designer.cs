@@ -30,14 +30,14 @@ namespace Better_Limited_Project.ProductUtility.Reordering.UI
         private void InitializeComponent()
         {
             this.dgvReorderRequests = new System.Windows.Forms.DataGridView();
-            this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.requestNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isApprovedColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.requestedOnColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbSearchBox = new System.Windows.Forms.TextBox();
             this.lblSearchBox = new System.Windows.Forms.Label();
             this.btnNewRequest = new System.Windows.Forms.Button();
             this.cbShowApproved = new System.Windows.Forms.CheckBox();
+            this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.requestNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isApprovedColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.requestedOnColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReorderRequests)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,33 +58,6 @@ namespace Better_Limited_Project.ProductUtility.Reordering.UI
             this.dgvReorderRequests.Size = new System.Drawing.Size(538, 327);
             this.dgvReorderRequests.TabIndex = 54;
             this.dgvReorderRequests.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReorderRequest_CellDoubleClick);
-            // 
-            // idColumn
-            // 
-            this.idColumn.HeaderText = "ID";
-            this.idColumn.Name = "idColumn";
-            this.idColumn.ReadOnly = true;
-            this.idColumn.Visible = false;
-            // 
-            // requestNumberColumn
-            // 
-            this.requestNumberColumn.HeaderText = "Request No.";
-            this.requestNumberColumn.Name = "requestNumberColumn";
-            this.requestNumberColumn.ReadOnly = true;
-            this.requestNumberColumn.Width = 130;
-            // 
-            // isApprovedColumn
-            // 
-            this.isApprovedColumn.HeaderText = "Is Approved";
-            this.isApprovedColumn.Name = "isApprovedColumn";
-            this.isApprovedColumn.ReadOnly = true;
-            // 
-            // requestedOnColumn
-            // 
-            this.requestedOnColumn.HeaderText = "Requested On";
-            this.requestedOnColumn.Name = "requestedOnColumn";
-            this.requestedOnColumn.ReadOnly = true;
-            this.requestedOnColumn.Width = 130;
             // 
             // tbSearchBox
             // 
@@ -127,6 +100,33 @@ namespace Better_Limited_Project.ProductUtility.Reordering.UI
             this.cbShowApproved.Text = "Show Approved Requests";
             this.cbShowApproved.UseVisualStyleBackColor = true;
             // 
+            // idColumn
+            // 
+            this.idColumn.HeaderText = "ID";
+            this.idColumn.Name = "idColumn";
+            this.idColumn.ReadOnly = true;
+            this.idColumn.Visible = false;
+            // 
+            // requestNumberColumn
+            // 
+            this.requestNumberColumn.HeaderText = "Request No.";
+            this.requestNumberColumn.Name = "requestNumberColumn";
+            this.requestNumberColumn.ReadOnly = true;
+            this.requestNumberColumn.Width = 150;
+            // 
+            // isApprovedColumn
+            // 
+            this.isApprovedColumn.HeaderText = "Is Approved";
+            this.isApprovedColumn.Name = "isApprovedColumn";
+            this.isApprovedColumn.ReadOnly = true;
+            // 
+            // requestedOnColumn
+            // 
+            this.requestedOnColumn.HeaderText = "Requested On";
+            this.requestedOnColumn.Name = "requestedOnColumn";
+            this.requestedOnColumn.ReadOnly = true;
+            this.requestedOnColumn.Width = 130;
+            // 
             // ReorderRequestListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -150,11 +150,11 @@ namespace Better_Limited_Project.ProductUtility.Reordering.UI
         private System.Windows.Forms.DataGridView dgvReorderRequests;
         private System.Windows.Forms.TextBox tbSearchBox;
         private System.Windows.Forms.Label lblSearchBox;
+        private System.Windows.Forms.Button btnNewRequest;
+        private System.Windows.Forms.CheckBox cbShowApproved;
         private System.Windows.Forms.DataGridViewTextBoxColumn idColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn requestNumberColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn isApprovedColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn requestedOnColumn;
-        private System.Windows.Forms.Button btnNewRequest;
-        private System.Windows.Forms.CheckBox cbShowApproved;
     }
 }

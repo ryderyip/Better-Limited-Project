@@ -54,8 +54,9 @@ namespace Better_Limited_Project.ProductUtility.UI
             dgvProducts.Click += (_, _) => dgvRequestedGoods.ClearSelection();
             dgvRequestedGoods.Click += (_, _) => dgvProducts.ClearSelection();
             PopulateProductDgv(_products);
-            _categories.ForEach(c => cbCategory.Items.Add(c.Name));
             cbCategory.Items.Add(string.Empty);
+            _categories.ForEach(c => cbCategory.Items.Add(c.Name));
+            cbCategory.SelectedIndex = 0;
             SelectedProducts.ForEach(sp => AddToSelectedGoodsDgv(sp.Product, sp.Quantity));
         }
 
@@ -157,7 +158,7 @@ namespace Better_Limited_Project.ProductUtility.UI
         private void FilterProductDgv()
         {
             string keywords = tbSearchKeywords.Text.Trim().ToLower();
-            var filteredProducts = cbCategory.SelectedIndex == -1
+            var filteredProducts = cbCategory.SelectedItem.ToString() == string.Empty
                 ? _products.Where(p => p.Name.ToLower().Contains(keywords))
                 : _products.Where(p => p.Name.ToLower().Contains(keywords)
                                        && p.Category.Name == cbCategory.SelectedItem.ToString());
