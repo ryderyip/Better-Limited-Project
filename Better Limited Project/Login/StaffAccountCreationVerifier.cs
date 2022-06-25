@@ -25,7 +25,7 @@ namespace Better_Limited_Project.Login
 
         public bool IsPasswordValid(string password)
         {
-            return password.Length >= 8 && StringHelper.IsAlphaNumericPlusUnderscore(password);
+            return password.Length >= 8 && !password.Contains(" ");
         }
     }
 }
