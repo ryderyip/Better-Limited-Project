@@ -34,7 +34,6 @@ namespace Better_Limited_Project.SettingsUtility
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
             this.lblLanguage = new System.Windows.Forms.Label();
             this.lblDocument = new System.Windows.Forms.Label();
-            this.lblAppearance = new System.Windows.Forms.Label();
             this.lblWorkplace = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.rbEnglish = new System.Windows.Forms.RadioButton();
@@ -44,8 +43,6 @@ namespace Better_Limited_Project.SettingsUtility
             this.tbDocPath = new System.Windows.Forms.TextBox();
             this.btnBrowseDocPath = new System.Windows.Forms.Button();
             this.btnSelectDocPath = new System.Windows.Forms.Button();
-            this.rbLightTheme = new System.Windows.Forms.RadioButton();
-            this.rbDarkTheme = new System.Windows.Forms.RadioButton();
             this.cbWorkplace = new System.Windows.Forms.ComboBox();
             this.panWorkplace = new System.Windows.Forms.Panel();
             this.lblWorkplaceSelectWarehouse = new System.Windows.Forms.Label();
@@ -65,11 +62,6 @@ namespace Better_Limited_Project.SettingsUtility
             // 
             resources.ApplyResources(this.lblDocument, "lblDocument");
             this.lblDocument.Name = "lblDocument";
-            // 
-            // lblAppearance
-            // 
-            resources.ApplyResources(this.lblAppearance, "lblAppearance");
-            this.lblAppearance.Name = "lblAppearance";
             // 
             // lblWorkplace
             // 
@@ -133,18 +125,6 @@ namespace Better_Limited_Project.SettingsUtility
             this.btnSelectDocPath.UseVisualStyleBackColor = false;
             this.btnSelectDocPath.Click += new System.EventHandler(this.btnSelectDocPath_Click);
             // 
-            // rbLightTheme
-            // 
-            resources.ApplyResources(this.rbLightTheme, "rbLightTheme");
-            this.rbLightTheme.Name = "rbLightTheme";
-            this.rbLightTheme.UseVisualStyleBackColor = true;
-            // 
-            // rbDarkTheme
-            // 
-            resources.ApplyResources(this.rbDarkTheme, "rbDarkTheme");
-            this.rbDarkTheme.Name = "rbDarkTheme";
-            this.rbDarkTheme.UseVisualStyleBackColor = true;
-            // 
             // cbWorkplace
             // 
             this.cbWorkplace.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -196,14 +176,11 @@ namespace Better_Limited_Project.SettingsUtility
             this.Controls.Add(this.btnDefaultDocumentPath);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panWorkplace);
-            this.Controls.Add(this.rbDarkTheme);
-            this.Controls.Add(this.rbLightTheme);
             this.Controls.Add(this.btnSelectDocPath);
             this.Controls.Add(this.btnBrowseDocPath);
             this.Controls.Add(this.tbDocPath);
             this.Controls.Add(this.lblDocPath);
             this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.lblAppearance);
             this.Controls.Add(this.lblDocument);
             this.Name = "SettingsForm";
             this.panWorkplace.ResumeLayout(false);
@@ -222,9 +199,6 @@ namespace Better_Limited_Project.SettingsUtility
 
         private System.Windows.Forms.ComboBox cbWorkplace;
 
-        private System.Windows.Forms.RadioButton rbLightTheme;
-        private System.Windows.Forms.RadioButton rbDarkTheme;
-
         private System.Windows.Forms.Button btnSelectDocPath;
 
         private System.Windows.Forms.Button btnBrowseDocPath;
@@ -238,7 +212,6 @@ namespace Better_Limited_Project.SettingsUtility
         private System.Windows.Forms.Button btnUpdate;
 
         private System.Windows.Forms.Label lblDocument;
-        private System.Windows.Forms.Label lblAppearance;
         private System.Windows.Forms.Label lblWorkplace;
 
         private System.Windows.Forms.Label lblLanguage;

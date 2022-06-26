@@ -31,6 +31,7 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
                         .Max(d => d.ScheduledOn))
                     : GetNextDay9Am();
             dtpScheduledDate.Value = dtpScheduledTime.Value = dtpScheduledTime.MinDate;
+            tbSelectedTechnicians.TextChanged += (_, _) => btnArrange.Enabled = _selectedTechnicians.Any(); 
 
             dtpScheduledTime.Format = DateTimePickerFormat.Time;
             dtpScheduledTime.ShowUpDown = true;
@@ -92,7 +93,6 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.UI
                 return;
             _selectedTechnicians = form.SelectedTechnicians;
             tbSelectedTechnicians.Text = string.Join(", ", _selectedTechnicians.Select(t => t.Name));
-            btnArrange.Enabled = _selectedTechnicians.Any();
         }
 
         private IEnumerable<Technician> GetUnoccupiedTechniciansOnScheduledDateTime()

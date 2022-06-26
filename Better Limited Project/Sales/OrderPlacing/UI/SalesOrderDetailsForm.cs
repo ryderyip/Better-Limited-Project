@@ -84,10 +84,8 @@ namespace Better_Limited_Project.Sales.OrderPlacing.UI
             }
 
             var calculator = new SalesOrderCalculator(_salesOrder.GetSalesOrderProducts());
-            if (!_salesOrder.HasCompletedPayment())
-                BtnPaymentReceipt.Visible = false;
-            if (!_salesOrder.HasDepositPayment())
-                btnDepositReceipt.Visible = false;
+            BtnPaymentReceipt.Visible = _salesOrder.HasCompletedPayment();
+            btnDepositReceipt.Visible = _salesOrder.HasDepositPayment();
             if (calculator.IsAllPaymentCompleted())
                 btnSettleIncompletePayment.Visible = false;
             if (!_salesOrder.IsActive)

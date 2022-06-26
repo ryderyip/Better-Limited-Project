@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Better_Limited_Project.Login;
 using Better_Limited_Project.ProductUtility.GoodsPurchasing.Entity;
+using Better_Limited_Project.ProductUtility.GoodsPurchasing.Repository;
 using Better_Limited_Project.ProductUtility.InwardGoodsUtility.UI;
 using Better_Limited_Project.StaffUtility.StaffEntity;
 
@@ -13,7 +14,7 @@ namespace Better_Limited_Project.ProductUtility.GoodsPurchasing.UI
     public partial class PurchaseOrderDetailsForm : Form
     {
         private readonly List<PurchaseOrderProduct> _orderProducts;
-        private readonly PurchaseOrder _purchaseOrder;
+        private PurchaseOrder _purchaseOrder;
 
         public PurchaseOrderDetailsForm(PurchaseOrder purchaseOrder)
         {
@@ -30,9 +31,8 @@ namespace Better_Limited_Project.ProductUtility.GoodsPurchasing.UI
             if (currentStaff.Department is not Department.Accounting
                 || _purchaseOrder.IsApproved())
                 btnApproveAndSend.Visible = false;
-            if (currentStaff.Title is StaffTitle.ReceivingClerk
-                && _purchaseOrder.GetNotYetReceivedProducts().Any())
-                btnCreateInwardGoodsRecord.Visible = true;
+            btnCreateInwardGoodsRecord.Visible = currentStaff.Title is StaffTitle.ReceivingClerk
+                                                 && _purchaseOrder.GetNotYetReceivedProducts().Any();
             FillFields();
             PopulateDgv();
         }
@@ -81,10 +81,13 @@ namespace Better_Limited_Project.ProductUtility.GoodsPurchasing.UI
 
         private void btnCreateInwardGoodsRecord_Click(object sender, EventArgs e)
         {
-            var form = new NewInwardGoodsRecordForm();
+            var form = new NewInwardGoodsRecordForm(_purchaseOrder);
             var result = form.ShowDialog();
             if (result is DialogResult.OK)
+            {
+                _purchaseOrder = PurchaseOrderRepository.GetById(_purchaseOrder.Id);
                 Initialize();
+            }
         }
     }
 }

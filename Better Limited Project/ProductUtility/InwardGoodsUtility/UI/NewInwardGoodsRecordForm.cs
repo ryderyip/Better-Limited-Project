@@ -26,11 +26,15 @@ namespace Better_Limited_Project.ProductUtility.InwardGoodsUtility.UI
         {
             tbPurchaseOrder.TextChanged += (_, _) => btnChooseReceivedGoods.Enabled = true;
             if (_selectedPurchaseOrder is not null)
+            {
                 tbPurchaseOrder.Text = _selectedPurchaseOrder.PurchaseOrderNumber;
+                PopulatePurchasedGoodsDgv(_selectedPurchaseOrder.OrderProducts);
+                PopulateMissingGoodsDgv(FindMissingGoods(_selectedPurchaseOrder.GetNotYetReceivedProducts()));
+            }
 
             tbDateReceived.Text = DateTime.Today.ToString("D");
-            _inwardGoodsProducts.ForEach(
-                igp => dgvReceivedGoods.Rows.Add(igp.ProductId, igp.Product.Name, igp.Quantity));
+            /*_inwardGoodsProducts.ForEach(
+                igp => dgvReceivedGoods.Rows.Add(igp.ProductId, igp.Product.Name, igp.Quantity));*/
         }
 
         private void btnChoosePurchaseOrder_Click(object sender, EventArgs e)
