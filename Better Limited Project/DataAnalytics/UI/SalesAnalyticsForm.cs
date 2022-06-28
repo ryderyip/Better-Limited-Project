@@ -26,7 +26,7 @@ namespace Better_Limited_Project.DataAnalytics.UI
             Load += (_, _) => Initialize();
         }
 
-        private async Task Initialize()
+        private async void Initialize()
         {
             dtpSalesDataFrom.ValueChanged += (_, _) => RefreshGraphs();
             dtpSalesDataTo.ValueChanged += (_, _) => RefreshGraphs();
@@ -109,7 +109,8 @@ namespace Better_Limited_Project.DataAnalytics.UI
             {
                 var dayRevenueTuples = payments.GroupBy(p => p.PaidOn.Day)
                     .Select(dailyRevenue =>
-                        new Tuple<int, double>(dailyRevenue.Key, (double) dailyRevenue.Sum(p => p.Amount)));
+                        new Tuple<int, double>(dailyRevenue.Key, (double) dailyRevenue.Sum(p => p.Amount)))
+                    .OrderBy(dayRevenue => dayRevenue.Item1);
                 chartRevenue.Titles[0].Text = "Revenue by Day";
                 foreach (var dayRevenueTuple in dayRevenueTuples)
                     chartRevenue.Series["revenue"].Points.AddXY($"Day {dayRevenueTuple.Item1}",

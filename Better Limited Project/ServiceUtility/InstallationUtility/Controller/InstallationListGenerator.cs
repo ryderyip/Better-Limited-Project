@@ -26,7 +26,7 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.Controller
         {
             _installations = installations.ToList();
             if (_installations.Count == 0)
-                throw new ArgumentException("Cannot create a delivery list with 0 deliveries");
+                throw new ArgumentException("Cannot create a installation list with 0 deliveries");
 
             var date = _installations.First().ScheduledOn.ToString("yy-MMM-dd ddd");
             _fileName = $"daily installations ({date}).pdf";
@@ -158,7 +158,7 @@ namespace Better_Limited_Project.ServiceUtility.InstallationUtility.Controller
             row.Cells[3].Format.Alignment = ParagraphAlignment.Left;
             row.Cells[4].AddParagraph("Technician(s)");
             row.Cells[4].Format.Alignment = ParagraphAlignment.Left;
-            row.Cells[5].AddParagraph("Scheduled Delivery Time");
+            row.Cells[5].AddParagraph("Scheduled Installation Time");
             row.Cells[5].Format.Alignment = ParagraphAlignment.Left;
 
             table.SetEdge(0, 0, 4, 1, Edge.Box, BorderStyle.Single, 0.75, Color.Empty);

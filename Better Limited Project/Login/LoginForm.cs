@@ -22,7 +22,7 @@ namespace Better_Limited_Project.Login
         {
             pbLogo.Image = Resources.BL_Logo_Rectangle;
             pbLogo.SizeMode = PictureBoxSizeMode.StretchImage;
-            AutoLogin();
+            // AutoLogin();
         }
 
         private void AutoLogin()
